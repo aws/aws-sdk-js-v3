@@ -15,29 +15,47 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.DocumentationTrait;
+import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 import software.amazon.smithy.utils.StringUtils;
 
+@SmithyInternalApi
 public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptIntegration {
     @Override
-    public void writeAdditionalFiles(
+    public void customize(TypeScriptCodegenContext codegenContext) {
+        TypeScriptSettings settings = codegenContext.settings();
+        Model model = codegenContext.model();
+        SymbolProvider symbolProvider = codegenContext.symbolProvider();
+        BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory = codegenContext.writerDelegator()::useFileWriter;
+
+        writeAdditionalFiles(settings, model, symbolProvider, writerFactory);
+    }
+
+    private void writeAdditionalFiles(
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,
@@ -47,8 +65,8 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             String resource =  IoUtils.readUtf8Resource(getClass(), "gitignore");
             writer.write(resource);
         });
-        writerFactory.accept(".npmignore", writer -> {
-            String resource =  IoUtils.readUtf8Resource(getClass(), "npmignore");
+        writerFactory.accept("api-extractor.json", writer -> {
+            String resource =  IoUtils.readUtf8Resource(getClass(), "api-extractor.json");
             writer.write(resource);
         });
         writerFactory.accept("LICENSE", writer -> {
@@ -56,6 +74,12 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             resource = resource.replace("${year}", Integer.toString(Calendar.getInstance().get(Calendar.YEAR)));
             writer.write(resource);
         });
+
+        // TODO: May need to generate a different/modified README.md for these cases
+        if (!settings.generateClient() || !isAwsService(settings, model)) {
+            return;
+        }
+
         writerFactory.accept("README.md", writer -> {
             ServiceShape service = settings.getService(model);
             String resource =  IoUtils.readUtf8Resource(getClass(), "README.md.template");
@@ -73,16 +97,63 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             String documentation = Arrays.asList(rawDocumentation.split("\n")).stream()
                     .map(StringUtils::trim)
                     .collect(Collectors.joining("\n"));
-            resource = resource.replaceAll(Pattern.quote("${documentation}"), documentation);
+            resource = resource.replaceAll(Pattern.quote("${documentation}"), Matcher.quoteReplacement(documentation));
 
-            TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
+            TopDownIndex topDownIndex = TopDownIndex.of(model);
             OperationShape firstOperation = topDownIndex.getContainedOperations(service).iterator().next();
-            String operationName = firstOperation.getId().getName();
+            String operationName = firstOperation.getId().getName(service);
             resource = resource.replaceAll(Pattern.quote("${commandName}"), operationName);
             resource = resource.replaceAll(Pattern.quote("${operationName}"),
                     operationName.substring(0, 1).toLowerCase() + operationName.substring(1));
 
-            writer.write(resource);
+            writer.write(resource.replaceAll(Pattern.quote("$"), Matcher.quoteReplacement("$$")));
+            writeOperationList(writer, model, settings);
         });
+    }
+
+    private void writeOperationList(TypeScriptWriter writer, Model model, TypeScriptSettings settings) {
+        writer.write("## Client Commands (Operations List)");
+        writer.write("");
+        Set<OperationShape> operationShapesSet = model.getOperationShapes();
+
+        List<OperationShape> operationShapes = operationShapesSet.stream()
+                .sorted(Comparator.comparing(Shape::getId)).toList();
+
+        for (OperationShape operationShape : operationShapes) {
+            writer.write("<details>");
+            writer.write("<summary>");
+            writer.write("$L", operationShape.getId().getName());
+            writer.write("</summary>");
+            writer.write("");
+
+            // sample URL for command
+            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3/classes/abortmultipartuploadcommand.html
+
+            String commandNameLowercase = operationShape.getId().getName().toLowerCase();
+            String serviceId = settings.getService(model).getTrait(ServiceTrait.class)
+                    .orElseThrow(() -> new RuntimeException("Missing Service Trait during README doc generation."))
+                    .getSdkId().toLowerCase().replaceAll(" ", "-");
+
+            String commandUrl = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-"
+                    + serviceId + "/classes/" + commandNameLowercase + "command.html";
+
+            // sample URL for command input and outputs
+            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3/interfaces/abortmultipartuploadcommandinput.html
+            String commandInputUrl = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-"
+                    + serviceId + "/interfaces/" + commandNameLowercase + "commandinput.html";
+
+            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3/interfaces/abortmultipartuploadcommandoutput.html
+            String commandOutputUrl = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-"
+                    + serviceId + "/interfaces/" + commandNameLowercase + "commandoutput.html";
+
+            writer.write(
+                    "[Command API Reference]($L) / [Input]($L) / [Output]($L)",
+                    commandUrl,
+                    commandInputUrl,
+                    commandOutputUrl
+            );
+
+            writer.write("</details>");
+        }
     }
 }

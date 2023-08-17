@@ -19,20 +19,22 @@ import static software.amazon.smithy.typescript.codegen.integration.RuntimeClien
 
 import java.util.List;
 import java.util.Set;
-
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.SetUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 
+@SmithyInternalApi
 public class AddOmitRetryHeadersDependency implements TypeScriptIntegration {
     private static final Set<String> SERVICE_IDS = SetUtils.of(
-        "ConnectParticipant",
-        "IoT Data Plane",
-        "IoT"
+        "ConnectParticipant", // P43593766
+        "DataBrew", // P55897945
+        "IoT", // P39759657
+        "Kinesis Video Signaling"
     );
 
     @Override

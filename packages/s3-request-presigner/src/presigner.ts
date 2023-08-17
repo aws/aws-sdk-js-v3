@@ -1,35 +1,30 @@
-import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
-import { RequestPresigner, RequestPresigningArguments } from "@aws-sdk/types";
-import { HttpRequest as IHttpRequest } from "@aws-sdk/types";
+import { SignatureV4MultiRegion, SignatureV4MultiRegionInit } from "@aws-sdk/signature-v4-multi-region";
+import { RequestPresigner, RequestPresigningArguments } from "@smithy/types";
+import { HttpRequest as IHttpRequest } from "@smithy/types";
 
 import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
 
-/**
- * PartialBy<T, K> makes properties specified in K optional in interface T
- * see: https://stackoverflow.com/questions/43159887/make-a-single-property-optional-in-typescript
- * */
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
-export type S3RequestPresignerOptions = PartialBy<
-  SignatureV4Init & SignatureV4CryptoInit,
-  "service" | "uriEscapePath"
-> & { signingName?: string };
+export type S3RequestPresignerOptions = PartialBy<SignatureV4MultiRegionInit, "service" | "uriEscapePath"> & {
+  signingName?: string;
+};
 
 export class S3RequestPresigner implements RequestPresigner {
-  private readonly signer: SignatureV4;
+  private readonly signer: SignatureV4MultiRegion;
   constructor(options: S3RequestPresignerOptions) {
     const resolvedOptions = {
       // Allow `signingName` because we want to support usecase of supply client's resolved config
       // directly. Where service equals signingName.
       service: options.signingName || options.service || "s3",
       uriEscapePath: options.uriEscapePath || false,
+      applyChecksum: options.applyChecksum || false,
       ...options,
     };
-    this.signer = new SignatureV4(resolvedOptions);
+    this.signer = new SignatureV4MultiRegion(resolvedOptions);
   }
 
-  public async presign(
+  public presign(
     requestToSign: IHttpRequest,
     { unsignableHeaders = new Set(), unhoistableHeaders = new Set(), ...options }: RequestPresigningArguments = {}
   ): Promise<IHttpRequest> {
@@ -43,6 +38,13 @@ export class S3RequestPresigner implements RequestPresigner {
         unhoistableHeaders.add(header);
       });
     requestToSign.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
+
+    const currentHostHeader = requestToSign.headers.host;
+    const port = requestToSign.port;
+    const expectedHostHeader = `${requestToSign.hostname}${requestToSign.port != null ? ":" + port : ""}`;
+    if (!currentHostHeader || (currentHostHeader === requestToSign.hostname && requestToSign.port != null)) {
+      requestToSign.headers.host = expectedHostHeader;
+    }
     return this.signer.presign(requestToSign, {
       expiresIn: 900,
       unsignableHeaders,

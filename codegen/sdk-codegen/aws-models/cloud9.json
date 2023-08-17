@@ -1,0 +1,2732 @@
+{
+  "smithy": "2.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "PaginatedTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.cloud9#AWSCloud9WorkspaceManagementService": {
+      "type": "service",
+      "version": "2017-09-23",
+      "operations": [
+        {
+          "target": "com.amazonaws.cloud9#CreateEnvironmentEC2"
+        },
+        {
+          "target": "com.amazonaws.cloud9#CreateEnvironmentMembership"
+        },
+        {
+          "target": "com.amazonaws.cloud9#DeleteEnvironment"
+        },
+        {
+          "target": "com.amazonaws.cloud9#DeleteEnvironmentMembership"
+        },
+        {
+          "target": "com.amazonaws.cloud9#DescribeEnvironmentMemberships"
+        },
+        {
+          "target": "com.amazonaws.cloud9#DescribeEnvironments"
+        },
+        {
+          "target": "com.amazonaws.cloud9#DescribeEnvironmentStatus"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ListEnvironments"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TagResource"
+        },
+        {
+          "target": "com.amazonaws.cloud9#UntagResource"
+        },
+        {
+          "target": "com.amazonaws.cloud9#UpdateEnvironment"
+        },
+        {
+          "target": "com.amazonaws.cloud9#UpdateEnvironmentMembership"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Cloud9",
+          "arnNamespace": "cloud9",
+          "cloudFormationName": "Cloud9",
+          "cloudTrailEventSource": "cloud9.amazonaws.com",
+          "endpointPrefix": "cloud9"
+        },
+        "aws.auth#sigv4": {
+          "name": "cloud9"
+        },
+        "aws.protocols#awsJson1_1": {},
+        "smithy.api#documentation": "<fullname>Cloud9</fullname>\n         <p>Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and\n      release software in the cloud.</p>\n         <p>For more information about Cloud9, see the <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide\">Cloud9 User Guide</a>.</p>\n         <p>Cloud9 supports these operations:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CreateEnvironmentEC2</code>: Creates an Cloud9 development environment, launches\n          an Amazon EC2 instance, and then connects from the instance to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CreateEnvironmentMembership</code>: Adds an environment member to an\n          environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteEnvironment</code>: Deletes an environment. If an Amazon EC2 instance is\n          connected to the environment, also terminates the instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteEnvironmentMembership</code>: Deletes an environment member from an\n          environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironmentMemberships</code>: Gets information about environment\n          members for an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironments</code>: Gets information about environments.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironmentStatus</code>: Gets status information for an\n          environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListEnvironments</code>: Gets a list of environment identifiers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListTagsForResource</code>: Gets the tags for an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TagResource</code>: Adds tags to an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UntagResource</code>: Removes tags from an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateEnvironment</code>: Changes the settings of an existing\n          environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing\n          environment member for an environment.</p>\n            </li>\n         </ul>",
+        "smithy.api#title": "AWS Cloud9",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://cloud9-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://cloud9-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://cloud9.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://cloud9.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloud9.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.cloud9#AutomaticStopTimeMinutes": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 20160
+        }
+      }
+    },
+    "com.amazonaws.cloud9#BadRequestException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "className": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "code": {
+          "target": "com.amazonaws.cloud9#Integer",
+          "traits": {
+            "smithy.api#default": 0
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The target request is invalid.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.cloud9#BoundedEnvironmentIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloud9#EnvironmentId"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.cloud9#ClientRequestToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[\\x20-\\x7E]{10,128}$"
+      }
+    },
+    "com.amazonaws.cloud9#ConcurrentAccessException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "className": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "code": {
+          "target": "com.amazonaws.cloud9#Integer",
+          "traits": {
+            "smithy.api#default": 0
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A concurrent access issue occurred.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.cloud9#ConflictException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "className": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "code": {
+          "target": "com.amazonaws.cloud9#Integer",
+          "traits": {
+            "smithy.api#default": 0
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A conflict occurred.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.cloud9#ConnectionType": {
+      "type": "enum",
+      "members": {
+        "CONNECT_SSH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONNECT_SSH"
+          }
+        },
+        "CONNECT_SSM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONNECT_SSM"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloud9#CreateEnvironmentEC2": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#CreateEnvironmentEC2Request"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#CreateEnvironmentEC2Result"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates an Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and\n      then connects from the instance to the environment.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.cloud9#CreateEnvironmentEC2Request": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.cloud9#EnvironmentName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the environment to create.</p>\n         <p>This name is visible to other IAM users in the same Amazon Web Services account.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.cloud9#EnvironmentDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the environment to create.</p>"
+          }
+        },
+        "clientRequestToken": {
+          "target": "com.amazonaws.cloud9#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive string that helps Cloud9 to ensure this operation completes no\n      more than one time.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the\n        <i>Amazon EC2 API Reference</i>.</p>"
+          }
+        },
+        "instanceType": {
+          "target": "com.amazonaws.cloud9#InstanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of instance to connect to the environment (for example,\n      <code>t2.micro</code>).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "subnetId": {
+          "target": "com.amazonaws.cloud9#SubnetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the subnet in Amazon VPC that Cloud9 will use to communicate with the Amazon EC2\n      instance.</p>"
+          }
+        },
+        "imageId": {
+          "target": "com.amazonaws.cloud9#ImageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.\n      To choose an AMI for the instance, you must specify a valid AMI alias or a valid Amazon EC2 Systems Manager (SSM)\n      path.</p>\n         <p>The default Amazon Linux AMI is currently used if the parameter isn't explicitly assigned\n      a value in the request. Because Amazon Linux AMI has ended standard support as of December 31,\n      2020, we recommend you choose Amazon Linux 2, which includes long term support through\n      2023.</p>\n         <p>From December 31, 2023, the parameter for Amazon Linux will no longer be available when\n      you specify an AMI for your instance. Amazon Linux 2 will then become the default AMI, which\n      is used to launch your instance if no parameter is explicitly defined.</p>\n         <p>\n            <b>AMI aliases </b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Amazon Linux (default):\n            <code>amazonlinux-1-x86_64</code>\n                  </b>\n               </p>\n            </li>\n            <li>\n               <p>Amazon Linux 2: <code>amazonlinux-2-x86_64</code>\n               </p>\n            </li>\n            <li>\n               <p>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code>\n               </p>\n            </li>\n         </ul>\n         <p>\n            <b>SSM paths</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Amazon Linux (default):\n              <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code>\n                  </b>\n               </p>\n            </li>\n            <li>\n               <p>Amazon Linux 2:\n          <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code>\n               </p>\n            </li>\n            <li>\n               <p>Ubuntu 18.04:\n          <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "automaticStopTimeMinutes": {
+          "target": "com.amazonaws.cloud9#AutomaticStopTimeMinutes",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of minutes until the running instance is shut down after the environment has\n      last been used.</p>"
+          }
+        },
+        "ownerArn": {
+          "target": "com.amazonaws.cloud9#UserArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any\n      IAM principal. If this value is not specified, the ARN defaults to this environment's\n      creator.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.cloud9#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of key-value pairs that will be associated with the new Cloud9 development\n      environment.</p>"
+          }
+        },
+        "connectionType": {
+          "target": "com.amazonaws.cloud9#ConnectionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The connection type used for connecting to an Amazon EC2 environment. Valid values are\n        <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through\n      Amazon EC2 Systems Manager).</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html\">Accessing no-ingress EC2 instances with\n        Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.</p>"
+          }
+        },
+        "dryRun": {
+          "target": "com.amazonaws.cloud9#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#CreateEnvironmentEC2Result": {
+      "type": "structure",
+      "members": {
+        "environmentId": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment that was created.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#CreateEnvironmentMembership": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#CreateEnvironmentMembershipRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#CreateEnvironmentMembershipResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds an environment member to an Cloud9 development environment.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.cloud9#CreateEnvironmentMembershipRequest": {
+      "type": "structure",
+      "members": {
+        "environmentId": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment that contains the environment member you want to add.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "userArn": {
+          "target": "com.amazonaws.cloud9#UserArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "permissions": {
+          "target": "com.amazonaws.cloud9#MemberPermissions",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of environment member permissions you want to associate with this environment\n      member. Available values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>read-only</code>: Has read-only access to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-write</code>: Has read-write access to the environment.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#CreateEnvironmentMembershipResult": {
+      "type": "structure",
+      "members": {
+        "membership": {
+          "target": "com.amazonaws.cloud9#EnvironmentMember",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the environment member that was added.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#DeleteEnvironment": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#DeleteEnvironmentRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#DeleteEnvironmentResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes an Cloud9 development environment. If an Amazon EC2 instance is connected to the\n      environment, also terminates the instance.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.cloud9#DeleteEnvironmentMembership": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#DeleteEnvironmentMembershipRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#DeleteEnvironmentMembershipResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes an environment member from a development environment.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.cloud9#DeleteEnvironmentMembershipRequest": {
+      "type": "structure",
+      "members": {
+        "environmentId": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment to delete the environment member from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "userArn": {
+          "target": "com.amazonaws.cloud9#UserArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment member to delete from the\n      environment.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#DeleteEnvironmentMembershipResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#DeleteEnvironmentRequest": {
+      "type": "structure",
+      "members": {
+        "environmentId": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#DeleteEnvironmentResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#DescribeEnvironmentMemberships": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentMembershipsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentMembershipsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about environment members for an Cloud9 development environment.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.cloud9#DescribeEnvironmentMembershipsRequest": {
+      "type": "structure",
+      "members": {
+        "userArn": {
+          "target": "com.amazonaws.cloud9#UserArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an individual environment member to get information\n      about. If no value is specified, information about all environment members are\n      returned.</p>"
+          }
+        },
+        "environmentId": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment to get environment member information about.</p>"
+          }
+        },
+        "permissions": {
+          "target": "com.amazonaws.cloud9#PermissionsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of environment member permissions to get information about. Available values\n      include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>owner</code>: Owns the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-only</code>: Has read-only access to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-write</code>: Has read-write access to the environment.</p>\n            </li>\n         </ul>\n         <p>If no value is specified, information about all environment members are returned.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>During a previous call, if there are more than 25 items in the list, only the first 25\n      items are returned, along with a unique string called a <i>next token</i>. To\n      get the next batch of items in the list, call this operation again, adding the next token to\n      the call. To get all of the items in the list, keep calling this operation with each\n      subsequent next token that is returned, until no more next tokens are returned.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.cloud9#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of environment members to get information about.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#DescribeEnvironmentMembershipsResult": {
+      "type": "structure",
+      "members": {
+        "memberships": {
+          "target": "com.amazonaws.cloud9#EnvironmentMembersList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the environment members for the environment.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are more than 25 items in the list, only the first 25 items are returned, along\n      with a unique string called a <i>next token</i>. To get the next batch of items\n      in the list, call this operation again, adding the next token to the call.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#DescribeEnvironmentStatus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentStatusRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentStatusResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets status information for an Cloud9 development environment.</p>"
+      }
+    },
+    "com.amazonaws.cloud9#DescribeEnvironmentStatusRequest": {
+      "type": "structure",
+      "members": {
+        "environmentId": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment to get status information about.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#DescribeEnvironmentStatusResult": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.cloud9#EnvironmentStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the environment. Available values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>connecting</code>: The environment is connecting.</p>\n            </li>\n            <li>\n               <p>\n                  <code>creating</code>: The environment is being created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleting</code>: The environment is being deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>error</code>: The environment is in an error state.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ready</code>: The environment is ready.</p>\n            </li>\n            <li>\n               <p>\n                  <code>stopped</code>: The environment is stopped.</p>\n            </li>\n            <li>\n               <p>\n                  <code>stopping</code>: The environment is stopping.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Any informational message about the status of the environment.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#DescribeEnvironments": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about Cloud9 development environments.</p>"
+      }
+    },
+    "com.amazonaws.cloud9#DescribeEnvironmentsRequest": {
+      "type": "structure",
+      "members": {
+        "environmentIds": {
+          "target": "com.amazonaws.cloud9#BoundedEnvironmentIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of individual environments to get information about.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#DescribeEnvironmentsResult": {
+      "type": "structure",
+      "members": {
+        "environments": {
+          "target": "com.amazonaws.cloud9#EnvironmentList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the environments that are returned.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#Environment": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.cloud9#EnvironmentName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the environment.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.cloud9#EnvironmentDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description for the environment.</p>"
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.cloud9#EnvironmentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of environment. Valid values include the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ssh</code>: Your own server connects to the environment.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "connectionType": {
+          "target": "com.amazonaws.cloud9#ConnectionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The connection type used for connecting to an Amazon EC2 environment. <code>CONNECT_SSH</code>\n      is selected by default.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ownerArn": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment owner.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lifecycle": {
+          "target": "com.amazonaws.cloud9#EnvironmentLifecycle",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the environment in its creation or deletion lifecycle.</p>"
+          }
+        },
+        "managedCredentialsStatus": {
+          "target": "com.amazonaws.cloud9#ManagedCredentialsStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the status of Amazon Web Services managed temporary credentials for the Cloud9 environment.\n      Available values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLED_ON_CREATE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ENABLED_BY_OWNER</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED_BY_DEFAULT</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED_BY_OWNER</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED_BY_COLLABORATOR</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>PENDING_REMOVAL_BY_COLLABORATOR</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>PENDING_REMOVAL_BY_OWNER</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED_REMOVAL_BY_COLLABORATOR</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ENABLED_BY_OWNER</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED_BY_DEFAULT</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about an Cloud9 development environment.</p>"
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):cloud9:([a-z]{2}-[a-z]+-\\d{1}):[0-9]{12}:environment:[a-zA-Z0-9]{8,32}$"
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-zA-Z0-9]{8,32}$"
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloud9#EnvironmentId"
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentLifecycle": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.cloud9#EnvironmentLifecycleStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current creation or deletion lifecycle state of the environment.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CREATING</code>: The environment is in the process of being created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CREATED</code>: The environment was successfully created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CREATE_FAILED</code>: The environment failed to be created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETING</code>: The environment is in the process of being deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETE_FAILED</code>: The environment failed to delete.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Any informational message about the lifecycle state of the environment.</p>"
+          }
+        },
+        "failureResource": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related Amazon Web Services\n      resource.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the current creation or deletion lifecycle state of an Cloud9 development\n      environment.</p>"
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentLifecycleStatus": {
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
+          }
+        },
+        "CREATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATED"
+          }
+        },
+        "CREATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_FAILED"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "DELETE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE_FAILED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloud9#Environment"
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentMember": {
+      "type": "structure",
+      "members": {
+        "permissions": {
+          "target": "com.amazonaws.cloud9#Permissions",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of environment member permissions associated with this environment member.\n      Available values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>owner</code>: Owns the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-only</code>: Has read-only access to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-write</code>: Has read-write access to the environment.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "userId": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The user ID in Identity and Access Management (IAM) of the environment member.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "userArn": {
+          "target": "com.amazonaws.cloud9#UserArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment member.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "environmentId": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment for the environment member.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lastAccess": {
+          "target": "com.amazonaws.cloud9#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, expressed in epoch time format, when the environment member last opened the\n      environment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about an environment member for an Cloud9 development environment.</p>"
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentMembersList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloud9#EnvironmentMember"
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 60
+        }
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentStatus": {
+      "type": "enum",
+      "members": {
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "error"
+          }
+        },
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "creating"
+          }
+        },
+        "CONNECTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "connecting"
+          }
+        },
+        "READY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ready"
+          }
+        },
+        "STOPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "stopping"
+          }
+        },
+        "STOPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "stopped"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "deleting"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloud9#EnvironmentType": {
+      "type": "enum",
+      "members": {
+        "SSH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ssh"
+          }
+        },
+        "EC2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ec2"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloud9#ForbiddenException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "className": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "code": {
+          "target": "com.amazonaws.cloud9#Integer",
+          "traits": {
+            "smithy.api#default": 0
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An access permissions issue occurred.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.cloud9#ImageId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        }
+      }
+    },
+    "com.amazonaws.cloud9#InstanceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 5,
+          "max": 20
+        },
+        "smithy.api#pattern": "^[a-z][1-9][.][a-z0-9]+$"
+      }
+    },
+    "com.amazonaws.cloud9#Integer": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.cloud9#InternalServerErrorException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "className": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "code": {
+          "target": "com.amazonaws.cloud9#Integer",
+          "traits": {
+            "smithy.api#default": 0
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An internal server error occurred.</p>",
+        "smithy.api#error": "server"
+      }
+    },
+    "com.amazonaws.cloud9#LimitExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "className": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "code": {
+          "target": "com.amazonaws.cloud9#Integer",
+          "traits": {
+            "smithy.api#default": 0
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A service limit was exceeded.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.cloud9#ListEnvironments": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#ListEnvironmentsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#ListEnvironmentsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets a list of Cloud9 development environment identifiers.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.cloud9#ListEnvironmentsRequest": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>During a previous call, if there are more than 25 items in the list, only the first 25\n      items are returned, along with a unique string called a <i>next token</i>. To\n      get the next batch of items in the list, call this operation again, adding the next token to\n      the call. To get all of the items in the list, keep calling this operation with each\n      subsequent next token that is returned, until no more next tokens are returned.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.cloud9#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of environments to get identifiers for.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#ListEnvironmentsResult": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.cloud9#String",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are more than 25 items in the list, only the first 25 items are returned, along\n      with a unique string called a <i>next token</i>. To get the next batch of items\n      in the list, call this operation again, adding the next token to the call.</p>"
+          }
+        },
+        "environmentIds": {
+          "target": "com.amazonaws.cloud9#EnvironmentIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of environment identifiers.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#ListTagsForResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets a list of the tags associated with an Cloud9 development environment.</p>"
+      }
+    },
+    "com.amazonaws.cloud9#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceARN": {
+          "target": "com.amazonaws.cloud9#EnvironmentArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Cloud9 development environment to get the tags\n      for.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "target": "com.amazonaws.cloud9#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of tags associated with the Cloud9 development environment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#ManagedCredentialsAction": {
+      "type": "enum",
+      "members": {
+        "ENABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLE"
+          }
+        },
+        "DISABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloud9#ManagedCredentialsStatus": {
+      "type": "enum",
+      "members": {
+        "ENABLED_ON_CREATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED_ON_CREATE"
+          }
+        },
+        "ENABLED_BY_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED_BY_OWNER"
+          }
+        },
+        "DISABLED_BY_DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED_BY_DEFAULT"
+          }
+        },
+        "DISABLED_BY_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED_BY_OWNER"
+          }
+        },
+        "DISABLED_BY_COLLABORATOR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED_BY_COLLABORATOR"
+          }
+        },
+        "PENDING_REMOVAL_BY_COLLABORATOR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_REMOVAL_BY_COLLABORATOR"
+          }
+        },
+        "PENDING_START_REMOVAL_BY_COLLABORATOR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_START_REMOVAL_BY_COLLABORATOR"
+          }
+        },
+        "PENDING_REMOVAL_BY_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_REMOVAL_BY_OWNER"
+          }
+        },
+        "PENDING_START_REMOVAL_BY_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_START_REMOVAL_BY_OWNER"
+          }
+        },
+        "FAILED_REMOVAL_BY_COLLABORATOR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED_REMOVAL_BY_COLLABORATOR"
+          }
+        },
+        "FAILED_REMOVAL_BY_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED_REMOVAL_BY_OWNER"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloud9#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.cloud9#MemberPermissions": {
+      "type": "enum",
+      "members": {
+        "READ_WRITE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "read-write"
+          }
+        },
+        "READ_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "read-only"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloud9#NotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "className": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "code": {
+          "target": "com.amazonaws.cloud9#Integer",
+          "traits": {
+            "smithy.api#default": 0
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The target resource cannot be found.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.cloud9#NullableBoolean": {
+      "type": "boolean"
+    },
+    "com.amazonaws.cloud9#Permissions": {
+      "type": "enum",
+      "members": {
+        "OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "owner"
+          }
+        },
+        "READ_WRITE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "read-write"
+          }
+        },
+        "READ_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "read-only"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloud9#PermissionsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloud9#Permissions"
+      }
+    },
+    "com.amazonaws.cloud9#String": {
+      "type": "string"
+    },
+    "com.amazonaws.cloud9#SubnetId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 15,
+          "max": 24
+        },
+        "smithy.api#pattern": "^(subnet-[0-9a-f]{8}|subnet-[0-9a-f]{17})$"
+      }
+    },
+    "com.amazonaws.cloud9#Tag": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazonaws.cloud9#TagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The <b>name</b> part of a tag.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.cloud9#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The <b>value</b> part of a tag.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Metadata that is associated with Amazon Web Services resources. In particular, a name-value pair that\n      can be associated with an Cloud9 development environment. There are two types of tags:\n        <i>user tags</i> and <i>system tags</i>. A user tag is created\n      by the user. A system tag is automatically created by Amazon Web Services services. A system tag is prefixed\n      with <code>\"aws:\"</code> and cannot be modified by the user.</p>",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.cloud9#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.cloud9#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloud9#TagKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.cloud9#TagList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloud9#Tag"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.cloud9#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#TagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConcurrentAccessException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds tags to an Cloud9 development environment.</p>\n         <important>\n            <p>Tags that you add to an Cloud9 environment by using this method will NOT be\n        automatically propagated to underlying resources.</p>\n         </important>"
+      }
+    },
+    "com.amazonaws.cloud9#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceARN": {
+          "target": "com.amazonaws.cloud9#EnvironmentArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Cloud9 development environment to add tags\n      to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.cloud9#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of tags to add to the given Cloud9 development environment.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#TagResourceResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.cloud9#Timestamp": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.cloud9#TooManyRequestsException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "className": {
+          "target": "com.amazonaws.cloud9#String"
+        },
+        "code": {
+          "target": "com.amazonaws.cloud9#Integer",
+          "traits": {
+            "smithy.api#default": 0
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Too many service requests were made over the given time period.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.cloud9#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#UntagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConcurrentAccessException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes tags from an Cloud9 development environment.</p>"
+      }
+    },
+    "com.amazonaws.cloud9#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceARN": {
+          "target": "com.amazonaws.cloud9#EnvironmentArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Cloud9 development environment to remove tags\n      from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.cloud9#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag names of the tags to remove from the given Cloud9 development\n      environment.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#UntagResourceResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#UpdateEnvironment": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#UpdateEnvironmentRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#UpdateEnvironmentResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Changes the settings of an existing Cloud9 development environment.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.cloud9#UpdateEnvironmentMembership": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloud9#UpdateEnvironmentMembershipRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloud9#UpdateEnvironmentMembershipResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloud9#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Changes the settings of an existing environment member for an Cloud9 development\n      environment.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.cloud9#UpdateEnvironmentMembershipRequest": {
+      "type": "structure",
+      "members": {
+        "environmentId": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment for the environment member whose settings you want to\n      change.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "userArn": {
+          "target": "com.amazonaws.cloud9#UserArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment member whose settings you want to\n      change.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "permissions": {
+          "target": "com.amazonaws.cloud9#MemberPermissions",
+          "traits": {
+            "smithy.api#documentation": "<p>The replacement type of environment member permissions you want to associate with this\n      environment member. Available values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>read-only</code>: Has read-only access to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-write</code>: Has read-write access to the environment.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#UpdateEnvironmentMembershipResult": {
+      "type": "structure",
+      "members": {
+        "membership": {
+          "target": "com.amazonaws.cloud9#EnvironmentMember",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the environment member whose settings were changed.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#UpdateEnvironmentRequest": {
+      "type": "structure",
+      "members": {
+        "environmentId": {
+          "target": "com.amazonaws.cloud9#EnvironmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment to change settings.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.cloud9#EnvironmentName",
+          "traits": {
+            "smithy.api#documentation": "<p>A replacement name for the environment.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.cloud9#EnvironmentDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Any new or replacement description for the environment.</p>"
+          }
+        },
+        "managedCredentialsAction": {
+          "target": "com.amazonaws.cloud9#ManagedCredentialsAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows the environment owner to turn on or turn off the Amazon Web Services managed temporary\n      credentials for an Cloud9 environment by using one of the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLE</code>\n               </p>\n            </li>\n         </ul>\n         <note>\n            <p>Only the environment owner can change the status of managed temporary credentials. An <code>AccessDeniedException</code> is thrown if an attempt to turn on or turn off managed temporary credentials is made by an account that's not the environment\n      owner.</p>\n         </note>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloud9#UpdateEnvironmentResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.cloud9#UserArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):(iam|sts)::\\d+:(root|(user\\/[\\w+=/:,.@-]{1,64}|federated-user\\/[\\w+=/:,.@-]{2,32}|assumed-role\\/[\\w+=:,.@-]{1,64}\\/[\\w+=,.@-]{1,64}))$"
+      }
+    }
+  }
+}

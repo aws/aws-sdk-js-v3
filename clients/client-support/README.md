@@ -1,90 +1,56 @@
-# @aws-sdk/client-support
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-support/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-support)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-support.svg)](https://www.npmjs.com/package/@aws-sdk/client-support)
+# @aws-sdk/client-support
 
 ## Description
 
 AWS SDK for JavaScript Support Client for Node.js, Browser and React Native.
 
-<fullname>AWS Support</fullname>
+<fullname>Amazon Web Services Support</fullname>
 
-<p>The AWS Support API reference is intended for programmers who need detailed information
-about the AWS Support operations and data types. This service enables you to manage your AWS
-Support cases programmatically. It uses HTTP methods that return results in JSON
-format.</p>
+<p>The <i>Amazon Web Services Support API Reference</i> is intended for programmers who need detailed
+information about the Amazon Web Services Support operations and data types. You can use the API to manage
+your support cases programmatically. The Amazon Web Services Support API uses HTTP methods that return
+results in JSON format.</p>
 <note>
 <ul>
 <li>
-<p>You must have a Business or Enterprise support plan to use the AWS Support
+<p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
 API. </p>
 </li>
 <li>
-<p>If you call the AWS Support API from an account that does not have a
-Business or Enterprise support plan, the
+<p>If you call the Amazon Web Services Support API from an account that doesn't have a
+Business, Enterprise On-Ramp, or Enterprise Support plan, the
 <code>SubscriptionRequiredException</code> error message appears. For
-information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
 </li>
 </ul>
 </note>
-<p>The AWS Support service also exposes a set of <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">AWS Trusted Advisor</a> features. You can
-retrieve a list of checks and their descriptions, get check results, specify checks to
-refresh, and get the refresh status of checks.</p>
-<p>The following list describes the AWS Support case management operations:</p>
+<p>You can also use the Amazon Web Services Support API to access features for <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">Trusted Advisor</a>. You can return a list of
+checks and their descriptions, get check results, specify checks to refresh, and get the
+refresh status of checks.</p>
+<p>You can manage your support cases with the following Amazon Web Services Support API operations:</p>
 <ul>
 <li>
-<p>
-<b>Service names, issue categories, and available severity
-levels. </b>The <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return AWS service names,
-service codes, service categories, and problem severity levels. You use these
-values when you call the <a>CreateCase</a> operation.</p>
+<p>The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations
+create Amazon Web Services Support cases, retrieve information about cases, and resolve cases.</p>
 </li>
 <li>
-<p>
-<b>Case creation, case details, and case
-resolution.</b> The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations create AWS Support cases, retrieve information
-about cases, and resolve cases.</p>
+<p>The <a>DescribeCommunications</a>, <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add communications and attachments to Amazon Web Services Support
+cases.</p>
 </li>
 <li>
-<p>
-<b>Case communication.</b> The <a>DescribeCommunications</a>, <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add
-communications and attachments to AWS Support cases.</p>
+<p>The <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return Amazon Web Service names, service codes, service categories, and problem
+severity levels. You use these values when you call the <a>CreateCase</a> operation.</p>
 </li>
 </ul>
-<p>The following list describes the operations available from the AWS Support service for
-Trusted Advisor:</p>
-<ul>
-<li>
-<p>
-<a>DescribeTrustedAdvisorChecks</a> returns the list of checks that
-run against your AWS resources.</p>
-</li>
-<li>
-<p>Using the <code>checkId</code> for a specific check returned by <a>DescribeTrustedAdvisorChecks</a>, you can call <a>DescribeTrustedAdvisorCheckResult</a> to obtain the results for the
-check that you specified.</p>
-</li>
-<li>
-<p>
-<a>DescribeTrustedAdvisorCheckSummaries</a> returns summarized
-results for one or more Trusted Advisor checks.</p>
-</li>
-<li>
-<p>
-<a>RefreshTrustedAdvisorCheck</a> requests that Trusted Advisor rerun a
-specified check.</p>
-</li>
-<li>
-<p>
-<a>DescribeTrustedAdvisorCheckRefreshStatuses</a> reports the refresh
-status of one or more checks.</p>
-</li>
-</ul>
-<p>For authentication of requests, AWS Support uses <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
+<p>You can also use the Amazon Web Services Support API to call the  Trusted Advisor operations. For more
+information, see <a href="https://docs.aws.amazon.com/">Trusted Advisor</a> in the
+<i>Amazon Web Services Support User Guide</i>.</p>
+<p>For authentication of requests, Amazon Web Services Support uses <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
 Process</a>.</p>
-<p>See <a href="https://docs.aws.amazon.com/awssupport/latest/user/Welcome.html">About the
-AWS Support API</a> in the <i>AWS Support User Guide</i> for
-information about how to use this service to create and manage your support cases, and
-how to call Trusted Advisor for results of checks on your resources.</p>
+<p>For more information about this service and the endpoints to use, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html">About the
+Amazon Web Services Support API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
 
 ## Installing
 
@@ -123,7 +89,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new SupportClient({ region: "REGION" });
 
 const params = {
@@ -192,7 +158,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -208,7 +174,7 @@ const client = new AWS.Support({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addAttachmentsToSet(params);
+  const data = await client.addAttachmentsToSet(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -226,7 +192,7 @@ client
 
 // callbacks.
 client.addAttachmentsToSet(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -240,7 +206,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -271,10 +237,141 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-support` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+AddAttachmentsToSet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/addattachmentstosetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/addattachmentstosetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/addattachmentstosetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+AddCommunicationToCase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/addcommunicationtocasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/addcommunicationtocasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/addcommunicationtocasecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateCase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/createcasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/createcasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/createcasecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describeattachmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeattachmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeattachmentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeCases
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describecasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecasescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeCommunications
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describecommunicationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecommunicationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecommunicationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeCreateCaseOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describecreatecaseoptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecreatecaseoptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecreatecaseoptionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeServices
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describeservicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeservicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeservicescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSeverityLevels
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describeseveritylevelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeseveritylevelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeseveritylevelscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSupportedLanguages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describesupportedlanguagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describesupportedlanguagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describesupportedlanguagescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTrustedAdvisorCheckRefreshStatuses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describetrustedadvisorcheckrefreshstatusescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckrefreshstatusescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckrefreshstatusescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTrustedAdvisorCheckResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describetrustedadvisorcheckresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckresultcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTrustedAdvisorChecks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describetrustedadvisorcheckscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTrustedAdvisorCheckSummaries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describetrustedadvisorchecksummariescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorchecksummariescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorchecksummariescommandoutput.html)
+
+</details>
+<details>
+<summary>
+RefreshTrustedAdvisorCheck
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/refreshtrustedadvisorcheckcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/refreshtrustedadvisorcheckcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/refreshtrustedadvisorcheckcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ResolveCase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/resolvecasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/resolvecasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/resolvecasecommandoutput.html)
+
+</details>

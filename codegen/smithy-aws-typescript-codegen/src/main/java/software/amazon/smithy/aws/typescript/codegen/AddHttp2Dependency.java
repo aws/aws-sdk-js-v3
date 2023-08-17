@@ -16,9 +16,10 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
-import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.aws.traits.protocols.AwsProtocolTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
@@ -27,16 +28,18 @@ import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
+@SmithyInternalApi
 public class AddHttp2Dependency implements TypeScriptIntegration {
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,
-            LanguageTarget target
-    ) {
+            LanguageTarget target) {
         if (!isHttp2Applicable(settings.getService(model))) {
             return Collections.emptyMap();
         }
@@ -44,9 +47,13 @@ public class AddHttp2Dependency implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of("requestHandler", writer -> {
                     writer.addDependency(TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
-                    writer.addImport("NodeHttp2Handler", "NodeHttp2Handler",
-                            TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER.packageName);
-                    writer.write("requestHandler: new NodeHttp2Handler(),");
+                    writer.addImport("NodeHttp2Handler", "RequestHandler",
+                            TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
+                    writer.openBlock("new RequestHandler(async () => ({", "}))", () -> {
+                        writer.write("...await defaultConfigProvider(),");
+                        // TODO: remove this when root cause of #3809 is found
+                        writer.write("disableConcurrentStreams: true");
+                    });
                 });
             default:
                 return Collections.emptyMap();
@@ -54,9 +61,8 @@ public class AddHttp2Dependency implements TypeScriptIntegration {
     }
 
     private static boolean isHttp2Applicable(ServiceShape service) {
-        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-        // TODO: Add "Kinesis" service to http2 applicable, but blocked by potential breaking change.
-        // Reference: https://github.com/aws/aws-sdk-js-v3/issues/1206
-        return serviceId.equals("Transcribe Streaming");
+        List<String> eventStreamFlag = service.getTrait(AwsProtocolTrait.class)
+                .map(AwsProtocolTrait::getEventStreamHttp).orElse(ListUtils.of());
+        return eventStreamFlag.contains("h2");
     }
 }

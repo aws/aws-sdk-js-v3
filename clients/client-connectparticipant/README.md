@@ -1,18 +1,20 @@
-# @aws-sdk/client-connectparticipant
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-connectparticipant/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-connectparticipant)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-connectparticipant.svg)](https://www.npmjs.com/package/@aws-sdk/client-connectparticipant)
+# @aws-sdk/client-connectparticipant
 
 ## Description
 
 AWS SDK for JavaScript ConnectParticipant Client for Node.js, Browser and React Native.
 
-<p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage
-a customer contact center and provide reliable customer engagement at any scale.</p>
-<p>Amazon Connect enables customer contacts through voice or chat.</p>
-
-<p>The APIs described here are used by chat participants, such as agents and
-customers.</p>
+<p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
+enables companies of any size to deliver superior customer service at a lower cost.
+Amazon Connect communications capabilities make it easy for companies to deliver
+personalized interactions across communication channels, including chat. </p>
+<p>Use the Amazon Connect Participant Service to manage participants (for example,
+agents, customers, and managers listening in), and to send messages and events within a
+chat contact. The APIs in the service enable the following: sending chat messages,
+attachment sharing, managing a participant's connection state and message events, and
+retrieving chat transcripts.</p>
 
 ## Installing
 
@@ -29,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ConnectParticipantClient` and
-the commands you need, for example `CreateParticipantConnectionCommand`:
+the commands you need, for example `CompleteAttachmentUploadCommand`:
 
 ```js
 // ES5 example
-const { ConnectParticipantClient, CreateParticipantConnectionCommand } = require("@aws-sdk/client-connectparticipant");
+const { ConnectParticipantClient, CompleteAttachmentUploadCommand } = require("@aws-sdk/client-connectparticipant");
 ```
 
 ```ts
 // ES6+ example
-import { ConnectParticipantClient, CreateParticipantConnectionCommand } from "@aws-sdk/client-connectparticipant";
+import { ConnectParticipantClient, CompleteAttachmentUploadCommand } from "@aws-sdk/client-connectparticipant";
 ```
 
 ### Usage
@@ -51,13 +53,13 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new ConnectParticipantClient({ region: "REGION" });
 
 const params = {
   /** input parameters */
 };
-const command = new CreateParticipantConnectionCommand(params);
+const command = new CompleteAttachmentUploadCommand(params);
 ```
 
 #### Async/await
@@ -120,7 +122,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -136,7 +138,7 @@ const client = new AWS.ConnectParticipant({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createParticipantConnection(params);
+  const data = await client.completeAttachmentUpload(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +146,7 @@ try {
 
 // Promises.
 client
-  .createParticipantConnection(params)
+  .completeAttachmentUpload(params)
   .then((data) => {
     // process data.
   })
@@ -153,8 +155,8 @@ client
   });
 
 // callbacks.
-client.createParticipantConnection(params, (err, data) => {
-  // proccess err and data.
+client.completeAttachmentUpload(params, (err, data) => {
+  // process err and data.
 });
 ```
 
@@ -168,7 +170,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -199,10 +201,77 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-connectparticipant` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CompleteAttachmentUpload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/completeattachmentuploadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/completeattachmentuploadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/completeattachmentuploadcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateParticipantConnection
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/createparticipantconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/createparticipantconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/createparticipantconnectioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DisconnectParticipant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/disconnectparticipantcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/disconnectparticipantcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/disconnectparticipantcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/getattachmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/getattachmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/getattachmentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetTranscript
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/gettranscriptcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/gettranscriptcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/gettranscriptcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SendEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/sendeventcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/sendeventcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/sendeventcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SendMessage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/sendmessagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/sendmessagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/sendmessagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartAttachmentUpload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/startattachmentuploadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/startattachmentuploadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/startattachmentuploadcommandoutput.html)
+
+</details>

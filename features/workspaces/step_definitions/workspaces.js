@@ -1,7 +1,7 @@
-const { WorkSpaces } = require("../../../clients/client-workspaces");
-const { Before } = require("cucumber");
+const { Before } = require("@cucumber/cucumber");
 
 Before({ tags: "@workspaces" }, function (scenario, callback) {
+  const { WorkSpaces } = require("../../../clients/client-workspaces");
   this.service = new WorkSpaces({});
   callback();
 });

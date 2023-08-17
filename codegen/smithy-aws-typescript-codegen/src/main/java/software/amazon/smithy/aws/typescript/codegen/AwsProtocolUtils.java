@@ -17,6 +17,8 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.model.knowledge.HttpBinding.Location.DOCUMENT;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
@@ -26,20 +28,29 @@ import software.amazon.smithy.model.knowledge.NeighborProviderIndex;
 import software.amazon.smithy.model.neighbor.Walker;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
+import software.amazon.smithy.protocoltests.traits.HttpMalformedRequestTestCase;
+import software.amazon.smithy.protocoltests.traits.HttpMessageTestCase;
+import software.amazon.smithy.typescript.codegen.HttpProtocolTestGenerator;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpProtocolGeneratorUtils;
+import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Utility methods for generating AWS protocols.
  */
+@SmithyInternalApi
 final class AwsProtocolUtils {
 
     private AwsProtocolUtils() {}
@@ -48,18 +59,20 @@ final class AwsProtocolUtils {
      * Writes an {@code 'x-amz-content-sha256' = 'UNSIGNED-PAYLOAD'} header for an
      * {@code @aws.api#unsignedPayload} trait that specifies the {@code "aws.v4"} auth scheme.
      *
-     * @see <a href=https://awslabs.github.io/smithy/spec/aws-core.html#aws-api-unsignedpayload-trait>@aws.api#unsignedPayload trait</a>
+     * @see <a href=https://smithy.io/2.0/aws/aws-auth.html#aws-auth-unsignedpayload-trait>@aws.api#unsignedPayload trait</a>
      *
      * @param context The generation context.
      * @param operation The operation being generated.
      */
     static void generateUnsignedPayloadSigV4Header(GenerationContext context, OperationShape operation) {
         TypeScriptWriter writer = context.getWriter();
+        if (includeUnsignedPayloadSigV4Header(operation)) {
+            writer.write("'x-amz-content-sha256': 'UNSIGNED-PAYLOAD',");
+        }
+    }
 
-        operation.getTrait(UnsignedPayloadTrait.class)
-                .ifPresent(trait -> {
-                    writer.write("'x-amz-content-sha256': 'UNSIGNED-PAYLOAD',");
-                });
+    static boolean includeUnsignedPayloadSigV4Header(OperationShape operation) {
+        return operation.hasTrait(UnsignedPayloadTrait.ID);
     }
 
     /**
@@ -80,7 +93,7 @@ final class AwsProtocolUtils {
             ShapeVisitor<Void> visitor
     ) {
         // Walk all the shapes within those in the document and generate for them as well.
-        Walker shapeWalker = new Walker(context.getModel().getKnowledge(NeighborProviderIndex.class).getProvider());
+        Walker shapeWalker = new Walker(NeighborProviderIndex.of(context.getModel()).getProvider());
         Set<Shape> shapesToGenerate = new TreeSet<>(shapes);
         shapes.forEach(shape -> shapesToGenerate.addAll(shapeWalker.walkShapes(shape)));
         shapesToGenerate.forEach(shape -> shape.accept(visitor));
@@ -96,7 +109,7 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
 
         // Include a JSON body parser used to deserialize documents from HTTP responses.
-        writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
+        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
@@ -104,6 +117,34 @@ final class AwsProtocolUtils {
                     });
                     writer.write("return {};");
                 });
+
+        writer.write("");
+    }
+
+    static void generateJsonParseBodyWithQueryHeader(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+        writer.addImport("HeaderBag", "__HeaderBag", TypeScriptDependency.SMITHY_TYPES);
+        writer.write(IoUtils.readUtf8Resource(
+                AwsProtocolUtils.class, "populate-body-with-query-compatibility-code-stub.ts"));
+    }
+
+    /**
+     * Writes a response body parser function for JSON errors. This
+     * will populate message field in parsed object, if it's not present.
+     *
+     * @param context The generation context.
+     */
+    static void generateJsonParseErrorBody(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+
+        // Include a JSON body parser used to deserialize documents from HTTP responses.
+        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
+        writer.openBlock("const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {",
+            "}", () -> {
+                writer.write("const value = await parseBody(errorBody, context);");
+                writer.write("value.message = value.message ?? value.Message;");
+                writer.write("return value;");
+            });
 
         writer.write("");
     }
@@ -117,20 +158,23 @@ final class AwsProtocolUtils {
     static void generateXmlParseBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
 
-        // Include function that decodes XML escape characters.
-        writer.write(IoUtils.readUtf8Resource(AwsProtocolUtils.class, "decodeEscapedXML.ts"));
-
         // Include an XML body parser used to deserialize documents from HTTP responses.
-        writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
-        writer.addImport("getValueFromTextNode", "__getValueFromTextNode", "@aws-sdk/smithy-client");
-        writer.addDependency(AwsDependency.XML_PARSER);
-        writer.addImport("parse", "xmlParse", "fast-xml-parser");
+        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
+        writer.addImport("getValueFromTextNode", "__getValueFromTextNode", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        writer.addDependency(TypeScriptDependency.XML_PARSER);
+        writer.addImport("XMLParser", null, TypeScriptDependency.XML_PARSER);
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
-                        writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
-                                + "ignoreAttributes: false, parseNodeValue: false, tagValueProcessor: (val, tagName) "
-                                + "=> decodeEscapedXML(val) });");
+                        // Temporararily creating parser inside the function.
+                        // Parser would be moved to runtime config in https://github.com/aws/aws-sdk-js-v3/issues/3979
+                        writer.write("const parser = new XMLParser({ attributeNamePrefix: '', htmlEntities: true, "
+                            + "ignoreAttributes: false, ignoreDeclaration: true, parseTagValue: false, "
+                            + "trimValues: false, tagValueProcessor: (_: any, val: any) => "
+                            + "(val.trim() === '' && val.includes('\\n')) ? '': undefined });");
+                        writer.write("parser.addEntity('#xD', '\\r');");
+                        writer.write("parser.addEntity('#10', '\\n');");
+                        writer.write("const parsedObj = parser.parse(encoded);");
                         writer.write("const textNodeName = '#text';");
                         writer.write("const key = Object.keys(parsedObj)[0];");
                         writer.write("const parsedObjToReturn = parsedObj[key];");
@@ -146,6 +190,29 @@ final class AwsProtocolUtils {
     }
 
     /**
+     * Writes a response body parser function for XML errors. This
+     * will populate message field in parsed object, if it's not present.
+     *
+     * @param context The generation context.
+     */
+    static void generateXmlParseErrorBody(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+
+        // Include a JSON body parser used to deserialize documents from HTTP responses.
+        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
+        writer.openBlock("const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {",
+            "}", () -> {
+                writer.write("const value = await parseBody(errorBody, context);");
+                writer.openBlock("if (value.Error) {", "}", () -> {
+                    writer.write("value.Error.message = value.Error.message ?? value.Error.Message;");
+                });
+                writer.write("return value;");
+            });
+
+        writer.write("");
+    }
+
+    /**
      * Writes a form urlencoded string builder function for query based protocols.
      * This will escape the keys and values, combine those with an '=', and combine
      * those strings with an '&'.
@@ -156,8 +223,9 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
 
         // Write a single function to handle combining a map in to a valid query string.
-        writer.addImport("extendedEncodeURIComponent", "__extendedEncodeURIComponent", "@aws-sdk/smithy-client");
-        writer.openBlock("const buildFormUrlencodedString = (formEntries: { [key: string]: string }): "
+        writer.addImport("extendedEncodeURIComponent", "__extendedEncodeURIComponent",
+            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        writer.openBlock("const buildFormUrlencodedString = (formEntries: Record<string, string>): "
                 + "string => Object.entries(formEntries).map(", ").join(\"&\");",
                 () -> writer.write("([key, value]) => __extendedEncodeURIComponent(key) + '=' + "
                     + "__extendedEncodeURIComponent(value)"));
@@ -178,8 +246,9 @@ final class AwsProtocolUtils {
         // Set the form encoded string.
         writer.openBlock("const body = buildFormUrlencodedString({", "});", () -> {
             // Set the protocol required values.
-            writer.write("Action: $S,", operation.getId().getName());
-            writer.write("Version: $S,", context.getService().getVersion());
+            ServiceShape serviceShape = context.getService();
+            writer.write("Action: $S,", operation.getId().getName(serviceShape));
+            writer.write("Version: $S,", serviceShape.getVersion());
         });
 
         return true;
@@ -218,6 +287,10 @@ final class AwsProtocolUtils {
      * @param context The generation context.
      */
     static void addItempotencyAutofillImport(GenerationContext context) {
+        // servers do not autogenerate idempotency tokens during deserialization
+        if (!context.getSettings().generateClient()) {
+            return;
+        }
         context.getModel().shapes(MemberShape.class)
                 .filter(memberShape -> memberShape.hasTrait(IdempotencyTokenTrait.class))
                 .findFirst()
@@ -225,9 +298,9 @@ final class AwsProtocolUtils {
                     TypeScriptWriter writer = context.getWriter();
 
                     // Include the uuid package and import the v4 function as our more clearly named alias.
-                    writer.addDependency(AwsDependency.UUID_GENERATOR);
+                    writer.addDependency(TypeScriptDependency.UUID);
                     writer.addDependency(AwsDependency.UUID_GENERATOR_TYPES);
-                    writer.addImport("v4", "generateIdempotencyToken", "uuid");
+                    writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
                 });
     }
 
@@ -264,8 +337,98 @@ final class AwsProtocolUtils {
             Format defaultFormat,
             String inputLocation
     ) {
-        HttpBindingIndex httpIndex = context.getModel().getKnowledge(HttpBindingIndex.class);
+        HttpBindingIndex httpIndex = HttpBindingIndex.of(context.getModel());
         TimestampFormatTrait.Format format = httpIndex.determineTimestampFormat(memberShape, DOCUMENT, defaultFormat);
         return HttpProtocolGeneratorUtils.getTimestampInputParam(context, inputLocation, memberShape, format);
+    }
+
+    static void generateProtocolTests(ProtocolGenerator generator, GenerationContext context) {
+        new HttpProtocolTestGenerator(context,
+                generator,
+                AwsProtocolUtils::filterProtocolTests,
+                AwsProtocolUtils::filterMalformedRequestTests).run();
+    }
+
+    private static boolean filterProtocolTests(
+            ServiceShape service,
+            OperationShape operation,
+            HttpMessageTestCase testCase,
+            TypeScriptSettings settings
+    ) {
+        // TODO: Remove when server protocol tests are fixed in
+        // https://github.com/aws/aws-sdk-js-v3/issues/3058
+        // TODO: Move to filter specific to server protocol tests if added in
+        // https://github.com/awslabs/smithy-typescript/issues/470
+        if (testCase.getId().equals("RestJsonTestPayloadStructure")
+            || testCase.getId().equals("RestJsonHttpWithHeadersButNoPayload")) {
+            return true;
+        }
+
+        // TODO: Remove when requestCompression has been implemented.
+        if (testCase.getId().startsWith("SDKAppliedContentEncoding_")
+            || testCase.getId().startsWith("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_")
+            || testCase.getId().startsWith("SDKAppendedGzipAfterProvidedEncoding_")) {
+            return true;
+        }
+
+        // TODO: remove when there's a decision on separator to use
+        // https://github.com/awslabs/smithy/issues/1014
+        if (testCase.getId().equals("RestJsonInputAndOutputWithQuotedStringHeaders")) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private static boolean filterMalformedRequestTests(
+            ServiceShape service,
+            OperationShape operation,
+            HttpMalformedRequestTestCase testCase,
+            TypeScriptSettings settings
+    ) {
+        // Handling overflow/underflow of longs in JS is extraordinarily tricky.
+        // Numbers are actually all 62-bit floats, and so any integral number is
+        // limited to 53 bits. In typical JS fashion, a value outside of this
+        // range just kinda silently bumbles on in some third state between valid
+        // and invalid. Infuriatingly, there doesn't seem to be a consistent way
+        // to detect this. We could *try* to do bounds checking, but the constants
+        // we use wouldn't necessarily work, so it could work in some environments
+        // but not others.
+        if (operation.getId().getName().equals("MalformedLong") && testCase.hasTag("underflow/overflow")) {
+            return true;
+        }
+
+        //TODO: we don't validate map values
+        if (testCase.getId().equals("RestJsonBodyMalformedMapNullValue")) {
+            return true;
+        }
+
+        //TODO: reenable when the SSDK uses RE2 and not built-in regex for pattern constraints
+        if (testCase.getId().equals("RestJsonMalformedPatternReDOSString")) {
+            return true;
+        }
+
+        // skipped to allow unambiguous type conversions to unblock minor type inconsistencies
+        List<String> typeCoercionCases = Arrays.asList(
+            "RestJsonBodyTimestampDefaultRejectsStringifiedEpochSeconds_case1",
+            "RestJsonBodyTimestampDefaultRejectsStringifiedEpochSeconds_case0",
+            "RestJsonBodyTimestampDefaultRejectsDateTime_case2",
+            "RestJsonBodyTimestampDefaultRejectsDateTime_case1",
+            "RestJsonBodyTimestampDefaultRejectsDateTime_case0",
+            "RestJsonBodyBooleanBadLiteral_case18",
+            "RestJsonBodyBooleanBadLiteral_case7",
+            "RestJsonBodyBooleanStringCoercion_case14",
+            "RestJsonBodyBooleanStringCoercion_case13",
+            "RestJsonBodyBooleanStringCoercion_case12",
+            "RestJsonBodyBooleanStringCoercion_case2",
+            "RestJsonBodyBooleanStringCoercion_case1",
+            "RestJsonBodyBooleanStringCoercion_case0"
+        );
+
+        if (typeCoercionCases.contains(testCase.getId())) {
+            return true;
+        }
+
+        return false;
     }
 }

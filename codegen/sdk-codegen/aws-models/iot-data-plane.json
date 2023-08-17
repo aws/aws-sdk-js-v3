@@ -1,0 +1,2267 @@
+{
+  "smithy": "2.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "PaginatedTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.iotdataplane#ConflictException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iotdataplane#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified version does not match the version of the document.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.iotdataplane#ContentType": {
+      "type": "string"
+    },
+    "com.amazonaws.iotdataplane#CorrelationData": {
+      "type": "string"
+    },
+    "com.amazonaws.iotdataplane#DeleteThingShadow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iotdataplane#DeleteThingShadowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iotdataplane#DeleteThingShadowResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iotdataplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#MethodNotAllowedException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#UnauthorizedException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the shadow for the specified thing.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteThingShadow</a> action.</p>\n         <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html\">DeleteThingShadow</a> in the IoT Developer Guide.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/things/{thingName}/shadow",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#DeleteThingShadowRequest": {
+      "type": "structure",
+      "members": {
+        "thingName": {
+          "target": "com.amazonaws.iotdataplane#ThingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the thing.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "shadowName": {
+          "target": "com.amazonaws.iotdataplane#ShadowName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the shadow.</p>",
+            "smithy.api#httpQuery": "name"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The input for the DeleteThingShadow operation.</p>",
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#DeleteThingShadowResponse": {
+      "type": "structure",
+      "members": {
+        "payload": {
+          "target": "com.amazonaws.iotdataplane#JsonDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The state information, in JSON format.</p>",
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output from the DeleteThingShadow operation.</p>",
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#GetRetainedMessage": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iotdataplane#GetRetainedMessageRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iotdataplane#GetRetainedMessageResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iotdataplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#MethodNotAllowedException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets the details of a single retained message for the specified topic.</p>\n         <p>This action returns the message payload of the retained message, which can \n      incur messaging costs. To list only the topic names of the retained messages, call\n      <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html\">ListRetainedMessages</a>.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions\">GetRetainedMessage</a> action.</p>\n         <p>For more information about messaging costs, see <a href=\"http://aws.amazon.com/iot-core/pricing/#Messaging\">Amazon Web Services IoT Core\n      pricing - Messaging</a>.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/retainedMessage/{topic}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#GetRetainedMessageRequest": {
+      "type": "structure",
+      "members": {
+        "topic": {
+          "target": "com.amazonaws.iotdataplane#Topic",
+          "traits": {
+            "smithy.api#documentation": "<p>The topic name of the retained message to retrieve.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The input for the GetRetainedMessage operation.</p>",
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#GetRetainedMessageResponse": {
+      "type": "structure",
+      "members": {
+        "topic": {
+          "target": "com.amazonaws.iotdataplane#Topic",
+          "traits": {
+            "smithy.api#documentation": "<p>The topic name to which the retained message was published.</p>"
+          }
+        },
+        "payload": {
+          "target": "com.amazonaws.iotdataplane#Payload",
+          "traits": {
+            "smithy.api#documentation": "<p>The Base64-encoded message payload of the retained message body.</p>"
+          }
+        },
+        "qos": {
+          "target": "com.amazonaws.iotdataplane#Qos",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The quality of service (QoS) level used to publish the retained message.</p>"
+          }
+        },
+        "lastModifiedTime": {
+          "target": "com.amazonaws.iotdataplane#Timestamp",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The Epoch date and time, in milliseconds, when the retained message was stored by IoT.</p>"
+          }
+        },
+        "userProperties": {
+          "target": "com.amazonaws.iotdataplane#UserPropertiesBlob",
+          "traits": {
+            "smithy.api#documentation": "<p>A base64-encoded JSON string that includes an array of JSON objects, or null if the\n      retained message doesn't include any user properties.</p>\n         <p>The following example <code>userProperties</code> parameter is a JSON string that\n      represents two user properties. Note that it will be base64-encoded:</p>\n         <p>\n            <code>[{\"deviceName\": \"alpha\"}, {\"deviceCnt\": \"45\"}]</code>\n         </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output from the GetRetainedMessage operation.</p>",
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#GetThingShadow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iotdataplane#GetThingShadowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iotdataplane#GetThingShadowResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iotdataplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#MethodNotAllowedException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#UnauthorizedException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets the shadow for the specified thing.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetThingShadow</a> action.</p>\n         <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html\">GetThingShadow</a> in the\n        IoT Developer Guide.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/things/{thingName}/shadow",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#GetThingShadowRequest": {
+      "type": "structure",
+      "members": {
+        "thingName": {
+          "target": "com.amazonaws.iotdataplane#ThingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the thing.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "shadowName": {
+          "target": "com.amazonaws.iotdataplane#ShadowName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the shadow.</p>",
+            "smithy.api#httpQuery": "name"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The input for the GetThingShadow operation.</p>",
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#GetThingShadowResponse": {
+      "type": "structure",
+      "members": {
+        "payload": {
+          "target": "com.amazonaws.iotdataplane#JsonDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The state information, in JSON format.</p>",
+            "smithy.api#httpPayload": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output from the GetThingShadow operation.</p>",
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#InternalFailureException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iotdataplane#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An unexpected error has occurred.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.iotdataplane#InvalidRequestException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iotdataplane#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request is not valid.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.iotdataplane#IotMoonrakerService": {
+      "type": "service",
+      "version": "2015-05-28",
+      "operations": [
+        {
+          "target": "com.amazonaws.iotdataplane#DeleteThingShadow"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#GetRetainedMessage"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#GetThingShadow"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ListNamedShadowsForThing"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ListRetainedMessages"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#Publish"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#UpdateThingShadow"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "IoT Data Plane",
+          "arnNamespace": "iotdata",
+          "cloudFormationName": "IoTDataPlane",
+          "cloudTrailEventSource": "iotdataplane.amazonaws.com",
+          "endpointPrefix": "data-ats.iot"
+        },
+        "aws.auth#sigv4": {
+          "name": "iotdata"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<fullname>IoT data</fullname>\n         <p>IoT data enables secure, bi-directional communication between Internet-connected things (such as sensors,\n      actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. It implements a broker for applications and\n      things to publish messages over HTTP (Publish) and retrieve, update, and delete shadows. A shadow is a\n      persistent representation of your things and their state in the Amazon Web Services cloud.</p>\n         <p>Find the endpoint address for actions in IoT data by running this CLI command:</p>\n         <p>\n            <code>aws iot describe-endpoint --endpoint-type iot:Data-ATS</code>\n         </p>\n         <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Amazon Web ServicesSignature Version 4</a>\n      to sign requests is: <i>iotdevicegateway</i>.</p>",
+        "smithy.api#title": "AWS IoT Data Plane",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://data-ats.iot-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "Region"
+                                            },
+                                            "ca-central-1"
+                                          ]
+                                        }
+                                      ],
+                                      "endpoint": {
+                                        "url": "https://data.iot-fips.ca-central-1.amazonaws.com",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    },
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "Region"
+                                            },
+                                            "us-east-1"
+                                          ]
+                                        }
+                                      ],
+                                      "endpoint": {
+                                        "url": "https://data.iot-fips.us-east-1.amazonaws.com",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    },
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "Region"
+                                            },
+                                            "us-east-2"
+                                          ]
+                                        }
+                                      ],
+                                      "endpoint": {
+                                        "url": "https://data.iot-fips.us-east-2.amazonaws.com",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    },
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "Region"
+                                            },
+                                            "us-west-1"
+                                          ]
+                                        }
+                                      ],
+                                      "endpoint": {
+                                        "url": "https://data.iot-fips.us-west-1.amazonaws.com",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    },
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "Region"
+                                            },
+                                            "us-west-2"
+                                          ]
+                                        }
+                                      ],
+                                      "endpoint": {
+                                        "url": "https://data.iot-fips.us-west-2.amazonaws.com",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    },
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "Region"
+                                            },
+                                            "us-gov-east-1"
+                                          ]
+                                        }
+                                      ],
+                                      "endpoint": {
+                                        "url": "https://data.iot-fips.us-gov-east-1.amazonaws.com",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    },
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "Region"
+                                            },
+                                            "us-gov-west-1"
+                                          ]
+                                        }
+                                      ],
+                                      "endpoint": {
+                                        "url": "https://data.iot-fips.us-gov-west-1.amazonaws.com",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    },
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://data-ats.iot-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://data-ats.iot.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "Region"
+                                    },
+                                    "cn-north-1"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://data.ats.iot.cn-north-1.amazonaws.com.cn",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    "aws",
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "name"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://data-ats.iot.{Region}.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    "aws-cn",
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "name"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://data-ats.iot.{Region}.amazonaws.com.cn",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    "aws-us-gov",
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "name"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://data-ats.iot.{Region}.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://data-ats.iot.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.iot-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.iot-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.iot-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.iot-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.iot-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.ats.iot.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.iot-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.iot-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data-ats.iot.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#JsonDocument": {
+      "type": "blob"
+    },
+    "com.amazonaws.iotdataplane#ListNamedShadowsForThing": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iotdataplane#ListNamedShadowsForThingRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iotdataplane#ListNamedShadowsForThingResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iotdataplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#MethodNotAllowedException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the shadows for the specified thing.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListNamedShadowsForThing</a> action.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/api/things/shadow/ListNamedShadowsForThing/{thingName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#ListNamedShadowsForThingRequest": {
+      "type": "structure",
+      "members": {
+        "thingName": {
+          "target": "com.amazonaws.iotdataplane#ThingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the thing.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.iotdataplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "pageSize": {
+          "target": "com.amazonaws.iotdataplane#PageSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The result page size.</p>",
+            "smithy.api#httpQuery": "pageSize"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#ListNamedShadowsForThingResponse": {
+      "type": "structure",
+      "members": {
+        "results": {
+          "target": "com.amazonaws.iotdataplane#NamedShadowList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of shadows for the specified thing.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.iotdataplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>"
+          }
+        },
+        "timestamp": {
+          "target": "com.amazonaws.iotdataplane#Timestamp",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The Epoch date and time the response was generated by IoT.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#ListRetainedMessages": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iotdataplane#ListRetainedMessagesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iotdataplane#ListRetainedMessagesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iotdataplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#MethodNotAllowedException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists summary information about the retained messages stored for the account.</p>\n         <p>This action returns only the topic names of the retained messages. It doesn't \n      return any message payloads. Although this action doesn't return a message payload,\n      it can still incur messaging costs.</p>\n         <p>To get the message payload of a retained message, call\n      <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_GetRetainedMessage.html\">GetRetainedMessage</a>\n      with the topic name of the retained message.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions\">ListRetainedMessages</a> action.</p>\n         <p>For more information about messaging costs, see <a href=\"http://aws.amazon.com/iot-core/pricing/#Messaging\">Amazon Web Services IoT Core\n      pricing - Messaging</a>.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/retainedMessage",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "items": "retainedTopics",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#ListRetainedMessagesRequest": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.iotdataplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>To retrieve the next set of results, the <code>nextToken</code>\n      value from a previous response; otherwise <b>null</b> to receive\n      the first set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.iotdataplane#MaxResults",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The maximum number of results to return at one time.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#ListRetainedMessagesResponse": {
+      "type": "structure",
+      "members": {
+        "retainedTopics": {
+          "target": "com.amazonaws.iotdataplane#RetainedMessageList",
+          "traits": {
+            "smithy.api#documentation": "<p>A summary list the account's retained messages. The information returned doesn't include\n      the message payloads of the retained messages.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.iotdataplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 200
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#MessageExpiry": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.iotdataplane#MethodNotAllowedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iotdataplane#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified combination of HTTP verb and URI is not supported.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 405
+      }
+    },
+    "com.amazonaws.iotdataplane#NamedShadowList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.iotdataplane#ShadowName"
+      }
+    },
+    "com.amazonaws.iotdataplane#NextToken": {
+      "type": "string"
+    },
+    "com.amazonaws.iotdataplane#PageSize": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#Payload": {
+      "type": "blob"
+    },
+    "com.amazonaws.iotdataplane#PayloadFormatIndicator": {
+      "type": "enum",
+      "members": {
+        "UNSPECIFIED_BYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNSPECIFIED_BYTES"
+          }
+        },
+        "UTF8_DATA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UTF8_DATA"
+          }
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#PayloadSize": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.iotdataplane#Publish": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iotdataplane#PublishRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iotdataplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#MethodNotAllowedException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Publishes an MQTT message.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">Publish</a> action.</p>\n         <p>For more information about MQTT messages, see \n      <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html\">MQTT Protocol</a> in the\n       IoT Developer Guide.</p>\n         <p>For more information about messaging costs, see <a href=\"http://aws.amazon.com/iot-core/pricing/#Messaging\">Amazon Web Services IoT Core\n      pricing - Messaging</a>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/topics/{topic}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#PublishRequest": {
+      "type": "structure",
+      "members": {
+        "topic": {
+          "target": "com.amazonaws.iotdataplane#Topic",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the MQTT topic.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "qos": {
+          "target": "com.amazonaws.iotdataplane#Qos",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The Quality of Service (QoS) level. The default QoS level is 0.</p>",
+            "smithy.api#httpQuery": "qos"
+          }
+        },
+        "retain": {
+          "target": "com.amazonaws.iotdataplane#Retain",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>A Boolean value that determines whether to set the RETAIN flag when the message is published.</p>\n         <p>Setting the RETAIN flag causes the message to be retained and sent to new subscribers to the topic.</p>\n         <p>Valid values: <code>true</code> | <code>false</code>\n         </p>\n         <p>Default value: <code>false</code>\n         </p>",
+            "smithy.api#httpQuery": "retain"
+          }
+        },
+        "payload": {
+          "target": "com.amazonaws.iotdataplane#Payload",
+          "traits": {
+            "smithy.api#documentation": "<p>The message body. MQTT accepts text, binary, and empty (null) message payloads.</p>\n         <p>Publishing an empty (null) payload with <b>retain</b> =\n        <code>true</code> deletes the retained message identified by <b>topic</b> from Amazon Web Services IoT Core.</p>",
+            "smithy.api#httpPayload": {}
+          }
+        },
+        "userProperties": {
+          "target": "com.amazonaws.iotdataplane#SynthesizedJsonUserProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>A JSON string that contains an array of JSON objects. If you don’t use Amazon Web Services SDK or CLI,\n      you must encode the JSON string to base64 format before adding it to the HTTP header.\n        <code>userProperties</code> is an HTTP header value in the API.</p>\n         <p>The following example <code>userProperties</code> parameter is a JSON string which\n      represents two User Properties. Note that it needs to be base64-encoded:</p>\n         <p>\n            <code>[{\"deviceName\": \"alpha\"}, {\"deviceCnt\": \"45\"}]</code>\n         </p>",
+            "smithy.api#httpHeader": "x-amz-mqtt5-user-properties"
+          }
+        },
+        "payloadFormatIndicator": {
+          "target": "com.amazonaws.iotdataplane#PayloadFormatIndicator",
+          "traits": {
+            "smithy.api#documentation": "<p>An <code>Enum</code> string value that indicates whether the payload is formatted as\n      UTF-8. <code>payloadFormatIndicator</code> is an HTTP header value in the API.</p>",
+            "smithy.api#httpHeader": "x-amz-mqtt5-payload-format-indicator"
+          }
+        },
+        "contentType": {
+          "target": "com.amazonaws.iotdataplane#ContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>A UTF-8 encoded string that describes the content of the publishing message.</p>",
+            "smithy.api#httpQuery": "contentType"
+          }
+        },
+        "responseTopic": {
+          "target": "com.amazonaws.iotdataplane#ResponseTopic",
+          "traits": {
+            "smithy.api#documentation": "<p>A UTF-8 encoded string that's used as the topic name for a response message. The response\n      topic is used to describe the topic which the receiver should publish to as part of the\n      request-response flow. The topic must not contain wildcard characters.</p>",
+            "smithy.api#httpQuery": "responseTopic"
+          }
+        },
+        "correlationData": {
+          "target": "com.amazonaws.iotdataplane#CorrelationData",
+          "traits": {
+            "smithy.api#documentation": "<p>The base64-encoded binary data used by the sender of the request message to identify which\n      request the response message is for when it's received. <code>correlationData</code> is an\n      HTTP header value in the API.</p>",
+            "smithy.api#httpHeader": "x-amz-mqtt5-correlation-data"
+          }
+        },
+        "messageExpiry": {
+          "target": "com.amazonaws.iotdataplane#MessageExpiry",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>A user-defined integer value that represents the message expiry interval in seconds. If\n      absent, the message doesn't expire. For more information about the limits of\n        <code>messageExpiry</code>, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html#message-broker-limits\">Amazon Web Services IoT Core message broker and\n        protocol limits and quotas </a> from the Amazon Web Services Reference Guide.</p>",
+            "smithy.api#httpQuery": "messageExpiry"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The input for the Publish operation.</p>",
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#Qos": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 1
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#RequestEntityTooLargeException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iotdataplane#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The payload exceeds the maximum size allowed.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 413
+      }
+    },
+    "com.amazonaws.iotdataplane#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iotdataplane#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified resource does not exist.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.iotdataplane#ResponseTopic": {
+      "type": "string"
+    },
+    "com.amazonaws.iotdataplane#Retain": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.iotdataplane#RetainedMessageList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.iotdataplane#RetainedMessageSummary"
+      }
+    },
+    "com.amazonaws.iotdataplane#RetainedMessageSummary": {
+      "type": "structure",
+      "members": {
+        "topic": {
+          "target": "com.amazonaws.iotdataplane#Topic",
+          "traits": {
+            "smithy.api#documentation": "<p>The topic name to which the retained message was published.</p>"
+          }
+        },
+        "payloadSize": {
+          "target": "com.amazonaws.iotdataplane#PayloadSize",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The size of the retained message's payload in bytes.</p>"
+          }
+        },
+        "qos": {
+          "target": "com.amazonaws.iotdataplane#Qos",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The quality of service (QoS) level used to publish the retained message.</p>"
+          }
+        },
+        "lastModifiedTime": {
+          "target": "com.amazonaws.iotdataplane#Timestamp",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The Epoch date and time, in milliseconds, when the retained message was stored by IoT.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a single retained message.</p>"
+      }
+    },
+    "com.amazonaws.iotdataplane#ServiceUnavailableException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iotdataplane#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The service is temporarily unavailable.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
+      }
+    },
+    "com.amazonaws.iotdataplane#ShadowName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[$a-zA-Z0-9:_-]+$"
+      }
+    },
+    "com.amazonaws.iotdataplane#SynthesizedJsonUserProperties": {
+      "type": "string",
+      "traits": {
+        "smithy.api#mediaType": "application/json"
+      }
+    },
+    "com.amazonaws.iotdataplane#ThingName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9:_-]+$"
+      }
+    },
+    "com.amazonaws.iotdataplane#ThrottlingException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iotdataplane#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The rate exceeds the limit.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.iotdataplane#Timestamp": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.iotdataplane#Topic": {
+      "type": "string"
+    },
+    "com.amazonaws.iotdataplane#UnauthorizedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iotdataplane#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You are not authorized to perform this operation.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 401
+      }
+    },
+    "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iotdataplane#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The document encoding is not supported.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 415
+      }
+    },
+    "com.amazonaws.iotdataplane#UpdateThingShadow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iotdataplane#UpdateThingShadowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iotdataplane#UpdateThingShadowResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iotdataplane#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#MethodNotAllowedException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#RequestEntityTooLargeException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#UnauthorizedException"
+        },
+        {
+          "target": "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the shadow for the specified thing.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UpdateThingShadow</a> action.</p>\n         <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html\">UpdateThingShadow</a> in the\n        IoT Developer Guide.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/things/{thingName}/shadow",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iotdataplane#UpdateThingShadowRequest": {
+      "type": "structure",
+      "members": {
+        "thingName": {
+          "target": "com.amazonaws.iotdataplane#ThingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the thing.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "shadowName": {
+          "target": "com.amazonaws.iotdataplane#ShadowName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the shadow.</p>",
+            "smithy.api#httpQuery": "name"
+          }
+        },
+        "payload": {
+          "target": "com.amazonaws.iotdataplane#JsonDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The state information, in JSON format.</p>",
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The input for the UpdateThingShadow operation.</p>",
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#UpdateThingShadowResponse": {
+      "type": "structure",
+      "members": {
+        "payload": {
+          "target": "com.amazonaws.iotdataplane#JsonDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The state information, in JSON format.</p>",
+            "smithy.api#httpPayload": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output from the UpdateThingShadow operation.</p>",
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.iotdataplane#UserPropertiesBlob": {
+      "type": "blob"
+    },
+    "com.amazonaws.iotdataplane#errorMessage": {
+      "type": "string"
+    }
+  }
+}

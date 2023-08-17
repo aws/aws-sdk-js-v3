@@ -1,7 +1,6 @@
-# @aws-sdk/client-auto-scaling-plans
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-auto-scaling-plans/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-auto-scaling-plans)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-auto-scaling-plans.svg)](https://www.npmjs.com/package/@aws-sdk/client-auto-scaling-plans)
+# @aws-sdk/client-auto-scaling-plans
 
 ## Description
 
@@ -9,13 +8,38 @@ AWS SDK for JavaScript AutoScalingPlans Client for Node.js, Browser and React Na
 
 <fullname>AWS Auto Scaling</fullname>
 
-<p>Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and
-configure dynamic scaling and predictive scaling for your resources using scaling plans.
-Use this service in conjunction with the Amazon EC2 Auto Scaling, Application Auto Scaling, Amazon CloudWatch, and AWS
-CloudFormation services. </p>
-<p>Currently, predictive scaling is only available for Amazon EC2 Auto Scaling groups.</p>
-<p>For more information about AWS Auto Scaling, including information about granting IAM users
-required permissions for AWS Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html">AWS Auto Scaling User Guide</a>.</p>
+<p>Use AWS Auto Scaling to create scaling plans for your applications to
+automatically scale your scalable AWS resources. </p>
+<p>
+<b>API Summary</b>
+</p>
+<p>You can use the AWS Auto Scaling service API to accomplish the following tasks:</p>
+<ul>
+<li>
+<p>Create and manage scaling plans</p>
+</li>
+<li>
+<p>Define target tracking scaling policies to dynamically scale your resources based
+on utilization</p>
+</li>
+<li>
+<p>Scale Amazon EC2 Auto Scaling groups using predictive scaling and dynamic scaling to scale your
+Amazon EC2 capacity faster</p>
+</li>
+<li>
+<p>Set minimum and maximum capacity limits</p>
+</li>
+<li>
+<p>Retrieve information on existing scaling plans</p>
+</li>
+<li>
+<p>Access current forecast data and historical forecast data for up to 56 days
+previous</p>
+</li>
+</ul>
+
+<p>To learn more about AWS Auto Scaling, including information about granting IAM users required
+permissions for AWS Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html">AWS Auto Scaling User Guide</a>. </p>
 
 ## Installing
 
@@ -54,7 +78,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new AutoScalingPlansClient({ region: "REGION" });
 
 const params = {
@@ -123,7 +147,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -139,7 +163,7 @@ const client = new AWS.AutoScalingPlans({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createScalingPlan(params);
+  const data = await client.createScalingPlan(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -157,7 +181,7 @@ client
 
 // callbacks.
 client.createScalingPlan(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -171,7 +195,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -202,10 +226,61 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-auto-scaling-plans` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateScalingPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/createscalingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/createscalingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/createscalingplancommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteScalingPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/deletescalingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/deletescalingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/deletescalingplancommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeScalingPlanResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/describescalingplanresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeScalingPlans
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/describescalingplanscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetScalingPlanResourceForecastData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/getscalingplanresourceforecastdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/getscalingplanresourceforecastdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/getscalingplanresourceforecastdatacommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateScalingPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/updatescalingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/updatescalingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/updatescalingplancommandoutput.html)
+
+</details>

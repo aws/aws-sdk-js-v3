@@ -1,7 +1,10 @@
 import { Storage } from "./Storage";
 
+/**
+ * @internal
+ */
 export class InMemoryStorage implements Storage {
-  constructor(private store: { [key: string]: string } = {}) {}
+  constructor(private store: Record<string, string> = {}) {}
 
   getItem(key: string): string | null {
     if (key in this.store) {

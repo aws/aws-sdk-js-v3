@@ -1,16 +1,18 @@
-# @aws-sdk/client-appintegrations
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-appintegrations/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-appintegrations)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-appintegrations.svg)](https://www.npmjs.com/package/@aws-sdk/client-appintegrations)
+# @aws-sdk/client-appintegrations
 
 ## Description
 
 AWS SDK for JavaScript AppIntegrations Client for Node.js, Browser and React Native.
 
-<p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
-
-<p>The Amazon AppIntegrations service enables you to configure and reuse connections to external applications.</p>
-<p>For information about how you can use external applications with Amazon Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/crm.html">Set up pre-built integrations</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+<p>The Amazon AppIntegrations service enables you to configure and reuse connections to external
+applications.</p>
+<p>For information about how you can use external applications with Amazon Connect, see
+<a href="https://docs.aws.amazon.com/connect/latest/adminguide/crm.html">Set up pre-built
+integrations</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html">Deliver information to agents
+using Amazon Connect Wisdom</a> in the <i>Amazon Connect Administrator
+Guide</i>.</p>
 
 ## Installing
 
@@ -27,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppIntegrationsClient` and
-the commands you need, for example `CreateEventIntegrationCommand`:
+the commands you need, for example `CreateDataIntegrationCommand`:
 
 ```js
 // ES5 example
-const { AppIntegrationsClient, CreateEventIntegrationCommand } = require("@aws-sdk/client-appintegrations");
+const { AppIntegrationsClient, CreateDataIntegrationCommand } = require("@aws-sdk/client-appintegrations");
 ```
 
 ```ts
 // ES6+ example
-import { AppIntegrationsClient, CreateEventIntegrationCommand } from "@aws-sdk/client-appintegrations";
+import { AppIntegrationsClient, CreateDataIntegrationCommand } from "@aws-sdk/client-appintegrations";
 ```
 
 ### Usage
@@ -49,13 +51,13 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new AppIntegrationsClient({ region: "REGION" });
 
 const params = {
   /** input parameters */
 };
-const command = new CreateEventIntegrationCommand(params);
+const command = new CreateDataIntegrationCommand(params);
 ```
 
 #### Async/await
@@ -118,7 +120,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -134,7 +136,7 @@ const client = new AWS.AppIntegrations({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createEventIntegration(params);
+  const data = await client.createDataIntegration(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +144,7 @@ try {
 
 // Promises.
 client
-  .createEventIntegration(params)
+  .createDataIntegration(params)
   .then((data) => {
     // process data.
   })
@@ -151,8 +153,8 @@ client
   });
 
 // callbacks.
-client.createEventIntegration(params, (err, data) => {
-  // proccess err and data.
+client.createDataIntegration(params, (err, data) => {
+  // process err and data.
 });
 ```
 
@@ -166,7 +168,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -197,10 +199,133 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-appintegrations` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateDataIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/createdataintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/createdataintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/createdataintegrationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateEventIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/createeventintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/createeventintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/createeventintegrationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteDataIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/deletedataintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/deletedataintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/deletedataintegrationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteEventIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/deleteeventintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/deleteeventintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/deleteeventintegrationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDataIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/getdataintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/getdataintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/getdataintegrationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetEventIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/geteventintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/geteventintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/geteventintegrationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDataIntegrationAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/listdataintegrationassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listdataintegrationassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listdataintegrationassociationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDataIntegrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/listdataintegrationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listdataintegrationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listdataintegrationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListEventIntegrationAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/listeventintegrationassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listeventintegrationassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listeventintegrationassociationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListEventIntegrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/listeventintegrationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listeventintegrationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listeventintegrationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateDataIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/updatedataintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/updatedataintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/updatedataintegrationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateEventIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/updateeventintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/updateeventintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/updateeventintegrationcommandoutput.html)
+
+</details>

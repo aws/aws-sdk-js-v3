@@ -1,5 +1,20 @@
+/**
+ * @internal
+ */
 export * from "./CognitoProviderParameters";
-export * from "./fromCognitoIdentity";
-export * from "./fromCognitoIdentityPool";
+/**
+ * @internal
+ */
 export * from "./Logins";
+/**
+ * @internal
+ */
 export * from "./Storage";
+/**
+ * @internal
+ */
+export * from "./fromCognitoIdentity";
+/**
+ * @internal
+ */
+export * from "./fromCognitoIdentityPool";

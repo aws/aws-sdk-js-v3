@@ -4,8 +4,10 @@ const mockV4 = jest.fn().mockReturnValue({
   presign: mockV4Presign,
   sign: mockV4Sign,
 });
-jest.mock("@aws-sdk/signature-v4", () => ({
-  SignatureV4: mockV4,
+jest.mock("@aws-sdk/signature-v4-multi-region", () => ({
+  //@ts-ignore
+  ...jest.requireActual("@aws-sdk/signature-v4-multi-region"),
+  SignatureV4MultiRegion: mockV4,
 }));
 
 import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
@@ -21,12 +23,14 @@ jest.mock("@aws-sdk/util-format-url", () => ({
   formatUrl: (url: any) => url,
 }));
 
-import { RequestPresigningArguments } from "@aws-sdk/types/src";
+import { RequestPresigningArguments } from "@smithy/types";
 
 import { getSignedUrl } from "./getSignedUrl";
 
 describe("getSignedUrl", () => {
-  const clientParams = { region: "us-foo-1" };
+  const clientParams = {
+    region: "us-foo-1",
+  };
 
   beforeEach(() => {
     mockPresign.mockReset();
@@ -40,7 +44,12 @@ describe("getSignedUrl", () => {
       Bucket: "Bucket",
       Key: "Key",
     });
-    const signed = await getSignedUrl(client, command);
+    const presignPromise = getSignedUrl(client, command);
+    // do not mutate to the client or command
+    expect(client.middlewareStack.remove("presignInterceptMiddleware")).toBe(false);
+    expect(command.middlewareStack.remove("presignInterceptMiddleware")).toBe(false);
+
+    const signed = await presignPromise;
     expect(signed).toBe(mockPresigned);
     expect(mockPresign).toBeCalled();
     expect(mockV4Presign).not.toBeCalled();
@@ -110,5 +119,59 @@ describe("getSignedUrl", () => {
     });
     const commands = [command, command];
     return expect(Promise.all(commands.map((command) => getSignedUrl(client, command)))).resolves.toBeInstanceOf(Array);
+  });
+
+  it.each(["amz-sdk-invocation-id", "amz-sdk-request", "x-amz-user-agent"])(
+    "should delete '%s' header",
+    async (header) => {
+      const client = new S3Client(clientParams);
+      const command = new GetObjectCommand({
+        Bucket: "Bucket",
+        Key: "Key",
+      });
+      command.middlewareStack.add(
+        (next) => (args) => {
+          (args.request ?? {})[header] = "foo";
+          return next(args);
+        },
+        { step: "serialize", priority: "low" }
+      );
+      await getSignedUrl(client, command);
+      expect(mockPresign).toBeCalled();
+      expect(mockPresign.mock.calls[0][0].headers[header]).toBeUndefined();
+    }
+  );
+
+  // TODO(endpointsv2) fix this test
+  it.skip("should presign request with MRAP ARN", async () => {
+    const mockPresigned = "a presigned url";
+    mockPresign.mockReturnValue(mockPresigned);
+    const client = new S3Client(clientParams);
+    const command = new GetObjectCommand({
+      Bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
+      Key: "Key",
+    });
+    await getSignedUrl(client, command);
+    expect(mockPresign).toBeCalled();
+    expect(mockPresign.mock.calls[0][0]).toMatchObject({
+      hostname: "mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com",
+    });
+  });
+
+  // TODO(endpointsv2) fix this test
+  it.skip("should throw if presign request with MRAP ARN and disableMultiregionAccessPoints option", () => {
+    const mockPresigned = "a presigned url";
+    mockPresign.mockReturnValue(mockPresigned);
+    const client = new S3Client({
+      ...clientParams,
+      disableMultiregionAccessPoints: true,
+    });
+    const command = new GetObjectCommand({
+      Bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
+      Key: "Key",
+    });
+    return expect(getSignedUrl(client, command)).rejects.toMatchObject({
+      message: "SDK is attempting to use a MRAP ARN. Please enable to feature.",
+    });
   });
 });

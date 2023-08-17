@@ -34,6 +34,8 @@ const args = [
   "--no-git-reset",
   "--ignore-scripts",
   "--no-verify-access",
+  "--concurrency",
+  "8",
   "--dist-tag",
   "ci",
 ];
@@ -41,7 +43,9 @@ spawn("npx", args, pipeStdIo).on("close", (code) => {
   // Rollback the changes caused by the version bumping
   execSync("git checkout -- clients/*/package.json");
   execSync("git checkout -- packages/*/package.json");
-  execSync("git checkout -- protocol_tests/*/package.json");
+  execSync("git checkout -- private/*/package.json");
+  execSync("git checkout -- lib/*/package.json");
+  execSync("git checkout -- lerna.json");
 
   // Kill the background verdaccio server
   verdaccio.kill();

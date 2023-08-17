@@ -1,0 +1,2510 @@
+{
+  "smithy": "2.0",
+  "shapes": {
+    "com.amazonaws.rdsdata#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.rdsdata#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You do not have sufficient access to perform this action.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.rdsdata#Arn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 11,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#ArrayOfArray": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#ArrayValue"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An array of arrays.</p>\n        <note>\n            <p>Some array entries can be null.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.rdsdata#ArrayValue": {
+      "type": "union",
+      "members": {
+        "booleanValues": {
+          "target": "com.amazonaws.rdsdata#BooleanArray",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of Boolean values.</p>"
+          }
+        },
+        "longValues": {
+          "target": "com.amazonaws.rdsdata#LongArray",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of integers.</p>"
+          }
+        },
+        "doubleValues": {
+          "target": "com.amazonaws.rdsdata#DoubleArray",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of floating-point numbers.</p>"
+          }
+        },
+        "stringValues": {
+          "target": "com.amazonaws.rdsdata#StringArray",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of strings.</p>"
+          }
+        },
+        "arrayValues": {
+          "target": "com.amazonaws.rdsdata#ArrayOfArray",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of arrays.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains an array.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#ArrayValueList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#Value"
+      }
+    },
+    "com.amazonaws.rdsdata#BadRequestException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.rdsdata#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message returned by this <code>BadRequestException</code> error.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>There is an error in the call or in a SQL statement.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.rdsdata#BatchExecuteStatement": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.rdsdata#BatchExecuteStatementRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.rdsdata#BatchExecuteStatementResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.rdsdata#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ServiceUnavailableError"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#StatementTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Runs a batch SQL statement over an array of data.</p>\n        <p>You can run bulk update and insert operations for multiple records using a DML \n            statement with different parameter sets. Bulk operations can provide a significant \n            performance improvement over individual insert and update operations.</p>\n        <note>\n            <p>If a call isn't part of a transaction because it doesn't include the <code>transactionID</code> parameter,\n                changes that result from the call are committed automatically.</p>\n            <p>There isn't a fixed upper limit on the number of parameter sets. However, the maximum size of the HTTP request\n                submitted through the Data API is 4 MiB. If the request exceeds this limit, the Data API returns an error and doesn't\n                process the request. This 4-MiB limit includes the size of the HTTP headers and the JSON notation in the request. Thus, the\n                number of parameter sets that you can include depends on a combination of factors, such as the size of the SQL statement and\n                the size of each parameter set.</p>\n            <p>The response size limit is 1 MiB. If the call returns more than 1 MiB of response data, the call is terminated.</p>\n        </note>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/BatchExecute"
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#BatchExecuteStatementRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "secretArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in\n            the secret.</p>\n        <p>For information about creating the secret, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html\">Create a database secret</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sql": {
+          "target": "com.amazonaws.rdsdata#SqlStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>The SQL statement to run. Don't include a semicolon (;) at the end of the SQL statement.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "database": {
+          "target": "com.amazonaws.rdsdata#DbName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database.</p>"
+          }
+        },
+        "schema": {
+          "target": "com.amazonaws.rdsdata#DbName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database schema.</p>\n        <note>\n            <p>Currently, the <code>schema</code> parameter isn't supported.</p>\n        </note>"
+          }
+        },
+        "parameterSets": {
+          "target": "com.amazonaws.rdsdata#SqlParameterSets",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter set for the batch operation.</p>\n        <p>The SQL statement is executed as many times as the number of parameter sets provided. \n          To execute a SQL statement with no parameters, use one of the following options:</p>\n        <ul>\n            <li>\n                <p>Specify one or more empty parameter sets.</p>\n            </li>\n            <li>\n                <p>Use the <code>ExecuteStatement</code> operation instead of the <code>BatchExecuteStatement</code> operation.</p>\n            </li>\n         </ul>\n        <note>\n            <p>Array parameters are not supported.</p>\n        </note>"
+          }
+        },
+        "transactionId": {
+          "target": "com.amazonaws.rdsdata#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of a transaction that was started by using the\n                <code>BeginTransaction</code> operation. Specify the transaction ID of the\n            transaction that you want to include the SQL statement in.</p>\n        <p>If the SQL statement is not part of a transaction, don't set this\n            parameter.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request parameters represent the input of a SQL statement over an array of\n            data.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#BatchExecuteStatementResponse": {
+      "type": "structure",
+      "members": {
+        "updateResults": {
+          "target": "com.amazonaws.rdsdata#UpdateResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The execution results of each batch entry.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The response elements represent the output of a SQL statement over an array of\n            data.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#BeginTransaction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.rdsdata#BeginTransactionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.rdsdata#BeginTransactionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.rdsdata#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ServiceUnavailableError"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#StatementTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts a SQL transaction.</p>\n        <note>\n            <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24\n                hours.</p>\n            <p>A transaction times out if no calls use its transaction ID in three minutes. If a transaction times out before it's\n                committed, it's rolled back automatically.</p>\n            <p>DDL statements inside a transaction cause an implicit commit. We recommend that you run each DDL statement in a separate\n                    <code>ExecuteStatement</code> call with <code>continueAfterTimeout</code> enabled.</p>\n        </note>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/BeginTransaction"
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#BeginTransactionRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "secretArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The name or ARN of the secret that enables access to the DB cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "database": {
+          "target": "com.amazonaws.rdsdata#DbName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database.</p>"
+          }
+        },
+        "schema": {
+          "target": "com.amazonaws.rdsdata#DbName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database schema.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request parameters represent the input of a request to start a SQL\n            transaction.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#BeginTransactionResponse": {
+      "type": "structure",
+      "members": {
+        "transactionId": {
+          "target": "com.amazonaws.rdsdata#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The transaction ID of the transaction started by the call.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The response elements represent the output of a request to start a SQL\n            transaction.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#Blob": {
+      "type": "blob"
+    },
+    "com.amazonaws.rdsdata#Boolean": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.rdsdata#BooleanArray": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#BoxedBoolean"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An array of Boolean values.</p>\n        <note>\n            <p>Some array entries can be null.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.rdsdata#BoxedBoolean": {
+      "type": "boolean"
+    },
+    "com.amazonaws.rdsdata#BoxedDouble": {
+      "type": "double"
+    },
+    "com.amazonaws.rdsdata#BoxedFloat": {
+      "type": "float"
+    },
+    "com.amazonaws.rdsdata#BoxedInteger": {
+      "type": "integer"
+    },
+    "com.amazonaws.rdsdata#BoxedLong": {
+      "type": "long"
+    },
+    "com.amazonaws.rdsdata#ColumnMetadata": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.rdsdata#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the column.</p>"
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.rdsdata#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The type of the column.</p>"
+          }
+        },
+        "typeName": {
+          "target": "com.amazonaws.rdsdata#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The database-specific data type of the column.</p>"
+          }
+        },
+        "label": {
+          "target": "com.amazonaws.rdsdata#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The label for the column.</p>"
+          }
+        },
+        "schemaName": {
+          "target": "com.amazonaws.rdsdata#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the schema that owns the table that includes the column.</p>"
+          }
+        },
+        "tableName": {
+          "target": "com.amazonaws.rdsdata#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the table that includes the column.</p>"
+          }
+        },
+        "isAutoIncrement": {
+          "target": "com.amazonaws.rdsdata#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>A value that indicates whether the column increments automatically.</p>"
+          }
+        },
+        "isSigned": {
+          "target": "com.amazonaws.rdsdata#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>A value that indicates whether an integer column is signed.</p>"
+          }
+        },
+        "isCurrency": {
+          "target": "com.amazonaws.rdsdata#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>A value that indicates whether the column contains currency values.</p>"
+          }
+        },
+        "isCaseSensitive": {
+          "target": "com.amazonaws.rdsdata#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>A value that indicates whether the column is case-sensitive.</p>"
+          }
+        },
+        "nullable": {
+          "target": "com.amazonaws.rdsdata#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>A value that indicates whether the column is nullable.</p>"
+          }
+        },
+        "precision": {
+          "target": "com.amazonaws.rdsdata#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The precision value of a decimal number column.</p>"
+          }
+        },
+        "scale": {
+          "target": "com.amazonaws.rdsdata#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The scale value of a decimal number column.</p>"
+          }
+        },
+        "arrayBaseColumnType": {
+          "target": "com.amazonaws.rdsdata#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The type of the column.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains the metadata for a column.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#CommitTransaction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.rdsdata#CommitTransactionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.rdsdata#CommitTransactionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.rdsdata#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ServiceUnavailableError"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#StatementTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and\n            commits the changes.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/CommitTransaction"
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#CommitTransactionRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "secretArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The name or ARN of the secret that enables access to the DB cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "transactionId": {
+          "target": "com.amazonaws.rdsdata#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the transaction to end and commit.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request parameters represent the input of a commit transaction request.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#CommitTransactionResponse": {
+      "type": "structure",
+      "members": {
+        "transactionStatus": {
+          "target": "com.amazonaws.rdsdata#TransactionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the commit operation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The response elements represent the output of a commit transaction request.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#DbName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 64
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#DecimalReturnType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "STRING",
+            "name": "STRING"
+          },
+          {
+            "value": "DOUBLE_OR_LONG",
+            "name": "DOUBLE_OR_LONG"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.rdsdata#DoubleArray": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#BoxedDouble"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An array of floating-point numbers.</p>\n        <note>\n            <p>Some array entries can be null.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.rdsdata#ErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.rdsdata#ExecuteSql": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.rdsdata#ExecuteSqlRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.rdsdata#ExecuteSqlResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.rdsdata#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ServiceUnavailableError"
+        }
+      ],
+      "traits": {
+        "smithy.api#deprecated": {
+          "message": "The ExecuteSql API is deprecated, please use the ExecuteStatement API.",
+          "since": "2019-03-21"
+        },
+        "smithy.api#documentation": "<p>Runs one or more SQL statements.</p>\n        <note>\n            <p>This operation is deprecated. Use the <code>BatchExecuteStatement</code> or\n                    <code>ExecuteStatement</code> operation.</p>\n        </note>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/ExecuteSql"
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#ExecuteSqlRequest": {
+      "type": "structure",
+      "members": {
+        "dbClusterOrInstanceArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Aurora Serverless DB cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "awsSecretStoreArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the secret that enables access to the DB cluster. Enter the database user name and password\n            for the credentials in the secret.</p>\n        <p>For information about creating the secret, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html\">Create a database secret</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sqlStatements": {
+          "target": "com.amazonaws.rdsdata#SqlStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more SQL statements to run on the DB cluster.</p>\n        <p>You can separate SQL statements from each other with a semicolon (;). Any valid SQL\n            statement is permitted, including data definition, data manipulation, and commit\n            statements. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "database": {
+          "target": "com.amazonaws.rdsdata#DbName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database.</p>"
+          }
+        },
+        "schema": {
+          "target": "com.amazonaws.rdsdata#DbName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database schema.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request parameters represent the input of a request to run one or more SQL\n            statements.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#ExecuteSqlResponse": {
+      "type": "structure",
+      "members": {
+        "sqlStatementResults": {
+          "target": "com.amazonaws.rdsdata#SqlStatementResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The results of the SQL statement or statements.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The response elements represent the output of a request to run one or more SQL\n            statements.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#ExecuteStatement": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.rdsdata#ExecuteStatementRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.rdsdata#ExecuteStatementResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.rdsdata#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ServiceUnavailableError"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#StatementTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Runs a SQL statement against a database.</p>\n        <note>\n            <p>If a call isn't part of a transaction because it doesn't include the\n                    <code>transactionID</code> parameter, changes that result from the call are\n                committed automatically.</p>\n            <p>If the binary response data from the database is more than 1 MB, the call is terminated.</p>\n        </note>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/Execute"
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#ExecuteStatementRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "secretArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in\n            the secret.</p>\n        <p>For information about creating the secret, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html\">Create a database secret</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sql": {
+          "target": "com.amazonaws.rdsdata#SqlStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>The SQL statement to run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "database": {
+          "target": "com.amazonaws.rdsdata#DbName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database.</p>"
+          }
+        },
+        "schema": {
+          "target": "com.amazonaws.rdsdata#DbName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database schema.</p>\n        <note>\n            <p>Currently, the <code>schema</code> parameter isn't supported.</p>\n        </note>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.rdsdata#SqlParametersList",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameters for the SQL statement.</p>\n        <note>\n            <p>Array parameters are not supported.</p>\n        </note>"
+          }
+        },
+        "transactionId": {
+          "target": "com.amazonaws.rdsdata#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of a transaction that was started by using the\n                <code>BeginTransaction</code> operation. Specify the transaction ID of the\n            transaction that you want to include the SQL statement in.</p>\n        <p>If the SQL statement is not part of a transaction, don't set this parameter.</p>"
+          }
+        },
+        "includeResultMetadata": {
+          "target": "com.amazonaws.rdsdata#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>A value that indicates whether to include metadata in the results.</p>"
+          }
+        },
+        "continueAfterTimeout": {
+          "target": "com.amazonaws.rdsdata#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>A value that indicates whether to continue running the statement after \n            the call times out. By default, the statement stops running when the call \n            times out.</p>\n        <note>\n            <p>For DDL statements, we recommend continuing to run the statement after \n               the call times out. When a DDL statement terminates before it is finished \n               running, it can result in errors and possibly corrupted data structures.</p>\n        </note>"
+          }
+        },
+        "resultSetOptions": {
+          "target": "com.amazonaws.rdsdata#ResultSetOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Options that control how the result set is returned.</p>"
+          }
+        },
+        "formatRecordsAs": {
+          "target": "com.amazonaws.rdsdata#RecordsFormatType",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that indicates whether to format the result set as a single JSON string.\n        This parameter only applies to <code>SELECT</code> statements and is ignored for\n        other types of statements. Allowed values are <code>NONE</code> and <code>JSON</code>.\n        The default value is <code>NONE</code>. The result is returned in the <code>formattedRecords</code> field.</p>\n        <p>For usage information about the JSON format for result sets, see\n          <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html\">Using the Data API</a>\n          in the <i>Amazon Aurora User Guide</i>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request parameters represent the input of a request to run a SQL statement against\n            a database.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#ExecuteStatementResponse": {
+      "type": "structure",
+      "members": {
+        "records": {
+          "target": "com.amazonaws.rdsdata#SqlRecords",
+          "traits": {
+            "smithy.api#documentation": "<p>The records returned by the SQL statement. This field is blank if the\n        <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>"
+          }
+        },
+        "columnMetadata": {
+          "target": "com.amazonaws.rdsdata#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata for the columns included in the results. This field is blank if the\n        <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>"
+          }
+        },
+        "numberOfRecordsUpdated": {
+          "target": "com.amazonaws.rdsdata#RecordsUpdated",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The number of records updated by the request.</p>"
+          }
+        },
+        "generatedFields": {
+          "target": "com.amazonaws.rdsdata#FieldList",
+          "traits": {
+            "smithy.api#documentation": "<p>Values for fields generated during a DML request.</p>\n        \n        <note>\n            <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL.\n                To get the values of generated fields, use the <code>RETURNING</code> clause. For\n                more information, see <a href=\"https://www.postgresql.org/docs/10/dml-returning.html\">Returning Data From\n                    Modified Rows</a> in the PostgreSQL documentation.</p>\n        </note>"
+          }
+        },
+        "formattedRecords": {
+          "target": "com.amazonaws.rdsdata#FormattedSqlRecords",
+          "traits": {
+            "smithy.api#documentation": "<p>A string value that represents the result set of a <code>SELECT</code> statement\n        in JSON format. This value is only present when the <code>formatRecordsAs</code>\n        parameter is set to <code>JSON</code>.</p>\n        <p>The size limit for this field is currently 10 MB. If the JSON-formatted string representing the\n          result set requires more than 10 MB, the call returns an error.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The response elements represent the output of a request to run a SQL statement against\n            a database.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#Field": {
+      "type": "union",
+      "members": {
+        "isNull": {
+          "target": "com.amazonaws.rdsdata#BoxedBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>A NULL value.</p>"
+          }
+        },
+        "booleanValue": {
+          "target": "com.amazonaws.rdsdata#BoxedBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>A value of Boolean data type.</p>"
+          }
+        },
+        "longValue": {
+          "target": "com.amazonaws.rdsdata#BoxedLong",
+          "traits": {
+            "smithy.api#documentation": "<p>A value of long data type.</p>"
+          }
+        },
+        "doubleValue": {
+          "target": "com.amazonaws.rdsdata#BoxedDouble",
+          "traits": {
+            "smithy.api#documentation": "<p>A value of double data type.</p>"
+          }
+        },
+        "stringValue": {
+          "target": "com.amazonaws.rdsdata#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A value of string data type.</p>"
+          }
+        },
+        "blobValue": {
+          "target": "com.amazonaws.rdsdata#Blob",
+          "traits": {
+            "smithy.api#documentation": "<p>A value of BLOB data type.</p>"
+          }
+        },
+        "arrayValue": {
+          "target": "com.amazonaws.rdsdata#ArrayValue",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of values.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains a value.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#FieldList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#Field"
+      }
+    },
+    "com.amazonaws.rdsdata#ForbiddenException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.rdsdata#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message returned by this <code>ForbiddenException</code> error.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>There are insufficient privileges to make the call.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.rdsdata#FormattedSqlRecords": {
+      "type": "string"
+    },
+    "com.amazonaws.rdsdata#Id": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 192
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#Integer": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.rdsdata#InternalServerErrorException": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#documentation": "<p>An internal error occurred.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.rdsdata#Long": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.rdsdata#LongArray": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#BoxedLong"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An array of integers.</p>\n        <note>\n            <p>Some array entries can be null.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.rdsdata#LongReturnType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "STRING",
+            "name": "STRING"
+          },
+          {
+            "value": "LONG",
+            "name": "LONG"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.rdsdata#Metadata": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#ColumnMetadata"
+      }
+    },
+    "com.amazonaws.rdsdata#NotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.rdsdata#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message returned by this <code>NotFoundException</code> error.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.rdsdata#ParameterName": {
+      "type": "string"
+    },
+    "com.amazonaws.rdsdata#RdsDataService": {
+      "type": "service",
+      "version": "2018-08-01",
+      "operations": [
+        {
+          "target": "com.amazonaws.rdsdata#BatchExecuteStatement"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#BeginTransaction"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#CommitTransaction"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ExecuteSql"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ExecuteStatement"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#RollbackTransaction"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "RDS Data",
+          "arnNamespace": "rds-data"
+        },
+        "aws.auth#sigv4": {
+          "name": "rds-data"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#cors": {},
+        "smithy.api#documentation": "<fullname>Amazon RDS Data Service</fullname>\n        <p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora Serverless v1 DB cluster. To run these\n            statements, you work with the Data Service API.</p>\n        <note>\n            <p>The Data Service API isn't supported on Amazon Aurora Serverless v2 DB clusters.</p>\n        </note>\n        <p>For more information about the Data Service API, see\n          <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html\">Using the Data API</a>\n          in the <i>Amazon Aurora User Guide</i>.</p>",
+        "smithy.api#title": "AWS RDS DataService",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://rds-data-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://rds-data-fips.{Region}.{PartitionResult#dnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://rds-data.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://rds-data.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://rds-data.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#Record": {
+      "type": "structure",
+      "members": {
+        "values": {
+          "target": "com.amazonaws.rdsdata#Row",
+          "traits": {
+            "smithy.api#documentation": "<p>The values returned in the record.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A record returned by a call.</p>\n        <note>\n            <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.\n              Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.rdsdata#Records": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#Record"
+      }
+    },
+    "com.amazonaws.rdsdata#RecordsFormatType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
+            "name": "NONE"
+          },
+          {
+            "value": "JSON",
+            "name": "JSON"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.rdsdata#RecordsUpdated": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.rdsdata#ResultFrame": {
+      "type": "structure",
+      "members": {
+        "resultSetMetadata": {
+          "target": "com.amazonaws.rdsdata#ResultSetMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The result-set metadata in the result set.</p>"
+          }
+        },
+        "records": {
+          "target": "com.amazonaws.rdsdata#Records",
+          "traits": {
+            "smithy.api#documentation": "<p>The records in the result set.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The result set returned by a SQL statement.</p>\n        <note>\n            <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.\n              Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.rdsdata#ResultSetMetadata": {
+      "type": "structure",
+      "members": {
+        "columnCount": {
+          "target": "com.amazonaws.rdsdata#Long",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The number of columns in the result set.</p>"
+          }
+        },
+        "columnMetadata": {
+          "target": "com.amazonaws.rdsdata#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the columns in the result set.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The metadata of the result set returned by a SQL statement.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#ResultSetOptions": {
+      "type": "structure",
+      "members": {
+        "decimalReturnType": {
+          "target": "com.amazonaws.rdsdata#DecimalReturnType",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that indicates how a field of <code>DECIMAL</code> type is represented\n            in the response. The value of <code>STRING</code>, the default, specifies that\n            it is converted to a String value. The value of <code>DOUBLE_OR_LONG</code>\n            specifies that it is converted to a Long value if its scale is 0, or to a Double\n            value otherwise.</p>\n        <note>\n            <p>Conversion to Double or Long can result in roundoff errors due to precision loss.\n                We recommend converting to String, especially when working with currency values.</p>\n        </note>"
+          }
+        },
+        "longReturnType": {
+          "target": "com.amazonaws.rdsdata#LongReturnType",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that indicates how a field of <code>LONG</code> type is represented.\n        Allowed values are <code>LONG</code> and <code>STRING</code>. The default\n        is <code>LONG</code>. Specify <code>STRING</code> if the length or\n        precision of numeric values might cause truncation or rounding errors.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Options that control how the result set is returned.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#RollbackTransaction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.rdsdata#RollbackTransactionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.rdsdata#RollbackTransactionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.rdsdata#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#ServiceUnavailableError"
+        },
+        {
+          "target": "com.amazonaws.rdsdata#StatementTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Performs a rollback of a transaction. Rolling back a transaction cancels its changes.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/RollbackTransaction"
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#RollbackTransactionRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "secretArn": {
+          "target": "com.amazonaws.rdsdata#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The name or ARN of the secret that enables access to the DB cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "transactionId": {
+          "target": "com.amazonaws.rdsdata#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the transaction to roll back.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request parameters represent the input of a request to perform a rollback of a\n            transaction.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#RollbackTransactionResponse": {
+      "type": "structure",
+      "members": {
+        "transactionStatus": {
+          "target": "com.amazonaws.rdsdata#TransactionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the rollback operation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The response elements represent the output of a request to perform a rollback of a\n            transaction.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#Row": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#Value"
+      }
+    },
+    "com.amazonaws.rdsdata#ServiceUnavailableError": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#documentation": "<p>The service specified by the <code>resourceArn</code> parameter is not\n            available.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
+      }
+    },
+    "com.amazonaws.rdsdata#SqlParameter": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.rdsdata#ParameterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the parameter.</p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.rdsdata#Field",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the parameter.</p>"
+          }
+        },
+        "typeHint": {
+          "target": "com.amazonaws.rdsdata#TypeHint",
+          "traits": {
+            "smithy.api#documentation": "<p>A hint that specifies the correct object type for data type mapping. Possible values\n            are as follows:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>DATE</code> - The corresponding <code>String</code> parameter value is sent as an object \n              of <code>DATE</code> type to the database. The accepted format is <code>YYYY-MM-DD</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>DECIMAL</code> - The corresponding <code>String</code> parameter value is sent as an object \n                    of <code>DECIMAL</code> type to the database.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JSON</code> - The corresponding <code>String</code> parameter value is sent as an\n           object of <code>JSON</code> type to the database.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TIME</code> - The corresponding <code>String</code> parameter value is sent as an object \n                    of <code>TIME</code> type to the database. The accepted format is <code>HH:MM:SS[.FFF]</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TIMESTAMP</code> - The corresponding <code>String</code> parameter value is sent as an object \n              of <code>TIMESTAMP</code> type to the database. The accepted format is <code>YYYY-MM-DD HH:MM:SS[.FFF]</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UUID</code> - The corresponding <code>String</code> parameter value is sent as an object of\n             <code>UUID</code> type to the database.\n          </p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A parameter used in a SQL statement.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#SqlParameterSets": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#SqlParametersList"
+      }
+    },
+    "com.amazonaws.rdsdata#SqlParametersList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#SqlParameter"
+      }
+    },
+    "com.amazonaws.rdsdata#SqlRecords": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#FieldList"
+      }
+    },
+    "com.amazonaws.rdsdata#SqlStatement": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 65536
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#SqlStatementResult": {
+      "type": "structure",
+      "members": {
+        "resultFrame": {
+          "target": "com.amazonaws.rdsdata#ResultFrame",
+          "traits": {
+            "smithy.api#documentation": "<p>The result set of the SQL statement.</p>"
+          }
+        },
+        "numberOfRecordsUpdated": {
+          "target": "com.amazonaws.rdsdata#RecordsUpdated",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The number of records updated by a SQL statement.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The result of a SQL statement.</p>\n        \n        <note>\n            <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.\n              Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.rdsdata#SqlStatementResults": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#SqlStatementResult"
+      }
+    },
+    "com.amazonaws.rdsdata#StatementTimeoutException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.rdsdata#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message returned by this <code>StatementTimeoutException</code> error.</p>"
+          }
+        },
+        "dbConnectionId": {
+          "target": "com.amazonaws.rdsdata#Long",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The database connection ID that executed the SQL statement.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The execution of the SQL statement timed out.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.rdsdata#String": {
+      "type": "string"
+    },
+    "com.amazonaws.rdsdata#StringArray": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#String"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An array of strings.</p>\n        <note>\n            <p>Some array entries can be null.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.rdsdata#StructValue": {
+      "type": "structure",
+      "members": {
+        "attributes": {
+          "target": "com.amazonaws.rdsdata#ArrayValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>The attributes returned in the record.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A structure value returned by a call.</p>\n        <note>\n            <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.\n              Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.rdsdata#TransactionStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 128
+        }
+      }
+    },
+    "com.amazonaws.rdsdata#TypeHint": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "JSON",
+            "name": "JSON"
+          },
+          {
+            "value": "UUID",
+            "name": "UUID"
+          },
+          {
+            "value": "TIMESTAMP",
+            "name": "TIMESTAMP"
+          },
+          {
+            "value": "DATE",
+            "name": "DATE"
+          },
+          {
+            "value": "TIME",
+            "name": "TIME"
+          },
+          {
+            "value": "DECIMAL",
+            "name": "DECIMAL"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.rdsdata#UpdateResult": {
+      "type": "structure",
+      "members": {
+        "generatedFields": {
+          "target": "com.amazonaws.rdsdata#FieldList",
+          "traits": {
+            "smithy.api#documentation": "<p>Values for fields generated during the request.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The response elements represent the results of an update.</p>"
+      }
+    },
+    "com.amazonaws.rdsdata#UpdateResults": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rdsdata#UpdateResult"
+      }
+    },
+    "com.amazonaws.rdsdata#Value": {
+      "type": "union",
+      "members": {
+        "isNull": {
+          "target": "com.amazonaws.rdsdata#BoxedBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>A NULL value.</p>"
+          }
+        },
+        "bitValue": {
+          "target": "com.amazonaws.rdsdata#BoxedBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>A value for a column of BIT data type.</p>"
+          }
+        },
+        "bigIntValue": {
+          "target": "com.amazonaws.rdsdata#BoxedLong",
+          "traits": {
+            "smithy.api#documentation": "<p>A value for a column of big integer data type.</p>"
+          }
+        },
+        "intValue": {
+          "target": "com.amazonaws.rdsdata#BoxedInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>A value for a column of integer data type.</p>"
+          }
+        },
+        "doubleValue": {
+          "target": "com.amazonaws.rdsdata#BoxedDouble",
+          "traits": {
+            "smithy.api#documentation": "<p>A value for a column of double data type.</p>"
+          }
+        },
+        "realValue": {
+          "target": "com.amazonaws.rdsdata#BoxedFloat",
+          "traits": {
+            "smithy.api#documentation": "<p>A value for a column of real data type.</p>"
+          }
+        },
+        "stringValue": {
+          "target": "com.amazonaws.rdsdata#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A value for a column of string data type.</p>"
+          }
+        },
+        "blobValue": {
+          "target": "com.amazonaws.rdsdata#Blob",
+          "traits": {
+            "smithy.api#documentation": "<p>A value for a column of BLOB data type.</p>"
+          }
+        },
+        "arrayValues": {
+          "target": "com.amazonaws.rdsdata#ArrayValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of column values.</p>"
+          }
+        },
+        "structValue": {
+          "target": "com.amazonaws.rdsdata#StructValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A value for a column of STRUCT data type.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains the value of a column.</p>\n        \n        <note>\n            <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.\n              Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>\n        </note>"
+      }
+    }
+  }
+}

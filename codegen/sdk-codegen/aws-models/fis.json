@@ -1,0 +1,3910 @@
+{
+  "smithy": "2.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "PaginatedTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.fis#Action": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ActionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the action.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#ActionDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description for the action.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.fis#ActionParameterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The action parameters, if applicable.</p>"
+          }
+        },
+        "targets": {
+          "target": "com.amazonaws.fis#ActionTargetMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The supported targets for the action.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the action.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an action. For more information, see <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html\">FIS actions</a> \n         in the <i>Fault Injection Simulator User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.fis#ActionDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ActionId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ActionParameter": {
+      "type": "structure",
+      "members": {
+        "description": {
+          "target": "com.amazonaws.fis#ActionParameterDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameter description.</p>"
+          }
+        },
+        "required": {
+          "target": "com.amazonaws.fis#ActionParameterRequired",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>Indicates whether the parameter is required.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a parameter for an action.</p>"
+      }
+    },
+    "com.amazonaws.fis#ActionParameterDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ActionParameterMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ActionParameterName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ActionParameter"
+      }
+    },
+    "com.amazonaws.fis#ActionParameterName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ActionParameterRequired": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.fis#ActionSummary": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ActionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the action.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#ActionDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description for the action.</p>"
+          }
+        },
+        "targets": {
+          "target": "com.amazonaws.fis#ActionTargetMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The targets for the action.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the action.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Provides a summary of an action.</p>"
+      }
+    },
+    "com.amazonaws.fis#ActionSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ActionSummary"
+      }
+    },
+    "com.amazonaws.fis#ActionTarget": {
+      "type": "structure",
+      "members": {
+        "resourceType": {
+          "target": "com.amazonaws.fis#TargetResourceTypeId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type of the target.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a target for an action.</p>"
+      }
+    },
+    "com.amazonaws.fis#ActionTargetMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ActionTargetName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ActionTarget"
+      }
+    },
+    "com.amazonaws.fis#ActionTargetName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ClientToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#CloudWatchLogGroupArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ConflictException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.fis#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ConflictException",
+          "httpResponseCode": 409
+        },
+        "smithy.api#documentation": "<p>The request could not be processed because of a conflict.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.fis#CreateExperimentTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#CreateExperimentTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#CreateExperimentTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.fis#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.fis#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates an experiment template. </p>\n         <p>An experiment template includes the following components:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Targets</b>: A target can be a specific resource in \n               your Amazon Web Services environment, or one or more resources that match criteria that you\n               specify, for example, resources that have specific tags.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Actions</b>: The actions to carry out on the\n               target. You can specify multiple actions, the duration of each action, and when to start each action during an experiment.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Stop conditions</b>: If a stop condition is\n               triggered while an experiment is running, the experiment is automatically\n               stopped. You can define a stop condition as a CloudWatch alarm.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html\">Experiment templates</a>\n         in the <i>Fault Injection Simulator User Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/experimentTemplates",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#CreateExperimentTemplateActionInput": {
+      "type": "structure",
+      "members": {
+        "actionId": {
+          "target": "com.amazonaws.fis#ActionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the action. The format of the action ID is: aws:<i>service-name</i>:<i>action-type</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description for the action.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionParameterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameters for the action, if applicable.</p>"
+          }
+        },
+        "targets": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionTargetMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The targets for the action.</p>"
+          }
+        },
+        "startAfter": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionStartAfterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the action that must be completed before the current action starts. Omit this parameter to run the action at the start of the experiment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies an action for an experiment template.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/actions.html\">Actions</a>\n         in the <i>Fault Injection Simulator User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.fis#CreateExperimentTemplateActionInputMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentTemplateActionName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#CreateExperimentTemplateActionInput"
+      }
+    },
+    "com.amazonaws.fis#CreateExperimentTemplateLogConfigurationInput": {
+      "type": "structure",
+      "members": {
+        "cloudWatchLogsConfiguration": {
+          "target": "com.amazonaws.fis#ExperimentTemplateCloudWatchLogsLogConfigurationInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>"
+          }
+        },
+        "s3Configuration": {
+          "target": "com.amazonaws.fis#ExperimentTemplateS3LogConfigurationInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging to Amazon S3.</p>"
+          }
+        },
+        "logSchemaVersion": {
+          "target": "com.amazonaws.fis#LogSchemaVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The schema version.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the configuration for experiment logging.</p>"
+      }
+    },
+    "com.amazonaws.fis#CreateExperimentTemplateRequest": {
+      "type": "structure",
+      "members": {
+        "clientToken": {
+          "target": "com.amazonaws.fis#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#ExperimentTemplateDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description for the experiment template.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "stopConditions": {
+          "target": "com.amazonaws.fis#CreateExperimentTemplateStopConditionInputList",
+          "traits": {
+            "smithy.api#documentation": "<p>The stop conditions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "targets": {
+          "target": "com.amazonaws.fis#CreateExperimentTemplateTargetInputMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The targets for the experiment.</p>"
+          }
+        },
+        "actions": {
+          "target": "com.amazonaws.fis#CreateExperimentTemplateActionInputMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The actions for the experiment.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "roleArn": {
+          "target": "com.amazonaws.fis#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to apply to the experiment template.</p>"
+          }
+        },
+        "logConfiguration": {
+          "target": "com.amazonaws.fis#CreateExperimentTemplateLogConfigurationInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#CreateExperimentTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "experimentTemplate": {
+          "target": "com.amazonaws.fis#ExperimentTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the experiment template.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#CreateExperimentTemplateStopConditionInput": {
+      "type": "structure",
+      "members": {
+        "source": {
+          "target": "com.amazonaws.fis#StopConditionSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The source for the stop condition. Specify <code>aws:cloudwatch:alarm</code> if the stop\n         condition is defined by a CloudWatch alarm. Specify <code>none</code> if there is no stop\n         condition.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.fis#StopConditionValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudWatch alarm. This is required if the source is\n         a CloudWatch alarm.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies a stop condition for an experiment template.</p>"
+      }
+    },
+    "com.amazonaws.fis#CreateExperimentTemplateStopConditionInputList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#CreateExperimentTemplateStopConditionInput"
+      }
+    },
+    "com.amazonaws.fis#CreateExperimentTemplateTargetInput": {
+      "type": "structure",
+      "members": {
+        "resourceType": {
+          "target": "com.amazonaws.fis#TargetResourceTypeId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type. The resource type must be supported for the specified action.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceArns": {
+          "target": "com.amazonaws.fis#ResourceArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the resources.</p>"
+          }
+        },
+        "resourceTags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the target resources.</p>"
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetFilterInputList",
+          "traits": {
+            "smithy.api#documentation": "<p>The filters to apply to identify target resources using specific attributes.</p>"
+          }
+        },
+        "selectionMode": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetSelectionMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Scopes the identified resources to a specific count of the resources at random, or a percentage of the resources. All identified resources are included in the target.</p>\n         <ul>\n            <li>\n               <p>ALL - Run the action on all identified targets. This is the default.</p>\n            </li>\n            <li>\n               <p>COUNT(n) - Run the action on the specified number of targets, chosen from the identified targets at random.\n                For example, COUNT(1) selects one of the targets.</p>\n            </li>\n            <li>\n               <p>PERCENT(n) - Run the action on the specified percentage of targets, chosen from the identified targets \n               at random. For example, PERCENT(25) selects 25% of the targets.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetParameterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type parameters.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies a target for an experiment. You must specify at least one Amazon Resource Name (ARN) or \n         at least one resource tag. You cannot specify both ARNs and tags.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/targets.html\">Targets</a>\n         in the <i>Fault Injection Simulator User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.fis#CreateExperimentTemplateTargetInputMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentTemplateTargetName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#CreateExperimentTemplateTargetInput"
+      }
+    },
+    "com.amazonaws.fis#CreationTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.fis#DeleteExperimentTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#DeleteExperimentTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#DeleteExperimentTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified experiment template.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/experimentTemplates/{id}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#DeleteExperimentTemplateRequest": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ExperimentTemplateId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment template.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#DeleteExperimentTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "experimentTemplate": {
+          "target": "com.amazonaws.fis#ExperimentTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the experiment template.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#ExceptionMessage": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#Experiment": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ExperimentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment.</p>"
+          }
+        },
+        "experimentTemplateId": {
+          "target": "com.amazonaws.fis#ExperimentTemplateId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment template.</p>"
+          }
+        },
+        "roleArn": {
+          "target": "com.amazonaws.fis#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>"
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.fis#ExperimentState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the experiment.</p>"
+          }
+        },
+        "targets": {
+          "target": "com.amazonaws.fis#ExperimentTargetMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The targets for the experiment.</p>"
+          }
+        },
+        "actions": {
+          "target": "com.amazonaws.fis#ExperimentActionMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The actions for the experiment.</p>"
+          }
+        },
+        "stopConditions": {
+          "target": "com.amazonaws.fis#ExperimentStopConditionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The stop conditions for the experiment.</p>"
+          }
+        },
+        "creationTime": {
+          "target": "com.amazonaws.fis#CreationTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the experiment was created.</p>"
+          }
+        },
+        "startTime": {
+          "target": "com.amazonaws.fis#ExperimentStartTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the experiment started.</p>"
+          }
+        },
+        "endTime": {
+          "target": "com.amazonaws.fis#ExperimentEndTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the experiment ended.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the experiment.</p>"
+          }
+        },
+        "logConfiguration": {
+          "target": "com.amazonaws.fis#ExperimentLogConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an experiment.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentAction": {
+      "type": "structure",
+      "members": {
+        "actionId": {
+          "target": "com.amazonaws.fis#ActionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the action.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#ExperimentActionDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description for the action.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.fis#ExperimentActionParameterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameters for the action.</p>"
+          }
+        },
+        "targets": {
+          "target": "com.amazonaws.fis#ExperimentActionTargetMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The targets for the action.</p>"
+          }
+        },
+        "startAfter": {
+          "target": "com.amazonaws.fis#ExperimentActionStartAfterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the action that must be completed before this action starts.</p>"
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.fis#ExperimentActionState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the action.</p>"
+          }
+        },
+        "startTime": {
+          "target": "com.amazonaws.fis#ExperimentActionStartTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the action started.</p>"
+          }
+        },
+        "endTime": {
+          "target": "com.amazonaws.fis#ExperimentActionEndTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the action ended.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the action for an experiment.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionEndTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.fis#ExperimentActionMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentActionName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ExperimentAction"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionParameter": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionParameterMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentActionParameterName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ExperimentActionParameter"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionParameterName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionStartAfter": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionStartAfterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentActionStartAfter"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionStartTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.fis#ExperimentActionState": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.fis#ExperimentActionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the action.</p>"
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.fis#ExperimentActionStatusReason",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason for the state.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the state of an action.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionStatus": {
+      "type": "enum",
+      "members": {
+        "pending": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pending"
+          }
+        },
+        "initiating": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "initiating"
+          }
+        },
+        "running": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "running"
+          }
+        },
+        "completed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "completed"
+          }
+        },
+        "cancelled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cancelled"
+          }
+        },
+        "stopping": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "stopping"
+          }
+        },
+        "stopped": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "stopped"
+          }
+        },
+        "failed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "failed"
+          }
+        }
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionStatusReason": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionTargetMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentActionTargetName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ExperimentTargetName"
+      }
+    },
+    "com.amazonaws.fis#ExperimentActionTargetName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentCloudWatchLogsLogConfiguration": {
+      "type": "structure",
+      "members": {
+        "logGroupArn": {
+          "target": "com.amazonaws.fis#CloudWatchLogGroupArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the configuration for experiment logging to Amazon CloudWatch Logs.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentEndTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.fis#ExperimentId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentLogConfiguration": {
+      "type": "structure",
+      "members": {
+        "cloudWatchLogsConfiguration": {
+          "target": "com.amazonaws.fis#ExperimentCloudWatchLogsLogConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>"
+          }
+        },
+        "s3Configuration": {
+          "target": "com.amazonaws.fis#ExperimentS3LogConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging to Amazon S3.</p>"
+          }
+        },
+        "logSchemaVersion": {
+          "target": "com.amazonaws.fis#LogSchemaVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The schema version.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the configuration for experiment logging.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentS3LogConfiguration": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.fis#S3BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the destination bucket.</p>"
+          }
+        },
+        "prefix": {
+          "target": "com.amazonaws.fis#S3ObjectKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The bucket prefix.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the configuration for experiment logging to Amazon S3.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentStartTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.fis#ExperimentState": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.fis#ExperimentStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the experiment.</p>"
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.fis#ExperimentStatusReason",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason for the state.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the state of an experiment.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentStatus": {
+      "type": "enum",
+      "members": {
+        "pending": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pending"
+          }
+        },
+        "initiating": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "initiating"
+          }
+        },
+        "running": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "running"
+          }
+        },
+        "completed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "completed"
+          }
+        },
+        "stopping": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "stopping"
+          }
+        },
+        "stopped": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "stopped"
+          }
+        },
+        "failed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "failed"
+          }
+        }
+      }
+    },
+    "com.amazonaws.fis#ExperimentStatusReason": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentStopCondition": {
+      "type": "structure",
+      "members": {
+        "source": {
+          "target": "com.amazonaws.fis#StopConditionSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The source for the stop condition.</p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.fis#StopConditionValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the stop condition for an experiment.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentStopConditionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentStopCondition"
+      }
+    },
+    "com.amazonaws.fis#ExperimentSummary": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ExperimentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment.</p>"
+          }
+        },
+        "experimentTemplateId": {
+          "target": "com.amazonaws.fis#ExperimentTemplateId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment template.</p>"
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.fis#ExperimentState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the experiment.</p>"
+          }
+        },
+        "creationTime": {
+          "target": "com.amazonaws.fis#CreationTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the experiment was created.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the experiment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Provides a summary of an experiment.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentSummary"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTarget": {
+      "type": "structure",
+      "members": {
+        "resourceType": {
+          "target": "com.amazonaws.fis#TargetResourceTypeId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type.</p>"
+          }
+        },
+        "resourceArns": {
+          "target": "com.amazonaws.fis#ResourceArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the resources.</p>"
+          }
+        },
+        "resourceTags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the target resources.</p>"
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.fis#ExperimentTargetFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The filters to apply to identify target resources using specific attributes.</p>"
+          }
+        },
+        "selectionMode": {
+          "target": "com.amazonaws.fis#ExperimentTargetSelectionMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Scopes the identified resources to a specific count or percentage.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.fis#ExperimentTargetParameterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type parameters.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a target for an experiment.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTargetFilter": {
+      "type": "structure",
+      "members": {
+        "path": {
+          "target": "com.amazonaws.fis#ExperimentTargetFilterPath",
+          "traits": {
+            "smithy.api#documentation": "<p>The attribute path for the filter.</p>"
+          }
+        },
+        "values": {
+          "target": "com.amazonaws.fis#ExperimentTargetFilterValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The attribute values for the filter.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a filter used for the target resources in an experiment.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTargetFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentTargetFilter"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTargetFilterPath": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTargetFilterValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTargetFilterValues": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentTargetFilterValue"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTargetMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentTargetName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ExperimentTarget"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTargetName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTargetParameterMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentTargetParameterName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ExperimentTargetParameterValue"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTargetParameterName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTargetParameterValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        }
+      }
+    },
+    "com.amazonaws.fis#ExperimentTargetSelectionMode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplate": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ExperimentTemplateId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment template.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#ExperimentTemplateDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description for the experiment template.</p>"
+          }
+        },
+        "targets": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The targets for the experiment.</p>"
+          }
+        },
+        "actions": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The actions for the experiment.</p>"
+          }
+        },
+        "stopConditions": {
+          "target": "com.amazonaws.fis#ExperimentTemplateStopConditionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The stop conditions for the experiment.</p>"
+          }
+        },
+        "creationTime": {
+          "target": "com.amazonaws.fis#CreationTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time the experiment template was created.</p>"
+          }
+        },
+        "lastUpdateTime": {
+          "target": "com.amazonaws.fis#LastUpdateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time the experiment template was last updated.</p>"
+          }
+        },
+        "roleArn": {
+          "target": "com.amazonaws.fis#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM role.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the experiment template.</p>"
+          }
+        },
+        "logConfiguration": {
+          "target": "com.amazonaws.fis#ExperimentTemplateLogConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an experiment template.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateAction": {
+      "type": "structure",
+      "members": {
+        "actionId": {
+          "target": "com.amazonaws.fis#ActionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the action.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description for the action.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionParameterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameters for the action.</p>"
+          }
+        },
+        "targets": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionTargetMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The targets for the action.</p>"
+          }
+        },
+        "startAfter": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionStartAfterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the action that must be completed before the current action starts.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an action for an experiment template.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateActionDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateActionMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentTemplateActionName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ExperimentTemplateAction"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateActionName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateActionParameter": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateActionParameterMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentTemplateActionParameterName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ExperimentTemplateActionParameter"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateActionParameterName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateActionStartAfter": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateActionStartAfterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentTemplateActionStartAfter"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateActionTargetMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentTemplateActionTargetName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ExperimentTemplateTargetName"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateActionTargetName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateCloudWatchLogsLogConfiguration": {
+      "type": "structure",
+      "members": {
+        "logGroupArn": {
+          "target": "com.amazonaws.fis#CloudWatchLogGroupArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the configuration for experiment logging to Amazon CloudWatch Logs.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateCloudWatchLogsLogConfigurationInput": {
+      "type": "structure",
+      "members": {
+        "logGroupArn": {
+          "target": "com.amazonaws.fis#CloudWatchLogGroupArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the configuration for experiment logging to Amazon CloudWatch Logs.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateLogConfiguration": {
+      "type": "structure",
+      "members": {
+        "cloudWatchLogsConfiguration": {
+          "target": "com.amazonaws.fis#ExperimentTemplateCloudWatchLogsLogConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>"
+          }
+        },
+        "s3Configuration": {
+          "target": "com.amazonaws.fis#ExperimentTemplateS3LogConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging to Amazon S3.</p>"
+          }
+        },
+        "logSchemaVersion": {
+          "target": "com.amazonaws.fis#LogSchemaVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The schema version.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the configuration for experiment logging.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateS3LogConfiguration": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.fis#S3BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the destination bucket.</p>"
+          }
+        },
+        "prefix": {
+          "target": "com.amazonaws.fis#S3ObjectKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The bucket prefix.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the configuration for experiment logging to Amazon S3.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateS3LogConfigurationInput": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.fis#S3BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the destination bucket.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "prefix": {
+          "target": "com.amazonaws.fis#S3ObjectKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The bucket prefix.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the configuration for experiment logging to Amazon S3.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateStopCondition": {
+      "type": "structure",
+      "members": {
+        "source": {
+          "target": "com.amazonaws.fis#StopConditionSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The source for the stop condition.</p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.fis#StopConditionValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a stop condition for an experiment template.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateStopConditionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentTemplateStopCondition"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateSummary": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ExperimentTemplateId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment template.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#ExperimentTemplateDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the experiment template.</p>"
+          }
+        },
+        "creationTime": {
+          "target": "com.amazonaws.fis#CreationTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the experiment template was created.</p>"
+          }
+        },
+        "lastUpdateTime": {
+          "target": "com.amazonaws.fis#LastUpdateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the experiment template was last updated.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the experiment template.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Provides a summary of an experiment template.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentTemplateSummary"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTarget": {
+      "type": "structure",
+      "members": {
+        "resourceType": {
+          "target": "com.amazonaws.fis#TargetResourceTypeId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type.</p>"
+          }
+        },
+        "resourceArns": {
+          "target": "com.amazonaws.fis#ResourceArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the targets.</p>"
+          }
+        },
+        "resourceTags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the target resources.</p>"
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The filters to apply to identify target resources using specific attributes.</p>"
+          }
+        },
+        "selectionMode": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetSelectionMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Scopes the identified resources to a specific count or percentage.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetParameterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type parameters.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a target for an experiment template.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetFilter": {
+      "type": "structure",
+      "members": {
+        "path": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetFilterPath",
+          "traits": {
+            "smithy.api#documentation": "<p>The attribute path for the filter.</p>"
+          }
+        },
+        "values": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetFilterValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The attribute values for the filter.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a filter used for the target resources in an experiment template.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetFilterInputList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentTemplateTargetInputFilter"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentTemplateTargetFilter"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetFilterPath": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetFilterValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetFilterValues": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ExperimentTemplateTargetFilterValue"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetInputFilter": {
+      "type": "structure",
+      "members": {
+        "path": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetFilterPath",
+          "traits": {
+            "smithy.api#documentation": "<p>The attribute path for the filter.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "values": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetFilterValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The attribute values for the filter.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies a filter used for the target resource input in an experiment template.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters\">Resource filters</a>\n         in the <i>Fault Injection Simulator User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentTemplateTargetName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ExperimentTemplateTarget"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetParameterMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentTemplateTargetParameterName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#ExperimentTemplateTargetParameterValue"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetParameterName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetParameterValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]+$"
+      }
+    },
+    "com.amazonaws.fis#ExperimentTemplateTargetSelectionMode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#FaultInjectionSimulator": {
+      "type": "service",
+      "version": "2020-12-01",
+      "operations": [
+        {
+          "target": "com.amazonaws.fis#CreateExperimentTemplate"
+        },
+        {
+          "target": "com.amazonaws.fis#DeleteExperimentTemplate"
+        },
+        {
+          "target": "com.amazonaws.fis#GetAction"
+        },
+        {
+          "target": "com.amazonaws.fis#GetExperiment"
+        },
+        {
+          "target": "com.amazonaws.fis#GetExperimentTemplate"
+        },
+        {
+          "target": "com.amazonaws.fis#GetTargetResourceType"
+        },
+        {
+          "target": "com.amazonaws.fis#ListActions"
+        },
+        {
+          "target": "com.amazonaws.fis#ListExperiments"
+        },
+        {
+          "target": "com.amazonaws.fis#ListExperimentTemplates"
+        },
+        {
+          "target": "com.amazonaws.fis#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.fis#ListTargetResourceTypes"
+        },
+        {
+          "target": "com.amazonaws.fis#StartExperiment"
+        },
+        {
+          "target": "com.amazonaws.fis#StopExperiment"
+        },
+        {
+          "target": "com.amazonaws.fis#TagResource"
+        },
+        {
+          "target": "com.amazonaws.fis#UntagResource"
+        },
+        {
+          "target": "com.amazonaws.fis#UpdateExperimentTemplate"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "fis",
+          "arnNamespace": "fis",
+          "cloudFormationName": "Fis",
+          "cloudTrailEventSource": "fis.amazonaws.com",
+          "endpointPrefix": "fis"
+        },
+        "aws.auth#sigv4": {
+          "name": "fis"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>Fault Injection Simulator is a managed service that enables you to perform fault injection \n           experiments on your Amazon Web Services workloads. For more information, see the <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/\">Fault Injection Simulator User Guide</a>.</p>",
+        "smithy.api#title": "AWS Fault Injection Simulator",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": true,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://fis-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    "aws-us-gov",
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "name"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://fis.{Region}.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://fis-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://fis.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://fis.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://fis.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.fis#GetAction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#GetActionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#GetActionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about the specified FIS action.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/actions/{id}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#GetActionRequest": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ActionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the action.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#GetActionResponse": {
+      "type": "structure",
+      "members": {
+        "action": {
+          "target": "com.amazonaws.fis#Action",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the action.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#GetExperiment": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#GetExperimentRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#GetExperimentResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about the specified experiment.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/experiments/{id}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#GetExperimentRequest": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ExperimentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#GetExperimentResponse": {
+      "type": "structure",
+      "members": {
+        "experiment": {
+          "target": "com.amazonaws.fis#Experiment",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the experiment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#GetExperimentTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#GetExperimentTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#GetExperimentTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about the specified experiment template.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/experimentTemplates/{id}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#GetExperimentTemplateRequest": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ExperimentTemplateId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment template.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#GetExperimentTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "experimentTemplate": {
+          "target": "com.amazonaws.fis#ExperimentTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the experiment template.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#GetTargetResourceType": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#GetTargetResourceTypeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#GetTargetResourceTypeResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about the specified resource type.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/targetResourceTypes/{resourceType}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#GetTargetResourceTypeRequest": {
+      "type": "structure",
+      "members": {
+        "resourceType": {
+          "target": "com.amazonaws.fis#TargetResourceTypeId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#GetTargetResourceTypeResponse": {
+      "type": "structure",
+      "members": {
+        "targetResourceType": {
+          "target": "com.amazonaws.fis#TargetResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the resource type.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#LastUpdateTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.fis#ListActions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#ListActionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#ListActionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the available FIS actions.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/actions",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.fis#ListActionsMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.fis#ListActionsRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.fis#ListActionsMaxResults",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.fis#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#ListActionsResponse": {
+      "type": "structure",
+      "members": {
+        "actions": {
+          "target": "com.amazonaws.fis#ActionSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The actions.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.fis#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#ListExperimentTemplates": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#ListExperimentTemplatesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#ListExperimentTemplatesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists your experiment templates.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/experimentTemplates",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.fis#ListExperimentTemplatesMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.fis#ListExperimentTemplatesRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.fis#ListExperimentTemplatesMaxResults",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.fis#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#ListExperimentTemplatesResponse": {
+      "type": "structure",
+      "members": {
+        "experimentTemplates": {
+          "target": "com.amazonaws.fis#ExperimentTemplateSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The experiment templates.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.fis#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#ListExperiments": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#ListExperimentsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#ListExperimentsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists your experiments.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/experiments",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.fis#ListExperimentsMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.fis#ListExperimentsRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.fis#ListExperimentsMaxResults",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.fis#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#ListExperimentsResponse": {
+      "type": "structure",
+      "members": {
+        "experiments": {
+          "target": "com.amazonaws.fis#ExperimentSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The experiments.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.fis#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#ListTagsForResourceResponse"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the tags for the specified resource.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.fis#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "tags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the resource.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#ListTargetResourceTypes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#ListTargetResourceTypesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#ListTargetResourceTypesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the target resource types.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/targetResourceTypes",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.fis#ListTargetResourceTypesMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.fis#ListTargetResourceTypesRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.fis#ListTargetResourceTypesMaxResults",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.fis#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#ListTargetResourceTypesResponse": {
+      "type": "structure",
+      "members": {
+        "targetResourceTypes": {
+          "target": "com.amazonaws.fis#TargetResourceTypeSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The target resource types.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.fis#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#LogSchemaVersion": {
+      "type": "integer"
+    },
+    "com.amazonaws.fis#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ResourceArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ResourceArnList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#ResourceArn"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    },
+    "com.amazonaws.fis#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.fis#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ResourceNotFoundException",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>The specified resource cannot be found.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.fis#RoleArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#S3BucketName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 3,
+          "max": 63
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#S3ObjectKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#ServiceQuotaExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.fis#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ServiceQuotaExceededException",
+          "httpResponseCode": 402
+        },
+        "smithy.api#documentation": "<p>You have exceeded your service quota.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 402
+      }
+    },
+    "com.amazonaws.fis#StartExperiment": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#StartExperimentRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#StartExperimentResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.fis#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.fis#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts running an experiment from the specified experiment template.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/experiments",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#StartExperimentRequest": {
+      "type": "structure",
+      "members": {
+        "clientToken": {
+          "target": "com.amazonaws.fis#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        },
+        "experimentTemplateId": {
+          "target": "com.amazonaws.fis#ExperimentTemplateId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment template.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to apply to the experiment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#StartExperimentResponse": {
+      "type": "structure",
+      "members": {
+        "experiment": {
+          "target": "com.amazonaws.fis#Experiment",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the experiment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#StopConditionSource": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#StopConditionValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#StopExperiment": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#StopExperimentRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#StopExperimentResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Stops the specified experiment.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/experiments/{id}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#StopExperimentRequest": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ExperimentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#StopExperimentResponse": {
+      "type": "structure",
+      "members": {
+        "experiment": {
+          "target": "com.amazonaws.fis#Experiment",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the experiment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#TagKey"
+      }
+    },
+    "com.amazonaws.fis#TagMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#TagKey"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#TagValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.fis#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#TagResourceResponse"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Applies the specified tags to the specified resource.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.fis#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the resource.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#TagResourceResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[\\s\\S]*$"
+      }
+    },
+    "com.amazonaws.fis#TargetResourceType": {
+      "type": "structure",
+      "members": {
+        "resourceType": {
+          "target": "com.amazonaws.fis#TargetResourceTypeId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#TargetResourceTypeDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the resource type.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.fis#TargetResourceTypeParameterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameters for the resource type.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a resource type.</p>"
+      }
+    },
+    "com.amazonaws.fis#TargetResourceTypeDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#TargetResourceTypeId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#TargetResourceTypeParameter": {
+      "type": "structure",
+      "members": {
+        "description": {
+          "target": "com.amazonaws.fis#TargetResourceTypeParameterDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the parameter.</p>"
+          }
+        },
+        "required": {
+          "target": "com.amazonaws.fis#TargetResourceTypeParameterRequired",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>Indicates whether the parameter is required.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the parameters for a resource type. Use parameters to determine which tasks are\n          identified during target resolution.</p>"
+      }
+    },
+    "com.amazonaws.fis#TargetResourceTypeParameterDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\s\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#TargetResourceTypeParameterMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#TargetResourceTypeParameterName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#TargetResourceTypeParameter"
+      }
+    },
+    "com.amazonaws.fis#TargetResourceTypeParameterName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
+    "com.amazonaws.fis#TargetResourceTypeParameterRequired": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.fis#TargetResourceTypeSummary": {
+      "type": "structure",
+      "members": {
+        "resourceType": {
+          "target": "com.amazonaws.fis#TargetResourceTypeId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#TargetResourceTypeDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the resource type.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a resource type.</p>"
+      }
+    },
+    "com.amazonaws.fis#TargetResourceTypeSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#TargetResourceTypeSummary"
+      }
+    },
+    "com.amazonaws.fis#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#UntagResourceResponse"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Removes the specified tags from the specified resource.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.fis#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "tagKeys": {
+          "target": "com.amazonaws.fis#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag keys to remove.</p>",
+            "smithy.api#httpQuery": "tagKeys"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#UntagResourceResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#UpdateExperimentTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.fis#UpdateExperimentTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.fis#UpdateExperimentTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.fis#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.fis#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.fis#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the specified experiment template.</p>",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/experimentTemplates/{id}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.fis#UpdateExperimentTemplateActionInputItem": {
+      "type": "structure",
+      "members": {
+        "actionId": {
+          "target": "com.amazonaws.fis#ActionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the action.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description for the action.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionParameterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameters for the action, if applicable.</p>"
+          }
+        },
+        "targets": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionTargetMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The targets for the action.</p>"
+          }
+        },
+        "startAfter": {
+          "target": "com.amazonaws.fis#ExperimentTemplateActionStartAfterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the action that must be completed before the current action starts. Omit this parameter to run the action at the start of the experiment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies an action for an experiment template.</p>"
+      }
+    },
+    "com.amazonaws.fis#UpdateExperimentTemplateActionInputMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentTemplateActionName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#UpdateExperimentTemplateActionInputItem"
+      }
+    },
+    "com.amazonaws.fis#UpdateExperimentTemplateLogConfigurationInput": {
+      "type": "structure",
+      "members": {
+        "cloudWatchLogsConfiguration": {
+          "target": "com.amazonaws.fis#ExperimentTemplateCloudWatchLogsLogConfigurationInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>"
+          }
+        },
+        "s3Configuration": {
+          "target": "com.amazonaws.fis#ExperimentTemplateS3LogConfigurationInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging to Amazon S3.</p>"
+          }
+        },
+        "logSchemaVersion": {
+          "target": "com.amazonaws.fis#LogSchemaVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The schema version.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the configuration for experiment logging.</p>"
+      }
+    },
+    "com.amazonaws.fis#UpdateExperimentTemplateRequest": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.fis#ExperimentTemplateId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the experiment template.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.fis#ExperimentTemplateDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>A description for the template.</p>"
+          }
+        },
+        "stopConditions": {
+          "target": "com.amazonaws.fis#UpdateExperimentTemplateStopConditionInputList",
+          "traits": {
+            "smithy.api#documentation": "<p>The stop conditions for the experiment.</p>"
+          }
+        },
+        "targets": {
+          "target": "com.amazonaws.fis#UpdateExperimentTemplateTargetInputMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The targets for the experiment.</p>"
+          }
+        },
+        "actions": {
+          "target": "com.amazonaws.fis#UpdateExperimentTemplateActionInputMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The actions for the experiment.</p>"
+          }
+        },
+        "roleArn": {
+          "target": "com.amazonaws.fis#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>"
+          }
+        },
+        "logConfiguration": {
+          "target": "com.amazonaws.fis#UpdateExperimentTemplateLogConfigurationInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for experiment logging.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.fis#UpdateExperimentTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "experimentTemplate": {
+          "target": "com.amazonaws.fis#ExperimentTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the experiment template.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.fis#UpdateExperimentTemplateStopConditionInput": {
+      "type": "structure",
+      "members": {
+        "source": {
+          "target": "com.amazonaws.fis#StopConditionSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The source for the stop condition. Specify <code>aws:cloudwatch:alarm</code> if the stop\n         condition is defined by a CloudWatch alarm. Specify <code>none</code> if there is no stop\n         condition.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.fis#StopConditionValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudWatch alarm.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies a stop condition for an experiment. You can define a stop condition as a CloudWatch alarm.</p>"
+      }
+    },
+    "com.amazonaws.fis#UpdateExperimentTemplateStopConditionInputList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.fis#UpdateExperimentTemplateStopConditionInput"
+      }
+    },
+    "com.amazonaws.fis#UpdateExperimentTemplateTargetInput": {
+      "type": "structure",
+      "members": {
+        "resourceType": {
+          "target": "com.amazonaws.fis#TargetResourceTypeId",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type. The resource type must be supported for the specified action.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceArns": {
+          "target": "com.amazonaws.fis#ResourceArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the targets.</p>"
+          }
+        },
+        "resourceTags": {
+          "target": "com.amazonaws.fis#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the target resources.</p>"
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetFilterInputList",
+          "traits": {
+            "smithy.api#documentation": "<p>The filters to apply to identify target resources using specific attributes.</p>"
+          }
+        },
+        "selectionMode": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetSelectionMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Scopes the identified resources to a specific count or percentage.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.fis#ExperimentTemplateTargetParameterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type parameters.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies a target for an experiment. You must specify at least one Amazon Resource Name (ARN) or at least one resource tag. You cannot specify both.</p>"
+      }
+    },
+    "com.amazonaws.fis#UpdateExperimentTemplateTargetInputMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.fis#ExperimentTemplateTargetName"
+      },
+      "value": {
+        "target": "com.amazonaws.fis#UpdateExperimentTemplateTargetInput"
+      }
+    },
+    "com.amazonaws.fis#ValidationException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.fis#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ValidationException",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    }
+  }
+}

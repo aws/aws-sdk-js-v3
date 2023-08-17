@@ -1,11 +1,11 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { Client } from "@aws-sdk/smithy-client";
+import { HttpRequest } from "@smithy/protocol-http";
+import { Client } from "@smithy/smithy-client";
 import {
   BuildHandlerArguments,
   FinalizeHandlerArguments,
   MetadataBearer,
   SerializeHandlerArguments,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { fooClient, httpRequest, InputTypesUnion, operationCommand, OperationInput } from "./foo.fixture";
 import { createRequest } from "./index";
@@ -106,7 +106,7 @@ describe("create-request", () => {
       }
     );
     const request = await createRequest(
-      (fooClient as unknown) as Client<any, InputTypesUnion, MetadataBearer, any>,
+      fooClient as unknown as Client<any, InputTypesUnion, MetadataBearer, any>,
       operationCommand
     );
     expect(request).toEqual({

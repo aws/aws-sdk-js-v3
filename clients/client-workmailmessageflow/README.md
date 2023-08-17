@@ -1,7 +1,6 @@
-# @aws-sdk/client-workmailmessageflow
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-workmailmessageflow/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-workmailmessageflow)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-workmailmessageflow.svg)](https://www.npmjs.com/package/@aws-sdk/client-workmailmessageflow)
+# @aws-sdk/client-workmailmessageflow
 
 ## Description
 
@@ -50,7 +49,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new WorkMailMessageFlowClient({ region: "REGION" });
 
 const params = {
@@ -119,7 +118,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -135,7 +134,7 @@ const client = new AWS.WorkMailMessageFlow({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.getRawMessageContent(params);
+  const data = await client.getRawMessageContent(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -153,7 +152,7 @@ client
 
 // callbacks.
 client.getRawMessageContent(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -167,7 +166,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -198,10 +197,29 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-workmailmessageflow` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+GetRawMessageContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/classes/getrawmessagecontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/interfaces/getrawmessagecontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/interfaces/getrawmessagecontentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutRawMessageContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/classes/putrawmessagecontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/interfaces/putrawmessagecontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workmailmessageflow/interfaces/putrawmessagecontentcommandoutput.html)
+
+</details>

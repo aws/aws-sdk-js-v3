@@ -1,0 +1,50 @@
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
+
+import {
+  DescribeMatchmakingRuleSetsCommand,
+  DescribeMatchmakingRuleSetsCommandInput,
+  DescribeMatchmakingRuleSetsCommandOutput,
+} from "../commands/DescribeMatchmakingRuleSetsCommand";
+import { GameLiftClient } from "../GameLiftClient";
+import { GameLiftPaginationConfiguration } from "./Interfaces";
+
+/**
+ * @internal
+ */
+const makePagedClientRequest = async (
+  client: GameLiftClient,
+  input: DescribeMatchmakingRuleSetsCommandInput,
+  ...args: any
+): Promise<DescribeMatchmakingRuleSetsCommandOutput> => {
+  // @ts-ignore
+  return await client.send(new DescribeMatchmakingRuleSetsCommand(input), ...args);
+};
+/**
+ * @public
+ */
+export async function* paginateDescribeMatchmakingRuleSets(
+  config: GameLiftPaginationConfiguration,
+  input: DescribeMatchmakingRuleSetsCommandInput,
+  ...additionalArguments: any
+): Paginator<DescribeMatchmakingRuleSetsCommandOutput> {
+  // ToDo: replace with actual type instead of typeof input.NextToken
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
+  let hasNext = true;
+  let page: DescribeMatchmakingRuleSetsCommandOutput;
+  while (hasNext) {
+    input.NextToken = token;
+    input["Limit"] = config.pageSize;
+    if (config.client instanceof GameLiftClient) {
+      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
+    } else {
+      throw new Error("Invalid client, expected GameLift | GameLiftClient");
+    }
+    yield page;
+    const prevToken = token;
+    token = page.NextToken;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
+  }
+  // @ts-ignore
+  return undefined;
+}

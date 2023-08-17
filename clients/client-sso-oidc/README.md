@@ -1,30 +1,51 @@
-# @aws-sdk/client-sso-oidc
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sso-oidc/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sso-oidc)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sso-oidc.svg)](https://www.npmjs.com/package/@aws-sdk/client-sso-oidc)
+# @aws-sdk/client-sso-oidc
 
 ## Description
 
 AWS SDK for JavaScript SSOOIDC Client for Node.js, Browser and React Native.
 
-<p>AWS Single Sign-On (SSO) OpenID Connect (OIDC) is a web service that enables a client
-(such as AWS CLI or a native application) to register with AWS SSO. The service also
-enables the client to fetch the user’s access token upon successful authentication and
-authorization with AWS SSO. This service conforms with the OAuth 2.0 based implementation of
-the device authorization grant standard (<a href="https://tools.ietf.org/html/rfc8628">https://tools.ietf.org/html/rfc8628</a>).</p>
-
-<p>For general information about AWS SSO, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">What is AWS
-Single Sign-On?</a> in the <i>AWS SSO User Guide</i>.</p>
-
-<p>This API reference guide describes the AWS SSO OIDC operations that you can call
-programatically and includes detailed information on data types and errors.</p>
-
+<p>AWS IAM Identity Center (successor to AWS Single Sign-On) OpenID Connect (OIDC) is a web service that enables a client (such as AWS CLI
+or a native application) to register with IAM Identity Center. The service also enables the client to
+fetch the user’s access token upon successful authentication and authorization with
+IAM Identity Center.</p>
 <note>
-<p>AWS provides SDKs that consist of libraries and sample code for various programming
-languages and platforms such as Java, Ruby, .Net, iOS, and Android. The SDKs provide a
-convenient way to create programmatic access to AWS SSO and other AWS services. For more
-information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
+<p>Although AWS Single Sign-On was renamed, the <code>sso</code> and
+<code>identitystore</code> API namespaces will continue to retain their original name for
+backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">IAM Identity Center rename</a>.</p>
 </note>
+<p>
+<b>Considerations for Using This Guide</b>
+</p>
+<p>Before you begin using this guide, we recommend that you first review the following
+important information about how the IAM Identity Center OIDC service works.</p>
+<ul>
+<li>
+<p>The IAM Identity Center OIDC service currently implements only the portions of the OAuth 2.0
+Device Authorization Grant standard (<a href="https://tools.ietf.org/html/rfc8628">https://tools.ietf.org/html/rfc8628</a>) that are necessary to enable single
+sign-on authentication with the AWS CLI. Support for other OIDC flows frequently needed
+for native applications, such as Authorization Code Flow (+ PKCE), will be addressed in
+future releases.</p>
+</li>
+<li>
+<p>The service emits only OIDC access tokens, such that obtaining a new token (For
+example, token refresh) requires explicit user re-authentication.</p>
+</li>
+<li>
+<p>The access tokens provided by this service grant access to all AWS account
+entitlements assigned to an IAM Identity Center user, not just a particular application.</p>
+</li>
+<li>
+<p>The documentation in this guide does not describe the mechanism to convert the access
+token into AWS Auth (“sigv4”) credentials for use with IAM-protected AWS service
+endpoints. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/PortalAPIReference/API_GetRoleCredentials.html">GetRoleCredentials</a> in the <i>IAM Identity Center Portal API Reference
+Guide</i>.</p>
+</li>
+</ul>
+
+<p>For general information about IAM Identity Center, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">What is
+IAM Identity Center?</a> in the <i>IAM Identity Center User Guide</i>.</p>
 
 ## Installing
 
@@ -63,7 +84,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new SSOOIDCClient({ region: "REGION" });
 
 const params = {
@@ -132,7 +153,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -148,7 +169,7 @@ const client = new AWS.SSOOIDC({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createToken(params);
+  const data = await client.createToken(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -166,7 +187,7 @@ client
 
 // callbacks.
 client.createToken(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -180,7 +201,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -211,10 +232,37 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-sso-oidc` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-oidc/classes/createtokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-oidc/interfaces/createtokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-oidc/interfaces/createtokencommandoutput.html)
+
+</details>
+<details>
+<summary>
+RegisterClient
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-oidc/classes/registerclientcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-oidc/interfaces/registerclientcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-oidc/interfaces/registerclientcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartDeviceAuthorization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-oidc/classes/startdeviceauthorizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-oidc/interfaces/startdeviceauthorizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-oidc/interfaces/startdeviceauthorizationcommandoutput.html)
+
+</details>

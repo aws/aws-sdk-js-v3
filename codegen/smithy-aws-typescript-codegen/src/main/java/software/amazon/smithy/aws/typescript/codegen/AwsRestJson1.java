@@ -17,14 +17,16 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
 import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Handles generating the aws.rest-json-1 protocol for services.
  *
- * @inheritDoc
+ * {@inheritDoc}
  *
  * @see RestJsonProtocolGenerator
  */
+@SmithyInternalApi
 public final class AwsRestJson1 extends RestJsonProtocolGenerator {
 
     @Override

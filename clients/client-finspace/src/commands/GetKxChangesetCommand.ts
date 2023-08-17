@@ -1,0 +1,177 @@
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+} from "@smithy/types";
+
+import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
+import { GetKxChangesetRequest, GetKxChangesetResponse } from "../models/models_0";
+import { de_GetKxChangesetCommand, se_GetKxChangesetCommand } from "../protocols/Aws_restJson1";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetKxChangesetCommand}.
+ */
+export interface GetKxChangesetCommandInput extends GetKxChangesetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetKxChangesetCommand}.
+ */
+export interface GetKxChangesetCommandOutput extends GetKxChangesetResponse, __MetadataBearer {}
+
+/**
+ * @public
+ * <p>Returns information about a kdb changeset.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FinspaceClient, GetKxChangesetCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, GetKxChangesetCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * const client = new FinspaceClient(config);
+ * const input = { // GetKxChangesetRequest
+ *   environmentId: "STRING_VALUE", // required
+ *   databaseName: "STRING_VALUE", // required
+ *   changesetId: "STRING_VALUE", // required
+ * };
+ * const command = new GetKxChangesetCommand(input);
+ * const response = await client.send(command);
+ * // { // GetKxChangesetResponse
+ * //   changesetId: "STRING_VALUE",
+ * //   databaseName: "STRING_VALUE",
+ * //   environmentId: "STRING_VALUE",
+ * //   changeRequests: [ // ChangeRequests
+ * //     { // ChangeRequest
+ * //       changeType: "PUT" || "DELETE", // required
+ * //       s3Path: "STRING_VALUE",
+ * //       dbPath: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   createdTimestamp: new Date("TIMESTAMP"),
+ * //   activeFromTimestamp: new Date("TIMESTAMP"),
+ * //   lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * //   status: "PENDING" || "PROCESSING" || "FAILED" || "COMPLETED",
+ * //   errorInfo: { // ErrorInfo
+ * //     errorMessage: "STRING_VALUE",
+ * //     errorType: "The inputs to this request are invalid." || "Service limits have been exceeded." || "Missing required permission to perform this request." || "One or more inputs to this request were not found." || "The system temporarily lacks sufficient resources to process the request." || "An internal error has occurred." || "Cancelled" || "A user recoverable error has occurred",
+ * //   },
+ * // };
+ *
+ * ```
+ *
+ * @param GetKxChangesetCommandInput - {@link GetKxChangesetCommandInput}
+ * @returns {@link GetKxChangesetCommandOutput}
+ * @see {@link GetKxChangesetCommandInput} for command's `input` shape.
+ * @see {@link GetKxChangesetCommandOutput} for command's `response` shape.
+ * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * @throws {@link FinspaceServiceException}
+ * <p>Base exception class for all service exceptions from Finspace service.</p>
+ *
+ */
+export class GetKxChangesetCommand extends $Command<
+  GetKxChangesetCommandInput,
+  GetKxChangesetCommandOutput,
+  FinspaceClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
+  constructor(readonly input: GetKxChangesetCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: FinspaceClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<GetKxChangesetCommandInput, GetKxChangesetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetKxChangesetCommand.getEndpointParameterInstructions())
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "FinspaceClient";
+    const commandName = "GetKxChangesetCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  /**
+   * @internal
+   */
+  private serialize(input: GetKxChangesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetKxChangesetCommand(input, context);
+  }
+
+  /**
+   * @internal
+   */
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKxChangesetCommandOutput> {
+    return de_GetKxChangesetCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

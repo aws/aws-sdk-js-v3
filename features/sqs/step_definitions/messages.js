@@ -1,4 +1,4 @@
-const { Then, When } = require("cucumber");
+const { Then, When } = require("@cucumber/cucumber");
 
 When("I send the message {string}", function (message, callback) {
   this.request(null, "sendMessage", { QueueUrl: this.queueUrl, MessageBody: message }, callback);

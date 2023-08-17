@@ -6,4 +6,5 @@ export {
   updateArnablesRequestMiddlewareOptions,
   getProcessArnablesPlugin,
 } from "./process-arnables-plugin";
+export * from "./host-prefix-deduplication/hostPrefixDeduplicationMiddleware";
 export * from "./redirect-from-postid";

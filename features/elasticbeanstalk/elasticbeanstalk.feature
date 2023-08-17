@@ -11,7 +11,6 @@ Feature: AWS Elastic Beanstalk
     And I describe the Elastic Beanstalk application
     Then the result should contain the Elastic Beanstalk application version
     And the result should contain the Elastic Beanstalk application name
-    And I delete the Elastic Beanstalk application
 
   Scenario: Error handling
     Given I create an Elastic Beanstalk application with name prefix ""

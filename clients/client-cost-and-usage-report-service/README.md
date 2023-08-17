@@ -1,7 +1,6 @@
-# @aws-sdk/client-cost-and-usage-report-service
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cost-and-usage-report-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cost-and-usage-report-service)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cost-and-usage-report-service.svg)](https://www.npmjs.com/package/@aws-sdk/client-cost-and-usage-report-service)
+# @aws-sdk/client-cost-and-usage-report-service
 
 ## Description
 
@@ -69,7 +68,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new CostAndUsageReportServiceClient({ region: "REGION" });
 
 const params = {
@@ -138,7 +137,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -154,7 +153,7 @@ const client = new AWS.CostAndUsageReportService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteReportDefinition(params);
+  const data = await client.deleteReportDefinition(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -172,7 +171,7 @@ client
 
 // callbacks.
 client.deleteReportDefinition(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -186,7 +185,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -217,10 +216,45 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-cost-and-usage-report-service` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+DeleteReportDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/deletereportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/deletereportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/deletereportdefinitioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeReportDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/describereportdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/describereportdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/describereportdefinitionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ModifyReportDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/modifyreportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/modifyreportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/modifyreportdefinitioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutReportDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/putreportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/putreportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/putreportdefinitioncommandoutput.html)
+
+</details>

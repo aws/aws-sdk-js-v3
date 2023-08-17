@@ -1,10 +1,10 @@
-import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { HttpRequest } from "@aws-sdk/types";
+import { buildQueryString } from "@smithy/querystring-builder";
+import { HttpRequest } from "@smithy/types";
 
 export function formatUrl(request: Omit<HttpRequest, "headers" | "method">): string {
   const { port, query } = request;
   let { protocol, path, hostname } = request;
-  if (protocol && protocol.substr(-1) !== ":") {
+  if (protocol && protocol.slice(-1) !== ":") {
     protocol += ":";
   }
   if (port) {
@@ -17,5 +17,15 @@ export function formatUrl(request: Omit<HttpRequest, "headers" | "method">): str
   if (queryString && queryString[0] !== "?") {
     queryString = `?${queryString}`;
   }
-  return `${protocol}//${hostname}${path}${queryString}`;
+  let auth = "";
+  if (request.username != null || request.password != null) {
+    const username = request.username ?? "";
+    const password = request.password ?? "";
+    auth = `${username}:${password}@`;
+  }
+  let fragment = "";
+  if (request.fragment) {
+    fragment = `#${request.fragment}`;
+  }
+  return `${protocol}//${auth}${hostname}${path}${queryString}${fragment}`;
 }

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["es2016"],
+    "noUnusedLocals": true,
+    "outDir": "dist-cjs",
+    "rootDir": "src",
+    "stripInternal": true
+  },
+  "extends": "../../tsconfig.cjs.json",
+  "include": ["src/"]
+}

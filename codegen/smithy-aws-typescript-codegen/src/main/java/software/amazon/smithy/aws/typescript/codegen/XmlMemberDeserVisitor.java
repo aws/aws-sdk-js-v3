@@ -24,58 +24,82 @@ import software.amazon.smithy.model.shapes.DoubleShape;
 import software.amazon.smithy.model.shapes.FloatShape;
 import software.amazon.smithy.model.shapes.IntegerShape;
 import software.amazon.smithy.model.shapes.LongShape;
+import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShortShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Overrides several of the default implementations to handle XML document
  * contents deserializing to strings instead of typed components:
  *
  * <ul>
- *   <li>Uses {@code parseFloat} on Float and Double shapes.</li>
+ *   <li>Uses {@code strictParseFloat} on Float and Double shapes.</li>
  *   <li>Fails on BigDecimal and BigInteger shapes.</li>
- *   <li>Uses {@code parseInt} on other number shapes.</li>
+ *   <li>Uses {@code strictParseInt} on other number shapes.</li>
  *   <li>Compares boolean shapes to the string {@code "true"} to generate a boolean.</li>
  * </ul>
  *
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
+@SmithyInternalApi
 final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
+    private final MemberShape memberShape;
+
     XmlMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+        this(context, null, dataSource, defaultTimestampFormat);
+    }
+
+    XmlMemberDeserVisitor(GenerationContext context,
+                          MemberShape memberShape,
+                          String dataSource,
+                          Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
+        this.memberShape = memberShape;
+    }
+
+    @Override
+    protected MemberShape getMemberShape() {
+        return memberShape;
     }
 
     @Override
     public String booleanShape(BooleanShape shape) {
-        return getDataSource() + " == 'true'";
+        getContext().getWriter().addImport("parseBoolean", "__parseBoolean", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        return "__parseBoolean(" + getDataSource() + ")";
     }
 
     @Override
     public String byteShape(ByteShape shape) {
-        return deserializeInt();
+        getContext().getWriter().addImport("strictParseByte", "__strictParseByte",
+            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        return "__strictParseByte(" + getDataSource() + ") as number";
     }
 
     @Override
     public String shortShape(ShortShape shape) {
-        return deserializeInt();
+        getContext().getWriter().addImport("strictParseShort", "__strictParseShort",
+            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        return "__strictParseShort(" + getDataSource() + ") as number";
     }
 
     @Override
     public String integerShape(IntegerShape shape) {
-        return deserializeInt();
+        getContext().getWriter().addImport("strictParseInt32", "__strictParseInt32",
+            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        return "__strictParseInt32(" + getDataSource() + ") as number";
     }
 
     @Override
     public String longShape(LongShape shape) {
-        return deserializeInt();
-    }
-
-    private String deserializeInt() {
-        return "parseInt(" + getDataSource() + ")";
+        getContext().getWriter().addImport("strictParseLong", "__strictParseLong",
+            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        return "__strictParseLong(" + getDataSource() + ") as number";
     }
 
     @Override
@@ -89,7 +113,9 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     private String deserializeFloat() {
-        return "parseFloat(" + getDataSource() + ")";
+        getContext().getWriter().addImport("strictParseFloat", "__strictParseFloat",
+            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        return "__strictParseFloat(" + getDataSource() + ") as number";
     }
 
     @Override

@@ -1,0 +1,5 @@
+// smithy-typescript generated code
+export * from "./waitForInstanceProfileExists";
+export * from "./waitForPolicyExists";
+export * from "./waitForRoleExists";
+export * from "./waitForUserExists";

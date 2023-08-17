@@ -1,14 +1,15 @@
 import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
-import { ProviderError } from "@aws-sdk/property-provider";
-import { CredentialProvider } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
-import { fromCognitoIdentity } from "./fromCognitoIdentity";
+import { CognitoIdentityCredentialProvider, fromCognitoIdentity } from "./fromCognitoIdentity";
 import { localStorage } from "./localStorage";
 import { resolveLogins } from "./resolveLogins";
 import { Storage } from "./Storage";
 
 /**
+ * @internal
+ *
  * Retrieves or generates a unique identifier using Amazon Cognito's `GetId`
  * operation, then generates temporary AWS credentials using Amazon Cognito's
  * `GetCredentialsForIdentity` operation.
@@ -24,10 +25,10 @@ export function fromCognitoIdentityPool({
   identityPoolId,
   logins,
   userIdentifier = !logins || Object.keys(logins).length === 0 ? "ANONYMOUS" : undefined,
-}: FromCognitoIdentityPoolParameters): CredentialProvider {
+}: FromCognitoIdentityPoolParameters): CognitoIdentityCredentialProvider {
   const cacheKey = userIdentifier ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}` : undefined;
 
-  let provider: CredentialProvider = async () => {
+  let provider: CognitoIdentityCredentialProvider = async () => {
     let identityId = cacheKey && (await cache.getItem(cacheKey));
     if (!identityId) {
       const { IdentityId = throwOnMissingId() } = await client.send(
@@ -63,6 +64,9 @@ export function fromCognitoIdentityPool({
     });
 }
 
+/**
+ * @internal
+ */
 export interface FromCognitoIdentityPoolParameters extends CognitoProviderParameters {
   /**
    * A standard AWS account ID (9+ digits).
@@ -100,5 +104,5 @@ export interface FromCognitoIdentityPoolParameters extends CognitoProviderParame
 }
 
 function throwOnMissingId(): never {
-  throw new ProviderError("Response from Amazon Cognito contained no identity ID");
+  throw new CredentialsProviderError("Response from Amazon Cognito contained no identity ID");
 }

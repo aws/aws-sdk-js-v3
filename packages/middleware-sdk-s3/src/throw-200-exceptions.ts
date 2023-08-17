@@ -1,5 +1,5 @@
-import { HttpResponse } from "@aws-sdk/protocol-http";
-import { DeserializeMiddleware, Encoder, Pluggable, RelativeMiddlewareOptions, StreamCollector } from "@aws-sdk/types";
+import { HttpResponse } from "@smithy/protocol-http";
+import { DeserializeMiddleware, Encoder, Pluggable, RelativeMiddlewareOptions, StreamCollector } from "@smithy/types";
 
 type PreviouslyResolved = {
   streamCollector: StreamCollector;
@@ -11,33 +11,34 @@ type PreviouslyResolved = {
  * CompleteMultipartUpload may return empty payload or payload with only xml Preamble.
  * @internal
  */
-export const throw200ExceptionsMiddleware = (config: PreviouslyResolved): DeserializeMiddleware<any, any> => (
-  next
-) => async (args) => {
-  const result = await next(args);
-  const { response } = result;
-  if (!HttpResponse.isInstance(response)) return result;
-  const { statusCode, body } = response;
-  if (statusCode < 200 && statusCode >= 300) return result;
+export const throw200ExceptionsMiddleware =
+  (config: PreviouslyResolved): DeserializeMiddleware<any, any> =>
+  (next) =>
+  async (args) => {
+    const result = await next(args);
+    const { response } = result;
+    if (!HttpResponse.isInstance(response)) return result;
+    const { statusCode, body } = response;
+    if (statusCode < 200 || statusCode >= 300) return result;
 
-  // Throw 2XX response that's either an error or has empty body.
-  const bodyBytes = await collectBody(body, config);
-  const bodyString = await collectBodyString(bodyBytes, config);
-  if (bodyBytes.length === 0) {
-    const err = new Error("S3 aborted request");
-    err.name = "InternalError";
-    throw err;
-  }
-  if (bodyString && bodyString.match("<Error>")) {
-    // Set the error code to 4XX so that error deserializer can parse them
-    response.statusCode = 400;
-  }
+    // Throw 2XX response that's either an error or has empty body.
+    const bodyBytes = await collectBody(body, config);
+    const bodyString = await collectBodyString(bodyBytes, config);
+    if (bodyBytes.length === 0) {
+      const err = new Error("S3 aborted request");
+      err.name = "InternalError";
+      throw err;
+    }
+    if (bodyString && bodyString.match("<Error>")) {
+      // Set the error code to 4XX so that error deserializer can parse them
+      response.statusCode = 400;
+    }
 
-  // Body stream is consumed and paused at this point. So replace the response.body to the collected bytes.
-  // So that the deserializer can consume the body as normal.
-  response.body = bodyBytes;
-  return result;
-};
+    // Body stream is consumed and paused at this point. So replace the response.body to the collected bytes.
+    // So that the deserializer can consume the body as normal.
+    response.body = bodyBytes;
+    return result;
+  };
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (streamBody: any = new Uint8Array(), context: PreviouslyResolved): Promise<Uint8Array> => {
@@ -59,6 +60,7 @@ export const throw200ExceptionsMiddlewareOptions: RelativeMiddlewareOptions = {
   toMiddleware: "deserializerMiddleware",
   tags: ["THROW_200_EXCEPTIONS", "S3"],
   name: "throw200ExceptionsMiddleware",
+  override: true,
 };
 
 /**

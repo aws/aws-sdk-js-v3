@@ -8,5 +8,3 @@ Feature: SQS Queues
     Given I create a queue with the prefix name "aws-js-sdk"
     And I create a queue with the prefix name "aws-js-sdk"
     Then list queues should eventually return the queue urls
-    Then I delete the SQS queue
-    Then I delete the SQS queue

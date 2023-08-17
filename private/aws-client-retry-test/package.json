@@ -1,0 +1,63 @@
+{
+  "name": "@aws-sdk/aws-client-retry-test",
+  "description": "Integration test suite for middleware-retry",
+  "version": "3.391.0",
+  "scripts": {
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "test": "jest --coverage --passWithNoTests"
+  },
+  "main": "./dist-cjs/index.js",
+  "types": "./dist-types/index.d.ts",
+  "module": "./dist-es/index.js",
+  "sideEffects": false,
+  "dependencies": {
+    "@aws-sdk/client-s3": "*",
+    "@smithy/protocol-http": "^2.0.3",
+    "@smithy/types": "^2.2.0",
+    "@smithy/util-retry": "^2.0.0",
+    "tslib": "^2.5.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "1.0.3",
+    "@types/node": "^14.14.31",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5"
+  },
+  "overrides": {
+    "typedoc": {
+      "typescript": "~4.9.5"
+    }
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "private/aws-client-retry-test"
+  }
+}

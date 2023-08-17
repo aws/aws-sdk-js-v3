@@ -14,7 +14,8 @@ export type NativeAttributeValue =
   | NativeScalarAttributeValue
   | { [key: string]: NativeAttributeValue }
   | NativeAttributeValue[]
-  | Set<number | bigint | NumberValue | string | NativeAttributeBinary | undefined>;
+  | Set<number | bigint | NumberValue | string | NativeAttributeBinary | undefined>
+  | InstanceType<{ new (...args: any[]): any }>; // accepts any class instance with options.convertClassInstanceToMap
 
 export type NativeScalarAttributeValue =
   | null
@@ -25,6 +26,15 @@ export type NativeScalarAttributeValue =
   | bigint
   | NativeAttributeBinary
   | string;
+
+/**
+ * Declare File in case DOM is not added to the tsconfig lib causing
+ * File interface is not defined. For developers with DOM lib added,
+ * the File interface will be merged correctly.
+ */
+declare global {
+  interface File {}
+}
 
 export type NativeAttributeBinary =
   | ArrayBuffer

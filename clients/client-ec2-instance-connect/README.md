@@ -1,15 +1,14 @@
-# @aws-sdk/client-ec2-instance-connect
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ec2-instance-connect/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ec2-instance-connect)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ec2-instance-connect.svg)](https://www.npmjs.com/package/@aws-sdk/client-ec2-instance-connect)
+# @aws-sdk/client-ec2-instance-connect
 
 ## Description
 
 AWS SDK for JavaScript EC2InstanceConnect Client for Node.js, Browser and React Native.
 
-<p>AWS EC2 Connect Service is a service that enables system administrators to publish
-temporary SSH keys to their EC2 instances in order to establish connections to their
-instances without leaving a permanent authentication option.</p>
+<p>Amazon EC2 Instance Connect enables system administrators to publish one-time use SSH
+public keys to EC2, providing users a simple and secure way to connect to their
+instances.</p>
 
 ## Installing
 
@@ -26,16 +25,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EC2InstanceConnectClient` and
-the commands you need, for example `SendSSHPublicKeyCommand`:
+the commands you need, for example `SendSerialConsoleSSHPublicKeyCommand`:
 
 ```js
 // ES5 example
-const { EC2InstanceConnectClient, SendSSHPublicKeyCommand } = require("@aws-sdk/client-ec2-instance-connect");
+const {
+  EC2InstanceConnectClient,
+  SendSerialConsoleSSHPublicKeyCommand,
+} = require("@aws-sdk/client-ec2-instance-connect");
 ```
 
 ```ts
 // ES6+ example
-import { EC2InstanceConnectClient, SendSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect";
+import { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect";
 ```
 
 ### Usage
@@ -48,13 +50,13 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new EC2InstanceConnectClient({ region: "REGION" });
 
 const params = {
   /** input parameters */
 };
-const command = new SendSSHPublicKeyCommand(params);
+const command = new SendSerialConsoleSSHPublicKeyCommand(params);
 ```
 
 #### Async/await
@@ -117,7 +119,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -133,7 +135,7 @@ const client = new AWS.EC2InstanceConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.sendSSHPublicKey(params);
+  const data = await client.sendSerialConsoleSSHPublicKey(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +143,7 @@ try {
 
 // Promises.
 client
-  .sendSSHPublicKey(params)
+  .sendSerialConsoleSSHPublicKey(params)
   .then((data) => {
     // process data.
   })
@@ -150,8 +152,8 @@ client
   });
 
 // callbacks.
-client.sendSSHPublicKey(params, (err, data) => {
-  // proccess err and data.
+client.sendSerialConsoleSSHPublicKey(params, (err, data) => {
+  // process err and data.
 });
 ```
 
@@ -165,7 +167,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -196,10 +198,29 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-ec2-instance-connect` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+SendSerialConsoleSSHPublicKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/classes/sendserialconsolesshpublickeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendserialconsolesshpublickeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendserialconsolesshpublickeycommandoutput.html)
+
+</details>
+<details>
+<summary>
+SendSSHPublicKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/classes/sendsshpublickeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendsshpublickeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendsshpublickeycommandoutput.html)
+
+</details>

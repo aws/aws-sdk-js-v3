@@ -1,7 +1,6 @@
-# @aws-sdk/client-honeycode
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-honeycode/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-honeycode)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-honeycode.svg)](https://www.npmjs.com/package/@aws-sdk/client-honeycode)
+# @aws-sdk/client-honeycode
 
 ## Description
 
@@ -50,7 +49,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new HoneycodeClient({ region: "REGION" });
 
 const params = {
@@ -119,7 +118,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -135,7 +134,7 @@ const client = new AWS.Honeycode({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchCreateTableRows(params);
+  const data = await client.batchCreateTableRows(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -153,7 +152,7 @@ client
 
 // callbacks.
 client.batchCreateTableRows(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -167,7 +166,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -198,10 +197,133 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-honeycode` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+BatchCreateTableRows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/batchcreatetablerowscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/batchcreatetablerowscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/batchcreatetablerowscommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchDeleteTableRows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/batchdeletetablerowscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/batchdeletetablerowscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/batchdeletetablerowscommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchUpdateTableRows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/batchupdatetablerowscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/batchupdatetablerowscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/batchupdatetablerowscommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchUpsertTableRows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/batchupserttablerowscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/batchupserttablerowscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/batchupserttablerowscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTableDataImportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/describetabledataimportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/describetabledataimportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/describetabledataimportjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetScreenData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/getscreendatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/getscreendatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/getscreendatacommandoutput.html)
+
+</details>
+<details>
+<summary>
+InvokeScreenAutomation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/invokescreenautomationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/invokescreenautomationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/invokescreenautomationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTableColumns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/listtablecolumnscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/listtablecolumnscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/listtablecolumnscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTableRows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/listtablerowscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/listtablerowscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/listtablerowscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTables
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/listtablescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/listtablescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/listtablescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+QueryTableRows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/querytablerowscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/querytablerowscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/querytablerowscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartTableDataImportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/starttabledataimportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/starttabledataimportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/starttabledataimportjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-honeycode/interfaces/untagresourcecommandoutput.html)
+
+</details>

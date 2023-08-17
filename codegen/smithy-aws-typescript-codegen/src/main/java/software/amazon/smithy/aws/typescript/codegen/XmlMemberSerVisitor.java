@@ -34,6 +34,7 @@ import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Overrides several of the default implementations to handle XML document
@@ -46,12 +47,15 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  *
  * TODO: Work out support for BigDecimal and BigInteger, natively or through a library.
  *
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
+@SmithyInternalApi
 final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
+    private final GenerationContext context;
 
     XmlMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
+        this.context = context;
     }
 
     @Override
@@ -112,12 +116,12 @@ final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
         // Handle the @xmlName trait for the shape itself.
         String nodeName = shape.getTrait(XmlNameTrait.class)
                 .map(XmlNameTrait::getValue)
-                .orElse(shape.getId().getName());
+                .orElse(shape.getId().getName(context.getService()));
 
         TypeScriptWriter writer = getContext().getWriter();
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
         writer.addImport("XmlText", "__XmlText", "@aws-sdk/xml-builder");
-        return "new __XmlNode(\"" + nodeName + "\").addChildNode(new __XmlText(" + dataSource + "))";
+        return "__XmlNode.of(\"" + nodeName + "\", " + dataSource + ")";
     }
 
     @Override

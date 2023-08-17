@@ -1,14 +1,16 @@
-# @aws-sdk/client-redshift-data
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-redshift-data/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-redshift-data)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-redshift-data.svg)](https://www.npmjs.com/package/@aws-sdk/client-redshift-data)
+# @aws-sdk/client-redshift-data
 
 ## Description
 
 AWS SDK for JavaScript RedshiftData Client for Node.js, Browser and React Native.
 
 <p>You can use the Amazon Redshift Data API to run queries on Amazon Redshift tables. You
-can run individual SQL statements, which are committed if the statement succeeds. </p>
+can run SQL statements, which are committed if the statement succeeds. </p>
+<p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+<a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+<i>Amazon Redshift Management Guide</i>. </p>
 
 ## Installing
 
@@ -25,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RedshiftDataClient` and
-the commands you need, for example `CancelStatementCommand`:
+the commands you need, for example `BatchExecuteStatementCommand`:
 
 ```js
 // ES5 example
-const { RedshiftDataClient, CancelStatementCommand } = require("@aws-sdk/client-redshift-data");
+const { RedshiftDataClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-redshift-data");
 ```
 
 ```ts
 // ES6+ example
-import { RedshiftDataClient, CancelStatementCommand } from "@aws-sdk/client-redshift-data";
+import { RedshiftDataClient, BatchExecuteStatementCommand } from "@aws-sdk/client-redshift-data";
 ```
 
 ### Usage
@@ -47,13 +49,13 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new RedshiftDataClient({ region: "REGION" });
 
 const params = {
   /** input parameters */
 };
-const command = new CancelStatementCommand(params);
+const command = new BatchExecuteStatementCommand(params);
 ```
 
 #### Async/await
@@ -116,7 +118,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -132,7 +134,7 @@ const client = new AWS.RedshiftData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelStatement(params);
+  const data = await client.batchExecuteStatement(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +142,7 @@ try {
 
 // Promises.
 client
-  .cancelStatement(params)
+  .batchExecuteStatement(params)
   .then((data) => {
     // process data.
   })
@@ -149,8 +151,8 @@ client
   });
 
 // callbacks.
-client.cancelStatement(params, (err, data) => {
-  // proccess err and data.
+client.batchExecuteStatement(params, (err, data) => {
+  // process err and data.
 });
 ```
 
@@ -164,7 +166,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -195,10 +197,93 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-redshift-data` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+BatchExecuteStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/batchexecutestatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/batchexecutestatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/batchexecutestatementcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CancelStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/cancelstatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/cancelstatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/cancelstatementcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/describestatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/describestatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/describestatementcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTable
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/describetablecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/describetablecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/describetablecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ExecuteStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/executestatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/executestatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/executestatementcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetStatementResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/getstatementresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/getstatementresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/getstatementresultcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDatabases
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/listdatabasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listdatabasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listdatabasescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSchemas
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/listschemascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listschemascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listschemascommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListStatements
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/liststatementscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/liststatementscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/liststatementscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTables
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/listtablescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listtablescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listtablescommandoutput.html)
+
+</details>

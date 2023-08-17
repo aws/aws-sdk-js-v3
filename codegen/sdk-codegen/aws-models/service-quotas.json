@@ -1,0 +1,4080 @@
+{
+  "smithy": "2.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "PaginatedTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The action you attempted is not allowed unless Service Access with Service Quotas is\n      enabled in your organization.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.servicequotas#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You do not have sufficient permission to perform this action.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.servicequotas#AmazonResourceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1011
+        },
+        "smithy.api#pattern": "arn:aws(-[\\w]+)*:*:.+:[0-9]{12}:.+"
+      }
+    },
+    "com.amazonaws.servicequotas#AssociateServiceQuotaTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#AssociateServiceQuotaTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#AssociateServiceQuotaTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoAvailableOrganizationException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#OrganizationNotInAllFeaturesModeException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Associates your quota request template with your organization. When a new account is\n      created in your organization, the quota increase requests in the template are automatically\n      applied to the account. You can add a quota increase request for any adjustable quota to your\n      template.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#AssociateServiceQuotaTemplateRequest": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.servicequotas#AssociateServiceQuotaTemplateResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.servicequotas#AwsRegion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "[a-zA-Z][a-zA-Z0-9-]{1,128}"
+      }
+    },
+    "com.amazonaws.servicequotas#CustomerServiceEngagementId": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#DateTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.servicequotas#DeleteServiceQuotaIncreaseRequestFromTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#DeleteServiceQuotaIncreaseRequestFromTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#DeleteServiceQuotaIncreaseRequestFromTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoAvailableOrganizationException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the quota increase request for the specified quota from your quota request\n      template.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#DeleteServiceQuotaIncreaseRequestFromTemplateRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AwsRegion": {
+          "target": "com.amazonaws.servicequotas#AwsRegion",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#DeleteServiceQuotaIncreaseRequestFromTemplateResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.servicequotas#DependencyAccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You can't perform this action because a dependency does not have access.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.servicequotas#DisassociateServiceQuotaTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#DisassociateServiceQuotaTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#DisassociateServiceQuotaTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoAvailableOrganizationException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceQuotaTemplateNotInUseException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disables your quota request template. After a template is disabled, the quota increase\n      requests in the template are not applied to new accounts in your organization. Disabling a\n      quota request template does not apply its quota increase requests.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#DisassociateServiceQuotaTemplateRequest": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.servicequotas#DisassociateServiceQuotaTemplateResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.servicequotas#ErrorCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "DEPENDENCY_ACCESS_DENIED_ERROR",
+            "name": "DEPENDENCY_ACCESS_DENIED_ERROR"
+          },
+          {
+            "value": "DEPENDENCY_THROTTLING_ERROR",
+            "name": "DEPENDENCY_THROTTLING_ERROR"
+          },
+          {
+            "value": "DEPENDENCY_SERVICE_ERROR",
+            "name": "DEPENDENCY_SERVICE_ERROR"
+          },
+          {
+            "value": "SERVICE_QUOTA_NOT_AVAILABLE_ERROR",
+            "name": "SERVICE_QUOTA_NOT_AVAILABLE_ERROR"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.servicequotas#ErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#ErrorReason": {
+      "type": "structure",
+      "members": {
+        "ErrorCode": {
+          "target": "com.amazonaws.servicequotas#ErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Service Quotas returns the following error values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the required\n          permissions to complete the action. To resolve the error, you must have permission to\n          access the service or quota.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DEPENDENCY_THROTTLING_ERROR</code> - The service is throttling Service\n          Quotas.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DEPENDENCY_SERVICE_ERROR</code> - The service is not available.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> - There was an error in Service\n          Quotas.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.servicequotas#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An error that explains why an action did not succeed.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#ExceptionMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#GetAWSDefaultServiceQuota": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#GetAWSDefaultServiceQuotaRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#GetAWSDefaultServiceQuotaResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the default value for the specified quota. The default value does not reflect\n      any quota increases.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#GetAWSDefaultServiceQuotaRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota identifier.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#GetAWSDefaultServiceQuotaResponse": {
+      "type": "structure",
+      "members": {
+        "Quota": {
+          "target": "com.amazonaws.servicequotas#ServiceQuota",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the quota.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoAvailableOrganizationException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceQuotaTemplateNotInUseException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the status of the association for the quota request template.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplateRequest": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "ServiceQuotaTemplateAssociationStatus": {
+          "target": "com.amazonaws.servicequotas#ServiceQuotaTemplateAssociationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The association status. If the status is <code>ASSOCIATED</code>, the quota increase\n      requests in the template are automatically applied to new accounts in your\n      organization.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#GetRequestedServiceQuotaChange": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#GetRequestedServiceQuotaChangeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#GetRequestedServiceQuotaChangeResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves information about the specified quota increase request.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#GetRequestedServiceQuotaChangeRequest": {
+      "type": "structure",
+      "members": {
+        "RequestId": {
+          "target": "com.amazonaws.servicequotas#RequestId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the quota increase request.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#GetRequestedServiceQuotaChangeResponse": {
+      "type": "structure",
+      "members": {
+        "RequestedQuota": {
+          "target": "com.amazonaws.servicequotas#RequestedServiceQuotaChange",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the quota increase request.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#GetServiceQuota": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#GetServiceQuotaRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#GetServiceQuotaResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the applied quota value for the specified quota. For some quotas, only the\n      default values are available. If the applied quota value is not available for a quota, the\n      quota is not retrieved.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#GetServiceQuotaIncreaseRequestFromTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#GetServiceQuotaIncreaseRequestFromTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#GetServiceQuotaIncreaseRequestFromTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoAvailableOrganizationException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves information about the specified quota increase request in your quota request\n      template.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#GetServiceQuotaIncreaseRequestFromTemplateRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AwsRegion": {
+          "target": "com.amazonaws.servicequotas#AwsRegion",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#GetServiceQuotaIncreaseRequestFromTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "ServiceQuotaIncreaseRequestInTemplate": {
+          "target": "com.amazonaws.servicequotas#ServiceQuotaIncreaseRequestInTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the quota increase request.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#GetServiceQuotaRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota identifier.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#GetServiceQuotaResponse": {
+      "type": "structure",
+      "members": {
+        "Quota": {
+          "target": "com.amazonaws.servicequotas#ServiceQuota",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the quota.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#GlobalQuota": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.servicequotas#IllegalArgumentException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Invalid input was provided.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.servicequotas#InputTagKeys": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.servicequotas#TagKey"
+      }
+    },
+    "com.amazonaws.servicequotas#InputTags": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.servicequotas#Tag"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#InvalidPaginationTokenException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Invalid input was provided.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.servicequotas#InvalidResourceStateException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The resource is in an invalid state.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 405
+      }
+    },
+    "com.amazonaws.servicequotas#ListAWSDefaultServiceQuotas": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#ListAWSDefaultServiceQuotasRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#ListAWSDefaultServiceQuotasResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#InvalidPaginationTokenException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the default values for the quotas for the specified AWS service. A default value\n      does not reflect any quota increases.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Quotas",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListAWSDefaultServiceQuotasRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.servicequotas#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve the remaining\n      results, if any, make another call with the token returned from this call.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListAWSDefaultServiceQuotasResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there are\n      no more results to return.</p>"
+          }
+        },
+        "Quotas": {
+          "target": "com.amazonaws.servicequotas#ServiceQuotaListDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the quotas.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistory": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#InvalidPaginationTokenException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the quota increase requests for the specified service.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "RequestedQuotas",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryByQuota": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryByQuotaRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#InvalidPaginationTokenException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the quota increase requests for the specified quota.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "RequestedQuotas",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryByQuotaRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.servicequotas#RequestStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status value of the quota increase request.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.servicequotas#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve the remaining\n      results, if any, make another call with the token returned from this call.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryByQuotaResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there are\n      no more results to return.</p>"
+          }
+        },
+        "RequestedQuotas": {
+          "target": "com.amazonaws.servicequotas#RequestedServiceQuotaChangeHistoryListDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the quota increase requests.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.servicequotas#RequestStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the quota increase request.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.servicequotas#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve the remaining\n      results, if any, make another call with the token returned from this call.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there are\n      no more results to return.</p>"
+          }
+        },
+        "RequestedQuotas": {
+          "target": "com.amazonaws.servicequotas#RequestedServiceQuotaChangeHistoryListDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the quota increase requests.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListServiceQuotaIncreaseRequestsInTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#ListServiceQuotaIncreaseRequestsInTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#ListServiceQuotaIncreaseRequestsInTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoAvailableOrganizationException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the quota increase requests in the specified quota request template.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "ServiceQuotaIncreaseRequestInTemplateList",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListServiceQuotaIncreaseRequestsInTemplateRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>"
+          }
+        },
+        "AwsRegion": {
+          "target": "com.amazonaws.servicequotas#AwsRegion",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.servicequotas#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve the remaining\n      results, if any, make another call with the token returned from this call.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListServiceQuotaIncreaseRequestsInTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "ServiceQuotaIncreaseRequestInTemplateList": {
+          "target": "com.amazonaws.servicequotas#ServiceQuotaIncreaseRequestInTemplateList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the quota increase requests.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there are\n      no more results to return.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListServiceQuotas": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#ListServiceQuotasRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#ListServiceQuotasResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#InvalidPaginationTokenException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the applied quota values for the specified AWS service. For some quotas, only the\n      default values are available. If the applied quota value is not available for a quota, the\n      quota is not retrieved.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Quotas",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListServiceQuotasRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.servicequotas#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve the remaining\n      results, if any, make another call with the token returned from this call.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListServiceQuotasResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there are\n      no more results to return.</p>"
+          }
+        },
+        "Quotas": {
+          "target": "com.amazonaws.servicequotas#ServiceQuotaListDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the quotas.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListServices": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#ListServicesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#ListServicesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#InvalidPaginationTokenException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the names and codes for the services integrated with Service Quotas.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Services",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListServicesRequest": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.servicequotas#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve the remaining\n      results, if any, make another call with the token returned from this call.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListServicesResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.servicequotas#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there are\n      no more results to return.</p>"
+          }
+        },
+        "Services": {
+          "target": "com.amazonaws.servicequotas#ServiceInfoListDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the services.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#ListTagsForResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of the tags assigned to the specified applied quota.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceARN": {
+          "target": "com.amazonaws.servicequotas#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the applied quota for which you want to list tags. You\n      can get this information by using the Service Quotas console, or by listing the quotas using the\n        <a href=\"https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html\">list-service-quotas</a> AWS CLI command or the <a href=\"https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html\">ListServiceQuotas</a> AWS API operation.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "target": "com.amazonaws.servicequotas#OutputTags",
+          "traits": {
+            "smithy.api#documentation": "<p>A complex data type that contains zero or more tag elements.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#MetricDimensionName": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#MetricDimensionValue": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#MetricDimensionsMapDefinition": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.servicequotas#MetricDimensionName"
+      },
+      "value": {
+        "target": "com.amazonaws.servicequotas#MetricDimensionValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#MetricInfo": {
+      "type": "structure",
+      "members": {
+        "MetricNamespace": {
+          "target": "com.amazonaws.servicequotas#QuotaMetricNamespace",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespace of the metric.</p>"
+          }
+        },
+        "MetricName": {
+          "target": "com.amazonaws.servicequotas#QuotaMetricName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the metric.</p>"
+          }
+        },
+        "MetricDimensions": {
+          "target": "com.amazonaws.servicequotas#MetricDimensionsMapDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>The metric dimension. This is a name/value pair that is part of the identity of a\n      metric.</p>"
+          }
+        },
+        "MetricStatisticRecommendation": {
+          "target": "com.amazonaws.servicequotas#Statistic",
+          "traits": {
+            "smithy.api#documentation": "<p>The metric statistic that we recommend you use when determining quota usage.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the CloudWatch metric that reflects quota usage.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9/+]*={0,2}$"
+      }
+    },
+    "com.amazonaws.servicequotas#NoAvailableOrganizationException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The account making this call is not a member of an organization.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.servicequotas#NoSuchResourceException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified resource does not exist.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.servicequotas#OrganizationNotInAllFeaturesModeException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The organization that your account belongs to is not in All Features mode.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.servicequotas#OutputTags": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.servicequotas#Tag"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#PeriodUnit": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "MICROSECOND",
+            "name": "MICROSECOND"
+          },
+          {
+            "value": "MILLISECOND",
+            "name": "MILLISECOND"
+          },
+          {
+            "value": "SECOND",
+            "name": "SECOND"
+          },
+          {
+            "value": "MINUTE",
+            "name": "MINUTE"
+          },
+          {
+            "value": "HOUR",
+            "name": "HOUR"
+          },
+          {
+            "value": "DAY",
+            "name": "DAY"
+          },
+          {
+            "value": "WEEK",
+            "name": "WEEK"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.servicequotas#PeriodValue": {
+      "type": "integer"
+    },
+    "com.amazonaws.servicequotas#PutServiceQuotaIncreaseRequestIntoTemplate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#PutServiceQuotaIncreaseRequestIntoTemplateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#PutServiceQuotaIncreaseRequestIntoTemplateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoAvailableOrganizationException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#QuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds a quota increase request to your quota request template.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#PutServiceQuotaIncreaseRequestIntoTemplateRequest": {
+      "type": "structure",
+      "members": {
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AwsRegion": {
+          "target": "com.amazonaws.servicequotas#AwsRegion",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DesiredValue": {
+          "target": "com.amazonaws.servicequotas#QuotaValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The new, increased value for the quota.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#PutServiceQuotaIncreaseRequestIntoTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "ServiceQuotaIncreaseRequestInTemplate": {
+          "target": "com.amazonaws.servicequotas#ServiceQuotaIncreaseRequestInTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the quota increase request.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#QuotaAdjustable": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.servicequotas#QuotaArn": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#QuotaCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "[a-zA-Z][a-zA-Z0-9-]{1,128}"
+      }
+    },
+    "com.amazonaws.servicequotas#QuotaExceededException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You have exceeded your service quota. To perform the requested action, remove some of the\n      relevant resources, or use Service Quotas to request a service quota increase.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.servicequotas#QuotaMetricName": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#QuotaMetricNamespace": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#QuotaName": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#QuotaPeriod": {
+      "type": "structure",
+      "members": {
+        "PeriodValue": {
+          "target": "com.amazonaws.servicequotas#PeriodValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value.</p>"
+          }
+        },
+        "PeriodUnit": {
+          "target": "com.amazonaws.servicequotas#PeriodUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The time unit.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the quota period.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#QuotaUnit": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#QuotaValue": {
+      "type": "double",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 10000000000
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#RequestId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "[0-9a-zA-Z][a-zA-Z0-9-]{1,128}"
+      }
+    },
+    "com.amazonaws.servicequotas#RequestServiceQuotaIncrease": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#RequestServiceQuotaIncreaseRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#RequestServiceQuotaIncreaseResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#InvalidResourceStateException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#QuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Submits a quota increase request for the specified quota.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#RequestServiceQuotaIncreaseRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DesiredValue": {
+          "target": "com.amazonaws.servicequotas#QuotaValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The new, increased value for the quota.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#RequestServiceQuotaIncreaseResponse": {
+      "type": "structure",
+      "members": {
+        "RequestedQuota": {
+          "target": "com.amazonaws.servicequotas#RequestedServiceQuotaChange",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the quota increase request.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#RequestStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
+            "name": "PENDING"
+          },
+          {
+            "value": "CASE_OPENED",
+            "name": "CASE_OPENED"
+          },
+          {
+            "value": "APPROVED",
+            "name": "APPROVED"
+          },
+          {
+            "value": "DENIED",
+            "name": "DENIED"
+          },
+          {
+            "value": "CASE_CLOSED",
+            "name": "CASE_CLOSED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.servicequotas#RequestedServiceQuotaChange": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.servicequotas#RequestId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier.</p>"
+          }
+        },
+        "CaseId": {
+          "target": "com.amazonaws.servicequotas#CustomerServiceEngagementId",
+          "traits": {
+            "smithy.api#documentation": "<p>The case ID.</p>"
+          }
+        },
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>"
+          }
+        },
+        "ServiceName": {
+          "target": "com.amazonaws.servicequotas#ServiceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The service name.</p>"
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota identifier.</p>"
+          }
+        },
+        "QuotaName": {
+          "target": "com.amazonaws.servicequotas#QuotaName",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota name.</p>"
+          }
+        },
+        "DesiredValue": {
+          "target": "com.amazonaws.servicequotas#QuotaValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The new, increased value for the quota.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.servicequotas#RequestStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the quota increase request.</p>"
+          }
+        },
+        "Created": {
+          "target": "com.amazonaws.servicequotas#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the quota increase request was received and the case ID was\n      created.</p>"
+          }
+        },
+        "LastUpdated": {
+          "target": "com.amazonaws.servicequotas#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time of the most recent change.</p>"
+          }
+        },
+        "Requester": {
+          "target": "com.amazonaws.servicequotas#Requester",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM identity of the requester.</p>"
+          }
+        },
+        "QuotaArn": {
+          "target": "com.amazonaws.servicequotas#QuotaArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the quota.</p>"
+          }
+        },
+        "GlobalQuota": {
+          "target": "com.amazonaws.servicequotas#GlobalQuota",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Indicates whether the quota is global.</p>"
+          }
+        },
+        "Unit": {
+          "target": "com.amazonaws.servicequotas#QuotaUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The unit of measurement.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a quota increase request.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#RequestedServiceQuotaChangeHistoryListDefinition": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.servicequotas#RequestedServiceQuotaChange"
+      }
+    },
+    "com.amazonaws.servicequotas#Requester": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#ResourceAlreadyExistsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified resource already exists.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.servicequotas#ServiceCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 63
+        },
+        "smithy.api#pattern": "[a-zA-Z][a-zA-Z0-9-]{1,63}"
+      }
+    },
+    "com.amazonaws.servicequotas#ServiceException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Something went wrong.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.servicequotas#ServiceInfo": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>"
+          }
+        },
+        "ServiceName": {
+          "target": "com.amazonaws.servicequotas#ServiceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The service name.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a service.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#ServiceInfoListDefinition": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.servicequotas#ServiceInfo"
+      }
+    },
+    "com.amazonaws.servicequotas#ServiceName": {
+      "type": "string"
+    },
+    "com.amazonaws.servicequotas#ServiceQuota": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>"
+          }
+        },
+        "ServiceName": {
+          "target": "com.amazonaws.servicequotas#ServiceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The service name.</p>"
+          }
+        },
+        "QuotaArn": {
+          "target": "com.amazonaws.servicequotas#QuotaArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the quota.</p>"
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota identifier.</p>"
+          }
+        },
+        "QuotaName": {
+          "target": "com.amazonaws.servicequotas#QuotaName",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota name.</p>"
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.servicequotas#QuotaValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota value.</p>"
+          }
+        },
+        "Unit": {
+          "target": "com.amazonaws.servicequotas#QuotaUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The unit of measurement.</p>"
+          }
+        },
+        "Adjustable": {
+          "target": "com.amazonaws.servicequotas#QuotaAdjustable",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Indicates whether the quota value can be increased.</p>"
+          }
+        },
+        "GlobalQuota": {
+          "target": "com.amazonaws.servicequotas#GlobalQuota",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Indicates whether the quota is global.</p>"
+          }
+        },
+        "UsageMetric": {
+          "target": "com.amazonaws.servicequotas#MetricInfo",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the measurement.</p>"
+          }
+        },
+        "Period": {
+          "target": "com.amazonaws.servicequotas#QuotaPeriod",
+          "traits": {
+            "smithy.api#documentation": "<p>The period of time.</p>"
+          }
+        },
+        "ErrorReason": {
+          "target": "com.amazonaws.servicequotas#ErrorReason",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code and error reason.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a quota.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#ServiceQuotaIncreaseRequestInTemplate": {
+      "type": "structure",
+      "members": {
+        "ServiceCode": {
+          "target": "com.amazonaws.servicequotas#ServiceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The service identifier.</p>"
+          }
+        },
+        "ServiceName": {
+          "target": "com.amazonaws.servicequotas#ServiceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The service name.</p>"
+          }
+        },
+        "QuotaCode": {
+          "target": "com.amazonaws.servicequotas#QuotaCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota identifier.</p>"
+          }
+        },
+        "QuotaName": {
+          "target": "com.amazonaws.servicequotas#QuotaName",
+          "traits": {
+            "smithy.api#documentation": "<p>The quota name.</p>"
+          }
+        },
+        "DesiredValue": {
+          "target": "com.amazonaws.servicequotas#QuotaValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The new, increased value of the quota.</p>"
+          }
+        },
+        "AwsRegion": {
+          "target": "com.amazonaws.servicequotas#AwsRegion",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region.</p>"
+          }
+        },
+        "Unit": {
+          "target": "com.amazonaws.servicequotas#QuotaUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The unit of measurement.</p>"
+          }
+        },
+        "GlobalQuota": {
+          "target": "com.amazonaws.servicequotas#GlobalQuota",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Indicates whether the quota is global.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a quota increase request.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#ServiceQuotaIncreaseRequestInTemplateList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.servicequotas#ServiceQuotaIncreaseRequestInTemplate"
+      }
+    },
+    "com.amazonaws.servicequotas#ServiceQuotaListDefinition": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.servicequotas#ServiceQuota"
+      }
+    },
+    "com.amazonaws.servicequotas#ServiceQuotaTemplateAssociationStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ASSOCIATED",
+            "name": "ASSOCIATED"
+          },
+          {
+            "value": "DISASSOCIATED",
+            "name": "DISASSOCIATED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.servicequotas#ServiceQuotaTemplateNotInUseException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The quota request template is not associated with your organization.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.servicequotas#ServiceQuotasV20190624": {
+      "type": "service",
+      "version": "2019-06-24",
+      "operations": [
+        {
+          "target": "com.amazonaws.servicequotas#AssociateServiceQuotaTemplate"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#DeleteServiceQuotaIncreaseRequestFromTemplate"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#DisassociateServiceQuotaTemplate"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplate"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#GetAWSDefaultServiceQuota"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#GetRequestedServiceQuotaChange"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#GetServiceQuota"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#GetServiceQuotaIncreaseRequestFromTemplate"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ListAWSDefaultServiceQuotas"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistory"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryByQuota"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ListServiceQuotaIncreaseRequestsInTemplate"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ListServiceQuotas"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ListServices"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#PutServiceQuotaIncreaseRequestIntoTemplate"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#RequestServiceQuotaIncrease"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TagResource"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#UntagResource"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Service Quotas",
+          "arnNamespace": "servicequotas",
+          "cloudFormationName": "ServiceQuotas",
+          "cloudTrailEventSource": "servicequotas.amazonaws.com",
+          "endpointPrefix": "servicequotas"
+        },
+        "aws.auth#sigv4": {
+          "name": "servicequotas"
+        },
+        "aws.protocols#awsJson1_1": {},
+        "smithy.api#documentation": "<p>With Service Quotas, you can view and manage your quotas easily as your AWS workloads\n      grow. Quotas, also referred to as limits, are the maximum number of resources that you can\n      create in your AWS account. For more information, see the <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/\">Service Quotas User Guide</a>.</p>",
+        "smithy.api#title": "Service Quotas",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://servicequotas-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    "aws-us-gov",
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "name"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://servicequotas.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://servicequotas-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://servicequotas.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://servicequotas.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas-fips.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://servicequotas.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#Statistic": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "(Sum|Maximum)"
+      }
+    },
+    "com.amazonaws.servicequotas#Tag": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazonaws.servicequotas#TagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>A string that contains a tag key. The string length should be between 1 and 128\n      characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . :\n      / = + @.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.servicequotas#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A string that contains an optional tag value. The string length should be between 0 and\n      256 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ -\n      . : / = + @.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A complex data type that contains a tag key and tag value.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+      }
+    },
+    "com.amazonaws.servicequotas#TagPolicyViolationException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified tag is a reserved word and cannot be used.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 401
+      }
+    },
+    "com.amazonaws.servicequotas#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#TagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TagPolicyViolationException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyTagsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds tags to the specified applied quota. You can include one or more tags to add to the\n      quota.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceARN": {
+          "target": "com.amazonaws.servicequotas#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the applied quota. You can get this information by\n      using the Service Quotas console, or by listing the quotas using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html\">list-service-quotas</a> AWS CLI command or the <a href=\"https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html\">ListServiceQuotas</a> AWS API operation.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.servicequotas#InputTags",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags that you want to add to the resource.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#TagResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.servicequotas#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+      }
+    },
+    "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The Service Quotas template is not available in this AWS Region.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.servicequotas#TooManyRequestsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Due to throttling, the request was denied. Slow down the rate of request calls, or request\n      an increase for this quota.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.servicequotas#TooManyTagsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.servicequotas#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You've exceeded the number of tags allowed for a resource. For more information, see\n        <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/sq-tagging.html#sq-tagging-restrictions\">Tag\n        restrictions</a> in the <i>Service Quotas User Guide</i>.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.servicequotas#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicequotas#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.servicequotas#UntagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#NoSuchResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.servicequotas#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes tags from the specified applied quota. You can specify one or more tags to\n      remove.</p>"
+      }
+    },
+    "com.amazonaws.servicequotas#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceARN": {
+          "target": "com.amazonaws.servicequotas#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the applied quota that you want to untag. You can get\n      this information by using the Service Quotas console, or by listing the quotas using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html\">list-service-quotas</a> AWS CLI command or the <a href=\"https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html\">ListServiceQuotas</a> AWS API operation.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.servicequotas#InputTagKeys",
+          "traits": {
+            "smithy.api#documentation": "<p>The keys of the tags that you want to remove from the resource.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicequotas#UntagResourceResponse": {
+      "type": "structure",
+      "members": {}
+    }
+  }
+}

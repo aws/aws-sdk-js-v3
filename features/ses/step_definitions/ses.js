@@ -1,7 +1,7 @@
-const { SES } = require("../../../clients/client-ses");
-const { Before, Then, When } = require("cucumber");
+const { Before, Then, When } = require("@cucumber/cucumber");
 
 Before({ tags: "@ses" }, function (scenario, callback) {
+  const { SES } = require("../../../clients/client-ses");
   this.service = new SES({});
   callback();
 });

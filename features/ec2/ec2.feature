@@ -12,14 +12,18 @@ Feature: Amazon Elastic Compute Cloud
   Scenario: Error handling
     Given I describe the EC2 instance ""
     Then the error code should be "MissingParameter"
-    And the error message should be:
-    """
-    The request must contain the parameter InstanceId
-    """
     And the error status code should be 400
 
-  Scenario: Encrypted CopySnapshot
+  Scenario: Encrypted-Unencrypted CopySnapshot
     Given I attempt to copy an encrypted snapshot across regions
+    Then the copy snapshot attempt should be successful
+
+  Scenario: Unencrypted-Encrypted CopySnapshot
+    Given I attempt to copy and encrypt an unencrypted snapshot across regions
+    Then the copy snapshot attempt should be successful
+
+  Scenario: Encrypted-Encrypted CopySnapshot
+    Given I attempt to copy and encrypt an encrypted snapshot across regions
     Then the copy snapshot attempt should be successful
 
 #  @pagination

@@ -25,25 +25,24 @@ import { createRequest } from "@aws-sdk/util-create-request";
 JavaScript usage examples:
 
 ```javascript
-const S3Client = require("@aws-sdk/client-s3-node/S3Client").S3Client;
-const GetObject = require("@aws-sdk/client-s3-node/commands/GetObjectCommand").GetObjectCommand;
+const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3");
 
 const request = await createRequest(
   new S3Client({}),
-  new GetObject({
+  new GetObjectCommand({
     Bucket: "bucket",
     Key: "key",
   })
 );
 /**
-{ 
+{
   protocol: 'https:',
   path: '/js-sdk-test-bucket/key',
   hostname: 's3.us-east-2.amazonaws.com',
   body: null,
   headers: {},
   method: 'GET',
-  query: {} 
+  query: {}
 }
 */
 ```
@@ -51,12 +50,12 @@ const request = await createRequest(
 TypeScript usage example:
 
 ```typescript
-import { S3Client } from "@aws-sdk/client-s3-node/S3Client";
-import { GetObjectCommand } from "@aws-sdk/client-s3-node/commands/GetObjectCommand";
-import { InputTypesUnion, GetObjectInput } from "@aws-sdk/client-s3-node/types";
+import { S3Client } from "@aws-sdk/client-s3";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
+import { GetObjectCommandInput, GetObjectCommandOutput } from "@aws-sdk/client-s3";
 import { Readable } from "stream";
 
-const request = await createRequest<InputTypesUnion, GetObjectInput, Readable>(
+const request = await createRequest<any, GetObjectCommandInput, GetObjectCommandOutput>(
   new S3Client({}),
   new GetObjectCommand({
     Bucket: "bucket",
@@ -70,8 +69,8 @@ way you will lose the type safety for insuring client and command comes from the
 service.
 
 ```typescript
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb-node/DynamoDBClient";
-import { GetObjectCommand } from "@aws-sdk/client-s3-node/commands/GetObjectCommand";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
 /*THIS IS WRONG, but TypeScript won't tell you*/
 const request = await createRequest(
   new DynamoDBClient({}),

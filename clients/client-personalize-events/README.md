@@ -1,14 +1,14 @@
-# @aws-sdk/client-personalize-events
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-personalize-events/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-personalize-events)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-personalize-events.svg)](https://www.npmjs.com/package/@aws-sdk/client-personalize-events)
+# @aws-sdk/client-personalize-events
 
 ## Description
 
 AWS SDK for JavaScript PersonalizeEvents Client for Node.js, Browser and React Native.
 
 <p>Amazon Personalize can consume real-time user event data, such as <i>stream</i> or <i>click</i> data, and use
-it for model training either alone or combined with historical data. For more information see <a>recording-events</a>.</p>
+it for model training either alone or combined with historical data. For more information see
+<a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
 
 ## Installing
 
@@ -47,7 +47,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new PersonalizeEventsClient({ region: "REGION" });
 
 const params = {
@@ -116,7 +116,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -132,7 +132,7 @@ const client = new AWS.PersonalizeEvents({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.putEvents(params);
+  const data = await client.putEvents(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -150,7 +150,7 @@ client
 
 // callbacks.
 client.putEvents(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -164,7 +164,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -195,10 +195,37 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-personalize-events` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+PutEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/classes/puteventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/puteventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/puteventscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutItems
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/classes/putitemscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/putitemscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/putitemscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutUsers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/classes/putuserscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/putuserscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/putuserscommandoutput.html)
+
+</details>

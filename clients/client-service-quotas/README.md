@@ -1,24 +1,14 @@
-# @aws-sdk/client-service-quotas
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-service-quotas/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-service-quotas)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-service-quotas.svg)](https://www.npmjs.com/package/@aws-sdk/client-service-quotas)
+# @aws-sdk/client-service-quotas
 
 ## Description
 
 AWS SDK for JavaScript ServiceQuotas Client for Node.js, Browser and React Native.
 
-<p> Service Quotas is a web service that you can use to manage many of your AWS service
-quotas. Quotas, also referred to as limits, are the maximum values for a resource, item, or
-operation. This guide provide descriptions of the Service Quotas actions that you can call
-from an API. For the Service Quotas user guide, which explains how to use Service Quotas from
-the console, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">What is Service Quotas</a>. </p>
-
-<note>
-<p>AWS provides SDKs that consist of libraries and sample code for programming languages
-and platforms (Java, Ruby, .NET, iOS, Android, etc...,). The SDKs provide a convenient way
-to create programmatic access to Service Quotas and AWS. For information about the AWS SDKs,
-including how to download and install them, see the <a href="https://docs.aws.amazon.com/aws.amazon.com/tools">Tools for Amazon Web Services</a> page.</p>
-</note>
+<p>With Service Quotas, you can view and manage your quotas easily as your AWS workloads
+grow. Quotas, also referred to as limits, are the maximum number of resources that you can
+create in your AWS account. For more information, see the <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/">Service Quotas User Guide</a>.</p>
 
 ## Installing
 
@@ -57,7 +47,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new ServiceQuotasClient({ region: "REGION" });
 
 const params = {
@@ -126,7 +116,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -142,7 +132,7 @@ const client = new AWS.ServiceQuotas({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateServiceQuotaTemplate(params);
+  const data = await client.associateServiceQuotaTemplate(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -160,7 +150,7 @@ client
 
 // callbacks.
 client.associateServiceQuotaTemplate(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -174,7 +164,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -205,10 +195,165 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-service-quotas` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+AssociateServiceQuotaTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/associateservicequotatemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/associateservicequotatemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/associateservicequotatemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteServiceQuotaIncreaseRequestFromTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/deleteservicequotaincreaserequestfromtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/deleteservicequotaincreaserequestfromtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/deleteservicequotaincreaserequestfromtemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DisassociateServiceQuotaTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/disassociateservicequotatemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/disassociateservicequotatemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/disassociateservicequotatemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAssociationForServiceQuotaTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/getassociationforservicequotatemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/getassociationforservicequotatemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/getassociationforservicequotatemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAWSDefaultServiceQuota
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/getawsdefaultservicequotacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/getawsdefaultservicequotacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/getawsdefaultservicequotacommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetRequestedServiceQuotaChange
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/getrequestedservicequotachangecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/getrequestedservicequotachangecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/getrequestedservicequotachangecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetServiceQuota
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/getservicequotacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/getservicequotacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/getservicequotacommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetServiceQuotaIncreaseRequestFromTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/getservicequotaincreaserequestfromtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/getservicequotaincreaserequestfromtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/getservicequotaincreaserequestfromtemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAWSDefaultServiceQuotas
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/listawsdefaultservicequotascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listawsdefaultservicequotascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listawsdefaultservicequotascommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRequestedServiceQuotaChangeHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/listrequestedservicequotachangehistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listrequestedservicequotachangehistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listrequestedservicequotachangehistorycommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRequestedServiceQuotaChangeHistoryByQuota
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/listrequestedservicequotachangehistorybyquotacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listrequestedservicequotachangehistorybyquotacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listrequestedservicequotachangehistorybyquotacommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListServiceQuotaIncreaseRequestsInTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/listservicequotaincreaserequestsintemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listservicequotaincreaserequestsintemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listservicequotaincreaserequestsintemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListServiceQuotas
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/listservicequotascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listservicequotascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listservicequotascommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListServices
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/listservicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listservicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listservicescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutServiceQuotaIncreaseRequestIntoTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/putservicequotaincreaserequestintotemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/putservicequotaincreaserequestintotemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/putservicequotaincreaserequestintotemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+RequestServiceQuotaIncrease
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/requestservicequotaincreasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/requestservicequotaincreasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/requestservicequotaincreasecommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-quotas/interfaces/untagresourcecommandoutput.html)
+
+</details>

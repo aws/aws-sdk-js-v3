@@ -1,5 +1,8 @@
-import { Provider } from "@aws-sdk/types";
+import { Provider } from "@smithy/types";
 
+/**
+ * @public
+ */
 export interface LocationConstraintInputConfig {}
 
 interface PreviouslyResolved {
@@ -7,6 +10,9 @@ interface PreviouslyResolved {
 }
 
 export interface LocationConstraintResolvedConfig {
+  /**
+   * Resolved value for input config {@link RegionInputConfig.region}
+   */
   region: Provider<string>;
 }
 export function resolveLocationConstraintConfig<T>(

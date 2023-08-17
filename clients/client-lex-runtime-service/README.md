@@ -1,21 +1,23 @@
-# @aws-sdk/client-lex-runtime-service
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lex-runtime-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-lex-runtime-service)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-lex-runtime-service.svg)](https://www.npmjs.com/package/@aws-sdk/client-lex-runtime-service)
+# @aws-sdk/client-lex-runtime-service
 
 ## Description
 
 AWS SDK for JavaScript LexRuntimeService Client for Node.js, Browser and React Native.
 
-<p>Amazon Lex provides both build and runtime endpoints. Each endpoint provides a set of
-operations (API). Your conversational bot uses the runtime API to understand user utterances
-(user input text or voice). For example, suppose a user says "I want pizza", your bot sends
-this input to Amazon Lex using the runtime API. Amazon Lex recognizes that the user request is
-for the OrderPizza intent (one of the intents defined in the bot). Then Amazon Lex engages in
-user conversation on behalf of the bot to elicit required information (slot values, such as
-pizza size and crust type), and then performs fulfillment activity (that you configured when
-you created the bot). You use the build-time API to create and manage your Amazon Lex bot. For
-a list of build-time operations, see the build-time API, . </p>
+<p>Amazon Lex provides both build and runtime endpoints. Each endpoint
+provides a set of operations (API). Your conversational bot uses the
+runtime API to understand user utterances (user input text or voice). For
+example, suppose a user says "I want pizza", your bot sends this input to
+Amazon Lex using the runtime API. Amazon Lex recognizes that the user
+request is for the OrderPizza intent (one of the intents defined in the
+bot). Then Amazon Lex engages in user conversation on behalf of the bot to
+elicit required information (slot values, such as pizza size and crust
+type), and then performs fulfillment activity (that you configured when
+you created the bot). You use the build-time API to create and manage your
+Amazon Lex bot. For a list of build-time operations, see the build-time
+API, . </p>
 
 ## Installing
 
@@ -54,7 +56,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new LexRuntimeServiceClient({ region: "REGION" });
 
 const params = {
@@ -123,7 +125,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -139,7 +141,7 @@ const client = new AWS.LexRuntimeService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteSession(params);
+  const data = await client.deleteSession(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -157,7 +159,7 @@ client
 
 // callbacks.
 client.deleteSession(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -171,7 +173,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -202,10 +204,53 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-lex-runtime-service` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+DeleteSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/classes/deletesessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/deletesessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/deletesessioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/classes/getsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/getsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/getsessioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+PostContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/classes/postcontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/postcontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/postcontentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PostText
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/classes/posttextcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/posttextcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/posttextcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/classes/putsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/putsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/putsessioncommandoutput.html)
+
+</details>

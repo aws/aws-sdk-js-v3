@@ -13,14 +13,9 @@ Feature: AWS OpsWorks
     Then the IAM user ARN should be in the result
     And the name should be equal to the IAM username
     And the SSH username should be equal to the IAM username
-    And I delete the OpsWorks user profile
-    And I delete the IAM user
 
   Scenario: Error handling
     Given I have an IAM username ""
     And I create an OpsWorks user profile with the IAM user ARN
     Then the error code should be "ValidationException"
-    Then the error message should be:
-    """
-    Please provide user ARN
-    """
+    And the error status code should be 400

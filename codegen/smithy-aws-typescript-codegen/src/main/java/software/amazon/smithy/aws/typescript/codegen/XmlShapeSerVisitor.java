@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Supplier;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.Model;
@@ -23,6 +24,7 @@ import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
@@ -36,6 +38,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Visitor to generate serialization functions for shapes in XML-document
@@ -46,8 +49,9 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  *
  * Timestamps are serialized to {@link Format}.DATE_TIME by default.
  *
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
+@SmithyInternalApi
 final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
     private static final Format TIMESTAMP_FORMAT = Format.DATE_TIME;
 
@@ -73,13 +77,16 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Filter out null entries if we don't have the sparse trait.
         String potentialFilter = "";
-        if (!shape.hasTrait(SparseTrait.ID)) {
+        boolean hasSparseTrait = shape.hasTrait(SparseTrait.ID);
+        if (!hasSparseTrait) {
             potentialFilter = ".filter((e: any) => e != null)";
         }
 
         writer.openBlock("return input$L.map(entry => {", "});", potentialFilter, () -> {
             // Short circuit null values from serialization.
-            writer.write("if (entry === null) { return null as any; }");
+            if (hasSparseTrait) {
+                writer.write("if (entry === null) { return null as any; }");
+            }
 
             // Dispatch to the input value provider for any additional handling.
             writer.write("const node = $L;", target.accept(getMemberVisitor("entry")));
@@ -148,7 +155,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             writer.write("var node;");
             if (shape.hasTrait(SparseTrait.ID)) {
                 writer.openBlock("if (value === null) {", "} else {", () ->
-                        writer.write("node = new __XmlNode($S).addChildNode(new __XmlText(null));", valueName));
+                        writer.write("node = __XmlNode.of($S, null);", valueName));
                 writer.indent();
             }
 
@@ -168,7 +175,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                         AwsProtocolUtils.writeXmlNamespace(context, valueMember, "workingNode");
                         writer.write("return acc.addChildNode(workingNode);");
                     });
-                    writer.write(", new __XmlNode($S));", valueName);
+                    writer.write(", new __XmlNode($S))", valueName);
                 });
             } else {
                 // Add @xmlNamespace value of the target member.
@@ -183,12 +190,13 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
     @Override
     protected void serializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
+        ServiceShape serviceShape = context.getService();
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
 
         // Handle the @xmlName trait for the structure itself.
         String nodeName = shape.getTrait(XmlNameTrait.class)
                 .map(XmlNameTrait::getValue)
-                .orElse(shape.getId().getName());
+                .orElse(shape.getId().getName(serviceShape));
 
         // Create the structure's node.
         writer.write("const bodyNode = new __XmlNode($S);", nodeName);
@@ -201,7 +209,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Handle if the member is an idempotency token that should be auto-filled.
             AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
-            writer.openBlock("if ($1L !== undefined && $1L !== null) {", "}", inputLocation, () -> {
+            writer.openBlock("if ($1L != null) {", "}", inputLocation, () -> {
                 serializeNamedMember(context, memberName, memberShape, () -> inputLocation);
             });
         });
@@ -229,17 +237,20 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Grab the target shape so we can use a member serializer on it.
             Shape target = context.getModel().expectShape(memberShape.getTarget());
             XmlMemberSerVisitor inputVisitor = getMemberVisitor(inputLocation.get());
-
             // Collected members must be handled with flattening and renaming.
             if (serializationReturnsArray(target)) {
                 serializeNamedMemberFromArray(context, locationName, memberShape, target, inputVisitor);
             } else {
                 // Handle @timestampFormat on members not just the targeted shape.
                 String valueProvider;
-                if (memberShape.hasTrait(TimestampFormatTrait.class)) {
+                if (memberShape.hasTrait(TimestampFormatTrait.class) || target.hasTrait(TimestampFormatTrait.class)) {
+                    Optional<TimestampFormatTrait> timestampFormat = memberShape.getTrait(TimestampFormatTrait.class);
+                    if (timestampFormat.isEmpty()) {
+                        timestampFormat = target.getTrait(TimestampFormatTrait.class);
+                    }
                     valueProvider = inputVisitor.getAsXmlText(target,
                             AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                                    TIMESTAMP_FORMAT, inputLocation.get()) + ".toString()");
+                                    timestampFormat.get().getFormat(), inputLocation.get()) + ".toString()");
                 } else {
                     valueProvider = target.accept(inputVisitor);
                 }
@@ -298,19 +309,20 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
     @Override
     protected void serializeUnion(GenerationContext context, UnionShape shape) {
         TypeScriptWriter writer = context.getWriter();
+        ServiceShape serviceShape = context.getService();
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
         writer.addImport("XmlText", "__XmlText", "@aws-sdk/xml-builder");
 
         // Handle the @xmlName trait for the union itself.
         String nodeName = shape.getTrait(XmlNameTrait.class)
                 .map(XmlNameTrait::getValue)
-                .orElse(shape.getId().getName());
+                .orElse(shape.getId().getName(serviceShape));
 
         // Create the union's node.
         writer.write("const bodyNode = new __XmlNode($S);", nodeName);
 
         // Visit over the union type, then get the right serialization for the member.
-        writer.openBlock("$L.visit(input, {", "});", shape.getId().getName(), () -> {
+        writer.openBlock("$L.visit(input, {", "});", shape.getId().getName(serviceShape), () -> {
             Map<String, MemberShape> members = shape.getAllMembers();
             members.forEach((memberName, memberShape) -> {
                 writer.openBlock("$L: value => {", "},", memberName, () -> {

@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "projections": {
-    "aws-ec2": {
+    "aws-protocoltests-ec2": {
       "transforms": [
         {
           "name": "includeServices",
@@ -12,7 +12,7 @@
       ],
       "plugins": {
         "typescript-codegen": {
-          "package": "@aws-sdk/aws-ec2",
+          "package": "@aws-sdk/aws-protocoltests-ec2",
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -25,7 +25,7 @@
         }
       }
     },
-    "aws-json": {
+    "aws-protocoltests-json": {
       "transforms": [
         {
           "name": "includeServices",
@@ -36,7 +36,7 @@
       ],
       "plugins": {
         "typescript-codegen": {
-          "package": "@aws-sdk/aws-json",
+          "package": "@aws-sdk/aws-protocoltests-json",
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -49,7 +49,31 @@
         }
       }
     },
-    "aws-query": {
+    "aws-protocoltests-json-10": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["aws.protocoltests.json10#JsonRpc10"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/aws-protocoltests-json-10",
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "private": true
+        }
+      }
+    },
+    "aws-protocoltests-query": {
       "transforms": [
         {
           "name": "includeServices",
@@ -60,7 +84,7 @@
       ],
       "plugins": {
         "typescript-codegen": {
-          "package": "@aws-sdk/aws-query",
+          "package": "@aws-sdk/aws-protocoltests-query",
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -73,7 +97,7 @@
         }
       }
     },
-    "aws-restjson": {
+    "aws-protocoltests-restjson": {
       "transforms": [
         {
           "name": "includeServices",
@@ -84,7 +108,7 @@
       ],
       "plugins": {
         "typescript-codegen": {
-          "package": "@aws-sdk/aws-restjson",
+          "package": "@aws-sdk/aws-protocoltests-restjson",
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -94,10 +118,33 @@
             "license": "Apache-2.0"
           },
           "private": true
+        },
+        "typescript-ssdk-codegen": {
+          "package": "@aws-sdk/aws-restjson-server",
+          "packageVersion": "1.0.0-alpha.1",
+          "disableDefaultValidation": true,
+          "private": true
         }
       }
     },
-    "aws-restxml": {
+    "aws-restjson-validation": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["aws.protocoltests.restjson.validation#RestJsonValidation"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-ssdk-codegen": {
+          "package": "@aws-sdk/aws-restjson-validation-server",
+          "packageVersion": "1.0.0-alpha.1",
+          "private": true
+        }
+      }
+    },
+    "aws-protocoltests-restxml": {
       "transforms": [
         {
           "name": "includeServices",
@@ -108,7 +155,7 @@
       ],
       "plugins": {
         "typescript-codegen": {
-          "package": "@aws-sdk/aws-restxml",
+          "package": "@aws-sdk/aws-protocoltests-restxml",
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {

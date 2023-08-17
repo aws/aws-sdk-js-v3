@@ -30,19 +30,21 @@ import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Add client plugins and configs to support WebSocket streaming for Transcribe
  * Streaming service.
  **/
+@SmithyInternalApi
 public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.dependency,
-                                "WebSocket")
-                        .servicePredicate((m, s) -> AddTranscribeStreamingDependency.isTranscribeStreaming(s))
+                                "TranscribeStreaming", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> isTranscribeStreaming(s))
                         .build()
         );
     }
@@ -64,13 +66,7 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
                         writer.addDependency(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE);
                         writer.addImport("eventStreamPayloadHandler", "eventStreamPayloadHandler",
                             AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.packageName);
-                        writer.write("eventStreamPayloadHandlerProvider: () => eventStreamPayloadHandler,");
-                },
-                "requestHandler", writer -> {
-                        writer.addDependency(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE);
-                        writer.addImport("WebSocketHandler", "WebSocketHandler",
-                            AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.packageName);
-                        writer.write("requestHandler: new WebSocketHandler(),");
+                        writer.write("(() => eventStreamPayloadHandler)");
                 });
 
         switch (target) {

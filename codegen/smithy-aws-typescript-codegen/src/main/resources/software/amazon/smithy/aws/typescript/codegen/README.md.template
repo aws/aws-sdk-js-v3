@@ -1,7 +1,6 @@
-# ${packageName}
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/${packageName}/latest.svg)](https://www.npmjs.com/package/${packageName})
-[![NPM downloads](https://img.shields.io/npm/dm/${packageName}.svg)](https://www.npmjs.com/package/${packageName})
+# ${packageName}
 
 ## Description
 
@@ -44,7 +43,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new ${serviceId}Client({ region: "REGION" });
 
 const params = { /** input parameters */ };
@@ -111,7 +110,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -127,7 +126,7 @@ const client = new AWS.${serviceId}({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.${operationName}(params);
+  const data = await client.${operationName}(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +144,7 @@ client
 
 // callbacks.
 client.${operationName}(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -190,7 +189,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `${packageName}` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 

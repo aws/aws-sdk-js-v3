@@ -1,7 +1,7 @@
-const { WAF } = require("../../../clients/client-waf");
-const { Before } = require("cucumber");
+const { Before } = require("@cucumber/cucumber");
 
 Before({ tags: "@waf" }, function (scenario, callback) {
+  const { WAF } = require("../../../clients/client-waf");
   this.service = new WAF({});
   callback();
 });

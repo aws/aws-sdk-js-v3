@@ -1,0 +1,3220 @@
+{
+  "smithy": "2.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "PaginatedTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.pi#AcceptLanguage": {
+      "type": "enum",
+      "members": {
+        "EN_US": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EN_US"
+          }
+        }
+      }
+    },
+    "com.amazonaws.pi#AdditionalMetricsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#RequestString"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 30
+        }
+      }
+    },
+    "com.amazonaws.pi#AdditionalMetricsMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.pi#RequestString"
+      },
+      "value": {
+        "target": "com.amazonaws.pi#Double"
+      }
+    },
+    "com.amazonaws.pi#AmazonResourceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1011
+        },
+        "smithy.api#pattern": "^arn:.*:pi:.*$"
+      }
+    },
+    "com.amazonaws.pi#AnalysisReport": {
+      "type": "structure",
+      "members": {
+        "AnalysisReportId": {
+          "target": "com.amazonaws.pi#AnalysisReportId",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the analysis report.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#IdentifierString",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the analysis report.</p>"
+          }
+        },
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid values are as follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>RDS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>DOCDB</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "CreateTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time you created the analysis report.</p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The analysis start time in the report.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The analysis end time in the report.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.pi#AnalysisStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the created analysis report.</p>"
+          }
+        },
+        "Insights": {
+          "target": "com.amazonaws.pi#InsightList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of identified insights in the analysis report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the summary of the performance analysis report created for a time period.</p>"
+      }
+    },
+    "com.amazonaws.pi#AnalysisReportId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        },
+        "smithy.api#pattern": "^report-[0-9a-f]{17}$"
+      }
+    },
+    "com.amazonaws.pi#AnalysisReportSummary": {
+      "type": "structure",
+      "members": {
+        "AnalysisReportId": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the analysis report.</p>"
+          }
+        },
+        "CreateTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time you created the analysis report.</p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time of the analysis in the report.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time of the analysis in the report.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.pi#AnalysisStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the analysis report.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.pi#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of all the tags added to the analysis report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the details of the performance analysis report.</p>"
+      }
+    },
+    "com.amazonaws.pi#AnalysisReportSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#AnalysisReportSummary"
+      }
+    },
+    "com.amazonaws.pi#AnalysisStatus": {
+      "type": "enum",
+      "members": {
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.pi#Boolean": {
+      "type": "boolean"
+    },
+    "com.amazonaws.pi#ContextType": {
+      "type": "enum",
+      "members": {
+        "CAUSAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CAUSAL"
+          }
+        },
+        "CONTEXTUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTEXTUAL"
+          }
+        }
+      }
+    },
+    "com.amazonaws.pi#CreatePerformanceAnalysisReport": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#CreatePerformanceAnalysisReportRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#CreatePerformanceAnalysisReportResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a new performance analysis report for a specific time period for the\n            DB instance.</p>"
+      }
+    },
+    "com.amazonaws.pi#CreatePerformanceAnalysisReportRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services service for which Performance Insights will return metrics. Valid value is <code>RDS</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#IdentifierString",
+          "traits": {
+            "smithy.api#documentation": "<p>An immutable, Amazon Web Services Region-unique identifier for a data source. Performance Insights gathers metrics from\n            this data source.</p>\n         <p>To use an Amazon RDS instance as a data source, you specify its <code>DbiResourceId</code> value. \n            For example, specify <code>db-ADECBTYHKTSAUMUZQYPDS2GW4A</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time defined for the analysis report.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time defined for the analysis report.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.pi#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata assigned to the analysis report consisting of a key-value pair.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#CreatePerformanceAnalysisReportResponse": {
+      "type": "structure",
+      "members": {
+        "AnalysisReportId": {
+          "target": "com.amazonaws.pi#AnalysisReportId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the created analysis report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#Data": {
+      "type": "structure",
+      "members": {
+        "PerformanceInsightsMetric": {
+          "target": "com.amazonaws.pi#PerformanceInsightsMetric",
+          "traits": {
+            "smithy.api#documentation": "<p>This field determines the Performance Insights metric to render \n            for the insight. The <code>name</code> field refers to a Performance Insights metric. \n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>List of data objects which provide details about source metrics. \n            This field can be used to determine the PI metric to render\n            for the insight. This data type also includes static values \n            for the metrics for the Insight that were calculated and included \n            in text and annotations on the DB load chart.</p>"
+      }
+    },
+    "com.amazonaws.pi#DataList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#Data"
+      }
+    },
+    "com.amazonaws.pi#DataPoint": {
+      "type": "structure",
+      "members": {
+        "Timestamp": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in epoch format, associated with a particular <code>Value</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.pi#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>The actual value associated with a particular <code>Timestamp</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.</p>"
+      }
+    },
+    "com.amazonaws.pi#DataPointsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#DataPoint"
+      }
+    },
+    "com.amazonaws.pi#DeletePerformanceAnalysisReport": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#DeletePerformanceAnalysisReportRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#DeletePerformanceAnalysisReportResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a performance analysis report.</p>"
+      }
+    },
+    "com.amazonaws.pi#DeletePerformanceAnalysisReportRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services service for which Performance Insights will return metrics. Valid value is <code>RDS</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#IdentifierString",
+          "traits": {
+            "smithy.api#documentation": "<p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. \n            In the console, the identifier is shown as <i>ResourceID</i>. When you \n            call <code>DescribeDBInstances</code>, the identifier is returned as <code>DbiResourceId</code>.</p>\n         <p>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify\n            <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AnalysisReportId": {
+          "target": "com.amazonaws.pi#AnalysisReportId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the analysis report for deletion.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#DeletePerformanceAnalysisReportResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#DescribeDimensionKeys": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#DescribeDimensionKeysRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#DescribeDimensionKeysResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>For a specific time period, retrieve the top <code>N</code> dimension keys for a metric.\n      </p>\n         <note>\n            <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements, \n        only the first 500 bytes are returned.</p>\n         </note>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.pi#DescribeDimensionKeysRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services service for which Performance Insights will return metrics. Valid values are as follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>RDS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>DOCDB</code>\n               </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#IdentifierString",
+          "traits": {
+            "smithy.api#documentation": "<p>An immutable, Amazon Web Services Region-unique identifier for a data source. Performance Insights gathers metrics from\n            this data source.</p>\n         <p>To use an Amazon RDS instance as a data source, you specify its <code>DbiResourceId</code> value. \n            For example, specify <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>.\n        </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time specifying the beginning of the requested time series data. You must specify a\n            <code>StartTime</code> within the past 7 days. The value specified is <i>inclusive</i>, \n            which means that data points equal to or greater than <code>StartTime</code> are returned.\n        </p>\n         <p>The value for <code>StartTime</code> must be earlier than the value for <code>EndTime</code>.\n        </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time specifying the end of the requested time series data. The value specified is\n      <i>exclusive</i>, which means that data points less than (but not equal to) <code>EndTime</code> are\n      returned.</p>\n         <p>The value for <code>EndTime</code> must be later than the value for <code>StartTime</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Metric": {
+          "target": "com.amazonaws.pi#RequestString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of a Performance Insights metric to be measured.</p>\n         <p>Valid values for <code>Metric</code> are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db.load.avg</code> - A scaled representation of the number of active sessions for the database engine. </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sampledload.avg</code> - The raw number of active sessions for the database engine. </p>\n            </li>\n         </ul>\n         <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code> \n            and <code>db.sampledload.avg</code> are the same value. If the number of active sessions is greater than \n            the internal threshold, Performance Insights samples the active sessions, with <code>db.load.avg</code> \n            showing the scaled values, <code>db.sampledload.avg</code> showing the raw values, and \n            <code>db.sampledload.avg</code> less than <code>db.load.avg</code>. For most use cases, you can \n            query <code>db.load.avg</code> only.\n        </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PeriodInSeconds": {
+          "target": "com.amazonaws.pi#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as \n            one second, or as long as one day (86400 seconds). Valid values are:\n        </p>\n         <ul>\n            <li>\n               <p>\n                  <code>1</code> (one second)</p>\n            </li>\n            <li>\n               <p>\n                  <code>60</code> (one minute)</p>\n            </li>\n            <li>\n               <p>\n                  <code>300</code> (five minutes)</p>\n            </li>\n            <li>\n               <p>\n                  <code>3600</code> (one hour)</p>\n            </li>\n            <li>\n               <p>\n                  <code>86400</code> (twenty-four hours)</p>\n            </li>\n         </ul>\n         <p>If you don't specify <code>PeriodInSeconds</code>, then Performance Insights chooses a value for you, with a \n            goal of returning roughly 100-200 data points in the response.\n        </p>"
+          }
+        },
+        "GroupBy": {
+          "target": "com.amazonaws.pi#DimensionGroup",
+          "traits": {
+            "smithy.api#documentation": "<p>A specification for how to aggregate the data points from a query result. You must specify a valid dimension group. Performance Insights returns all\n            dimensions within this group, unless you provide the names of specific dimensions within this group. You can also request that Performance Insights return\n            a limited number of values for a dimension. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AdditionalMetrics": {
+          "target": "com.amazonaws.pi#AdditionalMetricsList",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional metrics for the top <code>N</code> dimension keys. If the specified dimension group in the <code>GroupBy</code> parameter is\n                <code>db.sql_tokenized</code>, you can specify per-SQL metrics to get the values for the top <code>N</code> SQL digests. The response\n            syntax is as follows: <code>\"AdditionalMetrics\" : { \"<i>string</i>\" : \"<i>string</i>\" }</code>. </p>"
+          }
+        },
+        "PartitionBy": {
+          "target": "com.amazonaws.pi#DimensionGroup",
+          "traits": {
+            "smithy.api#documentation": "<p>For each dimension specified in <code>GroupBy</code>, specify a secondary dimension \n            to further subdivide the partition keys in the response.\n        </p>"
+          }
+        },
+        "Filter": {
+          "target": "com.amazonaws.pi#MetricQueryFilterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more filters to apply in the request. Restrictions:</p>\n         <ul>\n            <li>\n               <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> or\n          <code>Partition</code> parameters.</p>\n            </li>\n            <li>\n               <p>A single filter for any other dimension in this dimension group.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.pi#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxRecords</code> value, a\n            pagination token is included in the response so that the remaining results can be retrieved. </p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pi#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond\n            the token, up to the value specified by <code>MaxRecords</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#DescribeDimensionKeysResponse": {
+      "type": "structure",
+      "members": {
+        "AlignedStartTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time for the returned dimension keys, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).\n            <code>AlignedStartTime</code> will be less than or equal to the value of the user-specified <code>StartTime</code>. </p>"
+          }
+        },
+        "AlignedEndTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time for the returned dimension keys, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).\n            <code>AlignedEndTime</code> will be greater than or equal to the value of the user-specified <code>Endtime</code>. </p>"
+          }
+        },
+        "PartitionKeys": {
+          "target": "com.amazonaws.pi#ResponsePartitionKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>If <code>PartitionBy</code> was present in the request, <code>PartitionKeys</code> contains the breakdown of dimension keys by the\n            specified partitions. </p>"
+          }
+        },
+        "Keys": {
+          "target": "com.amazonaws.pi#DimensionKeyDescriptionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The dimension keys that were requested.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pi#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A pagination token that indicates the response didn’t return all available records because <code>MaxRecords</code> was specified in the\n            previous request. To get the remaining records, specify <code>NextToken</code> in a separate request with this value. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#Description": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        }
+      }
+    },
+    "com.amazonaws.pi#DescriptiveMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.pi#DescriptiveString"
+      },
+      "value": {
+        "target": "com.amazonaws.pi#DescriptiveString"
+      }
+    },
+    "com.amazonaws.pi#DescriptiveString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2000
+        },
+        "smithy.api#pattern": "^.*$"
+      }
+    },
+    "com.amazonaws.pi#DetailStatus": {
+      "type": "enum",
+      "members": {
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
+          }
+        },
+        "PROCESSING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROCESSING"
+          }
+        },
+        "UNAVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNAVAILABLE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.pi#DimensionDetail": {
+      "type": "structure",
+      "members": {
+        "Identifier": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of a dimension.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The information about a dimension.</p>"
+      }
+    },
+    "com.amazonaws.pi#DimensionDetailList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#DimensionDetail"
+      }
+    },
+    "com.amazonaws.pi#DimensionGroup": {
+      "type": "structure",
+      "members": {
+        "Group": {
+          "target": "com.amazonaws.pi#RequestString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the dimension group. Valid values are as follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db</code> - The name of the database to which the client is connected. The following values are permitted:</p>\n               <ul>\n                  <li>\n                     <p>Aurora PostgreSQL</p>\n                  </li>\n                  <li>\n                     <p>Amazon RDS PostgreSQL</p>\n                  </li>\n                  <li>\n                     <p>Aurora MySQL</p>\n                  </li>\n                  <li>\n                     <p>Amazon RDS MySQL</p>\n                  </li>\n                  <li>\n                     <p>Amazon RDS MariaDB</p>\n                  </li>\n                  <li>\n                     <p>Amazon DocumentDB</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <code>db.application</code> - The name of the application that is connected to the database. The following values are\n                    permitted:</p>\n               <ul>\n                  <li>\n                     <p>Aurora PostgreSQL</p>\n                  </li>\n                  <li>\n                     <p>Amazon RDS PostgreSQL</p>\n                  </li>\n                  <li>\n                     <p>Amazon DocumentDB</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <code>db.host</code> - The host name of the connected client (all engines).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.query</code> - The query that is currently running (only Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.query_tokenized</code> - The digest query (only Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.session_type</code> - The type of the current session (only Aurora PostgreSQL and RDS PostgreSQL).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql</code> - The text of the SQL statement that is currently running (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql_tokenized</code> - The SQL digest (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.user</code> - The user logged in to the database (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.wait_event</code> - The event for which the database backend is waiting (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.wait_event_type</code> - The type of event for which the database backend is waiting (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.wait_state</code> - The event for which the database backend is waiting (only Amazon DocumentDB).</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Dimensions": {
+          "target": "com.amazonaws.pi#RequestStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of specific dimensions from a dimension group. If this parameter is not present,\n            then it signifies that all of the dimensions in the group were requested, or are present in\n            the response.</p>\n         <p>Valid values for elements in the <code>Dimensions</code> array are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db.application.name</code> - The name of the application that is connected to the database. Valid values are as follows: </p>\n               <ul>\n                  <li>\n                     <p>Aurora PostgreSQL</p>\n                  </li>\n                  <li>\n                     <p>Amazon RDS PostgreSQL</p>\n                  </li>\n                  <li>\n                     <p>Amazon DocumentDB</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <code>db.host.id</code> - The host ID of the connected client (all engines).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.host.name</code> - The host name of the connected client (all engines).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.name</code> - The name of the database to which the client is connected. Valid values are as follows:</p>\n               <ul>\n                  <li>\n                     <p>Aurora PostgreSQL</p>\n                  </li>\n                  <li>\n                     <p>Amazon RDS PostgreSQL</p>\n                  </li>\n                  <li>\n                     <p>Aurora MySQL</p>\n                  </li>\n                  <li>\n                     <p>Amazon RDS MySQL</p>\n                  </li>\n                  <li>\n                     <p>Amazon RDS MariaDB</p>\n                  </li>\n                  <li>\n                     <p>Amazon DocumentDB</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <code>db.query.id</code> - The query ID generated by Performance Insights (only Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.query.db_id</code> - The query ID generated by the database (only Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.query.statement</code> - The text of the query that is being run (only Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.query.tokenized_id</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.query.tokenized.id</code> - The query digest ID generated by Performance Insights (only Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.query.tokenized.db_id</code> - The query digest ID generated by Performance Insights (only Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.query.tokenized.statement</code> - The text of the query digest (only Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.session_type.name</code> - The type of the current session (only Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql.id</code> - The hash of the full, non-tokenized SQL statement generated by Performance Insights (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql.db_id</code> - Either the SQL ID generated by the database engine, or a value generated by Performance Insights that begins with\n                        <code>pi-</code> (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql.statement</code> - The full text of the SQL statement that is running, as in <code>SELECT * FROM employees</code>\n                    (all engines except Amazon DocumentDB)</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql.tokenized_id</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql_tokenized.id</code> - The hash of the SQL digest generated by Performance Insights (all engines except Amazon DocumentDB). In the console,\n                        <code>db.sql_tokenized.id</code> is called the Support ID because Amazon Web Services Support can look at this data to help you troubleshoot\n                    database issues.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql_tokenized.db_id</code> - Either the native database ID used to refer to the SQL statement, or a synthetic ID such as\n                        <code>pi-2372568224</code> that Performance Insights generates if the native database ID isn't available (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql_tokenized.statement</code> - The text of the SQL digest, as in <code>SELECT * FROM employees WHERE employee_id =\n                        ?</code> (all engines except Amazon DocumentDB)</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.user.id</code> - The ID of the user logged in to the database (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.user.name</code> - The name of the user logged in to the database (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.wait_event.name</code> - The event for which the backend is waiting (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.wait_event.type</code> - The type of event for which the backend is waiting (all engines except Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.wait_event_type.name</code> - The name of the event type for which the backend is waiting (all engines except\n                    Amazon DocumentDB).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.wait_state.name</code> - The event for which the backend is waiting (only Amazon DocumentDB).</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.pi#Limit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to fetch for this dimension group.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A logical grouping of Performance Insights metrics for a related subject area. For example, the\n        <code>db.sql</code> dimension group consists of the following dimensions:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db.sql.id</code> - The hash of a running SQL statement, generated by Performance Insights.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql.db_id</code> - Either the SQL ID generated by the database engine, or a value generated by Performance Insights that begins with\n                        <code>pi-</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql.statement</code> - The full text of the SQL statement that is running, for example, <code>SELECT * FROM\n                        employees</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql_tokenized.id</code> - The hash of the SQL digest generated by Performance Insights.</p>\n            </li>\n         </ul>\n         <note>\n            <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL \n                statements, only the first 500 bytes are returned.</p>\n         </note>"
+      }
+    },
+    "com.amazonaws.pi#DimensionGroupDetail": {
+      "type": "structure",
+      "members": {
+        "Group": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the dimension group.</p>"
+          }
+        },
+        "Dimensions": {
+          "target": "com.amazonaws.pi#DimensionDetailList",
+          "traits": {
+            "smithy.api#documentation": "<p>The dimensions within a dimension group.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about dimensions within a dimension group.</p>"
+      }
+    },
+    "com.amazonaws.pi#DimensionGroupDetailList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#DimensionGroupDetail"
+      }
+    },
+    "com.amazonaws.pi#DimensionKeyDescription": {
+      "type": "structure",
+      "members": {
+        "Dimensions": {
+          "target": "com.amazonaws.pi#DimensionMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map of name-value pairs for the dimensions in the group.</p>"
+          }
+        },
+        "Total": {
+          "target": "com.amazonaws.pi#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>The aggregated metric value for the dimensions, over the requested time range.</p>"
+          }
+        },
+        "AdditionalMetrics": {
+          "target": "com.amazonaws.pi#AdditionalMetricsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map that contains the value for each additional metric.</p>"
+          }
+        },
+        "Partitions": {
+          "target": "com.amazonaws.pi#MetricValuesList",
+          "traits": {
+            "smithy.api#documentation": "<p>If <code>PartitionBy</code> was specified, <code>PartitionKeys</code> contains the dimensions that were.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that includes the requested dimension key values and aggregated metric values \n          within a dimension group.</p>"
+      }
+    },
+    "com.amazonaws.pi#DimensionKeyDescriptionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#DimensionKeyDescription"
+      }
+    },
+    "com.amazonaws.pi#DimensionKeyDetail": {
+      "type": "structure",
+      "members": {
+        "Value": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the dimension detail data. Depending on the return status, this value is either the \n          full or truncated SQL query for the following dimensions:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db.query.statement</code> (Amazon DocumentDB)</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql.statement</code> (Amazon RDS and Aurora)</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Dimension": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The full name of the dimension. The full name includes the group name and key name. The following values are valid:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db.query.statement</code> (Amazon DocumentDB)</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql.statement</code> (Amazon RDS and Aurora)</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.pi#DetailStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the dimension detail data. Possible values include the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AVAILABLE</code> - The dimension detail data is ready to be retrieved.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PROCESSING</code> - The dimension detail data isn't ready to be retrieved because more processing time is required. If the\n                    requested detail data has the status <code>PROCESSING</code>, Performance Insights returns the truncated query.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UNAVAILABLE</code> - The dimension detail data could not be collected successfully.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that describes the details for a specified dimension.</p>"
+      }
+    },
+    "com.amazonaws.pi#DimensionKeyDetailList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#DimensionKeyDetail"
+      }
+    },
+    "com.amazonaws.pi#DimensionMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.pi#RequestString"
+      },
+      "value": {
+        "target": "com.amazonaws.pi#RequestString"
+      }
+    },
+    "com.amazonaws.pi#DimensionsMetricList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#RequestString"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    },
+    "com.amazonaws.pi#Double": {
+      "type": "double"
+    },
+    "com.amazonaws.pi#ErrorString": {
+      "type": "string"
+    },
+    "com.amazonaws.pi#FeatureMetadata": {
+      "type": "structure",
+      "members": {
+        "Status": {
+          "target": "com.amazonaws.pi#FeatureStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the feature on the DB instance. Possible values include the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLED</code> - The feature is enabled on the instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED</code> - The feature is disabled on the instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UNSUPPORTED</code> - The feature isn't supported on the instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ENABLED_PENDING_REBOOT</code> - The feature is enabled on the instance but requires a reboot to take effect.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED_PENDING_REBOOT</code> - The feature is disabled on the instance but requires a reboot to take effect.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UNKNOWN</code> - The feature status couldn't be determined.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The metadata for a feature. For example, the metadata might indicate that a feature is\n          turned on or off on a specific DB instance.</p>"
+      }
+    },
+    "com.amazonaws.pi#FeatureMetadataMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.pi#String"
+      },
+      "value": {
+        "target": "com.amazonaws.pi#FeatureMetadata"
+      }
+    },
+    "com.amazonaws.pi#FeatureStatus": {
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "UNSUPPORTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNSUPPORTED"
+          }
+        },
+        "ENABLED_PENDING_REBOOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED_PENDING_REBOOT"
+          }
+        },
+        "DISABLED_PENDING_REBOOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED_PENDING_REBOOT"
+          }
+        },
+        "UNKNOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNKNOWN"
+          }
+        }
+      }
+    },
+    "com.amazonaws.pi#GetDimensionKeyDetails": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#GetDimensionKeyDetailsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#GetDimensionKeyDetailsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Get the attributes of the specified dimension group for a DB instance or data source. For example, if you specify a SQL ID,\n                <code>GetDimensionKeyDetails</code> retrieves the full text of the dimension <code>db.sql.statement</code> associated with this ID.\n            This operation is useful because <code>GetResourceMetrics</code> and <code>DescribeDimensionKeys</code> don't support retrieval of large\n            SQL statement text.</p>"
+      }
+    },
+    "com.amazonaws.pi#GetDimensionKeyDetailsRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services service for which Performance Insights returns data. The only valid value is <code>RDS</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#IdentifierString",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID for a data source from which to gather dimension data. This ID must be immutable and \n          unique within an Amazon Web Services Region. When a DB instance is the data source, specify its \n          <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Group": {
+          "target": "com.amazonaws.pi#RequestString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the dimension group. Performance Insights searches the specified group for the dimension group ID. The following group name values are\n            valid:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db.query</code> (Amazon DocumentDB only)</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql</code> (Amazon RDS and Aurora only)</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "GroupIdentifier": {
+          "target": "com.amazonaws.pi#RequestString",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the dimension group from which to retrieve dimension details. For dimension group <code>db.sql</code>, the group ID is\n                <code>db.sql.id</code>. The following group ID values are valid:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db.sql.id</code> for dimension group <code>db.sql</code> (Aurora and RDS only)</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.query.id</code> for dimension group <code>db.query</code> (DocumentDB only)</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "RequestedDimensions": {
+          "target": "com.amazonaws.pi#RequestedDimensionList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of dimensions to retrieve the detail data for within the given dimension group. If you don't specify this parameter, Performance Insights returns\n            all dimension data within the specified dimension group. Specify dimension names for the following dimension groups:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db.sql</code> - Specify either the full dimension name <code>db.sql.statement</code> or the short dimension name\n                        <code>statement</code> (Aurora and RDS only).</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.query</code> - Specify either the full dimension name <code>db.query.statement</code> or the short dimension name\n                        <code>statement</code> (DocumentDB only).</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#GetDimensionKeyDetailsResponse": {
+      "type": "structure",
+      "members": {
+        "Dimensions": {
+          "target": "com.amazonaws.pi#DimensionKeyDetailList",
+          "traits": {
+            "smithy.api#documentation": "<p>The details for the requested dimensions.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#GetPerformanceAnalysisReport": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#GetPerformanceAnalysisReportRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#GetPerformanceAnalysisReportResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the report including the report ID, status, time details, and the insights\n            with recommendations. The report status can be <code>RUNNING</code>,\n            <code>SUCCEEDED</code>, or <code>FAILED</code>. The insights include the\n            <code>description</code> and <code>recommendation</code> fields. </p>"
+      }
+    },
+    "com.amazonaws.pi#GetPerformanceAnalysisReportRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services service for which Performance Insights will return metrics. Valid value is\n            <code>RDS</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#IdentifierString",
+          "traits": {
+            "smithy.api#documentation": "<p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers \n            metrics from this data source. In the console, the identifier is shown as \n            <i>ResourceID</i>. When you call <code>DescribeDBInstances</code>, the identifier is\n            returned as <code>DbiResourceId</code>.</p>\n         <p>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify\n            <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AnalysisReportId": {
+          "target": "com.amazonaws.pi#AnalysisReportId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier of the created analysis report. For example,\n            <code>report-12345678901234567</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TextFormat": {
+          "target": "com.amazonaws.pi#TextFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the text format in the report. The options are <code>PLAIN_TEXT</code> or <code>MARKDOWN</code>. The default\n            value is <code>plain text</code>.</p>"
+          }
+        },
+        "AcceptLanguage": {
+          "target": "com.amazonaws.pi#AcceptLanguage",
+          "traits": {
+            "smithy.api#documentation": "<p>The text language in the report. The default language is <code>EN_US</code> (English). \n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#GetPerformanceAnalysisReportResponse": {
+      "type": "structure",
+      "members": {
+        "AnalysisReport": {
+          "target": "com.amazonaws.pi#AnalysisReport",
+          "traits": {
+            "smithy.api#documentation": "<p>The summary of the performance analysis report created for a time period.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#GetResourceMetadata": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#GetResourceMetadataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#GetResourceMetadataResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieve the metadata for different features. For example, the metadata might indicate \n            that a feature is turned on or off on a specific DB instance.\n        </p>"
+      }
+    },
+    "com.amazonaws.pi#GetResourceMetadataRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services service for which Performance Insights returns metrics.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#IdentifierString",
+          "traits": {
+            "smithy.api#documentation": "<p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. \n            Performance Insights gathers metrics from this data source. To use a DB instance as a data source, \n            specify its <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.\n        </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#GetResourceMetadataResponse": {
+      "type": "structure",
+      "members": {
+        "Identifier": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. \n      \n      Performance Insights gathers metrics from this data source. To use a DB instance as a data source, \n            specify its <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.\n        </p>"
+          }
+        },
+        "Features": {
+          "target": "com.amazonaws.pi#FeatureMetadataMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata for different features. For example, the metadata might indicate that a feature is\n            turned on or off on a specific DB instance.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#GetResourceMetrics": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#GetResourceMetricsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#GetResourceMetricsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieve Performance Insights metrics for a set of data sources over a time period. You can provide\n      specific dimension groups and dimensions, and provide aggregation and filtering criteria for\n      each group.</p>\n         <note>\n            <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements, \n               only the first 500 bytes are returned.</p>\n         </note>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.pi#GetResourceMetricsRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services service for which Performance Insights returns metrics. Valid values are as follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>RDS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>DOCDB</code>\n               </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#IdentifierString",
+          "traits": {
+            "smithy.api#documentation": "<p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. In the\n            console, the identifier is shown as <i>ResourceID</i>. When you call <code>DescribeDBInstances</code>, the identifier is\n            returned as <code>DbiResourceId</code>.</p>\n         <p>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify\n                <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MetricQueries": {
+          "target": "com.amazonaws.pi#MetricQueryList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of one or more queries to perform. Each query must specify a Performance Insights metric, and can optionally specify aggregation and filtering\n            criteria.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time specifying the beginning of the requested time series query range. You can't\n            specify a <code>StartTime</code> that is earlier than 7 days ago. By default, Performance Insights has 7 days of \n            retention, but you can extend this range up to 2 years. The value specified is\n            <i>inclusive</i>. Thus, the command returns data points equal to or greater \n            than <code>StartTime</code>.</p>\n         <p>The value for <code>StartTime</code> must be earlier than the value for <code>EndTime</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time specifying the end of the requested time series query range. The value \n            specified is <i>exclusive</i>. Thus, the command returns data points less than \n            (but not equal to) <code>EndTime</code>.</p>\n         <p>The value for <code>EndTime</code> must be later than the value for <code>StartTime</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PeriodInSeconds": {
+          "target": "com.amazonaws.pi#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as one second, or as long as one day (86400\n            seconds). Valid values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>1</code> (one second)</p>\n            </li>\n            <li>\n               <p>\n                  <code>60</code> (one minute)</p>\n            </li>\n            <li>\n               <p>\n                  <code>300</code> (five minutes)</p>\n            </li>\n            <li>\n               <p>\n                  <code>3600</code> (one hour)</p>\n            </li>\n            <li>\n               <p>\n                  <code>86400</code> (twenty-four hours)</p>\n            </li>\n         </ul>\n         <p>If you don't specify <code>PeriodInSeconds</code>, then Performance Insights will choose a value for you, with a goal of returning roughly 100-200 data\n            points in the response.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.pi#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxRecords</code> value, a\n            pagination token is included in the response so that the remaining results can be retrieved. </p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pi#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond\n            the token, up to the value specified by <code>MaxRecords</code>.</p>"
+          }
+        },
+        "PeriodAlignment": {
+          "target": "com.amazonaws.pi#PeriodAlignment",
+          "traits": {
+            "smithy.api#documentation": "<p>The returned timestamp which is the start or end time of the time periods. The default value is <code>END_TIME</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#GetResourceMetricsResponse": {
+      "type": "structure",
+      "members": {
+        "AlignedStartTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time for the returned metrics, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).\n                <code>AlignedStartTime</code> will be less than or equal to the value of the user-specified <code>StartTime</code>.</p>"
+          }
+        },
+        "AlignedEndTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time for the returned metrics, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).\n                <code>AlignedEndTime</code> will be greater than or equal to the value of the user-specified <code>Endtime</code>.</p>"
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. In the\n            console, the identifier is shown as <i>ResourceID</i>. When you call <code>DescribeDBInstances</code>, the identifier is\n            returned as <code>DbiResourceId</code>.</p>"
+          }
+        },
+        "MetricList": {
+          "target": "com.amazonaws.pi#MetricKeyDataPointsList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of metric results, where each array element contains all of the data points for a \n          particular dimension.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pi#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If this parameter is specified, \n          the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.\n      </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#ISOTimestamp": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.pi#IdentifierString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9-]+$"
+      }
+    },
+    "com.amazonaws.pi#Insight": {
+      "type": "structure",
+      "members": {
+        "InsightId": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the insight. For example, <code>insight-12345678901234567</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InsightType": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of insight. For example, <code>HighDBLoad</code>, <code>HighCPU</code>, or <code>DominatingSQLs</code>.</p>"
+          }
+        },
+        "Context": {
+          "target": "com.amazonaws.pi#ContextType",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if the insight is causal or correlated insight.</p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time of the insight. For example, <code>2018-10-30T00:00:00Z</code>.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.pi#ISOTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time of the insight. For example, <code>2018-10-30T00:00:00Z</code>.</p>"
+          }
+        },
+        "Severity": {
+          "target": "com.amazonaws.pi#Severity",
+          "traits": {
+            "smithy.api#documentation": "<p>The severity of the insight. The values are: <code>Low</code>, <code>Medium</code>, or <code>High</code>.</p>"
+          }
+        },
+        "SupportingInsights": {
+          "target": "com.amazonaws.pi#InsightList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of supporting insights that provide additional factors for the insight.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.pi#MarkdownString",
+          "traits": {
+            "smithy.api#documentation": "<p>Description of the insight. For example:\n            <code>A high severity Insight found between 02:00 to 02:30,\n                where there was an unusually high DB load 600x above baseline. \n                Likely performance impact</code>.</p>"
+          }
+        },
+        "Recommendations": {
+          "target": "com.amazonaws.pi#RecommendationList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of recommendations for the insight.\n            For example, <code>Investigate the following SQLs that contributed \n                to 100% of the total DBLoad during that time period: sql-id</code>.</p>"
+          }
+        },
+        "InsightData": {
+          "target": "com.amazonaws.pi#DataList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of data objects containing metrics and references from the time range while generating the insight.</p>"
+          }
+        },
+        "BaselineData": {
+          "target": "com.amazonaws.pi#DataList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Metric names and values from the timeframe \n            used as baseline to generate the insight.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the list of performance issues which are identified.</p>"
+      }
+    },
+    "com.amazonaws.pi#InsightList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#Insight"
+      }
+    },
+    "com.amazonaws.pi#Integer": {
+      "type": "integer"
+    },
+    "com.amazonaws.pi#InternalServiceError": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.pi#ErrorString"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request failed due to an unknown error.</p>",
+        "smithy.api#error": "server"
+      }
+    },
+    "com.amazonaws.pi#InvalidArgumentException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.pi#ErrorString"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>One of the arguments provided is invalid for this request.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.pi#Limit": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.pi#ListAvailableResourceDimensions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#ListAvailableResourceDimensionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#ListAvailableResourceDimensionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieve the dimensions that can be queried for each specified metric type on a specified DB instance.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.pi#ListAvailableResourceDimensionsRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services service for which Performance Insights returns metrics.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#IdentifierString",
+          "traits": {
+            "smithy.api#documentation": "<p>An immutable identifier for a data source that is unique within an Amazon Web Services Region. Performance Insights gathers\n            metrics from this data source. To use an Amazon RDS DB instance as a data source, specify its\n                <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VWZ</code>. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Metrics": {
+          "target": "com.amazonaws.pi#DimensionsMetricList",
+          "traits": {
+            "smithy.api#documentation": "<p>The types of metrics for which to retrieve dimensions. Valid values include <code>db.load</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.pi#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return in the response. If more items exist than the specified \n            <code>MaxRecords</code> value, a pagination token is included in the response so that the remaining \n            results can be retrieved.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pi#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If this parameter is specified, \n            the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#ListAvailableResourceDimensionsResponse": {
+      "type": "structure",
+      "members": {
+        "MetricDimensions": {
+          "target": "com.amazonaws.pi#MetricDimensionsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The dimension information returned for requested metric types.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pi#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If this parameter is specified, \n            the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#ListAvailableResourceMetrics": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#ListAvailableResourceMetricsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#ListAvailableResourceMetricsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieve metrics of the specified types that can be queried for a specified DB instance.\n      </p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.pi#ListAvailableResourceMetricsRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services service for which Performance Insights returns metrics.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#IdentifierString",
+          "traits": {
+            "smithy.api#documentation": "<p>An immutable identifier for a data source that is unique within an Amazon Web Services Region. Performance Insights gathers\n            metrics from this data source. To use an Amazon RDS DB instance as a data source, specify its\n                <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VWZ</code>. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MetricTypes": {
+          "target": "com.amazonaws.pi#MetricTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The types of metrics to return in the response. Valid values in the array include the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>os</code> (OS counter metrics) - All engines</p>\n            </li>\n            <li>\n               <p>\n                  <code>db</code> (DB load metrics) - All engines except for Amazon DocumentDB</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql.stats</code> (per-SQL metrics) - All engines except for Amazon DocumentDB</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql_tokenized.stats</code> (per-SQL digest metrics) - All engines except for Amazon DocumentDB</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pi#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If this parameter is specified, \n          the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.\n      </p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.pi#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return. If the <code>MaxRecords</code> value is less than the number \n            of existing items, the response includes a pagination token. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#ListAvailableResourceMetricsResponse": {
+      "type": "structure",
+      "members": {
+        "Metrics": {
+          "target": "com.amazonaws.pi#ResponseResourceMetricList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of metrics available to query. Each array element contains the full name, \n            description, and unit of the metric.\n        </p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pi#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A pagination token that indicates the response didn’t return all available records because <code>MaxRecords</code> was specified in the\n            previous request. To get the remaining records, specify <code>NextToken</code> in a separate request with this value. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#ListPerformanceAnalysisReports": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#ListPerformanceAnalysisReportsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#ListPerformanceAnalysisReportsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all the analysis reports created for the DB instance. The reports are sorted based on the start time of each report.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.pi#ListPerformanceAnalysisReportsRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services service for which Performance Insights returns metrics. Valid value is\n            <code>RDS</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Identifier": {
+          "target": "com.amazonaws.pi#IdentifierString",
+          "traits": {
+            "smithy.api#documentation": "<p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. In the\n            console, the identifier is shown as <i>ResourceID</i>. When you call <code>DescribeDBInstances</code>, the identifier is\n            returned as <code>DbiResourceId</code>.</p>\n         <p>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify\n            <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pi#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. \n            If this parameter is specified, the response includes only records beyond\n            the token, up to the value specified by <code>MaxResults</code>.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.pi#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxResults</code> value, a\n            pagination token is included in the response so that the remaining results can be retrieved. </p>"
+          }
+        },
+        "ListTags": {
+          "target": "com.amazonaws.pi#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether or not to include the list of tags in the response.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#ListPerformanceAnalysisReportsResponse": {
+      "type": "structure",
+      "members": {
+        "AnalysisReports": {
+          "target": "com.amazonaws.pi#AnalysisReportSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of reports including the report identifier, start and end time, creation time,\n            and status.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pi#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. \n            If this parameter is specified, the response includes only records beyond the token, \n            up to the value specified by <code>MaxResults</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#ListTagsForResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves all the metadata tags associated with Amazon RDS Performance Insights resource.</p>"
+      }
+    },
+    "com.amazonaws.pi#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.pi#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists all the tags for the Amazon RDS Performance Insights resource. This value is an \n            Amazon Resource Name (ARN). For information about creating an ARN, \n            see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\">\n                Constructing an RDS Amazon Resource Name (ARN)</a>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "target": "com.amazonaws.pi#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#MarkdownString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 8000
+        },
+        "smithy.api#pattern": "^(.|\\n)*$",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.pi#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.pi#MetricDimensionGroups": {
+      "type": "structure",
+      "members": {
+        "Metric": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The metric type to which the dimension information belongs.</p>"
+          }
+        },
+        "Groups": {
+          "target": "com.amazonaws.pi#DimensionGroupDetailList",
+          "traits": {
+            "smithy.api#documentation": "<p>The available dimension groups for a metric type.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The available dimension information for a metric type.</p>"
+      }
+    },
+    "com.amazonaws.pi#MetricDimensionsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#MetricDimensionGroups"
+      }
+    },
+    "com.amazonaws.pi#MetricKeyDataPoints": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazonaws.pi#ResponseResourceMetricKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The dimensions to which the data points apply.</p>"
+          }
+        },
+        "DataPoints": {
+          "target": "com.amazonaws.pi#DataPointsList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of timestamp-value pairs, representing measurements over a period of time.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A time-ordered series of data points, corresponding to a dimension of a Performance Insights\n      metric.</p>"
+      }
+    },
+    "com.amazonaws.pi#MetricKeyDataPointsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#MetricKeyDataPoints"
+      }
+    },
+    "com.amazonaws.pi#MetricQuery": {
+      "type": "structure",
+      "members": {
+        "Metric": {
+          "target": "com.amazonaws.pi#RequestString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of a Performance Insights metric to be measured.</p>\n         <p>Valid values for <code>Metric</code> are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db.load.avg</code> - A scaled representation of the number of active sessions for the \n                    database engine.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sampledload.avg</code> - The raw number of active sessions for the database engine.</p>\n            </li>\n            <li>\n               <p>The counter metrics listed in <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS\">Performance Insights\n                        operating system counters</a> in the <i>Amazon Aurora User Guide</i>.</p>\n            </li>\n         </ul>\n         <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code> and <code>db.sampledload.avg</code> are the same\n            value. If the number of active sessions is greater than the internal threshold, Performance Insights samples the active sessions, with <code>db.load.avg</code> showing the\n            scaled values, <code>db.sampledload.avg</code> showing the raw values, and <code>db.sampledload.avg</code> less than\n                <code>db.load.avg</code>. For most use cases, you can query <code>db.load.avg</code> only.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "GroupBy": {
+          "target": "com.amazonaws.pi#DimensionGroup",
+          "traits": {
+            "smithy.api#documentation": "<p>A specification for how to aggregate the data points from a query result. You must\n      specify a valid dimension group.  Performance Insights will return all of the dimensions within that group,\n      unless you provide the names of specific dimensions within that group. You can also request\n      that Performance Insights return a limited number of values for a dimension.</p>"
+          }
+        },
+        "Filter": {
+          "target": "com.amazonaws.pi#MetricQueryFilterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more filters to apply in the request.  Restrictions:</p>\n         <ul>\n            <li>\n               <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> parameter.</p>\n            </li>\n            <li>\n               <p>A single filter for any other dimension in this dimension group.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A single query to be processed. You must provide the metric to query. If no other\n      parameters are specified, Performance Insights returns all data points for the specified metric. Optionally, you can\n      request that the data points be aggregated by dimension group (<code>GroupBy</code>), and return only \n          those data points that match your criteria (<code>Filter</code>).</p>"
+      }
+    },
+    "com.amazonaws.pi#MetricQueryFilterMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.pi#RequestString"
+      },
+      "value": {
+        "target": "com.amazonaws.pi#RequestString"
+      }
+    },
+    "com.amazonaws.pi#MetricQueryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#MetricQuery"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    },
+    "com.amazonaws.pi#MetricTypeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#RequestString"
+      }
+    },
+    "com.amazonaws.pi#MetricValuesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#Double"
+      }
+    },
+    "com.amazonaws.pi#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 8192
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9_=-]+$"
+      }
+    },
+    "com.amazonaws.pi#NotAuthorizedException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.pi#ErrorString"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The user is not authorized to perform this request.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.pi#PerformanceInsightsMetric": {
+      "type": "structure",
+      "members": {
+        "Metric": {
+          "target": "com.amazonaws.pi#DescriptiveString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Performance Insights metric.</p>"
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.pi#DescriptiveString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Performance Insights metric name.</p>"
+          }
+        },
+        "Dimensions": {
+          "target": "com.amazonaws.pi#DescriptiveMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A dimension map that contains the dimensions for this partition.</p>"
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.pi#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the metric. For example, <code>9</code> for <code>db.load.avg</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This data type helps to determine Performance Insights metric to render for the insight.</p>"
+      }
+    },
+    "com.amazonaws.pi#PerformanceInsightsv20180227": {
+      "type": "service",
+      "version": "2018-02-27",
+      "operations": [
+        {
+          "target": "com.amazonaws.pi#CreatePerformanceAnalysisReport"
+        },
+        {
+          "target": "com.amazonaws.pi#DeletePerformanceAnalysisReport"
+        },
+        {
+          "target": "com.amazonaws.pi#DescribeDimensionKeys"
+        },
+        {
+          "target": "com.amazonaws.pi#GetDimensionKeyDetails"
+        },
+        {
+          "target": "com.amazonaws.pi#GetPerformanceAnalysisReport"
+        },
+        {
+          "target": "com.amazonaws.pi#GetResourceMetadata"
+        },
+        {
+          "target": "com.amazonaws.pi#GetResourceMetrics"
+        },
+        {
+          "target": "com.amazonaws.pi#ListAvailableResourceDimensions"
+        },
+        {
+          "target": "com.amazonaws.pi#ListAvailableResourceMetrics"
+        },
+        {
+          "target": "com.amazonaws.pi#ListPerformanceAnalysisReports"
+        },
+        {
+          "target": "com.amazonaws.pi#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.pi#TagResource"
+        },
+        {
+          "target": "com.amazonaws.pi#UntagResource"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "PI",
+          "arnNamespace": "pi",
+          "cloudFormationName": "PI",
+          "cloudTrailEventSource": "pi.amazonaws.com",
+          "endpointPrefix": "pi"
+        },
+        "aws.auth#sigv4": {
+          "name": "pi"
+        },
+        "aws.protocols#awsJson1_1": {},
+        "smithy.api#documentation": "<fullname>Amazon RDS Performance Insights</fullname>\n         <p>Amazon RDS Performance Insights enables you to monitor and explore different dimensions of database load based on data captured from a running DB instance. The guide\n            provides detailed information about Performance Insights data types, parameters and errors.</p>\n         <p>When Performance Insights is enabled, the Amazon RDS Performance Insights API provides visibility into the performance of your DB instance. Amazon CloudWatch provides the\n            authoritative source for Amazon Web Services service-vended monitoring metrics. Performance Insights offers a domain-specific view of DB load.</p>\n         <p>DB load is measured as average active sessions. Performance Insights provides the data to API consumers as a two-dimensional time-series dataset. The time dimension\n            provides DB load data for each time point in the queried time range. Each time point decomposes overall load in relation to the requested\n            dimensions, measured at that time point. Examples include SQL, Wait event, User, and Host.</p>\n         <ul>\n            <li>\n               <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <i>\n                     <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html\"> Amazon Aurora User Guide</a>\n                  </i>. </p>\n            </li>\n            <li>\n               <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <i>\n                     <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html\"> Amazon RDS User Guide</a>\n                  </i>. </p>\n            </li>\n            <li>\n               <p>To learn more about Performance Insights and Amazon DocumentDB clusters, go to the <i>\n                     <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html\"> Amazon DocumentDB Developer Guide</a>\n                  </i>.</p>\n            </li>\n         </ul>",
+        "smithy.api#title": "AWS Performance Insights",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://pi.amazonaws.com/doc/2018-02-27/"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://pi-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://pi-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://pi.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://pi.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pi.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.pi#PeriodAlignment": {
+      "type": "enum",
+      "members": {
+        "END_TIME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "END_TIME"
+          }
+        },
+        "START_TIME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "START_TIME"
+          }
+        }
+      }
+    },
+    "com.amazonaws.pi#Recommendation": {
+      "type": "structure",
+      "members": {
+        "RecommendationId": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the recommendation.</p>"
+          }
+        },
+        "RecommendationDescription": {
+          "target": "com.amazonaws.pi#MarkdownString",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommendation details to help resolve the performance issue. For example, \n            <code>Investigate the following SQLs that contributed to 100% of the total DBLoad during that time period: sql-id</code>\n         </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The list of recommendations for the insight.</p>"
+      }
+    },
+    "com.amazonaws.pi#RecommendationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#Recommendation"
+      }
+    },
+    "com.amazonaws.pi#RequestString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "\\S"
+      }
+    },
+    "com.amazonaws.pi#RequestStringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#RequestString"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.pi#RequestedDimensionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#RequestString"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.pi#ResponsePartitionKey": {
+      "type": "structure",
+      "members": {
+        "Dimensions": {
+          "target": "com.amazonaws.pi#DimensionMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A dimension map that contains the dimensions for this partition.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>If <code>PartitionBy</code> was specified in a <code>DescribeDimensionKeys</code>\n      request, the dimensions are returned in an array. Each element in the array specifies one\n      dimension. </p>"
+      }
+    },
+    "com.amazonaws.pi#ResponsePartitionKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#ResponsePartitionKey"
+      }
+    },
+    "com.amazonaws.pi#ResponseResourceMetric": {
+      "type": "structure",
+      "members": {
+        "Metric": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The full name of the metric.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.pi#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the metric.</p>"
+          }
+        },
+        "Unit": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unit of the metric.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that contains the full name, description, and unit of a metric.\n      </p>"
+      }
+    },
+    "com.amazonaws.pi#ResponseResourceMetricKey": {
+      "type": "structure",
+      "members": {
+        "Metric": {
+          "target": "com.amazonaws.pi#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of a Performance Insights metric to be measured.</p>\n         <p>Valid values for <code>Metric</code> are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db.load.avg</code> - A scaled representation of the number of active sessions for the database engine.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sampledload.avg</code> - The raw number of active sessions for the database engine.</p>\n            </li>\n            <li>\n               <p>The counter metrics listed in <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS\">Performance Insights\n                        operating system counters</a> in the <i>Amazon Aurora User Guide</i>.</p>\n            </li>\n         </ul>\n         <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code> and \n          <code>db.sampledload.avg</code> are the same value. If the number of active sessions is greater than the \n          internal threshold, Performance Insights samples the active sessions, with <code>db.load.avg</code> showing the scaled values, \n          <code>db.sampledload.avg</code> showing the raw values, and <code>db.sampledload.avg</code> less \n          than <code>db.load.avg</code>. For most use cases, you can query <code>db.load.avg</code> only.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Dimensions": {
+          "target": "com.amazonaws.pi#DimensionMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The valid dimensions for the metric.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object describing a Performance Insights metric and one or more dimensions for that metric.</p>"
+      }
+    },
+    "com.amazonaws.pi#ResponseResourceMetricList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#ResponseResourceMetric"
+      }
+    },
+    "com.amazonaws.pi#ServiceType": {
+      "type": "enum",
+      "members": {
+        "RDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RDS"
+          }
+        },
+        "DOCDB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOCDB"
+          }
+        }
+      }
+    },
+    "com.amazonaws.pi#Severity": {
+      "type": "enum",
+      "members": {
+        "LOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LOW"
+          }
+        },
+        "MEDIUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEDIUM"
+          }
+        },
+        "HIGH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HIGH"
+          }
+        }
+      }
+    },
+    "com.amazonaws.pi#String": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "\\S"
+      }
+    },
+    "com.amazonaws.pi#Tag": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazonaws.pi#TagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>A key is the required name of the tag. The string value can be from 1 to 128 Unicode \n            characters in length and can't be prefixed with <code>aws:</code> or <code>rds:</code>. \n            The string can only contain only the set of Unicode letters, digits, \n            white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: <code>\"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-@]*)$\"</code>).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.pi#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A value is the optional value of the tag. The string value can be from 1 to 256 \n            Unicode characters in length and can't be prefixed with <code>aws:</code> or <code>rds:</code>. \n            The string can only contain only the set of Unicode letters, digits, \n            white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-@]*)$\").</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>"
+      }
+    },
+    "com.amazonaws.pi#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^.*$"
+      }
+    },
+    "com.amazonaws.pi#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#TagKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        }
+      }
+    },
+    "com.amazonaws.pi#TagList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pi#Tag"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        }
+      }
+    },
+    "com.amazonaws.pi#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#TagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds metadata tags to the Amazon RDS Performance Insights resource.</p>"
+      }
+    },
+    "com.amazonaws.pi#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.pi#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon RDS Performance Insights resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about  \n            creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\">\n                Constructing an RDS Amazon Resource Name (ARN)</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.pi#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#TagResourceResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.pi#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^.*$"
+      }
+    },
+    "com.amazonaws.pi#TextFormat": {
+      "type": "enum",
+      "members": {
+        "PLAIN_TEXT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PLAIN_TEXT"
+          }
+        },
+        "MARKDOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MARKDOWN"
+          }
+        }
+      }
+    },
+    "com.amazonaws.pi#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pi#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pi#UntagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pi#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.pi#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.pi#NotAuthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the metadata tags from the Amazon RDS Performance Insights resource.</p>"
+      }
+    },
+    "com.amazonaws.pi#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ServiceType": {
+          "target": "com.amazonaws.pi#ServiceType",
+          "traits": {
+            "smithy.api#documentation": "<p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.pi#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon RDS Performance Insights resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about  \n            creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\">\n                Constructing an RDS Amazon Resource Name (ARN)</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.pi#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata assigned to an Amazon RDS Performance Insights resource consisting of a key-value pair.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.pi#UntagResourceResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    }
+  }
+}

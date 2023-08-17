@@ -1,0 +1,872 @@
+{
+    "smithy": "2.0",
+    "metadata": {
+        "suppressions": [
+            {
+                "id": "HttpMethodSemantics",
+                "namespace": "*"
+            },
+            {
+                "id": "HttpResponseCodeSemantics",
+                "namespace": "*"
+            },
+            {
+                "id": "PaginatedTrait",
+                "namespace": "*"
+            },
+            {
+                "id": "HttpHeaderTrait",
+                "namespace": "*"
+            },
+            {
+                "id": "HttpUriConflict",
+                "namespace": "*"
+            },
+            {
+                "id": "Service",
+                "namespace": "*"
+            }
+        ]
+    },
+    "shapes": {
+        "com.amazonaws.personalizeevents#AmazonPersonalizeEvents": {
+            "type": "service",
+            "version": "2018-03-22",
+            "operations": [
+                {
+                    "target": "com.amazonaws.personalizeevents#PutEvents"
+                },
+                {
+                    "target": "com.amazonaws.personalizeevents#PutItems"
+                },
+                {
+                    "target": "com.amazonaws.personalizeevents#PutUsers"
+                }
+            ],
+            "traits": {
+                "aws.api#service": {
+                    "sdkId": "Personalize Events",
+                    "arnNamespace": "personalize",
+                    "cloudFormationName": "PersonalizeEvents",
+                    "cloudTrailEventSource": "personalizeevents.amazonaws.com",
+                    "endpointPrefix": "personalize-events"
+                },
+                "aws.auth#sigv4": {
+                    "name": "personalize"
+                },
+                "aws.protocols#restJson1": {},
+                "smithy.api#documentation": "<p>Amazon Personalize can consume real-time user event data, such as <i>stream</i> or <i>click</i> data, and use\n      it for model training either alone or combined with historical data. For more information see \n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html\">Recording Events</a>.</p>",
+                "smithy.api#title": "Amazon Personalize Events",
+                "smithy.rules#endpointRuleSet": {
+                    "version": "1.0",
+                    "parameters": {
+                        "Region": {
+                            "builtIn": "AWS::Region",
+                            "required": false,
+                            "documentation": "The AWS region used to dispatch the request.",
+                            "type": "String"
+                        },
+                        "UseDualStack": {
+                            "builtIn": "AWS::UseDualStack",
+                            "required": true,
+                            "default": false,
+                            "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+                            "type": "Boolean"
+                        },
+                        "UseFIPS": {
+                            "builtIn": "AWS::UseFIPS",
+                            "required": true,
+                            "default": false,
+                            "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+                            "type": "Boolean"
+                        },
+                        "Endpoint": {
+                            "builtIn": "SDK::Endpoint",
+                            "required": false,
+                            "documentation": "Override the endpoint used to send this request",
+                            "type": "String"
+                        }
+                    },
+                    "rules": [
+                        {
+                            "conditions": [
+                                {
+                                    "fn": "aws.partition",
+                                    "argv": [
+                                        {
+                                            "ref": "Region"
+                                        }
+                                    ],
+                                    "assign": "PartitionResult"
+                                }
+                            ],
+                            "type": "tree",
+                            "rules": [
+                                {
+                                    "conditions": [
+                                        {
+                                            "fn": "isSet",
+                                            "argv": [
+                                                {
+                                                    "ref": "Endpoint"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "fn": "parseURL",
+                                            "argv": [
+                                                {
+                                                    "ref": "Endpoint"
+                                                }
+                                            ],
+                                            "assign": "url"
+                                        }
+                                    ],
+                                    "type": "tree",
+                                    "rules": [
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        {
+                                                            "ref": "UseFIPS"
+                                                        },
+                                                        true
+                                                    ]
+                                                }
+                                            ],
+                                            "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                                            "type": "error"
+                                        },
+                                        {
+                                            "conditions": [],
+                                            "type": "tree",
+                                            "rules": [
+                                                {
+                                                    "conditions": [
+                                                        {
+                                                            "fn": "booleanEquals",
+                                                            "argv": [
+                                                                {
+                                                                    "ref": "UseDualStack"
+                                                                },
+                                                                true
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                                                    "type": "error"
+                                                },
+                                                {
+                                                    "conditions": [],
+                                                    "endpoint": {
+                                                        "url": {
+                                                            "ref": "Endpoint"
+                                                        },
+                                                        "properties": {},
+                                                        "headers": {}
+                                                    },
+                                                    "type": "endpoint"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "conditions": [
+                                        {
+                                            "fn": "booleanEquals",
+                                            "argv": [
+                                                {
+                                                    "ref": "UseFIPS"
+                                                },
+                                                true
+                                            ]
+                                        },
+                                        {
+                                            "fn": "booleanEquals",
+                                            "argv": [
+                                                {
+                                                    "ref": "UseDualStack"
+                                                },
+                                                true
+                                            ]
+                                        }
+                                    ],
+                                    "type": "tree",
+                                    "rules": [
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        true,
+                                                        {
+                                                            "fn": "getAttr",
+                                                            "argv": [
+                                                                {
+                                                                    "ref": "PartitionResult"
+                                                                },
+                                                                "supportsFIPS"
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        true,
+                                                        {
+                                                            "fn": "getAttr",
+                                                            "argv": [
+                                                                {
+                                                                    "ref": "PartitionResult"
+                                                                },
+                                                                "supportsDualStack"
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "type": "tree",
+                                            "rules": [
+                                                {
+                                                    "conditions": [],
+                                                    "endpoint": {
+                                                        "url": "https://personalize-events-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                        "properties": {},
+                                                        "headers": {}
+                                                    },
+                                                    "type": "endpoint"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "conditions": [],
+                                            "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                                            "type": "error"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "conditions": [
+                                        {
+                                            "fn": "booleanEquals",
+                                            "argv": [
+                                                {
+                                                    "ref": "UseFIPS"
+                                                },
+                                                true
+                                            ]
+                                        }
+                                    ],
+                                    "type": "tree",
+                                    "rules": [
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        true,
+                                                        {
+                                                            "fn": "getAttr",
+                                                            "argv": [
+                                                                {
+                                                                    "ref": "PartitionResult"
+                                                                },
+                                                                "supportsFIPS"
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "type": "tree",
+                                            "rules": [
+                                                {
+                                                    "conditions": [],
+                                                    "endpoint": {
+                                                        "url": "https://personalize-events-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                                        "properties": {},
+                                                        "headers": {}
+                                                    },
+                                                    "type": "endpoint"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "conditions": [],
+                                            "error": "FIPS is enabled but this partition does not support FIPS",
+                                            "type": "error"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "conditions": [
+                                        {
+                                            "fn": "booleanEquals",
+                                            "argv": [
+                                                {
+                                                    "ref": "UseDualStack"
+                                                },
+                                                true
+                                            ]
+                                        }
+                                    ],
+                                    "type": "tree",
+                                    "rules": [
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        true,
+                                                        {
+                                                            "fn": "getAttr",
+                                                            "argv": [
+                                                                {
+                                                                    "ref": "PartitionResult"
+                                                                },
+                                                                "supportsDualStack"
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "type": "tree",
+                                            "rules": [
+                                                {
+                                                    "conditions": [],
+                                                    "endpoint": {
+                                                        "url": "https://personalize-events.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                        "properties": {},
+                                                        "headers": {}
+                                                    },
+                                                    "type": "endpoint"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "conditions": [],
+                                            "error": "DualStack is enabled but this partition does not support DualStack",
+                                            "type": "error"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "conditions": [],
+                                    "endpoint": {
+                                        "url": "https://personalize-events.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                    },
+                                    "type": "endpoint"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "smithy.rules#endpointTests": {
+                    "testCases": [
+                        {
+                            "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://example.com"
+                                }
+                            },
+                            "params": {
+                                "UseDualStack": false,
+                                "UseFIPS": false,
+                                "Region": "us-east-1",
+                                "Endpoint": "https://example.com"
+                            }
+                        },
+                        {
+                            "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+                            "expect": {
+                                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+                            },
+                            "params": {
+                                "UseDualStack": false,
+                                "UseFIPS": true,
+                                "Region": "us-east-1",
+                                "Endpoint": "https://example.com"
+                            }
+                        },
+                        {
+                            "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+                            "expect": {
+                                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+                            },
+                            "params": {
+                                "UseDualStack": true,
+                                "UseFIPS": false,
+                                "Region": "us-east-1",
+                                "Endpoint": "https://example.com"
+                            }
+                        }
+                    ],
+                    "version": "1.0"
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#Arn": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 256
+                },
+                "smithy.api#pattern": "^arn:([a-z\\d-]+):personalize:.*:.*:.+$"
+            }
+        },
+        "com.amazonaws.personalizeevents#Date": {
+            "type": "timestamp"
+        },
+        "com.amazonaws.personalizeevents#ErrorMessage": {
+            "type": "string"
+        },
+        "com.amazonaws.personalizeevents#Event": {
+            "type": "structure",
+            "members": {
+                "eventId": {
+                    "target": "com.amazonaws.personalizeevents#StringType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>An ID associated with the event. If an event ID is not provided, Amazon Personalize generates\n      a unique ID for the event. An event ID is not used as an input to the model. Amazon Personalize uses\n      the event ID to distinquish unique events. Any subsequent events after the first with the\n      same event ID are not used in model training.</p>"
+                    }
+                },
+                "eventType": {
+                    "target": "com.amazonaws.personalizeevents#StringType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The type of event, such as click or download. This property corresponds to the <code>EVENT_TYPE</code>\n      field of your Interactions schema and depends on the types of events you are tracking.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "eventValue": {
+                    "target": "com.amazonaws.personalizeevents#FloatType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The event value that corresponds to the <code>EVENT_VALUE</code> field of the Interactions schema.</p>"
+                    }
+                },
+                "itemId": {
+                    "target": "com.amazonaws.personalizeevents#ItemId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The item ID key that corresponds to the <code>ITEM_ID</code> field of the Interactions schema.</p>"
+                    }
+                },
+                "properties": {
+                    "target": "com.amazonaws.personalizeevents#SynthesizedJsonEventPropertiesJSON",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A string map of event-specific data that you might choose to record. For example, if a\n      user rates a movie on your site, other than movie ID (<code>itemId</code>) and rating (<code>eventValue</code>)\n      , you might also send the number of movie ratings made by the user.</p>\n         <p>Each item in the map consists of a key-value pair. For example,</p>\n    \n         <p>\n            <code>{\"numberOfRatings\": \"12\"}</code>\n         </p>\n         <p>The keys use camel case names that match the fields in the Interactions\n      schema. In the above example, the <code>numberOfRatings</code> would match the\n      'NUMBER_OF_RATINGS' field defined in the Interactions schema.</p>"
+                    }
+                },
+                "sentAt": {
+                    "target": "com.amazonaws.personalizeevents#Date",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The timestamp (in Unix time) on the client side when the event occurred.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "recommendationId": {
+                    "target": "com.amazonaws.personalizeevents#RecommendationId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the list of recommendations that contains the item the user interacted with. Provide a <code>recommendationId</code> to have Amazon Personalize implicitly record the\n      recommendations you show your user as impressions data. Or provide a <code>recommendationId</code> if you use a metric attribution to measure the impact of recommendations. \n    </p>\n         <p>\n      For more information on recording impressions data, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html#putevents-including-impressions-data\">Recording impressions data</a>. \n      For more information on creating a metric attribution see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html\">Measuring impact of recommendations</a>.\n    </p>"
+                    }
+                },
+                "impression": {
+                    "target": "com.amazonaws.personalizeevents#Impression",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of item IDs that represents the sequence of items you have shown the user. For example, <code>[\"itemId1\", \"itemId2\", \"itemId3\"]</code>. Provide a list of \n      items to manually record impressions data for an event. For more information on recording impressions data, \n      see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html#putevents-including-impressions-data\">Recording impressions data</a>. </p>"
+                    }
+                },
+                "metricAttribution": {
+                    "target": "com.amazonaws.personalizeevents#MetricAttribution",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Contains information about the metric attribution associated with an event. For more information about metric attributions, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html\">Measuring impact of recommendations</a>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Represents user interaction event information sent using the\n      <code>PutEvents</code> API.</p>",
+                "smithy.api#sensitive": {}
+            }
+        },
+        "com.amazonaws.personalizeevents#EventAttributionSource": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 1024
+                },
+                "smithy.api#pattern": "^[\\x20-\\x7E]*[\\x21-\\x7E]+[\\x20-\\x7E]*$"
+            }
+        },
+        "com.amazonaws.personalizeevents#EventList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.personalizeevents#Event"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 10
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#FloatType": {
+            "type": "float"
+        },
+        "com.amazonaws.personalizeevents#Impression": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.personalizeevents#ItemId"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 25
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#InvalidInputException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "target": "com.amazonaws.personalizeevents#ErrorMessage"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Provide a valid value for the field or parameter.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 400
+            }
+        },
+        "com.amazonaws.personalizeevents#Item": {
+            "type": "structure",
+            "members": {
+                "itemId": {
+                    "target": "com.amazonaws.personalizeevents#StringType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID associated with the item.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "properties": {
+                    "target": "com.amazonaws.personalizeevents#SynthesizedJsonItemProperties",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A string map of item-specific metadata. Each element in the map consists of a key-value pair. \n      For example, <code>{\"numberOfRatings\": \"12\"}</code>.</p>\n         <p>The keys use camel case names that match the fields in the schema for the Items\n      dataset. In the previous example, the <code>numberOfRatings</code> matches the\n      'NUMBER_OF_RATINGS' field defined in the Items schema. For categorical string data, to include multiple categories for a single item, \n      separate each category with a pipe separator (<code>|</code>). For example, <code>\\\"Horror|Action\\\"</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Represents item metadata added to an Items dataset using the \n      <code>PutItems</code> API. For more information see \n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html\">Importing Items Incrementally</a>.\n    </p>"
+            }
+        },
+        "com.amazonaws.personalizeevents#ItemId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 256
+                },
+                "smithy.api#sensitive": {}
+            }
+        },
+        "com.amazonaws.personalizeevents#ItemList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.personalizeevents#Item"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 10
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#MetricAttribution": {
+            "type": "structure",
+            "members": {
+                "eventAttributionSource": {
+                    "target": "com.amazonaws.personalizeevents#EventAttributionSource",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The source of the event, such as a third party.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Contains information about a metric attribution associated with an event. For more information about metric attributions, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html\">Measuring impact of recommendations</a>.</p>"
+            }
+        },
+        "com.amazonaws.personalizeevents#PutEvents": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.personalizeevents#PutEventsRequest"
+            },
+            "output": {
+                "target": "smithy.api#Unit"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.personalizeevents#InvalidInputException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Records user interaction event data. For more information see \n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html\">Recording Events</a>.</p>",
+                "smithy.api#http": {
+                    "method": "POST",
+                    "uri": "/events",
+                    "code": 200
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#PutEventsRequest": {
+            "type": "structure",
+            "members": {
+                "trackingId": {
+                    "target": "com.amazonaws.personalizeevents#StringType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The tracking ID for the event.\n      The ID is generated by a call to the\n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\">CreateEventTracker</a> API.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "userId": {
+                    "target": "com.amazonaws.personalizeevents#UserId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The user associated with the event.</p>"
+                    }
+                },
+                "sessionId": {
+                    "target": "com.amazonaws.personalizeevents#StringType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The session ID associated with the user's visit. Your application generates the sessionId when a user first visits your website or uses your application. \n      Amazon Personalize uses the sessionId to associate events with the user before they log in. For more information, see \n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html\">Recording Events</a>.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "eventList": {
+                    "target": "com.amazonaws.personalizeevents#EventList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of event data from the session.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#PutItems": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.personalizeevents#PutItemsRequest"
+            },
+            "output": {
+                "target": "smithy.api#Unit"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.personalizeevents#InvalidInputException"
+                },
+                {
+                    "target": "com.amazonaws.personalizeevents#ResourceInUseException"
+                },
+                {
+                    "target": "com.amazonaws.personalizeevents#ResourceNotFoundException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Adds one or more items to an Items dataset. For more information see \n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html\">Importing Items Incrementally</a>.\n     </p>",
+                "smithy.api#http": {
+                    "method": "POST",
+                    "uri": "/items",
+                    "code": 200
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#PutItemsRequest": {
+            "type": "structure",
+            "members": {
+                "datasetArn": {
+                    "target": "com.amazonaws.personalizeevents#Arn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Items dataset you are adding the item or items to.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "items": {
+                    "target": "com.amazonaws.personalizeevents#ItemList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of item data.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#PutUsers": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.personalizeevents#PutUsersRequest"
+            },
+            "output": {
+                "target": "smithy.api#Unit"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.personalizeevents#InvalidInputException"
+                },
+                {
+                    "target": "com.amazonaws.personalizeevents#ResourceInUseException"
+                },
+                {
+                    "target": "com.amazonaws.personalizeevents#ResourceNotFoundException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Adds one or more users to a Users dataset. For more information see \n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html\">Importing Users Incrementally</a>.</p>",
+                "smithy.api#http": {
+                    "method": "POST",
+                    "uri": "/users",
+                    "code": 200
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#PutUsersRequest": {
+            "type": "structure",
+            "members": {
+                "datasetArn": {
+                    "target": "com.amazonaws.personalizeevents#Arn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Users dataset you are adding the user or users to.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "users": {
+                    "target": "com.amazonaws.personalizeevents#UserList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of user data.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#RecommendationId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 40
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#ResourceInUseException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "target": "com.amazonaws.personalizeevents#ErrorMessage"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The specified resource is in use.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 409
+            }
+        },
+        "com.amazonaws.personalizeevents#ResourceNotFoundException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "target": "com.amazonaws.personalizeevents#ErrorMessage"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Could not find the specified resource.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 404
+            }
+        },
+        "com.amazonaws.personalizeevents#StringType": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 256
+                }
+            }
+        },
+        "com.amazonaws.personalizeevents#SynthesizedJsonEventPropertiesJSON": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 1024
+                },
+                "smithy.api#mediaType": "application/json",
+                "smithy.api#sensitive": {}
+            }
+        },
+        "com.amazonaws.personalizeevents#SynthesizedJsonItemProperties": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 24262
+                },
+                "smithy.api#mediaType": "application/json",
+                "smithy.api#sensitive": {}
+            }
+        },
+        "com.amazonaws.personalizeevents#SynthesizedJsonUserProperties": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 4096
+                },
+                "smithy.api#mediaType": "application/json",
+                "smithy.api#sensitive": {}
+            }
+        },
+        "com.amazonaws.personalizeevents#User": {
+            "type": "structure",
+            "members": {
+                "userId": {
+                    "target": "com.amazonaws.personalizeevents#StringType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID associated with the user.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "properties": {
+                    "target": "com.amazonaws.personalizeevents#SynthesizedJsonUserProperties",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A string map of user-specific metadata. Each element in the map consists of a key-value pair. \n      For example, <code>{\"numberOfVideosWatched\": \"45\"}</code>.</p>\n         <p>The keys use camel case names that match the fields in the schema for the Users\n      dataset. In the previous example, the <code>numberOfVideosWatched</code> matches the\n      'NUMBER_OF_VIDEOS_WATCHED' field defined in the Users schema. For categorical string data, \n      to include multiple categories for a single user, separate each category with a pipe separator (<code>|</code>). \n      For example, <code>\\\"Member|Frequent shopper\\\"</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Represents user metadata added to a Users dataset using the \n      <code>PutUsers</code> API. For more information see \n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html\">Importing Users Incrementally</a>.</p>"
+            }
+        },
+        "com.amazonaws.personalizeevents#UserId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 256
+                },
+                "smithy.api#sensitive": {}
+            }
+        },
+        "com.amazonaws.personalizeevents#UserList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.personalizeevents#User"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 10
+                }
+            }
+        }
+    }
+}

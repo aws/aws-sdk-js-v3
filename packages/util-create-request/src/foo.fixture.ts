@@ -1,7 +1,7 @@
-import { constructStack } from "@aws-sdk/middleware-stack";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { Client, Command } from "@aws-sdk/smithy-client";
-import { MetadataBearer, MiddlewareStack } from "@aws-sdk/types";
+import { constructStack } from "@smithy/middleware-stack";
+import { HttpRequest } from "@smithy/protocol-http";
+import { Client, Command } from "@smithy/smithy-client";
+import { MetadataBearer, MiddlewareStack } from "@smithy/types";
 
 export interface OperationInput {
   String: string;

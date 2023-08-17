@@ -1,37 +1,22 @@
-import { Decoder, HashConstructor, HttpRequest, Pluggable } from "@aws-sdk/types";
+import { ChecksumConstructor, Decoder, HashConstructor, HttpRequest, Pluggable } from "@smithy/types";
 
 import { accountIdDefaultMiddleware, accountIdDefaultMiddlewareOptions } from "./account-id-default";
 import { addChecksumHeadersMiddleware, addChecksumHeadersMiddlewareOptions } from "./add-checksum-headers";
 import { addGlacierApiVersionMiddleware, addGlacierApiVersionMiddlewareOptions } from "./add-glacier-api-version";
 
+/**
+ * @public
+ */
 export interface GlacierMiddlewareInputConfig {}
 
-interface PreviouslyResolved {
+export interface PreviouslyResolved {
   apiVersion: string;
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor | HashConstructor;
   utf8Decoder: Decoder;
   bodyChecksumGenerator: (
     request: HttpRequest,
-    Options: { sha256: HashConstructor; utf8Decoder: Decoder }
+    Options: { sha256: ChecksumConstructor | HashConstructor; utf8Decoder: Decoder }
   ) => Promise<[string, string]>;
-}
-
-export interface ResolvedGlacierMiddlewareConfig {
-  apiVersion: string;
-  sha256: HashConstructor;
-  utf8Decoder: Decoder;
-  bodyChecksumGenerator: (
-    request: HttpRequest,
-    Options: { sha256: HashConstructor; utf8Decoder: Decoder }
-  ) => Promise<[string, string]>;
-}
-
-export function resolveGlacierMiddlewareConfig<T>(
-  input: T & PreviouslyResolved & GlacierMiddlewareInputConfig
-): T & ResolvedGlacierMiddlewareConfig {
-  return {
-    ...input,
-  };
 }
 
 export const getGlacierPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({

@@ -1,17 +1,28 @@
-# @aws-sdk/client-data-pipeline
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-data-pipeline/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-data-pipeline)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-data-pipeline.svg)](https://www.npmjs.com/package/@aws-sdk/client-data-pipeline)
+# @aws-sdk/client-data-pipeline
 
 ## Description
 
 AWS SDK for JavaScript DataPipeline Client for Node.js, Browser and React Native.
 
-<p>AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline handles the details of scheduling and ensuring that data dependencies are met so that your application can focus on processing the data.</p>
+<p>AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline
+handles the details of scheduling and ensuring that data dependencies are met so that your application
+can focus on processing the data.</p>
 
-<p>AWS Data Pipeline provides a JAR implementation of a task runner called AWS Data Pipeline Task Runner. AWS Data Pipeline Task Runner provides logic for common data management scenarios, such as performing database queries and running data analysis using Amazon Elastic MapReduce (Amazon EMR). You can use AWS Data Pipeline Task Runner as your task runner, or you can write your own task runner to provide custom data management.</p>
+<p>AWS Data Pipeline provides a JAR implementation of a task runner called AWS Data Pipeline Task Runner.
+AWS Data Pipeline Task Runner provides logic for common data management scenarios, such as performing
+database queries and running data analysis using Amazon Elastic MapReduce (Amazon EMR). You can use
+AWS Data Pipeline Task Runner as your task runner, or you can write your own task runner to provide
+custom data management.</p>
 
-<p>AWS Data Pipeline implements two main sets of functionality. Use the first set to create a pipeline and define data sources, schedules, dependencies, and the transforms to be performed on the data. Use the second set in your task runner application to receive the next task ready for processing. The logic for performing the task, such as querying the data, running data analysis, or converting the data from one format to another, is contained within the task runner. The task runner performs the task assigned to it by the web service, reporting progress to the web service as it does so. When the task is done, the task runner reports the final success or failure of the task to the web service.</p>
+<p>AWS Data Pipeline implements two main sets of functionality. Use the first set to create a pipeline
+and define data sources, schedules, dependencies, and the transforms to be performed on the data.
+Use the second set in your task runner application to receive the next task ready for processing.
+The logic for performing the task, such as querying the data, running data analysis, or converting
+the data from one format to another, is contained within the task runner. The task runner performs
+the task assigned to it by the web service, reporting progress to the web service as it does so.
+When the task is done, the task runner reports the final success or failure of the task to the web service.</p>
 
 ## Installing
 
@@ -50,7 +61,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new DataPipelineClient({ region: "REGION" });
 
 const params = {
@@ -119,7 +130,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -135,7 +146,7 @@ const client = new AWS.DataPipeline({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.activatePipeline(params);
+  const data = await client.activatePipeline(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -153,7 +164,7 @@ client
 
 // callbacks.
 client.activatePipeline(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -167,7 +178,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -198,10 +209,165 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-data-pipeline` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+ActivatePipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/activatepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/activatepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/activatepipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+AddTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/addtagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/addtagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/addtagscommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreatePipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/createpipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/createpipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/createpipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeactivatePipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/deactivatepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/deactivatepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/deactivatepipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeletePipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/deletepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/deletepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/deletepipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeObjects
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/describeobjectscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/describeobjectscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/describeobjectscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribePipelines
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/describepipelinescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/describepipelinescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/describepipelinescommandoutput.html)
+
+</details>
+<details>
+<summary>
+EvaluateExpression
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/evaluateexpressioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/evaluateexpressioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/evaluateexpressioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetPipelineDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/getpipelinedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/getpipelinedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/getpipelinedefinitioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListPipelines
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/listpipelinescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/listpipelinescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/listpipelinescommandoutput.html)
+
+</details>
+<details>
+<summary>
+PollForTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/pollfortaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/pollfortaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/pollfortaskcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutPipelineDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/putpipelinedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/putpipelinedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/putpipelinedefinitioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+QueryObjects
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/queryobjectscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/queryobjectscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/queryobjectscommandoutput.html)
+
+</details>
+<details>
+<summary>
+RemoveTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/removetagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/removetagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/removetagscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ReportTaskProgress
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/reporttaskprogresscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/reporttaskprogresscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/reporttaskprogresscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ReportTaskRunnerHeartbeat
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/reporttaskrunnerheartbeatcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/reporttaskrunnerheartbeatcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/reporttaskrunnerheartbeatcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SetStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/setstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/setstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/setstatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+SetTaskStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/settaskstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/settaskstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/settaskstatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ValidatePipelineDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/classes/validatepipelinedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/validatepipelinedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-data-pipeline/interfaces/validatepipelinedefinitioncommandoutput.html)
+
+</details>

@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 
 import { resolveBucketEndpointConfig } from "./configurations";
 
@@ -18,6 +18,7 @@ import { bucketEndpointMiddleware } from "./bucketEndpointMiddleware";
 
 describe("bucketEndpointMiddleware", () => {
   const input = { Bucket: "bucket" };
+  const mockRegion = "us-foo-1";
   const requestInput = {
     method: "GET",
     headers: {},
@@ -27,11 +28,14 @@ describe("bucketEndpointMiddleware", () => {
   };
   const next = jest.fn();
   const previouslyResolvedConfig = {
-    region: jest.fn().mockResolvedValue("us-foo-1"),
+    isCustomEndpoint: false,
+    region: jest.fn().mockResolvedValue(mockRegion),
     regionInfoProvider: jest
       .fn()
-      .mockResolvedValue({ hostname: "foo.us-foo-2.amazonaws.com", partition: "aws-foo", signingRegion: "us-foo-1" }),
+      .mockResolvedValue({ hostname: "foo.us-foo-2.amazonaws.com", partition: "aws-foo", signingRegion: mockRegion }),
     useArnRegion: jest.fn().mockResolvedValue(false),
+    useFipsEndpoint: () => Promise.resolve(false),
+    useDualstackEndpoint: () => Promise.resolve(false),
   };
 
   afterEach(() => {
@@ -61,10 +65,13 @@ describe("bucketEndpointMiddleware", () => {
       expect(param).toEqual({
         bucketName: input.Bucket,
         baseHostname: requestInput.hostname,
+        clientRegion: mockRegion,
         accelerateEndpoint: false,
+        fipsEndpoint: false,
         dualstackEndpoint: false,
         pathStyleEndpoint: false,
         tlsCompatible: true,
+        isCustomEndpoint: false,
       });
     });
 
@@ -75,8 +82,9 @@ describe("bucketEndpointMiddleware", () => {
         resolveBucketEndpointConfig({
           ...previouslyResolvedConfig,
           useAccelerateEndpoint: true,
-          useDualstackEndpoint: true,
+          useDualstackEndpoint: () => Promise.resolve(true),
           forcePathStyle: true,
+          isCustomEndpoint: true,
         })
       )(next, {} as any);
       await handler({ input, request });
@@ -85,10 +93,13 @@ describe("bucketEndpointMiddleware", () => {
       expect(param).toEqual({
         bucketName: input.Bucket,
         baseHostname: requestInput.hostname,
+        clientRegion: mockRegion,
         accelerateEndpoint: true,
         dualstackEndpoint: true,
+        fipsEndpoint: false,
         pathStyleEndpoint: true,
         tlsCompatible: false,
+        isCustomEndpoint: true,
       });
     });
   });
@@ -118,13 +129,17 @@ describe("bucketEndpointMiddleware", () => {
       expect(param).toEqual({
         bucketName: mockBucketArn,
         baseHostname: requestInput.hostname,
+        clientRegion: mockRegion,
         accelerateEndpoint: false,
+        fipsEndpoint: false,
         dualstackEndpoint: false,
         pathStyleEndpoint: false,
         tlsCompatible: true,
         clientPartition: "aws-foo",
-        clientSigningRegion: "us-foo-1",
+        clientSigningRegion: mockRegion,
         useArnRegion: false,
+        isCustomEndpoint: false,
+        disableMultiregionAccessPoints: false,
       });
       expect(previouslyResolvedConfig.region).toBeCalled();
       expect(previouslyResolvedConfig.regionInfoProvider).toBeCalled();
@@ -144,7 +159,7 @@ describe("bucketEndpointMiddleware", () => {
         request,
       });
       expect(previouslyResolvedConfig.regionInfoProvider).toBeCalled();
-      expect(previouslyResolvedConfig.regionInfoProvider.mock.calls[0][0]).toBe("us-foo-1");
+      expect(previouslyResolvedConfig.regionInfoProvider.mock.calls[0][0]).toBe(mockRegion);
     });
 
     it("should supply bucketHostname in ARN object if bucket name string is a valid ARN", async () => {

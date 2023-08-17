@@ -6,11 +6,12 @@ const ua =
 it("should populate metrics", async () => {
   jest.spyOn(window.navigator, "userAgent", "get").mockReturnValue(ua);
   const userAgent = await defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" })();
-  expect(userAgent).toContainEqual(["aws-sdk-js", "0.1.0"]);
-  expect(userAgent).toContainEqual(["api/s3", "0.1.0"]);
-  expect(userAgent).toContainEqual(["os/macOS", "10.15.7"]);
-  expect(userAgent).toContainEqual(["md/browser", "Chrome_86.0.4240.111"]);
-  expect(userAgent).toContainEqual(["lang/js"]);
+  expect(userAgent[0]).toEqual(["aws-sdk-js", "0.1.0"]);
+  expect(userAgent[1]).toEqual(["ua", "2.0"]);
+  expect(userAgent[2]).toEqual(["os/macOS", "10.15.7"]);
+  expect(userAgent[3]).toEqual(["lang/js"]);
+  expect(userAgent[4]).toEqual(["md/browser", "Chrome_86.0.4240.111"]);
+  expect(userAgent[5]).toEqual(["api/s3", "0.1.0"]);
   jest.clearAllMocks();
 });
 

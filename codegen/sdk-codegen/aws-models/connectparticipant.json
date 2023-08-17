@@ -1,0 +1,2261 @@
+{
+  "smithy": "2.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "PaginatedTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.connectparticipant#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.connectparticipant#Message",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You do not have sufficient access to perform this action.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.connectparticipant#AmazonConnectParticipantServiceLambda": {
+      "type": "service",
+      "version": "2018-09-07",
+      "operations": [
+        {
+          "target": "com.amazonaws.connectparticipant#CompleteAttachmentUpload"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#CreateParticipantConnection"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#DisconnectParticipant"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#GetAttachment"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#GetTranscript"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#SendEvent"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#SendMessage"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#StartAttachmentUpload"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "ConnectParticipant",
+          "arnNamespace": "connect",
+          "cloudFormationName": "ConnectParticipant",
+          "cloudTrailEventSource": "connectparticipant.amazonaws.com",
+          "endpointPrefix": "participant.connect"
+        },
+        "aws.auth#sigv4": {
+          "name": "execute-api"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that\n            enables companies of any size to deliver superior customer service at a lower cost.\n                Amazon Connect communications capabilities make it easy for companies to deliver\n            personalized interactions across communication channels, including chat. </p>\n         <p>Use the Amazon Connect Participant Service to manage participants (for example,\n            agents, customers, and managers listening in), and to send messages and events within a\n            chat contact. The APIs in the service enable the following: sending chat messages,\n            attachment sharing, managing a participant's connection state and message events, and\n            retrieving chat transcripts.</p>",
+        "smithy.api#title": "Amazon Connect Participant Service",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://participant.connect-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            "aws-us-gov",
+                                            {
+                                              "fn": "getAttr",
+                                              "argv": [
+                                                {
+                                                  "ref": "PartitionResult"
+                                                },
+                                                "name"
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "endpoint": {
+                                        "url": "https://participant.connect.{Region}.amazonaws.com",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    },
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://participant.connect-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://participant.connect.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://participant.connect.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "Region": "us-east-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-east-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "Region": "us-east-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-east-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "Region": "cn-north-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "cn-north-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "Region": "cn-north-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "cn-north-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-gov-west-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-gov-west-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "Region": "us-gov-east-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-gov-east-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "Region": "us-gov-east-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-gov-east-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseDualStack": true,
+                "Region": "us-iso-east-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-iso-east-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseDualStack": true,
+                "Region": "us-iso-east-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-iso-east-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseDualStack": true,
+                "Region": "us-isob-east-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-isob-east-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseDualStack": true,
+                "Region": "us-isob-east-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://participant.connect.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-isob-east-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "UseDualStack": false,
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "UseDualStack": true,
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ArtifactId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ArtifactStatus": {
+      "type": "enum",
+      "members": {
+        "APPROVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "APPROVED"
+          }
+        },
+        "REJECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REJECTED"
+          }
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#AttachmentIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connectparticipant#ArtifactId"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#AttachmentItem": {
+      "type": "structure",
+      "members": {
+        "ContentType": {
+          "target": "com.amazonaws.connectparticipant#ContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html\">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>"
+          }
+        },
+        "AttachmentId": {
+          "target": "com.amazonaws.connectparticipant#ArtifactId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the attachment.</p>"
+          }
+        },
+        "AttachmentName": {
+          "target": "com.amazonaws.connectparticipant#AttachmentName",
+          "traits": {
+            "smithy.api#documentation": "<p>A case-sensitive name of the attachment being uploaded.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.connectparticipant#ArtifactStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Status of the attachment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The case-insensitive input to indicate standard MIME type that describes the format of the file\n            that will be uploaded.</p>"
+      }
+    },
+    "com.amazonaws.connectparticipant#AttachmentName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#AttachmentSizeInBytes": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#Attachments": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connectparticipant#AttachmentItem"
+      }
+    },
+    "com.amazonaws.connectparticipant#Bool": {
+      "type": "boolean"
+    },
+    "com.amazonaws.connectparticipant#ChatContent": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 16384
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ChatContentType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ChatItemId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ChatItemType": {
+      "type": "enum",
+      "members": {
+        "TYPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TYPING"
+          }
+        },
+        "PARTICIPANT_JOINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PARTICIPANT_JOINED"
+          }
+        },
+        "PARTICIPANT_LEFT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PARTICIPANT_LEFT"
+          }
+        },
+        "CHAT_ENDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHAT_ENDED"
+          }
+        },
+        "TRANSFER_SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRANSFER_SUCCEEDED"
+          }
+        },
+        "TRANSFER_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRANSFER_FAILED"
+          }
+        },
+        "MESSAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MESSAGE"
+          }
+        },
+        "EVENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EVENT"
+          }
+        },
+        "ATTACHMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ATTACHMENT"
+          }
+        },
+        "CONNECTION_ACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONNECTION_ACK"
+          }
+        },
+        "MESSAGE_DELIVERED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MESSAGE_DELIVERED"
+          }
+        },
+        "MESSAGE_READ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MESSAGE_READ"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ClientToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 500
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#CompleteAttachmentUpload": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connectparticipant#CompleteAttachmentUploadRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connectparticipant#CompleteAttachmentUploadResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL\n            provided in StartAttachmentUpload API. </p>\n         <note>\n            <p>\n               <code>ConnectionToken</code> is used for invoking this API instead of\n                    <code>ParticipantToken</code>.</p>\n         </note>\n         <p>The Amazon Connect Participant Service APIs do not use <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4\n                    authentication</a>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/participant/complete-attachment-upload",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#CompleteAttachmentUploadRequest": {
+      "type": "structure",
+      "members": {
+        "AttachmentIds": {
+          "target": "com.amazonaws.connectparticipant#AttachmentIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of unique identifiers for the attachments.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.connectparticipant#NonEmptyClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ConnectionToken": {
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
+            "smithy.api#httpHeader": "X-Amz-Bearer",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#CompleteAttachmentUploadResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#ConflictException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.connectparticipant#Reason",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An attachment with that identifier is already being uploaded.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.connectparticipant#ConnectionCredentials": {
+      "type": "structure",
+      "members": {
+        "ConnectionToken": {
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The connection token.</p>"
+          }
+        },
+        "Expiry": {
+          "target": "com.amazonaws.connectparticipant#ISO8601Datetime",
+          "traits": {
+            "smithy.api#documentation": "<p>The expiration of the token.</p>\n         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Connection credentials. </p>"
+      }
+    },
+    "com.amazonaws.connectparticipant#ConnectionType": {
+      "type": "enum",
+      "members": {
+        "WEBSOCKET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WEBSOCKET"
+          }
+        },
+        "CONNECTION_CREDENTIALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONNECTION_CREDENTIALS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ConnectionTypeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connectparticipant#ConnectionType"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ContactId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ContentType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#CreateParticipantConnection": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connectparticipant#CreateParticipantConnectionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connectparticipant#CreateParticipantConnectionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates the participant's connection. </p>\n         <note>\n            <p>\n               <code>ParticipantToken</code> is used for invoking this API instead of\n                    <code>ConnectionToken</code>.</p>\n         </note>\n         <p>The participant token is valid for the lifetime of the participant – until they are\n            part of a contact.</p>\n         <p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s.\n            Clients must manually connect to the returned websocket URL and subscribe to the desired\n            topic. </p>\n         <p>For chat, you need to publish the following on the established websocket\n            connection:</p>\n         <p>\n            <code>{\"topic\":\"aws/subscribe\",\"content\":{\"topics\":[\"aws/chat\"]}}</code>\n         </p>\n         <p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,\n            clients need to call this API again to obtain a new websocket URL and perform the same\n            steps as before.</p>\n         <p>\n            <b>Message streaming support</b>: This API can also be used\n            together with the <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html\">StartContactStreaming</a> API to create a participant connection for chat\n            contacts that are not using a websocket. For more information about message streaming,\n                <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html\">Enable real-time chat\n                message streaming</a> in the <i>Amazon Connect Administrator\n            Guide</i>.</p>\n         <p>\n            <b>Feature specifications</b>: For information about feature\n            specifications, such as the allowed number of open websocket connections per\n            participant, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits\">Feature specifications</a> in the <i>Amazon Connect Administrator\n                Guide</i>. </p>\n         <note>\n            <p>The Amazon Connect Participant Service APIs do not use <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4\n                    authentication</a>.</p>\n         </note>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/participant/connection",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#CreateParticipantConnectionRequest": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.connectparticipant#ConnectionTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of connection information required. This can be omitted if\n                <code>ConnectParticipant</code> is <code>true</code>.</p>"
+          }
+        },
+        "ParticipantToken": {
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
+          "traits": {
+            "smithy.api#documentation": "<p>This is a header parameter.</p>\n         <p>The ParticipantToken as obtained from <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html\">StartChatContact</a>\n            API response.</p>",
+            "smithy.api#httpHeader": "X-Amz-Bearer",
+            "smithy.api#required": {}
+          }
+        },
+        "ConnectParticipant": {
+          "target": "com.amazonaws.connectparticipant#Bool",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Connect Participant is used to mark the participant as connected for customer\n            participant in message streaming, as well as for agent or manager participant in\n            non-streaming chats.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#CreateParticipantConnectionResponse": {
+      "type": "structure",
+      "members": {
+        "Websocket": {
+          "target": "com.amazonaws.connectparticipant#Websocket",
+          "traits": {
+            "smithy.api#documentation": "<p>Creates the participant's websocket connection.</p>"
+          }
+        },
+        "ConnectionCredentials": {
+          "target": "com.amazonaws.connectparticipant#ConnectionCredentials",
+          "traits": {
+            "smithy.api#documentation": "<p>Creates the participant's connection credentials. The authentication token associated\n            with the participant's connection.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#DisconnectParticipant": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connectparticipant#DisconnectParticipantRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connectparticipant#DisconnectParticipantResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disconnects a participant. </p>\n         <note>\n            <p>\n               <code>ConnectionToken</code> is used for invoking this API instead of\n                    <code>ParticipantToken</code>.</p>\n         </note>\n         <p>The Amazon Connect Participant Service APIs do not use <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4\n                    authentication</a>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/participant/disconnect",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#DisconnectParticipantRequest": {
+      "type": "structure",
+      "members": {
+        "ClientToken": {
+          "target": "com.amazonaws.connectparticipant#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "ConnectionToken": {
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
+            "smithy.api#httpHeader": "X-Amz-Bearer",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#DisconnectParticipantResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#DisplayName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#GetAttachment": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connectparticipant#GetAttachmentRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connectparticipant#GetAttachmentResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Provides a pre-signed URL for download of a completed attachment. This is an\n            asynchronous API for use with active contacts.</p>\n         <note>\n            <p>\n               <code>ConnectionToken</code> is used for invoking this API instead of\n                    <code>ParticipantToken</code>.</p>\n         </note>\n         <p>The Amazon Connect Participant Service APIs do not use <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4\n                    authentication</a>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/participant/attachment",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#GetAttachmentRequest": {
+      "type": "structure",
+      "members": {
+        "AttachmentId": {
+          "target": "com.amazonaws.connectparticipant#ArtifactId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the attachment.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ConnectionToken": {
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
+            "smithy.api#httpHeader": "X-Amz-Bearer",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#GetAttachmentResponse": {
+      "type": "structure",
+      "members": {
+        "Url": {
+          "target": "com.amazonaws.connectparticipant#PreSignedAttachmentUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response \nto <a href=\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html\">StartAttachmentUpload</a>.</p>"
+          }
+        },
+        "UrlExpiry": {
+          "target": "com.amazonaws.connectparticipant#ISO8601Datetime",
+          "traits": {
+            "smithy.api#documentation": "<p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#GetTranscript": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connectparticipant#GetTranscriptRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connectparticipant#GetTranscriptResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves a transcript of the session, including details about any attachments. For\n            information about accessing past chat contact transcripts for a persistent chat, see\n                <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html\">Enable persistent chat</a>. </p>\n         <note>\n            <p>\n               <code>ConnectionToken</code> is used for invoking this API instead of\n                    <code>ParticipantToken</code>.</p>\n         </note>\n         <p>The Amazon Connect Participant Service APIs do not use <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4\n                    authentication</a>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/participant/transcript",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#GetTranscriptRequest": {
+      "type": "structure",
+      "members": {
+        "ContactId": {
+          "target": "com.amazonaws.connectparticipant#ContactId",
+          "traits": {
+            "smithy.api#documentation": "<p>The contactId from the current contact chain for which transcript is needed.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.connectparticipant#MaxResults",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>The maximum number of results to return in the page. Default: 10. </p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connectparticipant#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>"
+          }
+        },
+        "ScanDirection": {
+          "target": "com.amazonaws.connectparticipant#ScanDirection",
+          "traits": {
+            "smithy.api#documentation": "<p>The direction from StartPosition from which to retrieve message. Default: BACKWARD\n            when no StartPosition is provided, FORWARD with StartPosition. </p>"
+          }
+        },
+        "SortOrder": {
+          "target": "com.amazonaws.connectparticipant#SortKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort order for the records. Default: DESCENDING.</p>"
+          }
+        },
+        "StartPosition": {
+          "target": "com.amazonaws.connectparticipant#StartPosition",
+          "traits": {
+            "smithy.api#documentation": "<p>A filtering option for where to start.</p>"
+          }
+        },
+        "ConnectionToken": {
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
+            "smithy.api#httpHeader": "X-Amz-Bearer",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#GetTranscriptResponse": {
+      "type": "structure",
+      "members": {
+        "InitialContactId": {
+          "target": "com.amazonaws.connectparticipant#ContactId",
+          "traits": {
+            "smithy.api#documentation": "<p>The initial contact ID for the contact. </p>"
+          }
+        },
+        "Transcript": {
+          "target": "com.amazonaws.connectparticipant#Transcript",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of messages in the session.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connectparticipant#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#ISO8601Datetime": {
+      "type": "string"
+    },
+    "com.amazonaws.connectparticipant#Instant": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#InternalServerException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.connectparticipant#Message",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.connectparticipant#Item": {
+      "type": "structure",
+      "members": {
+        "AbsoluteTime": {
+          "target": "com.amazonaws.connectparticipant#Instant",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the message or event was sent.</p>\n         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.connectparticipant#ChatContent",
+          "traits": {
+            "smithy.api#documentation": "<p>The content of the message or event.</p>"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.connectparticipant#ChatContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of content of the item.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.connectparticipant#ChatItemId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the item.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.connectparticipant#ChatItemType",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of the item: message or event. </p>"
+          }
+        },
+        "ParticipantId": {
+          "target": "com.amazonaws.connectparticipant#ParticipantId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the sender in the session.</p>"
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.connectparticipant#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "<p>The chat display name of the sender.</p>"
+          }
+        },
+        "ParticipantRole": {
+          "target": "com.amazonaws.connectparticipant#ParticipantRole",
+          "traits": {
+            "smithy.api#documentation": "<p>The role of the sender. For example, is it a customer, agent, or system.</p>"
+          }
+        },
+        "Attachments": {
+          "target": "com.amazonaws.connectparticipant#Attachments",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides information about the attachments.</p>"
+          }
+        },
+        "MessageMetadata": {
+          "target": "com.amazonaws.connectparticipant#MessageMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata related to the message. Currently this supports only information related\n            to message receipts.</p>"
+          }
+        },
+        "RelatedContactId": {
+          "target": "com.amazonaws.connectparticipant#ContactId",
+          "traits": {
+            "smithy.api#documentation": "<p>The contactId on which the transcript item was originally sent. This field is only\n            populated for persistent chats when the transcript item is from the past chat session.\n            For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html\">Enable persistent\n            chat</a>.</p>"
+          }
+        },
+        "ContactId": {
+          "target": "com.amazonaws.connectparticipant#ContactId",
+          "traits": {
+            "smithy.api#documentation": "<p>The contactId on which the transcript item was originally sent. This field is\n            populated only when the transcript item is from the current chat session.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An item - message or event - that has been sent. </p>"
+      }
+    },
+    "com.amazonaws.connectparticipant#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#Message": {
+      "type": "string"
+    },
+    "com.amazonaws.connectparticipant#MessageMetadata": {
+      "type": "structure",
+      "members": {
+        "MessageId": {
+          "target": "com.amazonaws.connectparticipant#ChatItemId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the message that contains the metadata information. </p>"
+          }
+        },
+        "Receipts": {
+          "target": "com.amazonaws.connectparticipant#Receipts",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of receipt information for a message for different recipients.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains metadata related to a message.</p>"
+      }
+    },
+    "com.amazonaws.connectparticipant#MostRecent": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#NonEmptyClientToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 500
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ParticipantId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ParticipantRole": {
+      "type": "enum",
+      "members": {
+        "AGENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AGENT"
+          }
+        },
+        "CUSTOMER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CUSTOMER"
+          }
+        },
+        "SYSTEM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SYSTEM"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ParticipantToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#PreSignedAttachmentUrl": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2000
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#PreSignedConnectionUrl": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2000
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#Reason": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2000
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#Receipt": {
+      "type": "structure",
+      "members": {
+        "DeliveredTimestamp": {
+          "target": "com.amazonaws.connectparticipant#Instant",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the message was delivered to the recipient.</p>"
+          }
+        },
+        "ReadTimestamp": {
+          "target": "com.amazonaws.connectparticipant#Instant",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the message was read by the recipient.</p>"
+          }
+        },
+        "RecipientParticipantId": {
+          "target": "com.amazonaws.connectparticipant#ParticipantId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the recipient of the message. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The receipt for the message delivered to the recipient.</p>"
+      }
+    },
+    "com.amazonaws.connectparticipant#Receipts": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connectparticipant#Receipt"
+      }
+    },
+    "com.amazonaws.connectparticipant#ScanDirection": {
+      "type": "enum",
+      "members": {
+        "FORWARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FORWARD"
+          }
+        },
+        "BACKWARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BACKWARD"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#SendEvent": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connectparticipant#SendEventRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connectparticipant#SendEventResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Sends an event. </p>\n         <note>\n            <p>\n               <code>ConnectionToken</code> is used for invoking this API instead of\n                    <code>ParticipantToken</code>.</p>\n         </note>\n         <p>The Amazon Connect Participant Service APIs do not use <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4\n                    authentication</a>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/participant/event",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#SendEventRequest": {
+      "type": "structure",
+      "members": {
+        "ContentType": {
+          "target": "com.amazonaws.connectparticipant#ChatContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The content type of the request. Supported types are:</p>\n         <ul>\n            <li>\n               <p>application/vnd.amazonaws.connect.event.typing</p>\n            </li>\n            <li>\n               <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p>\n            </li>\n            <li>\n               <p>application/vnd.amazonaws.connect.event.message.delivered</p>\n            </li>\n            <li>\n               <p>application/vnd.amazonaws.connect.event.message.read</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.connectparticipant#ChatContent",
+          "traits": {
+            "smithy.api#documentation": "<p>The content of the event to be sent (for example, message text). For content related\n            to message receipts, this is supported in the form of a JSON string.</p>\n         <p>Sample Content: \"{\\\"messageId\\\":\\\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\\\"}\"</p>"
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.connectparticipant#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "ConnectionToken": {
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
+            "smithy.api#httpHeader": "X-Amz-Bearer",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#SendEventResponse": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.connectparticipant#ChatItemId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the response.</p>"
+          }
+        },
+        "AbsoluteTime": {
+          "target": "com.amazonaws.connectparticipant#Instant",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the event was sent.</p>\n         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#SendMessage": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connectparticipant#SendMessageRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connectparticipant#SendMessageResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Sends a message.</p>\n         <note>\n            <p>\n               <code>ConnectionToken</code> is used for invoking this API instead of\n                    <code>ParticipantToken</code>.</p>\n         </note>\n         <p>The Amazon Connect Participant Service APIs do not use <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4\n                    authentication</a>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/participant/message",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#SendMessageRequest": {
+      "type": "structure",
+      "members": {
+        "ContentType": {
+          "target": "com.amazonaws.connectparticipant#ChatContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the content. Supported types are <code>text/plain</code>,\n            <code>text/markdown</code>, <code>application/json</code>, and \n            <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.connectparticipant#ChatContent",
+          "traits": {
+            "smithy.api#documentation": "<p>The content of the message. </p>\n         <ul>\n            <li>\n               <p>For <code>text/plain</code> and <code>text/markdown</code>, the Length\n                    Constraints are Minimum of 1, Maximum of 1024. </p>\n            </li>\n            <li>\n               <p>For <code>application/json</code>, the Length Constraints are Minimum of 1,\n                    Maximum of 12000. </p>\n            </li>\n            <li>\n               <p>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the Length\n                    Constraints are Minimum of 1, Maximum of 12288.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.connectparticipant#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "ConnectionToken": {
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication token associated with the connection.</p>",
+            "smithy.api#httpHeader": "X-Amz-Bearer",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#SendMessageResponse": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.connectparticipant#ChatItemId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the message.</p>"
+          }
+        },
+        "AbsoluteTime": {
+          "target": "com.amazonaws.connectparticipant#Instant",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the message was sent.</p>\n         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#ServiceQuotaExceededException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.connectparticipant#Message",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The number of attachments per contact exceeds the quota.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 402
+      }
+    },
+    "com.amazonaws.connectparticipant#SortKey": {
+      "type": "enum",
+      "members": {
+        "DESCENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DESCENDING"
+          }
+        },
+        "ASCENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASCENDING"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#StartAttachmentUpload": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connectparticipant#StartAttachmentUploadRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connectparticipant#StartAttachmentUploadResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.connectparticipant#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to\n            S3.</p>\n         <note>\n            <p>\n               <code>ConnectionToken</code> is used for invoking this API instead of\n                    <code>ParticipantToken</code>.</p>\n         </note>\n         <p>The Amazon Connect Participant Service APIs do not use <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4\n                    authentication</a>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/participant/start-attachment-upload",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#StartAttachmentUploadRequest": {
+      "type": "structure",
+      "members": {
+        "ContentType": {
+          "target": "com.amazonaws.connectparticipant#ContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html\">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AttachmentSizeInBytes": {
+          "target": "com.amazonaws.connectparticipant#AttachmentSizeInBytes",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The size of the attachment in bytes.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AttachmentName": {
+          "target": "com.amazonaws.connectparticipant#AttachmentName",
+          "traits": {
+            "smithy.api#documentation": "<p>A case-sensitive name of the attachment being uploaded.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.connectparticipant#NonEmptyClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ConnectionToken": {
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
+            "smithy.api#httpHeader": "X-Amz-Bearer",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#StartAttachmentUploadResponse": {
+      "type": "structure",
+      "members": {
+        "AttachmentId": {
+          "target": "com.amazonaws.connectparticipant#ArtifactId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the attachment.</p>"
+          }
+        },
+        "UploadMetadata": {
+          "target": "com.amazonaws.connectparticipant#UploadMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>Fields to be used while uploading the attachment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.connectparticipant#StartPosition": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.connectparticipant#ChatItemId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the message or event where to start. </p>"
+          }
+        },
+        "AbsoluteTime": {
+          "target": "com.amazonaws.connectparticipant#Instant",
+          "traits": {
+            "smithy.api#documentation": "<p>The time in ISO format where to start.</p>\n         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
+          }
+        },
+        "MostRecent": {
+          "target": "com.amazonaws.connectparticipant#MostRecent",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The start position of the most recent message where you want to start. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A filtering option for where to start. For example, if you sent 100 messages, start\n            with message 50. </p>"
+      }
+    },
+    "com.amazonaws.connectparticipant#ThrottlingException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.connectparticipant#Message",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request was denied due to request throttling.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.connectparticipant#Transcript": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connectparticipant#Item"
+      }
+    },
+    "com.amazonaws.connectparticipant#UploadMetadata": {
+      "type": "structure",
+      "members": {
+        "Url": {
+          "target": "com.amazonaws.connectparticipant#UploadMetadataUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response \nto <a href=\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html\">StartAttachmentUpload</a>.</p>"
+          }
+        },
+        "UrlExpiry": {
+          "target": "com.amazonaws.connectparticipant#ISO8601Datetime",
+          "traits": {
+            "smithy.api#documentation": "<p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>"
+          }
+        },
+        "HeadersToInclude": {
+          "target": "com.amazonaws.connectparticipant#UploadMetadataSignedHeaders",
+          "traits": {
+            "smithy.api#documentation": "<p>The headers to be provided while uploading the file to the URL.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Fields to be used while uploading the attachment.</p>"
+      }
+    },
+    "com.amazonaws.connectparticipant#UploadMetadataSignedHeaders": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.connectparticipant#UploadMetadataSignedHeadersKey"
+      },
+      "value": {
+        "target": "com.amazonaws.connectparticipant#UploadMetadataSignedHeadersValue"
+      }
+    },
+    "com.amazonaws.connectparticipant#UploadMetadataSignedHeadersKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#UploadMetadataSignedHeadersValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#UploadMetadataUrl": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2000
+        }
+      }
+    },
+    "com.amazonaws.connectparticipant#ValidationException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.connectparticipant#Reason",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The input fails to satisfy the constraints specified by Amazon Connect.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.connectparticipant#Websocket": {
+      "type": "structure",
+      "members": {
+        "Url": {
+          "target": "com.amazonaws.connectparticipant#PreSignedConnectionUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL of the websocket.</p>"
+          }
+        },
+        "ConnectionExpiry": {
+          "target": "com.amazonaws.connectparticipant#ISO8601Datetime",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL expiration timestamp in ISO date format.</p>\n         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The websocket for the participant's connection.</p>"
+      }
+    }
+  }
+}

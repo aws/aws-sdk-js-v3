@@ -19,26 +19,25 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
-import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
-
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Adds blobReader dependency if needed.
  */
+@SmithyInternalApi
 public class AddBodyChecksumGeneratorDependency implements TypeScriptIntegration {
     private static final Set<String> SERVICE_IDS = SetUtils.of("Glacier");
-
-    private static final Logger LOGGER = Logger.getLogger(AddBodyChecksumGeneratorDependency.class.getName());
 
     @Override
     public void addConfigInterfaceFields(
@@ -50,9 +49,11 @@ public class AddBodyChecksumGeneratorDependency implements TypeScriptIntegration
         if (!needsBodyChecksumGeneratorDep(settings.getService(model))) {
             return;
         }
-        writer.addImport("HttpRequest", "__HttpRequest", "@aws-sdk/types");
-        writer.writeDocs("Function that returns body checksums.");
-        writer.write("bodyChecksumGenerator?: (request: __HttpRequest, options: { sha256: __HashConstructor; "
+        writer.addImport("HttpRequest", "__HttpRequest", TypeScriptDependency.SMITHY_TYPES);
+        writer.writeDocs("Function that returns body checksums.\n"
+                        + "@internal");
+        writer.write("bodyChecksumGenerator?: (request: __HttpRequest, "
+                + "options: { sha256: __ChecksumConstructor | __HashConstructor; "
                 + "utf8Decoder: __Decoder }) => Promise<[string, string]>;\n");
 }
 
@@ -72,15 +73,15 @@ public class AddBodyChecksumGeneratorDependency implements TypeScriptIntegration
                 return MapUtils.of("bodyChecksumGenerator", writer -> {
                     writer.addDependency(AwsDependency.BODY_CHECKSUM_GENERATOR_NODE);
                     writer.addImport("bodyChecksumGenerator", "bodyChecksumGenerator",
-                            AwsDependency.BODY_CHECKSUM_GENERATOR_NODE.packageName);
-                    writer.write("bodyChecksumGenerator,");
+                            AwsDependency.BODY_CHECKSUM_GENERATOR_NODE);
+                    writer.write("bodyChecksumGenerator");
                 });
             case BROWSER:
                 return MapUtils.of("bodyChecksumGenerator", writer -> {
                     writer.addDependency(AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER);
                     writer.addImport("bodyChecksumGenerator", "bodyChecksumGenerator",
-                            AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER.packageName);
-                    writer.write("bodyChecksumGenerator,");
+                            AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER);
+                    writer.write("bodyChecksumGenerator");
                 });
             default:
                 return Collections.emptyMap();

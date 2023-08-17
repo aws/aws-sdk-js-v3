@@ -1,7 +1,6 @@
-# @aws-sdk/client-sagemaker-featurestore-runtime
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sagemaker-featurestore-runtime/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker-featurestore-runtime)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sagemaker-featurestore-runtime.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker-featurestore-runtime)
+# @aws-sdk/client-sagemaker-featurestore-runtime
 
 ## Description
 
@@ -50,13 +49,13 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SageMakerFeatureStoreRuntimeClient` and
-the commands you need, for example `DeleteRecordCommand`:
+the commands you need, for example `BatchGetRecordCommand`:
 
 ```js
 // ES5 example
 const {
   SageMakerFeatureStoreRuntimeClient,
-  DeleteRecordCommand,
+  BatchGetRecordCommand,
 } = require("@aws-sdk/client-sagemaker-featurestore-runtime");
 ```
 
@@ -64,7 +63,7 @@ const {
 // ES6+ example
 import {
   SageMakerFeatureStoreRuntimeClient,
-  DeleteRecordCommand,
+  BatchGetRecordCommand,
 } from "@aws-sdk/client-sagemaker-featurestore-runtime";
 ```
 
@@ -78,13 +77,13 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new SageMakerFeatureStoreRuntimeClient({ region: "REGION" });
 
 const params = {
   /** input parameters */
 };
-const command = new DeleteRecordCommand(params);
+const command = new BatchGetRecordCommand(params);
 ```
 
 #### Async/await
@@ -147,7 +146,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -163,7 +162,7 @@ const client = new AWS.SageMakerFeatureStoreRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteRecord(params);
+  const data = await client.batchGetRecord(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -171,7 +170,7 @@ try {
 
 // Promises.
 client
-  .deleteRecord(params)
+  .batchGetRecord(params)
   .then((data) => {
     // process data.
   })
@@ -180,8 +179,8 @@ client
   });
 
 // callbacks.
-client.deleteRecord(params, (err, data) => {
-  // proccess err and data.
+client.batchGetRecord(params, (err, data) => {
+  // process err and data.
 });
 ```
 
@@ -195,7 +194,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -226,10 +225,45 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-sagemaker-featurestore-runtime` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+BatchGetRecord
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/classes/batchgetrecordcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/interfaces/batchgetrecordcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/interfaces/batchgetrecordcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteRecord
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/classes/deleterecordcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/interfaces/deleterecordcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/interfaces/deleterecordcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetRecord
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/classes/getrecordcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/interfaces/getrecordcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/interfaces/getrecordcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutRecord
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/classes/putrecordcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/interfaces/putrecordcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-featurestore-runtime/interfaces/putrecordcommandoutput.html)
+
+</details>

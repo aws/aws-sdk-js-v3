@@ -1,7 +1,6 @@
-# @aws-sdk/client-forecastquery
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-forecastquery/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-forecastquery)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-forecastquery.svg)](https://www.npmjs.com/package/@aws-sdk/client-forecastquery)
+# @aws-sdk/client-forecastquery
 
 ## Description
 
@@ -46,7 +45,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new ForecastqueryClient({ region: "REGION" });
 
 const params = {
@@ -115,7 +114,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -131,7 +130,7 @@ const client = new AWS.Forecastquery({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.queryForecast(params);
+  const data = await client.queryForecast(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +148,7 @@ client
 
 // callbacks.
 client.queryForecast(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -163,7 +162,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -194,10 +193,29 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-forecastquery` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+QueryForecast
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/classes/queryforecastcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/queryforecastcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/queryforecastcommandoutput.html)
+
+</details>
+<details>
+<summary>
+QueryWhatIfForecast
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/classes/querywhatifforecastcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/querywhatifforecastcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/querywhatifforecastcommandoutput.html)
+
+</details>

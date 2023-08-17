@@ -1,18 +1,17 @@
-# @aws-sdk/client-iotsecuretunneling
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iotsecuretunneling/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotsecuretunneling)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iotsecuretunneling.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotsecuretunneling)
+# @aws-sdk/client-iotsecuretunneling
 
 ## Description
 
 AWS SDK for JavaScript IoTSecureTunneling Client for Node.js, Browser and React Native.
 
-<fullname>AWS IoT Secure Tunneling</fullname>
+<fullname>IoT Secure Tunneling</fullname>
 
-<p>AWS IoT Secure Tunnling enables you to create remote connections to devices
-deployed in the field.</p>
-
-<p>For more information about how AWS IoT Secure Tunneling works, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">AWS IoT Secure Tunneling</a>.</p>
+<p>IoT Secure Tunneling creates remote connections to devices deployed in the
+field.</p>
+<p>For more information about how IoT Secure Tunneling works, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">IoT
+Secure Tunneling</a>.</p>
 
 ## Installing
 
@@ -51,7 +50,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new IoTSecureTunnelingClient({ region: "REGION" });
 
 const params = {
@@ -120,7 +119,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -136,7 +135,7 @@ const client = new AWS.IoTSecureTunneling({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.closeTunnel(params);
+  const data = await client.closeTunnel(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -154,7 +153,7 @@ client
 
 // callbacks.
 client.closeTunnel(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -168,7 +167,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -199,10 +198,77 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-iotsecuretunneling` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CloseTunnel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/classes/closetunnelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/closetunnelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/closetunnelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTunnel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/classes/describetunnelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/describetunnelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/describetunnelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTunnels
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/classes/listtunnelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/listtunnelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/listtunnelscommandoutput.html)
+
+</details>
+<details>
+<summary>
+OpenTunnel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/classes/opentunnelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/opentunnelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/opentunnelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+RotateTunnelAccessToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/classes/rotatetunnelaccesstokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/rotatetunnelaccesstokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/rotatetunnelaccesstokencommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotsecuretunneling/interfaces/untagresourcecommandoutput.html)
+
+</details>

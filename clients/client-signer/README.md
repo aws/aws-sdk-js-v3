@@ -1,7 +1,6 @@
-# @aws-sdk/client-signer
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-signer/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-signer)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-signer.svg)](https://www.npmjs.com/package/@aws-sdk/client-signer)
+# @aws-sdk/client-signer
 
 ## Description
 
@@ -10,20 +9,18 @@ AWS SDK for JavaScript Signer Client for Node.js, Browser and React Native.
 <p>AWS Signer is a fully managed code signing service to help you ensure the trust and
 integrity of your code. </p>
 <p>AWS Signer supports the following applications:</p>
-
-<p>With <i>code signing for AWS Lambda</i>, you can sign AWS Lambda
-deployment packages. Integrated support is provided for Amazon S3, Amazon CloudWatch,
-and AWS CloudTrail. In order to sign code, you create a signing profile and then use
-Signer to sign Lambda zip files in S3. </p>
-
-<p>With <i>code signing for IoT</i>, you can sign code for any IoT device that is
-supported by AWS. IoT code signing is available for <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and is
-integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager (ACM)</a>. In order to sign
-code, you import a third-party code signing certificate using ACM, and use that to
-sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p>
-<p>For more information about AWS Signer, see the <a href="http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">AWS Signer Developer Guide</a>.</p>
-
-<p></p>
+<p>With code signing for AWS Lambda, you can sign <a href="http://docs.aws.amazon.com/lambda/latest/dg/">AWS
+Lambda</a> deployment packages. Integrated support is provided for <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/">Amazon S3</a>, <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/">Amazon
+CloudWatch</a>, and <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/">AWS CloudTrail</a>. In order
+to sign code, you create a signing profile and then use Signer to sign Lambda zip files
+in S3. </p>
+<p>With code signing for IoT, you can sign code for any IoT device that is supported by AWS.
+IoT code signing is available for <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and is integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager (ACM)</a>. In order to sign code, you import a third-party code signing
+certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p>
+<p>With code signing for
+containers …(TBD)</p>
+<p>For more information about AWS Signer, see the <a href="https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">AWS Signer Developer
+Guide</a>.</p>
 
 ## Installing
 
@@ -62,7 +59,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new SignerClient({ region: "REGION" });
 
 const params = {
@@ -131,7 +128,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -147,7 +144,7 @@ const client = new AWS.Signer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addProfilePermission(params);
+  const data = await client.addProfilePermission(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -165,7 +162,7 @@ client
 
 // callbacks.
 client.addProfilePermission(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -179,7 +176,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -210,10 +207,165 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-signer` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+AddProfilePermission
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/addprofilepermissioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/addprofilepermissioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/addprofilepermissioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+CancelSigningProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/cancelsigningprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/cancelsigningprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/cancelsigningprofilecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSigningJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/describesigningjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/describesigningjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/describesigningjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetRevocationStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/getrevocationstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/getrevocationstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/getrevocationstatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSigningPlatform
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/getsigningplatformcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/getsigningplatformcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/getsigningplatformcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSigningProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/getsigningprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/getsigningprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/getsigningprofilecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListProfilePermissions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/listprofilepermissionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/listprofilepermissionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/listprofilepermissionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSigningJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/listsigningjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/listsigningjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/listsigningjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSigningPlatforms
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/listsigningplatformscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/listsigningplatformscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/listsigningplatformscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSigningProfiles
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/listsigningprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/listsigningprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/listsigningprofilescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutSigningProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/putsigningprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/putsigningprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/putsigningprofilecommandoutput.html)
+
+</details>
+<details>
+<summary>
+RemoveProfilePermission
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/removeprofilepermissioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/removeprofilepermissioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/removeprofilepermissioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+RevokeSignature
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/revokesignaturecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/revokesignaturecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/revokesignaturecommandoutput.html)
+
+</details>
+<details>
+<summary>
+RevokeSigningProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/revokesigningprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/revokesigningprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/revokesigningprofilecommandoutput.html)
+
+</details>
+<details>
+<summary>
+SignPayload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/signpayloadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/signpayloadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/signpayloadcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartSigningJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/startsigningjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/startsigningjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/startsigningjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-signer/interfaces/untagresourcecommandoutput.html)
+
+</details>

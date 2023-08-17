@@ -1,0 +1,7 @@
+{
+  "paths": [
+    "codegen/sdk-codegen/build/smithyprojections/sdk-codegen/*/typescript*codegen/**/*.ts",
+    "codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/*/typescript*codegen/**/*.ts"
+  ],
+  "ignored": []
+}

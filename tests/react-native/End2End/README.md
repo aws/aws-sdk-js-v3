@@ -17,6 +17,10 @@
   Open Developer Tool -> simulator. In the simulator.app, open Hardware -> Device -> Manage Devices... -> Simulators ->
   click "+" at the button of left side bar. In the pop-up, "Device Type" drop-down, choose "iPhone X", click "Create".
   Make sure iPhone X is available in the last step.
+- make sure pod is installed. If not:
+  ```
+  brew install cocoapods
+  ```
 
 ## Steps to Setup
 
@@ -40,6 +44,7 @@
    - change directory to RN test root: `cd tests/react-native/End2End`
    - make sure you have configured the SDK with the the credentials from the testing account that contains
      `SdkReleaseV3IntegTestResourcesStack`
+   - set the the AWS region `export AWS_REGION=[region]`
    - `node launch-app.js --local-publish`
 
 ## Steps to Re-run the Tests

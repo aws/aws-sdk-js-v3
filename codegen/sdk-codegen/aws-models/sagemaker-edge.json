@@ -1,0 +1,1396 @@
+{
+  "smithy": "2.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
+      },
+      {
+        "id": "PaginatedTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
+      },
+      {
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.sagemakeredge#AmazonSageMakerEdge": {
+      "type": "service",
+      "version": "2020-09-23",
+      "operations": [
+        {
+          "target": "com.amazonaws.sagemakeredge#GetDeployments"
+        },
+        {
+          "target": "com.amazonaws.sagemakeredge#GetDeviceRegistration"
+        },
+        {
+          "target": "com.amazonaws.sagemakeredge#SendHeartbeat"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Sagemaker Edge",
+          "arnNamespace": "sagemaker",
+          "cloudFormationName": "SagemakerEdge",
+          "cloudTrailEventSource": "sagemakeredge.amazonaws.com",
+          "endpointPrefix": "edge.sagemaker"
+        },
+        "aws.auth#sigv4": {
+          "name": "sagemaker"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>SageMaker Edge Manager dataplane service for communicating with active agents.</p>",
+        "smithy.api#title": "Amazon Sagemaker Edge Manager",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://edge.sagemaker-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://edge.sagemaker-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://edge.sagemaker.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://edge.sagemaker.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://edge.sagemaker.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.sagemakeredge#CacheTTLSeconds": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.sagemakeredge#Checksum": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.sagemakeredge#ChecksumType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the checksum.</p>"
+          }
+        },
+        "Sum": {
+          "target": "com.amazonaws.sagemakeredge#ChecksumString",
+          "traits": {
+            "smithy.api#documentation": "<p>The checksum of the model.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the checksum of a model deployed on a device.</p>"
+      }
+    },
+    "com.amazonaws.sagemakeredge#ChecksumString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 63
+        },
+        "smithy.api#pattern": "^[a-z0-9](-*[a-z0-9])*$"
+      }
+    },
+    "com.amazonaws.sagemakeredge#ChecksumType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "SHA1",
+            "name": "Sha1"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.sagemakeredge#Definition": {
+      "type": "structure",
+      "members": {
+        "ModelHandle": {
+          "target": "com.amazonaws.sagemakeredge#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique model handle.</p>"
+          }
+        },
+        "S3Url": {
+          "target": "com.amazonaws.sagemakeredge#S3Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>The absolute S3 location of the model.</p>"
+          }
+        },
+        "Checksum": {
+          "target": "com.amazonaws.sagemakeredge#Checksum",
+          "traits": {
+            "smithy.api#documentation": "<p>The checksum information of the model.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.sagemakeredge#ModelState",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired state of the model.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p></p>"
+      }
+    },
+    "com.amazonaws.sagemakeredge#Definitions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemakeredge#Definition"
+      }
+    },
+    "com.amazonaws.sagemakeredge#DeploymentModel": {
+      "type": "structure",
+      "members": {
+        "ModelHandle": {
+          "target": "com.amazonaws.sagemakeredge#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique handle of the model.</p>"
+          }
+        },
+        "ModelName": {
+          "target": "com.amazonaws.sagemakeredge#ModelName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the model.</p>"
+          }
+        },
+        "ModelVersion": {
+          "target": "com.amazonaws.sagemakeredge#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the model.</p>"
+          }
+        },
+        "DesiredState": {
+          "target": "com.amazonaws.sagemakeredge#ModelState",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired state of the model.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.sagemakeredge#ModelState",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns the current state of the model.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.sagemakeredge#DeploymentStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns the deployment status of the model.</p>"
+          }
+        },
+        "StatusReason": {
+          "target": "com.amazonaws.sagemakeredge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns the error message for the deployment status result.</p>"
+          }
+        },
+        "RollbackFailureReason": {
+          "target": "com.amazonaws.sagemakeredge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns the error message if there is a rollback.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p></p>"
+      }
+    },
+    "com.amazonaws.sagemakeredge#DeploymentModels": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemakeredge#DeploymentModel"
+      }
+    },
+    "com.amazonaws.sagemakeredge#DeploymentResult": {
+      "type": "structure",
+      "members": {
+        "DeploymentName": {
+          "target": "com.amazonaws.sagemakeredge#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name and unique ID of the deployment.</p>"
+          }
+        },
+        "DeploymentStatus": {
+          "target": "com.amazonaws.sagemakeredge#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns the bucket error code.</p>"
+          }
+        },
+        "DeploymentStatusMessage": {
+          "target": "com.amazonaws.sagemakeredge#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns the detailed error message.</p>"
+          }
+        },
+        "DeploymentStartTime": {
+          "target": "com.amazonaws.sagemakeredge#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the deployment was started on the agent.</p>"
+          }
+        },
+        "DeploymentEndTime": {
+          "target": "com.amazonaws.sagemakeredge#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the deployment was ended, and the agent got the deployment results.</p>"
+          }
+        },
+        "DeploymentModels": {
+          "target": "com.amazonaws.sagemakeredge#DeploymentModels",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns a list of models deployed on the agent.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the result of a deployment on an edge device that is registered with SageMaker Edge Manager.</p>"
+      }
+    },
+    "com.amazonaws.sagemakeredge#DeploymentStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "SUCCESS",
+            "name": "Success"
+          },
+          {
+            "value": "FAIL",
+            "name": "Fail"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.sagemakeredge#DeploymentType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "Model",
+            "name": "Model"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.sagemakeredge#DeviceFleetName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 63
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9](-*_*[a-zA-Z0-9])*$"
+      }
+    },
+    "com.amazonaws.sagemakeredge#DeviceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 63
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9](-*_*[a-zA-Z0-9])*$"
+      }
+    },
+    "com.amazonaws.sagemakeredge#DeviceRegistration": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.sagemakeredge#Dimension": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1000
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9\\/])*$"
+      }
+    },
+    "com.amazonaws.sagemakeredge#EdgeDeployment": {
+      "type": "structure",
+      "members": {
+        "DeploymentName": {
+          "target": "com.amazonaws.sagemakeredge#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name and unique ID of the deployment.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.sagemakeredge#DeploymentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the deployment.</p>"
+          }
+        },
+        "FailureHandlingPolicy": {
+          "target": "com.amazonaws.sagemakeredge#FailureHandlingPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>Determines whether to rollback to previous configuration if deployment fails.</p>"
+          }
+        },
+        "Definitions": {
+          "target": "com.amazonaws.sagemakeredge#Definitions",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns a list of Definition objects.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a deployment on an edge device that is registered with SageMaker Edge Manager.</p>"
+      }
+    },
+    "com.amazonaws.sagemakeredge#EdgeDeployments": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemakeredge#EdgeDeployment"
+      }
+    },
+    "com.amazonaws.sagemakeredge#EdgeMetric": {
+      "type": "structure",
+      "members": {
+        "Dimension": {
+          "target": "com.amazonaws.sagemakeredge#Dimension",
+          "traits": {
+            "smithy.api#documentation": "<p>The dimension of metrics published.</p>"
+          }
+        },
+        "MetricName": {
+          "target": "com.amazonaws.sagemakeredge#Metric",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns the name of the metric.</p>"
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.sagemakeredge#Value",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Returns the value of the metric.</p>"
+          }
+        },
+        "Timestamp": {
+          "target": "com.amazonaws.sagemakeredge#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Timestamp of when the metric was requested.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information required for edge device metrics.</p>"
+      }
+    },
+    "com.amazonaws.sagemakeredge#EdgeMetrics": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemakeredge#EdgeMetric"
+      }
+    },
+    "com.amazonaws.sagemakeredge#EntityName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 63
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$"
+      }
+    },
+    "com.amazonaws.sagemakeredge#ErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.sagemakeredge#FailureHandlingPolicy": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ROLLBACK_ON_FAILURE",
+            "name": "RollbackOnFailure"
+          },
+          {
+            "value": "DO_NOTHING",
+            "name": "DoNothing"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.sagemakeredge#GetDeployments": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemakeredge#GetDeploymentsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemakeredge#GetDeploymentsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemakeredge#InternalServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Use to get the active deployments from a device.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/GetDeployments",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.sagemakeredge#GetDeploymentsRequest": {
+      "type": "structure",
+      "members": {
+        "DeviceName": {
+          "target": "com.amazonaws.sagemakeredge#DeviceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique name of the device you want to get the configuration of active deployments from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DeviceFleetName": {
+          "target": "com.amazonaws.sagemakeredge#DeviceFleetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the fleet that the device belongs to.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemakeredge#GetDeploymentsResult": {
+      "type": "structure",
+      "members": {
+        "Deployments": {
+          "target": "com.amazonaws.sagemakeredge#EdgeDeployments",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns a list of the configurations of the active deployments on the device.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemakeredge#GetDeviceRegistration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemakeredge#GetDeviceRegistrationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemakeredge#GetDeviceRegistrationResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemakeredge#InternalServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Use to check if a device is registered with SageMaker Edge Manager.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/GetDeviceRegistration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.sagemakeredge#GetDeviceRegistrationRequest": {
+      "type": "structure",
+      "members": {
+        "DeviceName": {
+          "target": "com.amazonaws.sagemakeredge#DeviceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique name of the device you want to get the registration status from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DeviceFleetName": {
+          "target": "com.amazonaws.sagemakeredge#DeviceFleetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the fleet that the device belongs to.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemakeredge#GetDeviceRegistrationResult": {
+      "type": "structure",
+      "members": {
+        "DeviceRegistration": {
+          "target": "com.amazonaws.sagemakeredge#DeviceRegistration",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes if the device is currently registered with SageMaker Edge Manager.</p>"
+          }
+        },
+        "CacheTTL": {
+          "target": "com.amazonaws.sagemakeredge#CacheTTLSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time, in seconds, that the registration status is stored on the device’s cache before it is refreshed.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemakeredge#InternalServiceException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.sagemakeredge#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An internal failure occurred. Try your request again. If the problem \n      persists, contact Amazon Web Services customer support.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.sagemakeredge#Metric": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 4,
+          "max": 100
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$"
+      }
+    },
+    "com.amazonaws.sagemakeredge#Model": {
+      "type": "structure",
+      "members": {
+        "ModelName": {
+          "target": "com.amazonaws.sagemakeredge#ModelName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the model.</p>"
+          }
+        },
+        "ModelVersion": {
+          "target": "com.amazonaws.sagemakeredge#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the model.</p>"
+          }
+        },
+        "LatestSampleTime": {
+          "target": "com.amazonaws.sagemakeredge#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of the last data sample taken.</p>"
+          }
+        },
+        "LatestInference": {
+          "target": "com.amazonaws.sagemakeredge#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of the last inference that was made.</p>"
+          }
+        },
+        "ModelMetrics": {
+          "target": "com.amazonaws.sagemakeredge#EdgeMetrics",
+          "traits": {
+            "smithy.api#documentation": "<p>Information required for model metrics.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a model deployed on an edge device that is registered with SageMaker Edge Manager.</p>"
+      }
+    },
+    "com.amazonaws.sagemakeredge#ModelName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 4,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$"
+      }
+    },
+    "com.amazonaws.sagemakeredge#ModelState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "DEPLOY",
+            "name": "Deploy"
+          },
+          {
+            "value": "UNDEPLOY",
+            "name": "Undeploy"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.sagemakeredge#Models": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemakeredge#Model"
+      }
+    },
+    "com.amazonaws.sagemakeredge#S3Uri": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^s3://([^/]+)/?(.*)$"
+      }
+    },
+    "com.amazonaws.sagemakeredge#SendHeartbeat": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemakeredge#SendHeartbeatRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemakeredge#InternalServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Use to get the current status of devices registered on SageMaker Edge Manager.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/SendHeartbeat",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.sagemakeredge#SendHeartbeatRequest": {
+      "type": "structure",
+      "members": {
+        "AgentMetrics": {
+          "target": "com.amazonaws.sagemakeredge#EdgeMetrics",
+          "traits": {
+            "smithy.api#documentation": "<p>For internal use. Returns a list of SageMaker Edge Manager agent operating metrics.</p>"
+          }
+        },
+        "Models": {
+          "target": "com.amazonaws.sagemakeredge#Models",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns a list of models deployed on the the device.</p>"
+          }
+        },
+        "AgentVersion": {
+          "target": "com.amazonaws.sagemakeredge#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns the version of the agent.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DeviceName": {
+          "target": "com.amazonaws.sagemakeredge#DeviceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique name of the device.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DeviceFleetName": {
+          "target": "com.amazonaws.sagemakeredge#DeviceFleetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the fleet that the device belongs to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DeploymentResult": {
+          "target": "com.amazonaws.sagemakeredge#DeploymentResult",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns the result of a deployment on the device.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemakeredge#String": {
+      "type": "string"
+    },
+    "com.amazonaws.sagemakeredge#Timestamp": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.sagemakeredge#Value": {
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.sagemakeredge#Version": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\ \\_\\.]+$"
+      }
+    }
+  }
+}

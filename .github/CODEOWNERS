@@ -1,0 +1,42 @@
+* @aws/aws-sdk-js-team
+
+# These packages are used by Smithy generated code
+/packages/config-resolver/ @aws/aws-sdk-js-team @aws/smithy
+/packages/eventstream-serde-browser/ @aws/aws-sdk-js-team @aws/smithy
+/packages/eventstream-serde-config-resolver/ @aws/aws-sdk-js-team @aws/smithy
+/packages/eventstream-serde-node/ @aws/aws-sdk-js-team @aws/smithy
+/packages/fetch-http-handler/ @aws/aws-sdk-js-team @aws/smithy
+/packages/hash-blob-browser/ @aws/aws-sdk-js-team @aws/smithy
+/packages/hash-node/ @aws/aws-sdk-js-team @aws/smithy
+/packages/hash-stream-node/ @aws/aws-sdk-js-team @aws/smithy
+/packages/invalid-dependency/ @aws/aws-sdk-js-team @aws/smithy
+/packages/md5-js/ @aws/aws-sdk-js-team @aws/smithy
+/packages/middleware-apply-body-checksum/ @aws/aws-sdk-js-team @aws/smithy
+/packages/middleware-content-length/ @aws/aws-sdk-js-team @aws/smithy
+/packages/middleware-endpoint/ @aws/aws-sdk-js-team @aws/smithy
+/packages/middleware-retry/ @aws/aws-sdk-js-team @aws/smithy
+/packages/middleware-serde/ @aws/aws-sdk-js-team @aws/smithy
+/packages/middleware-stack/ @aws/aws-sdk-js-team @aws/smithy
+/packages/node-http-handler/ @aws/aws-sdk-js-team @aws/smithy
+/packages/protocol-http/ @aws/aws-sdk-js-team @aws/smithy
+/packages/querystring-builder/ @aws/aws-sdk-js-team @aws/smithy
+/packages/service-client-documentation-generator/ @aws/aws-sdk-js-team @aws/smithy
+/packages/smithy-client/ @aws/aws-sdk-js-team @aws/smithy
+/packages/types/ @aws/aws-sdk-js-team @aws/smithy
+/packages/url-parser/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-base64/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-base64-browser/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-base64-node/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-body-length-browser/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-body-length-node/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-defaults-mode-browser/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-defaults-mode-node/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-dns/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-endpoints/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-middleware/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-retry/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-stream/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-stream-browser/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-stream-node/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-utf8/ @aws/aws-sdk-js-team @aws/smithy
+/packages/util-waiter/ @aws/aws-sdk-js-team @aws/smithy

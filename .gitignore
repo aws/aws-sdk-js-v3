@@ -20,6 +20,7 @@ jspm_packages
 .DS_Store
 .vscode/launch.json
 
+Makefile.private.mk
 lerna-debug.log
 package-lock.json
 
@@ -31,15 +32,41 @@ dist
 *.iws
 
 codegen/**/build
+codegen/**/build-single
+codegen/sdk-codegen/aws-models-examples
 codegen/sdk-codegen/smithy-build.json
+codegen/sdk-codegen/smithy-build-*.json
 .gradle
 */out/
 */*/out/
+workspace
 
+.turbo
 coverage
 dist
-types
-!packages/types
+dist-*
 
 /verdaccio/*
+/storage/.verdaccio-db.json
 !/verdaccio/config.yaml
+
+*.tsbuildinfo
+
+codegen/.attach*
+codegen/.project
+codegen/.classpath
+codegen/.settings/
+codegen/*/.project
+codegen/*/.classpath
+codegen/*/.settings/
+codegen/*/bin
+
+benchmark/size/raw
+
+etc/
+temp/
+temp-packages/
+temp-lib/
+
+# Gradle composite build properties
+codegen/local.properties

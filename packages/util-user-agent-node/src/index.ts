@@ -1,9 +1,17 @@
-import { loadConfig } from "@aws-sdk/node-config-provider";
-import { Provider, UserAgent } from "@aws-sdk/types";
+import { loadConfig } from "@smithy/node-config-provider";
+import { Provider, UserAgent } from "@smithy/types";
 import { platform, release } from "os";
 import { env, versions } from "process";
 
+import { isCrtAvailable } from "./is-crt-available";
+
+/**
+ * @internal
+ */
 export const UA_APP_ID_ENV_NAME = "AWS_SDK_UA_APP_ID";
+/**
+ * @internal
+ */
 export const UA_APP_ID_INI_NAME = "sdk-ua-app-id";
 
 interface DefaultUserAgentOptions {
@@ -12,15 +20,16 @@ interface DefaultUserAgentOptions {
 }
 
 /**
+ * @internal
+ *
  * Collect metrics from runtime to put into user agent.
  */
-export const defaultUserAgent = ({
-  serviceId,
-  clientVersion,
-}: DefaultUserAgentOptions): Provider<UserAgent> => async () => {
+export const defaultUserAgent = ({ serviceId, clientVersion }: DefaultUserAgentOptions): Provider<UserAgent> => {
   const sections: UserAgent = [
     // sdk-metadata
     ["aws-sdk-js", clientVersion],
+    // ua-metadata
+    ["ua", "2.0"],
     // os-metadata
     [`os/${platform()}`, release()],
     // language-metadata
@@ -28,6 +37,11 @@ export const defaultUserAgent = ({
     ["lang/js"],
     ["md/nodejs", `${versions.node}`],
   ];
+
+  const crtAvailable = isCrtAvailable();
+  if (crtAvailable) {
+    sections.push(crtAvailable);
+  }
 
   if (serviceId) {
     // api-metadata
@@ -40,14 +54,18 @@ export const defaultUserAgent = ({
     sections.push([`exec-env/${env.AWS_EXECUTION_ENV}`]);
   }
 
-  const appId = await loadConfig<string | undefined>({
+  const appIdPromise = loadConfig<string | undefined>({
     environmentVariableSelector: (env) => env[UA_APP_ID_ENV_NAME],
     configFileSelector: (profile) => profile[UA_APP_ID_INI_NAME],
     default: undefined,
   })();
-  if (appId) {
-    sections.push([`app/${appId}`]);
-  }
 
-  return sections;
+  let resolvedUserAgent: UserAgent | undefined = undefined;
+  return async () => {
+    if (!resolvedUserAgent) {
+      const appId = await appIdPromise;
+      resolvedUserAgent = appId ? [...sections, [`app/${appId}`]] : [...sections];
+    }
+    return resolvedUserAgent;
+  };
 };

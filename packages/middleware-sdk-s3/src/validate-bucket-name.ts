@@ -1,3 +1,4 @@
+import { validate as validateArn } from "@aws-sdk/util-arn-parser";
 import {
   InitializeHandler,
   InitializeHandlerArguments,
@@ -6,28 +7,24 @@ import {
   InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-} from "@aws-sdk/types";
-import { validate as validateArn } from "@aws-sdk/util-arn-parser";
+} from "@smithy/types";
 
 /**
  * @internal
  */
 export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: InitializeHandler<any, Output>
-  ): InitializeHandler<any, Output> => async (
-    args: InitializeHandlerArguments<any>
-  ): Promise<InitializeHandlerOutput<Output>> => {
-    const {
-      input: { Bucket },
-    } = args;
-    if (typeof Bucket === "string" && !validateArn(Bucket) && Bucket.indexOf("/") >= 0) {
-      const err = new Error(`Bucket name shouldn't contain '/', received '${Bucket}'`);
-      err.name = "InvalidBucketName";
-      throw err;
-    }
-    return next({ ...args });
-  };
+  return <Output extends MetadataBearer>(next: InitializeHandler<any, Output>): InitializeHandler<any, Output> =>
+    async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
+      const {
+        input: { Bucket },
+      } = args;
+      if (typeof Bucket === "string" && !validateArn(Bucket) && Bucket.indexOf("/") >= 0) {
+        const err = new Error(`Bucket name shouldn't contain '/', received '${Bucket}'`);
+        err.name = "InvalidBucketName";
+        throw err;
+      }
+      return next({ ...args });
+    };
 }
 
 /**
@@ -37,6 +34,7 @@ export const validateBucketNameMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BUCKET_NAME"],
   name: "validateBucketNameMiddleware",
+  override: true,
 };
 
 /**

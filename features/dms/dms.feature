@@ -1,5 +1,5 @@
 # language: en
-@dms
+@databasemigrationservice
 Feature: 
 
   I want to use AWS Database Migration Service

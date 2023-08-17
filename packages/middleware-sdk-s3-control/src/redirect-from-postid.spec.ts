@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 
 import { redirectFromPostIdMiddleware } from "./redirect-from-postid";
 
@@ -6,7 +6,10 @@ describe("redirectFromPostIdMiddleware", () => {
   it("should redirect request if Bucket is a valid ARN", async () => {
     const next: any = (args: any) => ({ output: args.request });
     const context: any = {};
-    const { output } = await redirectFromPostIdMiddleware(
+    const { output } = await redirectFromPostIdMiddleware({
+      isCustomEndpoint: false,
+      useFipsEndpoint: () => Promise.resolve(false),
+    })(
       next,
       context
     )({

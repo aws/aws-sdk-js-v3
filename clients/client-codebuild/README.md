@@ -1,198 +1,23 @@
-# @aws-sdk/client-codebuild
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codebuild/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-codebuild)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codebuild.svg)](https://www.npmjs.com/package/@aws-sdk/client-codebuild)
+# @aws-sdk/client-codebuild
 
 ## Description
 
 AWS SDK for JavaScript CodeBuild Client for Node.js, Browser and React Native.
 
-<fullname>AWS CodeBuild</fullname>
+<fullname>CodeBuild</fullname>
 
-<p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,
-runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the
+<p>CodeBuild is a fully managed build service in the cloud. CodeBuild compiles your source code,
+runs unit tests, and produces artifacts that are ready to deploy. CodeBuild eliminates the
 need to provision, manage, and scale your own build servers. It provides prepackaged
 build environments for the most popular programming languages and build tools, such as
-Apache Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild
-to use your own build tools. AWS CodeBuild scales automatically to meet peak build requests. You
-pay only for the build time you consume. For more information about AWS CodeBuild, see the <i>
-<a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">AWS CodeBuild User
+Apache Maven, Gradle, and more. You can also fully customize build environments in CodeBuild
+to use your own build tools. CodeBuild scales automatically to meet peak build requests. You
+pay only for the build time you consume. For more information about CodeBuild, see the <i>
+<a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">CodeBuild User
 Guide</a>.</i>
 </p>
-<p>AWS CodeBuild supports these operations:</p>
-<ul>
-<li>
-<p>
-<code>BatchDeleteBuilds</code>: Deletes one or more builds.</p>
-</li>
-<li>
-<p>
-<code>BatchGetBuilds</code>: Gets information about one or more builds.</p>
-</li>
-<li>
-<p>
-<code>BatchGetProjects</code>: Gets information about one or more build
-projects. A <i>build project</i> defines how AWS CodeBuild runs a build.
-This includes information such as where to get the source code to build, the
-build environment to use, the build commands to run, and where to store the
-build output. A <i>build environment</i> is a representation of
-operating system, programming language runtime, and tools that AWS CodeBuild uses to run
-a build. You can add tags to build projects to help manage your resources and
-costs.</p>
-</li>
-<li>
-<p>
-<code>BatchGetReportGroups</code>: Returns an array of report groups. </p>
-</li>
-<li>
-<p>
-<code>BatchGetReports</code>: Returns an array of reports. </p>
-</li>
-<li>
-<p>
-<code>CreateProject</code>: Creates a build project.</p>
-</li>
-<li>
-<p>
-<code>CreateReportGroup</code>: Creates a report group. A report group contains
-a collection of reports. </p>
-</li>
-<li>
-<p>
-<code>CreateWebhook</code>: For an existing AWS CodeBuild build project that has its
-source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start
-rebuilding the source code every time a code change is pushed to the
-repository.</p>
-</li>
-<li>
-<p>
-<code>DeleteProject</code>: Deletes a build project.</p>
-</li>
-<li>
-<p>
-<code>DeleteReport</code>: Deletes a report. </p>
-</li>
-<li>
-<p>
-<code>DeleteReportGroup</code>: Deletes a report group. </p>
-</li>
-<li>
-<p>
-<code>DeleteResourcePolicy</code>: Deletes a resource policy that is identified
-by its resource ARN. </p>
-</li>
-<li>
-<p>
-<code>DeleteSourceCredentials</code>: Deletes a set of GitHub, GitHub
-Enterprise, or Bitbucket source credentials.</p>
-</li>
-<li>
-<p>
-<code>DeleteWebhook</code>: For an existing AWS CodeBuild build project that has its
-source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from
-rebuilding the source code every time a code change is pushed to the
-repository.</p>
-</li>
-<li>
-<p>
-<code>DescribeTestCases</code>: Returns a list of details about test cases for a
-report. </p>
-</li>
-<li>
-<p>
-<code>GetResourcePolicy</code>: Gets a resource policy that is identified by its
-resource ARN. </p>
-</li>
-<li>
-<p>
-<code>ImportSourceCredentials</code>: Imports the source repository
-credentials for an AWS CodeBuild project that has its source code stored in a
-GitHub, GitHub Enterprise, or Bitbucket repository.</p>
-</li>
-<li>
-<p>
-<code>InvalidateProjectCache</code>: Resets the cache for a project.</p>
-</li>
-<li>
-<p>
-<code>ListBuilds</code>: Gets a list of build IDs, with each build ID
-representing a single build.</p>
-</li>
-<li>
-<p>
-<code>ListBuildsForProject</code>: Gets a list of build IDs for the specified
-build project, with each build ID representing a single build.</p>
-</li>
-<li>
-<p>
-<code>ListCuratedEnvironmentImages</code>: Gets information about Docker
-images that are managed by AWS CodeBuild.</p>
-</li>
-<li>
-<p>
-<code>ListProjects</code>: Gets a list of build project names, with each build
-project name representing a single build project.</p>
-</li>
-<li>
-<p>
-<code>ListReportGroups</code>: Gets a list ARNs for the report groups in the
-current AWS account. </p>
-</li>
-<li>
-<p>
-<code>ListReports</code>: Gets a list ARNs for the reports in the current AWS
-account. </p>
-</li>
-<li>
-<p>
-<code>ListReportsForReportGroup</code>: Returns a list of ARNs for the reports
-that belong to a <code>ReportGroup</code>. </p>
-</li>
-<li>
-<p>
-<code>ListSharedProjects</code>: Gets a list of ARNs associated with projects
-shared with the current AWS account or user.</p>
-</li>
-<li>
-<p>
-<code>ListSharedReportGroups</code>: Gets a list of ARNs associated with
-report groups shared with the current AWS account or user</p>
-</li>
-<li>
-<p>
-<code>ListSourceCredentials</code>: Returns a list of
-<code>SourceCredentialsInfo</code> objects. Each
-<code>SourceCredentialsInfo</code> object includes the authentication type,
-token ARN, and type of source provider for one set of credentials.</p>
-</li>
-<li>
-<p>
-<code>PutResourcePolicy</code>: Stores a resource policy for the ARN of a
-<code>Project</code> or <code>ReportGroup</code> object. </p>
-</li>
-<li>
-<p>
-<code>StartBuild</code>: Starts running a build.</p>
-</li>
-<li>
-<p>
-<code>StopBuild</code>: Attempts to stop running a build.</p>
-</li>
-<li>
-<p>
-<code>UpdateProject</code>: Changes the settings of an existing build
-project.</p>
-</li>
-<li>
-<p>
-<code>UpdateReportGroup</code>: Changes a report group.</p>
-</li>
-<li>
-<p>
-<code>UpdateWebhook</code>: Changes the settings of an existing
-webhook.</p>
-</li>
-</ul>
 
 ## Installing
 
@@ -231,7 +56,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```js
-// a client can be shared by difference commands.
+// a client can be shared by different commands.
 const client = new CodeBuildClient({ region: "REGION" });
 
 const params = {
@@ -300,7 +125,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -316,7 +141,7 @@ const client = new AWS.CodeBuild({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchDeleteBuilds(params);
+  const data = await client.batchDeleteBuilds(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -334,7 +159,7 @@ client
 
 // callbacks.
 client.batchDeleteBuilds(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -348,7 +173,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -379,10 +204,373 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-codebuild` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+BatchDeleteBuilds
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/batchdeletebuildscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchdeletebuildscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchdeletebuildscommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchGetBuildBatches
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/batchgetbuildbatchescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchgetbuildbatchescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchgetbuildbatchescommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchGetBuilds
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/batchgetbuildscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchgetbuildscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchgetbuildscommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchGetProjects
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/batchgetprojectscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchgetprojectscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchgetprojectscommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchGetReportGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/batchgetreportgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchgetreportgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchgetreportgroupscommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchGetReports
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/batchgetreportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchgetreportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/batchgetreportscommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateProject
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/createprojectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/createprojectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/createprojectcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateReportGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/createreportgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/createreportgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/createreportgroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateWebhook
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/createwebhookcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/createwebhookcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/createwebhookcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBuildBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/deletebuildbatchcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deletebuildbatchcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deletebuildbatchcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteProject
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/deleteprojectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deleteprojectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deleteprojectcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/deletereportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deletereportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deletereportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteReportGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/deletereportgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deletereportgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deletereportgroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/deleteresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deleteresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deleteresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSourceCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/deletesourcecredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deletesourcecredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deletesourcecredentialscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteWebhook
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/deletewebhookcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deletewebhookcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/deletewebhookcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeCodeCoverages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/describecodecoveragescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/describecodecoveragescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/describecodecoveragescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTestCases
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/describetestcasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/describetestcasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/describetestcasescommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetReportGroupTrend
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/getreportgrouptrendcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/getreportgrouptrendcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/getreportgrouptrendcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/getresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/getresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/getresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+ImportSourceCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/importsourcecredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/importsourcecredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/importsourcecredentialscommandoutput.html)
+
+</details>
+<details>
+<summary>
+InvalidateProjectCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/invalidateprojectcachecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/invalidateprojectcachecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/invalidateprojectcachecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBuildBatches
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listbuildbatchescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listbuildbatchescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listbuildbatchescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBuildBatchesForProject
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listbuildbatchesforprojectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listbuildbatchesforprojectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listbuildbatchesforprojectcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBuilds
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listbuildscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listbuildscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listbuildscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBuildsForProject
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listbuildsforprojectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listbuildsforprojectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listbuildsforprojectcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCuratedEnvironmentImages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listcuratedenvironmentimagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listcuratedenvironmentimagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listcuratedenvironmentimagescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListProjects
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listprojectscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listprojectscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listprojectscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListReportGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listreportgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listreportgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listreportgroupscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListReports
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listreportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listreportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listreportscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListReportsForReportGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listreportsforreportgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listreportsforreportgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listreportsforreportgroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSharedProjects
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listsharedprojectscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listsharedprojectscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listsharedprojectscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSharedReportGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listsharedreportgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listsharedreportgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listsharedreportgroupscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSourceCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/listsourcecredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listsourcecredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/listsourcecredentialscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/putresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/putresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/putresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+RetryBuild
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/retrybuildcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/retrybuildcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/retrybuildcommandoutput.html)
+
+</details>
+<details>
+<summary>
+RetryBuildBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/retrybuildbatchcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/retrybuildbatchcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/retrybuildbatchcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartBuild
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/startbuildcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/startbuildcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/startbuildcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartBuildBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/startbuildbatchcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/startbuildbatchcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/startbuildbatchcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopBuild
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/stopbuildcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/stopbuildcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/stopbuildcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopBuildBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/stopbuildbatchcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/stopbuildbatchcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/stopbuildbatchcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateProject
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/updateprojectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/updateprojectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/updateprojectcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateProjectVisibility
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/updateprojectvisibilitycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/updateprojectvisibilitycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/updateprojectvisibilitycommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateReportGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/updatereportgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/updatereportgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/updatereportgroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateWebhook
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/classes/updatewebhookcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/updatewebhookcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codebuild/interfaces/updatewebhookcommandoutput.html)
+
+</details>

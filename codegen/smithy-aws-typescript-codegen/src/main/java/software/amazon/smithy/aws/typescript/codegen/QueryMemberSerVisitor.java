@@ -22,6 +22,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Overrides the default implementation of BigDecimal and BigInteger shape
@@ -29,6 +30,7 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  *
  * TODO: Work out support for BigDecimal and BigInteger, natively or through a library.
  */
+@SmithyInternalApi
 final class QueryMemberSerVisitor extends DocumentMemberSerVisitor {
 
     QueryMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {

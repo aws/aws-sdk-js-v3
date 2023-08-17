@@ -1,10 +1,17 @@
+// Set up following binaries before running the test:
+// CHROME_BIN: path to Chromium browser
+// FIREFOX_BIN: path to Firefox browser
+
+const webpack = require("webpack");
+
 module.exports = function (config) {
   config.set({
     basePath: "",
     frameworks: ["mocha", "chai"],
-    files: ["e2e/**/*.ispec.ts"],
+    files: ["test/e2e/**/*.ispec.ts"],
+    processKillTimeout: 5000,
     preprocessors: {
-      "e2e/**/*.ispec.ts": ["webpack", "sourcemap", "credentials", "env"],
+      "test/e2e/**/*.ispec.ts": ["webpack", "sourcemap", "credentials", "env"],
     },
     webpackMiddleware: {
       stats: "minimal",
@@ -33,6 +40,7 @@ module.exports = function (config) {
           },
         ],
       },
+      plugins: [new webpack.NormalModuleReplacementPlugin(/\.\/runtimeConfig$/, "./runtimeConfig.browser")],
       devtool: "inline-source-map",
     },
     envPreprocessor: ["AWS_SMOKE_TEST_REGION", "AWS_SMOKE_TEST_IDENTITY_POOL_ID"],
@@ -52,8 +60,12 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_WARN,
     autoWatch: false,
-    browsers: ["ChromeHeadless", "FirefoxHeadless"],
+    browsers: ["ChromeHeadlessNoSandbox", "FirefoxHeadless"],
     customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: "ChromeHeadless",
+        flags: ["--no-sandbox"],
+      },
       FirefoxHeadless: {
         base: "Firefox",
         flags: ["-headless"],
