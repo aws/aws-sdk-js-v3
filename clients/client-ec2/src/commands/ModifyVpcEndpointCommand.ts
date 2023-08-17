@@ -75,6 +75,13 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  *     PrivateDnsOnlyForInboundResolverEndpoint: true || false,
  *   },
  *   PrivateDnsEnabled: true || false,
+ *   SubnetConfigurations: [ // SubnetConfigurationsList
+ *     { // SubnetConfiguration
+ *       SubnetId: "STRING_VALUE",
+ *       Ipv4: "STRING_VALUE",
+ *       Ipv6: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new ModifyVpcEndpointCommand(input);
  * const response = await client.send(command);

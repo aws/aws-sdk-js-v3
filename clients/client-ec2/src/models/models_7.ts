@@ -18,8 +18,25 @@ import {
   ScheduledInstancesIamInstanceProfile,
   ScheduledInstancesIpv6Address,
   ScheduledInstancesMonitoring,
-  ScheduledInstancesPrivateIpAddressConfig,
 } from "./models_6";
+
+/**
+ * @public
+ * <p>Describes a private IPv4 address for a Scheduled Instance.</p>
+ */
+export interface ScheduledInstancesPrivateIpAddressConfig {
+  /**
+   * @public
+   * <p>Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary IPv4 address.</p>
+   */
+  Primary?: boolean;
+
+  /**
+   * @public
+   * <p>The IPv4 address.</p>
+   */
+  PrivateIpAddress?: string;
+}
 
 /**
  * @public

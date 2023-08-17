@@ -110,11 +110,24 @@ import {
   IdFormat,
   InstanceBlockDeviceMapping,
   InstanceBootModeValues,
-  InstanceLifecycleType,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceLifecycleType = {
+  scheduled: "scheduled",
+  spot: "spot",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceLifecycleType = (typeof InstanceLifecycleType)[keyof typeof InstanceLifecycleType];
 
 /**
  * @public
@@ -12291,21 +12304,6 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
    */
   DryRun?: boolean;
 }
-
-/**
- * @public
- * @enum
- */
-export const VerifiedAccessLogDeliveryStatusCode = {
-  FAILED: "failed",
-  SUCCESS: "success",
-} as const;
-
-/**
- * @public
- */
-export type VerifiedAccessLogDeliveryStatusCode =
-  (typeof VerifiedAccessLogDeliveryStatusCode)[keyof typeof VerifiedAccessLogDeliveryStatusCode];
 
 /**
  * @internal

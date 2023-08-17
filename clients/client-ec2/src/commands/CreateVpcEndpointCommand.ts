@@ -79,6 +79,13 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  *       ],
  *     },
  *   ],
+ *   SubnetConfigurations: [ // SubnetConfigurationsList
+ *     { // SubnetConfiguration
+ *       SubnetId: "STRING_VALUE",
+ *       Ipv4: "STRING_VALUE",
+ *       Ipv6: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateVpcEndpointCommand(input);
  * const response = await client.send(command);

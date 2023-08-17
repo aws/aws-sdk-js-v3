@@ -5166,6 +5166,38 @@ export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
 
 /**
  * @public
+ * <p>Describes the configuration of a subnet for a VPC endpoint.</p>
+ */
+export interface SubnetConfiguration {
+  /**
+   * @public
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * @public
+   * <p>The IPv4 address to assign to the endpoint network interface in the subnet. You must provide
+   *             an IPv4 address if the VPC endpoint supports IPv4.</p>
+   *          <p>If you specify an IPv4 address when modifying a VPC endpoint, we replace the existing
+   *             endpoint network interface with a new endpoint network interface with this IP address.
+   *             This process temporarily disconnects the subnet and the VPC endpoint.</p>
+   */
+  Ipv4?: string;
+
+  /**
+   * @public
+   * <p>The IPv6 address to assign to the endpoint network interface in the subnet. You must provide
+   *             an IPv6 address if the VPC endpoint supports IPv6.</p>
+   *          <p>If you specify an IPv6 address when modifying a VPC endpoint, we replace the existing
+   *             endpoint network interface with a new endpoint network interface with this IP address.
+   *             This process temporarily disconnects the subnet and the VPC endpoint.</p>
+   */
+  Ipv6?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const VpcEndpointType = {
@@ -5226,15 +5258,15 @@ export interface CreateVpcEndpointRequest {
 
   /**
    * @public
-   * <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create an endpoint
-   *             network interface. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
+   * <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create endpoint
+   *             network interfaces. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
    */
   SubnetIds?: string[];
 
   /**
    * @public
    * <p>(Interface endpoint) The IDs of the security groups to associate with the
-   *             endpoint network interface. If this parameter is not specified, we use the default
+   *             endpoint network interfaces. If this parameter is not specified, we use the default
    *             security group for the VPC.</p>
    */
   SecurityGroupIds?: string[];
@@ -5282,6 +5314,12 @@ export interface CreateVpcEndpointRequest {
    * <p>The tags to associate with the endpoint.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * @public
+   * <p>The subnet configurations for the endpoint.</p>
+   */
+  SubnetConfigurations?: SubnetConfiguration[];
 }
 
 /**
@@ -8641,24 +8679,6 @@ export const DeleteQueuedReservedInstancesErrorCode = {
  */
 export type DeleteQueuedReservedInstancesErrorCode =
   (typeof DeleteQueuedReservedInstancesErrorCode)[keyof typeof DeleteQueuedReservedInstancesErrorCode];
-
-/**
- * @public
- * <p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>
- */
-export interface DeleteQueuedReservedInstancesError {
-  /**
-   * @public
-   * <p>The error code.</p>
-   */
-  Code?: DeleteQueuedReservedInstancesErrorCode | string;
-
-  /**
-   * @public
-   * <p>The error message.</p>
-   */
-  Message?: string;
-}
 
 /**
  * @internal

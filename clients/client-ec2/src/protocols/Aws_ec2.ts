@@ -2672,7 +2672,6 @@ import {
   DeletePlacementGroupRequest,
   DeletePublicIpv4PoolRequest,
   DeletePublicIpv4PoolResult,
-  DeleteQueuedReservedInstancesError,
   DeleteQueuedReservedInstancesRequest,
   DnsEntry,
   DnsOptions,
@@ -2712,6 +2711,7 @@ import {
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
   SubnetCidrReservation,
+  SubnetConfiguration,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
@@ -2778,6 +2778,7 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeleteQueuedReservedInstancesError,
   DeleteQueuedReservedInstancesResult,
   DeleteRouteRequest,
   DeleteRouteTableRequest,
@@ -3518,7 +3519,6 @@ import {
   GetVpnTunnelReplacementStatusRequest,
   GetVpnTunnelReplacementStatusResult,
   ImportClientVpnClientCertificateRevocationListRequest,
-  ImportClientVpnClientCertificateRevocationListResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3584,6 +3584,7 @@ import {
   HibernationOptionsRequest,
   ImageDiskContainer,
   ImageRecycleBinInfo,
+  ImportClientVpnClientCertificateRevocationListResult,
   ImportImageLicenseConfigurationRequest,
   ImportImageRequest,
   ImportImageResult,
@@ -3839,7 +3840,6 @@ import {
   ScheduledInstancesIamInstanceProfile,
   ScheduledInstancesIpv6Address,
   ScheduledInstancesMonitoring,
-  ScheduledInstancesPrivateIpAddressConfig,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -3867,6 +3867,7 @@ import {
   ScheduledInstancesLaunchSpecification,
   ScheduledInstancesNetworkInterface,
   ScheduledInstancesPlacement,
+  ScheduledInstancesPrivateIpAddressConfig,
   SearchLocalGatewayRoutesRequest,
   SearchLocalGatewayRoutesResult,
   SearchTransitGatewayMulticastGroupsRequest,
@@ -43313,6 +43314,16 @@ const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: _
       entries[loc] = value;
     });
   }
+  if (input.SubnetConfigurations != null) {
+    const memberEntries = se_SubnetConfigurationsList(input.SubnetConfigurations, context);
+    if (input.SubnetConfigurations?.length === 0) {
+      entries.SubnetConfiguration = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SubnetConfiguration.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -58497,6 +58508,16 @@ const se_ModifyVpcEndpointRequest = (input: ModifyVpcEndpointRequest, context: _
   if (input.PrivateDnsEnabled != null) {
     entries["PrivateDnsEnabled"] = input.PrivateDnsEnabled;
   }
+  if (input.SubnetConfigurations != null) {
+    const memberEntries = se_SubnetConfigurationsList(input.SubnetConfigurations, context);
+    if (input.SubnetConfigurations?.length === 0) {
+      entries.SubnetConfiguration = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SubnetConfiguration.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -63794,6 +63815,42 @@ const se_StorageLocation = (input: StorageLocation, context: __SerdeContext): an
   }
   if (input.Key != null) {
     entries["Key"] = input.Key;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2SubnetConfiguration
+ */
+const se_SubnetConfiguration = (input: SubnetConfiguration, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SubnetId != null) {
+    entries["SubnetId"] = input.SubnetId;
+  }
+  if (input.Ipv4 != null) {
+    entries["Ipv4"] = input.Ipv4;
+  }
+  if (input.Ipv6 != null) {
+    entries["Ipv6"] = input.Ipv6;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2SubnetConfigurationsList
+ */
+const se_SubnetConfigurationsList = (input: SubnetConfiguration[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_SubnetConfiguration(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Item.${counter}.${key}`] = value;
+    });
+    counter++;
   }
   return entries;
 };

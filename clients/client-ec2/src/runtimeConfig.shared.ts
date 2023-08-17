@@ -16,6 +16,7 @@ export const getRuntimeConfig = (config: EC2ClientConfig) => ({
   base64Encoder: config?.base64Encoder ?? toBase64,
   disableHostPrefix: config?.disableHostPrefix ?? false,
   endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
+  extensions: config?.extensions ?? [],
   logger: config?.logger ?? new NoOpLogger(),
   serviceId: config?.serviceId ?? "EC2",
   urlParser: config?.urlParser ?? parseUrl,

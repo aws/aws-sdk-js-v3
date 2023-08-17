@@ -75,7 +75,7 @@ import {
   TransportProtocol,
 } from "./models_1";
 import {
-  DeleteQueuedReservedInstancesError,
+  DeleteQueuedReservedInstancesErrorCode,
   FleetStateCode,
   SubnetCidrReservation,
   TransitGateway,
@@ -90,6 +90,24 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>
+ */
+export interface DeleteQueuedReservedInstancesError {
+  /**
+   * @public
+   * <p>The error code.</p>
+   */
+  Code?: DeleteQueuedReservedInstancesErrorCode | string;
+
+  /**
+   * @public
+   * <p>The error message.</p>
+   */
+  Message?: string;
+}
 
 /**
  * @public
@@ -10248,20 +10266,6 @@ export interface HibernationOptions {
    */
   Configured?: boolean;
 }
-
-/**
- * @public
- * @enum
- */
-export const InstanceLifecycleType = {
-  scheduled: "scheduled",
-  spot: "spot",
-} as const;
-
-/**
- * @public
- */
-export type InstanceLifecycleType = (typeof InstanceLifecycleType)[keyof typeof InstanceLifecycleType];
 
 /**
  * @internal

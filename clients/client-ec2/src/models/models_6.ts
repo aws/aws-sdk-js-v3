@@ -89,6 +89,7 @@ import {
   Phase2IntegrityAlgorithmsRequestListValue,
   SnapshotState,
   SSEType,
+  SubnetConfiguration,
   TrafficDirection,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
@@ -160,6 +161,17 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface ImportClientVpnClientCertificateRevocationListResult {
+  /**
+   * @public
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
 
 /**
  * @public
@@ -5165,13 +5177,13 @@ export interface ModifyVpcEndpointRequest {
 
   /**
    * @public
-   * <p>(Interface endpoint) The IDs of the security groups to associate with the network interface.</p>
+   * <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces.</p>
    */
   AddSecurityGroupIds?: string[];
 
   /**
    * @public
-   * <p>(Interface endpoint) The IDs of the security groups to disassociate from the network interface.</p>
+   * <p>(Interface endpoint) The IDs of the security groups to disassociate from the endpoint network interfaces.</p>
    */
   RemoveSecurityGroupIds?: string[];
 
@@ -5189,10 +5201,15 @@ export interface ModifyVpcEndpointRequest {
 
   /**
    * @public
-   * <p>(Interface endpoint) Indicates whether a private hosted zone is associated with the
-   *             VPC.</p>
+   * <p>(Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.</p>
    */
   PrivateDnsEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>The subnet configurations for the endpoint.</p>
+   */
+  SubnetConfigurations?: SubnetConfiguration[];
 }
 
 /**
@@ -9599,24 +9616,6 @@ export interface ScheduledInstancesIpv6Address {
    * <p>The IPv6 address.</p>
    */
   Ipv6Address?: string;
-}
-
-/**
- * @public
- * <p>Describes a private IPv4 address for a Scheduled Instance.</p>
- */
-export interface ScheduledInstancesPrivateIpAddressConfig {
-  /**
-   * @public
-   * <p>Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary IPv4 address.</p>
-   */
-  Primary?: boolean;
-
-  /**
-   * @public
-   * <p>The IPv4 address.</p>
-   */
-  PrivateIpAddress?: string;
 }
 
 /**

@@ -78,7 +78,22 @@ import {
   StatisticType,
   VirtualizationType,
 } from "./models_3";
-import { AnalysisStatus, ArchitectureType, VerifiedAccessLogDeliveryStatusCode } from "./models_4";
+import { AnalysisStatus, ArchitectureType } from "./models_4";
+
+/**
+ * @public
+ * @enum
+ */
+export const VerifiedAccessLogDeliveryStatusCode = {
+  FAILED: "failed",
+  SUCCESS: "success",
+} as const;
+
+/**
+ * @public
+ */
+export type VerifiedAccessLogDeliveryStatusCode =
+  (typeof VerifiedAccessLogDeliveryStatusCode)[keyof typeof VerifiedAccessLogDeliveryStatusCode];
 
 /**
  * @public
@@ -8539,17 +8554,6 @@ export interface ImportClientVpnClientCertificateRevocationListRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface ImportClientVpnClientCertificateRevocationListResult {
-  /**
-   * @public
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
 }
 
 /**
