@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.394.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.393.0...v3.394.0) (2023-08-17)
+
+
+### Features
+
+* **client-ec2:** Adds support for SubnetConfigurations to allow users to select their own IPv4 and IPv6 addresses for Interface VPC endpoints ([d377dfd](https://github.com/aws/aws-sdk-js-v3/commit/d377dfd296a989a07b8c1eaab1b5887a9e4ac14a))
+* **client-gamelift:** Amazon GameLift updates its instance types support. ([dedcc86](https://github.com/aws/aws-sdk-js-v3/commit/dedcc866359119b4bce553222d8d4b3da0d91516))
+* **clients:** update client endpoints as of 2023-08-17 ([0a89d38](https://github.com/aws/aws-sdk-js-v3/commit/0a89d382ea4c0f5aba9b5503c3270e7521b7b0d8))
+
+
+
+
+
 # [3.393.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.392.0...v3.393.0) (2023-08-16)
 
 

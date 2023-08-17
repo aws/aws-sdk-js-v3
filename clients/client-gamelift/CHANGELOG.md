@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.394.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.393.0...v3.394.0) (2023-08-17)
+
+
+### Features
+
+* **client-gamelift:** Amazon GameLift updates its instance types support. ([dedcc86](https://github.com/aws/aws-sdk-js-v3/commit/dedcc866359119b4bce553222d8d4b3da0d91516))
+
+
+
+
+
 # [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-gamelift

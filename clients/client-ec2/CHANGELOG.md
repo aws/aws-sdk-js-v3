@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.394.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.393.0...v3.394.0) (2023-08-17)
+
+
+### Features
+
+* **client-ec2:** Adds support for SubnetConfigurations to allow users to select their own IPv4 and IPv6 addresses for Interface VPC endpoints ([d377dfd](https://github.com/aws/aws-sdk-js-v3/commit/d377dfd296a989a07b8c1eaab1b5887a9e4ac14a))
+
+
+
+
+
 # [3.392.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.391.0...v3.392.0) (2023-08-15)
 
 
