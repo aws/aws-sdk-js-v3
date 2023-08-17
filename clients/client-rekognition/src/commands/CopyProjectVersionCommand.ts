@@ -128,7 +128,7 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  *
  * @example CopyProjectVersion
  * ```javascript
- * // This operation copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project.
+ * // Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project.
  * const input = {
  *   "DestinationProjectArn": "arn:aws:rekognition:us-east-1:555555555555:project/DestinationProject/1656705098765",
  *   "KmsKeyId": "arn:1234abcd-12ab-34cd-56ef-1234567890ab",

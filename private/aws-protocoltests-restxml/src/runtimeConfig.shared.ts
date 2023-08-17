@@ -15,6 +15,7 @@ export const getRuntimeConfig = (config: RestXmlProtocolClientConfig) => ({
   base64Decoder: config?.base64Decoder ?? fromBase64,
   base64Encoder: config?.base64Encoder ?? toBase64,
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  extensions: config?.extensions ?? [],
   logger: config?.logger ?? new NoOpLogger(),
   regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Rest Xml Protocol",

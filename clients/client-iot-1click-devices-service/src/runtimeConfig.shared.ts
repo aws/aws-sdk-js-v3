@@ -16,6 +16,7 @@ export const getRuntimeConfig = (config: IoT1ClickDevicesServiceClientConfig) =>
   base64Encoder: config?.base64Encoder ?? toBase64,
   disableHostPrefix: config?.disableHostPrefix ?? false,
   endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
+  extensions: config?.extensions ?? [],
   logger: config?.logger ?? new NoOpLogger(),
   serviceId: config?.serviceId ?? "IoT 1Click Devices Service",
   urlParser: config?.urlParser ?? parseUrl,

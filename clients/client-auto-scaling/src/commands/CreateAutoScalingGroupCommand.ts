@@ -329,49 +329,6 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * await client.send(command);
- * // example id: to-create-an-auto-scaling-group-with-a-mixed-instances-policy-1617815269039
- * ```
- *
- * @example To create an Auto Scaling group with a mixed instances policy
- * ```javascript
- * // This example creates an Auto Scaling group with a mixed instances policy. It specifies the c5.large, c5a.large, and c6g.large instance types and defines a different launch template for the c6g.large instance type.
- * const input = {
- *   "AutoScalingGroupName": "my-asg",
- *   "DesiredCapacity": 3,
- *   "MaxSize": 5,
- *   "MinSize": 1,
- *   "MixedInstancesPolicy": {
- *     "InstancesDistribution": {
- *       "OnDemandBaseCapacity": 1,
- *       "OnDemandPercentageAboveBaseCapacity": 50,
- *       "SpotAllocationStrategy": "price-capacity-optimized"
- *     },
- *     "LaunchTemplate": {
- *       "LaunchTemplateSpecification": {
- *         "LaunchTemplateName": "my-launch-template-for-x86",
- *         "Version": "$Default"
- *       },
- *       "Overrides": [
- *         {
- *           "InstanceType": "c6g.large",
- *           "LaunchTemplateSpecification": {
- *             "LaunchTemplateName": "my-launch-template-for-arm",
- *             "Version": "$Default"
- *           }
- *         },
- *         {
- *           "InstanceType": "c5.large"
- *         },
- *         {
- *           "InstanceType": "c5a.large"
- *         }
- *       ]
- *     }
- *   },
- *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
- * };
- * const command = new CreateAutoScalingGroupCommand(input);
- * await client.send(command);
  * // example id: autoscaling-create-auto-scaling-group-3
  * ```
  *

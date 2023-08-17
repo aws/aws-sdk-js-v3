@@ -27,6 +27,7 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "il-central-1",
       "me-central-1",
       "me-south-1",
       "sa-east-1",
@@ -35,7 +36,7 @@ const partitionHash: PartitionHash = {
       "us-west-1",
       "us-west-2",
     ],
-    regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
+    regionRegex: "^(us|eu|ap|sa|ca|me|af|il)\\-\\w+\\-\\d+$",
     variants: [
       {
         hostname: "restxml.{region}.amazonaws.com",

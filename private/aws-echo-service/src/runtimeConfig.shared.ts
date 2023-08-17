@@ -13,6 +13,7 @@ export const getRuntimeConfig = (config: EchoServiceClientConfig) => ({
   base64Decoder: config?.base64Decoder ?? fromBase64,
   base64Encoder: config?.base64Encoder ?? toBase64,
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  extensions: config?.extensions ?? [],
   logger: config?.logger ?? new NoOpLogger(),
   urlParser: config?.urlParser ?? parseUrl,
   utf8Decoder: config?.utf8Decoder ?? fromUtf8,
