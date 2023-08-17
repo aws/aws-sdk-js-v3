@@ -468,7 +468,7 @@ credential_process = /usr/local/bin/awscreds dev
 
 The function `fromTokenFile` returns `AwsCredentialIdentityProvider` that reads credentials as follows:
 
-- Reads file location of where the OIDC token is stored from either provided option  
+- Reads file location of where the OIDC token is stored from either provided option
   `webIdentityTokenFile` or environment variable `AWS_WEB_IDENTITY_TOKEN_FILE`.
 - Reads IAM role wanting to be assumed from either provided option `roleArn` or environment
   variable `AWS_ROLE_ARN`.
@@ -481,8 +481,8 @@ The function `fromTokenFile` returns `AwsCredentialIdentityProvider` that reads 
 | **Configuration Key** | **Environment Variable**    | **Required** | **Description**                                   |
 | --------------------- | --------------------------- | ------------ | ------------------------------------------------- |
 | webIdentityTokenFile  | AWS_WEB_IDENTITY_TOKEN_FILE | true         | File location of where the `OIDC` token is stored |
-| roleArn               | AWS_IAM_ROLE_ARN            | true         | The IAM role wanting to be assumed                |
-| roleSessionName       | AWS_IAM_ROLE_SESSION_NAME   | false        | The IAM session name used to distinguish sessions |
+| roleArn               | AWS_ROLE_ARN                | true         | The IAM role wanting to be assumed                |
+| roleSessionName       | AWS_ROLE_SESSION_NAME       | false        | The IAM session name used to distinguish sessions |
 
 ```javascript
 import { fromTokenFile } from "@aws-sdk/credential-providers"; // ES6 import
