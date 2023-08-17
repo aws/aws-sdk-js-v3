@@ -528,3 +528,52 @@ In v3, the similar utility class is available in [`@aws-sdk/rds-signer` package]
 In v2, you can generate a signed URL to the speech synthesized by AWS Polly service with [`AWS.Polly.Presigner` class](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Polly/Presigner.html).
 
 In v3, the similar utility function is available in [`@aws-sdk/polly-request-presigner` package](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_polly_request_presigner.html)
+
+## Notes on Specific Service Clients
+
+### Lambda
+
+Lambda invocations response type differs in v3:
+
+```js
+import { Lambda } from "@aws-sdk/client-lambda";
+import AWS from "aws-sdk";
+
+const region = "...";
+
+{
+  // v2
+  const lambda = new AWS.Lambda({ region });
+  const invoke = await lambda
+    .invoke({
+      FunctionName: "echo",
+      Payload: JSON.stringify({ message: "hello" }),
+    })
+    .promise();
+  // in v2, Lambda::invoke::Payload is automatically converted to string via a
+  // specific code customization.
+  const payloadIsString = typeof invoke.Payload === "string";
+  console.log("Invoke response payload type is string:", payloadIsString);
+
+  const payloadObject = JSON.parse(invoke.Payload);
+  console.log("Invoke response object", payloadObject);
+}
+
+{
+  const lambda = new Lambda({ region });
+  const invoke = await lambda.invoke({
+    FunctionName: "echo",
+    Payload: JSON.stringify({ message: "hello" }),
+  });
+  // in v3, Lambda::invoke::Payload is not automatically converted to a string.
+  // This is to reduce the number of customizations that create inconsistent behaviors.
+  const payloadIsByteArray = invoke.Payload instanceof Uint8Array;
+  console.log("Invoke response payload type is Uint8Array:", payloadIsByteArray);
+
+  // To maintain the old functionality, only one additional method call is needed:
+  // v3 adds a method to the Uint8Array called transformToString.
+  const payloadObject = JSON.parse(invoke.Payload.transformToString());
+  console.log("Invoke response object", payloadObject);
+}
+```
+
