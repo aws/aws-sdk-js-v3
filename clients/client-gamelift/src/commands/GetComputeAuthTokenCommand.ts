@@ -36,10 +36,34 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
 
 /**
  * @public
- * <p>Requests an authentication token from Amazon GameLift. The authentication token is used by
- *             your game server to authenticate with Amazon GameLift. Each authentication token has an
- *             expiration time. To continue using the compute resource to host your game server,
- *             regularly retrieve a new authorization token.</p>
+ * <p>Requests an authentication token from Amazon GameLift for a registered compute in an Anywhere
+ *             fleet. The game servers that are running on the compute use this token to authenticate
+ *             with the Amazon GameLift service. Each server process must provide a valid authentication token
+ *             in its call to the Amazon GameLift server SDK action <code>InitSDK()</code>.</p>
+ *          <p>Authentication tokens are valid for a limited time span. Use a mechanism to regularly
+ *             request a fresh authentication token before the current token expires.</p>
+ *          <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-anywhere.html">Create an
+ *                         Anywhere fleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing.html">Test your
+ *                         integration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html">Server SDK
+ *                         reference guides</a> (for version 5.x)</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

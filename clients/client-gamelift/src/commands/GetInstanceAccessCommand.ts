@@ -40,28 +40,36 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
 
 /**
  * @public
- * <p>Requests remote access to a fleet instance. Remote access is useful for debugging,
- *             gathering benchmarking data, or observing activity in real time. </p>
- *          <p>To remotely access an instance, you need credentials that match the operating system
- *             of the instance. For a Windows instance, Amazon GameLift returns a user name and password as
- *             strings for use with a Windows Remote Desktop client. For a Linux instance, Amazon GameLift
- *             returns a user name and RSA private key, also as strings, for use with an SSH client.
- *             The private key must be saved in the proper format to a <code>.pem</code> file before
- *             using. If you're making this request using the CLI, saving the secret can be handled
- *             as part of the <code>GetInstanceAccess</code> request, as shown in one of the examples
- *             for this operation. </p>
- *          <p>To request access to a specific instance, specify the IDs of both the instance and the
- *             fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html">DescribeInstances</a>. </p>
+ * <p>Requests authorization to remotely connect to an instance in an Amazon GameLift managed fleet.
+ *             Use this operation to connect to instances with game servers that use Amazon GameLift server SDK
+ *             4.x or earlier. To connect to instances with game servers that use server SDK 5.x or
+ *             later, call <a>GetComputeAccess</a>.</p>
+ *          <p>To request access to an instance, specify IDs for the instance and the fleet it
+ *             belongs to. You can retrieve instance IDs for a fleet by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html">DescribeInstances</a> with the fleet ID. </p>
+ *          <p>If successful, this operation returns an IP address and credentials. The returned
+ *             credentials match the operating system of the instance, as follows: </p>
+ *          <ul>
+ *             <li>
+ *                <p>For a Windows instance: returns a user name and secret (password) for use with
+ *                     a Windows Remote Desktop client. </p>
+ *             </li>
+ *             <li>
+ *                <p>For a Linux instance: returns a user name and secret (RSA private key) for use
+ *                     with an SSH client. You must save the secret to a <code>.pem</code> file. If
+ *                     you're using the CLI, see the example <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetInstanceAccess.html#API_GetInstanceAccess_Examples"> Get credentials for a Linux instance</a> for tips on automatically
+ *                     saving the secret to a <code>.pem</code> file. </p>
+ *             </li>
+ *          </ul>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely Access Fleet
- *                 Instances</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely connect to
+ *                 fleet instances</a>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug Fleet
- *                 Issues</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug fleet
+ *                 issues</a>
  *          </p>
  *          <p>
  *             <b>Related actions</b>

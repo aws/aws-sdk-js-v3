@@ -302,27 +302,40 @@ export interface AttributeValue {
 
 /**
  * @public
- * <p>Temporary access credentials used for uploading game build files to Amazon GameLift. They are
- *             valid for a limited time. If they expire before you upload your game build, get a new
- *             set by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_RequestUploadCredentials.html">RequestUploadCredentials</a>.</p>
+ * <p>Amazon Web Services account security credentials that allow interactions with Amazon GameLift resources. The
+ *             credentials are temporary and valid for a limited time span. You can request fresh
+ *             credentials at any time. </p>
+ *          <p> Amazon Web Services security credentials consist of three parts: an access key ID, a secret access
+ *             key, and a session token. You must use all three parts together to authenticate your
+ *             access requests.</p>
+ *          <p>You need Amazon Web Services credentials for the following tasks: </p>
+ *          <ul>
+ *             <li>
+ *                <p>To upload a game server build directly to Amazon GameLift S3 storage using <code>CreateBuild</code>. To get access for this
+ *             task, call <a>RequestUploadCredentials</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To remotely connect to an active Amazon GameLift fleet instances.
+ *                 To get remote access, call <a>GetComputeAccess</a>.</p>
+ *             </li>
+ *          </ul>
  */
 export interface AwsCredentials {
   /**
    * @public
-   * <p>Temporary key allowing access to the Amazon GameLift S3 account.</p>
+   * <p>The access key ID that identifies the temporary security credentials. </p>
    */
   AccessKeyId?: string;
 
   /**
    * @public
-   * <p>Temporary secret key allowing access to the Amazon GameLift S3 account.</p>
+   * <p>The secret access key that can be used to sign requests.</p>
    */
   SecretAccessKey?: string;
 
   /**
    * @public
-   * <p>Token used to associate a specific build ID with the files uploaded using these
-   *             credentials.</p>
+   * <p>The token that users must pass to the service API to use the temporary credentials. </p>
    */
   SessionToken?: string;
 }
@@ -880,6 +893,22 @@ export const EC2InstanceType = {
   c6a_8xlarge: "c6a.8xlarge",
   c6a_large: "c6a.large",
   c6a_xlarge: "c6a.xlarge",
+  c6g_12xlarge: "c6g.12xlarge",
+  c6g_16xlarge: "c6g.16xlarge",
+  c6g_2xlarge: "c6g.2xlarge",
+  c6g_4xlarge: "c6g.4xlarge",
+  c6g_8xlarge: "c6g.8xlarge",
+  c6g_large: "c6g.large",
+  c6g_medium: "c6g.medium",
+  c6g_xlarge: "c6g.xlarge",
+  c6gn_12xlarge: "c6gn.12xlarge",
+  c6gn_16xlarge: "c6gn.16xlarge",
+  c6gn_2xlarge: "c6gn.2xlarge",
+  c6gn_4xlarge: "c6gn.4xlarge",
+  c6gn_8xlarge: "c6gn.8xlarge",
+  c6gn_large: "c6gn.large",
+  c6gn_medium: "c6gn.medium",
+  c6gn_xlarge: "c6gn.xlarge",
   c6i_12xlarge: "c6i.12xlarge",
   c6i_16xlarge: "c6i.16xlarge",
   c6i_24xlarge: "c6i.24xlarge",
@@ -888,6 +917,19 @@ export const EC2InstanceType = {
   c6i_8xlarge: "c6i.8xlarge",
   c6i_large: "c6i.large",
   c6i_xlarge: "c6i.xlarge",
+  c7g_12xlarge: "c7g.12xlarge",
+  c7g_16xlarge: "c7g.16xlarge",
+  c7g_2xlarge: "c7g.2xlarge",
+  c7g_4xlarge: "c7g.4xlarge",
+  c7g_8xlarge: "c7g.8xlarge",
+  c7g_large: "c7g.large",
+  c7g_medium: "c7g.medium",
+  c7g_xlarge: "c7g.xlarge",
+  g5g_16xlarge: "g5g.16xlarge",
+  g5g_2xlarge: "g5g.2xlarge",
+  g5g_4xlarge: "g5g.4xlarge",
+  g5g_8xlarge: "g5g.8xlarge",
+  g5g_xlarge: "g5g.xlarge",
   m3_2xlarge: "m3.2xlarge",
   m3_large: "m3.large",
   m3_medium: "m3.medium",
@@ -913,6 +955,22 @@ export const EC2InstanceType = {
   m5a_8xlarge: "m5a.8xlarge",
   m5a_large: "m5a.large",
   m5a_xlarge: "m5a.xlarge",
+  m6g_12xlarge: "m6g.12xlarge",
+  m6g_16xlarge: "m6g.16xlarge",
+  m6g_2xlarge: "m6g.2xlarge",
+  m6g_4xlarge: "m6g.4xlarge",
+  m6g_8xlarge: "m6g.8xlarge",
+  m6g_large: "m6g.large",
+  m6g_medium: "m6g.medium",
+  m6g_xlarge: "m6g.xlarge",
+  m7g_12xlarge: "m7g.12xlarge",
+  m7g_16xlarge: "m7g.16xlarge",
+  m7g_2xlarge: "m7g.2xlarge",
+  m7g_4xlarge: "m7g.4xlarge",
+  m7g_8xlarge: "m7g.8xlarge",
+  m7g_large: "m7g.large",
+  m7g_medium: "m7g.medium",
+  m7g_xlarge: "m7g.xlarge",
   r3_2xlarge: "r3.2xlarge",
   r3_4xlarge: "r3.4xlarge",
   r3_8xlarge: "r3.8xlarge",
@@ -948,6 +1006,22 @@ export const EC2InstanceType = {
   r5d_8xlarge: "r5d.8xlarge",
   r5d_large: "r5d.large",
   r5d_xlarge: "r5d.xlarge",
+  r6g_12xlarge: "r6g.12xlarge",
+  r6g_16xlarge: "r6g.16xlarge",
+  r6g_2xlarge: "r6g.2xlarge",
+  r6g_4xlarge: "r6g.4xlarge",
+  r6g_8xlarge: "r6g.8xlarge",
+  r6g_large: "r6g.large",
+  r6g_medium: "r6g.medium",
+  r6g_xlarge: "r6g.xlarge",
+  r7g_12xlarge: "r7g.12xlarge",
+  r7g_16xlarge: "r7g.16xlarge",
+  r7g_2xlarge: "r7g.2xlarge",
+  r7g_4xlarge: "r7g.4xlarge",
+  r7g_8xlarge: "r7g.8xlarge",
+  r7g_large: "r7g.large",
+  r7g_medium: "r7g.medium",
+  r7g_xlarge: "r7g.xlarge",
   t2_large: "t2.large",
   t2_medium: "t2.medium",
   t2_micro: "t2.micro",
@@ -961,46 +1035,48 @@ export type EC2InstanceType = (typeof EC2InstanceType)[keyof typeof EC2InstanceT
 
 /**
  * @public
- * <p>Resources used to host your game servers. A compute resource can be managed Amazon GameLift
- *             Amazon EC2 instances or your own resources.</p>
+ * <p>An Amazon GameLift compute resource for hosting your game servers. A compute can be an
+ *             EC2instance in a managed EC2 fleet or a registered compute in an Anywhere fleet. </p>
  */
 export interface Compute {
   /**
    * @public
-   * <p>A unique identifier for the fleet that the compute is registered to.</p>
+   * <p>A unique identifier for the fleet that the compute belongs to.</p>
    */
   FleetId?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the fleet that the compute is registered to.</p>
+   * <p>The Amazon Resource Name (ARN) of the fleet that the compute belongs to.</p>
    */
   FleetArn?: string;
 
   /**
    * @public
-   * <p>A descriptive label that is associated with the compute resource registered to your fleet.</p>
+   * <p>A descriptive label for the compute resource. For instances in a managed EC2 fleet, the compute name is an instance
+   *             ID.</p>
    */
   ComputeName?: string;
 
   /**
    * @public
-   * <p>The ARN that is assigned to the compute resource and uniquely identifies it. ARNs are
-   *             unique across locations.</p>
+   * <p>The ARN that is assigned to a compute resource and uniquely identifies it. ARNs are
+   *             unique across locations. Instances in managed EC2 fleets are not assigned a
+   *             ComputeARN.</p>
    */
   ComputeArn?: string;
 
   /**
    * @public
-   * <p>The IP address of the compute resource. Amazon GameLift requires the DNS name or IP address to
-   *             manage your compute resource.</p>
+   * <p>The IP address of a compute resource. Amazon GameLift requires a DNS name or IP address for a
+   *             compute.</p>
    */
   IpAddress?: string;
 
   /**
    * @public
-   * <p>The DNS name of the compute resource. Amazon GameLift requires the DNS name or IP address to
-   *             manage your compute resource.</p>
+   * <p>The DNS name of a compute resource. Amazon GameLift requires a DNS name or IP address for a
+   *             compute.</p>
    */
   DnsName?: string;
 
@@ -1026,21 +1102,21 @@ export interface Compute {
 
   /**
    * @public
-   * <p>The type of operating system on your compute resource.</p>
+   * <p>The type of operating system on the compute resource.</p>
    */
   OperatingSystem?: OperatingSystem | string;
 
   /**
    * @public
-   * <p>The compute type that the fleet uses. A fleet can use Anywhere compute resources that
-   *             you own, or use managed Amazon EC2 instances.</p>
+   * <p>The Amazon EC2 instance type that the fleet uses. For registered computes in an Amazon GameLift Anywhere fleet, this property is empty. </p>
    */
   Type?: EC2InstanceType | string;
 
   /**
    * @public
-   * <p>The endpoint connection details of the Amazon GameLift SDK endpoint that your game server
-   *             connects to.</p>
+   * <p>The Amazon GameLift SDK endpoint connection for a registered compute resource in an Anywhere
+   *             fleet. The game servers on the compute use this endpoint to connect to the Amazon GameLift
+   *             service.</p>
    */
   GameLiftServiceSdkEndpoint?: string;
 }
@@ -1451,9 +1527,8 @@ export interface ResourceCreationLimitPolicy {
 export interface ServerProcess {
   /**
    * @public
-   * <p>The location of a game build executable or the Realtime script file that contains the
-   *                 <code>Init()</code> function. Game builds and Realtime scripts are installed on
-   *             instances at the root: </p>
+   * <p>The location of a game build executable or Realtime script. Game builds and Realtime
+   *             scripts are installed on instances at the root: </p>
    *          <ul>
    *             <li>
    *                <p>Windows (custom game builds only): <code>C:\game</code>. Example:
@@ -1465,6 +1540,12 @@ export interface ServerProcess {
    *                         "<code>/local/game/MyRealtimeScript.js</code>"</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>Amazon GameLift doesn't support the use of setup scripts that launch the game executable.
+   *                 For custom game builds, this parameter must indicate the executable that calls the
+   *                 server SDK operations <code>initSDK()</code> and <code>ProcessReady()</code>.
+   *             </p>
+   *          </note>
    */
   LaunchPath: string | undefined;
 
@@ -2871,7 +2952,9 @@ export interface CreateGameSessionInput {
    * @public
    * <p>A fleet's remote location to place the new game session in. If this parameter is not
    *             set, the new game session is placed in the fleet's home Region. Specify a remote
-   *             location with an Amazon Web Services Region code such as <code>us-west-2</code>. </p>
+   *             location with an Amazon Web Services Region code such as <code>us-west-2</code>. When using an
+   *             Anywhere fleet, this parameter is required and must be set to the Anywhere fleet's
+   *             custom location.</p>
    */
   Location?: string;
 }
@@ -2926,7 +3009,7 @@ export type GameSessionStatusReason = (typeof GameSessionStatusReason)[keyof typ
  * <p>Properties describing a game session.</p>
  *          <p>A game session in ACTIVE status can host players. When a game session ends, its status
  *             is set to <code>TERMINATED</code>. </p>
- *          <p>Once the session ends, the game session object is retained for 30 days. This means you
+ *          <p>Amazon GameLift retains a game session resource for 30 days after the game session ends. You
  *             can reuse idempotency token values after this time. Game session logs are retained for
  *             14 days.</p>
  *          <p>
@@ -2955,8 +3038,7 @@ export interface GameSession {
 
   /**
    * @public
-   * <p> The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) associated with the GameLift fleet that this game session is running on.
-   *         </p>
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) associated with the GameLift fleet that this game session is running on. </p>
    */
   FleetArn?: string;
 
@@ -3055,12 +3137,12 @@ export interface GameSession {
 
   /**
    * @public
-   * <p>Information about the matchmaking process that was used to create the game session. It
-   *             is in JSON syntax, formatted as a string. In addition the matchmaking configuration
-   *             used, it contains data on all players assigned to the match, including player attributes
-   *             and team assignments. For more details on matchmaker data, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data">Match
-   *                 Data</a>. Matchmaker data is useful when requesting match backfills, and is
-   *             updated whenever new players are added during a successful backfill (see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchBackfill.html">StartMatchBackfill</a>). </p>
+   * <p>Information about the matchmaking process that resulted in the game session, if
+   *             matchmaking was used. Data is in JSON syntax, formatted as a string. Information
+   *             includes the matchmaker ID as well as player attributes and team assignments. For more
+   *             details on matchmaker data, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data">Match
+   *                 Data</a>. Matchmaker data is updated whenever new players are added during a
+   *             successful backfill (see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchBackfill.html">StartMatchBackfill</a>).  </p>
    */
   MatchmakerData?: string;
 
@@ -4721,13 +4803,13 @@ export interface DeleteVpcPeeringConnectionOutput {}
 export interface DeregisterComputeInput {
   /**
    * @public
-   * <p>>A unique identifier for the fleet the compute resource is registered to.</p>
+   * <p>A unique identifier for the fleet the compute resource is currently registered to.</p>
    */
   FleetId: string | undefined;
 
   /**
    * @public
-   * <p>The name of the compute resource you want to delete.</p>
+   * <p>The name of the compute resource to remove from the specified Anywhere fleet.</p>
    */
   ComputeName: string | undefined;
 }
@@ -4806,13 +4888,16 @@ export interface DescribeBuildOutput {
 export interface DescribeComputeInput {
   /**
    * @public
-   * <p>A unique identifier for the fleet the compute is registered to.</p>
+   * <p>A unique identifier for the fleet that the compute is registered to. You can use either the fleet ID or ARN
+   *             value.</p>
    */
   FleetId: string | undefined;
 
   /**
    * @public
-   * <p>A descriptive label that is associated with the compute resource registered to your fleet.</p>
+   * <p>The unique identifier of the compute resource to retrieve properties for. For an
+   *             Anywhere fleet compute, use the registered compute name. For a managed EC2 fleet
+   *             instance, use the instance ID.</p>
    */
   ComputeName: string | undefined;
 }
@@ -4823,7 +4908,7 @@ export interface DescribeComputeInput {
 export interface DescribeComputeOutput {
   /**
    * @public
-   * <p>The details of the compute resource you registered to the specified fleet.</p>
+   * <p>The set of properties for the requested compute resource.</p>
    */
   Compute?: Compute;
 }
@@ -4978,9 +5063,10 @@ export interface DescribeFleetCapacityInput {
 export interface EC2InstanceCounts {
   /**
    * @public
-   * <p>Ideal number of active instances. GameLift will always try to maintain the desired
-   *             number of instances. Capacity is scaled up or down by changing the desired instances.
-   *         </p>
+   * <p>Requested number of active instances. Amazon GameLift takes action as needed to maintain the
+   *             desired number of instances. Capacity is scaled up or down by changing the desired
+   *             instances. A change in the desired instances value can take up to 1 minute to be
+   *             reflected when viewing a fleet's capacity settings. </p>
    */
   DESIRED?: number;
 
@@ -5077,7 +5163,8 @@ export interface DescribeFleetCapacityOutput {
   /**
    * @public
    * <p>A collection of objects that contains capacity information for each requested fleet
-   *             ID. Capacity objects are returned only for fleets that currently exist.</p>
+   *             ID. Capacity objects are returned only for fleets that currently exist. Changes in
+   *             desired instance value can take up to 1 minute to be reflected.</p>
    */
   FleetCapacity?: FleetCapacity[];
 
@@ -5329,6 +5416,11 @@ export interface Event {
    *                <p> INSTANCE_INTERRUPTED -- A spot instance was interrupted by EC2 with a
    *                     two-minute notification.</p>
    *             </li>
+   *             <li>
+   *                <p>INSTANCE_RECYCLED -- A spot instance was determined to have a high risk
+   *                     of interruption and is scheduled to be recycled once it has no active
+   *                     game sessions.</p>
+   *             </li>
    *          </ul>
    *          <p>
    *             <b>Server process events:</b>
@@ -5569,7 +5661,8 @@ export interface DescribeFleetLocationCapacityOutput {
   /**
    * @public
    * <p>Resource capacity information for the requested fleet location. Capacity objects are
-   *             returned only for fleets and locations that currently exist.</p>
+   *             returned only for fleets and locations that currently exist. Changes in desired instance
+   *             value can take up to 1 minute to be reflected.</p>
    */
   FleetCapacity?: FleetCapacity;
 }
@@ -6099,8 +6192,17 @@ export type GameSessionPlacementState = (typeof GameSessionPlacementState)[keyof
 
 /**
  * @public
- * <p>This object includes the full details of the original request plus the current status
- *             and start/end time stamps.</p>
+ * <p>Represents a potential game session placement, including the full details of the
+ *             original placement request and the current status. </p>
+ *          <note>
+ *             <p>If the game session placement status is <code>PENDING</code>, the properties for game
+ *                 session ID/ARN, region, IP address/DNS, and port aren't final. A game session is not
+ *                 active and ready to accept players until placement status reaches
+ *                     <code>FULFILLED</code>. When the placement is in <code>PENDING</code> status,
+ *                 Amazon GameLift may attempt to place a game session multiple times before succeeding. With
+ *                 each attempt it creates a <a>GameSession</a> object and updates this
+ *                 placement object with the new game session properties..</p>
+ *          </note>
  */
 export interface GameSessionPlacement {
   /**
@@ -6121,15 +6223,14 @@ export interface GameSessionPlacement {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>PENDING</b> -- The placement request is currently
-   *                     in the queue waiting to be processed.</p>
+   *                   <b>PENDING</b> -- The placement request is
+   *                     in the queue waiting to be processed. Game session properties are not
+   *                     yet final. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>FULFILLED</b> -- A new game session and player
-   *                     sessions (if requested) have been successfully created. Values for
-   *                         <i>GameSessionArn</i> and
-   *                         <i>GameSessionRegion</i> are available. </p>
+   *                   <b>FULFILLED</b> -- A new game session has been
+   *                     successfully placed. Game session properties are now final.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6173,25 +6274,23 @@ export interface GameSessionPlacement {
 
   /**
    * @public
-   * <p>A unique identifier for the game session. This value is set once the new game session is placed (placement status is
-   *                 <code>FULFILLED</code>).</p>
+   * <p>A unique identifier for the game session. This value isn't final until placement status is
+   *             <code>FULFILLED</code>.</p>
    */
   GameSessionId?: string;
 
   /**
    * @public
-   * <p>Identifier for the game session created by this placement request. This value is set
-   *             once the new game session is placed (placement status is <code>FULFILLED</code>). This
-   *             identifier is unique across all Regions. You can use this value as a
-   *                 <code>GameSessionId</code> value as needed.</p>
+   * <p>Identifier for the game session created by this placement request. This identifier is
+   *             unique across all Regions. This value isn't final until placement status is
+   *                 <code>FULFILLED</code>.</p>
    */
   GameSessionArn?: string;
 
   /**
    * @public
    * <p>Name of the Region where the game session created by this placement request is
-   *             running. This value is set once the new game session is placed (placement status is
-   *                 <code>FULFILLED</code>).</p>
+   *             running. This value isn't final until placement status is <code>FULFILLED</code>.</p>
    */
   GameSessionRegion?: string;
 
@@ -6215,8 +6314,7 @@ export interface GameSessionPlacement {
 
   /**
    * @public
-   * <p>The IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is
-   *                 <code>FULFILLED</code>). </p>
+   * <p>The IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value isn't final until placement status is <code>FULFILLED</code>. </p>
    */
   IpAddress?: string;
 
@@ -6239,18 +6337,18 @@ export interface GameSessionPlacement {
 
   /**
    * @public
-   * <p>The port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is
-   *                 <code>FULFILLED</code>).</p>
+   * <p>The port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value isn't final until placement status is
+   *             <code>FULFILLED</code>.</p>
    */
   Port?: number;
 
   /**
    * @public
    * <p>A collection of information on player sessions created in response to the game session
-   *             placement request. These player sessions are created only once a new game session is
+   *             placement request. These player sessions are created only after a new game session is
    *             successfully placed (placement status is <code>FULFILLED</code>). This information
-   *             includes the player ID (as provided in the placement request) and the corresponding
-   *             player session ID.</p>
+   *             includes the player ID, provided in the placement request, and a corresponding player
+   *             session ID.</p>
    */
   PlacedPlayerSessions?: PlacedPlayerSession[];
 
@@ -6450,16 +6548,13 @@ export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus
 
 /**
  * @public
- * <p>Represents an EC2 instance of virtual computing resources that hosts one or more game
- *             servers. In Amazon GameLift, a fleet can contain zero or more instances.</p>
- *          <p>
- *             <b>Related actions</b>
- *          </p>
+ * <p>Represents a virtual computing instance that runs game server processes and hosts game
+ *             sessions. In Amazon GameLift, one or more instances make up a managed EC2 fleet.</p>
  */
 export interface Instance {
   /**
    * @public
-   * <p>A unique identifier for the fleet that the instance is in.</p>
+   * <p>A unique identifier for the fleet that the instance belongs to.</p>
    */
   FleetId?: string;
 
@@ -6491,7 +6586,7 @@ export interface Instance {
    *             </li>
    *             <li>
    *                <p>Non-TLS-enabled fleets: <code>ec2-<unique identifier>.compute.amazonaws.com</code>. (See
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses">Amazon EC2 Instance IP Addressing</a>.)</p>
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses">Amazon Elastic Compute Cloud Instance IP Addressing</a>.)</p>
    *             </li>
    *          </ul>
    *          <p>When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.</p>
@@ -6500,13 +6595,13 @@ export interface Instance {
 
   /**
    * @public
-   * <p>Operating system that is running on this instance. </p>
+   * <p>Operating system that is running on this EC2 instance. </p>
    */
   OperatingSystem?: OperatingSystem | string;
 
   /**
    * @public
-   * <p>Amazon EC2 instance type that defines the computing resources of this instance. </p>
+   * <p>EC2 instance type that defines the computing resources of this instance. </p>
    */
   Type?: EC2InstanceType | string;
 
@@ -7644,13 +7739,15 @@ export interface DesiredPlayerSession {
 export interface GetComputeAccessInput {
   /**
    * @public
-   * <p>A unique identifier for the fleet that the compute resource is registered to.</p>
+   * <p>A unique identifier for the fleet that contains the compute resource you want to connect to. You can use either
+   *             the fleet ID or ARN value.</p>
    */
   FleetId: string | undefined;
 
   /**
    * @public
-   * <p>The name of the compute resource you are requesting credentials for.</p>
+   * <p>A unique identifier for the compute resource that you want to connect to. You can use
+   *             either a registered compute name or an instance ID.</p>
    */
   ComputeName: string | undefined;
 }
@@ -7661,7 +7758,7 @@ export interface GetComputeAccessInput {
 export interface GetComputeAccessOutput {
   /**
    * @public
-   * <p>The fleet ID of compute resource.</p>
+   * <p>The ID of the fleet that contains the compute resource to be accessed.</p>
    */
   FleetId?: string;
 
@@ -7673,13 +7770,14 @@ export interface GetComputeAccessOutput {
 
   /**
    * @public
-   * <p>The name of the compute resource you requested credentials for.</p>
+   * <p>The identifier of the compute resource to be accessed.  This value might be either a
+   *             compute name or an instance ID.</p>
    */
   ComputeName?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift compute resource and uniquely identifies it.
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to an Amazon GameLift compute resource and uniquely identifies it.
    *             ARNs are unique across all Regions. Format is
    *                 <code>arn:aws:gamelift:<region>::compute/compute-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
    */
@@ -7687,7 +7785,8 @@ export interface GetComputeAccessOutput {
 
   /**
    * @public
-   * <p>The access credentials for the compute resource.</p>
+   * <p>A set of temporary Amazon Web Services credentials for use when connecting to the
+   *             compute resource with Amazon EC2 Systems Manager (SSM).</p>
    */
   Credentials?: AwsCredentials;
 }
@@ -7728,32 +7827,27 @@ export interface GetComputeAuthTokenOutput {
 
   /**
    * @public
-   * <p>The name of the compute resource you are requesting the authentication token
-   *             for.</p>
+   * <p>The name of the compute resource that the authentication token is issued to.</p>
    */
   ComputeName?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift compute resource and uniquely identifies it.
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to an Amazon GameLift compute resource and uniquely identifies it.
    *             ARNs are unique across all Regions. Format is
-   *                 <code>arn:aws:gamelift:<region>::compute/compute-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>
-   *          </p>
+   *                 <code>arn:aws:gamelift:<region>::compute/compute-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
    */
   ComputeArn?: string;
 
   /**
    * @public
-   * <p>The authentication token that your game server uses to authenticate with
-   *             Amazon GameLift.</p>
+   * <p>A valid temporary authentication token.</p>
    */
   AuthToken?: string;
 
   /**
    * @public
-   * <p>The amount of time until the authentication token is no longer valid. To continue
-   *             using the compute resource for game server hosting, renew the authentication token by
-   *             using this operation again.</p>
+   * <p>The amount of time until the authentication token is no longer valid.</p>
    */
   ExpirationTimestamp?: Date;
 }
@@ -7788,61 +7882,64 @@ export interface GetGameSessionLogUrlOutput {
 export interface GetInstanceAccessInput {
   /**
    * @public
-   * <p>A unique identifier for the fleet that contains the instance you want access to. You can use either the fleet ID
-   *             or ARN value. The fleet can be in any of the following statuses:
-   *             <code>ACTIVATING</code>, <code>ACTIVE</code>, or <code>ERROR</code>. Fleets with an
-   *                 <code>ERROR</code> status may be accessible for a short time before they are
-   *             deleted.</p>
+   * <p>A unique identifier for the fleet that contains the instance you want to access. You can request access to
+   *             instances in EC2 fleets with the following statuses: <code>ACTIVATING</code>,
+   *                 <code>ACTIVE</code>, or <code>ERROR</code>. Use either a fleet ID or an ARN value. </p>
+   *          <note>
+   *             <p>You can access fleets in <code>ERROR</code> status for a short period of time before Amazon GameLift deletes them.</p>
+   *          </note>
    */
   FleetId: string | undefined;
 
   /**
    * @public
-   * <p>A unique identifier for the instance you want to get access to. You can access an instance in any status.</p>
+   * <p>A unique identifier for the instance you want to access. You can access an instance in any status.</p>
    */
   InstanceId: string | undefined;
 }
 
 /**
  * @public
- * <p>Set of credentials required to remotely access a fleet instance.</p>
+ * <p>A set of credentials that allow remote access to an instance in an EC2 managed fleet.
+ *             These credentials are returned in response to a call to <a>GetInstanceAccess</a>, which requests access for instances that are running
+ *             game servers with the Amazon GameLift server SDK version 4.x or earlier.</p>
  */
 export interface InstanceCredentials {
   /**
    * @public
-   * <p>User login string.</p>
+   * <p>A user name for logging in.</p>
    */
   UserName?: string;
 
   /**
    * @public
    * <p>Secret string. For Windows instances, the secret is a password for use with Windows
-   *             Remote Desktop. For Linux instances, it is a private key (which must be saved as a
-   *                 <code>.pem</code> file) for use with SSH.</p>
+   *             Remote Desktop. For Linux instances, it's a private key for use with SSH.</p>
    */
   Secret?: string;
 }
 
 /**
  * @public
- * <p>Information required to remotely connect to a fleet instance. </p>
+ * <p>Information and credentials that you can use to remotely connect to an instance in an
+ *             EC2 managed fleet. This data type is returned in response to a call to <a>GetInstanceAccess</a>. </p>
  */
 export interface InstanceAccess {
   /**
    * @public
-   * <p>A unique identifier for the fleet containing the instance being accessed.</p>
+   * <p>A unique identifier for the fleet containing the instance to be accessed.</p>
    */
   FleetId?: string;
 
   /**
    * @public
-   * <p>A unique identifier for the instance being accessed.</p>
+   * <p>A unique identifier for the instance to be accessed.</p>
    */
   InstanceId?: string;
 
   /**
    * @public
-   * <p>IP address that is assigned to the instance.</p>
+   * <p>IP address assigned to the instance.</p>
    */
   IpAddress?: string;
 
@@ -7854,7 +7951,7 @@ export interface InstanceAccess {
 
   /**
    * @public
-   * <p>Credentials required to access the instance.</p>
+   * <p>Security credentials that are required to access the instance.</p>
    */
   Credentials?: InstanceCredentials;
 }
@@ -7999,13 +8096,13 @@ export interface ListBuildsOutput {
 export interface ListComputeInput {
   /**
    * @public
-   * <p>A unique identifier for the fleet the compute resources are registered to.</p>
+   * <p>A unique identifier for the fleet to retrieve compute resources for.</p>
    */
   FleetId: string | undefined;
 
   /**
    * @public
-   * <p>The name of the custom location that the compute resources are assigned to.</p>
+   * <p>The name of a location to retrieve compute resources for.</p>
    */
   Location?: string;
 
@@ -8028,7 +8125,7 @@ export interface ListComputeInput {
 export interface ListComputeOutput {
   /**
    * @public
-   * <p>A list of compute resources registered to the fleet you specified.</p>
+   * <p>A list of compute resources in the specified fleet.</p>
    */
   ComputeList?: Compute[];
 
@@ -8483,35 +8580,34 @@ export interface RegisterComputeInput {
 
   /**
    * @public
-   * <p>A descriptive label that is associated with the compute resource registered to your fleet.</p>
+   * <p>A descriptive label for the compute resource.</p>
    */
   ComputeName: string | undefined;
 
   /**
    * @public
-   * <p>The path to the TLS certificate on your compute resource. The path and certificate are
-   *             not validated by Amazon GameLift.</p>
+   * <p>The path to a TLS certificate on your compute resource. Amazon GameLift doesn't validate the
+   *             path and certificate.</p>
    */
   CertificatePath?: string;
 
   /**
    * @public
-   * <p>The DNS name of the compute resource. Amazon GameLift requires the DNS name or IP address to
-   *             manage your compute resource.</p>
+   * <p>The DNS name of the compute resource. Amazon GameLift requires either a DNS name or IP
+   *             address.</p>
    */
   DnsName?: string;
 
   /**
    * @public
-   * <p>The IP address of the compute resource. Amazon GameLift requires the DNS name or IP address to
-   *             manage your compute resource.</p>
+   * <p>The IP address of the compute resource. Amazon GameLift requires either a DNS name or IP
+   *             address.</p>
    */
   IpAddress?: string;
 
   /**
    * @public
-   * <p>The name of the custom location you added to the fleet you are registering this
-   *             compute resource to.</p>
+   * <p>The name of a custom location to associate with the compute resource being registered. </p>
    */
   Location?: string;
 }
@@ -8522,7 +8618,7 @@ export interface RegisterComputeInput {
 export interface RegisterComputeOutput {
   /**
    * @public
-   * <p>The details of the compute resource you registered to the specified fleet.</p>
+   * <p>The details of the compute resource you registered.</p>
    */
   Compute?: Compute;
 }
@@ -9308,9 +9404,9 @@ export interface UpdateFleetAttributesInput {
 
   /**
    * @public
-   * <p>The game session protection policy to apply to all new instances created in this
-   *             fleet. Instances that already exist are not affected. You can set protection for
-   *             individual instances using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> .</p>
+   * <p>The game session protection policy to apply to all new game sessions created in this
+   *             fleet. Game sessions that already exist are not affected. You can set protection for
+   *             individual game sessions using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> .</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -9381,7 +9477,9 @@ export interface UpdateFleetCapacityInput {
   /**
    * @public
    * <p>The number of Amazon EC2 instances you want to maintain in the specified fleet location.
-   *             This value must fall between the minimum and maximum size limits.</p>
+   *             This value must fall between the minimum and maximum size limits. Changes in desired
+   *             instance value can take up to 1 minute to be reflected when viewing the fleet's capacity
+   *             settings.</p>
    */
   DesiredInstances?: number;
 

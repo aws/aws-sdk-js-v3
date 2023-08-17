@@ -39,18 +39,18 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  * <p>
  *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
- *          <p>Updates information about a
- *             registered game server to help Amazon GameLift FleetIQ to track game server availability. This operation
- *             is called by a game server process that is running on an instance in a game server
- *             group. </p>
+ *          <p>Updates information about a registered game server to help Amazon GameLift FleetIQ track game server
+ *             availability. This operation is called by a game server process that is running on an
+ *             instance in a game server group. </p>
  *          <p>Use this operation to update the following types of game server information. You can
  *             make all three types of updates in the same request:</p>
  *          <ul>
  *             <li>
- *                <p>To update the game server's utilization status, identify the game server and
- *                     game server group and specify the current utilization status. Use this status to
- *                     identify when game servers are currently hosting games and when they are
- *                     available to be claimed.</p>
+ *                <p>To update the game server's utilization status from <code>AVAILABLE</code>
+ *                     (when the game server is available to be claimed) to <code>UTILIZED</code> (when
+ *                     the game server is currently hosting games). Identify the game server and game
+ *                     server group and specify the new utilization status. You can't change the status
+ *                     from to <code>UTILIZED</code> to <code>AVAILABLE</code> .</p>
  *             </li>
  *             <li>
  *                <p>To report health status, identify the game server and game server group and

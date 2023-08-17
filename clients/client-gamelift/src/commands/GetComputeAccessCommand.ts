@@ -40,28 +40,25 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
 
 /**
  * @public
- * <p>Requests remote access to a fleet instance. Remote access is useful for debugging,
- *             gathering benchmarking data, or observing activity in real time. </p>
- *          <p>To remotely access an instance, you need credentials that match the operating system
- *             of the instance. For a Windows instance, Amazon GameLift returns a user name and password as
- *             strings for use with a Windows Remote Desktop client. For a Linux instance, Amazon GameLift
- *             returns a user name and RSA private key, also as strings, for use with an SSH client.
- *             The private key must be saved in the proper format to a <code>.pem</code> file before
- *             using. If you're making this request using the CLI, saving the secret can be handled
- *             as part of the <code>GetInstanceAccess</code> request, as shown in one of the examples
- *             for this operation. </p>
- *          <p>To request access to a specific instance, specify the IDs of both the instance and the
- *             fleet it belongs to.</p>
+ * <p>Requests authorization to remotely connect to a compute resource in an Amazon GameLift fleet.
+ *             Call this action to connect to an instance in a managed EC2 fleet if the fleet's game
+ *             build uses Amazon GameLift server SDK 5.x or later. To connect to instances with game builds
+ *             that use server SDK 4.x or earlier, call <a>GetInstanceAccess</a>.</p>
+ *          <p>To request access to a compute, identify the specific EC2 instance and the fleet it
+ *             belongs to. You can retrieve instances for a managed EC2 fleet by calling <a>ListCompute</a>. </p>
+ *          <p>If successful, this operation returns a set of temporary Amazon Web Services credentials, including
+ *             a two-part access key and a session token. Use these credentials with Amazon EC2 Systems Manager (SSM)
+ *             to start a session with the compute. For more details, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli"> Starting a session (CLI)</a> in the <i>Amazon EC2 Systems Manager User Guide</i>.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely Access Fleet
- *                 Instances</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely connect to fleet
+ *                 instances</a>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug Fleet
- *                 Issues</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug fleet
+ *                 issues</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

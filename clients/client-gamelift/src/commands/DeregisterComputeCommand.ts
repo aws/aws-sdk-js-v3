@@ -36,8 +36,8 @@ export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput,
 
 /**
  * @public
- * <p>Removes a compute resource from the specified fleet. Deregister your compute resources
- *             before you delete the compute.</p>
+ * <p>Removes a compute resource from an Amazon GameLift Anywhere fleet. Deregistered computes can no
+ *             longer host game sessions through Amazon GameLift.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

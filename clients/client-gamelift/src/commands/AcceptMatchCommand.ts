@@ -42,19 +42,25 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *             within a specified time limit. </p>
  *          <p>When FlexMatch builds a match, all the matchmaking tickets involved in the proposed
  *             match are placed into status <code>REQUIRES_ACCEPTANCE</code>. This is a trigger for
- *             your game to get acceptance from all players in the ticket. Acceptances are only valid
- *             for tickets when they are in this status; all other acceptances result in an
+ *             your game to get acceptance from all players in each ticket. Calls to this action are only valid
+ *             for tickets that are in this status; calls for tickets not in this status result in an
  *             error.</p>
- *          <p>To register acceptance, specify the ticket ID, a response, and one or more players.
- *             Once all players have registered acceptance, the matchmaking tickets advance to status
- *                 <code>PLACING</code>, where a new game session is created for the match. </p>
+ *          <p>To register acceptance, specify the ticket ID, one or more players, and an acceptance response.
+ *             When all players have accepted, Amazon GameLift advances the matchmaking tickets to status
+ *                 <code>PLACING</code>, and attempts to create a new game session for the match. </p>
  *          <p>If any player rejects the match, or if acceptances are not received before a specified
- *             timeout, the proposed match is dropped. The matchmaking tickets are then handled in one
- *             of two ways: For tickets where one or more players rejected the match or failed to
- *             respond, the ticket status is set to <code>CANCELLED</code>, and processing is
- *             terminated. For tickets where players have accepted or not yet responded, the ticket
- *             status is returned to <code>SEARCHING</code> to find a new match. A new matchmaking
- *             request for these players can be submitted as needed. </p>
+ *             timeout, the proposed match is dropped. Each matchmaking ticket in the failed match is handled as follows: </p>
+ *          <ul>
+ *             <li>
+ *                <p>If the ticket has one or more players who rejected the match or failed to
+ *                 respond, the ticket status is set <code>CANCELLED</code> and processing is
+ *                 terminated.</p>
+ *             </li>
+ *             <li>
+ *                <p>If all players in the ticket accepted the match, the ticket
+ *                 status is returned to <code>SEARCHING</code> to find a new match. </p>
+ *             </li>
+ *          </ul>
  *          <p>
  *             <b>Learn more</b>
  *          </p>

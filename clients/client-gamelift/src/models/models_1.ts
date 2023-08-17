@@ -127,8 +127,10 @@ export interface UpdateGameServerInput {
 
   /**
    * @public
-   * <p>Indicates whether the game server is available or is currently hosting
-   *             gameplay.</p>
+   * <p>Indicates if the game server is available or is currently hosting gameplay. You can
+   *             update a game server status from <code>AVAILABLE</code> to <code>UTILIZED</code>, but
+   *             you can't change a the status from <code>UTILIZED</code> to
+   *             <code>AVAILABLE</code>.</p>
    */
   UtilizationStatus?: GameServerUtilizationStatus | string;
 
