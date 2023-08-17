@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
@@ -17,16 +19,31 @@ import {
   ListCloudFrontOriginAccessIdentitiesResult,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand,
-  serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand,
+  de_ListCloudFrontOriginAccessIdentitiesCommand,
+  se_ListCloudFrontOriginAccessIdentitiesCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListCloudFrontOriginAccessIdentitiesCommand}.
+ */
 export interface ListCloudFrontOriginAccessIdentitiesCommandInput extends ListCloudFrontOriginAccessIdentitiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCloudFrontOriginAccessIdentitiesCommand}.
+ */
 export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
   extends ListCloudFrontOriginAccessIdentitiesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists origin access identities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +51,42 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
  * import { CloudFrontClient, ListCloudFrontOriginAccessIdentitiesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListCloudFrontOriginAccessIdentitiesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListCloudFrontOriginAccessIdentitiesRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListCloudFrontOriginAccessIdentitiesCommand(input);
  * const response = await client.send(command);
+ * // { // ListCloudFrontOriginAccessIdentitiesResult
+ * //   CloudFrontOriginAccessIdentityList: { // CloudFrontOriginAccessIdentityList
+ * //     Marker: "STRING_VALUE", // required
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     IsTruncated: true || false, // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // CloudFrontOriginAccessIdentitySummaryList
+ * //       { // CloudFrontOriginAccessIdentitySummary
+ * //         Id: "STRING_VALUE", // required
+ * //         S3CanonicalUserId: "STRING_VALUE", // required
+ * //         Comment: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param ListCloudFrontOriginAccessIdentitiesCommandInput - {@link ListCloudFrontOriginAccessIdentitiesCommandInput}
+ * @returns {@link ListCloudFrontOriginAccessIdentitiesCommandOutput}
  * @see {@link ListCloudFrontOriginAccessIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListCloudFrontOriginAccessIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
@@ -51,6 +97,18 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListCloudFrontOriginAccessIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +124,9 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListCloudFrontOriginAccessIdentitiesCommandInput, ListCloudFrontOriginAccessIdentitiesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListCloudFrontOriginAccessIdentitiesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +137,8 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCloudFrontOriginAccessIdentitiesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCloudFrontOriginAccessIdentitiesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,18 +148,24 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListCloudFrontOriginAccessIdentitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(input, context);
+    return se_ListCloudFrontOriginAccessIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> {
-    return deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(output, context);
+    return de_ListCloudFrontOriginAccessIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

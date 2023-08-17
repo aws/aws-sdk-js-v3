@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListTapesInput, ListTapesOutput } from "../models/models_0";
-import { deserializeAws_json1_1ListTapesCommand, serializeAws_json1_1ListTapesCommand } from "../protocols/Aws_json1_1";
+import { de_ListTapesCommand, se_ListTapesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTapesCommand}.
+ */
 export interface ListTapesCommandInput extends ListTapesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListTapesCommand}.
+ */
 export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf
  *          (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names
  *          (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both
@@ -36,13 +53,49 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  * import { StorageGatewayClient, ListTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // ListTapesInput
+ *   TapeARNs: [ // TapeARNs
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListTapesCommand(input);
  * const response = await client.send(command);
+ * // { // ListTapesOutput
+ * //   TapeInfos: [ // TapeInfos
+ * //     { // TapeInfo
+ * //       TapeARN: "STRING_VALUE",
+ * //       TapeBarcode: "STRING_VALUE",
+ * //       TapeSizeInBytes: Number("long"),
+ * //       TapeStatus: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //       PoolId: "STRING_VALUE",
+ * //       RetentionStartDate: new Date("TIMESTAMP"),
+ * //       PoolEntryDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListTapesCommandInput - {@link ListTapesCommandInput}
+ * @returns {@link ListTapesCommandOutput}
  * @see {@link ListTapesCommandInput} for command's `input` shape.
  * @see {@link ListTapesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class ListTapesCommand extends $Command<
@@ -53,6 +106,18 @@ export class ListTapesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTapesCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +133,7 @@ export class ListTapesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTapesCommandInput, ListTapesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListTapesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +144,8 @@ export class ListTapesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTapesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTapesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +155,18 @@ export class ListTapesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTapesCommand(input, context);
+    return se_ListTapesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTapesCommandOutput> {
-    return deserializeAws_json1_1ListTapesCommand(output, context);
+    return de_ListTapesCommand(output, context);
   }
 
   // Start section: command_body_extra

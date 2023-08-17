@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { DeleteEventIntegrationRequest, DeleteEventIntegrationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEventIntegrationCommand,
-  serializeAws_restJson1DeleteEventIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEventIntegrationCommand, se_DeleteEventIntegrationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteEventIntegrationCommand}.
+ */
 export interface DeleteEventIntegrationCommandInput extends DeleteEventIntegrationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEventIntegrationCommand}.
+ */
 export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified existing event integration. If the event integration is associated
  *       with clients, the request is rejected.</p>
  * @example
@@ -30,13 +44,38 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  * import { AppIntegrationsClient, DeleteEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, DeleteEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // DeleteEventIntegrationRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventIntegrationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteEventIntegrationCommandInput - {@link DeleteEventIntegrationCommandInput}
+ * @returns {@link DeleteEventIntegrationCommandOutput}
  * @see {@link DeleteEventIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteEventIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class DeleteEventIntegrationCommand extends $Command<
@@ -47,6 +86,18 @@ export class DeleteEventIntegrationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +113,9 @@ export class DeleteEventIntegrationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteEventIntegrationCommandInput, DeleteEventIntegrationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteEventIntegrationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +126,8 @@ export class DeleteEventIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventIntegrationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEventIntegrationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +137,18 @@ export class DeleteEventIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEventIntegrationCommand(input, context);
+    return se_DeleteEventIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventIntegrationCommandOutput> {
-    return deserializeAws_restJson1DeleteEventIntegrationCommand(output, context);
+    return de_DeleteEventIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

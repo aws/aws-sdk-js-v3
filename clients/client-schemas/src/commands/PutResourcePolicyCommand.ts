@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutResourcePolicyCommand,
-  serializeAws_restJson1PutResourcePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutResourcePolicyCommand, se_PutResourcePolicyCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutResourcePolicyCommand}.
+ */
 export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutResourcePolicyCommand}.
+ */
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The name of the policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,42 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * import { SchemasClient, PutResourcePolicyCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, PutResourcePolicyCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // PutResourcePolicyRequest
+ *   Policy: "STRING_VALUE", // required
+ *   RegistryName: "STRING_VALUE",
+ *   RevisionId: "STRING_VALUE",
+ * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutResourcePolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * //   RevisionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
+ * @returns {@link PutResourcePolicyCommandOutput}
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<
@@ -46,6 +89,18 @@ export class PutResourcePolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +116,9 @@ export class PutResourcePolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutResourcePolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +129,8 @@ export class PutResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourcePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutResourcePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +140,18 @@ export class PutResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutResourcePolicyCommand(input, context);
+    return se_PutResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
-    return deserializeAws_restJson1PutResourcePolicyCommand(output, context);
+    return de_PutResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

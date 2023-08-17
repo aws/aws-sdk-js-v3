@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { NotifyMigrationTaskStateRequest, NotifyMigrationTaskStateResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1NotifyMigrationTaskStateCommand,
-  serializeAws_json1_1NotifyMigrationTaskStateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_NotifyMigrationTaskStateCommand, se_NotifyMigrationTaskStateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link NotifyMigrationTaskStateCommand}.
+ */
 export interface NotifyMigrationTaskStateCommandInput extends NotifyMigrationTaskStateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link NotifyMigrationTaskStateCommand}.
+ */
 export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTaskStateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Notifies Migration Hub of the current status, progress, or other detail regarding a
  *          migration task. This API has the following traits:</p>
  *          <ul>
@@ -46,13 +60,66 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  * import { MigrationHubClient, NotifyMigrationTaskStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, NotifyMigrationTaskStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // NotifyMigrationTaskStateRequest
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   Task: { // Task
+ *     Status: "STRING_VALUE", // required
+ *     StatusDetail: "STRING_VALUE",
+ *     ProgressPercent: Number("int"),
+ *   },
+ *   UpdateDateTime: new Date("TIMESTAMP"), // required
+ *   NextUpdateSeconds: Number("int"), // required
+ *   DryRun: true || false,
+ * };
  * const command = new NotifyMigrationTaskStateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param NotifyMigrationTaskStateCommandInput - {@link NotifyMigrationTaskStateCommandInput}
+ * @returns {@link NotifyMigrationTaskStateCommandOutput}
  * @see {@link NotifyMigrationTaskStateCommandInput} for command's `input` shape.
  * @see {@link NotifyMigrationTaskStateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link DryRunOperation} (client fault)
+ *  <p>Exception raised to indicate a successfully authorized action when the
+ *             <code>DryRun</code> flag is set to "true".</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Exception raised when an internal, configuration, or dependency error is
+ *          encountered.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Exception raised when the provided input violates a policy constraint or is entered in
+ *          the wrong format or data type.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception raised when the request references a resource (Application Discovery Service
+ *          configuration, update stream, migration task, etc.) that does not exist in Application
+ *          Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Exception raised when there is an internal, configuration, or dependency error
+ *          encountered.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
+ *          flag is set to "true".</p>
+ *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class NotifyMigrationTaskStateCommand extends $Command<
@@ -63,6 +130,18 @@ export class NotifyMigrationTaskStateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyMigrationTaskStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +157,9 @@ export class NotifyMigrationTaskStateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<NotifyMigrationTaskStateCommandInput, NotifyMigrationTaskStateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, NotifyMigrationTaskStateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -88,8 +170,8 @@ export class NotifyMigrationTaskStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyMigrationTaskStateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: NotifyMigrationTaskStateResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +181,18 @@ export class NotifyMigrationTaskStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyMigrationTaskStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1NotifyMigrationTaskStateCommand(input, context);
+    return se_NotifyMigrationTaskStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyMigrationTaskStateCommandOutput> {
-    return deserializeAws_json1_1NotifyMigrationTaskStateCommand(output, context);
+    return de_NotifyMigrationTaskStateCommand(output, context);
   }
 
   // Start section: command_body_extra

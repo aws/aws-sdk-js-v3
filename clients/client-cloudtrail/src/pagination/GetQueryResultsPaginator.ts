@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CloudTrail } from "../CloudTrail";
 import { CloudTrailClient } from "../CloudTrailClient";
 import {
   GetQueryResultsCommand,
@@ -10,7 +10,7 @@ import {
 import { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudTrailClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetQueryResultsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudTrail,
-  input: GetQueryResultsCommandInput,
-  ...args: any
-): Promise<GetQueryResultsCommandOutput> => {
-  // @ts-ignore
-  return await client.getQueryResults(input, ...args);
-};
 export async function* paginateGetQueryResults(
   config: CloudTrailPaginationConfiguration,
   input: GetQueryResultsCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateGetQueryResults(
   let page: GetQueryResultsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof CloudTrail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudTrailClient) {
+    if (config.client instanceof CloudTrailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudTrail | CloudTrailClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { ListDomainsRequest, ListDomainsResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ListDomainsCommand,
-  serializeAws_json1_1ListDomainsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDomainsRequest, ListDomainsResponse } from "../models/models_3";
+import { de_ListDomainsCommand, se_ListDomainsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListDomainsCommand}.
+ */
 export interface ListDomainsCommandInput extends ListDomainsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDomainsCommand}.
+ */
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,37 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * import { SageMakerClient, ListDomainsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListDomainsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListDomainsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDomainsResponse
+ * //   Domains: [ // DomainList
+ * //     { // DomainDetails
+ * //       DomainArn: "STRING_VALUE",
+ * //       DomainId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE",
+ * //       Status: "Deleting" || "Failed" || "InService" || "Pending" || "Updating" || "Update_Failed" || "Delete_Failed",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
+ * @returns {@link ListDomainsCommandOutput}
  * @see {@link ListDomainsCommandInput} for command's `input` shape.
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListDomainsCommand extends $Command<
@@ -46,6 +84,18 @@ export class ListDomainsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +111,7 @@ export class ListDomainsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDomainsCommandInput, ListDomainsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListDomainsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +122,8 @@ export class ListDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +133,18 @@ export class ListDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDomainsCommand(input, context);
+    return se_ListDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainsCommandOutput> {
-    return deserializeAws_json1_1ListDomainsCommand(output, context);
+    return de_ListDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

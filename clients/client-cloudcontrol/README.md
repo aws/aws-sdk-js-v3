@@ -1,17 +1,11 @@
-# @aws-sdk/client-cloudcontrol
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cloudcontrol/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudcontrol)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cloudcontrol.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudcontrol)
+# @aws-sdk/client-cloudcontrol
 
 ## Description
 
 AWS SDK for JavaScript CloudControl Client for Node.js, Browser and React Native.
 
-<p>Use Amazon Web Services Cloud Control API to create, read, update, delete, and list (CRUD-L) your cloud resources that
-belong to a wide range of services--both Amazon Web Services and third-party.  With the Cloud Control API
-standardized set of application programming interfaces (APIs), you can perform CRUD-L operations
-on any supported resources in your Amazon Web Services account. Using Cloud Control API, you won't have to generate code
-or scripts specific to each individual service responsible for those resources.</p>
 <p>For more information about Amazon Web Services Cloud Control API, see the <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html">Amazon Web Services Cloud Control API User
 Guide</a>.</p>
 
@@ -121,7 +115,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -155,7 +149,7 @@ client
 
 // callbacks.
 client.cancelResourceRequest(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -169,7 +163,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -207,3 +201,70 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CancelResourceRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/classes/cancelresourcerequestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/cancelresourcerequestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/cancelresourcerequestcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/classes/createresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/createresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/createresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/classes/deleteresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/deleteresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/deleteresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/classes/getresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/getresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/getresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetResourceRequestStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/classes/getresourcerequeststatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/getresourcerequeststatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/getresourcerequeststatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListResourceRequests
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/classes/listresourcerequestscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/listresourcerequestscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/listresourcerequestscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/classes/listresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/listresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/listresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/classes/updateresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/updateresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudcontrol/interfaces/updateresourcecommandoutput.html)
+
+</details>

@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { FinspaceData } from "../FinspaceData";
 import { FinspaceDataClient } from "../FinspaceDataClient";
 
+/**
+ * @public
+ */
 export interface FinspaceDataPaginationConfiguration extends PaginationConfiguration {
-  client: FinspaceData | FinspaceDataClient;
+  client: FinspaceDataClient;
 }

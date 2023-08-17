@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeServersCommand,
   DescribeServersCommandInput,
   DescribeServersCommandOutput,
 } from "../commands/DescribeServersCommand";
-import { OpsWorksCM } from "../OpsWorksCM";
 import { OpsWorksCMClient } from "../OpsWorksCMClient";
 import { OpsWorksCMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpsWorksCMClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeServersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: OpsWorksCM,
-  input: DescribeServersCommandInput,
-  ...args: any
-): Promise<DescribeServersCommandOutput> => {
-  // @ts-ignore
-  return await client.describeServers(input, ...args);
-};
 export async function* paginateDescribeServers(
   config: OpsWorksCMPaginationConfiguration,
   input: DescribeServersCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeServers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof OpsWorksCM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OpsWorksCMClient) {
+    if (config.client instanceof OpsWorksCMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OpsWorksCM | OpsWorksCMClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { CreateLogStreamRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLogStreamCommand,
-  serializeAws_json1_1CreateLogStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLogStreamCommand, se_CreateLogStreamCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateLogStreamCommand}.
+ */
 export interface CreateLogStreamCommandInput extends CreateLogStreamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLogStreamCommand}.
+ */
 export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a log stream for the specified log group. A log stream is a sequence of log events
  *       that originate from a single source, such as an application instance or a resource that is
  *       being monitored.</p>
@@ -36,7 +50,7 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  *                <p>Log stream names can be between 1 and 512 characters long.</p>
  *             </li>
  *             <li>
- *                <p>The ':' (colon) and '*' (asterisk) characters are not allowed.</p>
+ *                <p>Don't use ':' (colon) or '*' (asterisk) characters.</p>
  *             </li>
  *          </ul>
  * @example
@@ -45,13 +59,36 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, CreateLogStreamCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CreateLogStreamCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // CreateLogStreamRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   logStreamName: "STRING_VALUE", // required
+ * };
  * const command = new CreateLogStreamCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateLogStreamCommandInput - {@link CreateLogStreamCommandInput}
+ * @returns {@link CreateLogStreamCommandOutput}
  * @see {@link CreateLogStreamCommandInput} for command's `input` shape.
  * @see {@link CreateLogStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class CreateLogStreamCommand extends $Command<
@@ -62,6 +99,18 @@ export class CreateLogStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLogStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +126,9 @@ export class CreateLogStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLogStreamCommandInput, CreateLogStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLogStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -87,8 +139,8 @@ export class CreateLogStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLogStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +150,18 @@ export class CreateLogStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLogStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLogStreamCommand(input, context);
+    return se_CreateLogStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogStreamCommandOutput> {
-    return deserializeAws_json1_1CreateLogStreamCommand(output, context);
+    return de_CreateLogStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

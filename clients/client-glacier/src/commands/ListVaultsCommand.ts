@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { ListVaultsInput, ListVaultsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVaultsCommand,
-  serializeAws_restJson1ListVaultsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVaultsCommand, se_ListVaultsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListVaultsCommand}.
+ */
 export interface ListVaultsCommandInput extends ListVaultsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListVaultsCommand}.
+ */
 export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists all vaults owned by the calling user's account. The list
  *          returned in the response is ASCII-sorted by vault name.</p>
  *
@@ -47,13 +61,77 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * import { GlacierClient, ListVaultsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListVaultsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // ListVaultsInput
+ *   accountId: "STRING_VALUE", // required
+ *   marker: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new ListVaultsCommand(input);
  * const response = await client.send(command);
+ * // { // ListVaultsOutput
+ * //   VaultList: [ // VaultList
+ * //     { // DescribeVaultOutput
+ * //       VaultARN: "STRING_VALUE",
+ * //       VaultName: "STRING_VALUE",
+ * //       CreationDate: "STRING_VALUE",
+ * //       LastInventoryDate: "STRING_VALUE",
+ * //       NumberOfArchives: Number("long"),
+ * //       SizeInBytes: Number("long"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListVaultsCommandInput - {@link ListVaultsCommandInput}
+ * @returns {@link ListVaultsCommandOutput}
  * @see {@link ListVaultsCommandInput} for command's `input` shape.
  * @see {@link ListVaultsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
+ *          exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
+ *
+ * @example To list all vaults owned by the calling user's account
+ * ```javascript
+ * // The example lists all vaults owned by the specified AWS account.
+ * const input = {
+ *   "accountId": "-",
+ *   "limit": "",
+ *   "marker": ""
+ * };
+ * const command = new ListVaultsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VaultList": [
+ *     {
+ *       "CreationDate": "2015-04-06T21:23:45.708Z",
+ *       "LastInventoryDate": "2015-04-07T00:26:19.028Z",
+ *       "NumberOfArchives": 1,
+ *       "SizeInBytes": 3178496,
+ *       "VaultARN": "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault",
+ *       "VaultName": "my-vault"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: list-vaults-1481753006990
+ * ```
  *
  */
 export class ListVaultsCommand extends $Command<
@@ -64,6 +142,18 @@ export class ListVaultsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListVaultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +169,7 @@ export class ListVaultsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListVaultsCommandInput, ListVaultsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListVaultsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -89,8 +180,8 @@ export class ListVaultsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVaultsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListVaultsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +191,18 @@ export class ListVaultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVaultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVaultsCommand(input, context);
+    return se_ListVaultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVaultsCommandOutput> {
-    return deserializeAws_restJson1ListVaultsCommand(output, context);
+    return de_ListVaultsCommand(output, context);
   }
 
   // Start section: command_body_extra

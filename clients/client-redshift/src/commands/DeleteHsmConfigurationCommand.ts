@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteHsmConfigurationMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteHsmConfigurationCommand,
-  serializeAws_queryDeleteHsmConfigurationCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteHsmConfigurationCommand, se_DeleteHsmConfigurationCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteHsmConfigurationCommand}.
+ */
 export interface DeleteHsmConfigurationCommandInput extends DeleteHsmConfigurationMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteHsmConfigurationCommand}.
+ */
 export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Amazon Redshift HSM configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,30 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  * import { RedshiftClient, DeleteHsmConfigurationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteHsmConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteHsmConfigurationMessage
+ *   HsmConfigurationIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHsmConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteHsmConfigurationCommandInput - {@link DeleteHsmConfigurationCommandInput}
+ * @returns {@link DeleteHsmConfigurationCommandOutput}
  * @see {@link DeleteHsmConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteHsmConfigurationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link HsmConfigurationNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ * @throws {@link InvalidHsmConfigurationStateFault} (client fault)
+ *  <p>The specified HSM configuration is not in the <code>available</code> state, or it
+ *             is still in use by one or more Amazon Redshift clusters.</p>
+ *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteHsmConfigurationCommand extends $Command<
@@ -46,6 +77,18 @@ export class DeleteHsmConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHsmConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +104,9 @@ export class DeleteHsmConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteHsmConfigurationCommandInput, DeleteHsmConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteHsmConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +117,8 @@ export class DeleteHsmConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHsmConfigurationMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +128,18 @@ export class DeleteHsmConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHsmConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteHsmConfigurationCommand(input, context);
+    return se_DeleteHsmConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHsmConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteHsmConfigurationCommand(output, context);
+    return de_DeleteHsmConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

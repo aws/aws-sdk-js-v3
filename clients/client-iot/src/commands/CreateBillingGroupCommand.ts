@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,34 +11,81 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateBillingGroupRequest, CreateBillingGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBillingGroupCommand,
-  serializeAws_restJson1CreateBillingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBillingGroupCommand, se_CreateBillingGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateBillingGroupCommand}.
+ */
 export interface CreateBillingGroupCommandInput extends CreateBillingGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBillingGroupCommand}.
+ */
 export interface CreateBillingGroupCommandOutput extends CreateBillingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a billing group.</p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateBillingGroup</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateBillingGroup</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, CreateBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateBillingGroupRequest
+ *   billingGroupName: "STRING_VALUE", // required
+ *   billingGroupProperties: { // BillingGroupProperties
+ *     billingGroupDescription: "STRING_VALUE",
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateBillingGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBillingGroupResponse
+ * //   billingGroupName: "STRING_VALUE",
+ * //   billingGroupArn: "STRING_VALUE",
+ * //   billingGroupId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateBillingGroupCommandInput - {@link CreateBillingGroupCommandInput}
+ * @returns {@link CreateBillingGroupCommandOutput}
  * @see {@link CreateBillingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource already exists.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateBillingGroupCommand extends $Command<
@@ -47,6 +96,18 @@ export class CreateBillingGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +123,9 @@ export class CreateBillingGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateBillingGroupCommandInput, CreateBillingGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateBillingGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +136,8 @@ export class CreateBillingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBillingGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateBillingGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +147,18 @@ export class CreateBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBillingGroupCommand(input, context);
+    return se_CreateBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBillingGroupCommandOutput> {
-    return deserializeAws_restJson1CreateBillingGroupCommand(output, context);
+    return de_CreateBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

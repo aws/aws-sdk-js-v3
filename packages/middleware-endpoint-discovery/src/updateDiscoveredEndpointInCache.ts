@@ -7,7 +7,7 @@ export interface UpdateDiscoveredEndpointInCacheOptions extends EndpointDiscover
   endpointDiscoveryCommandCtor: new (comandConfig: any) => any;
 }
 
-const requestQueue: { [key: string]: { resolve: Function; reject: Function }[] } = {};
+const requestQueue: Record<string, { resolve: Function; reject: Function }[]> = {};
 
 export const updateDiscoveredEndpointInCache = async (
   config: EndpointDiscoveryResolvedConfig & PreviouslyResolved,
@@ -38,7 +38,7 @@ export const updateDiscoveredEndpointInCache = async (
       endpointCache.set(cacheKey, placeholderEndpoints);
 
       const command = new options.endpointDiscoveryCommandCtor({
-        Operation: commandName.substr(0, commandName.length - 7), // strip "Command"
+        Operation: commandName.slice(0, -7), // strip "Command"
         Identifiers: identifiers,
       });
       const handler = command.resolveMiddleware(options.clientStack, config, options.options);
@@ -54,10 +54,11 @@ export const updateDiscoveredEndpointInCache = async (
           resolve();
         })
         .catch((error: any) => {
-          if (error.name === "InvalidEndpointException" || error.$metadata?.httpStatusCode === 421) {
-            // Endpoint is invalid, delete the cache entry.
-            endpointCache.delete(cacheKey);
-          }
+          // The cache entry must be deleted
+          // because a subsequent blocking request will be stuck
+          // in a waiting state if it sees the cache entry
+          // but we have already flushed the request queue.
+          endpointCache.delete(cacheKey);
 
           const errorToThrow = Object.assign(
             new Error(

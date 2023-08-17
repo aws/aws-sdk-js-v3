@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { LexModelsV2 } from "../LexModelsV2";
 import { LexModelsV2Client } from "../LexModelsV2Client";
 
+/**
+ * @public
+ */
 export interface LexModelsV2PaginationConfiguration extends PaginationConfiguration {
-  client: LexModelsV2 | LexModelsV2Client;
+  client: LexModelsV2Client;
 }

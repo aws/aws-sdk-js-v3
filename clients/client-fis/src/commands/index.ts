@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateExperimentTemplateCommand";
 export * from "./DeleteExperimentTemplateCommand";
 export * from "./GetActionCommand";

@@ -1,9 +1,12 @@
+## New API Documentation
+
+We are excited to announce the [developer preview](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/preview/) of our new API documentation for AWS SDK for JavaScript v3. Please follow instructions on the landing page to leave us your feedback.
+
 # AWS SDK for JavaScript v3
 
 ![Build Status](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiMmtFajZWQmNUbEhidnBKN1VncjRrNVI3d0JUcFpGWUd3STh4T3N3Rnljc1BMaEIrYm9HU2t4YTV1RlE1YmlnUG9XM3luY0Ftc2tBc0xTeVFJMkVOa24wPSIsIml2UGFyYW1ldGVyU3BlYyI6IlBDMDl6UEROK1dlU1h1OWciLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
 [![codecov](https://codecov.io/gh/aws/aws-sdk-js-v3/branch/main/graph/badge.svg)](https://codecov.io/gh/aws/aws-sdk-js-v3)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=aws/aws-sdk-js-v3)](https://dependabot.com)
 
 The **AWS SDK for JavaScript v3** is a rewrite of v2 with some great new features.
 As with version 2, it enables you to easily work with [Amazon Web Services](https://aws.amazon.com/),
@@ -33,16 +36,21 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
    1. [Modularized packages](#modularized-packages)
    1. [API consistency changes](#api-changes)
       1. [Configuration](#configuration)
-      1. [Middleware Stack](#Middleware)
+      1. [Middleware Stack](#middleware)
    1. [How to upgrade](#other-changes)
 1. [High Level Concepts in V3](#high-level-concepts)
    1. [Generated Packages](#generated-code)
+   1. [Streams](#streams)
    1. [Paginators](#paginators)
    1. [Abort Controller](#abort-controller)
    1. [Middleware Stack](#middleware-stack)
-1. [Install from Source](#install-from-Source)
+1. [Install from Source](#install-from-source)
 1. [Giving feedback and contributing](#giving-feedback-and-contributing)
+1. [Release Cadence](#release-cadence)
+1. [Node.js versions](#nodejs-versions)
+1. [Stability of Modular Packages](#stability-of-modular-packages)
 1. [Known Issues](#known-issues)
+   1. [Functionality requiring AWS Common Runtime (CRT)](#functionality-requiring-aws-common-runtime-crt)
 
 ## Getting Started
 
@@ -273,7 +281,7 @@ await aggregatedS3.getObject({...}));
 
 The v3 codebase is generated from internal AWS models that AWS services expose. We use [smithy-typescript](https://github.com/awslabs/smithy-typescript) to generate all code in the `/clients` subdirectory. These packages always have a prefix of `@aws-sdk/client-XXXX` and are one-to-one with AWS services and service operations. You should be importing `@aws-sdk/client-XXXX` for most usage.
 
-Clients depend on common "utility" code in `/packages`. The code in `/packages` is manually written and outside of special cases (like credenitials or abort controller) is generally not very useful alone.
+Clients depend on common "utility" code in `/packages`. The code in `/packages` is manually written and outside of special cases (like credentials or abort controller) is generally not very useful alone.
 
 Lastly we have higher level libraries in `/lib`. These are javascript specific libraries that wrap client operations to make them easier to work with. Popular examples are `@aws-sdk/lib-dynamodb` which [simplifies working with items in Amazon DynamoDB](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-dynamodb/README.md) or `@aws-sdk/lib-storage` which exposes the `Upload` function and [simplifies parallel uploads in S3's multipartUpload](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-storage/README.md).
 
@@ -281,19 +289,59 @@ Lastly we have higher level libraries in `/lib`. These are javascript specific l
 1. `/clients`. This sub directory is code generated and depends on code published from `/packages` . It is 1:1 with AWS services and operations. Manual edits should generally not occur here. These are published to NPM under `@aws-sdk/client-XXXX`.
 1. `/lib`. This sub directory depends on generated code published from `/clients`. It wraps existing AWS services and operations to make them easier to work with in Javascript. These are published to NPM under `@aws-sdk/lib-XXXX`
 
+### Streams
+
+Certain command outputs include streams, which have different implementations in
+Node.js and browsers. For convenience, a set of stream handling methods will be
+merged (`Object.assign`) to the output stream object, as defined in
+[SdkStreamMixin][serde-code-url].
+
+Output types having this feature will be indicated by the `WithSdkStreamMixin<T, StreamKey>`
+[wrapper type][serde-code-url], where `T` is the original output type
+and `StreamKey` is the output property key having a stream type specific to
+the runtime environment.
+
+[serde-code-url]: https://github.com/aws/aws-sdk-js-v3/blob/main/packages/types/src/serde.ts
+
+Here is an example using `S3::GetObject`.
+
+```js
+import { S3 } from "@aws-sdk/client-s3";
+
+const client = new S3({});
+
+const getObjectResult = await client.getObject({
+  Bucket: "...",
+  Key: "...",
+});
+
+// env-specific stream with added mixin methods.
+const bodyStream = getObjectResult.Body;
+
+// one-time transform.
+const bodyAsString = await bodyStream.transformToString();
+
+// throws an error on 2nd call, stream cannot be rewound.
+const __error__ = await bodyStream.transformToString();
+```
+
+Note that these methods will read the stream in order to collect it,
+so **you must save the output**. The methods cannot be called more than once
+on a stream.
+
 ### Paginators
 
 Many AWS operations return paginated results when the response object is too large to return in a single response. In AWS SDK for JavaScript v2, the response contains a token you can use to retrieve the next page of results. You then need to write additional functions to process pages of results.
 
 In AWS SDK for JavaScript v3 we’ve improved pagination using async generator functions, which are similar to generator functions, with the following differences:
 
-- When called, async generator functions return an object, an async generator whose methods (`next`, `throw`, and `return`) return promises for { `value`, `done` }, instead of directly returning { `value`, `done` }. This automatically makes the returned async generator objects async iterators.
+- When called, async generator functions return an object, an async generator whose methods (`next`, `throw`, and `return`) return promises for `{ `value`, `done` }`, instead of directly returning `{ `value`, `done` }`. This automatically makes the returned async generator objects async iterators.
 - await expressions and `for await (x of y)` statements are allowed.
 - The behavior of `yield*` is modified to support delegation to async iterables.
 
 The Async Iterators were added in the ES2018 iteration of JavaScript. They are supported by Node.js 10.x+ and by all modern browsers, including Chrome 63+, Firefox 57+, Safari 11.1+, and Edge 79+. If you’re using TypeScript v2.3+, you can compile Async Iterators to older versions of JavaScript.
 
-An async iterator is much like an iterator, except that its `next()` method returns a promise for a { `value`, `done` } pair. As an implicit aspect of the Async Iteration protocol, the next promise is not requested until the previous one resolves. This is a simple, yet a very powerful pattern.
+An async iterator is much like an iterator, except that its `next()` method returns a promise for a `{ `value`, `done` }` pair. As an implicit aspect of the Async Iteration protocol, the next promise is not requested until the previous one resolves. This is a simple, yet a very powerful pattern.
 
 #### Example Pagination Usage
 
@@ -466,6 +514,76 @@ client.middlewareStack.add(middleware, {
 
 For a full middleware stack deep dive please check out our [blog post](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/).
 
+## Release Cadence
+
+Our releases usually happen once per weekday. Each release increments the
+minor version, e.g. 3.200.0 -> 3.201.0.
+
+## <a id="nodejs-versions"></a> Node.js versions
+
+v3.201.0 and higher requires Node.js >= 14.
+
+v3.46.0 to v3.200.0 requires Node.js >= 12.
+
+Earlier versions require Node.js >= 10.
+
+## Stability of Modular Packages
+
+| Package name                | containing folder | API controlled by | stability     |
+| --------------------------- | ----------------- | ----------------- | ------------- |
+| @aws-sdk/client-\* Commands | clients           | AWS service teams | public/stable |
+| @aws-sdk/client-\* Clients  | clients           | AWS SDK JS team   | public/stable |
+| @aws-sdk/lib-\*             | lib               | AWS SDK JS team   | public/stable |
+| @aws-sdk/\*-signer          | packages          | AWS SDK JS team   | public/stable |
+| @aws-sdk/middleware-stack   | packages          | AWS SDK JS team   | public/stable |
+| remaining @aws-sdk/\*       | packages          | AWS SDK JS team   | internal      |
+
+Additional notes:
+
+- internal does not mean a package or interface is constantly changing
+  or being actively worked on. It means it is subject to change without any
+  notice period. The changes are included in the release notes.
+- public interfaces such as client configuration are also subject to change
+  in exceptional cases. We will try to undergo a deprecation period with
+  an advance notice.
+
 ## Known Issues
+
+### Functionality requiring AWS Common Runtime (CRT)
+
+This SDK has optional functionality that requires the [AWS Common Runtime (CRT)](https://docs.aws.amazon.com/sdkref/latest/guide/common-runtime.html)
+bindings to be included as a dependency with your application. This functionality includes:
+
+- [Amazon S3 Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html)
+- [Amazon S3 Object Integrity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html)
+
+If the required AWS Common Runtime components are not installed you will receive an error like:
+
+```console
+Cannot find module '@aws-sdk/signature-v4-crt'
+...
+Please check if you have installed "@aws-sdk/signature-v4-crt" package explicitly.
+For more information please go to https://github.com/aws/aws-sdk-js-v3#known-issues
+```
+
+indicating that the required dependency is missing to use the associated functionality. To install this dependency follow
+the provided [instructions](#installing-the-aws-common-runtime-crt-dependency).
+
+#### Installing the AWS Common Runtime (CRT) Dependency
+
+You can install the CRT dependency with different commands depending on the package management tool you are using.
+If you are using NPM:
+
+```console
+npm install @aws-sdk/signature-v4-crt
+```
+
+If you are using Yarn:
+
+```console
+yarn add @aws-sdk/signature-v4-crt
+```
+
+#### Related issues
 
 1. [S3 Multi-Region Access Point(MRAP) is not available unless with additional dependency](https://github.com/aws/aws-sdk-js-v3/issues/2822)

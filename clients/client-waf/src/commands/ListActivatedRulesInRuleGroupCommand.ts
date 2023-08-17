@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListActivatedRulesInRuleGroupRequest, ListActivatedRulesInRuleGroupResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand,
-  serializeAws_json1_1ListActivatedRulesInRuleGroupCommand,
+  de_ListActivatedRulesInRuleGroupCommand,
+  se_ListActivatedRulesInRuleGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListActivatedRulesInRuleGroupCommand}.
+ */
 export interface ListActivatedRulesInRuleGroupCommandInput extends ListActivatedRulesInRuleGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListActivatedRulesInRuleGroupCommand}.
+ */
 export interface ListActivatedRulesInRuleGroupCommandOutput
   extends ListActivatedRulesInRuleGroupResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -39,13 +56,91 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  * import { WAFClient, ListActivatedRulesInRuleGroupCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListActivatedRulesInRuleGroupCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // ListActivatedRulesInRuleGroupRequest
+ *   RuleGroupId: "STRING_VALUE",
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListActivatedRulesInRuleGroupCommand(input);
  * const response = await client.send(command);
+ * // { // ListActivatedRulesInRuleGroupResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   ActivatedRules: [ // ActivatedRules
+ * //     { // ActivatedRule
+ * //       Priority: Number("int"), // required
+ * //       RuleId: "STRING_VALUE", // required
+ * //       Action: { // WafAction
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //       OverrideAction: { // WafOverrideAction
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //       Type: "STRING_VALUE",
+ * //       ExcludedRules: [ // ExcludedRules
+ * //         { // ExcludedRule
+ * //           RuleId: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListActivatedRulesInRuleGroupCommandInput - {@link ListActivatedRulesInRuleGroupCommandInput}
+ * @returns {@link ListActivatedRulesInRuleGroupCommandOutput}
  * @see {@link ListActivatedRulesInRuleGroupCommandInput} for command's `input` shape.
  * @see {@link ListActivatedRulesInRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidParameterException} (client fault)
+ *  <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p>
+ * 			      <ul>
+ *             <li>
+ *                <p>You specified an invalid parameter name.</p>
+ *             </li>
+ *             <li>
+ *                <p>You specified an invalid value.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>)
+ * 					using an action other than <code>INSERT</code> or <code>DELETE</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code>
+ *                   <code>Type</code> other than
+ * 					<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
+ *             </li>
+ *             <li>
+ * 		 	           <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p>
+ * 		          </li>
+ *             <li>
+ *                <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code>
+ *                   <code>Type</code> other than
+ * 					<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code>
+ *                   <code>Type</code> other than
+ * 					HEADER, METHOD, QUERY_STRING, URI, or BODY.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code>
+ * 					but no value for <code>Data</code>.</p>
+ *             </li>
+ *             <li>
+ * 			   		       <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p>
+ * 			   	     </li>
+ *          </ul>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class ListActivatedRulesInRuleGroupCommand extends $Command<
@@ -56,6 +151,18 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListActivatedRulesInRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +178,9 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListActivatedRulesInRuleGroupCommandInput, ListActivatedRulesInRuleGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListActivatedRulesInRuleGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +191,8 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListActivatedRulesInRuleGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListActivatedRulesInRuleGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,15 +202,21 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActivatedRulesInRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(input, context);
+    return se_ListActivatedRulesInRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListActivatedRulesInRuleGroupCommandOutput> {
-    return deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand(output, context);
+    return de_ListActivatedRulesInRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateNotificationRuleCommand";
 export * from "./DeleteNotificationRuleCommand";
 export * from "./DeleteTargetCommand";

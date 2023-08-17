@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { ListMulticastGroupsRequest, ListMulticastGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMulticastGroupsCommand,
-  serializeAws_restJson1ListMulticastGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListMulticastGroupsCommand, se_ListMulticastGroupsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListMulticastGroupsCommand}.
+ */
 export interface ListMulticastGroupsCommandInput extends ListMulticastGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMulticastGroupsCommand}.
+ */
 export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the multicast groups registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,45 @@ export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsRes
  * import { IoTWirelessClient, ListMulticastGroupsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListMulticastGroupsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListMulticastGroupsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMulticastGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMulticastGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MulticastGroupList: [ // MulticastGroupList
+ * //     { // MulticastGroup
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListMulticastGroupsCommandInput - {@link ListMulticastGroupsCommandInput}
+ * @returns {@link ListMulticastGroupsCommandOutput}
  * @see {@link ListMulticastGroupsCommandInput} for command's `input` shape.
  * @see {@link ListMulticastGroupsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListMulticastGroupsCommand extends $Command<
@@ -46,6 +92,18 @@ export class ListMulticastGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListMulticastGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +119,9 @@ export class ListMulticastGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListMulticastGroupsCommandInput, ListMulticastGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListMulticastGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +132,8 @@ export class ListMulticastGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMulticastGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMulticastGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +143,18 @@ export class ListMulticastGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMulticastGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMulticastGroupsCommand(input, context);
+    return se_ListMulticastGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMulticastGroupsCommandOutput> {
-    return deserializeAws_restJson1ListMulticastGroupsCommand(output, context);
+    return de_ListMulticastGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

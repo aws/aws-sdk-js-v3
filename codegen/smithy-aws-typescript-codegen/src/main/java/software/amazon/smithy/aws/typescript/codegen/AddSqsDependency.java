@@ -73,12 +73,14 @@ public class AddSqsDependency implements TypeScriptIntegration {
             return;
         }
 
-        writer.addImport("Hash", "__Hash", "@aws-sdk/types");
-        writer.addImport("HashConstructor", "__HashConstructor", "@aws-sdk/types");
-        writer.writeDocs("A constructor for a class implementing the {@link __Hash} interface \n"
+        writer.addImport("Hash", "__Hash", TypeScriptDependency.SMITHY_TYPES);
+        writer.addImport("HashConstructor", "__HashConstructor", TypeScriptDependency.SMITHY_TYPES);
+        writer.addImport("Checksum", "__Checksum", TypeScriptDependency.SMITHY_TYPES);
+        writer.addImport("ChecksumConstructor", "__ChecksumConstructor", TypeScriptDependency.SMITHY_TYPES);
+        writer.writeDocs("A constructor for a class implementing the {@link __Checksum} interface \n"
                 + "that computes MD5 hashes.\n"
                 + "@internal");
-        writer.write("md5?: __HashConstructor;\n");
+        writer.write("md5?: __ChecksumConstructor | __HashConstructor;\n");
     }
 
     @Override
@@ -97,13 +99,15 @@ public class AddSqsDependency implements TypeScriptIntegration {
                 return MapUtils.of("md5", writer -> {
                     writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
                     writer.addImport("HashConstructor", "__HashConstructor",
-                            TypeScriptDependency.AWS_SDK_TYPES.packageName);
+                            TypeScriptDependency.SMITHY_TYPES);
+                    writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
+                            TypeScriptDependency.SMITHY_TYPES);
                     writer.write("Hash.bind(null, \"md5\")");
                 });
             case BROWSER:
                 return MapUtils.of("md5", writer -> {
                     writer.addDependency(TypeScriptDependency.MD5_BROWSER);
-                    writer.addImport("Md5", "Md5", TypeScriptDependency.MD5_BROWSER.packageName);
+                    writer.addImport("Md5", "Md5", TypeScriptDependency.MD5_BROWSER);
                     writer.write("Md5");
                 });
             default:

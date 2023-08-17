@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { ListIdentityProvidersRequest, ListIdentityProvidersResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListIdentityProvidersCommand,
-  serializeAws_restJson1ListIdentityProvidersCommand,
-} from "../protocols/Aws_restJson1";
+  ListIdentityProvidersRequest,
+  ListIdentityProvidersResponse,
+  ListIdentityProvidersResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_ListIdentityProvidersCommand, se_ListIdentityProvidersCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListIdentityProvidersCommand}.
+ */
 export interface ListIdentityProvidersCommandInput extends ListIdentityProvidersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListIdentityProvidersCommand}.
+ */
 export interface ListIdentityProvidersCommandOutput extends ListIdentityProvidersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of identity providers for a specific web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +47,46 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * import { WorkSpacesWebClient, ListIdentityProvidersCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListIdentityProvidersCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // ListIdentityProvidersRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   portalArn: "STRING_VALUE", // required
+ * };
  * const command = new ListIdentityProvidersCommand(input);
  * const response = await client.send(command);
+ * // { // ListIdentityProvidersResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   identityProviders: [ // IdentityProviderList
+ * //     { // IdentityProviderSummary
+ * //       identityProviderArn: "STRING_VALUE",
+ * //       identityProviderName: "STRING_VALUE",
+ * //       identityProviderType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListIdentityProvidersCommandInput - {@link ListIdentityProvidersCommandInput}
+ * @returns {@link ListIdentityProvidersCommandOutput}
  * @see {@link ListIdentityProvidersCommandInput} for command's `input` shape.
  * @see {@link ListIdentityProvidersCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class ListIdentityProvidersCommand extends $Command<
@@ -46,6 +97,18 @@ export class ListIdentityProvidersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentityProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +124,9 @@ export class ListIdentityProvidersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListIdentityProvidersCommandInput, ListIdentityProvidersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListIdentityProvidersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +137,8 @@ export class ListIdentityProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIdentityProvidersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListIdentityProvidersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ListIdentityProvidersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +148,18 @@ export class ListIdentityProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIdentityProvidersCommand(input, context);
+    return se_ListIdentityProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentityProvidersCommandOutput> {
-    return deserializeAws_restJson1ListIdentityProvidersCommand(output, context);
+    return de_ListIdentityProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

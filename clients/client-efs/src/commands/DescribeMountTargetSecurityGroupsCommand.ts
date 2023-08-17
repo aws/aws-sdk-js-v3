@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import {
@@ -17,16 +19,31 @@ import {
   DescribeMountTargetSecurityGroupsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand,
-  serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand,
+  de_DescribeMountTargetSecurityGroupsCommand,
+  se_DescribeMountTargetSecurityGroupsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeMountTargetSecurityGroupsCommand}.
+ */
 export interface DescribeMountTargetSecurityGroupsCommandInput extends DescribeMountTargetSecurityGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMountTargetSecurityGroupsCommand}.
+ */
 export interface DescribeMountTargetSecurityGroupsCommandOutput
   extends DescribeMountTargetSecurityGroupsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the security groups currently in effect for a mount target. This operation
  *       requires that the network interface of the mount target has been created and the lifecycle
  *       state of the mount target is not <code>deleted</code>.</p>
@@ -49,13 +66,60 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * import { EFSClient, DescribeMountTargetSecurityGroupsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeMountTargetSecurityGroupsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeMountTargetSecurityGroupsRequest
+ *   MountTargetId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeMountTargetSecurityGroupsResponse
+ * //   SecurityGroups: [ // SecurityGroups // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeMountTargetSecurityGroupsCommandInput - {@link DescribeMountTargetSecurityGroupsCommandInput}
+ * @returns {@link DescribeMountTargetSecurityGroupsCommandOutput}
  * @see {@link DescribeMountTargetSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link IncorrectMountTargetState} (client fault)
+ *  <p>Returned if the mount target is not in the correct state for the
+ *             operation.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link MountTargetNotFound} (client fault)
+ *  <p>Returned if there is no mount target with the specified ID found in the
+ *             caller's Amazon Web Services account.</p>
+ *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
+ *
+ * @example To describe the security groups for a mount target
+ * ```javascript
+ * // This operation describes all of the security groups for a file system's mount target.
+ * const input = {
+ *   "MountTargetId": "fsmt-12340abc"
+ * };
+ * const command = new DescribeMountTargetSecurityGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SecurityGroups": [
+ *     "sg-4567abcd"
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-security-groups-for-a-mount-target-1481849317823
+ * ```
  *
  */
 export class DescribeMountTargetSecurityGroupsCommand extends $Command<
@@ -66,6 +130,18 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMountTargetSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +157,9 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeMountTargetSecurityGroupsCommandInput, DescribeMountTargetSecurityGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeMountTargetSecurityGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -91,8 +170,8 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMountTargetSecurityGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMountTargetSecurityGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,18 +181,24 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMountTargetSecurityGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand(input, context);
+    return se_DescribeMountTargetSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand(output, context);
+    return de_DescribeMountTargetSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

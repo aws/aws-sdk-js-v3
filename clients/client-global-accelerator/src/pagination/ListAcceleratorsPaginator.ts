@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListAcceleratorsCommand,
   ListAcceleratorsCommandInput,
   ListAcceleratorsCommandOutput,
 } from "../commands/ListAcceleratorsCommand";
-import { GlobalAccelerator } from "../GlobalAccelerator";
 import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
 import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlobalAcceleratorClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAcceleratorsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GlobalAccelerator,
-  input: ListAcceleratorsCommandInput,
-  ...args: any
-): Promise<ListAcceleratorsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAccelerators(input, ...args);
-};
 export async function* paginateListAccelerators(
   config: GlobalAcceleratorPaginationConfiguration,
   input: ListAcceleratorsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListAccelerators(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GlobalAccelerator) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlobalAcceleratorClient) {
+    if (config.client instanceof GlobalAcceleratorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GlobalAccelerator | GlobalAcceleratorClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

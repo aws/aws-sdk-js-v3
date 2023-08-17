@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DeleteConfigurationTemplateMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteConfigurationTemplateCommand,
-  serializeAws_queryDeleteConfigurationTemplateCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteConfigurationTemplateCommand, se_DeleteConfigurationTemplateCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteConfigurationTemplateCommand}.
+ */
 export interface DeleteConfigurationTemplateCommandInput extends DeleteConfigurationTemplateMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteConfigurationTemplateCommand}.
+ */
 export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified configuration template.</p>
  *          <note>
  *             <p>When you launch an environment using a configuration template, the environment gets a
@@ -34,13 +48,40 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * import { ElasticBeanstalkClient, DeleteConfigurationTemplateCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DeleteConfigurationTemplateCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DeleteConfigurationTemplateMessage
+ *   ApplicationName: "STRING_VALUE", // required
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteConfigurationTemplateCommandInput - {@link DeleteConfigurationTemplateCommandInput}
+ * @returns {@link DeleteConfigurationTemplateCommandOutput}
  * @see {@link DeleteConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Unable to perform the specified operation because another operation that effects an
+ *       element in this activity is already in progress.</p>
+ *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
+ *
+ * @example To delete a configuration template
+ * ```javascript
+ * // The following operation deletes a configuration template named my-template for an application named my-app:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "TemplateName": "my-template"
+ * };
+ * const command = new DeleteConfigurationTemplateCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-configuration-template-1456269836701
+ * ```
  *
  */
 export class DeleteConfigurationTemplateCommand extends $Command<
@@ -51,6 +92,18 @@ export class DeleteConfigurationTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +119,9 @@ export class DeleteConfigurationTemplateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteConfigurationTemplateCommandInput, DeleteConfigurationTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteConfigurationTemplateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +132,8 @@ export class DeleteConfigurationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationTemplateMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,15 +143,21 @@ export class DeleteConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteConfigurationTemplateCommand(input, context);
+    return se_DeleteConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationTemplateCommandOutput> {
-    return deserializeAws_queryDeleteConfigurationTemplateCommand(output, context);
+    return de_DeleteConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

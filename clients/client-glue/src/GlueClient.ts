@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,29 +19,36 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   BatchCreatePartitionCommandInput,
@@ -71,6 +70,14 @@ import {
 import { BatchGetBlueprintsCommandInput, BatchGetBlueprintsCommandOutput } from "./commands/BatchGetBlueprintsCommand";
 import { BatchGetCrawlersCommandInput, BatchGetCrawlersCommandOutput } from "./commands/BatchGetCrawlersCommand";
 import {
+  BatchGetCustomEntityTypesCommandInput,
+  BatchGetCustomEntityTypesCommandOutput,
+} from "./commands/BatchGetCustomEntityTypesCommand";
+import {
+  BatchGetDataQualityResultCommandInput,
+  BatchGetDataQualityResultCommandOutput,
+} from "./commands/BatchGetDataQualityResultCommand";
+import {
   BatchGetDevEndpointsCommandInput,
   BatchGetDevEndpointsCommandOutput,
 } from "./commands/BatchGetDevEndpointsCommand";
@@ -83,7 +90,16 @@ import {
   BatchUpdatePartitionCommandInput,
   BatchUpdatePartitionCommandOutput,
 } from "./commands/BatchUpdatePartitionCommand";
+import {
+  CancelDataQualityRuleRecommendationRunCommandInput,
+  CancelDataQualityRuleRecommendationRunCommandOutput,
+} from "./commands/CancelDataQualityRuleRecommendationRunCommand";
+import {
+  CancelDataQualityRulesetEvaluationRunCommandInput,
+  CancelDataQualityRulesetEvaluationRunCommandOutput,
+} from "./commands/CancelDataQualityRulesetEvaluationRunCommand";
 import { CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput } from "./commands/CancelMLTaskRunCommand";
+import { CancelStatementCommandInput, CancelStatementCommandOutput } from "./commands/CancelStatementCommand";
 import {
   CheckSchemaVersionValidityCommandInput,
   CheckSchemaVersionValidityCommandOutput,
@@ -92,7 +108,15 @@ import { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "./com
 import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "./commands/CreateClassifierCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
 import { CreateCrawlerCommandInput, CreateCrawlerCommandOutput } from "./commands/CreateCrawlerCommand";
+import {
+  CreateCustomEntityTypeCommandInput,
+  CreateCustomEntityTypeCommandOutput,
+} from "./commands/CreateCustomEntityTypeCommand";
 import { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "./commands/CreateDatabaseCommand";
+import {
+  CreateDataQualityRulesetCommandInput,
+  CreateDataQualityRulesetCommandOutput,
+} from "./commands/CreateDataQualityRulesetCommand";
 import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from "./commands/CreateDevEndpointCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { CreateMLTransformCommandInput, CreateMLTransformCommandOutput } from "./commands/CreateMLTransformCommand";
@@ -108,6 +132,7 @@ import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
+import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
 import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "./commands/CreateTriggerCommand";
 import {
@@ -127,7 +152,15 @@ import {
 } from "./commands/DeleteColumnStatisticsForTableCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
 import { DeleteCrawlerCommandInput, DeleteCrawlerCommandOutput } from "./commands/DeleteCrawlerCommand";
+import {
+  DeleteCustomEntityTypeCommandInput,
+  DeleteCustomEntityTypeCommandOutput,
+} from "./commands/DeleteCustomEntityTypeCommand";
 import { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand";
+import {
+  DeleteDataQualityRulesetCommandInput,
+  DeleteDataQualityRulesetCommandOutput,
+} from "./commands/DeleteDataQualityRulesetCommand";
 import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from "./commands/DeleteDevEndpointCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import { DeleteMLTransformCommandInput, DeleteMLTransformCommandOutput } from "./commands/DeleteMLTransformCommand";
@@ -150,6 +183,7 @@ import {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand";
+import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import { DeleteTableVersionCommandInput, DeleteTableVersionCommandOutput } from "./commands/DeleteTableVersionCommand";
 import { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "./commands/DeleteTriggerCommand";
@@ -180,6 +214,10 @@ import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./comma
 import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "./commands/GetCrawlerCommand";
 import { GetCrawlerMetricsCommandInput, GetCrawlerMetricsCommandOutput } from "./commands/GetCrawlerMetricsCommand";
 import { GetCrawlersCommandInput, GetCrawlersCommandOutput } from "./commands/GetCrawlersCommand";
+import {
+  GetCustomEntityTypeCommandInput,
+  GetCustomEntityTypeCommandOutput,
+} from "./commands/GetCustomEntityTypeCommand";
 import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import { GetDatabasesCommandInput, GetDatabasesCommandOutput } from "./commands/GetDatabasesCommand";
 import {
@@ -187,6 +225,22 @@ import {
   GetDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/GetDataCatalogEncryptionSettingsCommand";
 import { GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput } from "./commands/GetDataflowGraphCommand";
+import {
+  GetDataQualityResultCommandInput,
+  GetDataQualityResultCommandOutput,
+} from "./commands/GetDataQualityResultCommand";
+import {
+  GetDataQualityRuleRecommendationRunCommandInput,
+  GetDataQualityRuleRecommendationRunCommandOutput,
+} from "./commands/GetDataQualityRuleRecommendationRunCommand";
+import {
+  GetDataQualityRulesetCommandInput,
+  GetDataQualityRulesetCommandOutput,
+} from "./commands/GetDataQualityRulesetCommand";
+import {
+  GetDataQualityRulesetEvaluationRunCommandInput,
+  GetDataQualityRulesetEvaluationRunCommandOutput,
+} from "./commands/GetDataQualityRulesetEvaluationRunCommand";
 import { GetDevEndpointCommandInput, GetDevEndpointCommandOutput } from "./commands/GetDevEndpointCommand";
 import { GetDevEndpointsCommandInput, GetDevEndpointsCommandOutput } from "./commands/GetDevEndpointsCommand";
 import { GetJobBookmarkCommandInput, GetJobBookmarkCommandOutput } from "./commands/GetJobBookmarkCommand";
@@ -230,6 +284,8 @@ import {
   GetSecurityConfigurationsCommandInput,
   GetSecurityConfigurationsCommandOutput,
 } from "./commands/GetSecurityConfigurationsCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { GetStatementCommandInput, GetStatementCommandOutput } from "./commands/GetStatementCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import { GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
 import { GetTableVersionCommandInput, GetTableVersionCommandOutput } from "./commands/GetTableVersionCommand";
@@ -270,12 +326,35 @@ import {
 } from "./commands/ImportCatalogToGlueCommand";
 import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
 import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "./commands/ListCrawlersCommand";
+import { ListCrawlsCommandInput, ListCrawlsCommandOutput } from "./commands/ListCrawlsCommand";
+import {
+  ListCustomEntityTypesCommandInput,
+  ListCustomEntityTypesCommandOutput,
+} from "./commands/ListCustomEntityTypesCommand";
+import {
+  ListDataQualityResultsCommandInput,
+  ListDataQualityResultsCommandOutput,
+} from "./commands/ListDataQualityResultsCommand";
+import {
+  ListDataQualityRuleRecommendationRunsCommandInput,
+  ListDataQualityRuleRecommendationRunsCommandOutput,
+} from "./commands/ListDataQualityRuleRecommendationRunsCommand";
+import {
+  ListDataQualityRulesetEvaluationRunsCommandInput,
+  ListDataQualityRulesetEvaluationRunsCommandOutput,
+} from "./commands/ListDataQualityRulesetEvaluationRunsCommand";
+import {
+  ListDataQualityRulesetsCommandInput,
+  ListDataQualityRulesetsCommandOutput,
+} from "./commands/ListDataQualityRulesetsCommand";
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand";
 import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand";
+import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import { ListStatementsCommandInput, ListStatementsCommandOutput } from "./commands/ListStatementsCommand";
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import {
@@ -305,6 +384,7 @@ import {
 } from "./commands/RemoveSchemaVersionMetadataCommand";
 import { ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput } from "./commands/ResetJobBookmarkCommand";
 import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from "./commands/ResumeWorkflowRunCommand";
+import { RunStatementCommandInput, RunStatementCommandOutput } from "./commands/RunStatementCommand";
 import { SearchTablesCommandInput, SearchTablesCommandOutput } from "./commands/SearchTablesCommand";
 import { StartBlueprintRunCommandInput, StartBlueprintRunCommandOutput } from "./commands/StartBlueprintRunCommand";
 import { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "./commands/StartCrawlerCommand";
@@ -312,6 +392,14 @@ import {
   StartCrawlerScheduleCommandInput,
   StartCrawlerScheduleCommandOutput,
 } from "./commands/StartCrawlerScheduleCommand";
+import {
+  StartDataQualityRuleRecommendationRunCommandInput,
+  StartDataQualityRuleRecommendationRunCommandOutput,
+} from "./commands/StartDataQualityRuleRecommendationRunCommand";
+import {
+  StartDataQualityRulesetEvaluationRunCommandInput,
+  StartDataQualityRulesetEvaluationRunCommandOutput,
+} from "./commands/StartDataQualityRulesetEvaluationRunCommand";
 import {
   StartExportLabelsTaskRunCommandInput,
   StartExportLabelsTaskRunCommandOutput,
@@ -336,6 +424,7 @@ import {
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand";
+import { StopSessionCommandInput, StopSessionCommandOutput } from "./commands/StopSessionCommand";
 import { StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
 import { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "./commands/StopWorkflowRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -357,12 +446,24 @@ import {
   UpdateCrawlerScheduleCommandOutput,
 } from "./commands/UpdateCrawlerScheduleCommand";
 import { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "./commands/UpdateDatabaseCommand";
+import {
+  UpdateDataQualityRulesetCommandInput,
+  UpdateDataQualityRulesetCommandOutput,
+} from "./commands/UpdateDataQualityRulesetCommand";
 import { UpdateDevEndpointCommandInput, UpdateDevEndpointCommandOutput } from "./commands/UpdateDevEndpointCommand";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
+import {
+  UpdateJobFromSourceControlCommandInput,
+  UpdateJobFromSourceControlCommandOutput,
+} from "./commands/UpdateJobFromSourceControlCommand";
 import { UpdateMLTransformCommandInput, UpdateMLTransformCommandOutput } from "./commands/UpdateMLTransformCommand";
 import { UpdatePartitionCommandInput, UpdatePartitionCommandOutput } from "./commands/UpdatePartitionCommand";
 import { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "./commands/UpdateRegistryCommand";
 import { UpdateSchemaCommandInput, UpdateSchemaCommandOutput } from "./commands/UpdateSchemaCommand";
+import {
+  UpdateSourceControlFromJobCommandInput,
+  UpdateSourceControlFromJobCommandOutput,
+} from "./commands/UpdateSourceControlFromJobCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "./commands/UpdateTriggerCommand";
 import {
@@ -370,8 +471,20 @@ import {
   UpdateUserDefinedFunctionCommandOutput,
 } from "./commands/UpdateUserDefinedFunctionCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchCreatePartitionCommandInput
   | BatchDeleteConnectionCommandInput
@@ -380,6 +493,8 @@ export type ServiceInputTypes =
   | BatchDeleteTableVersionCommandInput
   | BatchGetBlueprintsCommandInput
   | BatchGetCrawlersCommandInput
+  | BatchGetCustomEntityTypesCommandInput
+  | BatchGetDataQualityResultCommandInput
   | BatchGetDevEndpointsCommandInput
   | BatchGetJobsCommandInput
   | BatchGetPartitionCommandInput
@@ -387,12 +502,17 @@ export type ServiceInputTypes =
   | BatchGetWorkflowsCommandInput
   | BatchStopJobRunCommandInput
   | BatchUpdatePartitionCommandInput
+  | CancelDataQualityRuleRecommendationRunCommandInput
+  | CancelDataQualityRulesetEvaluationRunCommandInput
   | CancelMLTaskRunCommandInput
+  | CancelStatementCommandInput
   | CheckSchemaVersionValidityCommandInput
   | CreateBlueprintCommandInput
   | CreateClassifierCommandInput
   | CreateConnectionCommandInput
   | CreateCrawlerCommandInput
+  | CreateCustomEntityTypeCommandInput
+  | CreateDataQualityRulesetCommandInput
   | CreateDatabaseCommandInput
   | CreateDevEndpointCommandInput
   | CreateJobCommandInput
@@ -403,6 +523,7 @@ export type ServiceInputTypes =
   | CreateSchemaCommandInput
   | CreateScriptCommandInput
   | CreateSecurityConfigurationCommandInput
+  | CreateSessionCommandInput
   | CreateTableCommandInput
   | CreateTriggerCommandInput
   | CreateUserDefinedFunctionCommandInput
@@ -413,6 +534,8 @@ export type ServiceInputTypes =
   | DeleteColumnStatisticsForTableCommandInput
   | DeleteConnectionCommandInput
   | DeleteCrawlerCommandInput
+  | DeleteCustomEntityTypeCommandInput
+  | DeleteDataQualityRulesetCommandInput
   | DeleteDatabaseCommandInput
   | DeleteDevEndpointCommandInput
   | DeleteJobCommandInput
@@ -424,6 +547,7 @@ export type ServiceInputTypes =
   | DeleteSchemaCommandInput
   | DeleteSchemaVersionsCommandInput
   | DeleteSecurityConfigurationCommandInput
+  | DeleteSessionCommandInput
   | DeleteTableCommandInput
   | DeleteTableVersionCommandInput
   | DeleteTriggerCommandInput
@@ -442,7 +566,12 @@ export type ServiceInputTypes =
   | GetCrawlerCommandInput
   | GetCrawlerMetricsCommandInput
   | GetCrawlersCommandInput
+  | GetCustomEntityTypeCommandInput
   | GetDataCatalogEncryptionSettingsCommandInput
+  | GetDataQualityResultCommandInput
+  | GetDataQualityRuleRecommendationRunCommandInput
+  | GetDataQualityRulesetCommandInput
+  | GetDataQualityRulesetEvaluationRunCommandInput
   | GetDatabaseCommandInput
   | GetDatabasesCommandInput
   | GetDataflowGraphCommandInput
@@ -471,6 +600,8 @@ export type ServiceInputTypes =
   | GetSchemaVersionsDiffCommandInput
   | GetSecurityConfigurationCommandInput
   | GetSecurityConfigurationsCommandInput
+  | GetSessionCommandInput
+  | GetStatementCommandInput
   | GetTableCommandInput
   | GetTableVersionCommandInput
   | GetTableVersionsCommandInput
@@ -490,12 +621,20 @@ export type ServiceInputTypes =
   | ImportCatalogToGlueCommandInput
   | ListBlueprintsCommandInput
   | ListCrawlersCommandInput
+  | ListCrawlsCommandInput
+  | ListCustomEntityTypesCommandInput
+  | ListDataQualityResultsCommandInput
+  | ListDataQualityRuleRecommendationRunsCommandInput
+  | ListDataQualityRulesetEvaluationRunsCommandInput
+  | ListDataQualityRulesetsCommandInput
   | ListDevEndpointsCommandInput
   | ListJobsCommandInput
   | ListMLTransformsCommandInput
   | ListRegistriesCommandInput
   | ListSchemaVersionsCommandInput
   | ListSchemasCommandInput
+  | ListSessionsCommandInput
+  | ListStatementsCommandInput
   | ListTriggersCommandInput
   | ListWorkflowsCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
@@ -507,10 +646,13 @@ export type ServiceInputTypes =
   | RemoveSchemaVersionMetadataCommandInput
   | ResetJobBookmarkCommandInput
   | ResumeWorkflowRunCommandInput
+  | RunStatementCommandInput
   | SearchTablesCommandInput
   | StartBlueprintRunCommandInput
   | StartCrawlerCommandInput
   | StartCrawlerScheduleCommandInput
+  | StartDataQualityRuleRecommendationRunCommandInput
+  | StartDataQualityRulesetEvaluationRunCommandInput
   | StartExportLabelsTaskRunCommandInput
   | StartImportLabelsTaskRunCommandInput
   | StartJobRunCommandInput
@@ -520,6 +662,7 @@ export type ServiceInputTypes =
   | StartWorkflowRunCommandInput
   | StopCrawlerCommandInput
   | StopCrawlerScheduleCommandInput
+  | StopSessionCommandInput
   | StopTriggerCommandInput
   | StopWorkflowRunCommandInput
   | TagResourceCommandInput
@@ -531,18 +674,24 @@ export type ServiceInputTypes =
   | UpdateConnectionCommandInput
   | UpdateCrawlerCommandInput
   | UpdateCrawlerScheduleCommandInput
+  | UpdateDataQualityRulesetCommandInput
   | UpdateDatabaseCommandInput
   | UpdateDevEndpointCommandInput
   | UpdateJobCommandInput
+  | UpdateJobFromSourceControlCommandInput
   | UpdateMLTransformCommandInput
   | UpdatePartitionCommandInput
   | UpdateRegistryCommandInput
   | UpdateSchemaCommandInput
+  | UpdateSourceControlFromJobCommandInput
   | UpdateTableCommandInput
   | UpdateTriggerCommandInput
   | UpdateUserDefinedFunctionCommandInput
   | UpdateWorkflowCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchCreatePartitionCommandOutput
   | BatchDeleteConnectionCommandOutput
@@ -551,6 +700,8 @@ export type ServiceOutputTypes =
   | BatchDeleteTableVersionCommandOutput
   | BatchGetBlueprintsCommandOutput
   | BatchGetCrawlersCommandOutput
+  | BatchGetCustomEntityTypesCommandOutput
+  | BatchGetDataQualityResultCommandOutput
   | BatchGetDevEndpointsCommandOutput
   | BatchGetJobsCommandOutput
   | BatchGetPartitionCommandOutput
@@ -558,12 +709,17 @@ export type ServiceOutputTypes =
   | BatchGetWorkflowsCommandOutput
   | BatchStopJobRunCommandOutput
   | BatchUpdatePartitionCommandOutput
+  | CancelDataQualityRuleRecommendationRunCommandOutput
+  | CancelDataQualityRulesetEvaluationRunCommandOutput
   | CancelMLTaskRunCommandOutput
+  | CancelStatementCommandOutput
   | CheckSchemaVersionValidityCommandOutput
   | CreateBlueprintCommandOutput
   | CreateClassifierCommandOutput
   | CreateConnectionCommandOutput
   | CreateCrawlerCommandOutput
+  | CreateCustomEntityTypeCommandOutput
+  | CreateDataQualityRulesetCommandOutput
   | CreateDatabaseCommandOutput
   | CreateDevEndpointCommandOutput
   | CreateJobCommandOutput
@@ -574,6 +730,7 @@ export type ServiceOutputTypes =
   | CreateSchemaCommandOutput
   | CreateScriptCommandOutput
   | CreateSecurityConfigurationCommandOutput
+  | CreateSessionCommandOutput
   | CreateTableCommandOutput
   | CreateTriggerCommandOutput
   | CreateUserDefinedFunctionCommandOutput
@@ -584,6 +741,8 @@ export type ServiceOutputTypes =
   | DeleteColumnStatisticsForTableCommandOutput
   | DeleteConnectionCommandOutput
   | DeleteCrawlerCommandOutput
+  | DeleteCustomEntityTypeCommandOutput
+  | DeleteDataQualityRulesetCommandOutput
   | DeleteDatabaseCommandOutput
   | DeleteDevEndpointCommandOutput
   | DeleteJobCommandOutput
@@ -595,6 +754,7 @@ export type ServiceOutputTypes =
   | DeleteSchemaCommandOutput
   | DeleteSchemaVersionsCommandOutput
   | DeleteSecurityConfigurationCommandOutput
+  | DeleteSessionCommandOutput
   | DeleteTableCommandOutput
   | DeleteTableVersionCommandOutput
   | DeleteTriggerCommandOutput
@@ -613,7 +773,12 @@ export type ServiceOutputTypes =
   | GetCrawlerCommandOutput
   | GetCrawlerMetricsCommandOutput
   | GetCrawlersCommandOutput
+  | GetCustomEntityTypeCommandOutput
   | GetDataCatalogEncryptionSettingsCommandOutput
+  | GetDataQualityResultCommandOutput
+  | GetDataQualityRuleRecommendationRunCommandOutput
+  | GetDataQualityRulesetCommandOutput
+  | GetDataQualityRulesetEvaluationRunCommandOutput
   | GetDatabaseCommandOutput
   | GetDatabasesCommandOutput
   | GetDataflowGraphCommandOutput
@@ -642,6 +807,8 @@ export type ServiceOutputTypes =
   | GetSchemaVersionsDiffCommandOutput
   | GetSecurityConfigurationCommandOutput
   | GetSecurityConfigurationsCommandOutput
+  | GetSessionCommandOutput
+  | GetStatementCommandOutput
   | GetTableCommandOutput
   | GetTableVersionCommandOutput
   | GetTableVersionsCommandOutput
@@ -661,12 +828,20 @@ export type ServiceOutputTypes =
   | ImportCatalogToGlueCommandOutput
   | ListBlueprintsCommandOutput
   | ListCrawlersCommandOutput
+  | ListCrawlsCommandOutput
+  | ListCustomEntityTypesCommandOutput
+  | ListDataQualityResultsCommandOutput
+  | ListDataQualityRuleRecommendationRunsCommandOutput
+  | ListDataQualityRulesetEvaluationRunsCommandOutput
+  | ListDataQualityRulesetsCommandOutput
   | ListDevEndpointsCommandOutput
   | ListJobsCommandOutput
   | ListMLTransformsCommandOutput
   | ListRegistriesCommandOutput
   | ListSchemaVersionsCommandOutput
   | ListSchemasCommandOutput
+  | ListSessionsCommandOutput
+  | ListStatementsCommandOutput
   | ListTriggersCommandOutput
   | ListWorkflowsCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
@@ -678,10 +853,13 @@ export type ServiceOutputTypes =
   | RemoveSchemaVersionMetadataCommandOutput
   | ResetJobBookmarkCommandOutput
   | ResumeWorkflowRunCommandOutput
+  | RunStatementCommandOutput
   | SearchTablesCommandOutput
   | StartBlueprintRunCommandOutput
   | StartCrawlerCommandOutput
   | StartCrawlerScheduleCommandOutput
+  | StartDataQualityRuleRecommendationRunCommandOutput
+  | StartDataQualityRulesetEvaluationRunCommandOutput
   | StartExportLabelsTaskRunCommandOutput
   | StartImportLabelsTaskRunCommandOutput
   | StartJobRunCommandOutput
@@ -691,6 +869,7 @@ export type ServiceOutputTypes =
   | StartWorkflowRunCommandOutput
   | StopCrawlerCommandOutput
   | StopCrawlerScheduleCommandOutput
+  | StopSessionCommandOutput
   | StopTriggerCommandOutput
   | StopWorkflowRunCommandOutput
   | TagResourceCommandOutput
@@ -702,18 +881,24 @@ export type ServiceOutputTypes =
   | UpdateConnectionCommandOutput
   | UpdateCrawlerCommandOutput
   | UpdateCrawlerScheduleCommandOutput
+  | UpdateDataQualityRulesetCommandOutput
   | UpdateDatabaseCommandOutput
   | UpdateDevEndpointCommandOutput
   | UpdateJobCommandOutput
+  | UpdateJobFromSourceControlCommandOutput
   | UpdateMLTransformCommandOutput
   | UpdatePartitionCommandOutput
   | UpdateRegistryCommandOutput
   | UpdateSchemaCommandOutput
+  | UpdateSourceControlFromJobCommandOutput
   | UpdateTableCommandOutput
   | UpdateTriggerCommandOutput
   | UpdateUserDefinedFunctionCommandOutput
   | UpdateWorkflowCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -721,11 +906,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -776,10 +961,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -797,77 +1015,57 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type GlueClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type GlueClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of GlueClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of GlueClient class constructor that set the region, credentials and other options.
  */
 export interface GlueClientConfig extends GlueClientConfigType {}
 
-type GlueClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type GlueClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of GlueClient class. This is resolved and normalized from the {@link GlueClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of GlueClient class. This is resolved and normalized from the {@link GlueClientConfig | constructor configuration interface}.
  */
 export interface GlueClientResolvedConfig extends GlueClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Glue</fullname>
  *          <p>Defines the public endpoint for the Glue service.</p>
  */
@@ -882,20 +1080,23 @@ export class GlueClient extends __Client<
    */
   readonly config: GlueClientResolvedConfig;
 
-  constructor(configuration: GlueClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<GlueClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

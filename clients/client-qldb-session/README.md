@@ -1,7 +1,6 @@
-# @aws-sdk/client-qldb-session
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-qldb-session/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-qldb-session)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-qldb-session.svg)](https://www.npmjs.com/package/@aws-sdk/client-qldb-session)
+# @aws-sdk/client-qldb-session
 
 ## Description
 
@@ -135,7 +134,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -169,7 +168,7 @@ client
 
 // callbacks.
 client.sendCommand(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -183,7 +182,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -221,3 +220,14 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+SendCommand
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-qldb-session/classes/sendcommandcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-qldb-session/interfaces/sendcommandcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-qldb-session/interfaces/sendcommandcommandoutput.html)
+
+</details>

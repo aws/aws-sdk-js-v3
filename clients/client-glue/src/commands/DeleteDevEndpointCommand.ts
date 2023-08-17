@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteDevEndpointRequest, DeleteDevEndpointResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDevEndpointCommand,
-  serializeAws_json1_1DeleteDevEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDevEndpointRequest, DeleteDevEndpointResponse } from "../models/models_1";
+import { de_DeleteDevEndpointCommand, se_DeleteDevEndpointCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteDevEndpointCommand}.
+ */
 export interface DeleteDevEndpointCommandInput extends DeleteDevEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDevEndpointCommand}.
+ */
 export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified development endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,35 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  * import { GlueClient, DeleteDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteDevEndpointRequest
+ *   EndpointName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDevEndpointCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteDevEndpointCommandInput - {@link DeleteDevEndpointCommandInput}
+ * @returns {@link DeleteDevEndpointCommandOutput}
  * @see {@link DeleteDevEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDevEndpointCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteDevEndpointCommand extends $Command<
@@ -46,6 +82,18 @@ export class DeleteDevEndpointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDevEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +109,9 @@ export class DeleteDevEndpointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteDevEndpointCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +122,8 @@ export class DeleteDevEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDevEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDevEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +133,18 @@ export class DeleteDevEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDevEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDevEndpointCommand(input, context);
+    return se_DeleteDevEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDevEndpointCommandOutput> {
-    return deserializeAws_json1_1DeleteDevEndpointCommand(output, context);
+    return de_DeleteDevEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

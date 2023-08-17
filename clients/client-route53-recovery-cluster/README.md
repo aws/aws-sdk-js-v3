@@ -1,49 +1,49 @@
-# @aws-sdk/client-route53-recovery-cluster
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-route53-recovery-cluster/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-route53-recovery-cluster)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-route53-recovery-cluster.svg)](https://www.npmjs.com/package/@aws-sdk/client-route53-recovery-cluster)
+# @aws-sdk/client-route53-recovery-cluster
 
 ## Description
 
 AWS SDK for JavaScript Route53RecoveryCluster Client for Node.js, Browser and React Native.
 
 <p>Welcome to the Routing Control (Recovery Cluster) API Reference Guide for Amazon Route 53 Application Recovery Controller.</p>
-<p>With Amazon Route 53 Application Recovery Controller, you can use routing control with extreme reliability to
+<p>With Route 53 ARC, you can use routing control with extreme reliability to
 recover applications by rerouting traffic across
-Availability Zones or AWS Regions. Routing controls are simple on/off switches hosted
-on a highly available cluster in Application Recovery Controller. A cluster provides a set of five redundant Regional endpoints against which you
+Availability Zones or Amazon Web Services Regions. Routing controls are simple on/off switches hosted
+on a highly available cluster in Route 53 ARC. A cluster provides a set of five redundant Regional endpoints against which you
 can run API calls to get or update the state of routing controls. To implement failover, you set
-one routing control on and another one off, to reroute traffic from one Availability Zone or Amazon Web Services Region
+one routing control On and another one Off, to reroute traffic from one Availability Zone or Amazon Web Services Region
 to another. </p>
 <p>
-<i>Be aware that you must specify the Regional endpoints for a cluster when you work with API cluster operations
-to get or update routing control states in Application Recovery Controller.</i> In addition, you must specify the US West (Oregon) Region
-for Application Recovery Controller API calls. For example, use the parameter <code>region us-west-2</code> with AWS CLI commands.
+<i>Be aware that you must specify a Regional endpoint for a cluster when you work with API cluster operations
+to get or update routing control states in Route 53 ARC.</i> In addition, you must specify the US West (Oregon) Region
+for Route 53 ARC API calls. For example, use the parameter <code>--region us-west-2</code> with AWS CLI commands.
 For more information, see
 <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.api.html">
 Get and update routing control states using the API</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
 <p>This API guide includes information about the API operations for how to get and update routing control states
-in Application Recovery Controller. You also must set up the structures to support routing controls: clusters and control panels.</p>
-<p>For more information about working with routing control in Application Recovery Controller, see the following:</p>
+in Route 53 ARC. To work with routing control in Route 53 ARC, you must first create the required components (clusters, control
+panels, and routing controls) using the recovery cluster configuration API.</p>
+<p>For more information about working with routing control in Route 53 ARC, see the following:</p>
 <ul>
 <li>
-<p>To create clusters, routing controls, and control panels by using the control plane API
-for routing control, see the <a href="https://docs.aws.amazon.com/recovery-cluster/latest/api/">Recovery Control Configuration API Reference Guide for Amazon Route 53 Application Recovery Controller</a>.</p>
+<p>Create clusters, control panels, and routing controls by using API operations. For more information,
+see the <a href="https://docs.aws.amazon.com/recovery-cluster/latest/api/">Recovery Control Configuration API Reference Guide for Amazon Route 53 Application Recovery Controller</a>.</p>
 </li>
 <li>
-<p>Learn about the components in recovery control configuration, including clusters,
-routing controls, and control panels. For more information, see
-<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/introduction-components.html#introduction-components-routing">
+<p>Learn about the components in recovery control, including clusters,
+routing controls, and control panels, and how to work with Route 53 ARC in the Amazon Web Services console. For more
+information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/introduction-components.html#introduction-components-routing">
 Recovery control components</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
 </li>
 <li>
-<p>Application Recovery Controller also provides readiness checks that run continually to help make sure that your
+<p>Route 53 ARC also provides readiness checks that continually audit resources to help make sure that your
 applications are scaled and ready to handle failover traffic. For more information about
-the related API actions, see the <a href="https://docs.aws.amazon.com/recovery-readiness/latest/api/">Recovery Readiness API Reference Guide for Amazon Route 53 Application Recovery Controller</a>.</p>
+the related API operations, see the <a href="https://docs.aws.amazon.com/recovery-readiness/latest/api/">Recovery Readiness API Reference Guide for Amazon Route 53 Application Recovery Controller</a>.</p>
 </li>
 <li>
 <p>For more information about creating resilient applications and preparing for
-recovery readiness with Application Recovery Controller, see the <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/">Amazon Route 53 Application Recovery Controller Developer Guide</a>.</p>
+recovery readiness with Route 53 ARC, see the <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/">Amazon Route 53 Application Recovery Controller Developer Guide</a>.</p>
 </li>
 </ul>
 
@@ -156,7 +156,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -190,7 +190,7 @@ client
 
 // callbacks.
 client.getRoutingControlState(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -204,7 +204,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -242,3 +242,38 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+GetRoutingControlState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/classes/getroutingcontrolstatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/getroutingcontrolstatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/getroutingcontrolstatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRoutingControls
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/classes/listroutingcontrolscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/listroutingcontrolscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/listroutingcontrolscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateRoutingControlState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/classes/updateroutingcontrolstatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/updateroutingcontrolstatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/updateroutingcontrolstatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateRoutingControlStates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/classes/updateroutingcontrolstatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/updateroutingcontrolstatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/updateroutingcontrolstatescommandoutput.html)
+
+</details>

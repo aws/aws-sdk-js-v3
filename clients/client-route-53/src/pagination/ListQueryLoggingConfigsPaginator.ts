@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListQueryLoggingConfigsCommand,
   ListQueryLoggingConfigsCommandInput,
   ListQueryLoggingConfigsCommandOutput,
 } from "../commands/ListQueryLoggingConfigsCommand";
-import { Route53 } from "../Route53";
 import { Route53Client } from "../Route53Client";
 import { Route53PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Route53Client,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListQueryLoggingConfigsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Route53,
-  input: ListQueryLoggingConfigsCommandInput,
-  ...args: any
-): Promise<ListQueryLoggingConfigsCommandOutput> => {
-  // @ts-ignore
-  return await client.listQueryLoggingConfigs(input, ...args);
-};
 export async function* paginateListQueryLoggingConfigs(
   config: Route53PaginationConfiguration,
   input: ListQueryLoggingConfigsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListQueryLoggingConfigs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Route53) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Route53Client) {
+    if (config.client instanceof Route53Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Route53 | Route53Client");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

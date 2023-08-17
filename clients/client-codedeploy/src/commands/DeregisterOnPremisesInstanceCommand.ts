@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { DeregisterOnPremisesInstanceInput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeregisterOnPremisesInstanceCommand,
-  serializeAws_json1_1DeregisterOnPremisesInstanceCommand,
+  de_DeregisterOnPremisesInstanceCommand,
+  se_DeregisterOnPremisesInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeregisterOnPremisesInstanceCommand}.
+ */
 export interface DeregisterOnPremisesInstanceCommandInput extends DeregisterOnPremisesInstanceInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterOnPremisesInstanceCommand}.
+ */
 export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an on-premises instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +46,29 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * import { CodeDeployClient, DeregisterOnPremisesInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeregisterOnPremisesInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // DeregisterOnPremisesInstanceInput
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterOnPremisesInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeregisterOnPremisesInstanceCommandInput - {@link DeregisterOnPremisesInstanceCommandInput}
+ * @returns {@link DeregisterOnPremisesInstanceCommandOutput}
  * @see {@link DeregisterOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link InstanceNameRequiredException} (client fault)
+ *  <p>An on-premises instance name was not specified.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeregisterOnPremisesInstanceCommand extends $Command<
@@ -46,6 +79,18 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterOnPremisesInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +106,9 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeregisterOnPremisesInstanceCommandInput, DeregisterOnPremisesInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeregisterOnPremisesInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +119,8 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterOnPremisesInstanceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +130,21 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterOnPremisesInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterOnPremisesInstanceCommand(input, context);
+    return se_DeregisterOnPremisesInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterOnPremisesInstanceCommandOutput> {
-    return deserializeAws_json1_1DeregisterOnPremisesInstanceCommand(output, context);
+    return de_DeregisterOnPremisesInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

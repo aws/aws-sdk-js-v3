@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { CreateWebhookInput, CreateWebhookOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWebhookCommand,
-  serializeAws_json1_1CreateWebhookCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWebhookCommand, se_CreateWebhookCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateWebhookCommand}.
+ */
 export interface CreateWebhookCommandInput extends CreateWebhookInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateWebhookCommand}.
+ */
 export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
  *       Bitbucket repository, enables CodeBuild to start rebuilding the source code every time a
  *       code change is pushed to the repository.</p>
@@ -39,13 +53,65 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * import { CodeBuildClient, CreateWebhookCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, CreateWebhookCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // CreateWebhookInput
+ *   projectName: "STRING_VALUE", // required
+ *   branchFilter: "STRING_VALUE",
+ *   filterGroups: [ // FilterGroups
+ *     [ // FilterGroup
+ *       { // WebhookFilter
+ *         type: "STRING_VALUE", // required
+ *         pattern: "STRING_VALUE", // required
+ *         excludeMatchedPattern: true || false,
+ *       },
+ *     ],
+ *   ],
+ *   buildType: "STRING_VALUE",
+ * };
  * const command = new CreateWebhookCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWebhookOutput
+ * //   webhook: { // Webhook
+ * //     url: "STRING_VALUE",
+ * //     payloadUrl: "STRING_VALUE",
+ * //     secret: "STRING_VALUE",
+ * //     branchFilter: "STRING_VALUE",
+ * //     filterGroups: [ // FilterGroups
+ * //       [ // FilterGroup
+ * //         { // WebhookFilter
+ * //           type: "STRING_VALUE", // required
+ * //           pattern: "STRING_VALUE", // required
+ * //           excludeMatchedPattern: true || false,
+ * //         },
+ * //       ],
+ * //     ],
+ * //     buildType: "STRING_VALUE",
+ * //     lastModifiedSecret: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param CreateWebhookCommandInput - {@link CreateWebhookCommandInput}
+ * @returns {@link CreateWebhookCommandOutput}
  * @see {@link CreateWebhookCommandInput} for command's `input` shape.
  * @see {@link CreateWebhookCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link OAuthProviderException} (client fault)
+ *  <p>There was a problem with the underlying OAuth provider.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
+ *             settings already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class CreateWebhookCommand extends $Command<
@@ -56,6 +122,18 @@ export class CreateWebhookCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +149,7 @@ export class CreateWebhookCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateWebhookCommandInput, CreateWebhookCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateWebhookCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +160,8 @@ export class CreateWebhookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWebhookInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateWebhookOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +171,18 @@ export class CreateWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWebhookCommand(input, context);
+    return se_CreateWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebhookCommandOutput> {
-    return deserializeAws_json1_1CreateWebhookCommand(output, context);
+    return de_CreateWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

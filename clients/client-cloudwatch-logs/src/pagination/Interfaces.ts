@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { CloudWatchLogs } from "../CloudWatchLogs";
 import { CloudWatchLogsClient } from "../CloudWatchLogsClient";
 
+/**
+ * @public
+ */
 export interface CloudWatchLogsPaginationConfiguration extends PaginationConfiguration {
-  client: CloudWatchLogs | CloudWatchLogsClient;
+  client: CloudWatchLogsClient;
 }

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ActivityTypeDetail, DescribeActivityTypeInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeActivityTypeCommand,
-  serializeAws_json1_0DescribeActivityTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeActivityTypeCommand, se_DescribeActivityTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeActivityTypeCommand}.
+ */
 export interface DescribeActivityTypeCommandInput extends DescribeActivityTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeActivityTypeCommand}.
+ */
 export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified activity type. This includes configuration
  *       settings provided when the type was registered and other general information about the
  *       type.</p>
@@ -67,13 +81,54 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  * import { SWFClient, DescribeActivityTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DescribeActivityTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // DescribeActivityTypeInput
+ *   domain: "STRING_VALUE", // required
+ *   activityType: { // ActivityType
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DescribeActivityTypeCommand(input);
  * const response = await client.send(command);
+ * // { // ActivityTypeDetail
+ * //   typeInfo: { // ActivityTypeInfo
+ * //     activityType: { // ActivityType
+ * //       name: "STRING_VALUE", // required
+ * //       version: "STRING_VALUE", // required
+ * //     },
+ * //     status: "REGISTERED" || "DEPRECATED", // required
+ * //     description: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"), // required
+ * //     deprecationDate: new Date("TIMESTAMP"),
+ * //   },
+ * //   configuration: { // ActivityTypeConfiguration
+ * //     defaultTaskStartToCloseTimeout: "STRING_VALUE",
+ * //     defaultTaskHeartbeatTimeout: "STRING_VALUE",
+ * //     defaultTaskList: { // TaskList
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //     defaultTaskPriority: "STRING_VALUE",
+ * //     defaultTaskScheduleToStartTimeout: "STRING_VALUE",
+ * //     defaultTaskScheduleToCloseTimeout: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeActivityTypeCommandInput - {@link DescribeActivityTypeCommandInput}
+ * @returns {@link DescribeActivityTypeCommandOutput}
  * @see {@link DescribeActivityTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class DescribeActivityTypeCommand extends $Command<
@@ -84,6 +139,18 @@ export class DescribeActivityTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActivityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,6 +166,9 @@ export class DescribeActivityTypeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeActivityTypeCommandInput, DescribeActivityTypeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeActivityTypeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -109,8 +179,8 @@ export class DescribeActivityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeActivityTypeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ActivityTypeDetail.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +190,18 @@ export class DescribeActivityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeActivityTypeCommand(input, context);
+    return se_DescribeActivityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActivityTypeCommandOutput> {
-    return deserializeAws_json1_0DescribeActivityTypeCommand(output, context);
+    return de_DescribeActivityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

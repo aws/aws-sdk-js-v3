@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1CreateDedicatedIpPoolCommand,
-  serializeAws_restJson1CreateDedicatedIpPoolCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDedicatedIpPoolCommand, se_CreateDedicatedIpPoolCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateDedicatedIpPoolCommand}.
+ */
 export interface CreateDedicatedIpPoolCommandInput extends CreateDedicatedIpPoolRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDedicatedIpPoolCommand}.
+ */
 export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new pool of dedicated IP addresses. A pool can include one or more dedicated
  *             IP addresses that are associated with your Amazon Pinpoint account. You can associate a pool with
  *             a configuration set. When you send an email that uses that configuration set, Amazon Pinpoint
@@ -32,13 +46,44 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * import { PinpointEmailClient, CreateDedicatedIpPoolCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, CreateDedicatedIpPoolCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // CreateDedicatedIpPoolRequest
+ *   PoolName: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateDedicatedIpPoolCommandInput - {@link CreateDedicatedIpPoolCommandInput}
+ * @returns {@link CreateDedicatedIpPoolCommandOutput}
  * @see {@link CreateDedicatedIpPoolCommandInput} for command's `input` shape.
  * @see {@link CreateDedicatedIpPoolCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource specified in your request already exists.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (server fault)
+ *  <p>The resource is being modified by another operation or thread.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class CreateDedicatedIpPoolCommand extends $Command<
@@ -49,6 +94,18 @@ export class CreateDedicatedIpPoolCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDedicatedIpPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +121,9 @@ export class CreateDedicatedIpPoolCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDedicatedIpPoolCommandInput, CreateDedicatedIpPoolCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDedicatedIpPoolCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +134,8 @@ export class CreateDedicatedIpPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDedicatedIpPoolRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDedicatedIpPoolResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +145,18 @@ export class CreateDedicatedIpPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDedicatedIpPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDedicatedIpPoolCommand(input, context);
+    return se_CreateDedicatedIpPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDedicatedIpPoolCommandOutput> {
-    return deserializeAws_restJson1CreateDedicatedIpPoolCommand(output, context);
+    return de_CreateDedicatedIpPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

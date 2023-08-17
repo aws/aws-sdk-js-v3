@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { ListStackSetOperationsInput, ListStackSetOperationsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryListStackSetOperationsCommand,
-  serializeAws_queryListStackSetOperationsCommand,
-} from "../protocols/Aws_query";
+import { de_ListStackSetOperationsCommand, se_ListStackSetOperationsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListStackSetOperationsCommand}.
+ */
 export interface ListStackSetOperationsCommandInput extends ListStackSetOperationsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListStackSetOperationsCommand}.
+ */
 export interface ListStackSetOperationsCommandOutput extends ListStackSetOperationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about operations performed on a stack set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,54 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
  * import { CloudFormationClient, ListStackSetOperationsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackSetOperationsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ListStackSetOperationsInput
+ *   StackSetName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new ListStackSetOperationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListStackSetOperationsOutput
+ * //   Summaries: [ // StackSetOperationSummaries
+ * //     { // StackSetOperationSummary
+ * //       OperationId: "STRING_VALUE",
+ * //       Action: "CREATE" || "UPDATE" || "DELETE" || "DETECT_DRIFT",
+ * //       Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "STOPPING" || "STOPPED" || "QUEUED",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //       EndTimestamp: new Date("TIMESTAMP"),
+ * //       StatusReason: "STRING_VALUE",
+ * //       StatusDetails: { // StackSetOperationStatusDetails
+ * //         FailedStackInstancesCount: Number("int"),
+ * //       },
+ * //       OperationPreferences: { // StackSetOperationPreferences
+ * //         RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ * //         RegionOrder: [ // RegionList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         FailureToleranceCount: Number("int"),
+ * //         FailureTolerancePercentage: Number("int"),
+ * //         MaxConcurrentCount: Number("int"),
+ * //         MaxConcurrentPercentage: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListStackSetOperationsCommandInput - {@link ListStackSetOperationsCommandInput}
+ * @returns {@link ListStackSetOperationsCommandOutput}
  * @see {@link ListStackSetOperationsCommandInput} for command's `input` shape.
  * @see {@link ListStackSetOperationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListStackSetOperationsCommand extends $Command<
@@ -46,6 +101,18 @@ export class ListStackSetOperationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListStackSetOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +128,9 @@ export class ListStackSetOperationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListStackSetOperationsCommandInput, ListStackSetOperationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListStackSetOperationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +141,8 @@ export class ListStackSetOperationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStackSetOperationsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStackSetOperationsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +152,18 @@ export class ListStackSetOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStackSetOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListStackSetOperationsCommand(input, context);
+    return se_ListStackSetOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStackSetOperationsCommandOutput> {
-    return deserializeAws_queryListStackSetOperationsCommand(output, context);
+    return de_ListStackSetOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

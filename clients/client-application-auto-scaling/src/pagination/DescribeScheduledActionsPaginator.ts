@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { ApplicationAutoScaling } from "../ApplicationAutoScaling";
 import { ApplicationAutoScalingClient } from "../ApplicationAutoScalingClient";
 import {
   DescribeScheduledActionsCommand,
@@ -10,7 +10,7 @@ import {
 import { ApplicationAutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ApplicationAutoScalingClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeScheduledActionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ApplicationAutoScaling,
-  input: DescribeScheduledActionsCommandInput,
-  ...args: any
-): Promise<DescribeScheduledActionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeScheduledActions(input, ...args);
-};
 export async function* paginateDescribeScheduledActions(
   config: ApplicationAutoScalingPaginationConfiguration,
   input: DescribeScheduledActionsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeScheduledActions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ApplicationAutoScaling) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ApplicationAutoScalingClient) {
+    if (config.client instanceof ApplicationAutoScalingClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ApplicationAutoScaling | ApplicationAutoScalingClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

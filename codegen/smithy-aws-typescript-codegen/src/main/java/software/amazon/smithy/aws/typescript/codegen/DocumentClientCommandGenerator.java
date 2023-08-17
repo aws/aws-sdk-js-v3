@@ -34,6 +34,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.typescript.codegen.ApplicationProtocol;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -53,10 +54,14 @@ final class DocumentClientCommandGenerator implements Runnable {
     private final TypeScriptWriter writer;
     private final Symbol symbol;
     private final OperationIndex operationIndex;
+    private final String originalInputTypeName;
     private final String inputTypeName;
     private final List<MemberShape> inputMembersWithAttr;
+    private final String originalOutputTypeName;
     private final String outputTypeName;
     private final List<MemberShape> outputMembersWithAttr;
+    private final String clientCommandClassName;
+    private final String clientCommandLocalName;
 
     DocumentClientCommandGenerator(
             TypeScriptSettings settings,
@@ -73,14 +78,21 @@ final class DocumentClientCommandGenerator implements Runnable {
 
         symbol = symbolProvider.toSymbol(operation);
         operationIndex = OperationIndex.of(model);
+        String inputType = symbol.expectProperty("inputType", Symbol.class).getName();
+        originalInputTypeName = inputType;
         inputTypeName = DocumentClientUtils.getModifiedName(
-            symbol.expectProperty("inputType", Symbol.class).getName()
+            inputType
         );
         inputMembersWithAttr = getStructureMembersWithAttr(operationIndex.getInput(operation));
+        String outputType = symbol.expectProperty("outputType", Symbol.class).getName();
+        originalOutputTypeName = outputType;
         outputTypeName = DocumentClientUtils.getModifiedName(
-            symbol.expectProperty("outputType", Symbol.class).getName()
+            outputType
         );
         outputMembersWithAttr = getStructureMembersWithAttr(operationIndex.getOutput(operation));
+
+        clientCommandClassName = symbol.getName();
+        clientCommandLocalName = "__" + clientCommandClassName;
     }
 
     @Override
@@ -88,39 +100,65 @@ final class DocumentClientCommandGenerator implements Runnable {
         String servicePath = Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString();
         String configType = DocumentClientUtils.CLIENT_CONFIG_NAME;
 
+
         // Add required imports.
         writer.addImport(configType, configType, servicePath);
-        writer.addImport("Command", "$Command", "@aws-sdk/smithy-client");
+        writer.addImport(
+            "DynamoDBDocumentClientCommand",
+            "DynamoDBDocumentClientCommand",
+            "./baseCommand/DynamoDBDocumentClientCommand"
+        );
+        writer.addImport("Command", "$Command", TypeScriptDependency.AWS_SMITHY_CLIENT);
+
+        writer.writeDocs("@public");
+        writer.write("export { DynamoDBDocumentClientCommand, $$Command };");
 
         generateInputAndOutputTypes();
 
-        String name = DocumentClientUtils.getModifiedName(symbol.getName());
-        writer.writeDocs(DocumentClientUtils.getCommandDocs(symbol.getName()));
-        writer.openBlock("export class $L extends $$Command<$L, $L, $L> {", "}",
-                name, inputTypeName, outputTypeName, configType, () -> {
+        String ioTypes = String.join(", ", new String[]{
+            inputTypeName,
+            outputTypeName,
+            "__" + originalInputTypeName,
+            "__" + originalOutputTypeName
+        });
 
-            // Section for adding custom command properties.
-            writer.pushState(COMMAND_PROPERTIES_SECTION);
-            if (!inputMembersWithAttr.isEmpty()) {
-                writer.openBlock("private readonly $L = [", "];", COMMAND_INPUT_KEYNODES, () -> {
+        String name = DocumentClientUtils.getModifiedName(symbol.getName());
+        writer.writeDocs(DocumentClientUtils.getCommandDocs(symbol.getName())
+            + "\n\n@public"
+        );
+        writer.openBlock(
+            "export class $L extends DynamoDBDocumentClientCommand<" + ioTypes + ", $L> {",
+            "}",
+            name,
+            configType,
+            () -> {
+                // Section for adding custom command properties.
+                writer.pushState(COMMAND_PROPERTIES_SECTION);
+                writer.openBlock("protected readonly $L = [", "];", COMMAND_INPUT_KEYNODES, () -> {
                     writeKeyNodes(inputMembersWithAttr);
                 });
-            }
-            if (!outputMembersWithAttr.isEmpty()) {
-                writer.openBlock("private readonly $L = [", "];", COMMAND_OUTPUT_KEYNODES, () -> {
+                writer.openBlock("protected readonly $L = [", "];", COMMAND_OUTPUT_KEYNODES, () -> {
                     writeKeyNodes(outputMembersWithAttr);
                 });
+                writer.popState();
+                writer.write("");
+
+                writer.write("protected readonly clientCommand: $L;", clientCommandLocalName);
+                writer.write(
+                    "public readonly middlewareStack: MiddlewareStack<$L>;",
+                    inputTypeName + " | __" + originalInputTypeName
+                        + ", \n" + outputTypeName + " | __" + originalOutputTypeName
+                );
+                writer.write("");
+
+                generateCommandConstructor();
+                writer.write("");
+                generateCommandMiddlewareResolver(configType);
+
+                // Hook for adding more methods to the command.
+                writer.pushState(COMMAND_BODY_EXTRA_SECTION).popState();
             }
-            writer.popState();
-            writer.write("");
-
-            generateCommandConstructor();
-            writer.write("");
-            generateCommandMiddlewareResolver(configType);
-
-            // Hook for adding more methods to the command.
-            writer.pushState(COMMAND_BODY_EXTRA_SECTION).popState();
-        });
+        );
     }
 
     private void generateCommandConstructor() {
@@ -128,6 +166,8 @@ final class DocumentClientCommandGenerator implements Runnable {
             // The constructor can be intercepted and changed.
             writer.pushState(COMMAND_CONSTRUCTOR_SECTION)
                     .write("super();")
+                    .write("this.clientCommand = new $L(this.input as any);", clientCommandLocalName)
+                    .write("this.middlewareStack = this.clientCommand.middlewareStack;")
                     .popState();
         });
     }
@@ -143,8 +183,8 @@ final class DocumentClientCommandGenerator implements Runnable {
         String servicePath = Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString();
         writer.addImport(serviceInputTypes, serviceInputTypes, servicePath);
         writer.addImport(serviceOutputTypes, serviceOutputTypes, servicePath);
-        writer.addImport(handler, handler, "@aws-sdk/types");
-        writer.addImport(middlewareStack, middlewareStack, "@aws-sdk/types");
+        writer.addImport(handler, handler, TypeScriptDependency.SMITHY_TYPES);
+        writer.addImport(middlewareStack, middlewareStack, TypeScriptDependency.SMITHY_TYPES);
 
         writer.write("resolveMiddleware(")
                 .indent()
@@ -153,52 +193,27 @@ final class DocumentClientCommandGenerator implements Runnable {
                 .write("options?: $T", ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType())
                 .dedent();
         writer.openBlock("): $L<$L, $L> {", "}", handler, inputTypeName, outputTypeName, () -> {
-            String marshallOptions = DocumentClientUtils.CLIENT_MARSHALL_OPTIONS;
-            String unmarshallOptions = DocumentClientUtils.CLIENT_UNMARSHALL_OPTIONS;
 
-            writer.write("const { $L, $L } = configuration.$L || {};", marshallOptions, unmarshallOptions,
-                    DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_KEY);
+            writer.addImport(clientCommandClassName, clientCommandLocalName, "@aws-sdk/client-dynamodb");
 
-            writer.addImport(symbol.getName(), "__" + symbol.getName(), "@aws-sdk/client-dynamodb");
+            String commandVarName = "this.clientCommand";
 
-            String marshallInput = "marshallInput";
-            String unmarshallOutput = "unmarshallOutput";
-            String utilsFileLocation = String.format("./%s/%s",
-                DocumentClientUtils.CLIENT_COMMANDS_FOLDER, DocumentClientUtils.CLIENT_UTILS_FILE);
-            writer.addImport(marshallInput, marshallInput, utilsFileLocation);
-            writer.addImport(unmarshallOutput, unmarshallOutput, utilsFileLocation);
+            // marshall middlewares
+            writer.openBlock("this.addMarshallingMiddleware(", ");", () -> {
+                writer.write("configuration");
+            });
 
-            String commandVarName = "command";
-            writer.openBlock("const $L = new $L(", ");", commandVarName, "__" + symbol.getName(),
-                () -> {
-                    if (inputMembersWithAttr.isEmpty()) {
-                        writer.write("this.input,");
-                    } else {
-                        writer.openBlock("$L(", ")", marshallInput, () -> {
-                            writer.write("this.input,");
-                            writer.write("this.$L,", COMMAND_INPUT_KEYNODES);
-                            writer.write("$L,", marshallOptions);
-                        });
-                    }
-                });
+            writer.write("const stack = clientStack.concat(this.middlewareStack as typeof clientStack);");
+
             String handlerVarName = "handler";
-            writer.write("const $L = $L.resolveMiddleware(clientStack, configuration, options);",
+            writer.write("const $L = $L.resolveMiddleware(stack, configuration, options);",
                 handlerVarName, commandVarName);
             writer.write("");
 
             if (outputMembersWithAttr.isEmpty()) {
                 writer.write("return $L;", handlerVarName);
             } else {
-                writer.openBlock("return async () => {", "};", () -> {
-                    String dataVarName = "data";
-                    String outputVarName = "output";
-                    writer.write("const $L = await $L($L);", dataVarName, handlerVarName, commandVarName);
-                    writer.openBlock("return {", "};", () -> {
-                        writer.write("...$L,", dataVarName);
-                        writer.write("$1L: $2L($3L.$1L, this.$4L, $5L),", outputVarName, unmarshallOutput,
-                            dataVarName, COMMAND_OUTPUT_KEYNODES, unmarshallOptions);
-                    });
-                });
+                writer.write("return async () => handler($L)", commandVarName);
             }
         });
     }
@@ -257,10 +272,8 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     private void generateInputAndOutputTypes() {
         writer.write("");
-        String originalInputTypeName = symbol.expectProperty("inputType", Symbol.class).getName();
         writeType(inputTypeName, originalInputTypeName, operationIndex.getInput(operation), inputMembersWithAttr);
         writer.write("");
-        String originalOutputTypeName = symbol.expectProperty("outputType", Symbol.class).getName();
         writeType(outputTypeName, originalOutputTypeName, operationIndex.getOutput(operation), outputMembersWithAttr);
         writer.write("");
     }
@@ -284,6 +297,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             Optional<StructureShape> optionalShape,
             List<MemberShape> membersWithAttr
     ) {
+        writer.writeDocs("@public");
         if (optionalShape.isPresent()) {
             writer.addImport(originalTypeName, "__" + originalTypeName, "@aws-sdk/client-dynamodb");
             if (membersWithAttr.isEmpty()) {
@@ -345,7 +359,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             }
         } else if (memberTarget.isMapShape()) {
             MemberShape mapMember = ((MapShape) memberTarget).getValue();
-            writer.openBlock("{ [key: string]: ", "}", () -> {
+            writer.openBlock("Record<string, ", ">", () -> {
                 writeMemberOmitType(mapMember);
             });
         } else if (memberTarget instanceof CollectionShape) {
@@ -370,7 +384,7 @@ final class DocumentClientCommandGenerator implements Runnable {
      * @param member The member being generated for.
      * @return If the interface member should be treated as required.
      *
-     * @see <a href="https://awslabs.github.io/smithy/spec/core.html#idempotencytoken-trait">Smithy idempotencyToken trait.</a>
+     * @see <a href="https://smithy.io/2.0/spec/behavior-traits.html#smithy-api-idempotencytoken-trait">Smithy idempotencyToken trait.</a>
      */
     private boolean isRequiredMember(MemberShape member) {
         return member.isRequired() && !member.hasTrait(IdempotencyTokenTrait.class);

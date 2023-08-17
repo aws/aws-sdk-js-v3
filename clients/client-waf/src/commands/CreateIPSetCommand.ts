@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateIPSetRequest, CreateIPSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateIPSetCommand,
-  serializeAws_json1_1CreateIPSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateIPSetCommand, se_CreateIPSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateIPSetCommand}.
+ */
 export interface CreateIPSetCommandInput extends CreateIPSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateIPSetCommand}.
+ */
 export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -62,13 +76,120 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * import { WAFClient, CreateIPSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateIPSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // CreateIPSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateIPSetResponse
+ * //   IPSet: { // IPSet
+ * //     IPSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     IPSetDescriptors: [ // IPSetDescriptors // required
+ * //       { // IPSetDescriptor
+ * //         Type: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateIPSetCommandInput - {@link CreateIPSetCommandInput}
+ * @returns {@link CreateIPSetCommandOutput}
  * @see {@link CreateIPSetCommandInput} for command's `input` shape.
  * @see {@link CreateIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFDisallowedNameException} (client fault)
+ *  <p>The name specified is invalid.</p>
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * @throws {@link WAFInvalidParameterException} (client fault)
+ *  <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p>
+ * 			      <ul>
+ *             <li>
+ *                <p>You specified an invalid parameter name.</p>
+ *             </li>
+ *             <li>
+ *                <p>You specified an invalid value.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>)
+ * 					using an action other than <code>INSERT</code> or <code>DELETE</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code>
+ *                   <code>Type</code> other than
+ * 					<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
+ *             </li>
+ *             <li>
+ * 		 	           <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p>
+ * 		          </li>
+ *             <li>
+ *                <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code>
+ *                   <code>Type</code> other than
+ * 					<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code>
+ *                   <code>Type</code> other than
+ * 					HEADER, METHOD, QUERY_STRING, URI, or BODY.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code>
+ * 					but no value for <code>Data</code>.</p>
+ *             </li>
+ *             <li>
+ * 			   		       <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p>
+ * 			   	     </li>
+ *          </ul>
+ *
+ * @throws {@link WAFLimitsExceededException} (client fault)
+ *  <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create
+ * 			for an AWS account. For more information, see
+ * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+ *
+ * @throws {@link WAFStaleDataException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+ *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
+ *
+ * @example To create an IP set
+ * ```javascript
+ * // The following example creates an IP match set named MyIPSetFriendlyName.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "Name": "MyIPSetFriendlyName"
+ * };
+ * const command = new CreateIPSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "IPSet": {
+ *     "IPSetDescriptors": [
+ *       {
+ *         "Type": "IPV4",
+ *         "Value": "192.0.2.44/32"
+ *       }
+ *     ],
+ *     "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     "Name": "MyIPSetFriendlyName"
+ *   }
+ * }
+ * *\/
+ * // example id: createipset-1472501003122
+ * ```
  *
  */
 export class CreateIPSetCommand extends $Command<
@@ -79,6 +200,18 @@ export class CreateIPSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,6 +227,7 @@ export class CreateIPSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateIPSetCommandInput, CreateIPSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateIPSetCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -104,8 +238,8 @@ export class CreateIPSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIPSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateIPSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +249,18 @@ export class CreateIPSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateIPSetCommand(input, context);
+    return se_CreateIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIPSetCommandOutput> {
-    return deserializeAws_json1_1CreateIPSetCommand(output, context);
+    return de_CreateIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

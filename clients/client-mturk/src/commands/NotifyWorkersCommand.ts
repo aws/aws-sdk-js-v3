@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { NotifyWorkersRequest, NotifyWorkersResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1NotifyWorkersCommand,
-  serializeAws_json1_1NotifyWorkersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_NotifyWorkersCommand, se_NotifyWorkersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link NotifyWorkersCommand}.
+ */
 export interface NotifyWorkersCommandInput extends NotifyWorkersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link NotifyWorkersCommand}.
+ */
 export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>NotifyWorkers</code>
@@ -38,13 +52,41 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  * import { MTurkClient, NotifyWorkersCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, NotifyWorkersCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // NotifyWorkersRequest
+ *   Subject: "STRING_VALUE", // required
+ *   MessageText: "STRING_VALUE", // required
+ *   WorkerIds: [ // CustomerIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new NotifyWorkersCommand(input);
  * const response = await client.send(command);
+ * // { // NotifyWorkersResponse
+ * //   NotifyWorkersFailureStatuses: [ // NotifyWorkersFailureStatusList
+ * //     { // NotifyWorkersFailureStatus
+ * //       NotifyWorkersFailureCode: "STRING_VALUE",
+ * //       NotifyWorkersFailureMessage: "STRING_VALUE",
+ * //       WorkerId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param NotifyWorkersCommandInput - {@link NotifyWorkersCommandInput}
+ * @returns {@link NotifyWorkersCommandOutput}
  * @see {@link NotifyWorkersCommandInput} for command's `input` shape.
  * @see {@link NotifyWorkersCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class NotifyWorkersCommand extends $Command<
@@ -55,6 +97,18 @@ export class NotifyWorkersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyWorkersCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +124,7 @@ export class NotifyWorkersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<NotifyWorkersCommandInput, NotifyWorkersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, NotifyWorkersCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +135,8 @@ export class NotifyWorkersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyWorkersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: NotifyWorkersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +146,18 @@ export class NotifyWorkersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyWorkersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1NotifyWorkersCommand(input, context);
+    return se_NotifyWorkersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyWorkersCommandOutput> {
-    return deserializeAws_json1_1NotifyWorkersCommand(output, context);
+    return de_NotifyWorkersCommand(output, context);
   }
 
   // Start section: command_body_extra

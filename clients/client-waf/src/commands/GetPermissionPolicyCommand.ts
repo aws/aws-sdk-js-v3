@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetPermissionPolicyRequest, GetPermissionPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPermissionPolicyCommand,
-  serializeAws_json1_1GetPermissionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetPermissionPolicyCommand, se_GetPermissionPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetPermissionPolicyCommand}.
+ */
 export interface GetPermissionPolicyCommandInput extends GetPermissionPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPermissionPolicyCommand}.
+ */
 export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -37,13 +51,31 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  * import { WAFClient, GetPermissionPolicyCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetPermissionPolicyCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // GetPermissionPolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetPermissionPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetPermissionPolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetPermissionPolicyCommandInput - {@link GetPermissionPolicyCommandInput}
+ * @returns {@link GetPermissionPolicyCommandOutput}
  * @see {@link GetPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class GetPermissionPolicyCommand extends $Command<
@@ -54,6 +86,18 @@ export class GetPermissionPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetPermissionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +113,9 @@ export class GetPermissionPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPermissionPolicyCommandInput, GetPermissionPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetPermissionPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +126,8 @@ export class GetPermissionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPermissionPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPermissionPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +137,18 @@ export class GetPermissionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPermissionPolicyCommand(input, context);
+    return se_GetPermissionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPermissionPolicyCommandOutput> {
-    return deserializeAws_json1_1GetPermissionPolicyCommand(output, context);
+    return de_GetPermissionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,55 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { DeleteChannelPolicyRequest, DeleteChannelPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteChannelPolicyCommand,
-  serializeAws_restJson1DeleteChannelPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteChannelPolicyCommand, se_DeleteChannelPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteChannelPolicyCommand}.
+ */
 export interface DeleteChannelPolicyCommandInput extends DeleteChannelPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteChannelPolicyCommand}.
+ */
 export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a channel's IAM policy.</p>
+ * @public
+ * <p>The channel policy to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaTailorClient, DeleteChannelPolicyCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeleteChannelPolicyCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // DeleteChannelPolicyRequest
+ *   ChannelName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteChannelPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteChannelPolicyCommandInput - {@link DeleteChannelPolicyCommandInput}
+ * @returns {@link DeleteChannelPolicyCommandOutput}
  * @see {@link DeleteChannelPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeleteChannelPolicyCommand extends $Command<
@@ -46,6 +70,18 @@ export class DeleteChannelPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +97,9 @@ export class DeleteChannelPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteChannelPolicyCommandInput, DeleteChannelPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteChannelPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +110,8 @@ export class DeleteChannelPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteChannelPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +121,18 @@ export class DeleteChannelPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteChannelPolicyCommand(input, context);
+    return se_DeleteChannelPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteChannelPolicyCommand(output, context);
+    return de_DeleteChannelPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

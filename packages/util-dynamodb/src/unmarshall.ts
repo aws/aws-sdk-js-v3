@@ -21,7 +21,7 @@ export interface unmarshallOptions {
  * @param {unmarshallOptions} options - An optional configuration object for `unmarshall`
  */
 export const unmarshall = (
-  data: { [key: string]: AttributeValue },
+  data: Record<string, AttributeValue>,
   options?: unmarshallOptions
-): { [key: string]: NativeAttributeValue } =>
-  convertToNative({ M: data }, options) as { [key: string]: NativeAttributeValue };
+): Record<string, NativeAttributeValue> =>
+  convertToNative({ M: data }, options) as Record<string, NativeAttributeValue>;

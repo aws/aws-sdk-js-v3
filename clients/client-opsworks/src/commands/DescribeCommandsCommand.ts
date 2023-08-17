@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeCommandsRequest, DescribeCommandsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeCommandsCommand,
-  serializeAws_json1_1DescribeCommandsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCommandsCommand, se_DescribeCommandsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeCommandsCommand}.
+ */
 export interface DescribeCommandsCommandInput extends DescribeCommandsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCommandsCommand}.
+ */
 export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the results of specified commands.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -37,13 +51,48 @@ export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, _
  * import { OpsWorksClient, DescribeCommandsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeCommandsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeCommandsRequest
+ *   DeploymentId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   CommandIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeCommandsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCommandsResult
+ * //   Commands: [ // Commands
+ * //     { // Command
+ * //       CommandId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       DeploymentId: "STRING_VALUE",
+ * //       CreatedAt: "STRING_VALUE",
+ * //       AcknowledgedAt: "STRING_VALUE",
+ * //       CompletedAt: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       ExitCode: Number("int"),
+ * //       LogUrl: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeCommandsCommandInput - {@link DescribeCommandsCommandInput}
+ * @returns {@link DescribeCommandsCommandOutput}
  * @see {@link DescribeCommandsCommandInput} for command's `input` shape.
  * @see {@link DescribeCommandsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeCommandsCommand extends $Command<
@@ -54,6 +103,18 @@ export class DescribeCommandsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCommandsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +130,9 @@ export class DescribeCommandsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeCommandsCommandInput, DescribeCommandsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeCommandsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +143,8 @@ export class DescribeCommandsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCommandsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCommandsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +154,18 @@ export class DescribeCommandsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCommandsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCommandsCommand(input, context);
+    return se_DescribeCommandsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCommandsCommandOutput> {
-    return deserializeAws_json1_1DescribeCommandsCommand(output, context);
+    return de_DescribeCommandsCommand(output, context);
   }
 
   // Start section: command_body_extra

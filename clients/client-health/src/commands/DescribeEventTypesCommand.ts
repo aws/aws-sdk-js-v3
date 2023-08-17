@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,22 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import { DescribeEventTypesRequest, DescribeEventTypesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventTypesCommand,
-  serializeAws_json1_1DescribeEventTypesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEventTypesCommand, se_DescribeEventTypesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeEventTypesCommand}.
+ */
 export interface DescribeEventTypesCommandInput extends DescribeEventTypesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEventTypesCommand}.
+ */
 export interface DescribeEventTypesCommandOutput extends DescribeEventTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the event types that meet the specified filter criteria. You can use this API
- *          operation to find information about the Health event, such as the category, Amazon Web Services
- *          service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
+ *          operation to find information about the Health event, such as the category, Amazon Web Service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
  *          <p>If you don't specify a filter criteria, the API operation returns all event types, in no
  *          particular order. </p>
  *          <note>
@@ -36,13 +49,51 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * import { HealthClient, DescribeEventTypesCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventTypesCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeEventTypesRequest
+ *   filter: { // EventTypeFilter
+ *     eventTypeCodes: [ // EventTypeCodeList
+ *       "STRING_VALUE",
+ *     ],
+ *     services: [ // serviceList
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCategories: [ // EventTypeCategoryList
+ *       "issue" || "accountNotification" || "scheduledChange" || "investigation",
+ *     ],
+ *   },
+ *   locale: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeEventTypesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEventTypesResponse
+ * //   eventTypes: [ // EventTypeList
+ * //     { // EventType
+ * //       service: "STRING_VALUE",
+ * //       code: "STRING_VALUE",
+ * //       category: "issue" || "accountNotification" || "scheduledChange" || "investigation",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeEventTypesCommandInput - {@link DescribeEventTypesCommandInput}
+ * @returns {@link DescribeEventTypesCommandOutput}
  * @see {@link DescribeEventTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventTypesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
+ *
+ * @throws {@link InvalidPaginationToken} (client fault)
+ *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * @throws {@link UnsupportedLocale} (client fault)
+ *  <p>The specified locale is not supported.</p>
+ *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEventTypesCommand extends $Command<
@@ -53,6 +104,18 @@ export class DescribeEventTypesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +131,9 @@ export class DescribeEventTypesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeEventTypesCommandInput, DescribeEventTypesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeEventTypesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +144,8 @@ export class DescribeEventTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventTypesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventTypesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +155,18 @@ export class DescribeEventTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventTypesCommand(input, context);
+    return se_DescribeEventTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventTypesCommandOutput> {
-    return deserializeAws_json1_1DescribeEventTypesCommand(output, context);
+    return de_DescribeEventTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

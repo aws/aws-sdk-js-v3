@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { DescribeSubnetGroupsRequest, DescribeSubnetGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSubnetGroupsCommand,
-  serializeAws_json1_1DescribeSubnetGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSubnetGroupsCommand, se_DescribeSubnetGroupsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeSubnetGroupsCommand}.
+ */
 export interface DescribeSubnetGroupsCommandInput extends DescribeSubnetGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSubnetGroupsCommand}.
+ */
 export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of subnet group descriptions. If a subnet group name is specified, the list contains only the description of that group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,49 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * import { MemoryDBClient, DescribeSubnetGroupsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeSubnetGroupsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // DescribeSubnetGroupsRequest
+ *   SubnetGroupName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeSubnetGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSubnetGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   SubnetGroups: [ // SubnetGroupList
+ * //     { // SubnetGroup
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       Subnets: [ // SubnetList
+ * //         { // Subnet
+ * //           Identifier: "STRING_VALUE",
+ * //           AvailabilityZone: { // AvailabilityZone
+ * //             Name: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeSubnetGroupsCommandInput - {@link DescribeSubnetGroupsCommandInput}
+ * @returns {@link DescribeSubnetGroupsCommandOutput}
  * @see {@link DescribeSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeSubnetGroupsCommand extends $Command<
@@ -46,6 +96,18 @@ export class DescribeSubnetGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubnetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +123,9 @@ export class DescribeSubnetGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeSubnetGroupsCommandInput, DescribeSubnetGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeSubnetGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +136,8 @@ export class DescribeSubnetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSubnetGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSubnetGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +147,18 @@ export class DescribeSubnetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubnetGroupsCommand(input, context);
+    return se_DescribeSubnetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSubnetGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeSubnetGroupsCommand(output, context);
+    return de_DescribeSubnetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

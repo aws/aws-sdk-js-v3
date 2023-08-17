@@ -1,9 +1,10 @@
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConnectContactLensServiceException as __BaseException } from "./ConnectContactLensServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request processing failed due to an error or failure with the service.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -46,6 +48,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not valid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -66,241 +69,215 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListRealtimeContactAnalysisSegmentsRequest {
   /**
+   * @public
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the contact.</p>
    */
   ContactId: string | undefined;
 
   /**
+   * @public
    * <p>The maximimum number of results to return per page.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListRealtimeContactAnalysisSegmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRealtimeContactAnalysisSegmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The section of the contact audio where that category rule was detected.</p>
  */
 export interface PointOfInterest {
   /**
+   * @public
    * <p>The beginning offset in milliseconds where the category rule was detected.</p>
    */
   BeginOffsetMillis: number | undefined;
 
   /**
+   * @public
    * <p>The ending offset in milliseconds where the category rule was detected.</p>
    */
   EndOffsetMillis: number | undefined;
 }
 
-export namespace PointOfInterest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PointOfInterest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides information about the category rule that was matched.</p>
  */
 export interface CategoryDetails {
   /**
+   * @public
    * <p>The section of audio where the category rule was detected.</p>
    */
   PointsOfInterest: PointOfInterest[] | undefined;
 }
 
-export namespace CategoryDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CategoryDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides the category rules that are used to automatically categorize contacts based on
  *       uttered keywords and phrases.</p>
  */
 export interface Categories {
   /**
+   * @public
    * <p>The category rules that have been matched in the analyzed segment.</p>
    */
   MatchedCategories: string[] | undefined;
 
   /**
+   * @public
    * <p>The category rule that was matched and when it occurred in the transcript.</p>
    */
-  MatchedDetails: { [key: string]: CategoryDetails } | undefined;
-}
-
-export namespace Categories {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Categories): any => ({
-    ...obj,
-  });
+  MatchedDetails: Record<string, CategoryDetails> | undefined;
 }
 
 /**
+ * @public
  * <p>For characters that were detected as issues, where they occur in the transcript.</p>
  */
 export interface CharacterOffsets {
   /**
+   * @public
    * <p>The beginning of the issue.</p>
    */
   BeginOffsetChar: number | undefined;
 
   /**
+   * @public
    * <p>The end of the issue.</p>
    */
   EndOffsetChar: number | undefined;
 }
 
-export namespace CharacterOffsets {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CharacterOffsets): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Potential issues that are detected based on an artificial intelligence analysis of each
  *       turn in the conversation.</p>
  */
 export interface IssueDetected {
   /**
+   * @public
    * <p>The offset for when the issue was detected in the segment.</p>
    */
   CharacterOffsets: CharacterOffsets | undefined;
 }
 
-export namespace IssueDetected {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IssueDetected): any => ({
-    ...obj,
-  });
-}
-
-export enum SentimentValue {
-  NEGATIVE = "NEGATIVE",
-  NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SentimentValue = {
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type SentimentValue = (typeof SentimentValue)[keyof typeof SentimentValue];
+
+/**
+ * @public
  * <p>A list of messages in the session.</p>
  */
 export interface Transcript {
   /**
+   * @public
    * <p>The identifier of the transcript.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the participant.</p>
    */
   ParticipantId: string | undefined;
 
   /**
+   * @public
    * <p>The role of participant. For example, is it a customer, agent, or system.</p>
    */
   ParticipantRole: string | undefined;
 
   /**
+   * @public
    * <p>The content of the transcript.</p>
    */
   Content: string | undefined;
 
   /**
+   * @public
    * <p>The beginning offset in the contact for this transcript.</p>
    */
   BeginOffsetMillis: number | undefined;
 
   /**
+   * @public
    * <p>The end offset in the contact for this transcript.</p>
    */
   EndOffsetMillis: number | undefined;
 
   /**
+   * @public
    * <p>The sentiment of the detected for this piece of transcript.</p>
    */
   Sentiment: SentimentValue | string | undefined;
 
   /**
+   * @public
    * <p>List of positions where issues were detected on the transcript.</p>
    */
   IssuesDetected?: IssueDetected[];
 }
 
-export namespace Transcript {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Transcript): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An analyzed segment for a real-time analysis session.</p>
  */
 export interface RealtimeContactAnalysisSegment {
   /**
+   * @public
    * <p>The analyzed transcript.</p>
    */
   Transcript?: Transcript;
 
   /**
+   * @public
    * <p>The matched category rules.</p>
    */
   Categories?: Categories;
 }
 
-export namespace RealtimeContactAnalysisSegment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RealtimeContactAnalysisSegment): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListRealtimeContactAnalysisSegmentsResponse {
   /**
+   * @public
    * <p>An analyzed transcript or category.</p>
    */
   Segments: RealtimeContactAnalysisSegment[] | undefined;
 
   /**
+   * @public
    * <p>If there are additional results, this is the token for the next set of results. If response includes <code>nextToken</code> there are two possible scenarios:</p>
    *          <ul>
    *             <li>
@@ -317,16 +294,8 @@ export interface ListRealtimeContactAnalysisSegmentsResponse {
   NextToken?: string;
 }
 
-export namespace ListRealtimeContactAnalysisSegmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRealtimeContactAnalysisSegmentsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -348,6 +317,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The throttling limit has been exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {

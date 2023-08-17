@@ -1,20 +1,20 @@
-import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
 import { hasHeader } from "./hasHeader";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
+import { stringHasher } from "./stringHasher";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
 export const flexibleChecksumsMiddleware =
@@ -51,7 +51,9 @@ export const flexibleChecksumsMiddleware =
         });
         updatedHeaders = {
           ...headers,
-          "content-encoding": "aws-chunked",
+          "content-encoding": headers["content-encoding"]
+            ? `${headers["content-encoding"]},aws-chunked`
+            : "aws-chunked",
           "transfer-encoding": "chunked",
           "x-amz-decoded-content-length": headers["content-length"],
           "x-amz-content-sha256": "STREAMING-UNSIGNED-PAYLOAD-TRAILER",
@@ -59,10 +61,10 @@ export const flexibleChecksumsMiddleware =
         };
         delete updatedHeaders["content-length"];
       } else if (!hasHeader(checksumLocationName, headers)) {
-        const checksum = await getChecksum(requestBody, { streamHasher, checksumAlgorithmFn, base64Encoder });
+        const rawChecksum = await stringHasher(checksumAlgorithmFn, requestBody);
         updatedHeaders = {
           ...headers,
-          [checksumLocationName]: checksum,
+          [checksumLocationName]: base64Encoder(rawChecksum),
         };
       }
     }
@@ -79,7 +81,7 @@ export const flexibleChecksumsMiddleware =
     const { requestValidationModeMember, responseAlgorithms } = middlewareConfig;
     // @ts-ignore Element implicitly has an 'any' type for input[requestValidationModeMember]
     if (requestValidationModeMember && input[requestValidationModeMember] === "ENABLED") {
-      validateChecksumFromResponse(result.response as HttpResponse, {
+      await validateChecksumFromResponse(result.response as HttpResponse, {
         config,
         responseAlgorithms,
       });

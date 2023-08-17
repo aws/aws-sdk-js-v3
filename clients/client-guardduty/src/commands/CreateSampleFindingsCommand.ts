@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { CreateSampleFindingsRequest, CreateSampleFindingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSampleFindingsCommand,
-  serializeAws_restJson1CreateSampleFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSampleFindingsCommand, se_CreateSampleFindingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateSampleFindingsCommand}.
+ */
 export interface CreateSampleFindingsCommandInput extends CreateSampleFindingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSampleFindingsCommand}.
+ */
 export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsResponse, __MetadataBearer {}
 
 /**
- * <p>Generates example findings of types specified by the list of finding types. If 'NULL' is
- *       specified for <code>findingTypes</code>, the API generates example findings of all supported
+ * @public
+ * <p>Generates sample findings of types specified by the list of finding types. If 'NULL' is
+ *       specified for <code>findingTypes</code>, the API generates sample findings of all supported
  *       finding types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +45,32 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * import { GuardDutyClient, CreateSampleFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateSampleFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // CreateSampleFindingsRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   FindingTypes: [ // FindingTypes
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateSampleFindingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateSampleFindingsCommandInput - {@link CreateSampleFindingsCommandInput}
+ * @returns {@link CreateSampleFindingsCommandOutput}
  * @see {@link CreateSampleFindingsCommandInput} for command's `input` shape.
  * @see {@link CreateSampleFindingsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreateSampleFindingsCommand extends $Command<
@@ -48,6 +81,18 @@ export class CreateSampleFindingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSampleFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +108,9 @@ export class CreateSampleFindingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateSampleFindingsCommandInput, CreateSampleFindingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateSampleFindingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +121,8 @@ export class CreateSampleFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSampleFindingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSampleFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +132,18 @@ export class CreateSampleFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSampleFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSampleFindingsCommand(input, context);
+    return se_CreateSampleFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSampleFindingsCommandOutput> {
-    return deserializeAws_restJson1CreateSampleFindingsCommand(output, context);
+    return de_CreateSampleFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

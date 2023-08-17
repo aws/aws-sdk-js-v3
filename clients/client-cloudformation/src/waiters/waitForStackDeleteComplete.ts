@@ -1,4 +1,5 @@
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+// smithy-typescript generated code
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
 
 import { CloudFormationClient } from "../CloudFormationClient";
 import { DescribeStacksCommand, DescribeStacksCommandInput } from "../commands/DescribeStacksCommand";
@@ -104,6 +105,20 @@ const checkState = async (client: CloudFormationClient, input: DescribeStacksCom
       };
       for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "UPDATE_ROLLBACK_COMPLETE") {
+          return { state: WaiterState.FAILURE, reason };
+        }
+      }
+    } catch (e) {}
+    try {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.Stacks);
+        const projection_3 = flat_1.map((element_2: any) => {
+          return element_2.StackStatus;
+        });
+        return projection_3;
+      };
+      for (const anyStringEq_4 of returnComparator()) {
+        if (anyStringEq_4 == "UPDATE_COMPLETE") {
           return { state: WaiterState.FAILURE, reason };
         }
       }

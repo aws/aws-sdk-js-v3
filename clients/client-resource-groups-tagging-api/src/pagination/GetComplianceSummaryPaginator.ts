@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetComplianceSummaryCommand,
   GetComplianceSummaryCommandInput,
   GetComplianceSummaryCommandOutput,
 } from "../commands/GetComplianceSummaryCommand";
-import { ResourceGroupsTaggingAPI } from "../ResourceGroupsTaggingAPI";
 import { ResourceGroupsTaggingAPIClient } from "../ResourceGroupsTaggingAPIClient";
 import { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResourceGroupsTaggingAPIClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetComplianceSummaryCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ResourceGroupsTaggingAPI,
-  input: GetComplianceSummaryCommandInput,
-  ...args: any
-): Promise<GetComplianceSummaryCommandOutput> => {
-  // @ts-ignore
-  return await client.getComplianceSummary(input, ...args);
-};
 export async function* paginateGetComplianceSummary(
   config: ResourceGroupsTaggingAPIPaginationConfiguration,
   input: GetComplianceSummaryCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateGetComplianceSummary(
   while (hasNext) {
     input.PaginationToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ResourceGroupsTaggingAPI) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResourceGroupsTaggingAPIClient) {
+    if (config.client instanceof ResourceGroupsTaggingAPIClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ResourceGroupsTaggingAPI | ResourceGroupsTaggingAPIClient");
     }
     yield page;
+    const prevToken = token;
     token = page.PaginationToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

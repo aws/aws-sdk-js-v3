@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DeleteRestApiRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRestApiCommand,
-  serializeAws_restJson1DeleteRestApiCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRestApiCommand, se_DeleteRestApiCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteRestApiCommand}.
+ */
 export interface DeleteRestApiCommandInput extends DeleteRestApiRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRestApiCommand}.
+ */
 export interface DeleteRestApiCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,38 @@ export interface DeleteRestApiCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteRestApiRequest
+ *   restApiId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRestApiCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteRestApiCommandInput - {@link DeleteRestApiCommandInput}
+ * @returns {@link DeleteRestApiCommandOutput}
  * @see {@link DeleteRestApiCommandInput} for command's `input` shape.
  * @see {@link DeleteRestApiCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class DeleteRestApiCommand extends $Command<
@@ -46,6 +85,18 @@ export class DeleteRestApiCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRestApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +112,7 @@ export class DeleteRestApiCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteRestApiCommandInput, DeleteRestApiCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteRestApiCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +123,8 @@ export class DeleteRestApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRestApiRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +134,18 @@ export class DeleteRestApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRestApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRestApiCommand(input, context);
+    return se_DeleteRestApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRestApiCommandOutput> {
-    return deserializeAws_restJson1DeleteRestApiCommand(output, context);
+    return de_DeleteRestApiCommand(output, context);
   }
 
   // Start section: command_body_extra

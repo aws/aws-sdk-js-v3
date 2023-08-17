@@ -1,7 +1,6 @@
-# @aws-sdk/client-rum
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-rum/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-rum)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-rum.svg)](https://www.npmjs.com/package/@aws-sdk/client-rum)
+# @aws-sdk/client-rum
 
 ## Description
 
@@ -11,7 +10,6 @@ AWS SDK for JavaScript RUM Client for Node.js, Browser and React Native.
 your web application performance from actual user sessions in real time. The data collected includes page load
 times, client-side errors, and user behavior. When you view this data, you can see it all aggregated together and
 also see breakdowns by the browsers and devices that your customers use.</p>
-
 <p>You can use the collected data to quickly identify and debug client-side performance issues. CloudWatch
 RUM helps you visualize anomalies in your application performance and find relevant debugging data such as error
 messages, stack traces, and user sessions. You can also use RUM to
@@ -32,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RUMClient` and
-the commands you need, for example `CreateAppMonitorCommand`:
+the commands you need, for example `BatchCreateRumMetricDefinitionsCommand`:
 
 ```js
 // ES5 example
-const { RUMClient, CreateAppMonitorCommand } = require("@aws-sdk/client-rum");
+const { RUMClient, BatchCreateRumMetricDefinitionsCommand } = require("@aws-sdk/client-rum");
 ```
 
 ```ts
 // ES6+ example
-import { RUMClient, CreateAppMonitorCommand } from "@aws-sdk/client-rum";
+import { RUMClient, BatchCreateRumMetricDefinitionsCommand } from "@aws-sdk/client-rum";
 ```
 
 ### Usage
@@ -60,7 +58,7 @@ const client = new RUMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAppMonitorCommand(params);
+const command = new BatchCreateRumMetricDefinitionsCommand(params);
 ```
 
 #### Async/await
@@ -123,7 +121,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -139,7 +137,7 @@ const client = new AWS.RUM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAppMonitor(params);
+  const data = await client.batchCreateRumMetricDefinitions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +145,7 @@ try {
 
 // Promises.
 client
-  .createAppMonitor(params)
+  .batchCreateRumMetricDefinitions(params)
   .then((data) => {
     // process data.
   })
@@ -156,8 +154,8 @@ client
   });
 
 // callbacks.
-client.createAppMonitor(params, (err, data) => {
-  // proccess err and data.
+client.batchCreateRumMetricDefinitions(params, (err, data) => {
+  // process err and data.
 });
 ```
 
@@ -171,7 +169,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -209,3 +207,142 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+BatchCreateRumMetricDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/batchcreaterummetricdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/batchcreaterummetricdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/batchcreaterummetricdefinitionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchDeleteRumMetricDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/batchdeleterummetricdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/batchdeleterummetricdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/batchdeleterummetricdefinitionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchGetRumMetricDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/batchgetrummetricdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/batchgetrummetricdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/batchgetrummetricdefinitionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateAppMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/createappmonitorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/createappmonitorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/createappmonitorcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteAppMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/deleteappmonitorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/deleteappmonitorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/deleteappmonitorcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteRumMetricsDestination
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/deleterummetricsdestinationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/deleterummetricsdestinationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/deleterummetricsdestinationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAppMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/getappmonitorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/getappmonitorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/getappmonitorcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAppMonitorData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/getappmonitordatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/getappmonitordatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/getappmonitordatacommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAppMonitors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/listappmonitorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/listappmonitorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/listappmonitorscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRumMetricsDestinations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/listrummetricsdestinationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/listrummetricsdestinationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/listrummetricsdestinationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutRumEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/putrumeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/putrumeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/putrumeventscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutRumMetricsDestination
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/putrummetricsdestinationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/putrummetricsdestinationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/putrummetricsdestinationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAppMonitor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/updateappmonitorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/updateappmonitorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/updateappmonitorcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateRumMetricDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/classes/updaterummetricdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/updaterummetricdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rum/interfaces/updaterummetricdefinitioncommandoutput.html)
+
+</details>

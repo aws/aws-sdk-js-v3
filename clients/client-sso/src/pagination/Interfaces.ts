@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { SSO } from "../SSO";
 import { SSOClient } from "../SSOClient";
 
+/**
+ * @public
+ */
 export interface SSOPaginationConfiguration extends PaginationConfiguration {
-  client: SSO | SSOClient;
+  client: SSOClient;
 }

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateStackRequest, CreateStackResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1CreateStackCommand,
-  serializeAws_json1_1CreateStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateStackCommand, se_CreateStackCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateStackCommand}.
+ */
 export interface CreateStackCommandInput extends CreateStackRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateStackCommand}.
+ */
 export interface CreateStackCommandOutput extends CreateStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html">Create a New
  *         Stack</a>.</p>
  *          <p>
@@ -34,13 +48,61 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * import { OpsWorksClient, CreateStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CreateStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // CreateStackRequest
+ *   Name: "STRING_VALUE", // required
+ *   Region: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE",
+ *   Attributes: { // StackAttributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ServiceRoleArn: "STRING_VALUE", // required
+ *   DefaultInstanceProfileArn: "STRING_VALUE", // required
+ *   DefaultOs: "STRING_VALUE",
+ *   HostnameTheme: "STRING_VALUE",
+ *   DefaultAvailabilityZone: "STRING_VALUE",
+ *   DefaultSubnetId: "STRING_VALUE",
+ *   CustomJson: "STRING_VALUE",
+ *   ConfigurationManager: { // StackConfigurationManager
+ *     Name: "STRING_VALUE",
+ *     Version: "STRING_VALUE",
+ *   },
+ *   ChefConfiguration: { // ChefConfiguration
+ *     ManageBerkshelf: true || false,
+ *     BerkshelfVersion: "STRING_VALUE",
+ *   },
+ *   UseCustomCookbooks: true || false,
+ *   UseOpsworksSecurityGroups: true || false,
+ *   CustomCookbooksSource: { // Source
+ *     Type: "STRING_VALUE",
+ *     Url: "STRING_VALUE",
+ *     Username: "STRING_VALUE",
+ *     Password: "STRING_VALUE",
+ *     SshKey: "STRING_VALUE",
+ *     Revision: "STRING_VALUE",
+ *   },
+ *   DefaultSshKeyName: "STRING_VALUE",
+ *   DefaultRootDeviceType: "STRING_VALUE",
+ *   AgentVersion: "STRING_VALUE",
+ * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
+ * // { // CreateStackResult
+ * //   StackId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateStackCommandInput - {@link CreateStackCommandInput}
+ * @returns {@link CreateStackCommandOutput}
  * @see {@link CreateStackCommandInput} for command's `input` shape.
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CreateStackCommand extends $Command<
@@ -51,6 +113,18 @@ export class CreateStackCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +140,7 @@ export class CreateStackCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateStackCommandInput, CreateStackCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateStackCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +151,8 @@ export class CreateStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStackRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateStackResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +162,18 @@ export class CreateStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStackCommand(input, context);
+    return se_CreateStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackCommandOutput> {
-    return deserializeAws_json1_1CreateStackCommand(output, context);
+    return de_CreateStackCommand(output, context);
   }
 
   // Start section: command_body_extra

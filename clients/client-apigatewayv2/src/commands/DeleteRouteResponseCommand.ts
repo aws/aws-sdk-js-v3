@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { DeleteRouteResponseRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRouteResponseCommand,
-  serializeAws_restJson1DeleteRouteResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRouteResponseCommand, se_DeleteRouteResponseCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteRouteResponseCommand}.
+ */
 export interface DeleteRouteResponseCommandInput extends DeleteRouteResponseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRouteResponseCommand}.
+ */
 export interface DeleteRouteResponseCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a RouteResponse.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,31 @@ export interface DeleteRouteResponseCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteRouteResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteRouteResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // DeleteRouteResponseRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   RouteId: "STRING_VALUE", // required
+ *   RouteResponseId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRouteResponseCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteRouteResponseCommandInput - {@link DeleteRouteResponseCommandInput}
+ * @returns {@link DeleteRouteResponseCommandOutput}
  * @see {@link DeleteRouteResponseCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class DeleteRouteResponseCommand extends $Command<
@@ -46,6 +78,18 @@ export class DeleteRouteResponseCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRouteResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +105,9 @@ export class DeleteRouteResponseCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteRouteResponseCommandInput, DeleteRouteResponseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteRouteResponseCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +118,8 @@ export class DeleteRouteResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRouteResponseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +129,18 @@ export class DeleteRouteResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRouteResponseCommand(input, context);
+    return se_DeleteRouteResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteResponseCommandOutput> {
-    return deserializeAws_restJson1DeleteRouteResponseCommand(output, context);
+    return de_DeleteRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

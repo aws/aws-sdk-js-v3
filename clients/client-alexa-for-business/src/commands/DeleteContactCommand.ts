@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { DeleteContactRequest, DeleteContactResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteContactCommand,
-  serializeAws_json1_1DeleteContactCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteContactCommand, se_DeleteContactCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteContactCommand}.
+ */
 export interface DeleteContactCommandInput extends DeleteContactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteContactCommand}.
+ */
 export interface DeleteContactCommandOutput extends DeleteContactResponse, __MetadataBearer {}
 
 /**
+ * @public
+ * @deprecated
+ *
  * <p>Deletes a contact by the contact ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +45,29 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  * import { AlexaForBusinessClient, DeleteContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteContactRequest
+ *   ContactArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContactCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteContactCommandInput - {@link DeleteContactCommandInput}
+ * @returns {@link DeleteContactCommandOutput}
  * @see {@link DeleteContactCommandInput} for command's `input` shape.
  * @see {@link DeleteContactCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteContactCommand extends $Command<
@@ -46,6 +78,18 @@ export class DeleteContactCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +105,7 @@ export class DeleteContactCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteContactCommandInput, DeleteContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteContactCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +116,8 @@ export class DeleteContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContactRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +127,18 @@ export class DeleteContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteContactCommand(input, context);
+    return se_DeleteContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactCommandOutput> {
-    return deserializeAws_json1_1DeleteContactCommand(output, context);
+    return de_DeleteContactCommand(output, context);
   }
 
   // Start section: command_body_extra

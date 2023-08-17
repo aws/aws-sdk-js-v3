@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteLayerRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DeleteLayerCommand,
-  serializeAws_json1_1DeleteLayerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteLayerCommand, se_DeleteLayerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteLayerCommand}.
+ */
 export interface DeleteLayerCommandInput extends DeleteLayerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLayerCommand}.
+ */
 export interface DeleteLayerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified layer. You must first stop and then delete all associated instances or
  *       unassign registered instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html">How to
  *         Delete a Layer</a>.</p>
@@ -36,13 +50,29 @@ export interface DeleteLayerCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeleteLayerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeleteLayerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DeleteLayerRequest
+ *   LayerId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLayerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteLayerCommandInput - {@link DeleteLayerCommandInput}
+ * @returns {@link DeleteLayerCommandOutput}
  * @see {@link DeleteLayerCommandInput} for command's `input` shape.
  * @see {@link DeleteLayerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DeleteLayerCommand extends $Command<
@@ -53,6 +83,18 @@ export class DeleteLayerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLayerCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +110,7 @@ export class DeleteLayerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteLayerCommandInput, DeleteLayerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteLayerCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +121,8 @@ export class DeleteLayerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLayerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +132,18 @@ export class DeleteLayerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLayerCommand(input, context);
+    return se_DeleteLayerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLayerCommandOutput> {
-    return deserializeAws_json1_1DeleteLayerCommand(output, context);
+    return de_DeleteLayerCommand(output, context);
   }
 
   // Start section: command_body_extra

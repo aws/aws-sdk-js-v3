@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { ServiceCatalog } from "../ServiceCatalog";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ */
 export interface ServiceCatalogPaginationConfiguration extends PaginationConfiguration {
-  client: ServiceCatalog | ServiceCatalogClient;
+  client: ServiceCatalogClient;
 }

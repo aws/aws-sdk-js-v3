@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
-  deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand,
-  serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand,
+  de_DisableHealthServiceAccessForOrganizationCommand,
+  se_DisableHealthServiceAccessForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisableHealthServiceAccessForOrganizationCommand}.
+ */
 export interface DisableHealthServiceAccessForOrganizationCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisableHealthServiceAccessForOrganizationCommand}.
+ */
 export interface DisableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables Health from working with Organizations. To call this operation, you must sign
- *          in as an Identity and Access Management (IAM) user, assume an IAM role, or sign in as the root user (not
- *          recommended) in the organization's management account. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
+ *          in to the organization's management account. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
  *             Health events</a> in the <i>Health User Guide</i>.</p>
  *          <p>This operation doesn't remove the service-linked role from the management account in your
  *          organization. You must use the IAM console, API, or Command Line Interface (CLI) to remove the
@@ -42,13 +58,26 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  * import { HealthClient, DisableHealthServiceAccessForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DisableHealthServiceAccessForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {};
  * const command = new DisableHealthServiceAccessForOrganizationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DisableHealthServiceAccessForOrganizationCommandInput - {@link DisableHealthServiceAccessForOrganizationCommandInput}
+ * @returns {@link DisableHealthServiceAccessForOrganizationCommandOutput}
  * @see {@link DisableHealthServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DisableHealthServiceAccessForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>
+ *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the
+ *          action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>
+ *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
@@ -59,6 +88,18 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisableHealthServiceAccessForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +118,12 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
     DisableHealthServiceAccessForOrganizationCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DisableHealthServiceAccessForOrganizationCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -87,8 +134,8 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,18 +145,24 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableHealthServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(input, context);
+    return se_DisableHealthServiceAccessForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(output, context);
+    return de_DisableHealthServiceAccessForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListWorkloadSharesInput, ListWorkloadSharesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorkloadSharesCommand,
-  serializeAws_restJson1ListWorkloadSharesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListWorkloadSharesCommand, se_ListWorkloadSharesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListWorkloadSharesCommand}.
+ */
 export interface ListWorkloadSharesCommandInput extends ListWorkloadSharesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListWorkloadSharesCommand}.
+ */
 export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the workload shares associated with the workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,54 @@ export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutpu
  * import { WellArchitectedClient, ListWorkloadSharesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListWorkloadSharesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListWorkloadSharesInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   SharedWithPrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * };
  * const command = new ListWorkloadSharesCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorkloadSharesOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   WorkloadShareSummaries: [ // WorkloadShareSummaries
+ * //     { // WorkloadShareSummary
+ * //       ShareId: "STRING_VALUE",
+ * //       SharedWith: "STRING_VALUE",
+ * //       PermissionType: "READONLY" || "CONTRIBUTOR",
+ * //       Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListWorkloadSharesCommandInput - {@link ListWorkloadSharesCommandInput}
+ * @returns {@link ListWorkloadSharesCommandOutput}
  * @see {@link ListWorkloadSharesCommandInput} for command's `input` shape.
  * @see {@link ListWorkloadSharesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListWorkloadSharesCommand extends $Command<
@@ -46,6 +101,18 @@ export class ListWorkloadSharesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkloadSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +128,9 @@ export class ListWorkloadSharesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListWorkloadSharesCommandInput, ListWorkloadSharesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListWorkloadSharesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +141,8 @@ export class ListWorkloadSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkloadSharesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkloadSharesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +152,18 @@ export class ListWorkloadSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkloadSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorkloadSharesCommand(input, context);
+    return se_ListWorkloadSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkloadSharesCommandOutput> {
-    return deserializeAws_restJson1ListWorkloadSharesCommand(output, context);
+    return de_ListWorkloadSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { DeleteWorkspaceRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkspaceCommand,
-  serializeAws_restJson1DeleteWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteWorkspaceCommand, se_DeleteWorkspaceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteWorkspaceCommand}.
+ */
 export interface DeleteWorkspaceCommandInput extends DeleteWorkspaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteWorkspaceCommand}.
+ */
 export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Deletes an AMP workspace.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,42 @@ export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
  * import { AmpClient, DeleteWorkspaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DeleteWorkspaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // DeleteWorkspaceRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteWorkspaceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteWorkspaceCommandInput - {@link DeleteWorkspaceCommandInput}
+ * @returns {@link DeleteWorkspaceCommandOutput}
  * @see {@link DeleteWorkspaceCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  User does not have sufficient access to perform this action.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Updating or deleting a resource can cause an inconsistent state.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Unexpected error during processing of request.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Request references a resource which does not exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Request was denied due to request throttling.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class DeleteWorkspaceCommand extends $Command<
@@ -46,6 +89,18 @@ export class DeleteWorkspaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +116,9 @@ export class DeleteWorkspaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteWorkspaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +129,8 @@ export class DeleteWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkspaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +140,18 @@ export class DeleteWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkspaceCommand(input, context);
+    return se_DeleteWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkspaceCommand(output, context);
+    return de_DeleteWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

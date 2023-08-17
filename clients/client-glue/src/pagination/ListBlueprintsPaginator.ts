@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListBlueprintsCommand,
   ListBlueprintsCommandInput,
   ListBlueprintsCommandOutput,
 } from "../commands/ListBlueprintsCommand";
-import { Glue } from "../Glue";
 import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlueClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListBlueprintsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Glue,
-  input: ListBlueprintsCommandInput,
-  ...args: any
-): Promise<ListBlueprintsCommandOutput> => {
-  // @ts-ignore
-  return await client.listBlueprints(input, ...args);
-};
 export async function* paginateListBlueprints(
   config: GluePaginationConfiguration,
   input: ListBlueprintsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListBlueprints(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Glue) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlueClient) {
+    if (config.client instanceof GlueClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Glue | GlueClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

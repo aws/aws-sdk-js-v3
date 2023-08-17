@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./ActivateGatewayCommand";
 export * from "./AddCacheCommand";
 export * from "./AddTagsToResourceCommand";

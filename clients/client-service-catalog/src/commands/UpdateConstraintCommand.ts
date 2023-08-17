@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateConstraintInput, UpdateConstraintOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateConstraintCommand,
-  serializeAws_json1_1UpdateConstraintCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateConstraintCommand, se_UpdateConstraintCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateConstraintCommand}.
+ */
 export interface UpdateConstraintCommandInput extends UpdateConstraintInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateConstraintCommand}.
+ */
 export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified constraint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,43 @@ export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, _
  * import { ServiceCatalogClient, UpdateConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // UpdateConstraintInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Parameters: "STRING_VALUE",
+ * };
  * const command = new UpdateConstraintCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateConstraintOutput
+ * //   ConstraintDetail: { // ConstraintDetail
+ * //     ConstraintId: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     ProductId: "STRING_VALUE",
+ * //     PortfolioId: "STRING_VALUE",
+ * //   },
+ * //   ConstraintParameters: "STRING_VALUE",
+ * //   Status: "AVAILABLE" || "CREATING" || "FAILED",
+ * // };
+ *
  * ```
  *
+ * @param UpdateConstraintCommandInput - {@link UpdateConstraintCommandInput}
+ * @returns {@link UpdateConstraintCommandOutput}
  * @see {@link UpdateConstraintCommandInput} for command's `input` shape.
  * @see {@link UpdateConstraintCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdateConstraintCommand extends $Command<
@@ -46,6 +90,18 @@ export class UpdateConstraintCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConstraintCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +117,9 @@ export class UpdateConstraintCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateConstraintCommandInput, UpdateConstraintCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateConstraintCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +130,8 @@ export class UpdateConstraintCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConstraintInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConstraintOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +141,18 @@ export class UpdateConstraintCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConstraintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConstraintCommand(input, context);
+    return se_UpdateConstraintCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConstraintCommandOutput> {
-    return deserializeAws_json1_1UpdateConstraintCommand(output, context);
+    return de_UpdateConstraintCommand(output, context);
   }
 
   // Start section: command_body_extra

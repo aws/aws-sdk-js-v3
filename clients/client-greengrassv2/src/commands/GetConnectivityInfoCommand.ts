@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { GetConnectivityInfoRequest, GetConnectivityInfoResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConnectivityInfoCommand,
-  serializeAws_restJson1GetConnectivityInfoCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectivityInfoCommand, se_GetConnectivityInfoCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetConnectivityInfoCommand}.
+ */
 export interface GetConnectivityInfoCommandInput extends GetConnectivityInfoRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetConnectivityInfoCommand}.
+ */
 export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves connectivity information for a Greengrass core device.</p>
  *          <p>Connectivity information includes endpoints and ports where client devices
  *       can connect to an MQTT broker on the core device. When a client device
@@ -35,13 +49,40 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  * import { GreengrassV2Client, GetConnectivityInfoCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, GetConnectivityInfoCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // GetConnectivityInfoRequest
+ *   thingName: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectivityInfoCommand(input);
  * const response = await client.send(command);
+ * // { // GetConnectivityInfoResponse
+ * //   connectivityInfo: [ // connectivityInfoList
+ * //     { // ConnectivityInfo
+ * //       id: "STRING_VALUE",
+ * //       hostAddress: "STRING_VALUE",
+ * //       portNumber: Number("int"),
+ * //       metadata: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   message: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetConnectivityInfoCommandInput - {@link GetConnectivityInfoCommandInput}
+ * @returns {@link GetConnectivityInfoCommandOutput}
  * @see {@link GetConnectivityInfoCommandInput} for command's `input` shape.
  * @see {@link GetConnectivityInfoCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters.</p>
+ *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class GetConnectivityInfoCommand extends $Command<
@@ -52,6 +93,18 @@ export class GetConnectivityInfoCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectivityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +120,9 @@ export class GetConnectivityInfoCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetConnectivityInfoCommandInput, GetConnectivityInfoCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetConnectivityInfoCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +133,8 @@ export class GetConnectivityInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectivityInfoRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectivityInfoResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +144,18 @@ export class GetConnectivityInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectivityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectivityInfoCommand(input, context);
+    return se_GetConnectivityInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectivityInfoCommandOutput> {
-    return deserializeAws_restJson1GetConnectivityInfoCommand(output, context);
+    return de_GetConnectivityInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

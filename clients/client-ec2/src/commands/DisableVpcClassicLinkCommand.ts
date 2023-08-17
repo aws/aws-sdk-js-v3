@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,62 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisableVpcClassicLinkRequest, DisableVpcClassicLinkResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DisableVpcClassicLinkCommand,
-  serializeAws_ec2DisableVpcClassicLinkCommand,
-} from "../protocols/Aws_ec2";
+import { DisableVpcClassicLinkRequest, DisableVpcClassicLinkResult } from "../models/models_5";
+import { de_DisableVpcClassicLinkCommand, se_DisableVpcClassicLinkCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisableVpcClassicLinkCommand}.
+ */
 export interface DisableVpcClassicLinkCommandInput extends DisableVpcClassicLinkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableVpcClassicLinkCommand}.
+ */
 export interface DisableVpcClassicLinkCommandOutput extends DisableVpcClassicLinkResult, __MetadataBearer {}
 
 /**
- * <p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.</p>
+ * @public
+ * <note>
+ *             <p>This action is deprecated.</p>
+ *          </note>
+ *          <p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances
+ *             linked to it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DisableVpcClassicLinkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableVpcClassicLinkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisableVpcClassicLinkRequest
+ *   DryRun: true || false,
+ *   VpcId: "STRING_VALUE", // required
+ * };
  * const command = new DisableVpcClassicLinkCommand(input);
  * const response = await client.send(command);
+ * // { // DisableVpcClassicLinkResult
+ * //   Return: true || false,
+ * // };
+ *
  * ```
  *
+ * @param DisableVpcClassicLinkCommandInput - {@link DisableVpcClassicLinkCommandInput}
+ * @returns {@link DisableVpcClassicLinkCommandOutput}
  * @see {@link DisableVpcClassicLinkCommandInput} for command's `input` shape.
  * @see {@link DisableVpcClassicLinkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisableVpcClassicLinkCommand extends $Command<
@@ -46,6 +77,18 @@ export class DisableVpcClassicLinkCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisableVpcClassicLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +104,9 @@ export class DisableVpcClassicLinkCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisableVpcClassicLinkCommandInput, DisableVpcClassicLinkCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisableVpcClassicLinkCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +117,8 @@ export class DisableVpcClassicLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableVpcClassicLinkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableVpcClassicLinkResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +128,18 @@ export class DisableVpcClassicLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableVpcClassicLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableVpcClassicLinkCommand(input, context);
+    return se_DisableVpcClassicLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableVpcClassicLinkCommandOutput> {
-    return deserializeAws_ec2DisableVpcClassicLinkCommand(output, context);
+    return de_DisableVpcClassicLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

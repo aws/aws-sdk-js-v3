@@ -1,11 +1,17 @@
-import { loadConfig } from "@aws-sdk/node-config-provider";
-import { Provider, UserAgent } from "@aws-sdk/types";
+import { loadConfig } from "@smithy/node-config-provider";
+import { Provider, UserAgent } from "@smithy/types";
 import { platform, release } from "os";
 import { env, versions } from "process";
 
 import { isCrtAvailable } from "./is-crt-available";
 
+/**
+ * @internal
+ */
 export const UA_APP_ID_ENV_NAME = "AWS_SDK_UA_APP_ID";
+/**
+ * @internal
+ */
 export const UA_APP_ID_INI_NAME = "sdk-ua-app-id";
 
 interface DefaultUserAgentOptions {
@@ -14,12 +20,16 @@ interface DefaultUserAgentOptions {
 }
 
 /**
+ * @internal
+ *
  * Collect metrics from runtime to put into user agent.
  */
 export const defaultUserAgent = ({ serviceId, clientVersion }: DefaultUserAgentOptions): Provider<UserAgent> => {
   const sections: UserAgent = [
     // sdk-metadata
     ["aws-sdk-js", clientVersion],
+    // ua-metadata
+    ["ua", "2.0"],
     // os-metadata
     [`os/${platform()}`, release()],
     // language-metadata

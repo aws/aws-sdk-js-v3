@@ -1,9 +1,12 @@
+import esbuild from "esbuild";
 import { existsSync, lstatSync, readFileSync, writeFileSync } from "fs";
 import { ensureFileSync } from "fs-extra";
+import * as rollup from "rollup";
+import webpack from "webpack";
 
 import { PackageSizeReportOutput } from "../calculate-size";
-import { prettifySize } from "../utils";
-import { LimitValidator } from "./limit";
+import { prettifySize } from "../utils.js";
+import { LimitValidator } from "./limit.js";
 
 const HEADER = `| Package | Version | Publish Size | browser:Webpack | browser:Rollup | browser:EsBuild |
 | :------ | :------ | :----------- | :------ | :----- | :------- |`;
@@ -101,9 +104,9 @@ export const updateReport = (
   console.info(`Updating ${output.length} rows in the report ${options.reportPath}`);
   const validator = new LimitValidator(options);
   const report = readReport(options.reportPath);
-  const esbuildVersion = require("esbuild")?.version;
-  const webpackVersion = require("webpack")?.version;
-  const rollupVersion = require("rollup")?.VERSION;
+  const { version: esbuildVersion } = esbuild;
+  const { version: webpackVersion } = webpack;
+  const { VERSION: rollupVersion } = rollup;
   const newLines = output.map((line) =>
     populateLineContent(line, {
       esbuildVersion,

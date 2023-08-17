@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1OpenInstancePublicPortsCommand,
-  serializeAws_json1_1OpenInstancePublicPortsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_OpenInstancePublicPortsCommand, se_OpenInstancePublicPortsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link OpenInstancePublicPortsCommand}.
+ */
 export interface OpenInstancePublicPortsCommandInput extends OpenInstancePublicPortsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link OpenInstancePublicPortsCommand}.
+ */
 export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublicPortsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses
  *       allowed to connect to the instance through the ports, and the protocol.</p>
  *          <p>The <code>OpenInstancePublicPorts</code> action supports tag-based access control via
@@ -33,13 +47,85 @@ export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublic
  * import { LightsailClient, OpenInstancePublicPortsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, OpenInstancePublicPortsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // OpenInstancePublicPortsRequest
+ *   portInfo: { // PortInfo
+ *     fromPort: Number("int"),
+ *     toPort: Number("int"),
+ *     protocol: "tcp" || "all" || "udp" || "icmp",
+ *     cidrs: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     ipv6Cidrs: [
+ *       "STRING_VALUE",
+ *     ],
+ *     cidrListAliases: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new OpenInstancePublicPortsCommand(input);
  * const response = await client.send(command);
+ * // { // OpenInstancePublicPortsResult
+ * //   operation: { // Operation
+ * //     id: "STRING_VALUE",
+ * //     resourceName: "STRING_VALUE",
+ * //     resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     location: { // ResourceLocation
+ * //       availabilityZone: "STRING_VALUE",
+ * //       regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
+ * //     },
+ * //     isTerminal: true || false,
+ * //     operationDetails: "STRING_VALUE",
+ * //     operationType: "DeleteKnownHostKeys" || "DeleteInstance" || "CreateInstance" || "StopInstance" || "StartInstance" || "RebootInstance" || "OpenInstancePublicPorts" || "PutInstancePublicPorts" || "CloseInstancePublicPorts" || "AllocateStaticIp" || "ReleaseStaticIp" || "AttachStaticIp" || "DetachStaticIp" || "UpdateDomainEntry" || "DeleteDomainEntry" || "CreateDomain" || "DeleteDomain" || "CreateInstanceSnapshot" || "DeleteInstanceSnapshot" || "CreateInstancesFromSnapshot" || "CreateLoadBalancer" || "DeleteLoadBalancer" || "AttachInstancesToLoadBalancer" || "DetachInstancesFromLoadBalancer" || "UpdateLoadBalancerAttribute" || "CreateLoadBalancerTlsCertificate" || "DeleteLoadBalancerTlsCertificate" || "AttachLoadBalancerTlsCertificate" || "CreateDisk" || "DeleteDisk" || "AttachDisk" || "DetachDisk" || "CreateDiskSnapshot" || "DeleteDiskSnapshot" || "CreateDiskFromSnapshot" || "CreateRelationalDatabase" || "UpdateRelationalDatabase" || "DeleteRelationalDatabase" || "CreateRelationalDatabaseFromSnapshot" || "CreateRelationalDatabaseSnapshot" || "DeleteRelationalDatabaseSnapshot" || "UpdateRelationalDatabaseParameters" || "StartRelationalDatabase" || "RebootRelationalDatabase" || "StopRelationalDatabase" || "EnableAddOn" || "DisableAddOn" || "PutAlarm" || "GetAlarms" || "DeleteAlarm" || "TestAlarm" || "CreateContactMethod" || "GetContactMethods" || "SendContactMethodVerification" || "DeleteContactMethod" || "CreateDistribution" || "UpdateDistribution" || "DeleteDistribution" || "ResetDistributionCache" || "AttachCertificateToDistribution" || "DetachCertificateFromDistribution" || "UpdateDistributionBundle" || "SetIpAddressType" || "CreateCertificate" || "DeleteCertificate" || "CreateContainerService" || "UpdateContainerService" || "DeleteContainerService" || "CreateContainerServiceDeployment" || "CreateContainerServiceRegistryLogin" || "RegisterContainerImage" || "DeleteContainerImage" || "CreateBucket" || "DeleteBucket" || "CreateBucketAccessKey" || "DeleteBucketAccessKey" || "UpdateBucketBundle" || "UpdateBucket" || "SetResourceAccessForBucket" || "UpdateInstanceMetadataOptions" || "StartGUISession" || "StopGUISession",
+ * //     status: "NotStarted" || "Started" || "Failed" || "Completed" || "Succeeded",
+ * //     statusChangedAt: new Date("TIMESTAMP"),
+ * //     errorCode: "STRING_VALUE",
+ * //     errorDetails: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param OpenInstancePublicPortsCommandInput - {@link OpenInstancePublicPortsCommandInput}
+ * @returns {@link OpenInstancePublicPortsCommandOutput}
  * @see {@link OpenInstancePublicPortsCommandInput} for command's `input` shape.
  * @see {@link OpenInstancePublicPortsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class OpenInstancePublicPortsCommand extends $Command<
@@ -50,6 +136,18 @@ export class OpenInstancePublicPortsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: OpenInstancePublicPortsCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +163,9 @@ export class OpenInstancePublicPortsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<OpenInstancePublicPortsCommandInput, OpenInstancePublicPortsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, OpenInstancePublicPortsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +176,8 @@ export class OpenInstancePublicPortsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OpenInstancePublicPortsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: OpenInstancePublicPortsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +187,18 @@ export class OpenInstancePublicPortsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: OpenInstancePublicPortsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1OpenInstancePublicPortsCommand(input, context);
+    return se_OpenInstancePublicPortsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OpenInstancePublicPortsCommandOutput> {
-    return deserializeAws_json1_1OpenInstancePublicPortsCommand(output, context);
+    return de_OpenInstancePublicPortsCommand(output, context);
   }
 
   // Start section: command_body_extra

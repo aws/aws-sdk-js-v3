@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteContentRequest, DeleteContentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteContentCommand,
-  serializeAws_restJson1DeleteContentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteContentCommand, se_DeleteContentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteContentCommand}.
+ */
 export interface DeleteContentCommandInput extends DeleteContentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteContentCommand}.
+ */
 export interface DeleteContentCommandOutput extends DeleteContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,33 @@ export interface DeleteContentCommandOutput extends DeleteContentResponse, __Met
  * import { WisdomClient, DeleteContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, DeleteContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // DeleteContentRequest
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ *   contentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteContentCommandInput - {@link DeleteContentCommandInput}
+ * @returns {@link DeleteContentCommandOutput}
  * @see {@link DeleteContentCommandInput} for command's `input` shape.
  * @see {@link DeleteContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class DeleteContentCommand extends $Command<
@@ -46,6 +80,18 @@ export class DeleteContentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +107,7 @@ export class DeleteContentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteContentCommandInput, DeleteContentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteContentCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +118,8 @@ export class DeleteContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +129,18 @@ export class DeleteContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteContentCommand(input, context);
+    return se_DeleteContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContentCommandOutput> {
-    return deserializeAws_restJson1DeleteContentCommand(output, context);
+    return de_DeleteContentCommand(output, context);
   }
 
   // Start section: command_body_extra

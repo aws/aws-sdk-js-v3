@@ -1,4 +1,6 @@
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateEndpointCommand,
@@ -15,166 +17,104 @@ import {
   ListEndpointsCommandInput,
   ListEndpointsCommandOutput,
 } from "./commands/ListEndpointsCommand";
-import { S3OutpostsClient } from "./S3OutpostsClient";
+import {
+  ListOutpostsWithS3Command,
+  ListOutpostsWithS3CommandInput,
+  ListOutpostsWithS3CommandOutput,
+} from "./commands/ListOutpostsWithS3Command";
+import {
+  ListSharedEndpointsCommand,
+  ListSharedEndpointsCommandInput,
+  ListSharedEndpointsCommandOutput,
+} from "./commands/ListSharedEndpointsCommand";
+import { S3OutpostsClient, S3OutpostsClientConfig } from "./S3OutpostsClient";
 
-/**
- * <p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>
- */
-export class S3Outposts extends S3OutpostsClient {
+const commands = {
+  CreateEndpointCommand,
+  DeleteEndpointCommand,
+  ListEndpointsCommand,
+  ListOutpostsWithS3Command,
+  ListSharedEndpointsCommand,
+};
+
+export interface S3Outposts {
   /**
-   * <p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts.
-   *             S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your
-   *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
-   *         Accessing S3 on Outposts using VPC only access points</a>.</p>
-   *         <p>This action creates an endpoint and associates it with the specified Outposts.</p>
-   *         <note>
-   *             <p>It can take up to 5 minutes for this action to complete.</p>
-   *          </note>
-   *         <p></p>
-   *         <p>Related actions include:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html">ListEndpoints</a>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * @see {@link CreateEndpointCommand}
    */
-  public createEndpoint(
+  createEndpoint(
     args: CreateEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEndpointCommandOutput>;
-  public createEndpoint(
-    args: CreateEndpointCommandInput,
-    cb: (err: any, data?: CreateEndpointCommandOutput) => void
-  ): void;
-  public createEndpoint(
+  createEndpoint(args: CreateEndpointCommandInput, cb: (err: any, data?: CreateEndpointCommandOutput) => void): void;
+  createEndpoint(
     args: CreateEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEndpointCommandOutput) => void
   ): void;
-  public createEndpoint(
-    args: CreateEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointCommandOutput) => void),
-    cb?: (err: any, data?: CreateEndpointCommandOutput) => void
-  ): Promise<CreateEndpointCommandOutput> | void {
-    const command = new CreateEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts.
-   *             S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your
-   *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
-   *         Accessing S3 on Outposts using VPC only access points</a>.</p>
-   *         <p>This action deletes an endpoint.</p>
-   *             <note>
-   *             <p>It can take up to 5 minutes for this action to complete.</p>
-   *          </note>
-   *         <p></p>
-   *         <p>Related actions include:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html">ListEndpoints</a>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * @see {@link DeleteEndpointCommand}
    */
-  public deleteEndpoint(
+  deleteEndpoint(
     args: DeleteEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEndpointCommandOutput>;
-  public deleteEndpoint(
-    args: DeleteEndpointCommandInput,
-    cb: (err: any, data?: DeleteEndpointCommandOutput) => void
-  ): void;
-  public deleteEndpoint(
+  deleteEndpoint(args: DeleteEndpointCommandInput, cb: (err: any, data?: DeleteEndpointCommandOutput) => void): void;
+  deleteEndpoint(
     args: DeleteEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): void;
-  public deleteEndpoint(
-    args: DeleteEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
-  ): Promise<DeleteEndpointCommandOutput> | void {
-    const command = new DeleteEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts.
-   *             S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your
-   *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
-   *         Accessing S3 on Outposts using VPC only access points</a>.</p>
-   *         <p>This action lists endpoints associated with the Outposts.
-   *             </p>
-   *         <p></p>
-   *         <p>Related actions include:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * @see {@link ListEndpointsCommand}
    */
-  public listEndpoints(
-    args: ListEndpointsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListEndpointsCommandOutput>;
-  public listEndpoints(
-    args: ListEndpointsCommandInput,
-    cb: (err: any, data?: ListEndpointsCommandOutput) => void
-  ): void;
-  public listEndpoints(
+  listEndpoints(args: ListEndpointsCommandInput, options?: __HttpHandlerOptions): Promise<ListEndpointsCommandOutput>;
+  listEndpoints(args: ListEndpointsCommandInput, cb: (err: any, data?: ListEndpointsCommandOutput) => void): void;
+  listEndpoints(
     args: ListEndpointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEndpointsCommandOutput) => void
   ): void;
-  public listEndpoints(
-    args: ListEndpointsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEndpointsCommandOutput) => void),
-    cb?: (err: any, data?: ListEndpointsCommandOutput) => void
-  ): Promise<ListEndpointsCommandOutput> | void {
-    const command = new ListEndpointsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
+
+  /**
+   * @see {@link ListOutpostsWithS3Command}
+   */
+  listOutpostsWithS3(
+    args: ListOutpostsWithS3CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOutpostsWithS3CommandOutput>;
+  listOutpostsWithS3(
+    args: ListOutpostsWithS3CommandInput,
+    cb: (err: any, data?: ListOutpostsWithS3CommandOutput) => void
+  ): void;
+  listOutpostsWithS3(
+    args: ListOutpostsWithS3CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOutpostsWithS3CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSharedEndpointsCommand}
+   */
+  listSharedEndpoints(
+    args: ListSharedEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSharedEndpointsCommandOutput>;
+  listSharedEndpoints(
+    args: ListSharedEndpointsCommandInput,
+    cb: (err: any, data?: ListSharedEndpointsCommandOutput) => void
+  ): void;
+  listSharedEndpoints(
+    args: ListSharedEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSharedEndpointsCommandOutput) => void
+  ): void;
 }
+
+/**
+ * @public
+ * <p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>
+ */
+export class S3Outposts extends S3OutpostsClient implements S3Outposts {}
+createAggregatedClient(commands, S3Outposts);

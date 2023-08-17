@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,40 +11,68 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { CancelTaskExecutionRequest, CancelTaskExecutionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelTaskExecutionCommand,
-  serializeAws_json1_1CancelTaskExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelTaskExecutionCommand, se_CancelTaskExecutionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CancelTaskExecutionCommand}.
+ */
 export interface CancelTaskExecutionCommandInput extends CancelTaskExecutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelTaskExecutionCommand}.
+ */
 export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels execution of a task. </p>
- *          <p>When you cancel a task execution, the transfer of some files is abruptly interrupted.
- *       The contents of files that are transferred to the destination might be incomplete or
- *       inconsistent with the source files. However, if you start a new task execution on the same
- *       task and you allow the task execution to complete, file content on the destination is complete
- *       and consistent. This applies to other unexpected failures that interrupt a task execution. In
- *       all of these cases, DataSync successfully complete the transfer when you start the next
- *       task execution.</p>
+ * @public
+ * <p>Stops an DataSync task execution that's in progress. The transfer of some
+ *       files are abruptly interrupted. File contents that're transferred to the destination might be
+ *       incomplete or inconsistent with the source files.</p>
+ *          <p>However, if you start a new task execution using the same task and allow it to finish,
+ *       file content on the destination will be complete and consistent. This applies to other
+ *       unexpected failures that interrupt a task execution. In all of these cases, DataSync
+ *       successfully completes the transfer when you start the next task execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, CancelTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CancelTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CancelTaskExecutionRequest
+ *   TaskExecutionArn: "STRING_VALUE", // required
+ * };
  * const command = new CancelTaskExecutionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CancelTaskExecutionCommandInput - {@link CancelTaskExecutionCommandInput}
+ * @returns {@link CancelTaskExecutionCommandOutput}
  * @see {@link CancelTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelTaskExecutionCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CancelTaskExecutionCommand extends $Command<
@@ -53,6 +83,18 @@ export class CancelTaskExecutionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CancelTaskExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +110,9 @@ export class CancelTaskExecutionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CancelTaskExecutionCommandInput, CancelTaskExecutionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CancelTaskExecutionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +123,8 @@ export class CancelTaskExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelTaskExecutionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelTaskExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +134,18 @@ export class CancelTaskExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelTaskExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelTaskExecutionCommand(input, context);
+    return se_CancelTaskExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelTaskExecutionCommandOutput> {
-    return deserializeAws_json1_1CancelTaskExecutionCommand(output, context);
+    return de_CancelTaskExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

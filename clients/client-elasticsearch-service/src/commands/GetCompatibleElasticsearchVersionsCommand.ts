@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ElasticsearchServiceClientResolvedConfig,
@@ -21,16 +23,31 @@ import {
   GetCompatibleElasticsearchVersionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,
-  serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,
+  de_GetCompatibleElasticsearchVersionsCommand,
+  se_GetCompatibleElasticsearchVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetCompatibleElasticsearchVersionsCommand}.
+ */
 export interface GetCompatibleElasticsearchVersionsCommandInput extends GetCompatibleElasticsearchVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCompatibleElasticsearchVersionsCommand}.
+ */
 export interface GetCompatibleElasticsearchVersionsCommandOutput
   extends GetCompatibleElasticsearchVersionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Returns a list of upgrade compatible Elastisearch versions.
  *         You can optionally pass a
@@ -45,13 +62,47 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
  * import { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // GetCompatibleElasticsearchVersionsRequest
+ *   DomainName: "STRING_VALUE",
+ * };
  * const command = new GetCompatibleElasticsearchVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // GetCompatibleElasticsearchVersionsResponse
+ * //   CompatibleElasticsearchVersions: [ // CompatibleElasticsearchVersionsList
+ * //     { // CompatibleVersionsMap
+ * //       SourceVersion: "STRING_VALUE",
+ * //       TargetVersions: [ // ElasticsearchVersionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GetCompatibleElasticsearchVersionsCommandInput - {@link GetCompatibleElasticsearchVersionsCommandInput}
+ * @returns {@link GetCompatibleElasticsearchVersionsCommandOutput}
  * @see {@link GetCompatibleElasticsearchVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleElasticsearchVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class GetCompatibleElasticsearchVersionsCommand extends $Command<
@@ -62,6 +113,18 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetCompatibleElasticsearchVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +140,9 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetCompatibleElasticsearchVersionsCommandInput, GetCompatibleElasticsearchVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetCompatibleElasticsearchVersionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -87,8 +153,8 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCompatibleElasticsearchVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCompatibleElasticsearchVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,18 +164,24 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetCompatibleElasticsearchVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand(input, context);
+    return se_GetCompatibleElasticsearchVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCompatibleElasticsearchVersionsCommandOutput> {
-    return deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand(output, context);
+    return de_GetCompatibleElasticsearchVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

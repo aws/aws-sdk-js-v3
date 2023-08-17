@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { TagQueueRequest } from "../models/models_0";
-import { deserializeAws_queryTagQueueCommand, serializeAws_queryTagQueueCommand } from "../protocols/Aws_query";
+import { de_TagQueueCommand, se_TagQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link TagQueueCommand}.
+ */
 export interface TagQueueCommandInput extends TagQueueRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagQueueCommand}.
+ */
 export interface TagQueueCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
  * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
- *
  *          <p>When you use queue tags, keep the following guidelines in mind:</p>
  *          <ul>
  *             <li>
@@ -40,30 +56,55 @@ export interface TagQueueCommandOutput extends __MetadataBearer {}
  *          <p>For a full list of tag restrictions, see
  * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Quotas related to queues</a>
  * in the <i>Amazon SQS Developer Guide</i>.</p>
- *         <note>
+ *          <note>
  *             <p>Cross-account permissions don't apply to this action. For more information,
  * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
- * cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer Guide</i>.</p>
- *         </note>
+ * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SQSClient, TagQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, TagQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // TagQueueRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ *   Tags: { // TagMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagQueueCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param TagQueueCommandInput - {@link TagQueueCommandInput}
+ * @returns {@link TagQueueCommandOutput}
  * @see {@link TagQueueCommandInput} for command's `input` shape.
  * @see {@link TagQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueCommandOutput, SQSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: TagQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +120,7 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
     options?: __HttpHandlerOptions
   ): Handler<TagQueueCommandInput, TagQueueCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagQueueCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -89,8 +131,8 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagQueueRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +142,18 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagQueueCommand(input, context);
+    return se_TagQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagQueueCommandOutput> {
-    return deserializeAws_queryTagQueueCommand(output, context);
+    return de_TagQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,9 +1,12 @@
+// smithy-typescript generated code
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
-} from "@aws-sdk/protocol-http";
+} from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
@@ -12,38 +15,69 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
+  map,
+  resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
+import {
+  BatchCreateRumMetricDefinitionsCommandInput,
+  BatchCreateRumMetricDefinitionsCommandOutput,
+} from "../commands/BatchCreateRumMetricDefinitionsCommand";
+import {
+  BatchDeleteRumMetricDefinitionsCommandInput,
+  BatchDeleteRumMetricDefinitionsCommandOutput,
+} from "../commands/BatchDeleteRumMetricDefinitionsCommand";
+import {
+  BatchGetRumMetricDefinitionsCommandInput,
+  BatchGetRumMetricDefinitionsCommandOutput,
+} from "../commands/BatchGetRumMetricDefinitionsCommand";
 import { CreateAppMonitorCommandInput, CreateAppMonitorCommandOutput } from "../commands/CreateAppMonitorCommand";
 import { DeleteAppMonitorCommandInput, DeleteAppMonitorCommandOutput } from "../commands/DeleteAppMonitorCommand";
+import {
+  DeleteRumMetricsDestinationCommandInput,
+  DeleteRumMetricsDestinationCommandOutput,
+} from "../commands/DeleteRumMetricsDestinationCommand";
 import { GetAppMonitorCommandInput, GetAppMonitorCommandOutput } from "../commands/GetAppMonitorCommand";
 import { GetAppMonitorDataCommandInput, GetAppMonitorDataCommandOutput } from "../commands/GetAppMonitorDataCommand";
 import { ListAppMonitorsCommandInput, ListAppMonitorsCommandOutput } from "../commands/ListAppMonitorsCommand";
+import {
+  ListRumMetricsDestinationsCommandInput,
+  ListRumMetricsDestinationsCommandOutput,
+} from "../commands/ListRumMetricsDestinationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PutRumEventsCommandInput, PutRumEventsCommandOutput } from "../commands/PutRumEventsCommand";
+import {
+  PutRumMetricsDestinationCommandInput,
+  PutRumMetricsDestinationCommandOutput,
+} from "../commands/PutRumMetricsDestinationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAppMonitorCommandInput, UpdateAppMonitorCommandOutput } from "../commands/UpdateAppMonitorCommand";
+import {
+  UpdateRumMetricDefinitionCommandInput,
+  UpdateRumMetricDefinitionCommandOutput,
+} from "../commands/UpdateRumMetricDefinitionCommand";
 import {
   AccessDeniedException,
   AppMonitor,
   AppMonitorConfiguration,
   AppMonitorDetails,
-  AppMonitorSummary,
   ConflictException,
-  CwLog,
-  DataStorage,
+  CustomEvents,
   InternalServerException,
+  MetricDefinitionRequest,
   QueryFilter,
   ResourceNotFoundException,
   RumEvent,
@@ -56,26 +90,35 @@ import {
 } from "../models/models_0";
 import { RUMServiceException as __BaseException } from "../models/RUMServiceException";
 
-export const serializeAws_restJson1CreateAppMonitorCommand = async (
-  input: CreateAppMonitorCommandInput,
+/**
+ * serializeAws_restJson1BatchCreateRumMetricDefinitionsCommand
+ */
+export const se_BatchCreateRumMetricDefinitionsCommand = async (
+  input: BatchCreateRumMetricDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appmonitor";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rummetrics/{AppMonitorName}/metrics";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AppMonitorName",
+    () => input.AppMonitorName!,
+    "{AppMonitorName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppMonitorConfiguration !== undefined &&
-      input.AppMonitorConfiguration !== null && {
-        AppMonitorConfiguration: serializeAws_restJson1AppMonitorConfiguration(input.AppMonitorConfiguration, context),
-      }),
-    ...(input.CwLogEnabled !== undefined && input.CwLogEnabled !== null && { CwLogEnabled: input.CwLogEnabled }),
-    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Destination: [],
+      DestinationArn: [],
+      MetricDefinitions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -87,22 +130,129 @@ export const serializeAws_restJson1CreateAppMonitorCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAppMonitorCommand = async (
+/**
+ * serializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand
+ */
+export const se_BatchDeleteRumMetricDefinitionsCommand = async (
+  input: BatchDeleteRumMetricDefinitionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rummetrics/{AppMonitorName}/metrics";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AppMonitorName",
+    () => input.AppMonitorName!,
+    "{AppMonitorName}",
+    false
+  );
+  const query: any = map({
+    destination: [, __expectNonNull(input.Destination!, `Destination`)],
+    destinationArn: [, input.DestinationArn!],
+    metricDefinitionIds: [
+      __expectNonNull(input.MetricDefinitionIds, `MetricDefinitionIds`) != null,
+      () => (input.MetricDefinitionIds! || []).map((_entry) => _entry as any),
+    ],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchGetRumMetricDefinitionsCommand
+ */
+export const se_BatchGetRumMetricDefinitionsCommand = async (
+  input: BatchGetRumMetricDefinitionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rummetrics/{AppMonitorName}/metrics";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AppMonitorName",
+    () => input.AppMonitorName!,
+    "{AppMonitorName}",
+    false
+  );
+  const query: any = map({
+    destination: [, __expectNonNull(input.Destination!, `Destination`)],
+    destinationArn: [, input.DestinationArn!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateAppMonitorCommand
+ */
+export const se_CreateAppMonitorCommand = async (
+  input: CreateAppMonitorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appmonitor";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AppMonitorConfiguration: (_) => se_AppMonitorConfiguration(_, context),
+      CustomEvents: (_) => _json(_),
+      CwLogEnabled: [],
+      Domain: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteAppMonitorCommand
+ */
+export const se_DeleteAppMonitorCommand = async (
   input: DeleteAppMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appmonitor/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -115,22 +265,54 @@ export const serializeAws_restJson1DeleteAppMonitorCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAppMonitorCommand = async (
+/**
+ * serializeAws_restJson1DeleteRumMetricsDestinationCommand
+ */
+export const se_DeleteRumMetricsDestinationCommand = async (
+  input: DeleteRumMetricsDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/rummetrics/{AppMonitorName}/metricsdestination";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AppMonitorName",
+    () => input.AppMonitorName!,
+    "{AppMonitorName}",
+    false
+  );
+  const query: any = map({
+    destination: [, __expectNonNull(input.Destination!, `Destination`)],
+    destinationArn: [, input.DestinationArn!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetAppMonitorCommand
+ */
+export const se_GetAppMonitorCommand = async (
   input: GetAppMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appmonitor/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -143,7 +325,10 @@ export const serializeAws_restJson1GetAppMonitorCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAppMonitorDataCommand = async (
+/**
+ * serializeAws_restJson1GetAppMonitorDataCommand
+ */
+export const se_GetAppMonitorDataCommand = async (
   input: GetAppMonitorDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -152,24 +337,16 @@ export const serializeAws_restJson1GetAppMonitorDataCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appmonitor/{Name}/data";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_restJson1QueryFilters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.TimeRange !== undefined &&
-      input.TimeRange !== null && { TimeRange: serializeAws_restJson1TimeRange(input.TimeRange, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      TimeRange: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -181,17 +358,20 @@ export const serializeAws_restJson1GetAppMonitorDataCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAppMonitorsCommand = async (
+/**
+ * serializeAws_restJson1ListAppMonitorsCommand
+ */
+export const se_ListAppMonitorsCommand = async (
   input: ListAppMonitorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appmonitors";
-  const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-  };
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -205,22 +385,54 @@ export const serializeAws_restJson1ListAppMonitorsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListRumMetricsDestinationsCommand
+ */
+export const se_ListRumMetricsDestinationsCommand = async (
+  input: ListRumMetricsDestinationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/rummetrics/{AppMonitorName}/metricsdestination";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AppMonitorName",
+    () => input.AppMonitorName!,
+    "{AppMonitorName}",
+    false
+  );
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -233,7 +445,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutRumEventsCommand = async (
+/**
+ * serializeAws_restJson1PutRumEventsCommand
+ */
+export const se_PutRumEventsCommand = async (
   input: PutRumEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -242,27 +457,16 @@ export const serializeAws_restJson1PutRumEventsCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appmonitors/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppMonitorDetails !== undefined &&
-      input.AppMonitorDetails !== null && {
-        AppMonitorDetails: serializeAws_restJson1AppMonitorDetails(input.AppMonitorDetails, context),
-      }),
-    ...(input.BatchId !== undefined && input.BatchId !== null && { BatchId: input.BatchId }),
-    ...(input.RumEvents !== undefined &&
-      input.RumEvents !== null && { RumEvents: serializeAws_restJson1RumEventList(input.RumEvents, context) }),
-    ...(input.UserDetails !== undefined &&
-      input.UserDetails !== null && { UserDetails: serializeAws_restJson1UserDetails(input.UserDetails, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppMonitorDetails: (_) => _json(_),
+      BatchId: [],
+      RumEvents: (_) => se_RumEventList(_, context),
+      UserDetails: (_) => _json(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "dataplane." + resolvedHostname;
@@ -281,28 +485,36 @@ export const serializeAws_restJson1PutRumEventsCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
-  input: TagResourceCommandInput,
+/**
+ * serializeAws_restJson1PutRumMetricsDestinationCommand
+ */
+export const se_PutRumMetricsDestinationCommand = async (
+  input: PutRumMetricsDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/rummetrics/{AppMonitorName}/metricsdestination";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AppMonitorName",
+    () => input.AppMonitorName!,
+    "{AppMonitorName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Destination: [],
+      DestinationArn: [],
+      IamRoleArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -314,25 +526,53 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
-  const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  const query: any = map({
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -346,7 +586,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAppMonitorCommand = async (
+/**
+ * serializeAws_restJson1UpdateAppMonitorCommand
+ */
+export const se_UpdateAppMonitorCommand = async (
   input: UpdateAppMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -355,24 +598,16 @@ export const serializeAws_restJson1UpdateAppMonitorCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appmonitor/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppMonitorConfiguration !== undefined &&
-      input.AppMonitorConfiguration !== null && {
-        AppMonitorConfiguration: serializeAws_restJson1AppMonitorConfiguration(input.AppMonitorConfiguration, context),
-      }),
-    ...(input.CwLogEnabled !== undefined && input.CwLogEnabled !== null && { CwLogEnabled: input.CwLogEnabled }),
-    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AppMonitorConfiguration: (_) => se_AppMonitorConfiguration(_, context),
+      CustomEvents: (_) => _json(_),
+      CwLogEnabled: [],
+      Domain: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -384,555 +619,1045 @@ export const serializeAws_restJson1UpdateAppMonitorCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateAppMonitorCommand = async (
-  output: __HttpResponse,
+/**
+ * serializeAws_restJson1UpdateRumMetricDefinitionCommand
+ */
+export const se_UpdateRumMetricDefinitionCommand = async (
+  input: UpdateRumMetricDefinitionCommandInput,
   context: __SerdeContext
-): Promise<CreateAppMonitorCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAppMonitorCommandError(output, context);
-  }
-  const contents: CreateAppMonitorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Id: undefined,
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  return Promise.resolve(contents);
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rummetrics/{AppMonitorName}/metrics";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AppMonitorName",
+    () => input.AppMonitorName!,
+    "{AppMonitorName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Destination: [],
+      DestinationArn: [],
+      MetricDefinition: (_) => _json(_),
+      MetricDefinitionId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
 };
 
-const deserializeAws_restJson1CreateAppMonitorCommandError = async (
+/**
+ * deserializeAws_restJson1BatchCreateRumMetricDefinitionsCommand
+ */
+export const de_BatchCreateRumMetricDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAppMonitorCommandOutput> => {
+): Promise<BatchCreateRumMetricDefinitionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchCreateRumMetricDefinitionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Errors: _json,
+    MetricDefinitions: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchCreateRumMetricDefinitionsCommandError
+ */
+const de_BatchCreateRumMetricDefinitionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchCreateRumMetricDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rum#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.rum#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.rum#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rum#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.rum#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rum#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rum#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteAppMonitorCommand = async (
+/**
+ * deserializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand
+ */
+export const de_BatchDeleteRumMetricDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteRumMetricDefinitionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchDeleteRumMetricDefinitionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Errors: _json,
+    MetricDefinitionIds: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchDeleteRumMetricDefinitionsCommandError
+ */
+const de_BatchDeleteRumMetricDefinitionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteRumMetricDefinitionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rum#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.rum#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.rum#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rum#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rum#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.rum#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1BatchGetRumMetricDefinitionsCommand
+ */
+export const de_BatchGetRumMetricDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetRumMetricDefinitionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchGetRumMetricDefinitionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MetricDefinitions: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchGetRumMetricDefinitionsCommandError
+ */
+const de_BatchGetRumMetricDefinitionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetRumMetricDefinitionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rum#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.rum#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rum#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.rum#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateAppMonitorCommand
+ */
+export const de_CreateAppMonitorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppMonitorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateAppMonitorCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Id: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAppMonitorCommandError
+ */
+const de_CreateAppMonitorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppMonitorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rum#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.rum#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.rum#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rum#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.rum#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rum#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.rum#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteAppMonitorCommand
+ */
+export const de_DeleteAppMonitorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppMonitorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAppMonitorCommandError(output, context);
+    return de_DeleteAppMonitorCommandError(output, context);
   }
-  const contents: DeleteAppMonitorCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteAppMonitorCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAppMonitorCommandError
+ */
+const de_DeleteAppMonitorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppMonitorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rum#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.rum#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.rum#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rum#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rum#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetAppMonitorCommand = async (
+/**
+ * deserializeAws_restJson1DeleteRumMetricsDestinationCommand
+ */
+export const de_DeleteRumMetricsDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRumMetricsDestinationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteRumMetricsDestinationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRumMetricsDestinationCommandError
+ */
+const de_DeleteRumMetricsDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRumMetricsDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rum#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.rum#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.rum#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rum#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rum#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.rum#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetAppMonitorCommand
+ */
+export const de_GetAppMonitorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppMonitorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAppMonitorCommandError(output, context);
+    return de_GetAppMonitorCommandError(output, context);
   }
-  const contents: GetAppMonitorCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppMonitor: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppMonitor !== undefined && data.AppMonitor !== null) {
-    contents.AppMonitor = deserializeAws_restJson1AppMonitor(data.AppMonitor, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AppMonitor: (_) => de_AppMonitor(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetAppMonitorCommandError = async (
+/**
+ * deserializeAws_restJson1GetAppMonitorCommandError
+ */
+const de_GetAppMonitorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppMonitorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rum#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.rum#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rum#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rum#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetAppMonitorDataCommand = async (
+/**
+ * deserializeAws_restJson1GetAppMonitorDataCommand
+ */
+export const de_GetAppMonitorDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppMonitorDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAppMonitorDataCommandError(output, context);
+    return de_GetAppMonitorDataCommandError(output, context);
   }
-  const contents: GetAppMonitorDataCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Events: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Events !== undefined && data.Events !== null) {
-    contents.Events = deserializeAws_restJson1EventDataList(data.Events, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Events: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetAppMonitorDataCommandError = async (
+/**
+ * deserializeAws_restJson1GetAppMonitorDataCommandError
+ */
+const de_GetAppMonitorDataCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppMonitorDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rum#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.rum#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rum#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rum#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListAppMonitorsCommand = async (
+/**
+ * deserializeAws_restJson1ListAppMonitorsCommand
+ */
+export const de_ListAppMonitorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppMonitorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAppMonitorsCommandError(output, context);
+    return de_ListAppMonitorsCommandError(output, context);
   }
-  const contents: ListAppMonitorsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppMonitorSummaries: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppMonitorSummaries !== undefined && data.AppMonitorSummaries !== null) {
-    contents.AppMonitorSummaries = deserializeAws_restJson1AppMonitorSummaryList(data.AppMonitorSummaries, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AppMonitorSummaries: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListAppMonitorsCommandError = async (
+/**
+ * deserializeAws_restJson1ListAppMonitorsCommandError
+ */
+const de_ListAppMonitorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppMonitorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rum#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.rum#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rum#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rum#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListRumMetricsDestinationsCommand
+ */
+export const de_ListRumMetricsDestinationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRumMetricsDestinationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRumMetricsDestinationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Destinations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRumMetricsDestinationsCommandError
+ */
+const de_ListRumMetricsDestinationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRumMetricsDestinationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rum#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.rum#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rum#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.rum#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
-  const contents: ListTagsForResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ResourceArn: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ResourceArn !== undefined && data.ResourceArn !== null) {
-    contents.ResourceArn = __expectString(data.ResourceArn);
-  }
-  if (data.Tags !== undefined && data.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ResourceArn: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.rum#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rum#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutRumEventsCommand = async (
+/**
+ * deserializeAws_restJson1PutRumEventsCommand
+ */
+export const de_PutRumEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRumEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutRumEventsCommandError(output, context);
+    return de_PutRumEventsCommandError(output, context);
   }
-  const contents: PutRumEventsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutRumEventsCommandError = async (
+/**
+ * deserializeAws_restJson1PutRumEventsCommandError
+ */
+const de_PutRumEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRumEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rum#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.rum#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rum#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rum#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1PutRumMetricsDestinationCommand
+ */
+export const de_PutRumMetricsDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
+): Promise<PutRumMetricsDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_PutRumMetricsDestinationCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1PutRumMetricsDestinationCommandError
+ */
+const de_PutRumMetricsDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
+): Promise<PutRumMetricsDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      });
-      throw __decorateServiceException(response, parsedBody);
-  }
-};
-
-export const deserializeAws_restJson1UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
-  }
-  const contents: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      });
-      throw __decorateServiceException(response, parsedBody);
-  }
-};
-
-export const deserializeAws_restJson1UpdateAppMonitorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAppMonitorCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAppMonitorCommandError(output, context);
-  }
-  const contents: UpdateAppMonitorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1UpdateAppMonitorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAppMonitorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rum#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.rum#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.rum#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rum#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.rum#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_TagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.rum#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rum#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.rum#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UntagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.rum#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rum#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.rum#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateAppMonitorCommand
+ */
+export const de_UpdateAppMonitorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAppMonitorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateAppMonitorCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAppMonitorCommandError
+ */
+const de_UpdateAppMonitorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAppMonitorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rum#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.rum#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.rum#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rum#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rum#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.rum#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateRumMetricDefinitionCommand
+ */
+export const de_UpdateRumMetricDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRumMetricDefinitionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateRumMetricDefinitionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateRumMetricDefinitionCommandError
+ */
+const de_UpdateRumMetricDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRumMetricDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rum#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.rum#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.rum#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rum#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.rum#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rum#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.rum#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -940,21 +1665,18 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceName !== undefined && data.resourceName !== null) {
-    contents.resourceName = __expectString(data.resourceName);
-  }
-  if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceName: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -962,18 +1684,24 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: any = {};
-  if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = __strictParseInt32(parsedOutput.headers["retry-after"]);
-  }
+  const contents: any = map({
+    retryAfterSeconds: [
+      () => void 0 !== parsedOutput.headers["retry-after"],
+      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
+    ],
+  });
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -981,21 +1709,21 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceName !== undefined && data.resourceName !== null) {
-    contents.resourceName = __expectString(data.resourceName);
-  }
-  if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceName: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1003,15 +1731,19 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1019,24 +1751,23 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
-  const contents: any = {};
-  if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = __strictParseInt32(parsedOutput.headers["retry-after"]);
-  }
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({
+    retryAfterSeconds: [
+      () => void 0 !== parsedOutput.headers["retry-after"],
+      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
+    ],
+  });
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode !== undefined && data.quotaCode !== null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.serviceCode !== undefined && data.serviceCode !== null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1044,15 +1775,16 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1060,316 +1792,159 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AppMonitorConfiguration = (
-  input: AppMonitorConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AllowCookies !== undefined && input.AllowCookies !== null && { AllowCookies: input.AllowCookies }),
-    ...(input.EnableXRay !== undefined && input.EnableXRay !== null && { EnableXRay: input.EnableXRay }),
-    ...(input.ExcludedPages !== undefined &&
-      input.ExcludedPages !== null && { ExcludedPages: serializeAws_restJson1Pages(input.ExcludedPages, context) }),
-    ...(input.FavoritePages !== undefined &&
-      input.FavoritePages !== null && {
-        FavoritePages: serializeAws_restJson1FavoritePages(input.FavoritePages, context),
-      }),
-    ...(input.GuestRoleArn !== undefined && input.GuestRoleArn !== null && { GuestRoleArn: input.GuestRoleArn }),
-    ...(input.IdentityPoolId !== undefined &&
-      input.IdentityPoolId !== null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.IncludedPages !== undefined &&
-      input.IncludedPages !== null && { IncludedPages: serializeAws_restJson1Pages(input.IncludedPages, context) }),
-    ...(input.SessionSampleRate !== undefined &&
-      input.SessionSampleRate !== null && { SessionSampleRate: __serializeFloat(input.SessionSampleRate) }),
-    ...(input.Telemetries !== undefined &&
-      input.Telemetries !== null && { Telemetries: serializeAws_restJson1Telemetries(input.Telemetries, context) }),
-  };
+/**
+ * serializeAws_restJson1AppMonitorConfiguration
+ */
+const se_AppMonitorConfiguration = (input: AppMonitorConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    AllowCookies: [],
+    EnableXRay: [],
+    ExcludedPages: _json,
+    FavoritePages: _json,
+    GuestRoleArn: [],
+    IdentityPoolId: [],
+    IncludedPages: _json,
+    SessionSampleRate: __serializeFloat,
+    Telemetries: _json,
+  });
 };
 
-const serializeAws_restJson1AppMonitorDetails = (input: AppMonitorDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.version !== undefined && input.version !== null && { version: input.version }),
-  };
+// se_AppMonitorDetails omitted.
+
+// se_CustomEvents omitted.
+
+// se_DimensionKeysMap omitted.
+
+// se_FavoritePages omitted.
+
+// se_MetricDefinitionRequest omitted.
+
+// se_MetricDefinitionsRequest omitted.
+
+// se_Pages omitted.
+
+// se_QueryFilter omitted.
+
+// se_QueryFilters omitted.
+
+// se_QueryFilterValueList omitted.
+
+/**
+ * serializeAws_restJson1RumEvent
+ */
+const se_RumEvent = (input: RumEvent, context: __SerdeContext): any => {
+  return take(input, {
+    details: __LazyJsonString.fromObject,
+    id: [],
+    metadata: __LazyJsonString.fromObject,
+    timestamp: (_) => Math.round(_.getTime() / 1000),
+    type: [],
+  });
 };
 
-const serializeAws_restJson1FavoritePages = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RumEventList
+ */
+const se_RumEventList = (input: RumEvent[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
+      return se_RumEvent(entry, context);
     });
 };
 
-const serializeAws_restJson1Pages = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
+// se_TagMap omitted.
+
+// se_Telemetries omitted.
+
+// se_TimeRange omitted.
+
+// se_UserDetails omitted.
+
+/**
+ * deserializeAws_restJson1AppMonitor
+ */
+const de_AppMonitor = (output: any, context: __SerdeContext): AppMonitor => {
+  return take(output, {
+    AppMonitorConfiguration: (_: any) => de_AppMonitorConfiguration(_, context),
+    Created: __expectString,
+    CustomEvents: _json,
+    DataStorage: _json,
+    Domain: __expectString,
+    Id: __expectString,
+    LastModified: __expectString,
+    Name: __expectString,
+    State: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
-const serializeAws_restJson1QueryFilter = (input: QueryFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Values !== undefined &&
-      input.Values !== null && { Values: serializeAws_restJson1QueryFilterValueList(input.Values, context) }),
-  };
+/**
+ * deserializeAws_restJson1AppMonitorConfiguration
+ */
+const de_AppMonitorConfiguration = (output: any, context: __SerdeContext): AppMonitorConfiguration => {
+  return take(output, {
+    AllowCookies: __expectBoolean,
+    EnableXRay: __expectBoolean,
+    ExcludedPages: _json,
+    FavoritePages: _json,
+    GuestRoleArn: __expectString,
+    IdentityPoolId: __expectString,
+    IncludedPages: _json,
+    SessionSampleRate: __limitedParseDouble,
+    Telemetries: _json,
+  }) as any;
 };
 
-const serializeAws_restJson1QueryFilters = (input: QueryFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1QueryFilter(entry, context);
-    });
-};
+// de_AppMonitorSummary omitted.
 
-const serializeAws_restJson1QueryFilterValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// de_AppMonitorSummaryList omitted.
 
-const serializeAws_restJson1RumEvent = (input: RumEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.details !== undefined &&
-      input.details !== null && { details: __LazyJsonString.fromObject(input.details) }),
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.metadata !== undefined &&
-      input.metadata !== null && { metadata: __LazyJsonString.fromObject(input.metadata) }),
-    ...(input.timestamp !== undefined &&
-      input.timestamp !== null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
-  };
-};
+// de_BatchCreateRumMetricDefinitionsError omitted.
 
-const serializeAws_restJson1RumEventList = (input: RumEvent[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1RumEvent(entry, context);
-    });
-};
+// de_BatchCreateRumMetricDefinitionsErrors omitted.
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
+// de_BatchDeleteRumMetricDefinitionsError omitted.
 
-const serializeAws_restJson1Telemetries = (input: (Telemetry | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// de_BatchDeleteRumMetricDefinitionsErrors omitted.
 
-const serializeAws_restJson1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.After !== undefined && input.After !== null && { After: input.After }),
-    ...(input.Before !== undefined && input.Before !== null && { Before: input.Before }),
-  };
-};
+// de_CustomEvents omitted.
 
-const serializeAws_restJson1UserDetails = (input: UserDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.sessionId !== undefined && input.sessionId !== null && { sessionId: input.sessionId }),
-    ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
-  };
-};
+// de_CwLog omitted.
 
-const deserializeAws_restJson1AppMonitor = (output: any, context: __SerdeContext): AppMonitor => {
-  return {
-    AppMonitorConfiguration:
-      output.AppMonitorConfiguration !== undefined && output.AppMonitorConfiguration !== null
-        ? deserializeAws_restJson1AppMonitorConfiguration(output.AppMonitorConfiguration, context)
-        : undefined,
-    Created: __expectString(output.Created),
-    DataStorage:
-      output.DataStorage !== undefined && output.DataStorage !== null
-        ? deserializeAws_restJson1DataStorage(output.DataStorage, context)
-        : undefined,
-    Domain: __expectString(output.Domain),
-    Id: __expectString(output.Id),
-    LastModified: __expectString(output.LastModified),
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1TagMap(output.Tags, context)
-        : undefined,
-  } as any;
-};
+// de_DataStorage omitted.
 
-const deserializeAws_restJson1AppMonitorConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AppMonitorConfiguration => {
-  return {
-    AllowCookies: __expectBoolean(output.AllowCookies),
-    EnableXRay: __expectBoolean(output.EnableXRay),
-    ExcludedPages:
-      output.ExcludedPages !== undefined && output.ExcludedPages !== null
-        ? deserializeAws_restJson1Pages(output.ExcludedPages, context)
-        : undefined,
-    FavoritePages:
-      output.FavoritePages !== undefined && output.FavoritePages !== null
-        ? deserializeAws_restJson1FavoritePages(output.FavoritePages, context)
-        : undefined,
-    GuestRoleArn: __expectString(output.GuestRoleArn),
-    IdentityPoolId: __expectString(output.IdentityPoolId),
-    IncludedPages:
-      output.IncludedPages !== undefined && output.IncludedPages !== null
-        ? deserializeAws_restJson1Pages(output.IncludedPages, context)
-        : undefined,
-    SessionSampleRate: __limitedParseDouble(output.SessionSampleRate),
-    Telemetries:
-      output.Telemetries !== undefined && output.Telemetries !== null
-        ? deserializeAws_restJson1Telemetries(output.Telemetries, context)
-        : undefined,
-  } as any;
-};
+// de_DimensionKeysMap omitted.
 
-const deserializeAws_restJson1AppMonitorSummary = (output: any, context: __SerdeContext): AppMonitorSummary => {
-  return {
-    Created: __expectString(output.Created),
-    Id: __expectString(output.Id),
-    LastModified: __expectString(output.LastModified),
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_EventDataList omitted.
 
-const deserializeAws_restJson1AppMonitorSummaryList = (output: any, context: __SerdeContext): AppMonitorSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AppMonitorSummary(entry, context);
-    });
-  return retVal;
-};
+// de_FavoritePages omitted.
 
-const deserializeAws_restJson1CwLog = (output: any, context: __SerdeContext): CwLog => {
-  return {
-    CwLogEnabled: __expectBoolean(output.CwLogEnabled),
-    CwLogGroup: __expectString(output.CwLogGroup),
-  } as any;
-};
+// de_MetricDefinition omitted.
 
-const deserializeAws_restJson1DataStorage = (output: any, context: __SerdeContext): DataStorage => {
-  return {
-    CwLog:
-      output.CwLog !== undefined && output.CwLog !== null
-        ? deserializeAws_restJson1CwLog(output.CwLog, context)
-        : undefined,
-  } as any;
-};
+// de_MetricDefinitionIds omitted.
 
-const deserializeAws_restJson1EventDataList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MetricDefinitionRequest omitted.
 
-const deserializeAws_restJson1FavoritePages = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MetricDefinitions omitted.
 
-const deserializeAws_restJson1Pages = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_MetricDestinationSummary omitted.
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
+// de_MetricDestinationSummaryList omitted.
 
-const deserializeAws_restJson1Telemetries = (output: any, context: __SerdeContext): (Telemetry | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Pages omitted.
+
+// de_TagMap omitted.
+
+// de_Telemetries omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -1390,14 +1965,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -1419,6 +2006,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

@@ -6,8 +6,9 @@ import {
   InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-} from "@aws-sdk/types";
-import { toHex } from "@aws-sdk/util-hex-encoding";
+} from "@smithy/types";
+import { toHex } from "@smithy/util-hex-encoding";
+import { toUint8Array } from "@smithy/util-utf8";
 
 import { PreviouslyResolved } from "./configurations";
 
@@ -28,7 +29,7 @@ export const sendMessageBatchMiddleware =
     const resp = await next({ ...args });
     const output = resp.output as unknown as SendMessageBatchResult;
     const messageIds = [];
-    const entries: { [index: string]: SendMessageBatchResultEntry } = {};
+    const entries: Record<string, SendMessageBatchResultEntry> = {};
     if (output.Successful !== undefined) {
       for (const entry of output.Successful) {
         if (entry.Id !== undefined) {
@@ -40,7 +41,7 @@ export const sendMessageBatchMiddleware =
       if (entries[entry.Id]) {
         const md5 = entries[entry.Id].MD5OfMessageBody;
         const hash = new options.md5();
-        hash.update(entry.MessageBody || "");
+        hash.update(toUint8Array(entry.MessageBody || ""));
         if (md5 !== toHex(await hash.digest())) {
           messageIds.push(entries[entry.Id].MessageId);
         }

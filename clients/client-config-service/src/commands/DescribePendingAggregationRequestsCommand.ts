@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
@@ -17,16 +19,31 @@ import {
   DescribePendingAggregationRequestsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribePendingAggregationRequestsCommand,
-  serializeAws_json1_1DescribePendingAggregationRequestsCommand,
+  de_DescribePendingAggregationRequestsCommand,
+  se_DescribePendingAggregationRequestsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribePendingAggregationRequestsCommand}.
+ */
 export interface DescribePendingAggregationRequestsCommandInput extends DescribePendingAggregationRequestsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePendingAggregationRequestsCommand}.
+ */
 export interface DescribePendingAggregationRequestsCommandOutput
   extends DescribePendingAggregationRequestsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all pending aggregation requests.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +51,44 @@ export interface DescribePendingAggregationRequestsCommandOutput
  * import { ConfigServiceClient, DescribePendingAggregationRequestsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribePendingAggregationRequestsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribePendingAggregationRequestsRequest
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribePendingAggregationRequestsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePendingAggregationRequestsResponse
+ * //   PendingAggregationRequests: [ // PendingAggregationRequestList
+ * //     { // PendingAggregationRequest
+ * //       RequesterAccountId: "STRING_VALUE",
+ * //       RequesterAwsRegion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribePendingAggregationRequestsCommandInput - {@link DescribePendingAggregationRequestsCommandInput}
+ * @returns {@link DescribePendingAggregationRequestsCommandOutput}
  * @see {@link DescribePendingAggregationRequestsCommandInput} for command's `input` shape.
  * @see {@link DescribePendingAggregationRequestsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidLimitException} (client fault)
+ *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is not valid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are not valid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribePendingAggregationRequestsCommand extends $Command<
@@ -51,6 +99,18 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePendingAggregationRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +126,9 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribePendingAggregationRequestsCommandInput, DescribePendingAggregationRequestsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribePendingAggregationRequestsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +139,8 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePendingAggregationRequestsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePendingAggregationRequestsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,18 +150,24 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePendingAggregationRequestsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePendingAggregationRequestsCommand(input, context);
+    return se_DescribePendingAggregationRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePendingAggregationRequestsCommandOutput> {
-    return deserializeAws_json1_1DescribePendingAggregationRequestsCommand(output, context);
+    return de_DescribePendingAggregationRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

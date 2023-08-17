@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { AutoScaling } from "../AutoScaling";
 import { AutoScalingClient } from "../AutoScalingClient";
 import {
   DescribeAutoScalingInstancesCommand,
@@ -10,7 +10,7 @@ import {
 import { AutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AutoScalingClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeAutoScalingInstancesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AutoScaling,
-  input: DescribeAutoScalingInstancesCommandInput,
-  ...args: any
-): Promise<DescribeAutoScalingInstancesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeAutoScalingInstances(input, ...args);
-};
 export async function* paginateDescribeAutoScalingInstances(
   config: AutoScalingPaginationConfiguration,
   input: DescribeAutoScalingInstancesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeAutoScalingInstances(
   while (hasNext) {
     input.NextToken = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof AutoScaling) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AutoScalingClient) {
+    if (config.client instanceof AutoScalingClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AutoScaling | AutoScalingClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,116 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import { CreateManagedEndpointRequest, CreateManagedEndpointResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateManagedEndpointCommand,
-  serializeAws_restJson1CreateManagedEndpointCommand,
-} from "../protocols/Aws_restJson1";
+  CreateManagedEndpointRequest,
+  CreateManagedEndpointRequestFilterSensitiveLog,
+  CreateManagedEndpointResponse,
+} from "../models/models_0";
+import { de_CreateManagedEndpointCommand, se_CreateManagedEndpointCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateManagedEndpointCommand}.
+ */
 export interface CreateManagedEndpointCommandInput extends CreateManagedEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateManagedEndpointCommand}.
+ */
 export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>
+ * @public
+ * <p>Creates a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can
+ *          communicate with your virtual cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRContainersClient, CreateManagedEndpointCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, CreateManagedEndpointCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // CreateManagedEndpointRequest
+ *   name: "STRING_VALUE", // required
+ *   virtualClusterId: "STRING_VALUE", // required
+ *   type: "STRING_VALUE", // required
+ *   releaseLabel: "STRING_VALUE", // required
+ *   executionRoleArn: "STRING_VALUE", // required
+ *   certificateArn: "STRING_VALUE",
+ *   configurationOverrides: { // ConfigurationOverrides
+ *     applicationConfiguration: [ // ConfigurationList
+ *       { // Configuration
+ *         classification: "STRING_VALUE", // required
+ *         properties: { // SensitivePropertiesMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         configurations: [
+ *           {
+ *             classification: "STRING_VALUE", // required
+ *             properties: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             configurations: "<ConfigurationList>",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     monitoringConfiguration: { // MonitoringConfiguration
+ *       persistentAppUI: "ENABLED" || "DISABLED",
+ *       cloudWatchMonitoringConfiguration: { // CloudWatchMonitoringConfiguration
+ *         logGroupName: "STRING_VALUE", // required
+ *         logStreamNamePrefix: "STRING_VALUE",
+ *       },
+ *       s3MonitoringConfiguration: { // S3MonitoringConfiguration
+ *         logUri: "STRING_VALUE", // required
+ *       },
+ *       containerLogRotationConfiguration: { // ContainerLogRotationConfiguration
+ *         rotationSize: "STRING_VALUE", // required
+ *         maxFilesToKeep: Number("int"), // required
+ *       },
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateManagedEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // CreateManagedEndpointResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   virtualClusterId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateManagedEndpointCommandInput - {@link CreateManagedEndpointCommandInput}
+ * @returns {@link CreateManagedEndpointCommandOutput}
  * @see {@link CreateManagedEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateManagedEndpointCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This is an internal server exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There are invalid parameters in the client request.</p>
+ *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class CreateManagedEndpointCommand extends $Command<
@@ -46,6 +131,18 @@ export class CreateManagedEndpointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateManagedEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +158,9 @@ export class CreateManagedEndpointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateManagedEndpointCommandInput, CreateManagedEndpointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateManagedEndpointCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +171,8 @@ export class CreateManagedEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateManagedEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateManagedEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateManagedEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +182,18 @@ export class CreateManagedEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateManagedEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateManagedEndpointCommand(input, context);
+    return se_CreateManagedEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateManagedEndpointCommandOutput> {
-    return deserializeAws_restJson1CreateManagedEndpointCommand(output, context);
+    return de_CreateManagedEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

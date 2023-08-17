@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Identitystore } from "../Identitystore";
 import { IdentitystoreClient } from "../IdentitystoreClient";
 
+/**
+ * @public
+ */
 export interface IdentitystorePaginationConfiguration extends PaginationConfiguration {
-  client: Identitystore | IdentitystoreClient;
+  client: IdentitystoreClient;
 }

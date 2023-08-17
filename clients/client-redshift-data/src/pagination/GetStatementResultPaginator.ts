@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetStatementResultCommand,
   GetStatementResultCommandInput,
   GetStatementResultCommandOutput,
 } from "../commands/GetStatementResultCommand";
-import { RedshiftData } from "../RedshiftData";
 import { RedshiftDataClient } from "../RedshiftDataClient";
 import { RedshiftDataPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RedshiftDataClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetStatementResultCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RedshiftData,
-  input: GetStatementResultCommandInput,
-  ...args: any
-): Promise<GetStatementResultCommandOutput> => {
-  // @ts-ignore
-  return await client.getStatementResult(input, ...args);
-};
 export async function* paginateGetStatementResult(
   config: RedshiftDataPaginationConfiguration,
   input: GetStatementResultCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateGetStatementResult(
   let page: GetStatementResultCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof RedshiftData) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RedshiftDataClient) {
+    if (config.client instanceof RedshiftDataClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RedshiftData | RedshiftDataClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

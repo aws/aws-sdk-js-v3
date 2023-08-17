@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ElasticLoadBalancingV2ClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { DeleteListenerInput, DeleteListenerOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteListenerCommand,
-  serializeAws_queryDeleteListenerCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteListenerCommand, se_DeleteListenerCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteListenerCommand}.
+ */
 export interface DeleteListenerCommandInput extends DeleteListenerInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteListenerCommand}.
+ */
 export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified listener.</p>
  *          <p>Alternatively, your listener is deleted when you delete the load balancer to which it is
  *         attached.</p>
@@ -35,13 +49,40 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * import { ElasticLoadBalancingV2Client, DeleteListenerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DeleteListenerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DeleteListenerInput
+ *   ListenerArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteListenerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteListenerCommandInput - {@link DeleteListenerCommandInput}
+ * @returns {@link DeleteListenerCommandOutput}
  * @see {@link DeleteListenerCommandInput} for command's `input` shape.
  * @see {@link DeleteListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The specified listener does not exist.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>A specified resource is in use.</p>
+ *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
+ *
+ * @example To delete a listener
+ * ```javascript
+ * // This example deletes the specified listener.
+ * const input = {
+ *   "ListenerArn": "arn:aws:elasticloadbalancing:ua-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
+ * };
+ * const command = new DeleteListenerCommand(input);
+ * await client.send(command);
+ * // example id: elbv2-delete-listener-1
+ * ```
  *
  */
 export class DeleteListenerCommand extends $Command<
@@ -52,6 +93,18 @@ export class DeleteListenerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +120,9 @@ export class DeleteListenerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteListenerCommandInput, DeleteListenerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteListenerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +133,8 @@ export class DeleteListenerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteListenerInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteListenerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +144,18 @@ export class DeleteListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteListenerCommand(input, context);
+    return se_DeleteListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteListenerCommandOutput> {
-    return deserializeAws_queryDeleteListenerCommand(output, context);
+    return de_DeleteListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

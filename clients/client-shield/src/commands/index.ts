@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateDRTLogBucketCommand";
 export * from "./AssociateDRTRoleCommand";
 export * from "./AssociateHealthCheckCommand";

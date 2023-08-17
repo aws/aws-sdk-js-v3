@@ -1,7 +1,10 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
+  BlobPayloadInputTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -9,19 +12,38 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { PostAgentProfileRequest, PostAgentProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PostAgentProfileCommand,
-  serializeAws_restJson1PostAgentProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PostAgentProfileCommand, se_PostAgentProfileCommand } from "../protocols/Aws_restJson1";
 
-export interface PostAgentProfileCommandInput extends PostAgentProfileRequest {}
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ */
+export type PostAgentProfileCommandInputType = Omit<PostAgentProfileRequest, "agentProfile"> & {
+  agentProfile: BlobPayloadInputTypes;
+};
+
+/**
+ * @public
+ *
+ * The input for {@link PostAgentProfileCommand}.
+ */
+export interface PostAgentProfileCommandInput extends PostAgentProfileCommandInputType {}
+/**
+ * @public
+ *
+ * The output of {@link PostAgentProfileCommand}.
+ */
 export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Submits profiling data to an aggregated profile of a profiling group. To get an
  *          aggregated profile that is created with this profiling data, use
@@ -35,13 +57,38 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  * import { CodeGuruProfilerClient, PostAgentProfileCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, PostAgentProfileCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // PostAgentProfileRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   agentProfile: "BLOB_VALUE", // required
+ *   profileToken: "STRING_VALUE",
+ *   contentType: "STRING_VALUE", // required
+ * };
  * const command = new PostAgentProfileCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param PostAgentProfileCommandInput - {@link PostAgentProfileCommandInput}
+ * @returns {@link PostAgentProfileCommandOutput}
  * @see {@link PostAgentProfileCommandInput} for command's `input` shape.
  * @see {@link PostAgentProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class PostAgentProfileCommand extends $Command<
@@ -52,6 +99,18 @@ export class PostAgentProfileCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PostAgentProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +126,9 @@ export class PostAgentProfileCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PostAgentProfileCommandInput, PostAgentProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PostAgentProfileCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +139,8 @@ export class PostAgentProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PostAgentProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PostAgentProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +150,18 @@ export class PostAgentProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostAgentProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PostAgentProfileCommand(input, context);
+    return se_PostAgentProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostAgentProfileCommandOutput> {
-    return deserializeAws_restJson1PostAgentProfileCommand(output, context);
+    return de_PostAgentProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

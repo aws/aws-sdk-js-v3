@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { ListRecordsRequest, ListRecordsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecordsCommand,
-  serializeAws_restJson1ListRecordsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRecordsCommand, se_ListRecordsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListRecordsCommand}.
+ */
 export interface ListRecordsCommandInput extends ListRecordsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRecordsCommand}.
+ */
 export interface ListRecordsCommandOutput extends ListRecordsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets paginated records, optionally changed after a particular sync count for a dataset and
  *          identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus,
  *          the credentials used to make this API call need to have access to the identity data.</p>
@@ -41,16 +55,16 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  * X-AMZ-DATE: 20141111T183230Z
  * AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>, SignedHeaders=content-type;host;x-amz-date;x-amz-target;x-amzn-requestid, Signature=<signature>
  *
- * {
+ * \{
  *     "Operation": "com.amazonaws.cognito.sync.model#ListRecords",
  *     "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
  *     "Input":
- *     {
+ *     \{
  *         "IdentityPoolId": "IDENTITY_POOL_ID",
  *         "IdentityId": "IDENTITY_ID",
  *         "DatasetName": "newDataSet"
- *     }
- * }
+ *     \}
+ * \}
  *                </request>
  *             <response>
  * 1.1 200 OK
@@ -59,9 +73,9 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  * content-length: 623
  * date: Tue, 11 Nov 2014 18:32:30 GMT
  *
- * {
+ * \{
  *     "Output":
- *     {
+ *     \{
  *         "__type": "com.amazonaws.cognito.sync.model#ListRecordsResponse",
  *         "Count": 0,
  *         "DatasetDeletedAfterRequestedSyncCount": false,
@@ -72,9 +86,9 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  *         "NextToken": null,
  *         "Records": [],
  *         "SyncSessionToken": "SYNC_SESSION_TOKEN"
- *     },
+ *     \},
  *     "Version": "1.0"
- * }
+ * \}
  *                </response>
  *          </example>
  *       </examples>
@@ -84,13 +98,66 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  * import { CognitoSyncClient, ListRecordsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, ListRecordsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
+ * const input = { // ListRecordsRequest
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityId: "STRING_VALUE", // required
+ *   DatasetName: "STRING_VALUE", // required
+ *   LastSyncCount: Number("long"),
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SyncSessionToken: "STRING_VALUE",
+ * };
  * const command = new ListRecordsCommand(input);
  * const response = await client.send(command);
+ * // { // ListRecordsResponse
+ * //   Records: [ // RecordList
+ * //     { // Record
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       SyncCount: Number("long"),
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: "STRING_VALUE",
+ * //       DeviceLastModifiedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Count: Number("int"),
+ * //   DatasetSyncCount: Number("long"),
+ * //   LastModifiedBy: "STRING_VALUE",
+ * //   MergedDatasetNames: [ // MergedDatasetNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   DatasetExists: true || false,
+ * //   DatasetDeletedAfterRequestedSyncCount: true || false,
+ * //   SyncSessionToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListRecordsCommandInput - {@link ListRecordsCommandInput}
+ * @returns {@link ListRecordsCommandOutput}
  * @see {@link ListRecordsCommandInput} for command's `input` shape.
  * @see {@link ListRecordsCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  Indicates an internal service
+ *       error.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  Thrown when a request parameter does not comply
+ *       with the associated constraints.
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  Thrown when a user is not authorized to access the
+ *       requested resource.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Thrown if the request is
+ *       throttled.
+ *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class ListRecordsCommand extends $Command<
@@ -101,6 +168,18 @@ export class ListRecordsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +195,7 @@ export class ListRecordsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListRecordsCommandInput, ListRecordsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListRecordsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -126,8 +206,8 @@ export class ListRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecordsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRecordsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +217,18 @@ export class ListRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecordsCommand(input, context);
+    return se_ListRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecordsCommandOutput> {
-    return deserializeAws_restJson1ListRecordsCommand(output, context);
+    return de_ListRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

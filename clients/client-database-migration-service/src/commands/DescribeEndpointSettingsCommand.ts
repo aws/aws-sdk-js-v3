@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   DatabaseMigrationServiceClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DescribeEndpointSettingsMessage, DescribeEndpointSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEndpointSettingsCommand,
-  serializeAws_json1_1DescribeEndpointSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEndpointSettingsCommand, se_DescribeEndpointSettingsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeEndpointSettingsCommand}.
+ */
 export interface DescribeEndpointSettingsCommandInput extends DescribeEndpointSettingsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEndpointSettingsCommand}.
+ */
 export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the possible endpoint settings available
  *          when you create an endpoint for a specific database engine.</p>
  * @example
@@ -34,13 +48,42 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  * import { DatabaseMigrationServiceClient, DescribeEndpointSettingsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeEndpointSettingsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeEndpointSettingsMessage
+ *   EngineName: "STRING_VALUE", // required
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEndpointSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEndpointSettingsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   EndpointSettings: [ // EndpointSettingsList
+ * //     { // EndpointSetting
+ * //       Name: "STRING_VALUE",
+ * //       Type: "string" || "boolean" || "integer" || "enum",
+ * //       EnumValues: [ // EndpointSettingEnumValues
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Sensitive: true || false,
+ * //       Units: "STRING_VALUE",
+ * //       Applicability: "STRING_VALUE",
+ * //       IntValueMin: Number("int"),
+ * //       IntValueMax: Number("int"),
+ * //       DefaultValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeEndpointSettingsCommandInput - {@link DescribeEndpointSettingsCommandInput}
+ * @returns {@link DescribeEndpointSettingsCommandOutput}
  * @see {@link DescribeEndpointSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointSettingsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeEndpointSettingsCommand extends $Command<
@@ -51,6 +94,18 @@ export class DescribeEndpointSettingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +121,9 @@ export class DescribeEndpointSettingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeEndpointSettingsCommandInput, DescribeEndpointSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeEndpointSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +134,8 @@ export class DescribeEndpointSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointSettingsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEndpointSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +145,18 @@ export class DescribeEndpointSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEndpointSettingsCommand(input, context);
+    return se_DescribeEndpointSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeEndpointSettingsCommand(output, context);
+    return de_DescribeEndpointSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

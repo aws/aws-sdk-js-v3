@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,20 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { EnableMetricsCollectionQuery } from "../models/models_0";
-import {
-  deserializeAws_queryEnableMetricsCollectionCommand,
-  serializeAws_queryEnableMetricsCollectionCommand,
-} from "../protocols/Aws_query";
+import { de_EnableMetricsCollectionCommand, se_EnableMetricsCollectionCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link EnableMetricsCollectionCommand}.
+ */
 export interface EnableMetricsCollectionCommandInput extends EnableMetricsCollectionQuery {}
+/**
+ * @public
+ *
+ * The output of {@link EnableMetricsCollectionCommand}.
+ */
 export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables group metrics for the specified Auto Scaling group. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html">Monitoring CloudWatch metrics for your Auto Scaling groups and instances</a> in the
+ * @public
+ * <p>Enables group metrics collection for the specified Auto Scaling group.</p>
+ *          <p>You can use these metrics to track changes in an Auto Scaling group and to set alarms on
+ *             threshold values. You can view group metrics using the Amazon EC2 Auto Scaling console or the CloudWatch
+ *             console. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html">Monitor
+ *                 CloudWatch metrics for your Auto Scaling groups and instances</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -30,13 +48,43 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  * import { AutoScalingClient, EnableMetricsCollectionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, EnableMetricsCollectionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // EnableMetricsCollectionQuery
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   Metrics: [ // Metrics
+ *     "STRING_VALUE",
+ *   ],
+ *   Granularity: "STRING_VALUE", // required
+ * };
  * const command = new EnableMetricsCollectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param EnableMetricsCollectionCommandInput - {@link EnableMetricsCollectionCommandInput}
+ * @returns {@link EnableMetricsCollectionCommandOutput}
  * @see {@link EnableMetricsCollectionCommandInput} for command's `input` shape.
  * @see {@link EnableMetricsCollectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
+ *
+ * @example To enable metrics collection for an Auto Scaling group
+ * ```javascript
+ * // This example enables data collection for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "Granularity": "1Minute"
+ * };
+ * const command = new EnableMetricsCollectionCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-enable-metrics-collection-1
+ * ```
  *
  */
 export class EnableMetricsCollectionCommand extends $Command<
@@ -47,6 +95,18 @@ export class EnableMetricsCollectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: EnableMetricsCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +122,9 @@ export class EnableMetricsCollectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableMetricsCollectionCommandInput, EnableMetricsCollectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EnableMetricsCollectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +135,8 @@ export class EnableMetricsCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableMetricsCollectionQuery.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +146,18 @@ export class EnableMetricsCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableMetricsCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableMetricsCollectionCommand(input, context);
+    return se_EnableMetricsCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableMetricsCollectionCommandOutput> {
-    return deserializeAws_queryEnableMetricsCollectionCommand(output, context);
+    return de_EnableMetricsCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

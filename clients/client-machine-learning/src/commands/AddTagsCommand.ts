@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { AddTagsInput, AddTagsOutput } from "../models/models_0";
-import { deserializeAws_json1_1AddTagsCommand, serializeAws_json1_1AddTagsCommand } from "../protocols/Aws_json1_1";
+import { de_AddTagsCommand, se_AddTagsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AddTagsCommand}.
+ */
 export interface AddTagsCommandInput extends AddTagsInput {}
+/**
+ * @public
+ *
+ * The output of {@link AddTagsCommand}.
+ */
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key
  * 		    and an optional value. If you add a tag using a key that is already associated with the ML object,
  * 			<code>AddTags</code> updates the tag's value.</p>
@@ -28,13 +45,46 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * import { MachineLearningClient, AddTagsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, AddTagsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // AddTagsInput
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE", // required
+ * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
+ * // { // AddTagsOutput
+ * //   ResourceId: "STRING_VALUE",
+ * //   ResourceType: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param AddTagsCommandInput - {@link AddTagsCommandInput}
+ * @returns {@link AddTagsCommandOutput}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link InvalidTagException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource cannot be located.</p>
+ *
+ * @throws {@link TagLimitExceededException} (client fault)
+ *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class AddTagsCommand extends $Command<
@@ -45,6 +95,18 @@ export class AddTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -60,6 +122,7 @@ export class AddTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddTagsCommandInput, AddTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AddTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,8 +133,8 @@ export class AddTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -81,12 +144,18 @@ export class AddTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddTagsCommand(input, context);
+    return se_AddTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
-    return deserializeAws_json1_1AddTagsCommand(output, context);
+    return de_AddTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

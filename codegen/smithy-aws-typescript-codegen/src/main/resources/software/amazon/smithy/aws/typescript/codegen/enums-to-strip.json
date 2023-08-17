@@ -546,5 +546,15 @@
   "com.amazonaws.swf#StartTimerFailedCause",
   "com.amazonaws.swf#WorkflowExecutionCancelRequestedCause",
   "com.amazonaws.swf#WorkflowExecutionTerminatedCause",
-  "com.amazonaws.swf#WorkflowExecutionTimeoutType"
+  "com.amazonaws.amplifyuibuilder#SortDirection",
+  "com.amazonaws.location#BatchItemErrorCode",
+  "com.amazonaws.location#DimensionUnit",
+  "com.amazonaws.location#DistanceUnit",
+  "com.amazonaws.location#IntendedUse",
+  "com.amazonaws.location#PositionFiltering",
+  "com.amazonaws.location#PricingPlan",
+  "com.amazonaws.location#RouteMatrixErrorCode",
+  "com.amazonaws.location#TravelMode",
+  "com.amazonaws.location#ValidationExceptionReason",
+  "com.amazonaws.location#VehicleWeightUnit"
 ]

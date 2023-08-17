@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DeleteThingShadowCommand";
 export * from "./GetRetainedMessageCommand";
 export * from "./GetThingShadowCommand";

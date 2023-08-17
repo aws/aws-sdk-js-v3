@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { OpenSearch } from "../OpenSearch";
 import { OpenSearchClient } from "../OpenSearchClient";
 
+/**
+ * @public
+ */
 export interface OpenSearchPaginationConfiguration extends PaginationConfiguration {
-  client: OpenSearch | OpenSearchClient;
+  client: OpenSearchClient;
 }

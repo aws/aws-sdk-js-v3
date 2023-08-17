@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./ActivateEventSourceCommand";
 export * from "./CancelReplayCommand";
 export * from "./CreateApiDestinationCommand";

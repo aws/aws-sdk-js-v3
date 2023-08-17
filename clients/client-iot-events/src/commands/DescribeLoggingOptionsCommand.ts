@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeLoggingOptionsCommand,
-  serializeAws_restJson1DescribeLoggingOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeLoggingOptionsCommand, se_DescribeLoggingOptionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeLoggingOptionsCommand}.
+ */
 export interface DescribeLoggingOptionsCommandInput extends DescribeLoggingOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLoggingOptionsCommand}.
+ */
 export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current settings of the AWS IoT Events logging options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,51 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * import { IoTEventsClient, DescribeLoggingOptionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DescribeLoggingOptionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = {};
  * const command = new DescribeLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeLoggingOptionsResponse
+ * //   loggingOptions: { // LoggingOptions
+ * //     roleArn: "STRING_VALUE", // required
+ * //     level: "STRING_VALUE", // required
+ * //     enabled: true || false, // required
+ * //     detectorDebugOptions: [ // DetectorDebugOptions
+ * //       { // DetectorDebugOption
+ * //         detectorModelName: "STRING_VALUE", // required
+ * //         keyValue: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeLoggingOptionsCommandInput - {@link DescribeLoggingOptionsCommandInput}
+ * @returns {@link DescribeLoggingOptionsCommandOutput}
  * @see {@link DescribeLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (server fault)
+ *  <p>The requested operation is not supported.</p>
+ *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class DescribeLoggingOptionsCommand extends $Command<
@@ -46,6 +98,18 @@ export class DescribeLoggingOptionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoggingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +125,9 @@ export class DescribeLoggingOptionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeLoggingOptionsCommandInput, DescribeLoggingOptionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeLoggingOptionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +138,8 @@ export class DescribeLoggingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoggingOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoggingOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +149,18 @@ export class DescribeLoggingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeLoggingOptionsCommand(input, context);
+    return se_DescribeLoggingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1DescribeLoggingOptionsCommand(output, context);
+    return de_DescribeLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

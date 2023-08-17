@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListBootstrapActionsPaginator";
 export * from "./ListClustersPaginator";
@@ -10,3 +11,4 @@ export * from "./ListSecurityConfigurationsPaginator";
 export * from "./ListStepsPaginator";
 export * from "./ListStudioSessionMappingsPaginator";
 export * from "./ListStudiosPaginator";
+export * from "./ListSupportedInstanceTypesPaginator";

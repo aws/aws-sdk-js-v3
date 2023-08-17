@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { TagRoleRequest } from "../models/models_0";
-import { deserializeAws_queryTagRoleCommand, serializeAws_queryTagRoleCommand } from "../protocols/Aws_query";
+import { de_TagRoleCommand, se_TagRoleCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link TagRoleCommand}.
+ */
 export interface TagRoleCommandInput extends TagRoleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagRoleCommand}.
+ */
 export interface TagRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM role. The role can be a regular role or a
  *       service-linked role. If a tag with the same key name already exists, then that tag is
  *       overwritten with the new value.</p>
@@ -70,19 +87,88 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  * import { IAMClient, TagRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // TagRoleRequest
+ *   RoleName: "STRING_VALUE", // required
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagRoleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param TagRoleCommandInput - {@link TagRoleCommandInput}
+ * @returns {@link TagRoleCommandOutput}
  * @see {@link TagRoleCommandInput} for command's `input` shape.
  * @see {@link TagRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
+ *
+ * @example To add a tag key and value to an IAM role
+ * ```javascript
+ * // The following example shows how to add tags to an existing role.
+ * const input = {
+ *   "RoleName": "taggedrole",
+ *   "Tags": [
+ *     {
+ *       "Key": "Dept",
+ *       "Value": "Accounting"
+ *     },
+ *     {
+ *       "Key": "CostCenter",
+ *       "Value": "12345"
+ *     }
+ *   ]
+ * };
+ * const command = new TagRoleCommand(input);
+ * await client.send(command);
+ * // example id: to-add-a-tag-key-and-value-to-an-iam-role-1506718791513
+ * ```
  *
  */
 export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: TagRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,6 +184,7 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
     options?: __HttpHandlerOptions
   ): Handler<TagRoleCommandInput, TagRoleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagRoleCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -108,8 +195,8 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagRoleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +206,18 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagRoleCommand(input, context);
+    return se_TagRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagRoleCommandOutput> {
-    return deserializeAws_queryTagRoleCommand(output, context);
+    return de_TagRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,14 +1,16 @@
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { OpsWorksCMServiceException as __BaseException } from "./OpsWorksCMServiceException";
 
 /**
+ * @public
  * <p>Stores account attributes.
  *     </p>
  */
 export interface AccountAttribute {
   /**
+   * @public
    * <p>
    *       The attribute name. The following are supported attribute names.
    *     </p>
@@ -29,6 +31,7 @@ export interface AccountAttribute {
   Name?: string;
 
   /**
+   * @public
    * <p>
    *       The maximum allowed value.
    *     </p>
@@ -36,6 +39,7 @@ export interface AccountAttribute {
   Maximum?: number;
 
   /**
+   * @public
    * <p>
    *       The current usage, such as the current number of servers that are associated with the account.
    *     </p>
@@ -43,57 +47,47 @@ export interface AccountAttribute {
   Used?: number;
 }
 
-export namespace AccountAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAttribute): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A name and value pair that is specific to the engine of the server.
  *     </p>
  */
 export interface EngineAttribute {
   /**
+   * @public
    * <p>The name of the engine attribute.
    *     </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The value of the engine attribute.
    *     </p>
    */
   Value?: string;
 }
 
-export namespace EngineAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EngineAttribute): any => ({
-    ...obj,
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateNodeRequest {
   /**
+   * @public
    * <p>The name of the server with which to associate the node.
    *     </p>
    */
   ServerName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the node.
    *     </p>
    */
   NodeName: string | undefined;
 
   /**
+   * @public
    * <p>Engine attributes used for associating the node.
    *     </p>
    *          <p class="title">
@@ -127,36 +121,20 @@ export interface AssociateNodeRequest {
   EngineAttributes: EngineAttribute[] | undefined;
 }
 
-export namespace AssociateNodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateNodeRequest): any => ({
-    ...obj,
-    ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateNodeResponse {
   /**
+   * @public
    * <p>Contains a token which can be passed to the <code>DescribeNodeAssociationStatus</code> API call to get the status of the association request.
    *     </p>
    */
   NodeAssociationStatusToken?: string;
 }
 
-export namespace AssociateNodeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateNodeResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The resource is in a state that does not allow you to perform a specified action.
  *     </p>
  */
@@ -164,6 +142,7 @@ export class InvalidStateException extends __BaseException {
   readonly name: "InvalidStateException" = "InvalidStateException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Error or informational message that provides more detail if a resource is
    *       in a state that is not valid for performing a specified action.
    *     </p>
@@ -184,6 +163,7 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource does not exist, or access was denied.
  *     </p>
  */
@@ -191,6 +171,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Error or informational message that can contain more detail about problems locating or accessing a resource.
    *     </p>
    */
@@ -210,6 +191,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of the provided request parameters are not valid.
  *     </p>
  */
@@ -217,6 +199,7 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Error or informational message that can contain more detail about a validation failure.
    *     </p>
    */
@@ -235,30 +218,51 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum BackupType {
-  AUTOMATED = "AUTOMATED",
-  MANUAL = "MANUAL",
-}
-
-export enum BackupStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  OK = "OK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BackupType = {
+  AUTOMATED: "AUTOMATED",
+  MANUAL: "MANUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type BackupType = (typeof BackupType)[keyof typeof BackupType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BackupStatus = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupStatus = (typeof BackupStatus)[keyof typeof BackupStatus];
+
+/**
+ * @public
  * <p>Describes a single backup.
  *     </p>
  */
 export interface Backup {
   /**
+   * @public
    * <p>The ARN of the backup.
    *     </p>
    */
   BackupArn?: string;
 
   /**
+   * @public
    * <p>
    *       The generated ID of the backup. Example: <code>myServerName-yyyyMMddHHmmssSSS</code>
    *          </p>
@@ -266,6 +270,7 @@ export interface Backup {
   BackupId?: string;
 
   /**
+   * @public
    * <p>
    *       The backup type. Valid values are <code>automated</code> or <code>manual</code>.
    *     </p>
@@ -273,6 +278,7 @@ export interface Backup {
   BackupType?: BackupType | string;
 
   /**
+   * @public
    * <p>
    *       The time stamp when the backup was created in the database. Example: <code>2016-07-29T13:38:47.520Z</code>
    *          </p>
@@ -280,6 +286,7 @@ export interface Backup {
   CreatedAt?: Date;
 
   /**
+   * @public
    * <p>
    *       A user-provided description for a manual backup. This field is empty for automated backups.
    *     </p>
@@ -287,6 +294,7 @@ export interface Backup {
   Description?: string;
 
   /**
+   * @public
    * <p>
    *       The engine type that is obtained from the server when the backup is created.
    *     </p>
@@ -294,6 +302,7 @@ export interface Backup {
   Engine?: string;
 
   /**
+   * @public
    * <p>
    *       The engine model that is obtained from the server when the backup is created.
    *     </p>
@@ -301,6 +310,7 @@ export interface Backup {
   EngineModel?: string;
 
   /**
+   * @public
    * <p>
    *       The engine version that is obtained from the server when the backup is created.
    *     </p>
@@ -308,6 +318,7 @@ export interface Backup {
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>
    *       The EC2 instance profile ARN that is obtained from the server when the backup is created. Because this value is stored,
    *       you are not required to provide the InstanceProfileArn again if you restore a backup.
@@ -316,6 +327,7 @@ export interface Backup {
   InstanceProfileArn?: string;
 
   /**
+   * @public
    * <p>
    *       The instance type that is obtained from the server when the backup is created.
    *     </p>
@@ -323,6 +335,7 @@ export interface Backup {
   InstanceType?: string;
 
   /**
+   * @public
    * <p>
    *       The key pair that is obtained from the server when the backup is created.
    *     </p>
@@ -330,6 +343,7 @@ export interface Backup {
   KeyPair?: string;
 
   /**
+   * @public
    * <p>
    *       The preferred backup period that is obtained from the server when the backup is created.
    *     </p>
@@ -337,6 +351,7 @@ export interface Backup {
   PreferredBackupWindow?: string;
 
   /**
+   * @public
    * <p>
    *       The preferred maintenance period that is obtained from the server when the backup is created.
    *     </p>
@@ -344,6 +359,7 @@ export interface Backup {
   PreferredMaintenanceWindow?: string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>
@@ -353,6 +369,7 @@ export interface Backup {
   S3DataSize?: number;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>
@@ -362,6 +379,7 @@ export interface Backup {
   S3DataUrl?: string;
 
   /**
+   * @public
    * <p>
    *       The Amazon S3 URL of the backup's log file.
    *     </p>
@@ -369,6 +387,7 @@ export interface Backup {
   S3LogUrl?: string;
 
   /**
+   * @public
    * <p>
    *       The security group IDs that are obtained from the server when the backup is created.
    *     </p>
@@ -376,6 +395,7 @@ export interface Backup {
   SecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>
    *       The name of the server from which the backup was made.
    *     </p>
@@ -383,6 +403,7 @@ export interface Backup {
   ServerName?: string;
 
   /**
+   * @public
    * <p>
    *       The service role ARN that is obtained from the server when the backup is created.
    *     </p>
@@ -390,12 +411,14 @@ export interface Backup {
   ServiceRoleArn?: string;
 
   /**
+   * @public
    * <p>The status of a backup while in progress.
    *     </p>
    */
   Status?: BackupStatus | string;
 
   /**
+   * @public
    * <p>
    *       An informational message about backup status.
    *     </p>
@@ -403,6 +426,7 @@ export interface Backup {
   StatusDescription?: string;
 
   /**
+   * @public
    * <p>
    *       The subnet IDs that are obtained from the server when the backup is created.
    *     </p>
@@ -410,6 +434,7 @@ export interface Backup {
   SubnetIds?: string[];
 
   /**
+   * @public
    * <p>
    *       The version of AWS OpsWorks CM-specific tools that is obtained from the server when the backup is created.
    *     </p>
@@ -417,6 +442,7 @@ export interface Backup {
   ToolsVersion?: string;
 
   /**
+   * @public
    * <p>
    *       The IAM user ARN of the requester for manual backups. This field is empty for automated backups.
    *     </p>
@@ -424,22 +450,15 @@ export interface Backup {
   UserArn?: string;
 }
 
-export namespace Backup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Backup): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate
  *       or AWS OpsWorks for Puppet Enterprise server. Leading and trailing white spaces are trimmed from both the key and value.
  *       A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.</p>
  */
 export interface Tag {
   /**
+   * @public
    * <p>A tag key, such as <code>Stage</code> or <code>Name</code>. A tag key cannot be empty. The key can be a maximum of 127 characters,
    *       and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>
    *          </p>
@@ -447,6 +466,7 @@ export interface Tag {
   Key: string | undefined;
 
   /**
+   * @public
    * <p>An optional tag value, such as <code>Production</code> or <code>test-owcm-server</code>. The value can be a maximum of 255 characters,
    *       and contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>
    *          </p>
@@ -454,23 +474,19 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateBackupRequest {
   /**
+   * @public
    * <p>The name of the server that you want to back up.
    *     </p>
    */
   ServerName: string | undefined;
 
   /**
+   * @public
    * <p>
    *       A user-defined description of the backup.
    *     </p>
@@ -478,6 +494,7 @@ export interface CreateBackupRequest {
   Description?: string;
 
   /**
+   * @public
    * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.</p>
    *          <ul>
    *             <li>
@@ -502,32 +519,19 @@ export interface CreateBackupRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateBackupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateBackupResponse {
   /**
+   * @public
    * <p>Backup created by request.</p>
    */
   Backup?: Backup;
 }
 
-export namespace CreateBackupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackupResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The limit of servers or backups has been reached.
  *     </p>
  */
@@ -535,6 +539,7 @@ export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Error or informational message that the maximum allowed number of servers or backups has been exceeded.
    *     </p>
    */
@@ -553,8 +558,12 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateServerRequest {
   /**
+   * @public
    * <p>
    *         Associate a public IP address with a server that you are launching. Valid values are <code>true</code> or <code>false</code>. The default value is <code>true</code>.
    *       </p>
@@ -562,6 +571,7 @@ export interface CreateServerRequest {
   AssociatePublicIpAddress?: boolean;
 
   /**
+   * @public
    * <p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>. To access the server, create a CNAME DNS record in your preferred DNS service that points the custom
    *       domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the
    *       generated <code>Endpoint</code> value if the server is using a custom domain. If you specify a custom domain, you must also specify values for <code>CustomCertificate</code>
@@ -570,6 +580,7 @@ export interface CreateServerRequest {
   CustomDomain?: string;
 
   /**
+   * @public
    * <p>A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a
    *       custom certificate, you must also specify values for <code>CustomDomain</code> and <code>CustomPrivateKey</code>. The following are requirements for the <code>CustomCertificate</code> value:</p>
    *          <ul>
@@ -594,12 +605,14 @@ export interface CreateServerRequest {
   CustomCertificate?: string;
 
   /**
+   * @public
    * <p>A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase.
    *       If you specify a custom private key, you must also specify values for <code>CustomDomain</code> and <code>CustomCertificate</code>.</p>
    */
   CustomPrivateKey?: string;
 
   /**
+   * @public
    * <p>
    *         Enable or disable scheduled backups. Valid values are <code>true</code> or <code>false</code>. The default value is <code>true</code>.
    *       </p>
@@ -607,6 +620,7 @@ export interface CreateServerRequest {
   DisableAutomatedBackup?: boolean;
 
   /**
+   * @public
    * <p>
    *         The configuration management engine to use. Valid values include <code>ChefAutomate</code> and <code>Puppet</code>.
    *       </p>
@@ -614,6 +628,7 @@ export interface CreateServerRequest {
   Engine: string | undefined;
 
   /**
+   * @public
    * <p>
    *         The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.
    *       </p>
@@ -621,6 +636,7 @@ export interface CreateServerRequest {
   EngineModel?: string;
 
   /**
+   * @public
    * <p>
    *         The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion
    *         is currently <code>2</code>. For a Puppet server, valid values are <code>2019</code> or <code>2017</code>.
@@ -629,6 +645,7 @@ export interface CreateServerRequest {
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>Optional engine attributes on a specified server.
    *     </p>
    *          <p class="title">
@@ -677,6 +694,7 @@ export interface CreateServerRequest {
   EngineAttributes?: EngineAttribute[];
 
   /**
+   * @public
    * <p>
    *         The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded.
    *         The default value is <code>1</code>.
@@ -685,6 +703,7 @@ export interface CreateServerRequest {
   BackupRetentionCount?: number;
 
   /**
+   * @public
    * <p>
    *         The name of the server. The server name must be unique within your AWS account, within each region.
    *         Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
@@ -693,6 +712,7 @@ export interface CreateServerRequest {
   ServerName: string | undefined;
 
   /**
+   * @public
    * <p>
    *         The ARN of the instance profile that your Amazon EC2
    *         instances use. Although the AWS OpsWorks console typically creates
@@ -705,6 +725,7 @@ export interface CreateServerRequest {
   InstanceProfileArn: string | undefined;
 
   /**
+   * @public
    * <p>
    *         The Amazon EC2 instance type to use. For example, <code>m5.large</code>.
    *       </p>
@@ -712,6 +733,7 @@ export interface CreateServerRequest {
   InstanceType: string | undefined;
 
   /**
+   * @public
    * <p>
    *         The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.
    *       </p>
@@ -719,6 +741,7 @@ export interface CreateServerRequest {
   KeyPair?: string;
 
   /**
+   * @public
    * <p>
    *       The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance.
    *       Valid values must be specified in the following format: <code>DDD:HH:MM</code>. <code>MM</code> must be specified as <code>00</code>. The specified time is in coordinated universal time (UTC).
@@ -733,6 +756,7 @@ export interface CreateServerRequest {
   PreferredMaintenanceWindow?: string;
 
   /**
+   * @public
    * <p>
    *       The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server
    *       if automated backups are enabled. Valid values must be specified in one of the following formats:
@@ -759,6 +783,7 @@ export interface CreateServerRequest {
   PreferredBackupWindow?: string;
 
   /**
+   * @public
    * <p>
    *       A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups
    *       must be within the VPC that is specified by <code>SubnetIds</code>.
@@ -771,6 +796,7 @@ export interface CreateServerRequest {
   SecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>
    *       The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates
    *       the service role for you, if you are using the AWS CLI or API commands,
@@ -781,6 +807,7 @@ export interface CreateServerRequest {
   ServiceRoleArn: string | undefined;
 
   /**
+   * @public
    * <p>
    *       The IDs of subnets in which to launch the server EC2 instance.
    *     </p>
@@ -796,6 +823,7 @@ export interface CreateServerRequest {
   SubnetIds?: string[];
 
   /**
+   * @public
    * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server.</p>
    *          <ul>
    *             <li>
@@ -820,6 +848,7 @@ export interface CreateServerRequest {
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>
    *       If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
    *     </p>
@@ -827,88 +856,102 @@ export interface CreateServerRequest {
   BackupId?: string;
 }
 
-export namespace CreateServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServerRequest): any => ({
-    ...obj,
-    ...(obj.CustomPrivateKey && { CustomPrivateKey: SENSITIVE_STRING }),
-    ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
-    }),
-  });
-}
-
-export enum MaintenanceStatus {
-  FAILED = "FAILED",
-  SUCCESS = "SUCCESS",
-}
-
-export enum ServerStatus {
-  BACKING_UP = "BACKING_UP",
-  CONNECTION_LOST = "CONNECTION_LOST",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  HEALTHY = "HEALTHY",
-  MODIFYING = "MODIFYING",
-  RESTORING = "RESTORING",
-  RUNNING = "RUNNING",
-  SETUP = "SETUP",
-  TERMINATED = "TERMINATED",
-  UNDER_MAINTENANCE = "UNDER_MAINTENANCE",
-  UNHEALTHY = "UNHEALTHY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceStatus = {
+  FAILED: "FAILED",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type MaintenanceStatus = (typeof MaintenanceStatus)[keyof typeof MaintenanceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServerStatus = {
+  BACKING_UP: "BACKING_UP",
+  CONNECTION_LOST: "CONNECTION_LOST",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  HEALTHY: "HEALTHY",
+  MODIFYING: "MODIFYING",
+  RESTORING: "RESTORING",
+  RUNNING: "RUNNING",
+  SETUP: "SETUP",
+  TERMINATED: "TERMINATED",
+  UNDER_MAINTENANCE: "UNDER_MAINTENANCE",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type ServerStatus = (typeof ServerStatus)[keyof typeof ServerStatus];
+
+/**
+ * @public
  * <p>Describes a configuration management server.
  *     </p>
  */
 export interface Server {
   /**
+   * @public
    * <p>Associate a public IP address with a server that you are launching.
    *     </p>
    */
   AssociatePublicIpAddress?: boolean;
 
   /**
+   * @public
    * <p>The number of automated backups to keep.
    *     </p>
    */
   BackupRetentionCount?: number;
 
   /**
+   * @public
    * <p>The name of the server.
    *     </p>
    */
   ServerName?: string;
 
   /**
+   * @public
    * <p>Time stamp of server creation. Example <code>2016-07-29T13:38:47.520Z</code>
    *          </p>
    */
   CreatedAt?: Date;
 
   /**
+   * @public
    * <p>The ARN of the CloudFormation stack that was used to create the server.
    *     </p>
    */
   CloudFormationStackArn?: string;
 
   /**
+   * @public
    * <p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>.
    *       You cannot access the server by using the <code>Endpoint</code> value if the server has a <code>CustomDomain</code> specified.</p>
    */
   CustomDomain?: string;
 
   /**
+   * @public
    * <p>Disables automated backups. The number of stored backups is dependent on the value of PreferredBackupCount.
    *     </p>
    */
   DisableAutomatedBackup?: boolean;
 
   /**
+   * @public
    * <p>
    *       A DNS name that can be used to access the engine. Example: <code>myserver-asdfghjkl.us-east-1.opsworks.io</code>.
    *       You cannot access the server by using the <code>Endpoint</code> value if the server has a <code>CustomDomain</code> specified.
@@ -917,18 +960,21 @@ export interface Server {
   Endpoint?: string;
 
   /**
+   * @public
    * <p>The engine type of the server. Valid values in this release include <code>ChefAutomate</code> and <code>Puppet</code>.
    *     </p>
    */
   Engine?: string;
 
   /**
+   * @public
    * <p>The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.
    *     </p>
    */
   EngineModel?: string;
 
   /**
+   * @public
    * <p>The response of a createServer() request returns the master
    *     credential to access the server in EngineAttributes. These
    *     credentials are not stored by AWS OpsWorks CM; they are returned only as part of the result of createServer().
@@ -972,6 +1018,7 @@ export interface Server {
   EngineAttributes?: EngineAttribute[];
 
   /**
+   * @public
    * <p>The engine version of the server. For a Chef server, the valid value for EngineVersion is
    *       currently <code>2</code>. For a Puppet server, specify either <code>2019</code> or <code>2017</code>.
    *     </p>
@@ -979,12 +1026,14 @@ export interface Server {
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>The instance profile ARN of the server.
    *     </p>
    */
   InstanceProfileArn?: string;
 
   /**
+   * @public
    * <p>
    *       The instance type for the server, as specified in the CloudFormation stack. This might not be the same instance type that is shown in the EC2 console.
    *     </p>
@@ -992,30 +1041,35 @@ export interface Server {
   InstanceType?: string;
 
   /**
+   * @public
    * <p>The key pair associated with the server.
    *     </p>
    */
   KeyPair?: string;
 
   /**
+   * @public
    * <p>The status of the most recent server maintenance run. Shows <code>SUCCESS</code> or <code>FAILED</code>.
    *     </p>
    */
   MaintenanceStatus?: MaintenanceStatus | string;
 
   /**
+   * @public
    * <p>The preferred maintenance period specified for the server.
    *     </p>
    */
   PreferredMaintenanceWindow?: string;
 
   /**
+   * @public
    * <p>The preferred backup period specified for the server.
    *     </p>
    */
   PreferredBackupWindow?: string;
 
   /**
+   * @public
    * <p>
    *       The security group IDs for the server, as specified in the CloudFormation stack.
    *       These might not be the same security groups that are shown in the EC2 console.
@@ -1024,12 +1078,14 @@ export interface Server {
   SecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>The service role ARN used to create the server.
    *     </p>
    */
   ServiceRoleArn?: string;
 
   /**
+   * @public
    * <p>
    *       The server's status. This field displays the states of actions in progress, such as creating, running, or backing up the server,
    *       as well as the server's health state.
@@ -1038,6 +1094,7 @@ export interface Server {
   Status?: ServerStatus | string;
 
   /**
+   * @public
    * <p>
    *       Depending on the server status, this field has either a human-readable
    *       message (such as a create or backup error), or an escaped block of JSON (used for health check results).
@@ -1046,6 +1103,7 @@ export interface Server {
   StatusReason?: string;
 
   /**
+   * @public
    * <p>
    *       The subnet IDs specified in a CreateServer request.
    *     </p>
@@ -1053,43 +1111,27 @@ export interface Server {
   SubnetIds?: string[];
 
   /**
+   * @public
    * <p>The ARN of the server.
    *     </p>
    */
   ServerArn?: string;
 }
 
-export namespace Server {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Server): any => ({
-    ...obj,
-    ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateServerResponse {
   /**
+   * @public
    * <p>The server that is created by the request.
    *     </p>
    */
   Server?: Server;
 }
 
-export namespace CreateServerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServerResponse): any => ({
-    ...obj,
-    ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) }),
-  });
-}
-
 /**
+ * @public
  * <p>The requested resource cannot be created because it already exists.
  *     </p>
  */
@@ -1097,6 +1139,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Error or informational message in response to a CreateServer request that a resource cannot be created because it already exists.
    *     </p>
    */
@@ -1115,8 +1158,12 @@ export class ResourceAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupRequest {
   /**
+   * @public
    * <p>The ID of the backup to delete. Run the DescribeBackups command to get a list of backup IDs.
    *       Backup IDs are in the format <code>ServerName-yyyyMMddHHmmssSSS</code>.
    *     </p>
@@ -1124,66 +1171,38 @@ export interface DeleteBackupRequest {
   BackupId: string | undefined;
 }
 
-export namespace DeleteBackupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteBackupResponse {}
 
-export namespace DeleteBackupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackupResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteServerRequest {
   /**
+   * @public
    * <p>The ID of the server to delete.</p>
    */
   ServerName: string | undefined;
 }
 
-export namespace DeleteServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServerRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteServerResponse {}
 
-export namespace DeleteServerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServerResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAccountAttributesRequest {}
 
-export namespace DescribeAccountAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAccountAttributesResponse {
   /**
+   * @public
    * <p>
    *       The attributes that are currently set for the account.
    *     </p>
@@ -1191,71 +1210,57 @@ export interface DescribeAccountAttributesResponse {
   Attributes?: AccountAttribute[];
 }
 
-export namespace DescribeAccountAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeBackupsRequest {
   /**
+   * @public
    * <p>Describes a single backup.
    *     </p>
    */
   BackupId?: string;
 
   /**
+   * @public
    * <p>Returns backups for the server with the specified ServerName.
    *     </p>
    */
   ServerName?: string;
 
   /**
+   * @public
    * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
    */
   MaxResults?: number;
 }
 
-export namespace DescribeBackupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeBackupsResponse {
   /**
+   * @public
    * <p>Contains the response to a <code>DescribeBackups</code> request.
    *     </p>
    */
   Backups?: Backup[];
 
   /**
+   * @public
    * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
    */
   NextToken?: string;
 }
 
-export namespace DescribeBackupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>This occurs when the provided nextToken is not valid.
  *     </p>
  */
@@ -1263,6 +1268,7 @@ export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Error or informational message that can contain more detail about a nextToken failure.
    *     </p>
    */
@@ -1281,13 +1287,18 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventsRequest {
   /**
+   * @public
    * <p>The name of the server for which you want to view events.</p>
    */
   ServerName: string | undefined;
 
   /**
+   * @public
    * <p>NextToken is a string that is returned in some command responses. It indicates that
    *       not all entries have been returned, and that you must run at least one more request to get remaining
    *       items. To get remaining results, call <code>DescribeEvents</code> again, and assign the token from the previous
@@ -1300,6 +1311,7 @@ export interface DescribeEventsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>To receive a paginated response, use this parameter to specify the maximum number
    *       of results to be returned with a single call. If the number of available results exceeds
    *       this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>
@@ -1309,60 +1321,52 @@ export interface DescribeEventsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An event that is related to the server, such as the start of maintenance or backup.
  *     </p>
  */
 export interface ServerEvent {
   /**
+   * @public
    * <p>The time when the event occurred.
    *     </p>
    */
   CreatedAt?: Date;
 
   /**
+   * @public
    * <p>The name of the server on or for which the event occurred.
    *     </p>
    */
   ServerName?: string;
 
   /**
+   * @public
    * <p>A human-readable informational or status message.</p>
    */
   Message?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 URL of the event's log file.</p>
    */
   LogUrl?: string;
 }
 
-export namespace ServerEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerEvent): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeEventsResponse {
   /**
+   * @public
    * <p>Contains the response to a <code>DescribeEvents</code> request.
    *     </p>
    */
   ServerEvents?: ServerEvent[];
 
   /**
+   * @public
    * <p>NextToken is a string that is returned in some command responses. It indicates that
    *       not all entries have been returned, and that you must run at least one more request to get remaining
    *       items. To get remaining results, call <code>DescribeEvents</code> again, and assign the token from the previous
@@ -1375,46 +1379,46 @@ export interface DescribeEventsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeNodeAssociationStatusRequest {
   /**
+   * @public
    * <p>The token returned in either the AssociateNodeResponse or the DisassociateNodeResponse.
    *     </p>
    */
   NodeAssociationStatusToken: string | undefined;
 
   /**
+   * @public
    * <p>The name of the server from which to disassociate the node.
    *     </p>
    */
   ServerName: string | undefined;
 }
 
-export namespace DescribeNodeAssociationStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNodeAssociationStatusRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeAssociationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
 
-export enum NodeAssociationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ */
+export type NodeAssociationStatus = (typeof NodeAssociationStatus)[keyof typeof NodeAssociationStatus];
 
+/**
+ * @public
+ */
 export interface DescribeNodeAssociationStatusResponse {
   /**
+   * @public
    * <p>The status of the association or disassociation request.
    *     </p>
    *          <p class="title">
@@ -1441,6 +1445,7 @@ export interface DescribeNodeAssociationStatusResponse {
   NodeAssociationStatus?: NodeAssociationStatus | string;
 
   /**
+   * @public
    * <p>Attributes specific to the node association.
    *       In Puppet, the attibute PUPPET_NODE_CERT contains the signed certificate (the result of the CSR).
    *     </p>
@@ -1448,48 +1453,37 @@ export interface DescribeNodeAssociationStatusResponse {
   EngineAttributes?: EngineAttribute[];
 }
 
-export namespace DescribeNodeAssociationStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNodeAssociationStatusResponse): any => ({
-    ...obj,
-    ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeServersRequest {
   /**
+   * @public
    * <p>Describes the server with the specified ServerName.</p>
    */
   ServerName?: string;
 
   /**
+   * @public
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
    *     </p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
    *     </p>
    */
   MaxResults?: number;
 }
 
-export namespace DescribeServersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServersRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeServersResponse {
   /**
+   * @public
    * <p>Contains the response to a <code>DescribeServers</code> request.</p>
    *          <p>
    *             <i>For Chef Automate servers:</i>  If <code>DescribeServersResponse$Servers$EngineAttributes</code> includes
@@ -1516,35 +1510,33 @@ export interface DescribeServersResponse {
   Servers?: Server[];
 
   /**
+   * @public
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
    *     </p>
    */
   NextToken?: string;
 }
 
-export namespace DescribeServersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServersResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateNodeRequest {
   /**
+   * @public
    * <p>The name of the server from which to disassociate the node.
    *     </p>
    */
   ServerName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the client node.
    *     </p>
    */
   NodeName: string | undefined;
 
   /**
+   * @public
    * <p>Engine attributes that are used for disassociating the node. No attributes are required for Puppet.
    *     </p>
    *          <p class="title">
@@ -1563,20 +1555,12 @@ export interface DisassociateNodeRequest {
   EngineAttributes?: EngineAttribute[];
 }
 
-export namespace DisassociateNodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateNodeRequest): any => ({
-    ...obj,
-    ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateNodeResponse {
   /**
+   * @public
    * <p>Contains a token which can be passed to the
    *       <code>DescribeNodeAssociationStatus</code> API call to get the status of
    *       the disassociation request.
@@ -1585,28 +1569,25 @@ export interface DisassociateNodeResponse {
   NodeAssociationStatusToken?: string;
 }
 
-export namespace DisassociateNodeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateNodeResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ExportServerEngineAttributeRequest {
   /**
+   * @public
    * <p>The name of the export attribute. Currently, the supported export attribute is <code>Userdata</code>.
    *       This exports a user data script that includes parameters and values provided in the <code>InputAttributes</code> list.</p>
    */
   ExportAttributeName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the server from which you are exporting the attribute.</p>
    */
   ServerName: string | undefined;
 
   /**
+   * @public
    * <p>The list of engine attributes. The list type is <code>EngineAttribute</code>. An <code>EngineAttribute</code> list item
    *       is a pair that includes an attribute name and its value. For the <code>Userdata</code> ExportAttributeName, the following are
    *       supported engine attribute names.</p>
@@ -1637,48 +1618,36 @@ export interface ExportServerEngineAttributeRequest {
   InputAttributes?: EngineAttribute[];
 }
 
-export namespace ExportServerEngineAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportServerEngineAttributeRequest): any => ({
-    ...obj,
-    ...(obj.InputAttributes && {
-      InputAttributes: obj.InputAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface ExportServerEngineAttributeResponse {
   /**
+   * @public
    * <p>The requested engine attribute pair with attribute name and value.</p>
    */
   EngineAttribute?: EngineAttribute;
 
   /**
+   * @public
    * <p>The server name used in the request.</p>
    */
   ServerName?: string;
 }
 
-export namespace ExportServerEngineAttributeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportServerEngineAttributeResponse): any => ({
-    ...obj,
-    ...(obj.EngineAttribute && { EngineAttribute: EngineAttribute.filterSensitiveLog(obj.EngineAttribute) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server for which you want to show applied tags. For example,
    *         <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>NextToken is a string that is returned in some command responses. It indicates that
    *         not all entries have been returned, and that you must run at least one more request to get remaining
    *         items. To get remaining results, call <code>ListTagsForResource</code> again, and assign the token from the previous
@@ -1690,6 +1659,7 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>To receive a paginated response, use this parameter to specify the maximum number
    *         of results to be returned with a single call. If the number of available results exceeds
    *         this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>
@@ -1698,50 +1668,43 @@ export interface ListTagsForResourceRequest {
   MaxResults?: number;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>Tags that have been applied to the resource.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>A token that you can use as the value of <code>NextToken</code> in subsequent calls to the API to show more results.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RestoreServerRequest {
   /**
+   * @public
    * <p> The ID of the backup that you want to use to restore a server.
    *     </p>
    */
   BackupId: string | undefined;
 
   /**
+   * @public
    * <p> The name of the server that you want to restore.
    *     </p>
    */
   ServerName: string | undefined;
 
   /**
+   * @public
    * <p> The type of instance to restore. Valid values must be specified in the following format: <code>^([cm][34]|t2).*</code>
    *       For example, <code>m5.large</code>. Valid values are <code>m5.large</code>, <code>r5.xlarge</code>, and <code>r5.2xlarge</code>. If you do not specify this parameter,
    *       RestoreServer uses the instance type from the specified backup.
@@ -1750,6 +1713,7 @@ export interface RestoreServerRequest {
   InstanceType?: string;
 
   /**
+   * @public
    * <p> The name of the key pair to set on the new EC2 instance. This can be helpful
    *       if the administrator no longer has the SSH key.
    *     </p>
@@ -1757,41 +1721,31 @@ export interface RestoreServerRequest {
   KeyPair?: string;
 }
 
-export namespace RestoreServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreServerRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RestoreServerResponse {
   /**
+   * @public
    * <p>Describes a configuration management server.
    *     </p>
    */
   Server?: Server;
 }
 
-export namespace RestoreServerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreServerResponse): any => ({
-    ...obj,
-    ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface StartMaintenanceRequest {
   /**
+   * @public
    * <p>The name of the server on which to run maintenance.
    *     </p>
    */
   ServerName: string | undefined;
 
   /**
+   * @public
    * <p>Engine attributes that are specific to the server on which you want to run maintenance.</p>
    *          <p class="title">
    *             <b>Attributes accepted in a StartMaintenance request for Chef</b>
@@ -1809,44 +1763,31 @@ export interface StartMaintenanceRequest {
   EngineAttributes?: EngineAttribute[];
 }
 
-export namespace StartMaintenanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMaintenanceRequest): any => ({
-    ...obj,
-    ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface StartMaintenanceResponse {
   /**
+   * @public
    * <p>Contains the response to a <code>StartMaintenance</code> request.
    *     </p>
    */
   Server?: Server;
 }
 
-export namespace StartMaintenanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMaintenanceResponse): any => ({
-    ...obj,
-    ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of a resource to which you want to apply tags. For example,
    *       <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A map that contains tag keys and tag values to attach to AWS OpsWorks-CM servers or backups.</p>
    *          <ul>
    *             <li>
@@ -1871,79 +1812,61 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of a resource from which you want to remove tags. For example,
    *       <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The keys of tags that you want to remove.</p>
    */
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateServerRequest {
   /**
+   * @public
    * <p>Setting DisableAutomatedBackup to <code>true</code> disables automated or scheduled backups. Automated backups are enabled by default.
    *     </p>
    */
   DisableAutomatedBackup?: boolean;
 
   /**
+   * @public
    * <p>Sets the number of automated backups that you want to keep.
    *       </p>
    */
   BackupRetentionCount?: number;
 
   /**
+   * @public
    * <p>The name of the server to update.
    *     </p>
    */
   ServerName: string | undefined;
 
   /**
+   * @public
    * <p>
    *             <code>DDD:HH:MM</code> (weekly start time) or
    *     <code>HH:MM</code> (daily start time).
@@ -1955,6 +1878,7 @@ export interface UpdateServerRequest {
   PreferredMaintenanceWindow?: string;
 
   /**
+   * @public
    * <p>
    *             <code>DDD:HH:MM</code> (weekly start time) or
    *     <code>HH:MM</code> (daily start time).
@@ -1966,76 +1890,192 @@ export interface UpdateServerRequest {
   PreferredBackupWindow?: string;
 }
 
-export namespace UpdateServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServerRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateServerResponse {
   /**
+   * @public
    * <p>Contains the response to a <code>UpdateServer</code> request.
    *     </p>
    */
   Server?: Server;
 }
 
-export namespace UpdateServerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServerResponse): any => ({
-    ...obj,
-    ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateServerEngineAttributesRequest {
   /**
+   * @public
    * <p>The name of the server to update.
    *     </p>
    */
   ServerName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the engine attribute to update.
    *     </p>
    */
   AttributeName: string | undefined;
 
   /**
+   * @public
    * <p>The value to set for the attribute.
    *     </p>
    */
   AttributeValue?: string;
 }
 
-export namespace UpdateServerEngineAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServerEngineAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateServerEngineAttributesResponse {
   /**
+   * @public
    * <p>Contains the response to an <code>UpdateServerEngineAttributes</code> request.
    *     </p>
    */
   Server?: Server;
 }
 
-export namespace UpdateServerEngineAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServerEngineAttributesResponse): any => ({
-    ...obj,
-    ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) }),
-  });
-}
+/**
+ * @internal
+ */
+export const EngineAttributeFilterSensitiveLog = (obj: EngineAttribute): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssociateNodeRequestFilterSensitiveLog = (obj: AssociateNodeRequest): any => ({
+  ...obj,
+  ...(obj.EngineAttributes && {
+    EngineAttributes: obj.EngineAttributes.map((item) => EngineAttributeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateServerRequestFilterSensitiveLog = (obj: CreateServerRequest): any => ({
+  ...obj,
+  ...(obj.CustomPrivateKey && { CustomPrivateKey: SENSITIVE_STRING }),
+  ...(obj.EngineAttributes && {
+    EngineAttributes: obj.EngineAttributes.map((item) => EngineAttributeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ServerFilterSensitiveLog = (obj: Server): any => ({
+  ...obj,
+  ...(obj.EngineAttributes && {
+    EngineAttributes: obj.EngineAttributes.map((item) => EngineAttributeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateServerResponseFilterSensitiveLog = (obj: CreateServerResponse): any => ({
+  ...obj,
+  ...(obj.Server && { Server: ServerFilterSensitiveLog(obj.Server) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeNodeAssociationStatusResponseFilterSensitiveLog = (
+  obj: DescribeNodeAssociationStatusResponse
+): any => ({
+  ...obj,
+  ...(obj.EngineAttributes && {
+    EngineAttributes: obj.EngineAttributes.map((item) => EngineAttributeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeServersResponseFilterSensitiveLog = (obj: DescribeServersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateNodeRequestFilterSensitiveLog = (obj: DisassociateNodeRequest): any => ({
+  ...obj,
+  ...(obj.EngineAttributes && {
+    EngineAttributes: obj.EngineAttributes.map((item) => EngineAttributeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ExportServerEngineAttributeRequestFilterSensitiveLog = (obj: ExportServerEngineAttributeRequest): any => ({
+  ...obj,
+  ...(obj.InputAttributes && {
+    InputAttributes: obj.InputAttributes.map((item) => EngineAttributeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ExportServerEngineAttributeResponseFilterSensitiveLog = (
+  obj: ExportServerEngineAttributeResponse
+): any => ({
+  ...obj,
+  ...(obj.EngineAttribute && { EngineAttribute: EngineAttributeFilterSensitiveLog(obj.EngineAttribute) }),
+});
+
+/**
+ * @internal
+ */
+export const RestoreServerResponseFilterSensitiveLog = (obj: RestoreServerResponse): any => ({
+  ...obj,
+  ...(obj.Server && { Server: ServerFilterSensitiveLog(obj.Server) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMaintenanceRequestFilterSensitiveLog = (obj: StartMaintenanceRequest): any => ({
+  ...obj,
+  ...(obj.EngineAttributes && {
+    EngineAttributes: obj.EngineAttributes.map((item) => EngineAttributeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StartMaintenanceResponseFilterSensitiveLog = (obj: StartMaintenanceResponse): any => ({
+  ...obj,
+  ...(obj.Server && { Server: ServerFilterSensitiveLog(obj.Server) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServerResponseFilterSensitiveLog = (obj: UpdateServerResponse): any => ({
+  ...obj,
+  ...(obj.Server && { Server: ServerFilterSensitiveLog(obj.Server) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServerEngineAttributesResponseFilterSensitiveLog = (
+  obj: UpdateServerEngineAttributesResponse
+): any => ({
+  ...obj,
+  ...(obj.Server && { Server: ServerFilterSensitiveLog(obj.Server) }),
+});

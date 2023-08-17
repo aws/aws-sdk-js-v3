@@ -1,5 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { BuildHandlerOptions, BuildMiddleware, Pluggable, Provider } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { BuildHandlerOptions, BuildMiddleware, Pluggable, Provider } from "@smithy/types";
 
 import { S3ControlResolvedConfig } from "./configurations";
 import { CONTEXT_SIGNING_SERVICE } from "./constants";
@@ -10,7 +10,7 @@ type InputType = {
 };
 
 export interface RedirectFromPostIdMiddlewareConfig {
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   useFipsEndpoint: Provider<boolean>;
 }
 

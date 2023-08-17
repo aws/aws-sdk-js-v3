@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { CreateDataSetRequest, CreateDataSetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDataSetCommand,
-  serializeAws_restJson1CreateDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDataSetCommand, se_CreateDataSetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateDataSetCommand}.
+ */
 export interface CreateDataSetCommandInput extends CreateDataSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDataSetCommand}.
+ */
 export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation creates a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,59 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * import { DataExchangeClient, CreateDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, CreateDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // CreateDataSetRequest
+ *   AssetType: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Tags: { // MapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDataSetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDataSetResponse
+ * //   Arn: "STRING_VALUE",
+ * //   AssetType: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   Description: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Origin: "STRING_VALUE",
+ * //   OriginDetails: { // OriginDetails
+ * //     ProductId: "STRING_VALUE", // required
+ * //   },
+ * //   SourceId: "STRING_VALUE",
+ * //   Tags: { // MapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
+ * @param CreateDataSetCommandInput - {@link CreateDataSetCommandInput}
+ * @returns {@link CreateDataSetCommandOutput}
  * @see {@link CreateDataSetCommandInput} for command's `input` shape.
  * @see {@link CreateDataSetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to the resource is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception occurred with the service.</p>
+ *
+ * @throws {@link ServiceLimitExceededException} (client fault)
+ *  <p>The request has exceeded the quotas imposed by the service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class CreateDataSetCommand extends $Command<
@@ -46,6 +106,18 @@ export class CreateDataSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +133,7 @@ export class CreateDataSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDataSetCommandInput, CreateDataSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateDataSetCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +144,8 @@ export class CreateDataSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +155,18 @@ export class CreateDataSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDataSetCommand(input, context);
+    return se_CreateDataSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSetCommandOutput> {
-    return deserializeAws_restJson1CreateDataSetCommand(output, context);
+    return de_CreateDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

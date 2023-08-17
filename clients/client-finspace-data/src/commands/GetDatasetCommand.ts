@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { GetDatasetRequest, GetDatasetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDatasetCommand,
-  serializeAws_restJson1GetDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDatasetCommand, se_GetDatasetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetDatasetCommand}.
+ */
 export interface GetDatasetCommandInput extends GetDatasetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDatasetCommand}.
+ */
 export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,66 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * import { FinspaceDataClient, GetDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // GetDatasetRequest
+ *   datasetId: "STRING_VALUE", // required
+ * };
  * const command = new GetDatasetCommand(input);
  * const response = await client.send(command);
+ * // { // GetDatasetResponse
+ * //   datasetId: "STRING_VALUE",
+ * //   datasetArn: "STRING_VALUE",
+ * //   datasetTitle: "STRING_VALUE",
+ * //   kind: "STRING_VALUE",
+ * //   datasetDescription: "STRING_VALUE",
+ * //   createTime: Number("long"),
+ * //   lastModifiedTime: Number("long"),
+ * //   schemaDefinition: { // SchemaUnion
+ * //     tabularSchemaConfig: { // SchemaDefinition
+ * //       columns: [ // ColumnList
+ * //         { // ColumnDefinition
+ * //           dataType: "STRING_VALUE",
+ * //           columnName: "STRING_VALUE",
+ * //           columnDescription: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       primaryKeyColumns: [ // ColumnNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * //   alias: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetDatasetCommandInput - {@link GetDatasetCommandInput}
+ * @returns {@link GetDatasetCommandOutput}
  * @see {@link GetDatasetCommandInput} for command's `input` shape.
  * @see {@link GetDatasetCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request conflicts with an existing resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class GetDatasetCommand extends $Command<
@@ -46,6 +113,18 @@ export class GetDatasetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +140,7 @@ export class GetDatasetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetDatasetCommandInput, GetDatasetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetDatasetCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +151,8 @@ export class GetDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatasetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDatasetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +162,18 @@ export class GetDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDatasetCommand(input, context);
+    return se_GetDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatasetCommandOutput> {
-    return deserializeAws_restJson1GetDatasetCommand(output, context);
+    return de_GetDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

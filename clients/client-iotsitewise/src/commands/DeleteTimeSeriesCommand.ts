@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DeleteTimeSeriesRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTimeSeriesCommand,
-  serializeAws_restJson1DeleteTimeSeriesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTimeSeriesCommand, se_DeleteTimeSeriesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteTimeSeriesCommand}.
+ */
 export interface DeleteTimeSeriesCommandInput extends DeleteTimeSeriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTimeSeriesCommand}.
+ */
 export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a time series (data stream). If you delete a time series that's associated with an
  *       asset property, the asset property still exists, but the time series will no longer be
  *       associated with this asset property.</p>
@@ -50,13 +64,46 @@ export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
  * import { IoTSiteWiseClient, DeleteTimeSeriesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteTimeSeriesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DeleteTimeSeriesRequest
+ *   alias: "STRING_VALUE",
+ *   assetId: "STRING_VALUE",
+ *   propertyId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteTimeSeriesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteTimeSeriesCommandInput - {@link DeleteTimeSeriesCommandInput}
+ * @returns {@link DeleteTimeSeriesCommandOutput}
  * @see {@link DeleteTimeSeriesCommandInput} for command's `input` shape.
  * @see {@link DeleteTimeSeriesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link ConflictingOperationException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
+ *       than one operation on the same resource at the same time.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DeleteTimeSeriesCommand extends $Command<
@@ -67,6 +114,18 @@ export class DeleteTimeSeriesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTimeSeriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +141,9 @@ export class DeleteTimeSeriesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteTimeSeriesCommandInput, DeleteTimeSeriesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteTimeSeriesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -92,8 +154,8 @@ export class DeleteTimeSeriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTimeSeriesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +165,18 @@ export class DeleteTimeSeriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTimeSeriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTimeSeriesCommand(input, context);
+    return se_DeleteTimeSeriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTimeSeriesCommandOutput> {
-    return deserializeAws_restJson1DeleteTimeSeriesCommand(output, context);
+    return de_DeleteTimeSeriesCommand(output, context);
   }
 
   // Start section: command_body_extra

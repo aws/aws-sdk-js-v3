@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetImportJobRequest, GetImportJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetImportJobCommand,
-  serializeAws_restJson1GetImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetImportJobCommand, se_GetImportJobCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetImportJobCommand}.
+ */
 export interface GetImportJobCommandInput extends GetImportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetImportJobCommand}.
+ */
 export interface GetImportJobCommandOutput extends GetImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about an import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,56 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * import { SESv2Client, GetImportJobCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetImportJobCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // GetImportJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // GetImportJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   ImportDestination: { // ImportDestination
+ * //     SuppressionListDestination: { // SuppressionListDestination
+ * //       SuppressionListImportAction: "DELETE" || "PUT", // required
+ * //     },
+ * //     ContactListDestination: { // ContactListDestination
+ * //       ContactListName: "STRING_VALUE", // required
+ * //       ContactListImportAction: "DELETE" || "PUT", // required
+ * //     },
+ * //   },
+ * //   ImportDataSource: { // ImportDataSource
+ * //     S3Url: "STRING_VALUE", // required
+ * //     DataFormat: "CSV" || "JSON", // required
+ * //   },
+ * //   FailureInfo: { // FailureInfo
+ * //     FailedRecordsS3Url: "STRING_VALUE",
+ * //     ErrorMessage: "STRING_VALUE",
+ * //   },
+ * //   JobStatus: "CREATED" || "PROCESSING" || "COMPLETED" || "FAILED",
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * //   CompletedTimestamp: new Date("TIMESTAMP"),
+ * //   ProcessedRecordsCount: Number("int"),
+ * //   FailedRecordsCount: Number("int"),
+ * // };
+ *
  * ```
  *
+ * @param GetImportJobCommandInput - {@link GetImportJobCommandInput}
+ * @returns {@link GetImportJobCommandOutput}
  * @see {@link GetImportJobCommandInput} for command's `input` shape.
  * @see {@link GetImportJobCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetImportJobCommand extends $Command<
@@ -46,6 +103,18 @@ export class GetImportJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +130,7 @@ export class GetImportJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetImportJobCommandInput, GetImportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetImportJobCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +141,8 @@ export class GetImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImportJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetImportJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +152,18 @@ export class GetImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImportJobCommand(input, context);
+    return se_GetImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportJobCommandOutput> {
-    return deserializeAws_restJson1GetImportJobCommand(output, context);
+    return de_GetImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

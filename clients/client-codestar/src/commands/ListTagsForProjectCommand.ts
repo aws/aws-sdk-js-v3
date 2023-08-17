@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
 import { ListTagsForProjectRequest, ListTagsForProjectResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagsForProjectCommand,
-  serializeAws_json1_1ListTagsForProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTagsForProjectCommand, se_ListTagsForProjectCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTagsForProjectCommand}.
+ */
 export interface ListTagsForProjectCommandInput extends ListTagsForProjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTagsForProjectCommand}.
+ */
 export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the tags for a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,39 @@ export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResul
  * import { CodeStarClient, ListTagsForProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, ListTagsForProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // ListTagsForProjectRequest
+ *   id: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListTagsForProjectCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForProjectResult
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListTagsForProjectCommandInput - {@link ListTagsForProjectCommandInput}
+ * @returns {@link ListTagsForProjectCommandOutput}
  * @see {@link ListTagsForProjectCommandInput} for command's `input` shape.
  * @see {@link ListTagsForProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token is not valid.</p>
+ *
+ * @throws {@link ProjectNotFoundException} (client fault)
+ *  <p>The specified AWS CodeStar project was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class ListTagsForProjectCommand extends $Command<
@@ -46,6 +86,18 @@ export class ListTagsForProjectCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +113,9 @@ export class ListTagsForProjectCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTagsForProjectCommandInput, ListTagsForProjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTagsForProjectCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +126,8 @@ export class ListTagsForProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForProjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForProjectResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +137,18 @@ export class ListTagsForProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsForProjectCommand(input, context);
+    return se_ListTagsForProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForProjectCommandOutput> {
-    return deserializeAws_json1_1ListTagsForProjectCommand(output, context);
+    return de_ListTagsForProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

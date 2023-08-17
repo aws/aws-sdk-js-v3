@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { DeleteResourcePolicyStatementRequest, DeleteResourcePolicyStatementResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteResourcePolicyStatementCommand,
-  serializeAws_restJson1DeleteResourcePolicyStatementCommand,
+  de_DeleteResourcePolicyStatementCommand,
+  se_DeleteResourcePolicyStatementCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteResourcePolicyStatementCommand}.
+ */
 export interface DeleteResourcePolicyStatementCommandInput extends DeleteResourcePolicyStatementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteResourcePolicyStatementCommand}.
+ */
 export interface DeleteResourcePolicyStatementCommandOutput
   extends DeleteResourcePolicyStatementResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a policy statement from a resource policy. If you delete the
  *          last statement from a policy, the policy is deleted. If you specify a
  *          statement ID that doesn't exist in the policy, or if the bot or bot
@@ -35,13 +52,45 @@ export interface DeleteResourcePolicyStatementCommandOutput
  * import { LexModelsV2Client, DeleteResourcePolicyStatementCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteResourcePolicyStatementCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DeleteResourcePolicyStatementRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   statementId: "STRING_VALUE", // required
+ *   expectedRevisionId: "STRING_VALUE",
+ * };
  * const command = new DeleteResourcePolicyStatementCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteResourcePolicyStatementResponse
+ * //   resourceArn: "STRING_VALUE",
+ * //   revisionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DeleteResourcePolicyStatementCommandInput - {@link DeleteResourcePolicyStatementCommandInput}
+ * @returns {@link DeleteResourcePolicyStatementCommandOutput}
  * @see {@link DeleteResourcePolicyStatementCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyStatementCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an unexpected condition. Try your request
+ *          again.</p>
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>Your request couldn't be completed because one or more request
+ *          fields aren't valid. Check the fields in your request and try
+ *          again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>You asked to describe a resource that doesn't exist. Check the
+ *          resource that you are requesting and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request rate is too high. Reduce the frequency of
+ *          requests.</p>
+ *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteResourcePolicyStatementCommand extends $Command<
@@ -52,6 +101,18 @@ export class DeleteResourcePolicyStatementCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcePolicyStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +128,9 @@ export class DeleteResourcePolicyStatementCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteResourcePolicyStatementCommandInput, DeleteResourcePolicyStatementCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteResourcePolicyStatementCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +141,8 @@ export class DeleteResourcePolicyStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePolicyStatementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcePolicyStatementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,15 +152,21 @@ export class DeleteResourcePolicyStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcePolicyStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourcePolicyStatementCommand(input, context);
+    return se_DeleteResourcePolicyStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteResourcePolicyStatementCommandOutput> {
-    return deserializeAws_restJson1DeleteResourcePolicyStatementCommand(output, context);
+    return de_DeleteResourcePolicyStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

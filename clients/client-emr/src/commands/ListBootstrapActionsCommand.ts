@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ListBootstrapActionsInput, ListBootstrapActionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListBootstrapActionsCommand,
-  serializeAws_json1_1ListBootstrapActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListBootstrapActionsCommand, se_ListBootstrapActionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListBootstrapActionsCommand}.
+ */
 export interface ListBootstrapActionsCommandInput extends ListBootstrapActionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListBootstrapActionsCommand}.
+ */
 export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the bootstrap actions associated with a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,42 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  * import { EMRClient, ListBootstrapActionsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListBootstrapActionsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ListBootstrapActionsInput
+ *   ClusterId: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListBootstrapActionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListBootstrapActionsOutput
+ * //   BootstrapActions: [ // CommandList
+ * //     { // Command
+ * //       Name: "STRING_VALUE",
+ * //       ScriptPath: "STRING_VALUE",
+ * //       Args: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListBootstrapActionsCommandInput - {@link ListBootstrapActionsCommandInput}
+ * @returns {@link ListBootstrapActionsCommandOutput}
  * @see {@link ListBootstrapActionsCommandInput} for command's `input` shape.
  * @see {@link ListBootstrapActionsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListBootstrapActionsCommand extends $Command<
@@ -46,6 +89,18 @@ export class ListBootstrapActionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListBootstrapActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +116,9 @@ export class ListBootstrapActionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListBootstrapActionsCommandInput, ListBootstrapActionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListBootstrapActionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +129,8 @@ export class ListBootstrapActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBootstrapActionsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBootstrapActionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +140,18 @@ export class ListBootstrapActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBootstrapActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBootstrapActionsCommand(input, context);
+    return se_ListBootstrapActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBootstrapActionsCommandOutput> {
-    return deserializeAws_json1_1ListBootstrapActionsCommand(output, context);
+    return de_ListBootstrapActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

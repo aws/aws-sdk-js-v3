@@ -1,7 +1,9 @@
+// smithy-typescript generated code
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,19 +12,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateJobStatusRequest, UpdateJobStatusResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlUpdateJobStatusCommand,
-  serializeAws_restXmlUpdateJobStatusCommand,
-} from "../protocols/Aws_restXml";
+import { de_UpdateJobStatusCommand, se_UpdateJobStatusCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateJobStatusCommand}.
+ */
 export interface UpdateJobStatusCommandInput extends UpdateJobStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateJobStatusCommand}.
+ */
 export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status for the specified job. Use this action to confirm that you want to
  *          run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
@@ -55,13 +69,45 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  * import { S3ControlClient, UpdateJobStatusCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, UpdateJobStatusCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // UpdateJobStatusRequest
+ *   AccountId: "STRING_VALUE",
+ *   JobId: "STRING_VALUE", // required
+ *   RequestedJobStatus: "Cancelled" || "Ready", // required
+ *   StatusUpdateReason: "STRING_VALUE",
+ * };
  * const command = new UpdateJobStatusCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateJobStatusResult
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "Active" || "Cancelled" || "Cancelling" || "Complete" || "Completing" || "Failed" || "Failing" || "New" || "Paused" || "Pausing" || "Preparing" || "Ready" || "Suspended",
+ * //   StatusUpdateReason: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param UpdateJobStatusCommandInput - {@link UpdateJobStatusCommandInput}
+ * @returns {@link UpdateJobStatusCommandOutput}
  * @see {@link UpdateJobStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateJobStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link JobStatusException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class UpdateJobStatusCommand extends $Command<
@@ -72,6 +118,21 @@ export class UpdateJobStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
+      AccountId: { type: "contextParams", name: "AccountId" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +148,9 @@ export class UpdateJobStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateJobStatusCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getProcessArnablesPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -98,8 +162,8 @@ export class UpdateJobStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobStatusResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +173,18 @@ export class UpdateJobStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateJobStatusCommand(input, context);
+    return se_UpdateJobStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobStatusCommandOutput> {
-    return deserializeAws_restXmlUpdateJobStatusCommand(output, context);
+    return de_UpdateJobStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

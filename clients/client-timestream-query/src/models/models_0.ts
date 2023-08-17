@@ -1,9 +1,10 @@
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { TimestreamQueryServiceException as __BaseException } from "./TimestreamQueryServiceException";
 
 /**
+ * @public
  * <p> You are not authorized to perform this action. </p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,41 +25,32 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelQueryRequest {
   /**
+   * @public
    * <p> The ID of the query that needs to be cancelled. <code>QueryID</code> is returned as
    *             part of the query result. </p>
    */
   QueryId: string | undefined;
 }
 
-export namespace CancelQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelQueryRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CancelQueryResponse {
   /**
+   * @public
    * <p> A <code>CancellationMessage</code> is returned when a <code>CancelQuery</code>
    *             request for the query specified by <code>QueryId</code> has already been issued. </p>
    */
   CancellationMessage?: string;
 }
 
-export namespace CancelQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelQueryResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Timestream was unable to fully process this request because of an internal
  *             server error. </p>
@@ -82,6 +74,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested endpoint was not valid.</p>
  */
 export class InvalidEndpointException extends __BaseException {
@@ -103,6 +96,7 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -124,6 +118,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Invalid or malformed request. </p>
  */
 export class ValidationException extends __BaseException {
@@ -144,21 +139,31 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum ScalarType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DATE = "DATE",
-  DOUBLE = "DOUBLE",
-  INTEGER = "INTEGER",
-  INTERVAL_DAY_TO_SECOND = "INTERVAL_DAY_TO_SECOND",
-  INTERVAL_YEAR_TO_MONTH = "INTERVAL_YEAR_TO_MONTH",
-  TIME = "TIME",
-  TIMESTAMP = "TIMESTAMP",
-  UNKNOWN = "UNKNOWN",
-  VARCHAR = "VARCHAR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScalarType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DATE: "DATE",
+  DOUBLE: "DOUBLE",
+  INTEGER: "INTEGER",
+  INTERVAL_DAY_TO_SECOND: "INTERVAL_DAY_TO_SECOND",
+  INTERVAL_YEAR_TO_MONTH: "INTERVAL_YEAR_TO_MONTH",
+  TIME: "TIME",
+  TIMESTAMP: "TIMESTAMP",
+  UNKNOWN: "UNKNOWN",
+  VARCHAR: "VARCHAR",
+} as const;
 
 /**
+ * @public
+ */
+export type ScalarType = (typeof ScalarType)[keyof typeof ScalarType];
+
+/**
+ * @public
  * <p> Unable to poll results for a cancelled query. </p>
  */
 export class ConflictException extends __BaseException {
@@ -179,121 +184,98 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum S3EncryptionOption {
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const S3EncryptionOption = {
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+} as const;
 
 /**
+ * @public
+ */
+export type S3EncryptionOption = (typeof S3EncryptionOption)[keyof typeof S3EncryptionOption];
+
+/**
+ * @public
  * <p>Details on S3 location for error reports that result from running a query. </p>
  */
 export interface S3Configuration {
   /**
+   * @public
    * <p> Name of the S3 bucket under which error reports will be created.</p>
    */
   BucketName: string | undefined;
 
   /**
+   * @public
    * <p> Prefix for the error report key. Timestream by default adds the following prefix to
    *             the error report path. </p>
    */
   ObjectKeyPrefix?: string;
 
   /**
+   * @public
    * <p> Encryption at rest options for the error reports. If no encryption option is
    *             specified, Timestream will choose SSE_S3 as default. </p>
    */
   EncryptionOption?: S3EncryptionOption | string;
 }
 
-export namespace S3Configuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Configuration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Configuration required for error reporting.</p>
  */
 export interface ErrorReportConfiguration {
   /**
+   * @public
    * <p>The S3 configuration for the error reports.</p>
    */
   S3Configuration: S3Configuration | undefined;
 }
 
-export namespace ErrorReportConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorReportConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Details on SNS that are required to send the notification.</p>
  */
 export interface SnsConfiguration {
   /**
+   * @public
    * <p>SNS topic ARN that the scheduled query status notifications will be sent to.</p>
    */
   TopicArn: string | undefined;
 }
 
-export namespace SnsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnsConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Notification configuration for a scheduled query. A notification is sent by
  *             Timestream when a scheduled query is created, its state is updated or when it is deleted. </p>
  */
 export interface NotificationConfiguration {
   /**
+   * @public
    * <p>Details on SNS configuration. </p>
    */
   SnsConfiguration: SnsConfiguration | undefined;
 }
 
-export namespace NotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Configuration of the schedule of the query.</p>
  */
 export interface ScheduleConfiguration {
   /**
+   * @public
    * <p>An expression that denotes when to trigger the scheduled query run. This can be a cron
    *             expression or a rate expression. </p>
    */
   ScheduleExpression: string | undefined;
 }
 
-export namespace ScheduleConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A tag is a label that you assign to a Timestream database and/or table. Each tag
  *             consists of a key and an optional value, both of which you define. Tags enable you to
  *             categorize databases and/or tables, for example, by purpose, owner, or environment.
@@ -301,151 +283,160 @@ export namespace ScheduleConfiguration {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key of the tag. Tag keys are case sensitive. </p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The value of the tag. Tag values are case sensitive and can be null. </p>
    */
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
-export enum DimensionValueType {
-  VARCHAR = "VARCHAR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DimensionValueType = {
+  VARCHAR: "VARCHAR",
+} as const;
 
 /**
+ * @public
+ */
+export type DimensionValueType = (typeof DimensionValueType)[keyof typeof DimensionValueType];
+
+/**
+ * @public
  * <p>This type is used to map column(s) from the query result to a dimension in the
  *             destination table.</p>
  */
 export interface DimensionMapping {
   /**
+   * @public
    * <p>Column name from query result.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Type for the dimension. </p>
    */
   DimensionValueType: DimensionValueType | string | undefined;
 }
 
-export namespace DimensionMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionMapping): any => ({
-    ...obj,
-  });
-}
-
-export enum MeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  MULTI = "MULTI",
-  VARCHAR = "VARCHAR",
-}
-
-export enum ScalarMeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  VARCHAR = "VARCHAR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  MULTI: "MULTI",
+  VARCHAR: "VARCHAR",
+} as const;
 
 /**
+ * @public
+ */
+export type MeasureValueType = (typeof MeasureValueType)[keyof typeof MeasureValueType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalarMeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  TIMESTAMP: "TIMESTAMP",
+  VARCHAR: "VARCHAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalarMeasureValueType = (typeof ScalarMeasureValueType)[keyof typeof ScalarMeasureValueType];
+
+/**
+ * @public
  * <p>Attribute mapping for MULTI value measures.</p>
  */
 export interface MultiMeasureAttributeMapping {
   /**
+   * @public
    * <p>Source column from where the attribute value is to be read.</p>
    */
   SourceColumn: string | undefined;
 
   /**
+   * @public
    * <p>Custom name to be used for attribute name in derived table. If not provided, source
    *             column name would be used.</p>
    */
   TargetMultiMeasureAttributeName?: string;
 
   /**
+   * @public
    * <p>Type of the attribute to be read from the source column.</p>
    */
   MeasureValueType: ScalarMeasureValueType | string | undefined;
 }
 
-export namespace MultiMeasureAttributeMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiMeasureAttributeMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>MixedMeasureMappings are mappings that can be used to ingest data into a mixture of
  *             narrow and multi measures in the derived table.</p>
  */
 export interface MixedMeasureMapping {
   /**
+   * @public
    * <p>Refers to the value of measure_name in a result row. This field is required if
    *             MeasureNameColumn is provided.</p>
    */
   MeasureName?: string;
 
   /**
+   * @public
    * <p>This field refers to the source column from which measure-value is to be read for
    *             result materialization.</p>
    */
   SourceColumn?: string;
 
   /**
+   * @public
    * <p>Target measure name to be used. If not provided, the target measure name by default
    *             would be measure-name if provided, or sourceColumn otherwise. </p>
    */
   TargetMeasureName?: string;
 
   /**
+   * @public
    * <p>Type of the value that is to be read from sourceColumn. If the mapping is for MULTI,
    *             use MeasureValueType.MULTI.</p>
    */
   MeasureValueType: MeasureValueType | string | undefined;
 
   /**
+   * @public
    * <p>Required when measureValueType is MULTI. Attribute mappings for MULTI value
    *             measures.</p>
    */
   MultiMeasureAttributeMappings?: MultiMeasureAttributeMapping[];
 }
 
-export namespace MixedMeasureMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MixedMeasureMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided.
  *             MultiMeasureMappings can be used to ingest data as multi measures in the derived
  *             table.</p>
  */
 export interface MultiMeasureMappings {
   /**
+   * @public
    * <p>The name of the target multi-measure name in the derived table. This input is required
    *             when measureNameColumn is not provided. If MeasureNameColumn is provided, then value
    *             from that column will be used as multi-measure name.</p>
@@ -453,101 +444,90 @@ export interface MultiMeasureMappings {
   TargetMultiMeasureName?: string;
 
   /**
+   * @public
    * <p>Required. Attribute mappings to be used for mapping query results to ingest data for
    *             multi-measure attributes.</p>
    */
   MultiMeasureAttributeMappings: MultiMeasureAttributeMapping[] | undefined;
 }
 
-export namespace MultiMeasureMappings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiMeasureMappings): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p> Configuration to write data into Timestream database and table. This configuration
  *             allows the user to map the query result select columns into the destination table
  *             columns. </p>
  */
 export interface TimestreamConfiguration {
   /**
+   * @public
    * <p>Name of Timestream database to which the query result will be written.</p>
    */
   DatabaseName: string | undefined;
 
   /**
+   * @public
    * <p>Name of Timestream table that the query result will be written to. The table should
    *             be within the same database that is provided in Timestream configuration.</p>
    */
   TableName: string | undefined;
 
   /**
+   * @public
    * <p>Column from query result that should be used as the time column in destination table.
    *             Column type for this should be TIMESTAMP.</p>
    */
   TimeColumn: string | undefined;
 
   /**
+   * @public
    * <p> This is to allow mapping column(s) from the query result to the dimension in the
    *             destination table. </p>
    */
   DimensionMappings: DimensionMapping[] | undefined;
 
   /**
+   * @public
    * <p>Multi-measure mappings.</p>
    */
   MultiMeasureMappings?: MultiMeasureMappings;
 
   /**
+   * @public
    * <p>Specifies how to map measures to multi-measure records.</p>
    */
   MixedMeasureMappings?: MixedMeasureMapping[];
 
   /**
+   * @public
    * <p>Name of the measure column.</p>
    */
   MeasureNameColumn?: string;
 }
 
-export namespace TimestreamConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestreamConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Configuration used for writing the output of a query.</p>
  */
 export interface TargetConfiguration {
   /**
+   * @public
    * <p>Configuration needed to write data into the Timestream database and table.</p>
    */
   TimestreamConfiguration: TimestreamConfiguration | undefined;
 }
 
-export namespace TargetConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetConfiguration): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateScheduledQueryRequest {
   /**
+   * @public
    * <p>Name of the scheduled query.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The query string to run. Parameter
    *             names can be specified in the query string <code>@</code> character followed by an
    *             identifier. The named Parameter <code>@scheduled_runtime</code> is reserved and can be used in the query to get the time at which the query is scheduled to run.</p>
@@ -558,22 +538,26 @@ export interface CreateScheduledQueryRequest {
   QueryString: string | undefined;
 
   /**
+   * @public
    * <p>The schedule configuration for the query.</p>
    */
   ScheduleConfiguration: ScheduleConfiguration | undefined;
 
   /**
+   * @public
    * <p>Notification configuration for the scheduled query. A notification is sent by
    *             Timestream when a query run finishes, when the state is updated or when you delete it. </p>
    */
   NotificationConfiguration: NotificationConfiguration | undefined;
 
   /**
+   * @public
    * <p>Configuration used for writing the result of a query.</p>
    */
   TargetConfiguration?: TargetConfiguration;
 
   /**
+   * @public
    * <p>Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making
    *             multiple identical CreateScheduledQuery requests has the same effect as making a single request.
    *
@@ -592,16 +576,19 @@ export interface CreateScheduledQueryRequest {
   ClientToken?: string;
 
   /**
+   * @public
    * <p>The ARN for the IAM role that Timestream will assume when running the scheduled query. </p>
    */
   ScheduledQueryExecutionRoleArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of key-value pairs to label the scheduled query.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS
    *             key is not specified, the scheduled query resource will be encrypted with a Timestream
    *             owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias
@@ -612,39 +599,25 @@ export interface CreateScheduledQueryRequest {
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results. </p>
    */
   ErrorReportConfiguration: ErrorReportConfiguration | undefined;
 }
 
-export namespace CreateScheduledQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScheduledQueryRequest): any => ({
-    ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-    ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateScheduledQueryResponse {
   /**
+   * @public
    * <p>ARN for the created scheduled query.</p>
    */
   Arn: string | undefined;
 }
 
-export namespace CreateScheduledQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScheduledQueryResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>You have exceeded the service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -665,23 +638,19 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduledQueryRequest {
   /**
+   * @public
    * <p>The ARN of the scheduled query. </p>
    */
   ScheduledQueryArn: string | undefined;
 }
 
-export namespace DeleteScheduledQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduledQueryRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The requested resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -689,6 +658,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The ARN of the scheduled query.</p>
    */
   ScheduledQueryArn?: string;
@@ -707,353 +677,331 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointsRequest {}
 
-export namespace DescribeEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents an available endpoint against which to make API calls against, as well as
  *             the TTL for that endpoint.</p>
  */
 export interface Endpoint {
   /**
+   * @public
    * <p>An endpoint address.</p>
    */
   Address: string | undefined;
 
   /**
+   * @public
    * <p>The TTL for the endpoint, in minutes.</p>
    */
   CachePeriodInMinutes: number | undefined;
 }
 
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeEndpointsResponse {
   /**
+   * @public
    * <p>An <code>Endpoints</code> object is returned when a <code>DescribeEndpoints</code>
    *             request is made.</p>
    */
   Endpoints: Endpoint[] | undefined;
 }
 
-export namespace DescribeEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeScheduledQueryRequest {
   /**
+   * @public
    * <p>The ARN of the scheduled query.</p>
    */
   ScheduledQueryArn: string | undefined;
 }
 
-export namespace DescribeScheduledQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduledQueryRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p> S3 report location for the scheduled query run.</p>
  */
 export interface S3ReportLocation {
   /**
+   * @public
    * <p> S3 bucket name. </p>
    */
   BucketName?: string;
 
   /**
+   * @public
    * <p>S3 key. </p>
    */
   ObjectKey?: string;
 }
 
-export namespace S3ReportLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ReportLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>This contains the location of the error report for a single scheduled query call.
  *         </p>
  */
 export interface ErrorReportLocation {
   /**
+   * @public
    * <p>The S3 location where error reports are written.</p>
    */
   S3ReportLocation?: S3ReportLocation;
 }
 
-export namespace ErrorReportLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorReportLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Statistics for a single scheduled query run.</p>
  */
 export interface ExecutionStats {
   /**
+   * @public
    * <p>Total time, measured in milliseconds, that was needed for the scheduled query run to complete.</p>
    */
   ExecutionTimeInMillis?: number;
 
   /**
+   * @public
    * <p>Data writes metered for records ingested in a single scheduled query run.</p>
    */
   DataWrites?: number;
 
   /**
+   * @public
    * <p>Bytes metered for a single scheduled query run.</p>
    */
   BytesMetered?: number;
 
   /**
+   * @public
    * <p>The number of records ingested for a single scheduled query run. </p>
    */
   RecordsIngested?: number;
 
   /**
+   * @public
    * <p>Number of rows present in the output from running a query before ingestion to
    *             destination data source.</p>
    */
   QueryResultRows?: number;
 }
 
-export namespace ExecutionStats {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionStats): any => ({
-    ...obj,
-  });
-}
-
-export enum ScheduledQueryRunStatus {
-  AUTO_TRIGGER_FAILURE = "AUTO_TRIGGER_FAILURE",
-  AUTO_TRIGGER_SUCCESS = "AUTO_TRIGGER_SUCCESS",
-  MANUAL_TRIGGER_FAILURE = "MANUAL_TRIGGER_FAILURE",
-  MANUAL_TRIGGER_SUCCESS = "MANUAL_TRIGGER_SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledQueryRunStatus = {
+  AUTO_TRIGGER_FAILURE: "AUTO_TRIGGER_FAILURE",
+  AUTO_TRIGGER_SUCCESS: "AUTO_TRIGGER_SUCCESS",
+  MANUAL_TRIGGER_FAILURE: "MANUAL_TRIGGER_FAILURE",
+  MANUAL_TRIGGER_SUCCESS: "MANUAL_TRIGGER_SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type ScheduledQueryRunStatus = (typeof ScheduledQueryRunStatus)[keyof typeof ScheduledQueryRunStatus];
+
+/**
+ * @public
  * <p>Run summary for the scheduled query</p>
  */
 export interface ScheduledQueryRunSummary {
   /**
+   * @public
    * <p>InvocationTime for this run. This is the time at which the query is scheduled to run.
    *             Parameter <code>@scheduled_runtime</code> can be used in the query to get the value. </p>
    */
   InvocationTime?: Date;
 
   /**
+   * @public
    * <p>The actual time when the query was run.</p>
    */
   TriggerTime?: Date;
 
   /**
+   * @public
    * <p>The status of a scheduled query run.</p>
    */
   RunStatus?: ScheduledQueryRunStatus | string;
 
   /**
+   * @public
    * <p>Runtime statistics for a scheduled run.</p>
    */
   ExecutionStats?: ExecutionStats;
 
   /**
+   * @public
    * <p>S3 location for error report.</p>
    */
   ErrorReportLocation?: ErrorReportLocation;
 
   /**
+   * @public
    * <p>Error message for the scheduled query in case of failure. You might have to look at
    *             the error report to get more detailed error reasons. </p>
    */
   FailureReason?: string;
 }
 
-export namespace ScheduledQueryRunSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledQueryRunSummary): any => ({
-    ...obj,
-  });
-}
-
-export enum ScheduledQueryState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledQueryState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ScheduledQueryState = (typeof ScheduledQueryState)[keyof typeof ScheduledQueryState];
+
+/**
+ * @public
  * <p>Structure that describes scheduled query.</p>
  */
 export interface ScheduledQueryDescription {
   /**
+   * @public
    * <p>Scheduled query ARN.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>Name of the scheduled query.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The query to be run.</p>
    */
   QueryString: string | undefined;
 
   /**
+   * @public
    * <p>Creation time of the scheduled query.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>State of the scheduled query. </p>
    */
   State: ScheduledQueryState | string | undefined;
 
   /**
+   * @public
    * <p>Last time the query was run.</p>
    */
   PreviousInvocationTime?: Date;
 
   /**
+   * @public
    * <p>The next time the scheduled query is scheduled to run.</p>
    */
   NextInvocationTime?: Date;
 
   /**
+   * @public
    * <p>Schedule configuration.</p>
    */
   ScheduleConfiguration: ScheduleConfiguration | undefined;
 
   /**
+   * @public
    * <p>Notification configuration.</p>
    */
   NotificationConfiguration: NotificationConfiguration | undefined;
 
   /**
+   * @public
    * <p>Scheduled query target store configuration.</p>
    */
   TargetConfiguration?: TargetConfiguration;
 
   /**
+   * @public
    * <p>IAM role that Timestream uses to run the schedule query.</p>
    */
   ScheduledQueryExecutionRoleArn?: string;
 
   /**
+   * @public
    * <p>A customer provided KMS key used to encrypt the scheduled query resource.</p>
    */
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>Error-reporting configuration for the scheduled query.</p>
    */
   ErrorReportConfiguration?: ErrorReportConfiguration;
 
   /**
+   * @public
    * <p>Runtime summary for the last scheduled query run. </p>
    */
   LastRunSummary?: ScheduledQueryRunSummary;
 
   /**
+   * @public
    * <p>Runtime summary for the last five failed scheduled query runs.</p>
    */
   RecentlyFailedRuns?: ScheduledQueryRunSummary[];
 }
 
-export namespace ScheduledQueryDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledQueryDescription): any => ({
-    ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeScheduledQueryResponse {
   /**
+   * @public
    * <p>The scheduled query.</p>
    */
   ScheduledQuery: ScheduledQueryDescription | undefined;
 }
 
-export namespace DescribeScheduledQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduledQueryResponse): any => ({
-    ...obj,
-    ...(obj.ScheduledQuery && { ScheduledQuery: ScheduledQueryDescription.filterSensitiveLog(obj.ScheduledQuery) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface ExecuteScheduledQueryRequest {
   /**
+   * @public
    * <p>ARN of the scheduled query.</p>
    */
   ScheduledQueryArn: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp in UTC. Query will be run as if it was invoked at this timestamp. </p>
    */
   InvocationTime: Date | undefined;
 
   /**
+   * @public
    * <p>Not used. </p>
    */
   ClientToken?: string;
 }
 
-export namespace ExecuteScheduledQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteScheduledQueryRequest): any => ({
-    ...obj,
-    ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListScheduledQueriesRequest {
   /**
+   * @public
    * <p>The maximum number of items to return in the output. If the total number of items
    *             available is more than the value specified, a <code>NextToken</code> is provided in the
    *             output. To resume pagination, provide the <code>NextToken</code> value as the argument
@@ -1062,196 +1010,169 @@ export interface ListScheduledQueriesRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p> A pagination token to resume pagination.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListScheduledQueriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScheduledQueriesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Destination for scheduled query.</p>
  */
 export interface TimestreamDestination {
   /**
+   * @public
    * <p>Timestream database name. </p>
    */
   DatabaseName?: string;
 
   /**
+   * @public
    * <p>Timestream table name. </p>
    */
   TableName?: string;
 }
 
-export namespace TimestreamDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestreamDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Destination details to write data for a target data source. Current supported data
  *             source is Timestream.</p>
  */
 export interface TargetDestination {
   /**
+   * @public
    * <p>Query result destination details for Timestream data source.</p>
    */
   TimestreamDestination?: TimestreamDestination;
 }
 
-export namespace TargetDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Scheduled Query</p>
  */
 export interface ScheduledQuery {
   /**
+   * @public
    * <p>The Amazon Resource Name.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the scheduled query.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The creation time of the scheduled query.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>State of scheduled query. </p>
    */
   State: ScheduledQueryState | string | undefined;
 
   /**
+   * @public
    * <p>The last time the scheduled query was run.</p>
    */
   PreviousInvocationTime?: Date;
 
   /**
+   * @public
    * <p>The next time the scheduled query is to be run.</p>
    */
   NextInvocationTime?: Date;
 
   /**
+   * @public
    * <p>Configuration for scheduled query error reporting.</p>
    */
   ErrorReportConfiguration?: ErrorReportConfiguration;
 
   /**
+   * @public
    * <p>Target data source where final scheduled query result will be written.</p>
    */
   TargetDestination?: TargetDestination;
 
   /**
+   * @public
    * <p>Status of the last scheduled query run.</p>
    */
   LastRunStatus?: ScheduledQueryRunStatus | string;
 }
 
-export namespace ScheduledQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledQuery): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListScheduledQueriesResponse {
   /**
+   * @public
    * <p>A list of scheduled queries.</p>
    */
   ScheduledQueries: ScheduledQuery[] | undefined;
 
   /**
+   * @public
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
    *             truncated response.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListScheduledQueriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScheduledQueriesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Timestream resource with tags to be listed. This value is an Amazon Resource Name
    *             (ARN).</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of tags to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A pagination token to resume pagination.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags currently associated with the Timestream resource. </p>
    */
   Tags: Tag[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token to resume pagination with a subsequent call to
    *                 <code>ListTagsForResourceResponse</code>.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PrepareQueryRequest {
   /**
+   * @public
    * <p>The Timestream query string that you want to use as a prepared statement. Parameter
    *             names can be specified in the query string <code>@</code> character followed by an
    *             identifier. </p>
@@ -1259,6 +1180,7 @@ export interface PrepareQueryRequest {
   QueryString: string | undefined;
 
   /**
+   * @public
    * <p>By setting this value to <code>true</code>, Timestream will only validate that the
    *             query string is a valid Timestream query, and not store the prepared query for later
    *             use.</p>
@@ -1266,17 +1188,8 @@ export interface PrepareQueryRequest {
   ValidateOnly?: boolean;
 }
 
-export namespace PrepareQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrepareQueryRequest): any => ({
-    ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Timestream was unable to run the query successfully. </p>
  */
@@ -1298,13 +1211,18 @@ export class QueryExecutionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface QueryRequest {
   /**
+   * @public
    * <p> The query to be run by Timestream. </p>
    */
   QueryString: string | undefined;
 
   /**
+   * @public
    * <p> Unique, case-sensitive string of up to 64 ASCII characters specified when a
    *                 <code>Query</code> request is made. Providing a <code>ClientToken</code> makes the
    *             call to <code>Query</code>
@@ -1336,6 +1254,7 @@ export interface QueryRequest {
   ClientToken?: string;
 
   /**
+   * @public
    * <p> A pagination token used to return a set of results. When the <code>Query</code> API
    *             is invoked using <code>NextToken</code>, that particular invocation is assumed to be a
    *             subsequent invocation of a prior call to <code>Query</code>, and a result set is
@@ -1379,6 +1298,7 @@ export interface QueryRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p> The total number of rows to be returned in the <code>Query</code> output. The initial
    *             run of <code>Query</code> with a <code>MaxRows</code> value specified will return the
    *             result set of the query in two cases: </p>
@@ -1403,34 +1323,27 @@ export interface QueryRequest {
   MaxRows?: number;
 }
 
-export namespace QueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryRequest): any => ({
-    ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-    ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
+ * @public
  * <p>Information about the status of the query, including progress and bytes
  *             scanned.</p>
  */
 export interface QueryStatus {
   /**
+   * @public
    * <p>The progress of the query, expressed as a percentage.</p>
    */
   ProgressPercentage?: number;
 
   /**
+   * @public
    * <p>The amount of data scanned by the query in bytes. This is a cumulative sum and
    *             represents the total amount of bytes scanned since the query was started. </p>
    */
   CumulativeBytesScanned?: number;
 
   /**
+   * @public
    * <p>The amount of data scanned by the query in bytes that you will be charged for. This is
    *             a cumulative sum and represents the total amount of data that you will be charged for
    *             since the query was started. The charge is applied only once and is either applied when
@@ -1439,115 +1352,85 @@ export interface QueryStatus {
   CumulativeBytesMetered?: number;
 }
 
-export namespace QueryStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStatus): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>Identifies the Timestream resource to which tags should be added. This value is an
    *             Amazon Resource Name (ARN).</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>The tags to be assigned to the Timestream resource.</p>
    */
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Timestream resource that the tags will be removed from. This value is an Amazon
    *             Resource Name (ARN). </p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>A list of tags keys. Existing tags of the resource whose keys are members of this list
    *             will be removed from the Timestream resource. </p>
    */
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateScheduledQueryRequest {
   /**
+   * @public
    * <p>ARN of the scheuled query.</p>
    */
   ScheduledQueryArn: string | undefined;
 
   /**
+   * @public
    * <p>State of the scheduled query. </p>
    */
   State: ScheduledQueryState | string | undefined;
 }
 
-export namespace UpdateScheduledQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateScheduledQueryRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p> Contains the metadata for query results such as the column names, data types, and
  *             other attributes. </p>
  */
 export interface ColumnInfo {
   /**
+   * @public
    * <p> The name of the result set column. The name of the result set is available for
    *             columns of all data types except for arrays. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The data type of the result set column. The data type can be a scalar or complex.
    *             Scalar data types are integers, strings, doubles, Booleans, and others. Complex data
    *             types are types such as arrays, rows, and others. </p>
@@ -1555,16 +1438,8 @@ export interface ColumnInfo {
   Type: Type | undefined;
 }
 
-export namespace ColumnInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the data type of a column in a query result set. The data type can be scalar
  *             or complex. The supported scalar data types are integers, Boolean, string, double,
  *             timestamp, date, time, and intervals. The supported complex data types are arrays, rows,
@@ -1572,86 +1447,81 @@ export namespace ColumnInfo {
  */
 export interface Type {
   /**
+   * @public
    * <p>Indicates if the column is of type string, integer, Boolean, double, timestamp, date,
    *             time. </p>
    */
   ScalarType?: ScalarType | string;
 
   /**
+   * @public
    * <p>Indicates if the column is an array.</p>
    */
   ArrayColumnInfo?: ColumnInfo;
 
   /**
+   * @public
    * <p>Indicates if the column is a timeseries data type.</p>
    */
   TimeSeriesMeasureValueColumnInfo?: ColumnInfo;
 
   /**
+   * @public
    * <p>Indicates if the column is a row.</p>
    */
   RowColumnInfo?: ColumnInfo[];
 }
 
-export namespace Type {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Type): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p> Datum represents a single data point in a query result. </p>
  */
 export interface Datum {
   /**
+   * @public
    * <p> Indicates if the data point is a scalar value such as integer, string, double, or
    *             Boolean. </p>
    */
   ScalarValue?: string;
 
   /**
+   * @public
    * <p> Indicates if the data point is a timeseries data type. </p>
    */
   TimeSeriesValue?: TimeSeriesDataPoint[];
 
   /**
+   * @public
    * <p> Indicates if the data point is an array. </p>
    */
   ArrayValue?: Datum[];
 
   /**
+   * @public
    * <p> Indicates if the data point is a row. </p>
    */
   RowValue?: Row;
 
   /**
+   * @public
    * <p> Indicates if the data point is null. </p>
    */
   NullValue?: boolean;
 }
 
-export namespace Datum {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Datum): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Mapping for named parameters.</p>
  */
 export interface ParameterMapping {
   /**
+   * @public
    * <p>Parameter name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Contains the data type of a column in a query result set. The data type can be scalar
    *             or complex. The supported scalar data types are integers, Boolean, string, double,
    *             timestamp, date, time, and intervals. The supported complex data types are arrays, rows,
@@ -1660,25 +1530,19 @@ export interface ParameterMapping {
   Type: Type | undefined;
 }
 
-export namespace ParameterMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Details of the column that is returned by the query. </p>
  */
 export interface SelectColumn {
   /**
+   * @public
    * <p>Name of the column.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>Contains the data type of a column in a query result set. The data type can be scalar
    *             or complex. The supported scalar data types are integers, Boolean, string, double,
    *             timestamp, date, time, and intervals. The supported complex data types are arrays, rows,
@@ -1687,31 +1551,26 @@ export interface SelectColumn {
   Type?: Type;
 
   /**
+   * @public
    * <p> Database that has this column.</p>
    */
   DatabaseName?: string;
 
   /**
+   * @public
    * <p>Table within the database that has this column. </p>
    */
   TableName?: string;
 
   /**
+   * @public
    * <p>True, if the column name was aliased by the query. False otherwise.</p>
    */
   Aliased?: boolean;
 }
 
-export namespace SelectColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectColumn): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The timeseries data type represents the values of a measure over time. A time series
  *             is an array of rows of timestamps and measure values, with rows sorted in ascending
  *             order of time. A TimeSeriesDataPoint is a single data point in the time series. It
@@ -1719,105 +1578,144 @@ export namespace SelectColumn {
  */
 export interface TimeSeriesDataPoint {
   /**
+   * @public
    * <p>The timestamp when the measure value was collected.</p>
    */
   Time: string | undefined;
 
   /**
+   * @public
    * <p>The measure value for the data point.</p>
    */
   Value: Datum | undefined;
 }
 
-export namespace TimeSeriesDataPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeSeriesDataPoint): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a single row in the query results.</p>
  */
 export interface Row {
   /**
+   * @public
    * <p>List of data points in a single row of the result set.</p>
    */
   Data: Datum[] | undefined;
 }
 
-export namespace Row {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Row): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface QueryResponse {
   /**
+   * @public
    * <p> A unique ID for the given query. </p>
    */
   QueryId: string | undefined;
 
   /**
+   * @public
    * <p> A pagination token that can be used again on a <code>Query</code> call to get the
    *             next set of results. </p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p> The result set rows returned by the query. </p>
    */
   Rows: Row[] | undefined;
 
   /**
+   * @public
    * <p> The column data types of the returned result set. </p>
    */
   ColumnInfo: ColumnInfo[] | undefined;
 
   /**
+   * @public
    * <p>Information about the status of the query, including progress and bytes
    *             scanned.</p>
    */
   QueryStatus?: QueryStatus;
 }
 
-export namespace QueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PrepareQueryResponse {
   /**
+   * @public
    * <p>The query string that you want prepare.</p>
    */
   QueryString: string | undefined;
 
   /**
+   * @public
    * <p>A list of SELECT clause columns of the submitted query string. </p>
    */
   Columns: SelectColumn[] | undefined;
 
   /**
+   * @public
    * <p>A list of parameters used in the submitted query string. </p>
    */
   Parameters: ParameterMapping[] | undefined;
 }
 
-export namespace PrepareQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrepareQueryResponse): any => ({
-    ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @internal
+ */
+export const CreateScheduledQueryRequestFilterSensitiveLog = (obj: CreateScheduledQueryRequest): any => ({
+  ...obj,
+  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ScheduledQueryDescriptionFilterSensitiveLog = (obj: ScheduledQueryDescription): any => ({
+  ...obj,
+  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeScheduledQueryResponseFilterSensitiveLog = (obj: DescribeScheduledQueryResponse): any => ({
+  ...obj,
+  ...(obj.ScheduledQuery && { ScheduledQuery: ScheduledQueryDescriptionFilterSensitiveLog(obj.ScheduledQuery) }),
+});
+
+/**
+ * @internal
+ */
+export const ExecuteScheduledQueryRequestFilterSensitiveLog = (obj: ExecuteScheduledQueryRequest): any => ({
+  ...obj,
+  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PrepareQueryRequestFilterSensitiveLog = (obj: PrepareQueryRequest): any => ({
+  ...obj,
+  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const QueryRequestFilterSensitiveLog = (obj: QueryRequest): any => ({
+  ...obj,
+  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PrepareQueryResponseFilterSensitiveLog = (obj: PrepareQueryResponse): any => ({
+  ...obj,
+  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+});

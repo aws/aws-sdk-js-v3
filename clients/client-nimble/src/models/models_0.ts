@@ -1,107 +1,99 @@
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { NimbleServiceException as __BaseException } from "./NimbleServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptEulasRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The EULA ID.</p>
    */
   eulaIds?: string[];
 
   /**
-   * <p>A collection of EULA IDs.</p>
+   * @public
+   * <p>The studio ID.</p>
    */
   studioId: string | undefined;
 }
 
-export namespace AcceptEulasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptEulasRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The acceptance of a EULA, required to use Amazon-provided streaming images.</p>
  */
 export interface EulaAcceptance {
   /**
-   * <p>The Unix epoch timestamp in seconds for when the EULA was accepted.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the EULA was accepted.</p>
    */
   acceptedAt?: Date;
 
   /**
+   * @public
    * <p>The ID of the person who accepted the EULA.</p>
    */
   acceptedBy?: string;
 
   /**
+   * @public
    * <p>The ID of the acceptee.</p>
    */
   accepteeId?: string;
 
   /**
+   * @public
    * <p>The EULA acceptance ID.</p>
    */
   eulaAcceptanceId?: string;
 
   /**
+   * @public
    * <p>The EULA ID.</p>
    */
   eulaId?: string;
 }
 
-export namespace EulaAcceptance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EulaAcceptance): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AcceptEulasResponse {
   /**
+   * @public
    * <p>A collection of EULA acceptances.</p>
    */
   eulaAcceptances?: EulaAcceptance[];
 }
 
-export namespace AcceptEulasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptEulasResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>You are not authorized to perform this operation. Check your IAM policies, and ensure
- *             that you are using the correct access keys.</p>
+ * @public
+ * <p>You are not authorized to perform this operation. Check your IAM
+ *             policies, and ensure that you are using the correct access keys.</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -119,20 +111,23 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Another operation is in progress. </p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -150,6 +145,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred. Please retry your request.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -157,14 +153,16 @@ export class InternalServerErrorException extends __BaseException {
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -182,20 +180,23 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -213,22 +214,25 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your current quota does not allow you to perform the request action. You can request
  *             increases for some quotas, and other quotas cannot be increased.</p>
- *         <p>Please use AWS Service Quotas to request an increase. </p>
+ *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -246,6 +250,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request throughput limit was exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -253,14 +258,16 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -278,20 +285,23 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One of the parameters in the request is invalid.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -309,178 +319,277 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
  *             pair.</p>
  */
 export interface ActiveDirectoryComputerAttribute {
   /**
+   * @public
    * <p>The name for the LDAP attribute.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The value for the LDAP attribute.</p>
    */
   value?: string;
 }
 
-export namespace ActiveDirectoryComputerAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveDirectoryComputerAttribute): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
- *             resource.</p>
+ * @public
+ * <p>The configuration for a Directory Service for Microsoft Active Directory studio resource.</p>
  */
 export interface ActiveDirectoryConfiguration {
   /**
+   * @public
    * <p>A collection of custom attributes for an Active Directory computer.</p>
    */
   computerAttributes?: ActiveDirectoryComputerAttribute[];
 
   /**
-   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access
-   *             using this studio component.</p>
+   * @public
+   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio
+   *             component.</p>
    */
   directoryId?: string;
 
   /**
+   * @public
    * <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
    *             computer.</p>
    */
   organizationalUnitDistinguishedName?: string;
 }
 
-export namespace ActiveDirectoryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveDirectoryConfiguration): any => ({
-    ...obj,
-    ...(obj.computerAttributes && { computerAttributes: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutomaticTerminationMode = {
+  ACTIVATED: "ACTIVATED",
+  DEACTIVATED: "DEACTIVATED",
+} as const;
 
 /**
+ * @public
+ */
+export type AutomaticTerminationMode = (typeof AutomaticTerminationMode)[keyof typeof AutomaticTerminationMode];
+
+/**
+ * @public
  * <p>The configuration for a render farm that is associated with a studio resource.</p>
  */
 export interface ComputeFarmConfiguration {
   /**
+   * @public
    * <p>The name of an Active Directory user that is used on ComputeFarm worker
    *             instances.</p>
    */
   activeDirectoryUser?: string;
 
   /**
+   * @public
    * <p>The endpoint of the ComputeFarm that is accessed by the studio component
    *             resource.</p>
    */
   endpoint?: string;
 }
 
-export namespace ComputeFarmConfiguration {
+/**
+ * @public
+ * @enum
+ */
+export const StreamingClipboardMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingClipboardMode = (typeof StreamingClipboardMode)[keyof typeof StreamingClipboardMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamingInstanceType = {
+  g3_4xlarge: "g3.4xlarge",
+  g3s_xlarge: "g3s.xlarge",
+  g4dn_12xlarge: "g4dn.12xlarge",
+  g4dn_16xlarge: "g4dn.16xlarge",
+  g4dn_2xlarge: "g4dn.2xlarge",
+  g4dn_4xlarge: "g4dn.4xlarge",
+  g4dn_8xlarge: "g4dn.8xlarge",
+  g4dn_xlarge: "g4dn.xlarge",
+  g5_16xlarge: "g5.16xlarge",
+  g5_2xlarge: "g5.2xlarge",
+  g5_4xlarge: "g5.4xlarge",
+  g5_8xlarge: "g5.8xlarge",
+  g5_xlarge: "g5.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingInstanceType = (typeof StreamingInstanceType)[keyof typeof StreamingInstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionBackupMode = {
+  AUTOMATIC: "AUTOMATIC",
+  DEACTIVATED: "DEACTIVATED",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionBackupMode = (typeof SessionBackupMode)[keyof typeof SessionBackupMode];
+
+/**
+ * @public
+ * <p>Configures how streaming sessions are backed up when launched from this launch
+ *             profile.</p>
+ */
+export interface StreamConfigurationSessionBackup {
   /**
-   * @internal
+   * @public
+   * <p>Specifies how artists sessions are backed up.</p>
+   *         <p>Configures backups for streaming sessions launched with this launch profile. The
+   *             default value is <code>DEACTIVATED</code>, which means that backups are deactivated. To
+   *             allow backups, set this value to <code>AUTOMATIC</code>.</p>
    */
-  export const filterSensitiveLog = (obj: ComputeFarmConfiguration): any => ({
-    ...obj,
-    ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
-  });
-}
+  mode?: SessionBackupMode | string;
 
-export enum StreamingClipboardMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum StreamingInstanceType {
-  g4dn_12xlarge = "g4dn.12xlarge",
-  g4dn_16xlarge = "g4dn.16xlarge",
-  g4dn_2xlarge = "g4dn.2xlarge",
-  g4dn_4xlarge = "g4dn.4xlarge",
-  g4dn_8xlarge = "g4dn.8xlarge",
-  g4dn_xlarge = "g4dn.xlarge",
-}
-
-export enum StreamingSessionStorageMode {
-  UPLOAD = "UPLOAD",
+  /**
+   * @public
+   * <p>The maximum number of backups that each streaming session created from this launch
+   *             profile can have.</p>
+   */
+  maxBackupsToRetain?: number;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SessionPersistenceMode = {
+  ACTIVATED: "ACTIVATED",
+  DEACTIVATED: "DEACTIVATED",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionPersistenceMode = (typeof SessionPersistenceMode)[keyof typeof SessionPersistenceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamingSessionStorageMode = {
+  UPLOAD: "UPLOAD",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingSessionStorageMode =
+  (typeof StreamingSessionStorageMode)[keyof typeof StreamingSessionStorageMode];
+
+/**
+ * @public
  * <p>The upload storage root location (folder) on streaming workstations where files are
  *             uploaded.</p>
  */
 export interface StreamingSessionStorageRoot {
   /**
+   * @public
    * <p>The folder path in Linux workstations where files are uploaded.</p>
    */
   linux?: string;
 
   /**
+   * @public
    * <p>The folder path in Windows workstations where files are uploaded.</p>
    */
   windows?: string;
 }
 
-export namespace StreamingSessionStorageRoot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingSessionStorageRoot): any => ({
-    ...obj,
-    ...(obj.linux && { linux: SENSITIVE_STRING }),
-    ...(obj.windows && { windows: SENSITIVE_STRING }),
-  });
-}
-
 /**
+ * @public
  * <p>The configuration for a streaming session’s upload storage.</p>
  */
 export interface StreamConfigurationSessionStorage {
   /**
+   * @public
    * <p>The configuration for the upload storage root of the streaming session.</p>
    */
   root?: StreamingSessionStorageRoot;
 
   /**
+   * @public
    * <p>Allows artists to upload files to their workstations. The only valid option is
    *                 <code>UPLOAD</code>.</p>
    */
   mode: (StreamingSessionStorageMode | string)[] | undefined;
 }
 
-export namespace StreamConfigurationSessionStorage {
+/**
+ * @public
+ * <p>Custom volume configuration for the root volumes that are attached to streaming
+ *             sessions.</p>
+ *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+ *                 <code>ACTIVATED</code>.</p>
+ */
+export interface VolumeConfiguration {
   /**
-   * @internal
+   * @public
+   * <p>The size of the root volume that is attached to the streaming session. The root volume
+   *             size is measured in GiBs.</p>
    */
-  export const filterSensitiveLog = (obj: StreamConfigurationSessionStorage): any => ({
-    ...obj,
-    ...(obj.root && { root: StreamingSessionStorageRoot.filterSensitiveLog(obj.root) }),
-  });
+  size?: number;
+
+  /**
+   * @public
+   * <p>The throughput to provision for the root volume that is attached to the streaming
+   *             session. The throughput is measured in MiB/s.</p>
+   */
+  throughput?: number;
+
+  /**
+   * @public
+   * <p>The number of I/O operations per second for the root volume that is attached to
+   *             streaming session.</p>
+   */
+  iops?: number;
 }
 
 /**
+ * @public
  * <p>Configuration for streaming workstations created using this launch profile.</p>
  */
 export interface StreamConfigurationCreate {
   /**
-   * <p>Enable or disable the use of the system clipboard to copy and paste between the
+   * @public
+   * <p>Allows or deactivates the use of the system clipboard to copy and paste between the
    *             streaming session and streaming client.</p>
    */
   clipboardMode: StreamingClipboardMode | string | undefined;
 
   /**
+   * @public
    * <p>The EC2 instance types that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
   ec2InstanceTypes: (StreamingInstanceType | string)[] | undefined;
 
   /**
+   * @public
    * <p>The length of time, in minutes, that a streaming session can be active before it is
    *             stopped or terminated. After this point, Nimble Studio automatically terminates or
    *             stops the session. The default length of time is 690 minutes, and the maximum length of
@@ -489,156 +598,220 @@ export interface StreamConfigurationCreate {
   maxSessionLengthInMinutes?: number;
 
   /**
+   * @public
    * <p>The streaming images that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
   streamingImageIds: string[] | undefined;
 
   /**
+   * @public
    * <p>Integer that determines if you can start and stop your sessions and how long a session
-   *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-   *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-   *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
-   *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-   *             session will automatically be terminated by AWS (instead of stopped).</p>
+   *             can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
+   *             5760.</p>
+   *         <p>This field is allowed only when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
+   *                 <code>ACTIVATED</code>.</p>
+   *         <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
+   *             call <code>StopStreamingSession</code>, the session fails. If the time that a session
+   *             stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
+   *             value, the session will automatically be terminated (instead of
+   *             <code>STOPPED</code>).</p>
    *         <p>If the value is set to a positive number, the session can be stopped. You can call
-   *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
-   *             that a session stays in the READY state exceeds the
+   *                 <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
+   *             If the time that a session stays in the <code>READY</code> state exceeds the
    *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-   *             stopped by AWS (instead of terminated).</p>
+   *             stopped (instead of terminated).</p>
    */
   maxStoppedSessionLengthInMinutes?: number;
 
   /**
-   * <p>(Optional) The upload storage for a streaming workstation that is created using this
-   *             launch profile.</p>
+   * @public
+   * <p>The upload storage for a streaming workstation that is created using this launch
+   *             profile.</p>
    */
   sessionStorage?: StreamConfigurationSessionStorage;
-}
 
-export namespace StreamConfigurationCreate {
   /**
-   * @internal
+   * @public
+   * <p>Configures how streaming sessions are backed up when launched from this launch
+   *             profile.</p>
    */
-  export const filterSensitiveLog = (obj: StreamConfigurationCreate): any => ({
-    ...obj,
-    ...(obj.sessionStorage && {
-      sessionStorage: StreamConfigurationSessionStorage.filterSensitiveLog(obj.sessionStorage),
-    }),
-  });
+  sessionBackup?: StreamConfigurationSessionBackup;
+
+  /**
+   * @public
+   * <p>Determine if a streaming session created from this launch profile can configure
+   *             persistent storage. This means that <code>volumeConfiguration</code> and
+   *                 <code>automaticTerminationMode</code> are configured.</p>
+   */
+  sessionPersistenceMode?: SessionPersistenceMode | string;
+
+  /**
+   * @public
+   * <p>Custom volume configuration for the root volumes that are attached to streaming
+   *             sessions.</p>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>.</p>
+   */
+  volumeConfiguration?: VolumeConfiguration;
+
+  /**
+   * @public
+   * <p>Indicates if a streaming session created from this launch profile should be terminated
+   *             automatically or retained without termination after being in a <code>STOPPED</code>
+   *             state.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>When <code>ACTIVATED</code>, the streaming session is scheduled for
+   *                     termination after being in the <code>STOPPED</code> state for the time specified
+   *                     in <code>maxStoppedSessionLengthInMinutes</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When <code>DEACTIVATED</code>, the streaming session can remain in the
+   *                         <code>STOPPED</code> state indefinitely.</p>
+   *             </li>
+   *          </ul>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
+   *                 <code>DEACTIVATED</code>.</p>
+   */
+  automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchProfileRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
    *             These subnets must support the specified instance types. </p>
    */
   ec2SubnetIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The version number of the protocol that is used by the launch profile. The only valid
    *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersions: string[] | undefined;
 
   /**
+   * @public
    * <p>The name for the launch profile.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A configuration for a streaming session.</p>
    */
   streamConfiguration: StreamConfigurationCreate | undefined;
 
   /**
+   * @public
    * <p>Unique identifiers for a collection of studio components that can be used with this
    *             launch profile.</p>
    */
   studioComponentIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace CreateLaunchProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLaunchProfileRequest): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.streamConfiguration && {
-      streamConfiguration: StreamConfigurationCreate.filterSensitiveLog(obj.streamConfiguration),
-    }),
-  });
-}
-
-export enum LaunchProfileState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
-
-export enum LaunchProfileStatusCode {
-  ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
-  ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_SUBNETS_PROVIDED = "INVALID_SUBNETS_PROVIDED",
-  LAUNCH_PROFILE_CREATED = "LAUNCH_PROFILE_CREATED",
-  LAUNCH_PROFILE_CREATE_IN_PROGRESS = "LAUNCH_PROFILE_CREATE_IN_PROGRESS",
-  LAUNCH_PROFILE_DELETED = "LAUNCH_PROFILE_DELETED",
-  LAUNCH_PROFILE_DELETE_IN_PROGRESS = "LAUNCH_PROFILE_DELETE_IN_PROGRESS",
-  LAUNCH_PROFILE_UPDATED = "LAUNCH_PROFILE_UPDATED",
-  LAUNCH_PROFILE_UPDATE_IN_PROGRESS = "LAUNCH_PROFILE_UPDATE_IN_PROGRESS",
-  LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED = "LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED",
-  STREAMING_IMAGE_NOT_FOUND = "STREAMING_IMAGE_NOT_FOUND",
-  STREAMING_IMAGE_NOT_READY = "STREAMING_IMAGE_NOT_READY",
+  tags?: Record<string, string>;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const LaunchProfileState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchProfileState = (typeof LaunchProfileState)[keyof typeof LaunchProfileState];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfileStatusCode = {
+  ENCRYPTION_KEY_ACCESS_DENIED: "ENCRYPTION_KEY_ACCESS_DENIED",
+  ENCRYPTION_KEY_NOT_FOUND: "ENCRYPTION_KEY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_INSTANCE_TYPES_PROVIDED: "INVALID_INSTANCE_TYPES_PROVIDED",
+  INVALID_SUBNETS_COMBINATION: "INVALID_SUBNETS_COMBINATION",
+  INVALID_SUBNETS_PROVIDED: "INVALID_SUBNETS_PROVIDED",
+  LAUNCH_PROFILE_CREATED: "LAUNCH_PROFILE_CREATED",
+  LAUNCH_PROFILE_CREATE_IN_PROGRESS: "LAUNCH_PROFILE_CREATE_IN_PROGRESS",
+  LAUNCH_PROFILE_DELETED: "LAUNCH_PROFILE_DELETED",
+  LAUNCH_PROFILE_DELETE_IN_PROGRESS: "LAUNCH_PROFILE_DELETE_IN_PROGRESS",
+  LAUNCH_PROFILE_UPDATED: "LAUNCH_PROFILE_UPDATED",
+  LAUNCH_PROFILE_UPDATE_IN_PROGRESS: "LAUNCH_PROFILE_UPDATE_IN_PROGRESS",
+  LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED: "LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED",
+  STREAMING_IMAGE_NOT_FOUND: "STREAMING_IMAGE_NOT_FOUND",
+  STREAMING_IMAGE_NOT_READY: "STREAMING_IMAGE_NOT_READY",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchProfileStatusCode = (typeof LaunchProfileStatusCode)[keyof typeof LaunchProfileStatusCode];
+
+/**
+ * @public
  * <p>A configuration for a streaming session.</p>
  */
 export interface StreamConfiguration {
   /**
-   * <p>Enable or disable the use of the system clipboard to copy and paste between the
+   * @public
+   * <p>Allows or deactivates the use of the system clipboard to copy and paste between the
    *             streaming session and streaming client.</p>
    */
   clipboardMode: StreamingClipboardMode | string | undefined;
 
   /**
+   * @public
    * <p>The EC2 instance types that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
   ec2InstanceTypes: (StreamingInstanceType | string)[] | undefined;
 
   /**
+   * @public
    * <p>The length of time, in minutes, that a streaming session can be active before it is
    *             stopped or terminated. After this point, Nimble Studio automatically terminates or
    *             stops the session. The default length of time is 690 minutes, and the maximum length of
@@ -647,111 +820,178 @@ export interface StreamConfiguration {
   maxSessionLengthInMinutes?: number;
 
   /**
+   * @public
    * <p>The streaming images that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
   streamingImageIds: string[] | undefined;
 
   /**
+   * @public
    * <p>Integer that determines if you can start and stop your sessions and how long a session
-   *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-   *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-   *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
-   *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-   *             session will automatically be terminated by AWS (instead of stopped).</p>
+   *             can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
+   *             5760.</p>
+   *         <p>This field is allowed only when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
+   *                 <code>ACTIVATED</code>.</p>
+   *         <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
+   *             call <code>StopStreamingSession</code>, the session fails. If the time that a session
+   *             stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
+   *             value, the session will automatically be terminated (instead of
+   *             <code>STOPPED</code>).</p>
    *         <p>If the value is set to a positive number, the session can be stopped. You can call
-   *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
-   *             that a session stays in the READY state exceeds the
+   *                 <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
+   *             If the time that a session stays in the <code>READY</code> state exceeds the
    *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-   *             stopped by AWS (instead of terminated).</p>
+   *             stopped (instead of terminated).</p>
    */
   maxStoppedSessionLengthInMinutes?: number;
 
   /**
-   * <p>(Optional) The upload storage for a streaming session.</p>
+   * @public
+   * <p>The upload storage for a streaming session.</p>
    */
   sessionStorage?: StreamConfigurationSessionStorage;
-}
 
-export namespace StreamConfiguration {
   /**
-   * @internal
+   * @public
+   * <p>Information about the streaming session backup.</p>
    */
-  export const filterSensitiveLog = (obj: StreamConfiguration): any => ({
-    ...obj,
-    ...(obj.sessionStorage && {
-      sessionStorage: StreamConfigurationSessionStorage.filterSensitiveLog(obj.sessionStorage),
-    }),
-  });
-}
+  sessionBackup?: StreamConfigurationSessionBackup;
 
-export enum LaunchProfileValidationState {
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-  VALIDATION_FAILED_INTERNAL_SERVER_ERROR = "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
-  VALIDATION_IN_PROGRESS = "VALIDATION_IN_PROGRESS",
-  VALIDATION_NOT_STARTED = "VALIDATION_NOT_STARTED",
-  VALIDATION_SUCCESS = "VALIDATION_SUCCESS",
-}
+  /**
+   * @public
+   * <p>Determine if a streaming session created from this launch profile can configure
+   *             persistent storage. This means that <code>volumeConfiguration</code> and
+   *                 <code>automaticTerminationMode</code> are configured.</p>
+   */
+  sessionPersistenceMode?: SessionPersistenceMode | string;
 
-export enum LaunchProfileValidationStatusCode {
-  VALIDATION_FAILED_INTERNAL_SERVER_ERROR = "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
-  VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY = "VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY",
-  VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION = "VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION",
-  VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION = "VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION",
-  VALIDATION_FAILED_SUBNET_NOT_FOUND = "VALIDATION_FAILED_SUBNET_NOT_FOUND",
-  VALIDATION_FAILED_UNAUTHORIZED = "VALIDATION_FAILED_UNAUTHORIZED",
-  VALIDATION_IN_PROGRESS = "VALIDATION_IN_PROGRESS",
-  VALIDATION_NOT_STARTED = "VALIDATION_NOT_STARTED",
-  VALIDATION_SUCCESS = "VALIDATION_SUCCESS",
-}
+  /**
+   * @public
+   * <p>Custom volume configuration for the root volumes that are attached to streaming
+   *             sessions.</p>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>.</p>
+   */
+  volumeConfiguration?: VolumeConfiguration;
 
-export enum LaunchProfileValidationType {
-  VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT = "VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT",
-  VALIDATE_NETWORK_ACL_ASSOCIATION = "VALIDATE_NETWORK_ACL_ASSOCIATION",
-  VALIDATE_SECURITY_GROUP_ASSOCIATION = "VALIDATE_SECURITY_GROUP_ASSOCIATION",
-  VALIDATE_SUBNET_ASSOCIATION = "VALIDATE_SUBNET_ASSOCIATION",
+  /**
+   * @public
+   * <p>Indicates if a streaming session created from this launch profile should be terminated
+   *             automatically or retained without termination after being in a <code>STOPPED</code>
+   *             state.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>When <code>ACTIVATED</code>, the streaming session is scheduled for
+   *                     termination after being in the <code>STOPPED</code> state for the time specified
+   *                     in <code>maxStoppedSessionLengthInMinutes</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When <code>DEACTIVATED</code>, the streaming session can remain in the
+   *                         <code>STOPPED</code> state indefinitely.</p>
+   *             </li>
+   *          </ul>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
+   *                 <code>DEACTIVATED</code>.</p>
+   */
+  automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const LaunchProfileValidationState = {
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+  VALIDATION_FAILED_INTERNAL_SERVER_ERROR: "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
+  VALIDATION_IN_PROGRESS: "VALIDATION_IN_PROGRESS",
+  VALIDATION_NOT_STARTED: "VALIDATION_NOT_STARTED",
+  VALIDATION_SUCCESS: "VALIDATION_SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchProfileValidationState =
+  (typeof LaunchProfileValidationState)[keyof typeof LaunchProfileValidationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfileValidationStatusCode = {
+  VALIDATION_FAILED_INTERNAL_SERVER_ERROR: "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
+  VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY: "VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY",
+  VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION: "VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION",
+  VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION: "VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION",
+  VALIDATION_FAILED_SUBNET_NOT_FOUND: "VALIDATION_FAILED_SUBNET_NOT_FOUND",
+  VALIDATION_FAILED_UNAUTHORIZED: "VALIDATION_FAILED_UNAUTHORIZED",
+  VALIDATION_IN_PROGRESS: "VALIDATION_IN_PROGRESS",
+  VALIDATION_NOT_STARTED: "VALIDATION_NOT_STARTED",
+  VALIDATION_SUCCESS: "VALIDATION_SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchProfileValidationStatusCode =
+  (typeof LaunchProfileValidationStatusCode)[keyof typeof LaunchProfileValidationStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfileValidationType = {
+  VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT: "VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT",
+  VALIDATE_NETWORK_ACL_ASSOCIATION: "VALIDATE_NETWORK_ACL_ASSOCIATION",
+  VALIDATE_SECURITY_GROUP_ASSOCIATION: "VALIDATE_SECURITY_GROUP_ASSOCIATION",
+  VALIDATE_SUBNET_ASSOCIATION: "VALIDATE_SUBNET_ASSOCIATION",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchProfileValidationType =
+  (typeof LaunchProfileValidationType)[keyof typeof LaunchProfileValidationType];
+
+/**
+ * @public
  * <p>The launch profile validation result.</p>
  */
 export interface ValidationResult {
   /**
+   * @public
    * <p>The type of the validation result.</p>
    */
   type: LaunchProfileValidationType | string | undefined;
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state: LaunchProfileValidationState | string | undefined;
 
   /**
+   * @public
    * <p>The status code. This will contain the failure reason if the state is
    *                 <code>VALIDATION_FAILED</code>.</p>
    */
   statusCode: LaunchProfileValidationStatusCode | string | undefined;
 
   /**
+   * @public
    * <p>The status message for the validation result.</p>
    */
   statusMessage: string | undefined;
 }
 
-export namespace ValidationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A launch profile controls your artist workforce’s access to studio components, like
  *             compute farms, shared file systems, managed file systems, and license server
  *             configurations, as well as instance types and Amazon Machine Images (AMIs). </p>
- *
  *         <p>Studio administrators create launch profiles in the Nimble Studio console.
  *             Artists can use their launch profiles to launch an instance from the Nimble Studio
  *             portal. Each user’s launch profile defines how they can launch a streaming session. By
@@ -759,347 +999,370 @@ export namespace ValidationResult {
  */
 export interface LaunchProfile {
   /**
-   * <p>The ARN of the resource.</p>
+   * @public
+   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
+   *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that created the launch profile.</p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p>A human-readable description of the launch profile.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Unique identifiers for a collection of EC2 subnets.</p>
    */
   ec2SubnetIds?: string[];
 
   /**
-   * <p>The launch profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId?: string;
 
   /**
+   * @public
    * <p>The version number of the protocol that is used by the launch profile. The only valid
    *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersions?: string[];
 
   /**
+   * @public
    * <p>A friendly name for the launch profile.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state?: LaunchProfileState | string;
 
   /**
+   * @public
    * <p>The status code.</p>
    */
   statusCode?: LaunchProfileStatusCode | string;
 
   /**
+   * @public
    * <p>The status message for the launch profile.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>A configuration for a streaming session.</p>
    */
   streamConfiguration?: StreamConfiguration;
 
   /**
+   * @public
    * <p>Unique identifiers for a collection of studio components that can be used with this
    *             launch profile.</p>
    */
   studioComponentIds?: string[];
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that most recently updated the resource.</p>
    */
   updatedBy?: string;
 
   /**
+   * @public
    * <p>The list of the latest validation results.</p>
    */
   validationResults?: ValidationResult[];
 }
 
-export namespace LaunchProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchProfile): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.streamConfiguration && {
-      streamConfiguration: StreamConfiguration.filterSensitiveLog(obj.streamConfiguration),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateLaunchProfileResponse {
   /**
+   * @public
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
 }
 
-export namespace CreateLaunchProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLaunchProfileResponse): any => ({
-    ...obj,
-    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateStreamingImageRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>A human-readable description of the streaming image.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ID of an EC2 machine image with which to create this streaming image.</p>
    */
   ec2ImageId: string | undefined;
 
   /**
+   * @public
    * <p>A friendly name for a streaming image resource.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace CreateStreamingImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingImageRequest): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-  });
-}
-
-export enum StreamingImageEncryptionConfigurationKeyType {
-  CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY",
+  tags?: Record<string, string>;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const StreamingImageEncryptionConfigurationKeyType = {
+  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingImageEncryptionConfigurationKeyType =
+  (typeof StreamingImageEncryptionConfigurationKeyType)[keyof typeof StreamingImageEncryptionConfigurationKeyType];
+
+/**
+ * @public
  * <p>Specifies how a streaming image is encrypted.</p>
  */
 export interface StreamingImageEncryptionConfiguration {
   /**
+   * @public
    * <p>The ARN for a KMS key that is used to encrypt studio data.</p>
    */
   keyArn?: string;
 
   /**
+   * @public
    * <p>The type of KMS key that is used to encrypt studio data.</p>
    */
   keyType: StreamingImageEncryptionConfigurationKeyType | string | undefined;
 }
 
-export namespace StreamingImageEncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingImageEncryptionConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export enum StreamingImageState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
-
-export enum StreamingImageStatusCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STREAMING_IMAGE_CREATE_IN_PROGRESS = "STREAMING_IMAGE_CREATE_IN_PROGRESS",
-  STREAMING_IMAGE_DELETED = "STREAMING_IMAGE_DELETED",
-  STREAMING_IMAGE_DELETE_IN_PROGRESS = "STREAMING_IMAGE_DELETE_IN_PROGRESS",
-  STREAMING_IMAGE_READY = "STREAMING_IMAGE_READY",
-  STREAMING_IMAGE_UPDATE_IN_PROGRESS = "STREAMING_IMAGE_UPDATE_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamingImageState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamingImageState = (typeof StreamingImageState)[keyof typeof StreamingImageState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamingImageStatusCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STREAMING_IMAGE_CREATE_IN_PROGRESS: "STREAMING_IMAGE_CREATE_IN_PROGRESS",
+  STREAMING_IMAGE_DELETED: "STREAMING_IMAGE_DELETED",
+  STREAMING_IMAGE_DELETE_IN_PROGRESS: "STREAMING_IMAGE_DELETE_IN_PROGRESS",
+  STREAMING_IMAGE_READY: "STREAMING_IMAGE_READY",
+  STREAMING_IMAGE_UPDATE_IN_PROGRESS: "STREAMING_IMAGE_UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingImageStatusCode = (typeof StreamingImageStatusCode)[keyof typeof StreamingImageStatusCode];
+
+/**
+ * @public
  * <p>Represents a streaming image resource.</p>
  *         <p>Streaming images are used by studio users to select which operating system and
  *             software they want to use in a Nimble Studio streaming session.</p>
  *         <p>Amazon provides a number of streaming images that include popular 3rd-party
  *             software.</p>
- *         <p>You can create your own streaming images using an Amazon Elastic Compute Cloud (Amazon
- *             EC2) machine image that you create for this purpose. You can also include software that
- *             your users require.</p>
+ *         <p>You can create your own streaming images using an Amazon EC2 machine image
+ *             that you create for this purpose. You can also include software that your users
+ *             require.</p>
  */
 export interface StreamingImage {
   /**
-   * <p>The ARN of the resource.</p>
+   * @public
+   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
+   *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>A human-readable description of the streaming image.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ID of an EC2 machine image with which to create the streaming image.</p>
    */
   ec2ImageId?: string;
 
   /**
+   * @public
    * <p>The encryption configuration.</p>
    */
   encryptionConfiguration?: StreamingImageEncryptionConfiguration;
 
   /**
+   * @public
    * <p>The list of EULAs that must be accepted before a Streaming Session can be started
    *             using this streaming image.</p>
    */
   eulaIds?: string[];
 
   /**
+   * @public
    * <p>A friendly name for a streaming image resource.</p>
    */
   name?: string;
 
   /**
-   * <p>The owner of the streaming image, either the studioId that contains the streaming
-   *             image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+   * @public
+   * <p>The owner of the streaming image, either the <code>studioId</code> that contains the
+   *             streaming image, or <code>amazon</code> for images that are provided by Amazon Nimble Studio.</p>
    */
   owner?: string;
 
   /**
-   * <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+   * @public
+   * <p>The platform of the streaming image, either Windows or Linux.</p>
    */
   platform?: string;
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state?: StreamingImageState | string;
 
   /**
+   * @public
    * <p>The status code.</p>
    */
   statusCode?: StreamingImageStatusCode | string;
 
   /**
+   * @public
    * <p>The status message for the streaming image.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The ID of the streaming image.</p>
    */
   streamingImageId?: string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace StreamingImage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingImage): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateStreamingImageResponse {
   /**
+   * @public
    * <p>The streaming image.</p>
    */
   streamingImage?: StreamingImage;
 }
 
-export namespace CreateStreamingImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingImageResponse): any => ({
-    ...obj,
-    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateStreamingSessionRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The EC2 Instance type used for the streaming session.</p>
    */
   ec2InstanceType?: StreamingInstanceType | string;
 
   /**
-   * <p>The launch profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
-  launchProfileId?: string;
+  launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The user ID of the user that owns the streaming session. The user that owns the
    *             session will be logging into the session and interacting with the virtual
    *             workstation.</p>
@@ -1107,95 +1370,129 @@ export interface CreateStreamingSessionRequest {
   ownedBy?: string;
 
   /**
+   * @public
    * <p>The ID of the streaming image.</p>
    */
   streamingImageId?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace CreateStreamingSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingSessionRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum StreamingSessionState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  START_FAILED = "START_FAILED",
-  START_IN_PROGRESS = "START_IN_PROGRESS",
-  STOPPED = "STOPPED",
-  STOP_FAILED = "STOP_FAILED",
-  STOP_IN_PROGRESS = "STOP_IN_PROGRESS",
-}
-
-export enum StreamingSessionStatusCode {
-  ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR = "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR",
-  AMI_VALIDATION_ERROR = "AMI_VALIDATION_ERROR",
-  DECRYPT_STREAMING_IMAGE_ERROR = "DECRYPT_STREAMING_IMAGE_ERROR",
-  INITIALIZATION_SCRIPT_ERROR = "INITIALIZATION_SCRIPT_ERROR",
-  INSUFFICIENT_CAPACITY = "INSUFFICIENT_CAPACITY",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NETWORK_CONNECTION_ERROR = "NETWORK_CONNECTION_ERROR",
-  NETWORK_INTERFACE_ERROR = "NETWORK_INTERFACE_ERROR",
-  STREAMING_SESSION_CREATE_IN_PROGRESS = "STREAMING_SESSION_CREATE_IN_PROGRESS",
-  STREAMING_SESSION_DELETED = "STREAMING_SESSION_DELETED",
-  STREAMING_SESSION_DELETE_IN_PROGRESS = "STREAMING_SESSION_DELETE_IN_PROGRESS",
-  STREAMING_SESSION_READY = "STREAMING_SESSION_READY",
-  STREAMING_SESSION_STARTED = "STREAMING_SESSION_STARTED",
-  STREAMING_SESSION_START_IN_PROGRESS = "STREAMING_SESSION_START_IN_PROGRESS",
-  STREAMING_SESSION_STOPPED = "STREAMING_SESSION_STOPPED",
-  STREAMING_SESSION_STOP_IN_PROGRESS = "STREAMING_SESSION_STOP_IN_PROGRESS",
+  tags?: Record<string, string>;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const StreamingSessionState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  START_FAILED: "START_FAILED",
+  START_IN_PROGRESS: "START_IN_PROGRESS",
+  STOPPED: "STOPPED",
+  STOP_FAILED: "STOP_FAILED",
+  STOP_IN_PROGRESS: "STOP_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingSessionState = (typeof StreamingSessionState)[keyof typeof StreamingSessionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamingSessionStatusCode = {
+  ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR: "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR",
+  AMI_VALIDATION_ERROR: "AMI_VALIDATION_ERROR",
+  DECRYPT_STREAMING_IMAGE_ERROR: "DECRYPT_STREAMING_IMAGE_ERROR",
+  INITIALIZATION_SCRIPT_ERROR: "INITIALIZATION_SCRIPT_ERROR",
+  INSUFFICIENT_CAPACITY: "INSUFFICIENT_CAPACITY",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NETWORK_CONNECTION_ERROR: "NETWORK_CONNECTION_ERROR",
+  NETWORK_INTERFACE_ERROR: "NETWORK_INTERFACE_ERROR",
+  STREAMING_SESSION_CREATE_IN_PROGRESS: "STREAMING_SESSION_CREATE_IN_PROGRESS",
+  STREAMING_SESSION_DELETED: "STREAMING_SESSION_DELETED",
+  STREAMING_SESSION_DELETE_IN_PROGRESS: "STREAMING_SESSION_DELETE_IN_PROGRESS",
+  STREAMING_SESSION_READY: "STREAMING_SESSION_READY",
+  STREAMING_SESSION_STARTED: "STREAMING_SESSION_STARTED",
+  STREAMING_SESSION_START_IN_PROGRESS: "STREAMING_SESSION_START_IN_PROGRESS",
+  STREAMING_SESSION_STOPPED: "STREAMING_SESSION_STOPPED",
+  STREAMING_SESSION_STOP_IN_PROGRESS: "STREAMING_SESSION_STOP_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingSessionStatusCode = (typeof StreamingSessionStatusCode)[keyof typeof StreamingSessionStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeRetentionMode = {
+  DELETE: "DELETE",
+  RETAIN: "RETAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeRetentionMode = (typeof VolumeRetentionMode)[keyof typeof VolumeRetentionMode];
+
+/**
+ * @public
  * <p>A streaming session is a virtual workstation created using a particular launch
  *             profile.</p>
  */
 export interface StreamingSession {
   /**
-   * <p>The ARN of the resource.</p>
+   * @public
+   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
+   *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that created the streaming session.</p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p>The EC2 Instance type used for the streaming session.</p>
    */
   ec2InstanceType?: string;
 
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId?: string;
 
   /**
+   * @public
    * <p>The user ID of the user that owns the streaming session. The user that owns the
    *             session will be logging into the session and interacting with the virtual
    *             workstation.</p>
@@ -1203,156 +1500,240 @@ export interface StreamingSession {
   ownedBy?: string;
 
   /**
+   * @public
    * <p>The session ID.</p>
    */
   sessionId?: string;
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state?: StreamingSessionState | string;
 
   /**
+   * @public
    * <p>The status code.</p>
    */
   statusCode?: StreamingSessionStatusCode | string;
 
   /**
+   * @public
    * <p>The status message for the streaming session.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The ID of the streaming image.</p>
    */
   streamingImageId?: string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The time the streaming session will automatically terminate if not terminated by the
    *             user.</p>
    */
   terminateAt?: Date;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that most recently updated the resource.</p>
    */
   updatedBy?: string;
 
   /**
-   * <p>The time the session entered STOP_IN_PROGRESS state.</p>
+   * @public
+   * <p>The time the session entered <code>STOP_IN_PROGRESS</code> state.</p>
    */
   stoppedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that stopped the streaming session.</p>
    */
   stoppedBy?: string;
 
   /**
-   * <p>The time the session entered START_IN_PROGRESS state.</p>
+   * @public
+   * <p>The time the session entered <code>START_IN_PROGRESS</code> state.</p>
    */
   startedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that started the streaming session.</p>
    */
   startedBy?: string;
 
   /**
+   * @public
    * <p>The time the streaming session will automatically be stopped if the user doesn’t stop
    *             the session themselves. </p>
    */
   stopAt?: Date;
-}
 
-export namespace StreamingSession {
   /**
-   * @internal
+   * @public
+   * <p>The backup ID used to restore a streaming session.</p>
    */
-  export const filterSensitiveLog = (obj: StreamingSession): any => ({
-    ...obj,
-  });
+  startedFromBackupId?: string;
+
+  /**
+   * @public
+   * <p>Shows the current backup setting of the session.</p>
+   */
+  backupMode?: SessionBackupMode | string;
+
+  /**
+   * @public
+   * <p>The maximum number of backups of a streaming session that you can have. When the
+   *             maximum number of backups is reached, the oldest backup is deleted.</p>
+   */
+  maxBackupsToRetain?: number;
+
+  /**
+   * @public
+   * <p>Determine if an EBS volume created from this streaming session will be backed
+   *             up.</p>
+   */
+  volumeRetentionMode?: VolumeRetentionMode | string;
+
+  /**
+   * @public
+   * <p>Determine if a streaming session created from this launch profile can configure
+   *             persistent storage. This means that <code>volumeConfiguration</code> and
+   *                 <code>automaticTerminationMode</code> are configured.</p>
+   */
+  sessionPersistenceMode?: SessionPersistenceMode | string;
+
+  /**
+   * @public
+   * <p>Custom volume configuration for the root volumes that are attached to streaming
+   *             sessions.</p>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>.</p>
+   */
+  volumeConfiguration?: VolumeConfiguration;
+
+  /**
+   * @public
+   * <p>Indicates if a streaming session created from this launch profile should be terminated
+   *             automatically or retained without termination after being in a <code>STOPPED</code>
+   *             state.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>When <code>ACTIVATED</code>, the streaming session is scheduled for
+   *                     termination after being in the <code>STOPPED</code> state for the time specified
+   *                     in <code>maxStoppedSessionLengthInMinutes</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When <code>DEACTIVATED</code>, the streaming session can remain in the
+   *                         <code>STOPPED</code> state indefinitely.</p>
+   *             </li>
+   *          </ul>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
+   *                 <code>DEACTIVATED</code>.</p>
+   */
+  automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingSessionResponse {
   /**
+   * @public
    * <p>The session.</p>
    */
   session?: StreamingSession;
 }
 
-export namespace CreateStreamingSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingSessionResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateStreamingSessionStreamRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The expiration time in seconds.</p>
    */
   expirationInSeconds?: number;
 
   /**
+   * @public
    * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace CreateStreamingSessionStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingSessionStreamRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum StreamingSessionStreamState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-}
-
-export enum StreamingSessionStreamStatusCode {
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NETWORK_CONNECTION_ERROR = "NETWORK_CONNECTION_ERROR",
-  STREAM_CREATE_IN_PROGRESS = "STREAM_CREATE_IN_PROGRESS",
-  STREAM_DELETED = "STREAM_DELETED",
-  STREAM_DELETE_IN_PROGRESS = "STREAM_DELETE_IN_PROGRESS",
-  STREAM_READY = "STREAM_READY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamingSessionStreamState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamingSessionStreamState =
+  (typeof StreamingSessionStreamState)[keyof typeof StreamingSessionStreamState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamingSessionStreamStatusCode = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NETWORK_CONNECTION_ERROR: "NETWORK_CONNECTION_ERROR",
+  STREAM_CREATE_IN_PROGRESS: "STREAM_CREATE_IN_PROGRESS",
+  STREAM_DELETED: "STREAM_DELETED",
+  STREAM_DELETE_IN_PROGRESS: "STREAM_DELETE_IN_PROGRESS",
+  STREAM_READY: "STREAM_READY",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingSessionStreamStatusCode =
+  (typeof StreamingSessionStreamStatusCode)[keyof typeof StreamingSessionStreamStatusCode];
+
+/**
+ * @public
  * <p>A stream is an active connection to a streaming session, enabling a studio user to
  *             control the streaming session using a compatible client. Streaming session streams are
  *             compatible with the NICE DCV web client, included in the Nimble Studio portal, or
@@ -1360,21 +1741,25 @@ export enum StreamingSessionStreamStatusCode {
  */
 export interface StreamingSessionStream {
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that created the streaming session stream.</p>
    */
   createdBy?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource expires.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource expires.</p>
    */
   expiresAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that owns the streaming session. The user that owns the
    *             session will be logging into the session and interacting with the virtual
    *             workstation.</p>
@@ -1382,601 +1767,636 @@ export interface StreamingSessionStream {
   ownedBy?: string;
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state?: StreamingSessionStreamState | string;
 
   /**
+   * @public
    * <p>The streaming session stream status code.</p>
    */
   statusCode?: StreamingSessionStreamStatusCode | string;
 
   /**
+   * @public
    * <p>The stream ID.</p>
    */
   streamId?: string;
 
   /**
+   * @public
    * <p>The URL to connect to this stream using the DCV client.</p>
    */
   url?: string;
 }
 
-export namespace StreamingSessionStream {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingSessionStream): any => ({
-    ...obj,
-    ...(obj.url && { url: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateStreamingSessionStreamResponse {
   /**
+   * @public
    * <p>The stream.</p>
    */
   stream?: StreamingSessionStream;
 }
 
-export namespace CreateStreamingSessionStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingSessionStreamResponse): any => ({
-    ...obj,
-    ...(obj.stream && { stream: StreamingSessionStream.filterSensitiveLog(obj.stream) }),
-  });
-}
-
-export enum StudioEncryptionConfigurationKeyType {
-  AWS_OWNED_KEY = "AWS_OWNED_KEY",
-  CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StudioEncryptionConfigurationKeyType = {
+  AWS_OWNED_KEY: "AWS_OWNED_KEY",
+  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
+} as const;
 
 /**
+ * @public
+ */
+export type StudioEncryptionConfigurationKeyType =
+  (typeof StudioEncryptionConfigurationKeyType)[keyof typeof StudioEncryptionConfigurationKeyType];
+
+/**
+ * @public
  * <p>Configuration of the encryption method that is used for the studio.</p>
  */
 export interface StudioEncryptionConfiguration {
   /**
+   * @public
    * <p>The ARN for a KMS key that is used to encrypt studio data.</p>
    */
   keyArn?: string;
 
   /**
+   * @public
    * <p>The type of KMS key that is used to encrypt studio data.</p>
    */
   keyType: StudioEncryptionConfigurationKeyType | string | undefined;
 }
 
-export namespace StudioEncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StudioEncryptionConfiguration): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateStudioRequest {
   /**
-   * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * @public
+   * <p>The IAM role that studio admins will assume when logging in to the
+   *                 Nimble Studio portal.</p>
    */
   adminRoleArn: string | undefined;
 
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>A friendly name for the studio.</p>
    */
   displayName: string | undefined;
 
   /**
+   * @public
    * <p>The studio encryption configuration.</p>
    */
   studioEncryptionConfiguration?: StudioEncryptionConfiguration;
 
   /**
+   * @public
    * <p>The studio name that is used in the URL of the Nimble Studio portal when accessed
    *             by Nimble Studio users.</p>
    */
   studioName: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
-   * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * @public
+   * <p>The IAM role that studio users will assume when logging in to the
+   *                 Nimble Studio portal.</p>
    */
   userRoleArn: string | undefined;
 }
 
-export namespace CreateStudioRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStudioRequest): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-  });
-}
-
-export enum StudioState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
-
-export enum StudioStatusCode {
-  AWS_SSO_ACCESS_DENIED = "AWS_SSO_ACCESS_DENIED",
-  AWS_SSO_CONFIGURATION_REPAIRED = "AWS_SSO_CONFIGURATION_REPAIRED",
-  AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS = "AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS",
-  AWS_SSO_NOT_ENABLED = "AWS_SSO_NOT_ENABLED",
-  ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
-  ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  ROLE_COULD_NOT_BE_ASSUMED = "ROLE_COULD_NOT_BE_ASSUMED",
-  ROLE_NOT_OWNED_BY_STUDIO_OWNER = "ROLE_NOT_OWNED_BY_STUDIO_OWNER",
-  STUDIO_CREATED = "STUDIO_CREATED",
-  STUDIO_CREATE_IN_PROGRESS = "STUDIO_CREATE_IN_PROGRESS",
-  STUDIO_DELETED = "STUDIO_DELETED",
-  STUDIO_DELETE_IN_PROGRESS = "STUDIO_DELETE_IN_PROGRESS",
-  STUDIO_UPDATED = "STUDIO_UPDATED",
-  STUDIO_UPDATE_IN_PROGRESS = "STUDIO_UPDATE_IN_PROGRESS",
-  STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED = "STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED",
-  STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED = "STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED",
-  STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED = "STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StudioState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type StudioState = (typeof StudioState)[keyof typeof StudioState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StudioStatusCode = {
+  AWS_SSO_ACCESS_DENIED: "AWS_SSO_ACCESS_DENIED",
+  AWS_SSO_CONFIGURATION_REPAIRED: "AWS_SSO_CONFIGURATION_REPAIRED",
+  AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS: "AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS",
+  AWS_SSO_NOT_ENABLED: "AWS_SSO_NOT_ENABLED",
+  AWS_STS_REGION_DISABLED: "AWS_STS_REGION_DISABLED",
+  ENCRYPTION_KEY_ACCESS_DENIED: "ENCRYPTION_KEY_ACCESS_DENIED",
+  ENCRYPTION_KEY_NOT_FOUND: "ENCRYPTION_KEY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  ROLE_COULD_NOT_BE_ASSUMED: "ROLE_COULD_NOT_BE_ASSUMED",
+  ROLE_NOT_OWNED_BY_STUDIO_OWNER: "ROLE_NOT_OWNED_BY_STUDIO_OWNER",
+  STUDIO_CREATED: "STUDIO_CREATED",
+  STUDIO_CREATE_IN_PROGRESS: "STUDIO_CREATE_IN_PROGRESS",
+  STUDIO_DELETED: "STUDIO_DELETED",
+  STUDIO_DELETE_IN_PROGRESS: "STUDIO_DELETE_IN_PROGRESS",
+  STUDIO_UPDATED: "STUDIO_UPDATED",
+  STUDIO_UPDATE_IN_PROGRESS: "STUDIO_UPDATE_IN_PROGRESS",
+  STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED: "STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED",
+  STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED: "STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED",
+  STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED: "STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioStatusCode = (typeof StudioStatusCode)[keyof typeof StudioStatusCode];
+
+/**
+ * @public
  * <p>Represents a studio resource.</p>
  *         <p>A studio is the core resource used with Nimble Studio. You must create a studio
  *             first, before any other resource type can be created. All other resources you create and
  *             manage in Nimble Studio are contained within a studio.</p>
- *         <p>When creating a studio, you must provides two IAM roles for use with the Nimble Studio portal. These roles are assumed by your users when they log in to the
- *                 Nimble Studio portal via Amazon Web Services SSO and your identity source.</p>
- *         <p>The user role must have the AmazonNimbleStudio-StudioUser managed policy attached for
- *             the portal to function properly.</p>
- *         <p>The admin role must have the AmazonNimbleStudio-StudioAdmin managed policy attached
- *             for the portal to function properly.</p>
- *         <p>Your studio roles must trust the identity.nimble.amazonaws.com service principal to
- *             function properly.</p>
+ *         <p>When creating a studio, you must provides two IAM roles for use with
+ *             the Nimble Studio portal. These roles are assumed by your users when they log in to
+ *             the Nimble Studio portal via IAM Identity Center and your identity source.</p>
+ *         <p>The user role must have the <code>AmazonNimbleStudio-StudioUser</code> managed policy
+ *             attached for the portal to function properly.</p>
+ *         <p>The admin role must have the <code>AmazonNimbleStudio-StudioAdmin</code> managed
+ *             policy attached for the portal to function properly.</p>
+ *         <p>Your studio roles must trust the <code>identity.nimble.amazonaws.com</code> service
+ *             principal to function properly.</p>
  */
 export interface Studio {
   /**
-   * <p>The IAM role that studio admins assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * @public
+   * <p>The IAM role that studio admins assume when logging in to the Nimble Studio portal.</p>
    */
   adminRoleArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
    *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>A friendly name for the studio.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region where the studio resource is located.</p>
    */
   homeRegion?: string;
 
   /**
-   * <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO
-   *             to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
+   * @public
+   * <p>The IAM Identity Center application client ID used to integrate with IAM Identity Center. This ID allows IAM Identity Center users to log in to Nimble Studio
+   *             portal.</p>
    */
   ssoClientId?: string;
 
   /**
+   * @public
    * <p>The current state of the studio resource.</p>
    */
   state?: StudioState | string;
 
   /**
+   * @public
    * <p>Status codes that provide additional detail on the studio state.</p>
    */
   statusCode?: StudioStatusCode | string;
 
   /**
+   * @public
    * <p>Additional detail on the studio state.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>Configuration of the encryption method that is used for the studio.</p>
    */
   studioEncryptionConfiguration?: StudioEncryptionConfiguration;
 
   /**
+   * @public
    * <p>The unique identifier for a studio resource. In Nimble Studio, all other
    *             resources are contained in a studio resource.</p>
    */
   studioId?: string;
 
   /**
+   * @public
    * <p>The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.</p>
    */
   studioName?: string;
 
   /**
+   * @public
    * <p>The address of the web page for the studio.</p>
    */
   studioUrl?: string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
   /**
-   * <p>The IAM role that studio users assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * @public
+   * <p>The IAM role that studio users assume when logging in to the Nimble Studio portal.</p>
    */
   userRoleArn?: string;
 }
 
-export namespace Studio {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Studio): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateStudioResponse {
   /**
+   * @public
    * <p>Information about a studio.</p>
    */
   studio?: Studio;
 }
 
-export namespace CreateStudioResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStudioResponse): any => ({
-    ...obj,
-    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
-  });
-}
-
 /**
+ * @public
  * <p>The configuration for a license service that is associated with a studio
  *             resource.</p>
  */
 export interface LicenseServiceConfiguration {
   /**
+   * @public
    * <p>The endpoint of the license service that is accessed by the studio component
    *             resource.</p>
    */
   endpoint?: string;
 }
 
-export namespace LicenseServiceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseServiceConfiguration): any => ({
-    ...obj,
-    ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
-  });
-}
-
 /**
+ * @public
  * <p>The configuration for a shared file storage system that is associated with a studio
  *             resource.</p>
  */
 export interface SharedFileSystemConfiguration {
   /**
+   * @public
    * <p>The endpoint of the shared file system that is accessed by the studio component
    *             resource.</p>
    */
   endpoint?: string;
 
   /**
+   * @public
    * <p>The unique identifier for a file system.</p>
    */
   fileSystemId?: string;
 
   /**
+   * @public
    * <p>The mount location for a shared file system on a Linux virtual workstation.</p>
    */
   linuxMountPoint?: string;
 
   /**
+   * @public
    * <p>The name of the file share.</p>
    */
   shareName?: string;
 
   /**
+   * @public
    * <p>The mount location for a shared file system on a Windows virtual workstation.</p>
    */
   windowsMountDrive?: string;
 }
 
-export namespace SharedFileSystemConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SharedFileSystemConfiguration): any => ({
-    ...obj,
-    ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
-    ...(obj.linuxMountPoint && { linuxMountPoint: SENSITIVE_STRING }),
-    ...(obj.shareName && { shareName: SENSITIVE_STRING }),
-  });
-}
-
 /**
+ * @public
  * <p>The configuration of the studio component, based on component type.</p>
  */
 export interface StudioComponentConfiguration {
   /**
-   * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
-   *             resource.</p>
+   * @public
+   * <p>The configuration for a Directory Service for Microsoft Active Directory studio resource.</p>
    */
   activeDirectoryConfiguration?: ActiveDirectoryConfiguration;
 
   /**
+   * @public
    * <p>The configuration for a render farm that is associated with a studio resource.</p>
    */
   computeFarmConfiguration?: ComputeFarmConfiguration;
 
   /**
+   * @public
    * <p>The configuration for a license service that is associated with a studio
    *             resource.</p>
    */
   licenseServiceConfiguration?: LicenseServiceConfiguration;
 
   /**
+   * @public
    * <p>The configuration for a shared file storage system that is associated with a studio
    *             resource.</p>
    */
   sharedFileSystemConfiguration?: SharedFileSystemConfiguration;
 }
 
-export namespace StudioComponentConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StudioComponentConfiguration): any => ({
-    ...obj,
-    ...(obj.activeDirectoryConfiguration && {
-      activeDirectoryConfiguration: ActiveDirectoryConfiguration.filterSensitiveLog(obj.activeDirectoryConfiguration),
-    }),
-    ...(obj.computeFarmConfiguration && {
-      computeFarmConfiguration: ComputeFarmConfiguration.filterSensitiveLog(obj.computeFarmConfiguration),
-    }),
-    ...(obj.licenseServiceConfiguration && {
-      licenseServiceConfiguration: LicenseServiceConfiguration.filterSensitiveLog(obj.licenseServiceConfiguration),
-    }),
-    ...(obj.sharedFileSystemConfiguration && {
-      sharedFileSystemConfiguration: SharedFileSystemConfiguration.filterSensitiveLog(
-        obj.sharedFileSystemConfiguration
-      ),
-    }),
-  });
-}
-
-export enum LaunchProfilePlatform {
-  LINUX = "LINUX",
-  WINDOWS = "WINDOWS",
-}
-
-export enum StudioComponentInitializationScriptRunContext {
-  SYSTEM_INITIALIZATION = "SYSTEM_INITIALIZATION",
-  USER_INITIALIZATION = "USER_INITIALIZATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfilePlatform = {
+  LINUX: "LINUX",
+  WINDOWS: "WINDOWS",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchProfilePlatform = (typeof LaunchProfilePlatform)[keyof typeof LaunchProfilePlatform];
+
+/**
+ * @public
+ * @enum
+ */
+export const StudioComponentInitializationScriptRunContext = {
+  SYSTEM_INITIALIZATION: "SYSTEM_INITIALIZATION",
+  USER_INITIALIZATION: "USER_INITIALIZATION",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioComponentInitializationScriptRunContext =
+  (typeof StudioComponentInitializationScriptRunContext)[keyof typeof StudioComponentInitializationScriptRunContext];
+
+/**
+ * @public
  * <p>Initialization scripts for studio components.</p>
  */
 export interface StudioComponentInitializationScript {
   /**
+   * @public
    * <p>The version number of the protocol that is used by the launch profile. The only valid
    *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersion?: string;
 
   /**
-   * <p>The platform of the initialization script, either WINDOWS or LINUX.</p>
+   * @public
+   * <p>The platform of the initialization script, either Windows or Linux.</p>
    */
   platform?: LaunchProfilePlatform | string;
 
   /**
+   * @public
    * <p>The method to use when running the initialization script.</p>
    */
   runContext?: StudioComponentInitializationScriptRunContext | string;
 
   /**
+   * @public
    * <p>The initialization script.</p>
    */
   script?: string;
 }
 
-export namespace StudioComponentInitializationScript {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StudioComponentInitializationScript): any => ({
-    ...obj,
-    ...(obj.script && { script: SENSITIVE_STRING }),
-  });
-}
-
 /**
- * <p>A parameter for a studio component script, in the form of a key:value pair.</p>
+ * @public
+ * <p>A parameter for a studio component script, in the form of a key-value pair.</p>
  */
 export interface ScriptParameterKeyValue {
   /**
+   * @public
    * <p>A script parameter key.</p>
    */
   key?: string;
 
   /**
+   * @public
    * <p>A script parameter value.</p>
    */
   value?: string;
 }
 
-export namespace ScriptParameterKeyValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScriptParameterKeyValue): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const StudioComponentSubtype = {
+  AMAZON_FSX_FOR_LUSTRE: "AMAZON_FSX_FOR_LUSTRE",
+  AMAZON_FSX_FOR_WINDOWS: "AMAZON_FSX_FOR_WINDOWS",
+  AWS_MANAGED_MICROSOFT_AD: "AWS_MANAGED_MICROSOFT_AD",
+  CUSTOM: "CUSTOM",
+} as const;
 
-export enum StudioComponentSubtype {
-  AMAZON_FSX_FOR_LUSTRE = "AMAZON_FSX_FOR_LUSTRE",
-  AMAZON_FSX_FOR_WINDOWS = "AMAZON_FSX_FOR_WINDOWS",
-  AWS_MANAGED_MICROSOFT_AD = "AWS_MANAGED_MICROSOFT_AD",
-  CUSTOM = "CUSTOM",
-}
+/**
+ * @public
+ */
+export type StudioComponentSubtype = (typeof StudioComponentSubtype)[keyof typeof StudioComponentSubtype];
 
-export enum StudioComponentType {
-  ACTIVE_DIRECTORY = "ACTIVE_DIRECTORY",
-  COMPUTE_FARM = "COMPUTE_FARM",
-  CUSTOM = "CUSTOM",
-  LICENSE_SERVICE = "LICENSE_SERVICE",
-  SHARED_FILE_SYSTEM = "SHARED_FILE_SYSTEM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StudioComponentType = {
+  ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
+  COMPUTE_FARM: "COMPUTE_FARM",
+  CUSTOM: "CUSTOM",
+  LICENSE_SERVICE: "LICENSE_SERVICE",
+  SHARED_FILE_SYSTEM: "SHARED_FILE_SYSTEM",
+} as const;
 
+/**
+ * @public
+ */
+export type StudioComponentType = (typeof StudioComponentType)[keyof typeof StudioComponentType];
+
+/**
+ * @public
+ */
 export interface CreateStudioComponentRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The configuration of the studio component, based on component type.</p>
    */
   configuration?: StudioComponentConfiguration;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The EC2 security groups that control access to the studio component.</p>
    */
   ec2SecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>Initialization scripts for studio components.</p>
    */
   initializationScripts?: StudioComponentInitializationScript[];
 
   /**
+   * @public
    * <p>The name for the studio component.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>Parameters for the studio component scripts.</p>
    */
   scriptParameters?: ScriptParameterKeyValue[];
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>The specific subtype of a studio component.</p>
    */
   subtype?: StudioComponentSubtype | string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The type of the studio component.</p>
    */
   type: StudioComponentType | string | undefined;
-}
 
-export namespace CreateStudioComponentRequest {
   /**
-   * @internal
+   * @public
+   * <p>An IAM role attached to Studio Component when the system initialization
+   *             script runs which give the studio component access to Amazon Web Services resources when
+   *             the system initialization script runs.</p>
    */
-  export const filterSensitiveLog = (obj: CreateStudioComponentRequest): any => ({
-    ...obj,
-    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.initializationScripts && {
-      initializationScripts: obj.initializationScripts.map((item) =>
-        StudioComponentInitializationScript.filterSensitiveLog(item)
-      ),
-    }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
-  });
-}
+  secureInitializationRoleArn?: string;
 
-export enum StudioComponentState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
-
-export enum StudioComponentStatusCode {
-  ACTIVE_DIRECTORY_ALREADY_EXISTS = "ACTIVE_DIRECTORY_ALREADY_EXISTS",
-  ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
-  ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STUDIO_COMPONENT_CREATED = "STUDIO_COMPONENT_CREATED",
-  STUDIO_COMPONENT_CREATE_IN_PROGRESS = "STUDIO_COMPONENT_CREATE_IN_PROGRESS",
-  STUDIO_COMPONENT_DELETED = "STUDIO_COMPONENT_DELETED",
-  STUDIO_COMPONENT_DELETE_IN_PROGRESS = "STUDIO_COMPONENT_DELETE_IN_PROGRESS",
-  STUDIO_COMPONENT_UPDATED = "STUDIO_COMPONENT_UPDATED",
-  STUDIO_COMPONENT_UPDATE_IN_PROGRESS = "STUDIO_COMPONENT_UPDATE_IN_PROGRESS",
+  /**
+   * @public
+   * <p>An IAM role attached to a Studio Component that gives the studio
+   *             component access to Amazon Web Services resources at anytime while the instance is
+   *             running. </p>
+   */
+  runtimeRoleArn?: string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const StudioComponentState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioComponentState = (typeof StudioComponentState)[keyof typeof StudioComponentState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StudioComponentStatusCode = {
+  ACTIVE_DIRECTORY_ALREADY_EXISTS: "ACTIVE_DIRECTORY_ALREADY_EXISTS",
+  ENCRYPTION_KEY_ACCESS_DENIED: "ENCRYPTION_KEY_ACCESS_DENIED",
+  ENCRYPTION_KEY_NOT_FOUND: "ENCRYPTION_KEY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STUDIO_COMPONENT_CREATED: "STUDIO_COMPONENT_CREATED",
+  STUDIO_COMPONENT_CREATE_IN_PROGRESS: "STUDIO_COMPONENT_CREATE_IN_PROGRESS",
+  STUDIO_COMPONENT_DELETED: "STUDIO_COMPONENT_DELETED",
+  STUDIO_COMPONENT_DELETE_IN_PROGRESS: "STUDIO_COMPONENT_DELETE_IN_PROGRESS",
+  STUDIO_COMPONENT_UPDATED: "STUDIO_COMPONENT_UPDATED",
+  STUDIO_COMPONENT_UPDATE_IN_PROGRESS: "STUDIO_COMPONENT_UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioComponentStatusCode = (typeof StudioComponentStatusCode)[keyof typeof StudioComponentStatusCode];
+
+/**
+ * @public
  * <p>A studio component represents a network resource to be used by a studio's users and
  *             workflows. A typical studio contains studio components for each of the following: render
  *             farm, Active Directory, licensing, and file system.</p>
@@ -1989,1000 +2409,885 @@ export enum StudioComponentStatusCode {
  */
 export interface StudioComponent {
   /**
-   * <p>The ARN of the resource.</p>
+   * @public
+   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
+   *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The configuration of the studio component, based on component type.</p>
    */
   configuration?: StudioComponentConfiguration;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that created the studio component.</p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p>A human-readable description for the studio component resource.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The EC2 security groups that control access to the studio component.</p>
    */
   ec2SecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>Initialization scripts for studio components.</p>
    */
   initializationScripts?: StudioComponentInitializationScript[];
 
   /**
+   * @public
    * <p>A friendly name for the studio component resource.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>Parameters for the studio component scripts.</p>
    */
   scriptParameters?: ScriptParameterKeyValue[];
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state?: StudioComponentState | string;
 
   /**
+   * @public
    * <p>The status code.</p>
    */
   statusCode?: StudioComponentStatusCode | string;
 
   /**
+   * @public
    * <p>The status message for the studio component.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The unique identifier for a studio component resource.</p>
    */
   studioComponentId?: string;
 
   /**
+   * @public
    * <p>The specific subtype of a studio component.</p>
    */
   subtype?: StudioComponentSubtype | string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The type of the studio component.</p>
    */
   type?: StudioComponentType | string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that most recently updated the resource.</p>
    */
   updatedBy?: string;
-}
 
-export namespace StudioComponent {
   /**
-   * @internal
+   * @public
+   * <p>An IAM role attached to Studio Component when the system initialization
+   *             script runs which give the studio component access to Amazon Web Services resources when
+   *             the system initialization script runs.</p>
    */
-  export const filterSensitiveLog = (obj: StudioComponent): any => ({
-    ...obj,
-    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.initializationScripts && {
-      initializationScripts: obj.initializationScripts.map((item) =>
-        StudioComponentInitializationScript.filterSensitiveLog(item)
-      ),
-    }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
-  });
+  secureInitializationRoleArn?: string;
+
+  /**
+   * @public
+   * <p>An IAM role attached to a Studio Component that gives the studio
+   *             component access to Amazon Web Services resources at anytime while the instance is
+   *             running. </p>
+   */
+  runtimeRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStudioComponentResponse {
   /**
+   * @public
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
 }
 
-export namespace CreateStudioComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStudioComponentResponse): any => ({
-    ...obj,
-    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Launch Profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace DeleteLaunchProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchProfileRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileResponse {
   /**
+   * @public
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
 }
 
-export namespace DeleteLaunchProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchProfileResponse): any => ({
-    ...obj,
-    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileMemberRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Launch Profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * @public
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace DeleteLaunchProfileMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchProfileMemberRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteLaunchProfileMemberResponse {}
 
-export namespace DeleteLaunchProfileMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchProfileMemberResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteStreamingImageRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The streaming image ID.</p>
    */
   streamingImageId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace DeleteStreamingImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamingImageRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteStreamingImageResponse {
   /**
+   * @public
    * <p>The streaming image.</p>
    */
   streamingImage?: StreamingImage;
 }
 
-export namespace DeleteStreamingImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamingImageResponse): any => ({
-    ...obj,
-    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteStreamingSessionRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace DeleteStreamingSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamingSessionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteStreamingSessionResponse {
   /**
+   * @public
    * <p>The session.</p>
    */
   session?: StreamingSession;
 }
 
-export namespace DeleteStreamingSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamingSessionResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteStudioRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace DeleteStudioRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteStudioResponse {
   /**
+   * @public
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
 }
 
-export namespace DeleteStudioResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioResponse): any => ({
-    ...obj,
-    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteStudioComponentRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The studio component ID.</p>
    */
   studioComponentId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace DeleteStudioComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioComponentRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteStudioComponentResponse {
   /**
+   * @public
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
 }
 
-export namespace DeleteStudioComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioComponentResponse): any => ({
-    ...obj,
-    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteStudioMemberRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * @public
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace DeleteStudioMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioMemberRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteStudioMemberResponse {}
 
-export namespace DeleteStudioMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioMemberResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a EULA resource.</p>
  */
 export interface Eula {
   /**
+   * @public
    * <p>The EULA content.</p>
    */
   content?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The EULA ID.</p>
    */
   eulaId?: string;
 
   /**
+   * @public
    * <p>The name for the EULA.</p>
    */
   name?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 }
 
-export namespace Eula {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Eula): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListEulaAcceptancesRequest {
   /**
+   * @public
    * <p>The list of EULA IDs that have been previously accepted.</p>
    */
   eulaIds?: string[];
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace ListEulaAcceptancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEulaAcceptancesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListEulaAcceptancesResponse {
   /**
+   * @public
    * <p>A collection of EULA acceptances.</p>
    */
   eulaAcceptances?: EulaAcceptance[];
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListEulaAcceptancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEulaAcceptancesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetEulaRequest {
   /**
+   * @public
    * <p>The EULA ID.</p>
    */
   eulaId: string | undefined;
 }
 
-export namespace GetEulaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEulaRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetEulaResponse {
   /**
+   * @public
    * <p>The EULA.</p>
    */
   eula?: Eula;
 }
 
-export namespace GetEulaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEulaResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListEulasRequest {
   /**
+   * @public
    * <p>The list of EULA IDs that should be returned</p>
    */
   eulaIds?: string[];
 
   /**
-   * <p>The token to request the next page of results. </p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListEulasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEulasRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListEulasResponse {
-  /**
-   * <p>A collection of EULA resources.</p>
-   */
-  eulas?: Eula[];
-
-  /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListEulasResponse {
+/**
+ * @public
+ */
+export interface ListEulasResponse {
   /**
-   * @internal
+   * @public
+   * <p>A collection of EULA resources.</p>
    */
-  export const filterSensitiveLog = (obj: ListEulasResponse): any => ({
-    ...obj,
-  });
+  eulas?: Eula[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchProfileRequest {
   /**
-   * <p>The Launch Profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace GetLaunchProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetLaunchProfileResponse {
   /**
+   * @public
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
 }
 
-export namespace GetLaunchProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileResponse): any => ({
-    ...obj,
-    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetLaunchProfileDetailsRequest {
   /**
-   * <p>The Launch Profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace GetLaunchProfileDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileDetailsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The studio component's summary.</p>
  */
 export interface StudioComponentSummary {
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that created the studio component.</p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The name for the studio component.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The unique identifier for a studio component resource.</p>
    */
   studioComponentId?: string;
 
   /**
+   * @public
    * <p>The specific subtype of a studio component.</p>
    */
   subtype?: StudioComponentSubtype | string;
 
   /**
+   * @public
    * <p>The type of the studio component.</p>
    */
   type?: StudioComponentType | string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * @public
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that most recently updated the resource.</p>
    */
   updatedBy?: string;
 }
 
-export namespace StudioComponentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StudioComponentSummary): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetLaunchProfileDetailsResponse {
   /**
+   * @public
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
 
   /**
+   * @public
    * <p>A collection of streaming images.</p>
    */
   streamingImages?: StreamingImage[];
 
   /**
+   * @public
    * <p>A collection of studio component summaries.</p>
    */
   studioComponentSummaries?: StudioComponentSummary[];
 }
 
-export namespace GetLaunchProfileDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileDetailsResponse): any => ({
-    ...obj,
-    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
-    ...(obj.streamingImages && {
-      streamingImages: obj.streamingImages.map((item) => StreamingImage.filterSensitiveLog(item)),
-    }),
-    ...(obj.studioComponentSummaries && {
-      studioComponentSummaries: obj.studioComponentSummaries.map((item) =>
-        StudioComponentSummary.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetLaunchProfileInitializationRequest {
   /**
-   * <p>The Launch Profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The launch profile protocol versions supported by the client.</p>
    */
   launchProfileProtocolVersions: string[] | undefined;
 
   /**
+   * @public
    * <p>The launch purpose.</p>
    */
   launchPurpose: string | undefined;
 
   /**
-   * <p>The platform where this Launch Profile will be used, either WINDOWS or LINUX.</p>
+   * @public
+   * <p>The platform where this Launch Profile will be used, either Windows or Linux.</p>
    */
   platform: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace GetLaunchProfileInitializationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileInitializationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>The Launch Profile Initialization Active Directory contains information required for
+ * @public
+ * <p>The launch profile initialization Active Directory contains information required for
  *             the launch profile to connect to the Active Directory.</p>
  */
 export interface LaunchProfileInitializationActiveDirectory {
   /**
+   * @public
    * <p>A collection of custom attributes for an Active Directory computer.</p>
    */
   computerAttributes?: ActiveDirectoryComputerAttribute[];
 
   /**
-   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access
-   *             using this launch profile.</p>
+   * @public
+   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this launch
+   *             profile.</p>
    */
   directoryId?: string;
 
   /**
+   * @public
    * <p>The directory name.</p>
    */
   directoryName?: string;
 
   /**
+   * @public
    * <p>The DNS IP address.</p>
    */
   dnsIpAddresses?: string[];
 
   /**
+   * @public
    * <p>The name for the organizational unit distinguished name.</p>
    */
   organizationalUnitDistinguishedName?: string;
 
   /**
+   * @public
    * <p>The unique identifier for a studio component resource.</p>
    */
   studioComponentId?: string;
 
   /**
+   * @public
    * <p>The name for the studio component.</p>
    */
   studioComponentName?: string;
 }
 
-export namespace LaunchProfileInitializationActiveDirectory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchProfileInitializationActiveDirectory): any => ({
-    ...obj,
-    ...(obj.computerAttributes && { computerAttributes: SENSITIVE_STRING }),
-    ...(obj.studioComponentName && { studioComponentName: SENSITIVE_STRING }),
-  });
-}
-
 /**
- * <p>The Launch Profile Initialization Script is used when start streaming session
+ * @public
+ * <p>The launch profile initialization script is used when start streaming session
  *             runs.</p>
  */
 export interface LaunchProfileInitializationScript {
   /**
+   * @public
    * <p>The initialization script.</p>
    */
   script?: string;
 
   /**
+   * @public
    * <p>The unique identifier for a studio component resource.</p>
    */
   studioComponentId?: string;
 
   /**
+   * @public
    * <p>The name for the studio component.</p>
    */
   studioComponentName?: string;
-}
 
-export namespace LaunchProfileInitializationScript {
   /**
-   * @internal
+   * @public
+   * <p>An IAM role attached to Studio Component when the system initialization
+   *             script runs which give the studio component access to Amazon Web Services resources when
+   *             the system initialization script runs.</p>
    */
-  export const filterSensitiveLog = (obj: LaunchProfileInitializationScript): any => ({
-    ...obj,
-    ...(obj.script && { script: SENSITIVE_STRING }),
-    ...(obj.studioComponentName && { studioComponentName: SENSITIVE_STRING }),
-  });
+  secureInitializationRoleArn?: string;
+
+  /**
+   * @public
+   * <p>An IAM role attached to a Studio Component that gives the studio
+   *             component access to Amazon Web Services resources at anytime while the instance is
+   *             running. </p>
+   */
+  runtimeRoleArn?: string;
 }
 
 /**
- * <p>A Launch Profile Initialization contains information required for a workstation or
+ * @public
+ * <p>A launch profile initialization contains information required for a workstation or
  *             server to connect to a launch profile.</p>
  *         <p>This includes scripts, endpoints, security groups, subnets, and other
  *             configuration.</p>
  */
 export interface LaunchProfileInitialization {
   /**
-   * <p>A LaunchProfileInitializationActiveDirectory resource.</p>
+   * @public
+   * <p>A <code>LaunchProfileInitializationActiveDirectory</code> resource.</p>
    */
   activeDirectory?: LaunchProfileInitializationActiveDirectory;
 
   /**
+   * @public
    * <p>The EC2 security groups that control access to the studio component.</p>
    */
   ec2SecurityGroupIds?: string[];
 
   /**
-   * <p>The launch profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId?: string;
 
   /**
+   * @public
    * <p>The version number of the protocol that is used by the launch profile. The only valid
    *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersion?: string;
 
   /**
+   * @public
    * <p>The launch purpose.</p>
    */
   launchPurpose?: string;
 
   /**
+   * @public
    * <p>The name for the launch profile.</p>
    */
   name?: string;
 
   /**
-   * <p>The platform of the launch platform, either WINDOWS or LINUX.</p>
+   * @public
+   * <p>The platform of the launch platform, either Windows or Linux.</p>
    */
   platform?: LaunchProfilePlatform | string;
 
   /**
+   * @public
    * <p>The system initializtion scripts.</p>
    */
   systemInitializationScripts?: LaunchProfileInitializationScript[];
 
   /**
+   * @public
    * <p>The user initializtion scripts.</p>
    */
   userInitializationScripts?: LaunchProfileInitializationScript[];
 }
 
-export namespace LaunchProfileInitialization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchProfileInitialization): any => ({
-    ...obj,
-    ...(obj.activeDirectory && {
-      activeDirectory: LaunchProfileInitializationActiveDirectory.filterSensitiveLog(obj.activeDirectory),
-    }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.systemInitializationScripts && {
-      systemInitializationScripts: obj.systemInitializationScripts.map((item) =>
-        LaunchProfileInitializationScript.filterSensitiveLog(item)
-      ),
-    }),
-    ...(obj.userInitializationScripts && {
-      userInitializationScripts: obj.userInitializationScripts.map((item) =>
-        LaunchProfileInitializationScript.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetLaunchProfileInitializationResponse {
   /**
+   * @public
    * <p>The launch profile initialization.</p>
    */
   launchProfileInitialization?: LaunchProfileInitialization;
 }
 
-export namespace GetLaunchProfileInitializationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileInitializationResponse): any => ({
-    ...obj,
-    ...(obj.launchProfileInitialization && {
-      launchProfileInitialization: LaunchProfileInitialization.filterSensitiveLog(obj.launchProfileInitialization),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetLaunchProfileMemberRequest {
   /**
-   * <p>The Launch Profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * @public
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace GetLaunchProfileMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileMemberRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum LaunchProfilePersona {
-  USER = "USER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchProfilePersona = {
+  USER: "USER",
+} as const;
 
 /**
- * <p>Launch profile membership enables your studio admins to delegate launch profile access
- *             to other studio users in the Nimble Studio portal without needing to write or
- *             maintain complex IAM policies. A launch profile member is a user association from your
+ * @public
+ */
+export type LaunchProfilePersona = (typeof LaunchProfilePersona)[keyof typeof LaunchProfilePersona];
+
+/**
+ * @public
+ * <p>Studio admins can use launch profile membership to delegate launch profile access to
+ *             studio users in the Nimble Studio portal without writing or maintaining complex
+ *                 IAM policies. A launch profile member is a user association from your
  *             studio identity source who is granted permissions to a launch profile.</p>
  *         <p>A launch profile member (type USER) provides the following permissions to that launch
  *             profile:</p>
@@ -3009,1400 +3314,1839 @@ export enum LaunchProfilePersona {
  */
 export interface LaunchProfileMembership {
   /**
+   * @public
    * <p>The ID of the identity store.</p>
    */
   identityStoreId?: string;
 
   /**
+   * @public
    * <p>The persona.</p>
    */
   persona?: LaunchProfilePersona | string;
 
   /**
+   * @public
    * <p>The principal ID.</p>
    */
   principalId?: string;
 
   /**
+   * @public
    * <p>The Active Directory Security Identifier for this user, if available.</p>
    */
   sid?: string;
 }
 
-export namespace LaunchProfileMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchProfileMembership): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetLaunchProfileMemberResponse {
   /**
+   * @public
    * <p>The member.</p>
    */
   member?: LaunchProfileMembership;
 }
 
-export namespace GetLaunchProfileMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileMemberResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetStreamingImageRequest {
   /**
+   * @public
    * <p>The streaming image ID.</p>
    */
   streamingImageId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace GetStreamingImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamingImageRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetStreamingImageResponse {
   /**
+   * @public
    * <p>The streaming image.</p>
    */
   streamingImage?: StreamingImage;
 }
 
-export namespace GetStreamingImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamingImageResponse): any => ({
-    ...obj,
-    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetStreamingSessionRequest {
   /**
+   * @public
    * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace GetStreamingSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamingSessionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetStreamingSessionResponse {
   /**
+   * @public
    * <p>The session.</p>
    */
   session?: StreamingSession;
 }
 
-export namespace GetStreamingSessionResponse {
+/**
+ * @public
+ */
+export interface GetStreamingSessionBackupRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ID of the backup.</p>
    */
-  export const filterSensitiveLog = (obj: GetStreamingSessionResponse): any => ({
-    ...obj,
-  });
+  backupId: string | undefined;
+
+  /**
+   * @public
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
 }
 
+/**
+ * @public
+ * <p>Information about the streaming session backup.</p>
+ */
+export interface StreamingSessionBackup {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
+   *             identifies it. ARNs are unique across all Regions.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>The ISO timestamp in for when the resource was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * @public
+   * <p>The ID of the launch profile which allowed the backups for the streaming
+   *             session.</p>
+   */
+  launchProfileId?: string;
+
+  /**
+   * @public
+   * <p>The user ID of the user that owns the streaming session.</p>
+   */
+  ownedBy?: string;
+
+  /**
+   * @public
+   * <p>The streaming session ID for the <code>StreamingSessionBackup</code>.</p>
+   */
+  sessionId?: string;
+
+  /**
+   * @public
+   * <p>The streaming session state.</p>
+   */
+  state?: StreamingSessionState | string;
+
+  /**
+   * @public
+   * <p>The status code.</p>
+   */
+  statusCode?: StreamingSessionStatusCode | string;
+
+  /**
+   * @public
+   * <p>The status message for the streaming session backup.</p>
+   */
+  statusMessage?: string;
+
+  /**
+   * @public
+   * <p>The ID of the backup.</p>
+   */
+  backupId?: string;
+
+  /**
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
+   *             resource.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetStreamingSessionBackupResponse {
+  /**
+   * @public
+   * <p>Information about the streaming session backup.</p>
+   */
+  streamingSessionBackup?: StreamingSessionBackup;
+}
+
+/**
+ * @public
+ */
 export interface GetStreamingSessionStreamRequest {
   /**
+   * @public
    * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The streaming session stream ID.</p>
    */
   streamId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace GetStreamingSessionStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamingSessionStreamRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetStreamingSessionStreamResponse {
   /**
+   * @public
    * <p>The stream.</p>
    */
   stream?: StreamingSessionStream;
 }
 
-export namespace GetStreamingSessionStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamingSessionStreamResponse): any => ({
-    ...obj,
-    ...(obj.stream && { stream: StreamingSessionStream.filterSensitiveLog(obj.stream) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetStudioRequest {
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace GetStudioRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetStudioResponse {
   /**
+   * @public
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
 }
 
-export namespace GetStudioResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioResponse): any => ({
-    ...obj,
-    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetStudioComponentRequest {
   /**
+   * @public
    * <p>The studio component ID.</p>
    */
   studioComponentId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace GetStudioComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioComponentRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetStudioComponentResponse {
   /**
+   * @public
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
 }
 
-export namespace GetStudioComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioComponentResponse): any => ({
-    ...obj,
-    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetStudioMemberRequest {
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * @public
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace GetStudioMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioMemberRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum StudioPersona {
-  ADMINISTRATOR = "ADMINISTRATOR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StudioPersona = {
+  ADMINISTRATOR: "ADMINISTRATOR",
+} as const;
 
 /**
+ * @public
+ */
+export type StudioPersona = (typeof StudioPersona)[keyof typeof StudioPersona];
+
+/**
+ * @public
  * <p>A studio member is an association of a user from your studio identity source to
  *             elevated permissions that they are granted in the studio.</p>
  *         <p>When you add a user to your studio using the Nimble Studio console, they are
- *             given access to the studio's AWS SSO application and are given access to log in to the
- *                 Nimble Studio portal. These users have the permissions provided by the studio's
- *             user IAM role and do not appear in the studio membership collection. Only studio admins
- *             appear in studio membership.</p>
- *         <p>When you add a user to studio membership with the persona ADMIN, upon logging in to
+ *             given access to the studio's IAM Identity Center application and are given access to log
+ *             in to the Nimble Studio portal. These users have the permissions provided by the
+ *             studio's user IAM role and do not appear in the studio membership
+ *             collection. Only studio admins appear in studio membership.</p>
+ *         <p>When you add a user to studio membership with the ADMIN persona, upon logging in to
  *             the Nimble Studio portal, they are granted permissions specified by the Studio's
  *             Admin IAM role.</p>
  */
 export interface StudioMembership {
   /**
+   * @public
    * <p>The ID of the identity store.</p>
    */
   identityStoreId?: string;
 
   /**
+   * @public
    * <p>The persona.</p>
    */
   persona?: StudioPersona | string;
 
   /**
+   * @public
    * <p>The principal ID.</p>
    */
   principalId?: string;
 
   /**
+   * @public
    * <p>The Active Directory Security Identifier for this user, if available.</p>
    */
   sid?: string;
 }
 
-export namespace StudioMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StudioMembership): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetStudioMemberResponse {
   /**
+   * @public
    * <p>The member.</p>
    */
   member?: StudioMembership;
 }
 
-export namespace GetStudioMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioMemberResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListLaunchProfileMembersRequest {
   /**
-   * <p>The Launch Profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The max number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace ListLaunchProfileMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchProfileMembersRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListLaunchProfileMembersResponse {
   /**
+   * @public
    * <p>A list of members.</p>
    */
   members?: LaunchProfileMembership[];
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListLaunchProfileMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchProfileMembersResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListLaunchProfilesRequest {
   /**
+   * @public
    * <p>The max number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * @public
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId?: string;
 
   /**
+   * @public
    * <p>Filter this request to launch profiles in any of the given states.</p>
    */
   states?: (LaunchProfileState | string)[];
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace ListLaunchProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchProfilesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListLaunchProfilesResponse {
   /**
+   * @public
    * <p>A collection of launch profiles.</p>
    */
   launchProfiles?: LaunchProfile[];
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListLaunchProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchProfilesResponse): any => ({
-    ...obj,
-    ...(obj.launchProfiles && {
-      launchProfiles: obj.launchProfiles.map((item) => LaunchProfile.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
+ * @public
  * <p>A new member that is added to a launch profile.</p>
  */
 export interface NewLaunchProfileMember {
   /**
+   * @public
    * <p>The persona.</p>
    */
   persona: LaunchProfilePersona | string | undefined;
 
   /**
+   * @public
    * <p>The principal ID.</p>
    */
   principalId: string | undefined;
 }
 
-export namespace NewLaunchProfileMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewLaunchProfileMember): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PutLaunchProfileMembersRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The ID of the identity store.</p>
    */
   identityStoreId: string | undefined;
 
   /**
-   * <p>The Launch Profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>A list of members.</p>
    */
   members: NewLaunchProfileMember[] | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace PutLaunchProfileMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLaunchProfileMembersRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PutLaunchProfileMembersResponse {}
 
-export namespace PutLaunchProfileMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLaunchProfileMembersResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
-   * <p>The Launch Profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the protocol that is used by the launch profile. The only valid
    *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersions?: string[];
 
   /**
+   * @public
    * <p>The name for the launch profile.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>A configuration for a streaming session.</p>
    */
   streamConfiguration?: StreamConfigurationCreate;
 
   /**
+   * @public
    * <p>Unique identifiers for a collection of studio components that can be used with this
    *             launch profile.</p>
    */
   studioComponentIds?: string[];
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace UpdateLaunchProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLaunchProfileRequest): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.streamConfiguration && {
-      streamConfiguration: StreamConfigurationCreate.filterSensitiveLog(obj.streamConfiguration),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileResponse {
   /**
+   * @public
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
 }
 
-export namespace UpdateLaunchProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLaunchProfileResponse): any => ({
-    ...obj,
-    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileMemberRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Launch Profile ID.</p>
+   * @public
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The persona.</p>
    */
   persona: LaunchProfilePersona | string | undefined;
 
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * @public
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace UpdateLaunchProfileMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLaunchProfileMemberRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateLaunchProfileMemberResponse {
   /**
+   * @public
    * <p>The updated member. </p>
    */
   member?: LaunchProfileMembership;
 }
 
-export namespace UpdateLaunchProfileMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLaunchProfileMemberResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListStreamingImagesRequest {
   /**
-   * <p>The token to request the next page of results. </p>
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Filter this request to streaming images with the given owner</p>
    */
   owner?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace ListStreamingImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamingImagesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListStreamingImagesResponse {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A collection of streaming images.</p>
    */
   streamingImages?: StreamingImage[];
 }
 
-export namespace ListStreamingImagesResponse {
+/**
+ * @public
+ */
+export interface ListStreamingSessionBackupsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
-  export const filterSensitiveLog = (obj: ListStreamingImagesResponse): any => ({
-    ...obj,
-    ...(obj.streamingImages && {
-      streamingImages: obj.streamingImages.map((item) => StreamingImage.filterSensitiveLog(item)),
-    }),
-  });
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The user ID of the user that owns the streaming session.</p>
+   */
+  ownedBy?: string;
+
+  /**
+   * @public
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface ListStreamingSessionBackupsResponse {
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Information about the streaming session backups.</p>
+   */
+  streamingSessionBackups?: StreamingSessionBackup[];
+}
+
+/**
+ * @public
+ */
 export interface ListStreamingSessionsRequest {
   /**
+   * @public
    * <p>Filters the request to streaming sessions created by the given user.</p>
    */
   createdBy?: string;
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Filters the request to streaming session owned by the given user</p>
    */
   ownedBy?: string;
 
   /**
+   * @public
    * <p>Filters the request to only the provided session IDs.</p>
    */
   sessionIds?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace ListStreamingSessionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamingSessionsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListStreamingSessionsResponse {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A collection of streaming sessions.</p>
    */
   sessions?: StreamingSession[];
 }
 
-export namespace ListStreamingSessionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamingSessionsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListStudioComponentsRequest {
   /**
+   * @public
    * <p>The max number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Filters the request to studio components that are in one of the given states. </p>
    */
   states?: (StudioComponentState | string)[];
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>Filters the request to studio components that are of one of the given types.</p>
    */
   types?: (StudioComponentType | string)[];
 }
 
-export namespace ListStudioComponentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioComponentsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListStudioComponentsResponse {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A collection of studio components.</p>
    */
   studioComponents?: StudioComponent[];
 }
 
-export namespace ListStudioComponentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioComponentsResponse): any => ({
-    ...obj,
-    ...(obj.studioComponents && {
-      studioComponents: obj.studioComponents.map((item) => StudioComponent.filterSensitiveLog(item)),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListStudioMembersRequest {
   /**
+   * @public
    * <p>The max number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace ListStudioMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioMembersRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListStudioMembersResponse {
   /**
+   * @public
    * <p>A list of admin members.</p>
    */
   members?: StudioMembership[];
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListStudioMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioMembersResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListStudiosRequest {
   /**
-   * <p>The token to request the next page of results. </p>
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListStudiosRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudiosRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListStudiosResponse {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A collection of studios.</p>
    */
   studios: Studio[] | undefined;
 }
 
-export namespace ListStudiosResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudiosResponse): any => ({
-    ...obj,
-    ...(obj.studios && { studios: obj.studios.map((item) => Studio.filterSensitiveLog(item)) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
    */
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
+  tags?: Record<string, string>;
 }
 
 /**
+ * @public
  * <p>A new studio user's membership.</p>
  */
 export interface NewStudioMember {
   /**
+   * @public
    * <p>The persona.</p>
    */
   persona: StudioPersona | string | undefined;
 
   /**
+   * @public
    * <p>The principal ID.</p>
    */
   principalId: string | undefined;
 }
 
-export namespace NewStudioMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewStudioMember): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateStreamingImageRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The name for the streaming image.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The streaming image ID.</p>
    */
   streamingImageId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace UpdateStreamingImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStreamingImageRequest): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateStreamingImageResponse {
   /**
+   * @public
    * <p>Represents a streaming image resource.</p>
    *         <p>Streaming images are used by studio users to select which operating system and
    *             software they want to use in a Nimble Studio streaming session.</p>
    *         <p>Amazon provides a number of streaming images that include popular 3rd-party
    *             software.</p>
-   *         <p>You can create your own streaming images using an Amazon Elastic Compute Cloud (Amazon
-   *             EC2) machine image that you create for this purpose. You can also include software that
-   *             your users require.</p>
+   *         <p>You can create your own streaming images using an Amazon EC2 machine image
+   *             that you create for this purpose. You can also include software that your users
+   *             require.</p>
    */
   streamingImage?: StreamingImage;
 }
 
-export namespace UpdateStreamingImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStreamingImageResponse): any => ({
-    ...obj,
-    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface StartStreamingSessionRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The streaming session ID for the StartStreamingSessionRequest.</p>
+   * @public
+   * <p>The streaming session ID for the <code>StartStreamingSessionRequest</code>.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID for the StartStreamingSessionRequest.</p>
    */
   studioId: string | undefined;
-}
 
-export namespace StartStreamingSessionRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ID of the backup.</p>
    */
-  export const filterSensitiveLog = (obj: StartStreamingSessionRequest): any => ({
-    ...obj,
-  });
+  backupId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartStreamingSessionResponse {
   /**
+   * @public
    * <p>A streaming session is a virtual workstation created using a particular launch
    *             profile.</p>
    */
   session?: StreamingSession;
 }
 
-export namespace StartStreamingSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStreamingSessionResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface StopStreamingSessionRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The streaming session ID for the StopStreamingSessionRequest.</p>
+   * @public
+   * <p>The streaming session ID for the <code>StopStreamingSessionRequest</code>.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The studioId for the StopStreamingSessionRequest.</p>
    */
   studioId: string | undefined;
-}
 
-export namespace StopStreamingSessionRequest {
   /**
-   * @internal
+   * @public
+   * <p>Adds additional instructions to a streaming session stop action to either retain the
+   *             EBS volumes or delete the EBS volumes.</p>
    */
-  export const filterSensitiveLog = (obj: StopStreamingSessionRequest): any => ({
-    ...obj,
-  });
+  volumeRetentionMode?: VolumeRetentionMode | string;
 }
 
+/**
+ * @public
+ */
 export interface StopStreamingSessionResponse {
   /**
+   * @public
    * <p>A streaming session is a virtual workstation created using a particular launch
    *             profile.</p>
    */
   session?: StreamingSession;
 }
 
-export namespace StopStreamingSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopStreamingSessionResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateStudioComponentRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The configuration of the studio component, based on component type.</p>
    */
   configuration?: StudioComponentConfiguration;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The EC2 security groups that control access to the studio component.</p>
    */
   ec2SecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>Initialization scripts for studio components.</p>
    */
   initializationScripts?: StudioComponentInitializationScript[];
 
   /**
+   * @public
    * <p>The name for the studio component.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>Parameters for the studio component scripts.</p>
    */
   scriptParameters?: ScriptParameterKeyValue[];
 
   /**
+   * @public
    * <p>The studio component ID.</p>
    */
   studioComponentId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>The specific subtype of a studio component.</p>
    */
   subtype?: StudioComponentSubtype | string;
 
   /**
+   * @public
    * <p>The type of the studio component.</p>
    */
   type?: StudioComponentType | string;
-}
 
-export namespace UpdateStudioComponentRequest {
   /**
-   * @internal
+   * @public
+   * <p>An IAM role attached to Studio Component when the system initialization
+   *             script runs which give the studio component access to Amazon Web Services resources when
+   *             the system initialization script runs.</p>
    */
-  export const filterSensitiveLog = (obj: UpdateStudioComponentRequest): any => ({
-    ...obj,
-    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.initializationScripts && {
-      initializationScripts: obj.initializationScripts.map((item) =>
-        StudioComponentInitializationScript.filterSensitiveLog(item)
-      ),
-    }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
-  });
+  secureInitializationRoleArn?: string;
+
+  /**
+   * @public
+   * <p>An IAM role attached to a Studio Component that gives the studio
+   *             component access to Amazon Web Services resources at anytime while the instance is
+   *             running. </p>
+   */
+  runtimeRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStudioComponentResponse {
   /**
+   * @public
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
 }
 
-export namespace UpdateStudioComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStudioComponentResponse): any => ({
-    ...obj,
-    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface PutStudioMembersRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The ID of the identity store.</p>
    */
   identityStoreId: string | undefined;
 
   /**
+   * @public
    * <p>A list of members.</p>
    */
   members: NewStudioMember[] | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace PutStudioMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutStudioMembersRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PutStudioMembersResponse {}
 
-export namespace PutStudioMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutStudioMembersResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface StartStudioSSOConfigurationRepairRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
 
-export namespace StartStudioSSOConfigurationRepairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStudioSSOConfigurationRepairRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface StartStudioSSOConfigurationRepairResponse {
   /**
+   * @public
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
 }
 
-export namespace StartStudioSSOConfigurationRepairResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStudioSSOConfigurationRepairResponse): any => ({
-    ...obj,
-    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateStudioRequest {
   /**
-   * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * @public
+   * <p>The IAM role that Studio Admins will assume when logging in to the
+   *                 Nimble Studio portal.</p>
    */
   adminRoleArn?: string;
 
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>A friendly name for the studio.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
-   * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * @public
+   * <p>The IAM role that Studio Users will assume when logging in to the
+   *                 Nimble Studio portal.</p>
    */
   userRoleArn?: string;
 }
 
-export namespace UpdateStudioRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStudioRequest): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateStudioResponse {
   /**
+   * @public
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
 }
 
-export namespace UpdateStudioResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStudioResponse): any => ({
-    ...obj,
-    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the resource you want to add tags to. </p>
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource you want to add tags to. </p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * @public
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>Identifies the Amazon Resource Name(ARN) key from which you are removing tags. </p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
    */
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ActiveDirectoryConfigurationFilterSensitiveLog = (obj: ActiveDirectoryConfiguration): any => ({
+  ...obj,
+  ...(obj.computerAttributes && { computerAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ComputeFarmConfigurationFilterSensitiveLog = (obj: ComputeFarmConfiguration): any => ({
+  ...obj,
+  ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StreamingSessionStorageRootFilterSensitiveLog = (obj: StreamingSessionStorageRoot): any => ({
+  ...obj,
+  ...(obj.linux && { linux: SENSITIVE_STRING }),
+  ...(obj.windows && { windows: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StreamConfigurationSessionStorageFilterSensitiveLog = (obj: StreamConfigurationSessionStorage): any => ({
+  ...obj,
+  ...(obj.root && { root: StreamingSessionStorageRootFilterSensitiveLog(obj.root) }),
+});
+
+/**
+ * @internal
+ */
+export const StreamConfigurationCreateFilterSensitiveLog = (obj: StreamConfigurationCreate): any => ({
+  ...obj,
+  ...(obj.sessionStorage && {
+    sessionStorage: StreamConfigurationSessionStorageFilterSensitiveLog(obj.sessionStorage),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateLaunchProfileRequestFilterSensitiveLog = (obj: CreateLaunchProfileRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.streamConfiguration && {
+    streamConfiguration: StreamConfigurationCreateFilterSensitiveLog(obj.streamConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StreamConfigurationFilterSensitiveLog = (obj: StreamConfiguration): any => ({
+  ...obj,
+  ...(obj.sessionStorage && {
+    sessionStorage: StreamConfigurationSessionStorageFilterSensitiveLog(obj.sessionStorage),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const LaunchProfileFilterSensitiveLog = (obj: LaunchProfile): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.streamConfiguration && {
+    streamConfiguration: StreamConfigurationFilterSensitiveLog(obj.streamConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateLaunchProfileResponseFilterSensitiveLog = (obj: CreateLaunchProfileResponse): any => ({
+  ...obj,
+  ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingImageRequestFilterSensitiveLog = (obj: CreateStreamingImageRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StreamingImageFilterSensitiveLog = (obj: StreamingImage): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingImageResponseFilterSensitiveLog = (obj: CreateStreamingImageResponse): any => ({
+  ...obj,
+  ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
+});
+
+/**
+ * @internal
+ */
+export const StreamingSessionStreamFilterSensitiveLog = (obj: StreamingSessionStream): any => ({
+  ...obj,
+  ...(obj.url && { url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingSessionStreamResponseFilterSensitiveLog = (
+  obj: CreateStreamingSessionStreamResponse
+): any => ({
+  ...obj,
+  ...(obj.stream && { stream: StreamingSessionStreamFilterSensitiveLog(obj.stream) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStudioRequestFilterSensitiveLog = (obj: CreateStudioRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StudioFilterSensitiveLog = (obj: Studio): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStudioResponseFilterSensitiveLog = (obj: CreateStudioResponse): any => ({
+  ...obj,
+  ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
+});
+
+/**
+ * @internal
+ */
+export const LicenseServiceConfigurationFilterSensitiveLog = (obj: LicenseServiceConfiguration): any => ({
+  ...obj,
+  ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SharedFileSystemConfigurationFilterSensitiveLog = (obj: SharedFileSystemConfiguration): any => ({
+  ...obj,
+  ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
+  ...(obj.linuxMountPoint && { linuxMountPoint: SENSITIVE_STRING }),
+  ...(obj.shareName && { shareName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StudioComponentConfigurationFilterSensitiveLog = (obj: StudioComponentConfiguration): any => ({
+  ...obj,
+  ...(obj.activeDirectoryConfiguration && {
+    activeDirectoryConfiguration: ActiveDirectoryConfigurationFilterSensitiveLog(obj.activeDirectoryConfiguration),
+  }),
+  ...(obj.computeFarmConfiguration && {
+    computeFarmConfiguration: ComputeFarmConfigurationFilterSensitiveLog(obj.computeFarmConfiguration),
+  }),
+  ...(obj.licenseServiceConfiguration && {
+    licenseServiceConfiguration: LicenseServiceConfigurationFilterSensitiveLog(obj.licenseServiceConfiguration),
+  }),
+  ...(obj.sharedFileSystemConfiguration && {
+    sharedFileSystemConfiguration: SharedFileSystemConfigurationFilterSensitiveLog(obj.sharedFileSystemConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StudioComponentInitializationScriptFilterSensitiveLog = (
+  obj: StudioComponentInitializationScript
+): any => ({
+  ...obj,
+  ...(obj.script && { script: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStudioComponentRequestFilterSensitiveLog = (obj: CreateStudioComponentRequest): any => ({
+  ...obj,
+  ...(obj.configuration && { configuration: StudioComponentConfigurationFilterSensitiveLog(obj.configuration) }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.initializationScripts && {
+    initializationScripts: obj.initializationScripts.map((item) =>
+      StudioComponentInitializationScriptFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StudioComponentFilterSensitiveLog = (obj: StudioComponent): any => ({
+  ...obj,
+  ...(obj.configuration && { configuration: StudioComponentConfigurationFilterSensitiveLog(obj.configuration) }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.initializationScripts && {
+    initializationScripts: obj.initializationScripts.map((item) =>
+      StudioComponentInitializationScriptFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStudioComponentResponseFilterSensitiveLog = (obj: CreateStudioComponentResponse): any => ({
+  ...obj,
+  ...(obj.studioComponent && { studioComponent: StudioComponentFilterSensitiveLog(obj.studioComponent) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteLaunchProfileResponseFilterSensitiveLog = (obj: DeleteLaunchProfileResponse): any => ({
+  ...obj,
+  ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteStreamingImageResponseFilterSensitiveLog = (obj: DeleteStreamingImageResponse): any => ({
+  ...obj,
+  ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteStudioResponseFilterSensitiveLog = (obj: DeleteStudioResponse): any => ({
+  ...obj,
+  ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteStudioComponentResponseFilterSensitiveLog = (obj: DeleteStudioComponentResponse): any => ({
+  ...obj,
+  ...(obj.studioComponent && { studioComponent: StudioComponentFilterSensitiveLog(obj.studioComponent) }),
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchProfileResponseFilterSensitiveLog = (obj: GetLaunchProfileResponse): any => ({
+  ...obj,
+  ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const StudioComponentSummaryFilterSensitiveLog = (obj: StudioComponentSummary): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchProfileDetailsResponseFilterSensitiveLog = (obj: GetLaunchProfileDetailsResponse): any => ({
+  ...obj,
+  ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
+  ...(obj.streamingImages && {
+    streamingImages: obj.streamingImages.map((item) => StreamingImageFilterSensitiveLog(item)),
+  }),
+  ...(obj.studioComponentSummaries && {
+    studioComponentSummaries: obj.studioComponentSummaries.map((item) =>
+      StudioComponentSummaryFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const LaunchProfileInitializationActiveDirectoryFilterSensitiveLog = (
+  obj: LaunchProfileInitializationActiveDirectory
+): any => ({
+  ...obj,
+  ...(obj.computerAttributes && { computerAttributes: SENSITIVE_STRING }),
+  ...(obj.studioComponentName && { studioComponentName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LaunchProfileInitializationScriptFilterSensitiveLog = (obj: LaunchProfileInitializationScript): any => ({
+  ...obj,
+  ...(obj.script && { script: SENSITIVE_STRING }),
+  ...(obj.studioComponentName && { studioComponentName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LaunchProfileInitializationFilterSensitiveLog = (obj: LaunchProfileInitialization): any => ({
+  ...obj,
+  ...(obj.activeDirectory && {
+    activeDirectory: LaunchProfileInitializationActiveDirectoryFilterSensitiveLog(obj.activeDirectory),
+  }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.systemInitializationScripts && {
+    systemInitializationScripts: obj.systemInitializationScripts.map((item) =>
+      LaunchProfileInitializationScriptFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.userInitializationScripts && {
+    userInitializationScripts: obj.userInitializationScripts.map((item) =>
+      LaunchProfileInitializationScriptFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchProfileInitializationResponseFilterSensitiveLog = (
+  obj: GetLaunchProfileInitializationResponse
+): any => ({
+  ...obj,
+  ...(obj.launchProfileInitialization && {
+    launchProfileInitialization: LaunchProfileInitializationFilterSensitiveLog(obj.launchProfileInitialization),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetStreamingImageResponseFilterSensitiveLog = (obj: GetStreamingImageResponse): any => ({
+  ...obj,
+  ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
+});
+
+/**
+ * @internal
+ */
+export const GetStreamingSessionStreamResponseFilterSensitiveLog = (obj: GetStreamingSessionStreamResponse): any => ({
+  ...obj,
+  ...(obj.stream && { stream: StreamingSessionStreamFilterSensitiveLog(obj.stream) }),
+});
+
+/**
+ * @internal
+ */
+export const GetStudioResponseFilterSensitiveLog = (obj: GetStudioResponse): any => ({
+  ...obj,
+  ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
+});
+
+/**
+ * @internal
+ */
+export const GetStudioComponentResponseFilterSensitiveLog = (obj: GetStudioComponentResponse): any => ({
+  ...obj,
+  ...(obj.studioComponent && { studioComponent: StudioComponentFilterSensitiveLog(obj.studioComponent) }),
+});
+
+/**
+ * @internal
+ */
+export const ListLaunchProfilesResponseFilterSensitiveLog = (obj: ListLaunchProfilesResponse): any => ({
+  ...obj,
+  ...(obj.launchProfiles && {
+    launchProfiles: obj.launchProfiles.map((item) => LaunchProfileFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLaunchProfileRequestFilterSensitiveLog = (obj: UpdateLaunchProfileRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.streamConfiguration && {
+    streamConfiguration: StreamConfigurationCreateFilterSensitiveLog(obj.streamConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLaunchProfileResponseFilterSensitiveLog = (obj: UpdateLaunchProfileResponse): any => ({
+  ...obj,
+  ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const ListStreamingImagesResponseFilterSensitiveLog = (obj: ListStreamingImagesResponse): any => ({
+  ...obj,
+  ...(obj.streamingImages && {
+    streamingImages: obj.streamingImages.map((item) => StreamingImageFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListStudioComponentsResponseFilterSensitiveLog = (obj: ListStudioComponentsResponse): any => ({
+  ...obj,
+  ...(obj.studioComponents && {
+    studioComponents: obj.studioComponents.map((item) => StudioComponentFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListStudiosResponseFilterSensitiveLog = (obj: ListStudiosResponse): any => ({
+  ...obj,
+  ...(obj.studios && { studios: obj.studios.map((item) => StudioFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStreamingImageRequestFilterSensitiveLog = (obj: UpdateStreamingImageRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStreamingImageResponseFilterSensitiveLog = (obj: UpdateStreamingImageResponse): any => ({
+  ...obj,
+  ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStudioComponentRequestFilterSensitiveLog = (obj: UpdateStudioComponentRequest): any => ({
+  ...obj,
+  ...(obj.configuration && { configuration: StudioComponentConfigurationFilterSensitiveLog(obj.configuration) }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.initializationScripts && {
+    initializationScripts: obj.initializationScripts.map((item) =>
+      StudioComponentInitializationScriptFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStudioComponentResponseFilterSensitiveLog = (obj: UpdateStudioComponentResponse): any => ({
+  ...obj,
+  ...(obj.studioComponent && { studioComponent: StudioComponentFilterSensitiveLog(obj.studioComponent) }),
+});
+
+/**
+ * @internal
+ */
+export const StartStudioSSOConfigurationRepairResponseFilterSensitiveLog = (
+  obj: StartStudioSSOConfigurationRepairResponse
+): any => ({
+  ...obj,
+  ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStudioRequestFilterSensitiveLog = (obj: UpdateStudioRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStudioResponseFilterSensitiveLog = (obj: UpdateStudioResponse): any => ({
+  ...obj,
+  ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
+});

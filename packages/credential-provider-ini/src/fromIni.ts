@@ -1,10 +1,13 @@
 import { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
-import { CredentialProvider, Credentials } from "@aws-sdk/types";
-import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/util-credentials";
+import { getProfileName, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
+import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
 import { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
 import { resolveProfileData } from "./resolveProfileData";
 
+/**
+ * @internal
+ */
 export interface FromIniInit extends SourceProfileInit {
   /**
    * A function that returns a promise fulfilled with an MFA token code for
@@ -23,7 +26,7 @@ export interface FromIniInit extends SourceProfileInit {
    * @param sourceCreds The credentials with which to assume a role.
    * @param params
    */
-  roleAssumer?: (sourceCreds: Credentials, params: AssumeRoleParams) => Promise<Credentials>;
+  roleAssumer?: (sourceCreds: AwsCredentialIdentity, params: AssumeRoleParams) => Promise<AwsCredentialIdentity>;
 
   /**
    * A function that assumes a role with web identity and returns a promise fulfilled with
@@ -32,16 +35,18 @@ export interface FromIniInit extends SourceProfileInit {
    * @param sourceCreds The credentials with which to assume a role.
    * @param params
    */
-  roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<Credentials>;
+  roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<AwsCredentialIdentity>;
 }
 
 /**
+ * @internal
+ *
  * Creates a credential provider that will read from ini files and supports
  * role assumption and multi-factor authentication.
  */
 export const fromIni =
-  (init: FromIniInit = {}): CredentialProvider =>
+  (init: FromIniInit = {}): AwsCredentialIdentityProvider =>
   async () => {
     const profiles = await parseKnownFiles(init);
-    return resolveProfileData(getMasterProfileName(init), profiles, init);
+    return resolveProfileData(getProfileName(init), profiles, init);
   };

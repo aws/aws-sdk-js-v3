@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "shapes": {
     "com.amazonaws.workspacesweb#ARN": {
       "type": "string",
@@ -13,31 +13,22 @@
     },
     "com.amazonaws.workspacesweb#AWSErmineControlPlaneService": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "WorkSpaces Web",
-          "arnNamespace": "workspaces-web",
-          "cloudFormationName": "WorkSpacesWeb",
-          "cloudTrailEventSource": "workspaces-web.amazonaws.com",
-          "endpointPrefix": "workspaces-web"
-        },
-        "aws.auth#sigv4": {
-          "name": "workspaces-web"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>WorkSpaces Web is a low cost, fully managed WorkSpace built specifically to facilitate\n         secure, web-based workloads. WorkSpaces Web makes it easy for customers to safely provide\n         their employees with access to internal websites and SaaS web applications without the\n         administrative burden of appliances or specialized client software. WorkSpaces Web provides\n         simple policy tools tailored for user interactions, while offloading common tasks like\n         capacity management, scaling, and maintaining browser images.</p>",
-        "smithy.api#title": "Amazon WorkSpaces Web"
-      },
       "version": "2020-07-08",
       "operations": [
         {
           "target": "com.amazonaws.workspacesweb#AssociateBrowserSettings"
         },
         {
+          "target": "com.amazonaws.workspacesweb#AssociateIpAccessSettings"
+        },
+        {
           "target": "com.amazonaws.workspacesweb#AssociateNetworkSettings"
         },
         {
           "target": "com.amazonaws.workspacesweb#AssociateTrustStore"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#AssociateUserAccessLoggingSettings"
         },
         {
           "target": "com.amazonaws.workspacesweb#AssociateUserSettings"
@@ -49,6 +40,9 @@
           "target": "com.amazonaws.workspacesweb#CreateIdentityProvider"
         },
         {
+          "target": "com.amazonaws.workspacesweb#CreateIpAccessSettings"
+        },
+        {
           "target": "com.amazonaws.workspacesweb#CreateNetworkSettings"
         },
         {
@@ -56,6 +50,9 @@
         },
         {
           "target": "com.amazonaws.workspacesweb#CreateTrustStore"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#CreateUserAccessLoggingSettings"
         },
         {
           "target": "com.amazonaws.workspacesweb#CreateUserSettings"
@@ -67,6 +64,9 @@
           "target": "com.amazonaws.workspacesweb#DeleteIdentityProvider"
         },
         {
+          "target": "com.amazonaws.workspacesweb#DeleteIpAccessSettings"
+        },
+        {
           "target": "com.amazonaws.workspacesweb#DeleteNetworkSettings"
         },
         {
@@ -76,16 +76,25 @@
           "target": "com.amazonaws.workspacesweb#DeleteTrustStore"
         },
         {
+          "target": "com.amazonaws.workspacesweb#DeleteUserAccessLoggingSettings"
+        },
+        {
           "target": "com.amazonaws.workspacesweb#DeleteUserSettings"
         },
         {
           "target": "com.amazonaws.workspacesweb#DisassociateBrowserSettings"
         },
         {
+          "target": "com.amazonaws.workspacesweb#DisassociateIpAccessSettings"
+        },
+        {
           "target": "com.amazonaws.workspacesweb#DisassociateNetworkSettings"
         },
         {
           "target": "com.amazonaws.workspacesweb#DisassociateTrustStore"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#DisassociateUserAccessLoggingSettings"
         },
         {
           "target": "com.amazonaws.workspacesweb#DisassociateUserSettings"
@@ -95,6 +104,9 @@
         },
         {
           "target": "com.amazonaws.workspacesweb#GetIdentityProvider"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#GetIpAccessSettings"
         },
         {
           "target": "com.amazonaws.workspacesweb#GetNetworkSettings"
@@ -112,6 +124,9 @@
           "target": "com.amazonaws.workspacesweb#GetTrustStoreCertificate"
         },
         {
+          "target": "com.amazonaws.workspacesweb#GetUserAccessLoggingSettings"
+        },
+        {
           "target": "com.amazonaws.workspacesweb#GetUserSettings"
         },
         {
@@ -119,6 +134,9 @@
         },
         {
           "target": "com.amazonaws.workspacesweb#ListIdentityProviders"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ListIpAccessSettings"
         },
         {
           "target": "com.amazonaws.workspacesweb#ListNetworkSettings"
@@ -136,6 +154,9 @@
           "target": "com.amazonaws.workspacesweb#ListTrustStores"
         },
         {
+          "target": "com.amazonaws.workspacesweb#ListUserAccessLoggingSettings"
+        },
+        {
           "target": "com.amazonaws.workspacesweb#ListUserSettings"
         },
         {
@@ -151,6 +172,9 @@
           "target": "com.amazonaws.workspacesweb#UpdateIdentityProvider"
         },
         {
+          "target": "com.amazonaws.workspacesweb#UpdateIpAccessSettings"
+        },
+        {
           "target": "com.amazonaws.workspacesweb#UpdateNetworkSettings"
         },
         {
@@ -160,9 +184,717 @@
           "target": "com.amazonaws.workspacesweb#UpdateTrustStore"
         },
         {
+          "target": "com.amazonaws.workspacesweb#UpdateUserAccessLoggingSettings"
+        },
+        {
           "target": "com.amazonaws.workspacesweb#UpdateUserSettings"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "WorkSpaces Web",
+          "arnNamespace": "workspaces-web",
+          "cloudFormationName": "WorkSpacesWeb",
+          "cloudTrailEventSource": "workspaces-web.amazonaws.com",
+          "endpointPrefix": "workspaces-web"
+        },
+        "aws.auth#sigv4": {
+          "name": "workspaces-web"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>WorkSpaces Web is a low cost, fully managed WorkSpace built specifically to facilitate\n         secure, web-based workloads. WorkSpaces Web makes it easy for customers to safely provide\n         their employees with access to internal websites and SaaS web applications without the\n         administrative burden of appliances or specialized client software. WorkSpaces Web provides\n         simple policy tools tailored for user interactions, while offloading common tasks like\n         capacity management, scaling, and maintaining browser images.</p>",
+        "smithy.api#title": "Amazon WorkSpaces Web",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://workspaces-web-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://workspaces-web-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://workspaces-web.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://workspaces-web.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://workspaces-web.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.workspacesweb#AccessDeniedException": {
       "type": "structure",
@@ -259,6 +991,90 @@
             "smithy.api#required": {}
           }
         }
+      }
+    },
+    "com.amazonaws.workspacesweb#AssociateIpAccessSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#AssociateIpAccessSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#AssociateIpAccessSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Associates an IP access settings resource with a web portal.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/portals/{portalArn+}/ipAccessSettings",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#AssociateIpAccessSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "portalArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the web portal.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ipAccessSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IP access settings.</p>",
+            "smithy.api#httpQuery": "ipAccessSettingsArn",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#AssociateIpAccessSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "portalArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the web portal.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ipAccessSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IP access settings resource.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.workspacesweb#AssociateNetworkSettings": {
@@ -414,6 +1230,84 @@
         }
       }
     },
+    "com.amazonaws.workspacesweb#AssociateUserAccessLoggingSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#AssociateUserAccessLoggingSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#AssociateUserAccessLoggingSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Associates a user access logging settings resource with a web portal.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/portals/{portalArn+}/userAccessLoggingSettings",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#AssociateUserAccessLoggingSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "portalArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the web portal.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "userAccessLoggingSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user access logging settings.</p>",
+            "smithy.api#httpQuery": "userAccessLoggingSettingsArn",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspacesweb#AssociateUserAccessLoggingSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "portalArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the web portal.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "userAccessLoggingSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user access logging settings.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.workspacesweb#AssociateUserSettings": {
       "type": "operation",
       "input": {
@@ -492,6 +1386,21 @@
         }
       }
     },
+    "com.amazonaws.workspacesweb#AuthenticationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "Standard",
+            "name": "STANDARD"
+          },
+          {
+            "value": "IAM_Identity_Center",
+            "name": "IAM_IDENTITY_CENTER"
+          }
+        ]
+      }
+    },
     "com.amazonaws.workspacesweb#BrowserPolicy": {
       "type": "string",
       "traits": {
@@ -499,7 +1408,8 @@
           "min": 2,
           "max": 131072
         },
-        "smithy.api#pattern": "\\{[\\S\\s]*\\}\\s*"
+        "smithy.api#pattern": "\\{[\\S\\s]*\\}\\s*",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.workspacesweb#BrowserSettings": {
@@ -828,6 +1738,9 @@
           "target": "com.amazonaws.workspacesweb#ResourceNotFoundException"
         },
         {
+          "target": "com.amazonaws.workspacesweb#ServiceQuotaExceededException"
+        },
+        {
           "target": "com.amazonaws.workspacesweb#ThrottlingException"
         },
         {
@@ -870,7 +1783,7 @@
         "identityProviderDetails": {
           "target": "com.amazonaws.workspacesweb#IdentityProviderDetails",
           "traits": {
-            "smithy.api#documentation": "<p>The identity provider details. The following list describes the provider detail keys for\n         each identity provider type. </p>\n         <ul>\n            <li>\n               <p>For Google and Login with Amazon:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>client_secret</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For Facebook:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>client_secret</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>api_version</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For Sign in with Apple:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>team_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>key_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>private_key</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For OIDC providers:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>client_secret</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>attributes_request_method</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>oidc_issuer</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_url</code>\n                        <i>if not available from discovery URL specified by\n                           <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>token_url</code>\n                        <i>if not available from discovery URL specified by\n                           <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>attributes_url</code>\n                        <i>if not available from discovery URL specified by\n                           <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>jwks_uri</code>\n                        <i>if not available from discovery URL specified by\n                           <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For SAML providers:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>MetadataFile</code> OR <code>MetadataURL</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>IDPSignout</code>\n                        <i>optional</i>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The identity provider details. The following list describes the provider detail keys for\n         each identity provider type. </p>\n         <ul>\n            <li>\n               <p>For Google and Login with Amazon:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>client_secret</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For Facebook:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>client_secret</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>api_version</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For Sign in with Apple:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>team_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>key_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>private_key</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For OIDC providers:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>client_secret</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>attributes_request_method</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>oidc_issuer</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_url</code>\n                        <i>if not available from discovery URL specified by\n                           <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>token_url</code>\n                        <i>if not available from discovery URL specified by\n                           <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>attributes_url</code>\n                        <i>if not available from discovery URL specified by\n                           <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>jwks_uri</code>\n                        <i>if not available from discovery URL specified by\n                           <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For SAML providers:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>MetadataFile</code> OR <code>MetadataURL</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>IDPSignout</code> (boolean) \n               <i>optional</i>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -893,6 +1806,110 @@
             "smithy.api#required": {}
           }
         }
+      }
+    },
+    "com.amazonaws.workspacesweb#CreateIpAccessSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#CreateIpAccessSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#CreateIpAccessSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates an IP access settings resource that can be associated with a web portal.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ipAccessSettings",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.workspacesweb#CreateIpAccessSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "displayName": {
+          "target": "com.amazonaws.workspacesweb#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "<p>The display name of the IP access settings.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.workspacesweb#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the IP access settings.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.workspacesweb#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to add to the browser settings resource. A tag is a key-value pair.</p>"
+          }
+        },
+        "customerManagedKey": {
+          "target": "com.amazonaws.workspacesweb#keyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom managed key of the IP access settings.</p>"
+          }
+        },
+        "additionalEncryptionContext": {
+          "target": "com.amazonaws.workspacesweb#EncryptionContextMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional encryption context of the IP access settings.</p>"
+          }
+        },
+        "ipRules": {
+          "target": "com.amazonaws.workspacesweb#IpRuleList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP rules of the IP access settings.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.workspacesweb#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n         request. Idempotency ensures that an API request completes only once. With an idempotent\n         request, if the original request completes successfully, subsequent retries with the same\n         client token returns the result from the original successful request. </p>\n         <p>If you do not specify a client token, one is automatically generated by the AWS\n         SDK.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#CreateIpAccessSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "ipAccessSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IP access settings resource.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.workspacesweb#CreateNetworkSettings": {
@@ -1056,6 +2073,12 @@
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n         request. Idempotency ensures that an API request completes only once. With an idempotent\n         request, if the original request completes successfully, subsequent retries with the same\n         client token returns the result from the original successful request. </p>\n         <p>If you do not specify a client token, one is automatically generated by the AWS\n         SDK.</p>",
             "smithy.api#idempotencyToken": {}
           }
+        },
+        "authenticationType": {
+          "target": "com.amazonaws.workspacesweb#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of authentication integration points used when signing into the web portal.\n         Defaults to <code>Standard</code>.</p>\n         <p>\n            <code>Standard</code> web portals are authenticated directly through your identity\n         provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity\n         provider with your web portal. User and group access to your web portal is controlled\n         through your identity provider.</p>\n         <p>\n            <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity\n         Center (successor to AWS Single Sign-On). They provide additional features, such as\n         IdP-initiated authentication. Identity sources (including external identity provider\n         integration), plus user and group access to your web portal, can be configured in the IAM\n         Identity Center.</p>"
+          }
         }
       }
     },
@@ -1152,6 +2175,80 @@
         }
       }
     },
+    "com.amazonaws.workspacesweb#CreateUserAccessLoggingSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#CreateUserAccessLoggingSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#CreateUserAccessLoggingSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a user access logging settings resource that can be associated with a web portal.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/userAccessLoggingSettings",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.workspacesweb#CreateUserAccessLoggingSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "kinesisStreamArn": {
+          "target": "com.amazonaws.workspacesweb#KinesisStreamArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Kinesis stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.workspacesweb#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to add to the user settings resource. A tag is a key-value pair.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.workspacesweb#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n         request. Idempotency ensures that an API request completes only once. With an idempotent\n         request, if the original request completes successfully, subsequent retries with the same\n         client token returns the result from the original successful request. </p>\n         <p>If you do not specify a client token, one is automatically generated by the AWS\n         SDK.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspacesweb#CreateUserAccessLoggingSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "userAccessLoggingSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user access logging settings.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.workspacesweb#CreateUserSettings": {
       "type": "operation",
       "input": {
@@ -1231,6 +2328,18 @@
           "target": "com.amazonaws.workspacesweb#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to add to the user settings resource. A tag is a key-value pair.</p>"
+          }
+        },
+        "disconnectTimeoutInMinutes": {
+          "target": "com.amazonaws.workspacesweb#DisconnectTimeoutInMinutes",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time that a streaming session remains active after users disconnect.</p>"
+          }
+        },
+        "idleDisconnectTimeoutInMinutes": {
+          "target": "com.amazonaws.workspacesweb#IdleDisconnectTimeoutInMinutes",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>"
           }
         },
         "clientToken": {
@@ -1357,6 +2466,64 @@
     "com.amazonaws.workspacesweb#DeleteIdentityProviderResponse": {
       "type": "structure",
       "members": {}
+    },
+    "com.amazonaws.workspacesweb#DeleteIpAccessSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#DeleteIpAccessSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#DeleteIpAccessSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes IP access settings.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/ipAccessSettings/{ipAccessSettingsArn+}",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#DeleteIpAccessSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "ipAccessSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IP access settings.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#DeleteIpAccessSettingsResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.workspacesweb#DeleteNetworkSettings": {
       "type": "operation",
@@ -1514,6 +2681,58 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.workspacesweb#DeleteUserAccessLoggingSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#DeleteUserAccessLoggingSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#DeleteUserAccessLoggingSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes user access logging settings.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#DeleteUserAccessLoggingSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "userAccessLoggingSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user access logging settings.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspacesweb#DeleteUserAccessLoggingSettingsResponse": {
+      "type": "structure",
+      "members": {}
+    },
     "com.amazonaws.workspacesweb#DeleteUserSettings": {
       "type": "operation",
       "input": {
@@ -1566,6 +2785,17 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.workspacesweb#Description": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "^.+$",
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.workspacesweb#DisassociateBrowserSettings": {
       "type": "operation",
       "input": {
@@ -1617,6 +2847,64 @@
     "com.amazonaws.workspacesweb#DisassociateBrowserSettingsResponse": {
       "type": "structure",
       "members": {}
+    },
+    "com.amazonaws.workspacesweb#DisassociateIpAccessSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#DisassociateIpAccessSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#DisassociateIpAccessSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disassociates IP access settings from a web portal.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/portals/{portalArn+}/ipAccessSettings",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#DisassociateIpAccessSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "portalArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the web portal.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#DisassociateIpAccessSettingsResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.workspacesweb#DisassociateNetworkSettings": {
       "type": "operation",
@@ -1722,6 +3010,58 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.workspacesweb#DisassociateUserAccessLoggingSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#DisassociateUserAccessLoggingSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#DisassociateUserAccessLoggingSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disassociates user access logging settings from a web portal.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/portals/{portalArn+}/userAccessLoggingSettings",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#DisassociateUserAccessLoggingSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "portalArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the web portal.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspacesweb#DisassociateUserAccessLoggingSettingsResponse": {
+      "type": "structure",
+      "members": {}
+    },
     "com.amazonaws.workspacesweb#DisassociateUserSettings": {
       "type": "operation",
       "input": {
@@ -1774,6 +3114,15 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.workspacesweb#DisconnectTimeoutInMinutes": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 600
+        }
+      }
+    },
     "com.amazonaws.workspacesweb#DisplayName": {
       "type": "string",
       "traits": {
@@ -1781,7 +3130,8 @@
           "min": 1,
           "max": 64
         },
-        "smithy.api#pattern": "^.+$"
+        "smithy.api#pattern": "^.+$",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.workspacesweb#EnabledType": {
@@ -1930,6 +3280,71 @@
             "smithy.api#documentation": "<p>The identity provider.</p>"
           }
         }
+      }
+    },
+    "com.amazonaws.workspacesweb#GetIpAccessSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#GetIpAccessSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#GetIpAccessSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets the IP access settings.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/ipAccessSettings/{ipAccessSettingsArn+}",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#GetIpAccessSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "ipAccessSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IP access settings.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#GetIpAccessSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "ipAccessSettings": {
+          "target": "com.amazonaws.workspacesweb#IpAccessSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP access settings.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.workspacesweb#GetNetworkSettings": {
@@ -2248,6 +3663,65 @@
         }
       }
     },
+    "com.amazonaws.workspacesweb#GetUserAccessLoggingSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#GetUserAccessLoggingSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#GetUserAccessLoggingSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets user access logging settings.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#GetUserAccessLoggingSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "userAccessLoggingSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user access logging settings.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspacesweb#GetUserAccessLoggingSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "userAccessLoggingSettings": {
+          "target": "com.amazonaws.workspacesweb#UserAccessLoggingSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The user access logging settings.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.workspacesweb#GetUserSettings": {
       "type": "operation",
       "input": {
@@ -2347,6 +3821,9 @@
       },
       "value": {
         "target": "com.amazonaws.workspacesweb#StringType"
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.workspacesweb#IdentityProviderList": {
@@ -2362,7 +3839,8 @@
           "min": 1,
           "max": 32
         },
-        "smithy.api#pattern": "^[^_][\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}][^_]+$"
+        "smithy.api#pattern": "^[^_][\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}][^_]+$",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.workspacesweb#IdentityProviderSummary": {
@@ -2422,6 +3900,15 @@
         ]
       }
     },
+    "com.amazonaws.workspacesweb#IdleDisconnectTimeoutInMinutes": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 60
+        }
+      }
+    },
     "com.amazonaws.workspacesweb#InternalServerException": {
       "type": "structure",
       "members": {
@@ -2431,6 +3918,7 @@
         "retryAfterSeconds": {
           "target": "com.amazonaws.workspacesweb#RetryAfterSeconds",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Advice to clients on when the call can be safely retried.</p>",
             "smithy.api#httpHeader": "Retry-After"
           }
@@ -2440,6 +3928,142 @@
         "smithy.api#documentation": "<p>There is an internal server error.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.workspacesweb#IpAccessSettings": {
+      "type": "structure",
+      "members": {
+        "ipAccessSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IP access settings resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "associatedPortalArns": {
+          "target": "com.amazonaws.workspacesweb#ArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of web portal ARNs that this IP access settings resource is associated with.</p>"
+          }
+        },
+        "ipRules": {
+          "target": "com.amazonaws.workspacesweb#IpRuleList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP rules of the IP access settings.</p>"
+          }
+        },
+        "displayName": {
+          "target": "com.amazonaws.workspacesweb#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "<p> The display name of the IP access settings.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.workspacesweb#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the IP access settings.</p>"
+          }
+        },
+        "creationDate": {
+          "target": "com.amazonaws.workspacesweb#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The creation date timestamp of the IP access settings.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The IP access settings resource that can be associated with a web portal. </p>"
+      }
+    },
+    "com.amazonaws.workspacesweb#IpAccessSettingsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspacesweb#IpAccessSettingsSummary"
+      }
+    },
+    "com.amazonaws.workspacesweb#IpAccessSettingsSummary": {
+      "type": "structure",
+      "members": {
+        "ipAccessSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of IP access settings.</p>"
+          }
+        },
+        "displayName": {
+          "target": "com.amazonaws.workspacesweb#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "<p>The display name of the IP access settings.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.workspacesweb#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the IP access settings.</p>"
+          }
+        },
+        "creationDate": {
+          "target": "com.amazonaws.workspacesweb#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The creation date timestamp of the IP access settings.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The summary of IP access settings.</p>"
+      }
+    },
+    "com.amazonaws.workspacesweb#IpRange": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "A single IP address or an IP address range in CIDR notation",
+        "smithy.api#pattern": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(?:/([0-9]|[12][0-9]|3[0-2])|)$",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#IpRule": {
+      "type": "structure",
+      "members": {
+        "ipRange": {
+          "target": "com.amazonaws.workspacesweb#IpRange",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP range of the IP rule.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.workspacesweb#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the IP rule.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The IP rules of the IP access settings.</p>"
+      }
+    },
+    "com.amazonaws.workspacesweb#IpRuleList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspacesweb#IpRule"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#KinesisStreamArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Kinesis stream ARN to which log events are published.",
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "arn:[\\w+=/,.@-]+:kinesis:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:stream/.+"
       }
     },
     "com.amazonaws.workspacesweb#ListBrowserSettings": {
@@ -2594,6 +4218,85 @@
             "smithy.api#documentation": "<p>The identity providers.</p>"
           }
         }
+      }
+    },
+    "com.amazonaws.workspacesweb#ListIpAccessSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#ListIpAccessSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#ListIpAccessSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves a list of IP access settings.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/ipAccessSettings",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#ListIpAccessSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.workspacesweb#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.workspacesweb#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to be included in the next page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#ListIpAccessSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "ipAccessSettings": {
+          "target": "com.amazonaws.workspacesweb#IpAccessSettingsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP access settings.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.workspacesweb#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.workspacesweb#ListNetworkSettings": {
@@ -2964,6 +4667,79 @@
         }
       }
     },
+    "com.amazonaws.workspacesweb#ListUserAccessLoggingSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#ListUserAccessLoggingSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#ListUserAccessLoggingSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves a list of user access logging settings.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/userAccessLoggingSettings",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#ListUserAccessLoggingSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.workspacesweb#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.workspacesweb#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to be included in the next page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspacesweb#ListUserAccessLoggingSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "userAccessLoggingSettings": {
+          "target": "com.amazonaws.workspacesweb#UserAccessLoggingSettingsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The user access logging settings.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.workspacesweb#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.workspacesweb#ListUserSettings": {
       "type": "operation",
       "input": {
@@ -3040,7 +4816,6 @@
     "com.amazonaws.workspacesweb#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -3175,7 +4950,7 @@
         "userSettingsArn": {
           "target": "com.amazonaws.workspacesweb#ARN",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the trust store that is associated with the web portal.</p>"
+            "smithy.api#documentation": "<p>The ARN of the user settings that is associated with the web portal.</p>"
           }
         },
         "networkSettingsArn": {
@@ -3194,6 +4969,24 @@
           "target": "com.amazonaws.workspacesweb#StatusReason",
           "traits": {
             "smithy.api#documentation": "<p>A message that explains why the web portal is in its current status.</p>"
+          }
+        },
+        "userAccessLoggingSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user access logging settings that is associated with the web portal.</p>"
+          }
+        },
+        "authenticationType": {
+          "target": "com.amazonaws.workspacesweb#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of authentication integration points used when signing into the web portal.\n         Defaults to <code>Standard</code>.</p>\n         <p>\n            <code>Standard</code> web portals are authenticated directly through your identity\n         provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity\n         provider with your web portal. User and group access to your web portal is controlled\n         through your identity provider.</p>\n         <p>\n            <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity\n         Center (successor to AWS Single Sign-On). They provide additional features, such as\n         IdP-initiated authentication. Identity sources (including external identity provider\n         integration), plus user and group access to your web portal, can be configured in the IAM\n         Identity Center.</p>"
+          }
+        },
+        "ipAccessSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IP access settings.</p>"
           }
         }
       },
@@ -3304,6 +5097,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the trust that is associated with this web portal.</p>"
           }
+        },
+        "userAccessLoggingSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user access logging settings that is associated with the web portal.</p>"
+          }
+        },
+        "authenticationType": {
+          "target": "com.amazonaws.workspacesweb#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of authentication integration points used when signing into the web portal.\n         Defaults to <code>Standard</code>.</p>\n         <p>\n            <code>Standard</code> web portals are authenticated directly through your identity\n         provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity\n         provider with your web portal. User and group access to your web portal is controlled\n         through your identity provider.</p>\n         <p>\n            <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity\n         Center (successor to AWS Single Sign-On). They provide additional features, such as\n         IdP-initiated authentication. Identity sources (including external identity provider\n         integration), plus user and group access to your web portal, can be configured in the IAM\n         Identity Center.</p>"
+          }
+        },
+        "ipAccessSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IP access settings.</p>"
+          }
         }
       },
       "traits": {
@@ -3356,7 +5167,10 @@
       "type": "string"
     },
     "com.amazonaws.workspacesweb#RetryAfterSeconds": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.workspacesweb#SamlMetadata": {
       "type": "string",
@@ -3491,7 +5305,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The tag.</p>"
+        "smithy.api#documentation": "<p>The tag.</p>",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.workspacesweb#TagExceptionMessage": {
@@ -3504,7 +5319,8 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.workspacesweb#TagKeyList": {
@@ -3606,7 +5422,8 @@
           "min": 0,
           "max": 256
         },
-        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.workspacesweb#ThrottlingException": {
@@ -3630,6 +5447,7 @@
         "retryAfterSeconds": {
           "target": "com.amazonaws.workspacesweb#RetryAfterSeconds",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Advice to clients on when the call can be safely retried.</p>",
             "smithy.api#httpHeader": "Retry-After"
           }
@@ -3861,7 +5679,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the identity provider.</p>",
+        "smithy.api#documentation": "<p>Updates the identity provider. </p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/identityProviders/{identityProviderArn+}",
@@ -3895,7 +5713,7 @@
         "identityProviderDetails": {
           "target": "com.amazonaws.workspacesweb#IdentityProviderDetails",
           "traits": {
-            "smithy.api#documentation": "<p>The details of the identity provider.</p>"
+            "smithy.api#documentation": "<p>The details of the identity provider. The following list describes the provider detail keys for\n         each identity provider type. </p>\n         <ul>\n            <li>\n               <p>For Google and Login with Amazon:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>client_secret</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For Facebook:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>client_secret</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>api_version</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For Sign in with Apple:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>team_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>key_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>private_key</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For OIDC providers:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>client_id</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>client_secret</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>attributes_request_method</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>oidc_issuer</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_scopes</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>authorize_url</code>\n                        <i>if not available from discovery URL specified by\n                  <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>token_url</code>\n                        <i>if not available from discovery URL specified by\n                  <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>attributes_url</code>\n                        <i>if not available from discovery URL specified by\n                  <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>jwks_uri</code>\n                        <i>if not available from discovery URL specified by\n                  <code>oidc_issuer</code> key</i>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For SAML providers:</p>      \n               <ul>\n                  <li>\n                     <p>\n                        <code>MetadataFile</code> OR <code>MetadataURL</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>IDPSignout</code> (boolean) \n               <i>optional</i>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n         </ul>"
           }
         },
         "clientToken": {
@@ -3917,6 +5735,96 @@
             "smithy.api#required": {}
           }
         }
+      }
+    },
+    "com.amazonaws.workspacesweb#UpdateIpAccessSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#UpdateIpAccessSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#UpdateIpAccessSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates IP access settings.</p>",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/ipAccessSettings/{ipAccessSettingsArn+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.workspacesweb#UpdateIpAccessSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "ipAccessSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IP access settings.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "displayName": {
+          "target": "com.amazonaws.workspacesweb#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "<p>The display name of the IP access settings.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.workspacesweb#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the IP access settings.</p>"
+          }
+        },
+        "ipRules": {
+          "target": "com.amazonaws.workspacesweb#IpRuleList",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated IP rules of the IP access settings.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.workspacesweb#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n         request. Idempotency ensures that an API request completes only once. With an idempotent\n         request, if the original request completes successfully, subsequent retries with the same\n         client token return the result from the original successful request. </p>\n         <p>If you do not specify a client token, one is automatically generated by the AWS\n         SDK.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspacesweb#UpdateIpAccessSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "ipAccessSettings": {
+          "target": "com.amazonaws.workspacesweb#IpAccessSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP access settings.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.workspacesweb#UpdateNetworkSettings": {
@@ -4016,6 +5924,9 @@
           "target": "com.amazonaws.workspacesweb#AccessDeniedException"
         },
         {
+          "target": "com.amazonaws.workspacesweb#ConflictException"
+        },
+        {
           "target": "com.amazonaws.workspacesweb#InternalServerException"
         },
         {
@@ -4053,6 +5964,12 @@
           "target": "com.amazonaws.workspacesweb#DisplayName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the web portal. This is not visible to users who log into the web portal.</p>"
+          }
+        },
+        "authenticationType": {
+          "target": "com.amazonaws.workspacesweb#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of authentication integration points used when signing into the web portal.\n         Defaults to <code>Standard</code>.</p>\n         <p>\n            <code>Standard</code> web portals are authenticated directly through your identity\n         provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity\n         provider with your web portal. User and group access to your web portal is controlled\n         through your identity provider.</p>\n         <p>\n            <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity\n         Center (successor to AWS Single Sign-On). They provide additional features, such as\n         IdP-initiated authentication. Identity sources (including external identity provider\n         integration), plus user and group access to your web portal, can be configured in the IAM\n         Identity Center.</p>"
           }
         }
       }
@@ -4149,6 +6066,78 @@
         }
       }
     },
+    "com.amazonaws.workspacesweb#UpdateUserAccessLoggingSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspacesweb#UpdateUserAccessLoggingSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspacesweb#UpdateUserAccessLoggingSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspacesweb#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.workspacesweb#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the user access logging settings.</p>",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.workspacesweb#UpdateUserAccessLoggingSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "userAccessLoggingSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user access logging settings.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "kinesisStreamArn": {
+          "target": "com.amazonaws.workspacesweb#KinesisStreamArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Kinesis stream.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.workspacesweb#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n         request. Idempotency ensures that an API request completes only once. With an idempotent\n         request, if the original request completes successfully, subsequent retries with the same\n         client token return the result from the original successful request. </p>\n         <p>If you do not specify a client token, one is automatically generated by the AWS\n         SDK.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspacesweb#UpdateUserAccessLoggingSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "userAccessLoggingSettings": {
+          "target": "com.amazonaws.workspacesweb#UserAccessLoggingSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The user access logging settings.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.workspacesweb#UpdateUserSettings": {
       "type": "operation",
       "input": {
@@ -4224,6 +6213,18 @@
             "smithy.api#documentation": "<p>Specifies whether the user can print to the local device.</p>"
           }
         },
+        "disconnectTimeoutInMinutes": {
+          "target": "com.amazonaws.workspacesweb#DisconnectTimeoutInMinutes",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time that a streaming session remains active after users disconnect.</p>"
+          }
+        },
+        "idleDisconnectTimeoutInMinutes": {
+          "target": "com.amazonaws.workspacesweb#IdleDisconnectTimeoutInMinutes",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>"
+          }
+        },
         "clientToken": {
           "target": "com.amazonaws.workspacesweb#ClientToken",
           "traits": {
@@ -4243,6 +6244,59 @@
             "smithy.api#required": {}
           }
         }
+      }
+    },
+    "com.amazonaws.workspacesweb#UserAccessLoggingSettings": {
+      "type": "structure",
+      "members": {
+        "userAccessLoggingSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user access logging settings.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "associatedPortalArns": {
+          "target": "com.amazonaws.workspacesweb#ArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of web portal ARNs that this user access logging settings is associated with.</p>"
+          }
+        },
+        "kinesisStreamArn": {
+          "target": "com.amazonaws.workspacesweb#KinesisStreamArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Kinesis stream.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A user access logging settings resource that can be associated with a web portal.</p>"
+      }
+    },
+    "com.amazonaws.workspacesweb#UserAccessLoggingSettingsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspacesweb#UserAccessLoggingSettingsSummary"
+      }
+    },
+    "com.amazonaws.workspacesweb#UserAccessLoggingSettingsSummary": {
+      "type": "structure",
+      "members": {
+        "userAccessLoggingSettingsArn": {
+          "target": "com.amazonaws.workspacesweb#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user access logging settings.</p>"
+          }
+        },
+        "kinesisStreamArn": {
+          "target": "com.amazonaws.workspacesweb#KinesisStreamArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Kinesis stream.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The summary of user access logging settings.</p>"
       }
     },
     "com.amazonaws.workspacesweb#UserSettings": {
@@ -4289,6 +6343,18 @@
           "target": "com.amazonaws.workspacesweb#EnabledType",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the user can print to the local device.</p>"
+          }
+        },
+        "disconnectTimeoutInMinutes": {
+          "target": "com.amazonaws.workspacesweb#DisconnectTimeoutInMinutes",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time that a streaming session remains active after users disconnect.</p>"
+          }
+        },
+        "idleDisconnectTimeoutInMinutes": {
+          "target": "com.amazonaws.workspacesweb#IdleDisconnectTimeoutInMinutes",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>"
           }
         }
       },
@@ -4339,6 +6405,18 @@
           "target": "com.amazonaws.workspacesweb#EnabledType",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the user can print to the local device.</p>"
+          }
+        },
+        "disconnectTimeoutInMinutes": {
+          "target": "com.amazonaws.workspacesweb#DisconnectTimeoutInMinutes",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time that a streaming session remains active after users disconnect.</p>"
+          }
+        },
+        "idleDisconnectTimeoutInMinutes": {
+          "target": "com.amazonaws.workspacesweb#IdleDisconnectTimeoutInMinutes",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>"
           }
         }
       },

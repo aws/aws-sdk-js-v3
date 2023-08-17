@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListTagsForResourceCommand,
-  serializeAws_json1_0ListTagsForResourceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags applied to the resource identified by its Amazon Resource Name
  *       (ARN).</p>
  * @example
@@ -30,13 +44,44 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * import { BackupGatewayClient, ListTagsForResourceCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, ListTagsForResourceCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // ListTagsForResourceInput
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceOutput
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action wasn't found.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>TPS has been limited to protect against intentional or unintentional
+ *     high request volumes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<
@@ -47,6 +92,18 @@ export class ListTagsForResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +119,9 @@ export class ListTagsForResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +132,8 @@ export class ListTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +143,18 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListTagsForResourceCommand(input, context);
+    return se_ListTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
-    return deserializeAws_json1_0ListTagsForResourceCommand(output, context);
+    return de_ListTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

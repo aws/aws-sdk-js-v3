@@ -1,7 +1,6 @@
-# @aws-sdk/client-sts
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sts/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sts)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sts.svg)](https://www.npmjs.com/package/@aws-sdk/client-sts)
+# @aws-sdk/client-sts
 
 ## Description
 
@@ -10,8 +9,7 @@ AWS SDK for JavaScript STS Client for Node.js, Browser and React Native.
 <fullname>Security Token Service</fullname>
 
 <p>Security Token Service (STS) enables you to request temporary, limited-privilege
-credentials for Identity and Access Management (IAM) users or for users that you
-authenticate (federated users). This guide provides descriptions of the STS API. For
+credentials for users. This guide provides descriptions of the STS API. For
 more information about using this service, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">Temporary Security Credentials</a>.</p>
 
 ## Installing
@@ -120,7 +118,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -154,7 +152,7 @@ client
 
 // callbacks.
 client.assumeRole(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -168,7 +166,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -206,3 +204,70 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+AssumeRole
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/assumerolecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolecommandoutput.html)
+
+</details>
+<details>
+<summary>
+AssumeRoleWithSAML
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/assumerolewithsamlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolewithsamlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolewithsamlcommandoutput.html)
+
+</details>
+<details>
+<summary>
+AssumeRoleWithWebIdentity
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/assumerolewithwebidentitycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolewithwebidentitycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolewithwebidentitycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DecodeAuthorizationMessage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/decodeauthorizationmessagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/decodeauthorizationmessagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/decodeauthorizationmessagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAccessKeyInfo
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/getaccesskeyinfocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getaccesskeyinfocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getaccesskeyinfocommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetCallerIdentity
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/getcalleridentitycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getcalleridentitycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getcalleridentitycommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetFederationToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/getfederationtokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getfederationtokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getfederationtokencommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSessionToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/getsessiontokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getsessiontokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getsessiontokencommandoutput.html)
+
+</details>

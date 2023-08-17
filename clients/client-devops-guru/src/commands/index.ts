@@ -1,4 +1,6 @@
+// smithy-typescript generated code
 export * from "./AddNotificationChannelCommand";
+export * from "./DeleteInsightCommand";
 export * from "./DescribeAccountHealthCommand";
 export * from "./DescribeAccountOverviewCommand";
 export * from "./DescribeAnomalyCommand";
@@ -13,8 +15,10 @@ export * from "./DescribeServiceIntegrationCommand";
 export * from "./GetCostEstimationCommand";
 export * from "./GetResourceCollectionCommand";
 export * from "./ListAnomaliesForInsightCommand";
+export * from "./ListAnomalousLogGroupsCommand";
 export * from "./ListEventsCommand";
 export * from "./ListInsightsCommand";
+export * from "./ListMonitoredResourcesCommand";
 export * from "./ListNotificationChannelsCommand";
 export * from "./ListOrganizationInsightsCommand";
 export * from "./ListRecommendationsCommand";

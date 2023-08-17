@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateDeviceWithPlacementCommand";
 export * from "./CreatePlacementCommand";
 export * from "./CreateProjectCommand";

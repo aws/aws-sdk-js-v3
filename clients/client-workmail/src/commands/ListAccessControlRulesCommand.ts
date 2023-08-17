@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListAccessControlRulesRequest, ListAccessControlRulesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAccessControlRulesCommand,
-  serializeAws_json1_1ListAccessControlRulesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAccessControlRulesCommand, se_ListAccessControlRulesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListAccessControlRulesCommand}.
+ */
 export interface ListAccessControlRulesCommandInput extends ListAccessControlRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAccessControlRulesCommand}.
+ */
 export interface ListAccessControlRulesCommandOutput extends ListAccessControlRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the access control rules for the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,65 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
  * import { WorkMailClient, ListAccessControlRulesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListAccessControlRulesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListAccessControlRulesRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new ListAccessControlRulesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAccessControlRulesResponse
+ * //   Rules: [ // AccessControlRulesList
+ * //     { // AccessControlRule
+ * //       Name: "STRING_VALUE",
+ * //       Effect: "ALLOW" || "DENY",
+ * //       Description: "STRING_VALUE",
+ * //       IpRanges: [ // IpRangeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NotIpRanges: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Actions: [ // ActionsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NotActions: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       UserIds: [ // UserIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NotUserIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DateCreated: new Date("TIMESTAMP"),
+ * //       DateModified: new Date("TIMESTAMP"),
+ * //       ImpersonationRoleIds: [ // ImpersonationRoleIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NotImpersonationRoleIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListAccessControlRulesCommandInput - {@link ListAccessControlRulesCommandInput}
+ * @returns {@link ListAccessControlRulesCommandOutput}
  * @see {@link ListAccessControlRulesCommandInput} for command's `input` shape.
  * @see {@link ListAccessControlRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListAccessControlRulesCommand extends $Command<
@@ -46,6 +112,18 @@ export class ListAccessControlRulesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessControlRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +139,9 @@ export class ListAccessControlRulesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAccessControlRulesCommandInput, ListAccessControlRulesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListAccessControlRulesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +152,8 @@ export class ListAccessControlRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessControlRulesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessControlRulesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +163,18 @@ export class ListAccessControlRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessControlRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccessControlRulesCommand(input, context);
+    return se_ListAccessControlRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessControlRulesCommandOutput> {
-    return deserializeAws_json1_1ListAccessControlRulesCommand(output, context);
+    return de_ListAccessControlRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

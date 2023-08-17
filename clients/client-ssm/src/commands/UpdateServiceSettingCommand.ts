@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateServiceSettingRequest, UpdateServiceSettingResult } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateServiceSettingCommand,
-  serializeAws_json1_1UpdateServiceSettingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateServiceSettingCommand, se_UpdateServiceSettingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateServiceSettingCommand}.
+ */
 export interface UpdateServiceSettingCommandInput extends UpdateServiceSettingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateServiceSettingCommand}.
+ */
 export interface UpdateServiceSettingCommandOutput extends UpdateServiceSettingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
  *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -42,13 +56,34 @@ export interface UpdateServiceSettingCommandOutput extends UpdateServiceSettingR
  * import { SSMClient, UpdateServiceSettingCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateServiceSettingCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateServiceSettingRequest
+ *   SettingId: "STRING_VALUE", // required
+ *   SettingValue: "STRING_VALUE", // required
+ * };
  * const command = new UpdateServiceSettingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateServiceSettingCommandInput - {@link UpdateServiceSettingCommandInput}
+ * @returns {@link UpdateServiceSettingCommandOutput}
  * @see {@link UpdateServiceSettingCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSettingCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ServiceSettingNotFound} (client fault)
+ *  <p>The specified service setting wasn't found. Either the service name or the setting hasn't
+ *    been provisioned by the Amazon Web Services service team.</p>
+ *
+ * @throws {@link TooManyUpdates} (client fault)
+ *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateServiceSettingCommand extends $Command<
@@ -59,6 +94,18 @@ export class UpdateServiceSettingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceSettingCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +121,9 @@ export class UpdateServiceSettingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateServiceSettingCommandInput, UpdateServiceSettingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateServiceSettingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -84,8 +134,8 @@ export class UpdateServiceSettingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceSettingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServiceSettingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +145,18 @@ export class UpdateServiceSettingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServiceSettingCommand(input, context);
+    return se_UpdateServiceSettingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceSettingCommandOutput> {
-    return deserializeAws_json1_1UpdateServiceSettingCommand(output, context);
+    return de_UpdateServiceSettingCommand(output, context);
   }
 
   // Start section: command_body_extra

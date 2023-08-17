@@ -1,7 +1,6 @@
-# @aws-sdk/client-iot-1click-devices-service
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iot-1click-devices-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-1click-devices-service)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iot-1click-devices-service.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-1click-devices-service)
+# @aws-sdk/client-iot-1click-devices-service
 
 ## Description
 
@@ -123,7 +122,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -157,7 +156,7 @@ client
 
 // callbacks.
 client.claimDevicesByClaimCode(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -171,7 +170,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -209,3 +208,110 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+ClaimDevicesByClaimCode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/claimdevicesbyclaimcodecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/claimdevicesbyclaimcodecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/claimdevicesbyclaimcodecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeDevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/describedevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/describedevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/describedevicecommandoutput.html)
+
+</details>
+<details>
+<summary>
+FinalizeDeviceClaim
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/finalizedeviceclaimcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/finalizedeviceclaimcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/finalizedeviceclaimcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDeviceMethods
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/getdevicemethodscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/getdevicemethodscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/getdevicemethodscommandoutput.html)
+
+</details>
+<details>
+<summary>
+InitiateDeviceClaim
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/initiatedeviceclaimcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/initiatedeviceclaimcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/initiatedeviceclaimcommandoutput.html)
+
+</details>
+<details>
+<summary>
+InvokeDeviceMethod
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/invokedevicemethodcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/invokedevicemethodcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/invokedevicemethodcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDeviceEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/listdeviceeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/listdeviceeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/listdeviceeventscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDevices
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/listdevicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/listdevicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/listdevicescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UnclaimDevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/unclaimdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/unclaimdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/unclaimdevicecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateDeviceState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/classes/updatedevicestatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/updatedevicestatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-1click-devices-service/interfaces/updatedevicestatecommandoutput.html)
+
+</details>

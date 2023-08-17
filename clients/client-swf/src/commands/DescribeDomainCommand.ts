@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeDomainInput, DomainDetail } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeDomainCommand,
-  serializeAws_json1_0DescribeDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeDomainCommand, se_DescribeDomainCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeDomainCommand}.
+ */
 export interface DescribeDomainCommandInput extends DescribeDomainInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDomainCommand}.
+ */
 export interface DescribeDomainCommandOutput extends DomainDetail, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified domain, including description and
  *       status.</p>
  *          <p>
@@ -53,13 +67,39 @@ export interface DescribeDomainCommandOutput extends DomainDetail, __MetadataBea
  * import { SWFClient, DescribeDomainCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DescribeDomainCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // DescribeDomainInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
+ * // { // DomainDetail
+ * //   domainInfo: { // DomainInfo
+ * //     name: "STRING_VALUE", // required
+ * //     status: "REGISTERED" || "DEPRECATED", // required
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //   },
+ * //   configuration: { // DomainConfiguration
+ * //     workflowExecutionRetentionPeriodInDays: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeDomainCommandInput - {@link DescribeDomainCommandInput}
+ * @returns {@link DescribeDomainCommandOutput}
  * @see {@link DescribeDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class DescribeDomainCommand extends $Command<
@@ -70,6 +110,18 @@ export class DescribeDomainCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +137,9 @@ export class DescribeDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeDomainCommandInput, DescribeDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeDomainCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -95,8 +150,8 @@ export class DescribeDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DomainDetail.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +161,18 @@ export class DescribeDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeDomainCommand(input, context);
+    return se_DescribeDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainCommandOutput> {
-    return deserializeAws_json1_0DescribeDomainCommand(output, context);
+    return de_DescribeDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

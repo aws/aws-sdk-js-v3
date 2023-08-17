@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,29 +19,36 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   AssociatePhoneNumbersWithVoiceConnectorCommandInput,
@@ -583,8 +582,24 @@ import {
   UpdateVoiceConnectorGroupCommandInput,
   UpdateVoiceConnectorGroupCommandOutput,
 } from "./commands/UpdateVoiceConnectorGroupCommand";
+import {
+  ValidateE911AddressCommandInput,
+  ValidateE911AddressCommandOutput,
+} from "./commands/ValidateE911AddressCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociatePhoneNumberWithUserCommandInput
   | AssociatePhoneNumbersWithVoiceConnectorCommandInput
@@ -775,8 +790,12 @@ export type ServiceInputTypes =
   | UpdateUserCommandInput
   | UpdateUserSettingsCommandInput
   | UpdateVoiceConnectorCommandInput
-  | UpdateVoiceConnectorGroupCommandInput;
+  | UpdateVoiceConnectorGroupCommandInput
+  | ValidateE911AddressCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociatePhoneNumberWithUserCommandOutput
   | AssociatePhoneNumbersWithVoiceConnectorCommandOutput
@@ -967,8 +986,12 @@ export type ServiceOutputTypes =
   | UpdateUserCommandOutput
   | UpdateUserSettingsCommandOutput
   | UpdateVoiceConnectorCommandOutput
-  | UpdateVoiceConnectorGroupCommandOutput;
+  | UpdateVoiceConnectorGroupCommandOutput
+  | ValidateE911AddressCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -976,11 +999,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -1031,10 +1054,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -1052,116 +1108,102 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type ChimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type ChimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of ChimeClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ChimeClient class constructor that set the region, credentials and other options.
  */
 export interface ChimeClientConfig extends ChimeClientConfigType {}
 
-type ChimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type ChimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ChimeClient class. This is resolved and normalized from the {@link ChimeClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ChimeClient class. This is resolved and normalized from the {@link ChimeClientConfig | constructor configuration interface}.
  */
 export interface ChimeClientResolvedConfig extends ChimeClientResolvedConfigType {}
 
 /**
- * <p>The Amazon Chime API (application programming interface) is designed for developers to
+ * @public
+ * @deprecated
+ *
+ * <important>
+ *             <p>
+ *                <b>Most of these APIs are no longer supported and will not be updated.</b> We recommend using the latest versions in the
+ *                 <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/welcome.html">Amazon Chime SDK API reference</a>, in the Amazon Chime SDK.</p>
+ *             <p>Using the latest versions requires migrating to dedicated namespaces. For more information, refer to
+ *                 <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
+ *                 <i>Amazon Chime SDK Developer Guide</i>.</p>
+ *          </important>
+ *          <p>The Amazon Chime application programming interface (API) is designed so administrators can
  *             perform key tasks, such as creating and managing Amazon Chime accounts, users, and Voice
  *             Connectors. This guide provides detailed information about the Amazon Chime API,
- *             including operations, types, inputs and outputs, and error codes. It also includes API actions for use with the Amazon Chime SDK, which developers use to build their own communication applications. For more information about the
- *             Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">
- *                 Using the Amazon Chime SDK
- *             </a> in the <i>Amazon Chime Developer Guide</i>.</p>
- *          <p>You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST API to make API calls. We recommend using an AWS SDK or the
- *     AWS CLI. Each API operation includes links to information about using it with a language-specific AWS SDK or the AWS CLI.</p>
+ *             including operations, types, inputs and outputs, and error codes.</p>
+ *          <p>You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST API to make API calls for Amazon Chime. We recommend using an AWS SDK or the
+ *             AWS CLI. The page for each API action contains a <i>See Also</i> section that includes links to information about using the action with a language-specific
+ *             AWS SDK or the AWS CLI.</p>
  *          <dl>
  *             <dt>Using an AWS SDK</dt>
  *             <dd>
  *                <p>
- * You don't need to write code to calculate a signature for request authentication. The SDK clients authenticate your requests by using access keys that you provide. For more information about AWS SDKs, see the
- * <a href="http://aws.amazon.com/developer/">AWS Developer Center</a>.
- * </p>
+ *                         You don't need to write code to calculate a signature for request authentication. The SDK clients authenticate your requests by using access keys that you provide. For more information about AWS SDKs, see the
+ *                         <a href="http://aws.amazon.com/developer/">AWS Developer Center</a>.
+ *                     </p>
  *             </dd>
  *             <dt>Using the AWS CLI</dt>
  *             <dd>
  *                <p>Use your access keys with the AWS CLI to make API calls. For information about setting up the AWS CLI, see
- * <a href="https://docs.aws.amazon.com/cli/latest/userguide/installing.html">Installing the AWS Command Line Interface</a>
- * in the <i>AWS Command Line Interface User Guide</i>. For a list of available Amazon Chime commands, see the
- * <a href="https://docs.aws.amazon.com/cli/latest/reference/chime/index.html">Amazon Chime commands</a> in the
- *     <i>AWS CLI Command Reference</i>.
- * </p>
+ *                         <a href="https://docs.aws.amazon.com/cli/latest/userguide/installing.html">Installing the AWS Command Line Interface</a>
+ *                         in the <i>AWS Command Line Interface User Guide</i>. For a list of available Amazon Chime commands, see the
+ *                         <a href="https://docs.aws.amazon.com/cli/latest/reference/chime/index.html">Amazon Chime commands</a> in the
+ *                         <i>AWS CLI Command Reference</i>.
+ *                     </p>
  *             </dd>
  *             <dt>Using REST APIs</dt>
  *             <dd>
- *                <p>If you use REST to make API calls, you must authenticate your request by providing a signature. Amazon Chime supports signature version 4. For more information, see
- * <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>
- * in the <i>Amazon Web Services General Reference</i>.</p>
- *
+ *                <p>If you use REST to make API calls, you must authenticate your request by providing a signature. Amazon Chime supports Signature Version 4. For more information, see
+ *                         <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>
+ *                         in the <i>Amazon Web Services General Reference</i>.</p>
  *                <p>When making REST API calls, use the service name <code>chime</code> and REST endpoint <code>https://service.chime.aws.amazon.com</code>.</p>
  *             </dd>
  *          </dl>
- *
  *          <p>Administrative permissions are controlled using AWS Identity and Access Management (IAM). For more information, see
- * <a href="https://docs.aws.amazon.com/chime/latest/ag/security-iam.html">Identity and Access Management for Amazon Chime</a>
- * in the <i>Amazon Chime Administration Guide</i>.</p>
+ *             <a href="https://docs.aws.amazon.com/chime/latest/ag/security-iam.html">Identity and Access Management for Amazon Chime</a>
+ *             in the <i>Amazon Chime Administration Guide</i>.</p>
  */
 export class ChimeClient extends __Client<
   __HttpHandlerOptions,
@@ -1174,20 +1216,23 @@ export class ChimeClient extends __Client<
    */
   readonly config: ChimeClientResolvedConfig;
 
-  constructor(configuration: ChimeClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<ChimeClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DescribeFileSystemPolicyRequest, FileSystemPolicyDescription } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFileSystemPolicyCommand,
-  serializeAws_restJson1DescribeFileSystemPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeFileSystemPolicyCommand, se_DescribeFileSystemPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeFileSystemPolicyCommand}.
+ */
 export interface DescribeFileSystemPolicyCommandInput extends DescribeFileSystemPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFileSystemPolicyCommand}.
+ */
 export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file system.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystemPolicy</code> action.</p>
  * @example
@@ -30,13 +44,40 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  * import { EFSClient, DescribeFileSystemPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeFileSystemPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeFileSystemPolicyRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFileSystemPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // FileSystemPolicyDescription
+ * //   FileSystemId: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeFileSystemPolicyCommandInput - {@link DescribeFileSystemPolicyCommandInput}
+ * @returns {@link DescribeFileSystemPolicyCommandOutput}
  * @see {@link DescribeFileSystemPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link PolicyNotFound} (client fault)
+ *  <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
+ *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class DescribeFileSystemPolicyCommand extends $Command<
@@ -47,6 +88,18 @@ export class DescribeFileSystemPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileSystemPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +115,9 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeFileSystemPolicyCommandInput, DescribeFileSystemPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeFileSystemPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +128,8 @@ export class DescribeFileSystemPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFileSystemPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: FileSystemPolicyDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +139,18 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFileSystemPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFileSystemPolicyCommand(input, context);
+    return se_DescribeFileSystemPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileSystemPolicyCommandOutput> {
-    return deserializeAws_restJson1DescribeFileSystemPolicyCommand(output, context);
+    return de_DescribeFileSystemPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

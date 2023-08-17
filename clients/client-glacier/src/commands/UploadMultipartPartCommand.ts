@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,28 +11,39 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+  StreamingBlobPayloadInputTypes,
+} from "@smithy/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { UploadMultipartPartInput, UploadMultipartPartOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1UploadMultipartPartCommand,
-  serializeAws_restJson1UploadMultipartPartCommand,
-} from "../protocols/Aws_restJson1";
+  UploadMultipartPartInput,
+  UploadMultipartPartInputFilterSensitiveLog,
+  UploadMultipartPartOutput,
+} from "../models/models_0";
+import { de_UploadMultipartPartCommand, se_UploadMultipartPartCommand } from "../protocols/Aws_restJson1";
 
-type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"> & {
-  /**
-   * For *`UploadMultipartPartInput["body"]`*, see {@link UploadMultipartPartInput.body}.
-   */
-  body?: UploadMultipartPartInput["body"] | string | Uint8Array | Buffer;
-};
 /**
- * This interface extends from `UploadMultipartPartInput` interface. There are more parameters than `body` defined in {@link UploadMultipartPartInput}
+ * @public
  */
-export interface UploadMultipartPartCommandInput extends UploadMultipartPartCommandInputType {}
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UploadMultipartPartCommand}.
+ */
+export interface UploadMultipartPartCommandInput extends Omit<UploadMultipartPartInput, "body"> {
+  body?: StreamingBlobPayloadInputTypes;
+}
+
+/**
+ * @public
+ *
+ * The output of {@link UploadMultipartPartCommand}.
+ */
 export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation uploads a part of an archive. You can upload archive parts in any
  *          order. You can also upload them in parallel. You can upload up to 10,000 parts for a
  *          multipart upload.</p>
@@ -88,13 +101,68 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * import { GlacierClient, UploadMultipartPartCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, UploadMultipartPartCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // UploadMultipartPartInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   uploadId: "STRING_VALUE", // required
+ *   checksum: "STRING_VALUE",
+ *   range: "STRING_VALUE",
+ *   body: "STREAMING_BLOB_VALUE",
+ * };
  * const command = new UploadMultipartPartCommand(input);
  * const response = await client.send(command);
+ * // { // UploadMultipartPartOutput
+ * //   checksum: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param UploadMultipartPartCommandInput - {@link UploadMultipartPartCommandInput}
+ * @returns {@link UploadMultipartPartCommandOutput}
  * @see {@link UploadMultipartPartCommandInput} for command's `input` shape.
  * @see {@link UploadMultipartPartCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
+ *          upload.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
+ *          exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
+ *
+ * @example To upload the first part of an archive
+ * ```javascript
+ * // The example uploads the first 1 MiB (1024 x 1024 bytes) part of an archive.
+ * const input = {
+ *   "accountId": "-",
+ *   "body": "part1",
+ *   "checksum": "c06f7cd4baacb087002a99a5f48bf953",
+ *   "range": "bytes 0-1048575/*",
+ *   "uploadId": "19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ",
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new UploadMultipartPartCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "checksum": "c06f7cd4baacb087002a99a5f48bf953"
+ * }
+ * *\/
+ * // example id: to-upload-the-first-part-of-an-archive-1481835899519
+ * ```
  *
  */
 export class UploadMultipartPartCommand extends $Command<
@@ -105,6 +173,18 @@ export class UploadMultipartPartCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UploadMultipartPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +200,9 @@ export class UploadMultipartPartCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UploadMultipartPartCommandInput, UploadMultipartPartCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UploadMultipartPartCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -130,8 +213,8 @@ export class UploadMultipartPartCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadMultipartPartInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UploadMultipartPartOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UploadMultipartPartInputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +224,18 @@ export class UploadMultipartPartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadMultipartPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UploadMultipartPartCommand(input, context);
+    return se_UploadMultipartPartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadMultipartPartCommandOutput> {
-    return deserializeAws_restJson1UploadMultipartPartCommand(output, context);
+    return de_UploadMultipartPartCommand(output, context);
   }
 
   // Start section: command_body_extra

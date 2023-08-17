@@ -25,7 +25,7 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     // for object which is result of Object.create(null), which doesn't have constructor defined
     (!data.constructor && typeof data === "object")
   ) {
-    return convertToMapAttrFromEnumerableProps(data as { [key: string]: NativeAttributeValue }, options);
+    return convertToMapAttrFromEnumerableProps(data as Record<string, NativeAttributeValue>, options);
   } else if (isBinary(data)) {
     if (data.length === 0 && options?.convertEmptyValues) {
       return convertToNullAttr();
@@ -45,7 +45,7 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     }
     return convertToStringAttr(data);
   } else if (options?.convertClassInstanceToMap && typeof data === "object") {
-    return convertToMapAttrFromEnumerableProps(data as { [key: string]: NativeAttributeValue }, options);
+    return convertToMapAttrFromEnumerableProps(data as Record<string, NativeAttributeValue>, options);
   }
   throw new Error(
     `Unsupported type passed: ${data}. Pass options.convertClassInstanceToMap=true to marshall typeof object as map attribute.`
@@ -110,9 +110,9 @@ const convertToSetAttr = (
 const convertToMapAttrFromIterable = (
   data: Map<string, NativeAttributeValue>,
   options?: marshallOptions
-): { M: { [key: string]: AttributeValue } } => ({
+): { M: Record<string, AttributeValue> } => ({
   M: ((data) => {
-    const map: { [key: string]: AttributeValue } = {};
+    const map: Record<string, AttributeValue> = {};
     for (const [key, value] of data) {
       if (typeof value !== "function" && (value !== undefined || !options?.removeUndefinedValues)) {
         map[key] = convertToAttr(value, options);
@@ -123,11 +123,11 @@ const convertToMapAttrFromIterable = (
 });
 
 const convertToMapAttrFromEnumerableProps = (
-  data: { [key: string]: NativeAttributeValue },
+  data: Record<string, NativeAttributeValue>,
   options?: marshallOptions
-): { M: { [key: string]: AttributeValue } } => ({
+): { M: Record<string, AttributeValue> } => ({
   M: ((data) => {
-    const map: { [key: string]: AttributeValue } = {};
+    const map: Record<string, AttributeValue> = {};
     for (const key in data) {
       const value = data[key];
       if (typeof value !== "function" && (value !== undefined || !options?.removeUndefinedValues)) {

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AnalyzeDocumentCommand";
 export * from "./AnalyzeExpenseCommand";
 export * from "./AnalyzeIDCommand";
@@ -5,6 +6,9 @@ export * from "./DetectDocumentTextCommand";
 export * from "./GetDocumentAnalysisCommand";
 export * from "./GetDocumentTextDetectionCommand";
 export * from "./GetExpenseAnalysisCommand";
+export * from "./GetLendingAnalysisCommand";
+export * from "./GetLendingAnalysisSummaryCommand";
 export * from "./StartDocumentAnalysisCommand";
 export * from "./StartDocumentTextDetectionCommand";
 export * from "./StartExpenseAnalysisCommand";
+export * from "./StartLendingAnalysisCommand";

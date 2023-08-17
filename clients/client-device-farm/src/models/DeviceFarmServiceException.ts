@@ -1,9 +1,14 @@
+// smithy-typescript generated code
 import {
   ServiceException as __ServiceException,
   ServiceExceptionOptions as __ServiceExceptionOptions,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
+
+export { __ServiceException, __ServiceExceptionOptions };
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from DeviceFarm service.
  */
 export class DeviceFarmServiceException extends __ServiceException {

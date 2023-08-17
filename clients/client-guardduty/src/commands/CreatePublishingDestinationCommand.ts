@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { CreatePublishingDestinationRequest, CreatePublishingDestinationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreatePublishingDestinationCommand,
-  serializeAws_restJson1CreatePublishingDestinationCommand,
+  de_CreatePublishingDestinationCommand,
+  se_CreatePublishingDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreatePublishingDestinationCommand}.
+ */
 export interface CreatePublishingDestinationCommandInput extends CreatePublishingDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePublishingDestinationCommand}.
+ */
 export interface CreatePublishingDestinationCommandOutput
   extends CreatePublishingDestinationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a publishing destination to export findings to. The resource to export findings to
  *       must exist before you use this operation.</p>
  * @example
@@ -32,13 +49,37 @@ export interface CreatePublishingDestinationCommandOutput
  * import { GuardDutyClient, CreatePublishingDestinationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreatePublishingDestinationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // CreatePublishingDestinationRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   DestinationType: "S3", // required
+ *   DestinationProperties: { // DestinationProperties
+ *     DestinationArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreatePublishingDestinationCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePublishingDestinationResponse
+ * //   DestinationId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
+ * @param CreatePublishingDestinationCommandInput - {@link CreatePublishingDestinationCommandInput}
+ * @returns {@link CreatePublishingDestinationCommandOutput}
  * @see {@link CreatePublishingDestinationCommandInput} for command's `input` shape.
  * @see {@link CreatePublishingDestinationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreatePublishingDestinationCommand extends $Command<
@@ -49,6 +90,18 @@ export class CreatePublishingDestinationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePublishingDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +117,9 @@ export class CreatePublishingDestinationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePublishingDestinationCommandInput, CreatePublishingDestinationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePublishingDestinationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +130,8 @@ export class CreatePublishingDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePublishingDestinationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePublishingDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,15 +141,21 @@ export class CreatePublishingDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePublishingDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePublishingDestinationCommand(input, context);
+    return se_CreatePublishingDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePublishingDestinationCommandOutput> {
-    return deserializeAws_restJson1CreatePublishingDestinationCommand(output, context);
+    return de_CreatePublishingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

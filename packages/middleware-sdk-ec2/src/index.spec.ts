@@ -1,14 +1,22 @@
-import { credentials, endpoint, MockSha256, region } from "./fixture";
+import { HttpRequest } from "@smithy/protocol-http";
+import { EndpointV2 } from "@smithy/types";
+
+import { credentials, MockSha256, region } from "./fixture";
 import { copySnapshotPresignedUrlMiddleware } from "./index";
 
 const nextHandler = jest.fn();
 const handler = copySnapshotPresignedUrlMiddleware({
   credentials,
-  endpoint,
   region,
   sha256: MockSha256,
   signingEscapePath: true,
-})(nextHandler, {} as any);
+  endpointProvider: async (...args) =>
+    ({
+      url: {
+        hostname: "ec2.src-region.test-host.com",
+      },
+    } as EndpointV2),
+} as any)(nextHandler, {} as any);
 
 describe("middleware-sdk-ec2", () => {
   beforeEach(() => {
@@ -27,7 +35,8 @@ describe("middleware-sdk-ec2", () => {
     expect(middlewareOutput.input.SourceSnapshotId).toEqual(params.SourceSnapshotId);
     expect(middlewareOutput.input.DestinationRegion).toEqual(await region());
     const presignedUrl = middlewareOutput.input.PresignedUrl;
-    expect(presignedUrl).toMatch(/https\:\/\/ec2.src-region.amazonaws.com\/\?/);
+    expect(presignedUrl).not.toMatch(/https\:\/\/ec2.src-region.amazonaws.com\/\?/);
+    expect(presignedUrl).toMatch(/https\:\/\/ec2.src-region.test-host.com\/\?/);
     expect(presignedUrl).toMatch(/Action\=CopySnapshot/);
     expect(presignedUrl).toMatch(/Version\=2016\-11\-15/);
     expect(presignedUrl).toMatch(
@@ -42,7 +51,7 @@ describe("middleware-sdk-ec2", () => {
     expect(presignedUrl).toMatch(/X-Amz-Signature\=000000/);
   });
 
-  it("does not modify input if PresignedUrl has already  been set", async () => {
+  it("does not modify input if PresignedUrl has already been set", async () => {
     const params = {
       PresignedUrl: "provided",
       SourceRegion: "src-region",
@@ -53,5 +62,18 @@ describe("middleware-sdk-ec2", () => {
     const middlewareOutput = nextHandler.mock.calls[0][0];
     expect(middlewareOutput.input.SourceRegion).toEqual(params.SourceRegion);
     expect(middlewareOutput.input.PresignedUrl).toEqual(params.PresignedUrl);
+  });
+
+  it("serializes the presignedUrl into the request body", async () => {
+    const params = {
+      SourceRegion: "src-region",
+      SourceSnapshotId: "snap-123456789",
+    };
+    await handler({ input: params, request: new HttpRequest({ body: "" }) });
+    expect(nextHandler.mock.calls.length).toBe(1);
+    const middlewareOutput = nextHandler.mock.calls[0][0];
+    expect(middlewareOutput.request.body).toContain(
+      `&DestinationRegion=mock-region&PresignedUrl=https%3A%2F%2Fec2.src-region.test-host.com%2F%3FAction%3DCopySnapshot`
+    );
   });
 });

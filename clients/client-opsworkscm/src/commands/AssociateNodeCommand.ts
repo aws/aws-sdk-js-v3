@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { AssociateNodeRequest, AssociateNodeResponse } from "../models/models_0";
-import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
-  deserializeAws_json1_1AssociateNodeCommand,
-  serializeAws_json1_1AssociateNodeCommand,
-} from "../protocols/Aws_json1_1";
+  AssociateNodeRequest,
+  AssociateNodeRequestFilterSensitiveLog,
+  AssociateNodeResponse,
+} from "../models/models_0";
+import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
+import { de_AssociateNodeCommand, se_AssociateNodeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateNodeCommand}.
+ */
 export interface AssociateNodeCommandInput extends AssociateNodeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateNodeCommand}.
+ */
 export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Associates a new node with the server. For more information about how to disassociate a node, see <a>DisassociateNode</a>.</p>
  *          <p>
  *       On a Chef server: This command is an alternative to  <code>knife bootstrap</code>.</p>
@@ -45,13 +63,44 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  * import { OpsWorksCMClient, AssociateNodeCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, AssociateNodeCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // AssociateNodeRequest
+ *   ServerName: "STRING_VALUE", // required
+ *   NodeName: "STRING_VALUE", // required
+ *   EngineAttributes: [ // EngineAttributes // required
+ *     { // EngineAttribute
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AssociateNodeCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateNodeResponse
+ * //   NodeAssociationStatusToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param AssociateNodeCommandInput - {@link AssociateNodeCommandInput}
+ * @returns {@link AssociateNodeCommandOutput}
  * @see {@link AssociateNodeCommandInput} for command's `input` shape.
  * @see {@link AssociateNodeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The resource is in a state that does not allow you to perform a specified action.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the provided request parameters are not valid.
+ *     </p>
+ *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class AssociateNodeCommand extends $Command<
@@ -62,6 +111,18 @@ export class AssociateNodeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,6 +138,7 @@ export class AssociateNodeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateNodeCommandInput, AssociateNodeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AssociateNodeCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -87,8 +149,8 @@ export class AssociateNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateNodeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateNodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateNodeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +160,18 @@ export class AssociateNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateNodeCommand(input, context);
+    return se_AssociateNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateNodeCommandOutput> {
-    return deserializeAws_json1_1AssociateNodeCommand(output, context);
+    return de_AssociateNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

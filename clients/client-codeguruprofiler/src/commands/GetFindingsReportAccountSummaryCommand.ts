@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { GetFindingsReportAccountSummaryRequest, GetFindingsReportAccountSummaryResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetFindingsReportAccountSummaryCommand,
-  serializeAws_restJson1GetFindingsReportAccountSummaryCommand,
+  de_GetFindingsReportAccountSummaryCommand,
+  se_GetFindingsReportAccountSummaryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetFindingsReportAccountSummaryCommand}.
+ */
 export interface GetFindingsReportAccountSummaryCommandInput extends GetFindingsReportAccountSummaryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFindingsReportAccountSummaryCommand}.
+ */
 export interface GetFindingsReportAccountSummaryCommandOutput
   extends GetFindingsReportAccountSummaryResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Returns a list of
  *             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_FindingsReportSummary.html">
@@ -37,13 +54,45 @@ export interface GetFindingsReportAccountSummaryCommandOutput
  * import { CodeGuruProfilerClient, GetFindingsReportAccountSummaryCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, GetFindingsReportAccountSummaryCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // GetFindingsReportAccountSummaryRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   dailyReportsOnly: true || false,
+ * };
  * const command = new GetFindingsReportAccountSummaryCommand(input);
  * const response = await client.send(command);
+ * // { // GetFindingsReportAccountSummaryResponse
+ * //   reportSummaries: [ // FindingsReportSummaries // required
+ * //     { // FindingsReportSummary
+ * //       id: "STRING_VALUE",
+ * //       profilingGroupName: "STRING_VALUE",
+ * //       profileStartTime: new Date("TIMESTAMP"),
+ * //       profileEndTime: new Date("TIMESTAMP"),
+ * //       totalNumberOfFindings: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetFindingsReportAccountSummaryCommandInput - {@link GetFindingsReportAccountSummaryCommandInput}
+ * @returns {@link GetFindingsReportAccountSummaryCommandOutput}
  * @see {@link GetFindingsReportAccountSummaryCommandInput} for command's `input` shape.
  * @see {@link GetFindingsReportAccountSummaryCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class GetFindingsReportAccountSummaryCommand extends $Command<
@@ -54,6 +103,18 @@ export class GetFindingsReportAccountSummaryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingsReportAccountSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +130,9 @@ export class GetFindingsReportAccountSummaryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetFindingsReportAccountSummaryCommandInput, GetFindingsReportAccountSummaryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetFindingsReportAccountSummaryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +143,8 @@ export class GetFindingsReportAccountSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingsReportAccountSummaryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingsReportAccountSummaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,18 +154,24 @@ export class GetFindingsReportAccountSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetFindingsReportAccountSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingsReportAccountSummaryCommand(input, context);
+    return se_GetFindingsReportAccountSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFindingsReportAccountSummaryCommandOutput> {
-    return deserializeAws_restJson1GetFindingsReportAccountSummaryCommand(output, context);
+    return de_GetFindingsReportAccountSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

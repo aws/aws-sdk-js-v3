@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CloudWatch } from "../CloudWatch";
 import { CloudWatchClient } from "../CloudWatchClient";
 import {
   ListDashboardsCommand,
@@ -10,7 +10,7 @@ import {
 import { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudWatchClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDashboardsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudWatch,
-  input: ListDashboardsCommandInput,
-  ...args: any
-): Promise<ListDashboardsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDashboards(input, ...args);
-};
 export async function* paginateListDashboards(
   config: CloudWatchPaginationConfiguration,
   input: ListDashboardsCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateListDashboards(
   let page: ListDashboardsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof CloudWatch) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudWatchClient) {
+    if (config.client instanceof CloudWatchClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudWatch | CloudWatchClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

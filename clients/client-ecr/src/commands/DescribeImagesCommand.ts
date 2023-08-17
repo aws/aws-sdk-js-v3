@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { DescribeImagesRequest, DescribeImagesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImagesCommand,
-  serializeAws_json1_1DescribeImagesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeImagesCommand, se_DescribeImagesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeImagesCommand}.
+ */
 export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeImagesCommand}.
+ */
 export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about the images in a repository.</p>
  *         <note>
  *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers
@@ -35,13 +49,77 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * import { ECRClient, DescribeImagesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribeImagesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // DescribeImagesRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageIds: [ // ImageIdentifierList
+ *     { // ImageIdentifier
+ *       imageDigest: "STRING_VALUE",
+ *       imageTag: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: { // DescribeImagesFilter
+ *     tagStatus: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DescribeImagesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeImagesResponse
+ * //   imageDetails: [ // ImageDetailList
+ * //     { // ImageDetail
+ * //       registryId: "STRING_VALUE",
+ * //       repositoryName: "STRING_VALUE",
+ * //       imageDigest: "STRING_VALUE",
+ * //       imageTags: [ // ImageTagList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       imageSizeInBytes: Number("long"),
+ * //       imagePushedAt: new Date("TIMESTAMP"),
+ * //       imageScanStatus: { // ImageScanStatus
+ * //         status: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //       },
+ * //       imageScanFindingsSummary: { // ImageScanFindingsSummary
+ * //         imageScanCompletedAt: new Date("TIMESTAMP"),
+ * //         vulnerabilitySourceUpdatedAt: new Date("TIMESTAMP"),
+ * //         findingSeverityCounts: { // FindingSeverityCounts
+ * //           "<keys>": Number("int"),
+ * //         },
+ * //       },
+ * //       imageManifestMediaType: "STRING_VALUE",
+ * //       artifactMediaType: "STRING_VALUE",
+ * //       lastRecordedPullTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeImagesCommandInput - {@link DescribeImagesCommandInput}
+ * @returns {@link DescribeImagesCommandOutput}
  * @see {@link DescribeImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link ImageNotFoundException} (client fault)
+ *  <p>The image requested does not exist in the specified repository.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class DescribeImagesCommand extends $Command<
@@ -52,6 +130,18 @@ export class DescribeImagesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +157,9 @@ export class DescribeImagesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeImagesCommandInput, DescribeImagesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeImagesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +170,8 @@ export class DescribeImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImagesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +181,18 @@ export class DescribeImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImagesCommand(input, context);
+    return se_DescribeImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImagesCommandOutput> {
-    return deserializeAws_json1_1DescribeImagesCommand(output, context);
+    return de_DescribeImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

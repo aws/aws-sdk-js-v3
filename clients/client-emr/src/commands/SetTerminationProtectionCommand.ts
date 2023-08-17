@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,24 +11,38 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { SetTerminationProtectionInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetTerminationProtectionCommand,
-  serializeAws_json1_1SetTerminationProtectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetTerminationProtectionCommand, se_SetTerminationProtectionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SetTerminationProtectionCommand}.
+ */
 export interface SetTerminationProtectionCommandInput extends SetTerminationProtectionInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetTerminationProtectionCommand}.
+ */
 export interface SetTerminationProtectionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster
- *          cannot be terminated by user intervention, an API call, or in the event of a job-flow
- *          error. The cluster still terminates upon successful completion of the job flow. Calling
- *          <code>SetTerminationProtection</code> on a cluster is similar to calling the Amazon EC2
- *             <code>DisableAPITermination</code> API on all EC2 instances in a cluster.</p>
+ * @public
+ * <p>SetTerminationProtection locks a cluster (job flow) so the Amazon EC2 instances
+ *          in the cluster cannot be terminated by user intervention, an API call, or in the event of a
+ *          job-flow error. The cluster still terminates upon successful completion of the job flow.
+ *          Calling <code>SetTerminationProtection</code> on a cluster is similar to calling the
+ *             Amazon EC2
+ *          <code>DisableAPITermination</code> API on all Amazon EC2 instances in a
+ *          cluster.</p>
  *          <p>
  *             <code>SetTerminationProtection</code> is used to prevent accidental termination of a
  *          cluster and to ensure that in the event of an error, the instances persist so that you can
@@ -43,13 +59,30 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  * import { EMRClient, SetTerminationProtectionCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, SetTerminationProtectionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // SetTerminationProtectionInput
+ *   JobFlowIds: [ // XmlStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TerminationProtected: true || false, // required
+ * };
  * const command = new SetTerminationProtectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param SetTerminationProtectionCommandInput - {@link SetTerminationProtectionCommandInput}
+ * @returns {@link SetTerminationProtectionCommandOutput}
  * @see {@link SetTerminationProtectionCommandInput} for command's `input` shape.
  * @see {@link SetTerminationProtectionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class SetTerminationProtectionCommand extends $Command<
@@ -60,6 +93,18 @@ export class SetTerminationProtectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SetTerminationProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +120,9 @@ export class SetTerminationProtectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SetTerminationProtectionCommandInput, SetTerminationProtectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SetTerminationProtectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,8 +133,8 @@ export class SetTerminationProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTerminationProtectionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +144,18 @@ export class SetTerminationProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTerminationProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetTerminationProtectionCommand(input, context);
+    return se_SetTerminationProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTerminationProtectionCommandOutput> {
-    return deserializeAws_json1_1SetTerminationProtectionCommand(output, context);
+    return de_SetTerminationProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

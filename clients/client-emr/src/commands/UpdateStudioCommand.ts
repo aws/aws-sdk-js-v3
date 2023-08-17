@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,69 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { UpdateStudioInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateStudioCommand,
-  serializeAws_json1_1UpdateStudioCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateStudioCommand, se_UpdateStudioCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateStudioCommand}.
+ */
 export interface UpdateStudioCommandInput extends UpdateStudioInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateStudioCommand}.
+ */
 export interface UpdateStudioCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates an Amazon EMR Studio configuration, including attributes such as name, description, and subnets.</p>
+ * @public
+ * <p>Updates an Amazon EMR Studio configuration, including attributes such as name,
+ *          description, and subnets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, UpdateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, UpdateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // UpdateStudioInput
+ *   StudioId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   SubnetIds: [ // SubnetIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DefaultS3Location: "STRING_VALUE",
+ * };
  * const command = new UpdateStudioCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateStudioCommandInput - {@link UpdateStudioCommandInput}
+ * @returns {@link UpdateStudioCommandOutput}
  * @see {@link UpdateStudioCommandInput} for command's `input` shape.
  * @see {@link UpdateStudioCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class UpdateStudioCommand extends $Command<
@@ -46,6 +84,18 @@ export class UpdateStudioCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +111,7 @@ export class UpdateStudioCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateStudioCommandInput, UpdateStudioCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateStudioCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +122,8 @@ export class UpdateStudioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStudioInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +133,18 @@ export class UpdateStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStudioCommand(input, context);
+    return se_UpdateStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStudioCommandOutput> {
-    return deserializeAws_json1_1UpdateStudioCommand(output, context);
+    return de_UpdateStudioCommand(output, context);
   }
 
   // Start section: command_body_extra

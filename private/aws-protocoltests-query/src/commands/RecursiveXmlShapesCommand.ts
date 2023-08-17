@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +10,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { RecursiveXmlShapesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryRecursiveXmlShapesCommand,
-  serializeAws_queryRecursiveXmlShapesCommand,
-} from "../protocols/Aws_query";
+import { de_RecursiveXmlShapesCommand, se_RecursiveXmlShapesCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RecursiveXmlShapesCommand}.
+ */
 export interface RecursiveXmlShapesCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link RecursiveXmlShapesCommand}.
+ */
 export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Recursive shapes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +42,35 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
  * import { QueryProtocolClient, RecursiveXmlShapesCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, RecursiveXmlShapesCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new RecursiveXmlShapesCommand(input);
  * const response = await client.send(command);
+ * // { // RecursiveXmlShapesOutput
+ * //   nested: { // RecursiveXmlShapesOutputNested1
+ * //     foo: "STRING_VALUE",
+ * //     nested: { // RecursiveXmlShapesOutputNested2
+ * //       bar: "STRING_VALUE",
+ * //       recursiveMember: {
+ * //         foo: "STRING_VALUE",
+ * //         nested: {
+ * //           bar: "STRING_VALUE",
+ * //           recursiveMember: "<RecursiveXmlShapesOutputNested1>",
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param RecursiveXmlShapesCommandInput - {@link RecursiveXmlShapesCommandInput}
+ * @returns {@link RecursiveXmlShapesCommandOutput}
  * @see {@link RecursiveXmlShapesCommandInput} for command's `input` shape.
  * @see {@link RecursiveXmlShapesCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
+ *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class RecursiveXmlShapesCommand extends $Command<
@@ -46,6 +81,9 @@ export class RecursiveXmlShapesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecursiveXmlShapesCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,8 +109,8 @@ export class RecursiveXmlShapesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: RecursiveXmlShapesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +120,18 @@ export class RecursiveXmlShapesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecursiveXmlShapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRecursiveXmlShapesCommand(input, context);
+    return se_RecursiveXmlShapesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecursiveXmlShapesCommandOutput> {
-    return deserializeAws_queryRecursiveXmlShapesCommand(output, context);
+    return de_RecursiveXmlShapesCommand(output, context);
   }
 
   // Start section: command_body_extra

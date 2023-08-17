@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,27 +11,57 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GroupResourcesInput, GroupResourcesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GroupResourcesCommand,
-  serializeAws_restJson1GroupResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GroupResourcesCommand, se_GroupResourcesCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GroupResourcesCommand}.
+ */
 export interface GroupResourcesCommandInput extends GroupResourcesInput {}
+/**
+ * @public
+ *
+ * The output of {@link GroupResourcesCommand}.
+ */
 export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified resources to the specified group.</p>
- *         <p>
+ *          <important>
+ *             <p>You can use this operation with only resource groups that are configured with the
+ *                 following types:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>AWS::EC2::HostManagement</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>AWS::EC2::CapacityReservationPool</code>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *             <p>Other resource group type and resource types aren't currently supported by this
+ *                 operation.</p>
+ *          </important>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:GroupResources</code>
  *                </p>
  *             </li>
@@ -40,13 +72,61 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  * import { ResourceGroupsClient, GroupResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GroupResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // GroupResourcesInput
+ *   Group: "STRING_VALUE", // required
+ *   ResourceArns: [ // ResourceArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GroupResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // GroupResourcesOutput
+ * //   Succeeded: [ // ResourceArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Failed: [ // FailedResourceList
+ * //     { // FailedResource
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Pending: [ // PendingResourceList
+ * //     { // PendingResource
+ * //       ResourceArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GroupResourcesCommandInput - {@link GroupResourcesCommandInput}
+ * @returns {@link GroupResourcesCommandOutput}
  * @see {@link GroupResourcesCommandInput} for command's `input` shape.
  * @see {@link GroupResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request includes one or more parameters that violate validation rules.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The caller isn't authorized to make the request. Check permissions.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error occurred while processing the request. Try again later.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the specified resources don't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>You've exceeded throttling limits by making too many requests in a period of
+ *             time.</p>
+ *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class GroupResourcesCommand extends $Command<
@@ -57,6 +137,18 @@ export class GroupResourcesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GroupResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +164,9 @@ export class GroupResourcesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GroupResourcesCommandInput, GroupResourcesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GroupResourcesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -82,8 +177,8 @@ export class GroupResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GroupResourcesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GroupResourcesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,12 +188,18 @@ export class GroupResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GroupResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GroupResourcesCommand(input, context);
+    return se_GroupResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GroupResourcesCommandOutput> {
-    return deserializeAws_restJson1GroupResourcesCommand(output, context);
+    return de_GroupResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

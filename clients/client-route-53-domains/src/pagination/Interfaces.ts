@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Route53Domains } from "../Route53Domains";
 import { Route53DomainsClient } from "../Route53DomainsClient";
 
+/**
+ * @public
+ */
 export interface Route53DomainsPaginationConfiguration extends PaginationConfiguration {
-  client: Route53Domains | Route53DomainsClient;
+  client: Route53DomainsClient;
 }

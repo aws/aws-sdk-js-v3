@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddClientIDToOpenIDConnectProviderCommand";
 export * from "./AddRoleToInstanceProfileCommand";
 export * from "./AddUserToGroupCommand";
@@ -61,6 +62,7 @@ export * from "./GetGroupCommand";
 export * from "./GetGroupPolicyCommand";
 export * from "./GetInstanceProfileCommand";
 export * from "./GetLoginProfileCommand";
+export * from "./GetMFADeviceCommand";
 export * from "./GetOpenIDConnectProviderCommand";
 export * from "./GetOrganizationsAccessReportCommand";
 export * from "./GetPolicyCommand";

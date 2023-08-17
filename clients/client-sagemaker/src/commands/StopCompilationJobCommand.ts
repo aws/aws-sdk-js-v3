@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,24 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { StopCompilationJobRequest } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopCompilationJobCommand,
-  serializeAws_json1_1StopCompilationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopCompilationJobRequest } from "../models/models_4";
+import { de_StopCompilationJobCommand, se_StopCompilationJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StopCompilationJobCommand}.
+ */
 export interface StopCompilationJobCommandInput extends StopCompilationJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopCompilationJobCommand}.
+ */
 export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a model compilation job.</p>
- *         <p> To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal. This gracefully shuts the
+ *          <p> To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal. This gracefully shuts the
  *             job down. If the job hasn't stopped, it sends the SIGKILL signal.</p>
- *         <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker changes the <a>CompilationJobSummary$CompilationJobStatus</a> of the job to
- *             <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <a>CompilationJobSummary$CompilationJobStatus</a> to <code>Stopped</code>.
+ *          <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker changes the <code>CompilationJobStatus</code> of the job to
+ *             <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <code>CompilationJobStatus</code> to <code>Stopped</code>.
  *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +48,26 @@ export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopCompilationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopCompilationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopCompilationJobRequest
+ *   CompilationJobName: "STRING_VALUE", // required
+ * };
  * const command = new StopCompilationJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StopCompilationJobCommandInput - {@link StopCompilationJobCommandInput}
+ * @returns {@link StopCompilationJobCommandOutput}
  * @see {@link StopCompilationJobCommandInput} for command's `input` shape.
  * @see {@link StopCompilationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StopCompilationJobCommand extends $Command<
@@ -51,6 +78,18 @@ export class StopCompilationJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StopCompilationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +105,9 @@ export class StopCompilationJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopCompilationJobCommandInput, StopCompilationJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopCompilationJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +118,8 @@ export class StopCompilationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopCompilationJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +129,18 @@ export class StopCompilationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCompilationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopCompilationJobCommand(input, context);
+    return se_StopCompilationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCompilationJobCommandOutput> {
-    return deserializeAws_json1_1StopCompilationJobCommand(output, context);
+    return de_StopCompilationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

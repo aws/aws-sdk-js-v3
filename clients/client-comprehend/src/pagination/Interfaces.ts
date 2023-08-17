@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Comprehend } from "../Comprehend";
 import { ComprehendClient } from "../ComprehendClient";
 
+/**
+ * @public
+ */
 export interface ComprehendPaginationConfiguration extends PaginationConfiguration {
-  client: Comprehend | ComprehendClient;
+  client: ComprehendClient;
 }

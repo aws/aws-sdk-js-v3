@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Snowball } from "../Snowball";
 import { SnowballClient } from "../SnowballClient";
 
+/**
+ * @public
+ */
 export interface SnowballPaginationConfiguration extends PaginationConfiguration {
-  client: Snowball | SnowballClient;
+  client: SnowballClient;
 }

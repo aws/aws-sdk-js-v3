@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListClustersCommand,
   ListClustersCommandInput,
   ListClustersCommandOutput,
 } from "../commands/ListClustersCommand";
-import { EKS } from "../EKS";
 import { EKSClient } from "../EKSClient";
 import { EKSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EKSClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListClustersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EKS,
-  input: ListClustersCommandInput,
-  ...args: any
-): Promise<ListClustersCommandOutput> => {
-  // @ts-ignore
-  return await client.listClusters(input, ...args);
-};
 export async function* paginateListClusters(
   config: EKSPaginationConfiguration,
   input: ListClustersCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListClusters(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof EKS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EKSClient) {
+    if (config.client instanceof EKSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EKS | EKSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

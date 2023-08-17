@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DeleteInterconnectRequest, DeleteInterconnectResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteInterconnectCommand,
-  serializeAws_json1_1DeleteInterconnectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteInterconnectCommand, se_DeleteInterconnectCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteInterconnectCommand}.
+ */
 export interface DeleteInterconnectCommandInput extends DeleteInterconnectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteInterconnectCommand}.
+ */
 export interface DeleteInterconnectCommandOutput extends DeleteInterconnectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified interconnect.</p>
  *          <note>
  *             <p>Intended for use
@@ -33,13 +47,31 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * import { DirectConnectClient, DeleteInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DeleteInterconnectRequest
+ *   interconnectId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInterconnectCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteInterconnectResponse
+ * //   interconnectState: "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "unknown",
+ * // };
+ *
  * ```
  *
+ * @param DeleteInterconnectCommandInput - {@link DeleteInterconnectCommandInput}
+ * @returns {@link DeleteInterconnectCommandOutput}
  * @see {@link DeleteInterconnectCommandInput} for command's `input` shape.
  * @see {@link DeleteInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DeleteInterconnectCommand extends $Command<
@@ -50,6 +82,18 @@ export class DeleteInterconnectCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInterconnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +109,9 @@ export class DeleteInterconnectCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteInterconnectCommandInput, DeleteInterconnectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteInterconnectCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +122,8 @@ export class DeleteInterconnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInterconnectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInterconnectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +133,18 @@ export class DeleteInterconnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInterconnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInterconnectCommand(input, context);
+    return se_DeleteInterconnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInterconnectCommandOutput> {
-    return deserializeAws_json1_1DeleteInterconnectCommand(output, context);
+    return de_DeleteInterconnectCommand(output, context);
   }
 
   // Start section: command_body_extra

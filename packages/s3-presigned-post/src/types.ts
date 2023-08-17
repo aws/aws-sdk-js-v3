@@ -1,4 +1,4 @@
-type EqualCondition = ["eq", string, string] | { [key: string]: string };
+type EqualCondition = ["eq", string, string] | Record<string, string>;
 
 type StartsWithCondition = ["starts-with", string, string];
 

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   ExecuteTransactionCommand as __ExecuteTransactionCommand,
   ExecuteTransactionCommandInput as __ExecuteTransactionCommandInput,
@@ -5,13 +6,21 @@ import {
   ItemResponse,
   ParameterizedStatement,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
-import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { Command as $Command } from "@smithy/smithy-client";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
+/**
+ * @public
+ */
+export { DynamoDBDocumentClientCommand, $Command };
+
+/**
+ * @public
+ */
 export type ExecuteTransactionCommandInput = Omit<__ExecuteTransactionCommandInput, "TransactStatements"> & {
   TransactStatements:
     | (Omit<ParameterizedStatement, "Parameters"> & {
@@ -20,29 +29,44 @@ export type ExecuteTransactionCommandInput = Omit<__ExecuteTransactionCommandInp
     | undefined;
 };
 
+/**
+ * @public
+ */
 export type ExecuteTransactionCommandOutput = Omit<__ExecuteTransactionCommandOutput, "Responses"> & {
   Responses?: (Omit<ItemResponse, "Item"> & {
-    Item?: { [key: string]: NativeAttributeValue };
+    Item?: Record<string, NativeAttributeValue>;
   })[];
 };
 
 /**
  * Accepts native JavaScript types instead of `AttributeValue`s, and calls
- * ExecuteTransactionCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ * ExecuteTransactionCommand operation from {@link @aws-sdk/client-dynamodb#ExecuteTransactionCommand}.
  *
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ *
+ * @public
  */
-export class ExecuteTransactionCommand extends $Command<
+export class ExecuteTransactionCommand extends DynamoDBDocumentClientCommand<
   ExecuteTransactionCommandInput,
   ExecuteTransactionCommandOutput,
+  __ExecuteTransactionCommandInput,
+  __ExecuteTransactionCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  private readonly inputKeyNodes = [{ key: "TransactStatements", children: [{ key: "Parameters" }] }];
-  private readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
+  protected readonly inputKeyNodes = [{ key: "TransactStatements", children: [{ key: "Parameters" }] }];
+  protected readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
+
+  protected readonly clientCommand: __ExecuteTransactionCommand;
+  public readonly middlewareStack: MiddlewareStack<
+    ExecuteTransactionCommandInput | __ExecuteTransactionCommandInput,
+    ExecuteTransactionCommandOutput | __ExecuteTransactionCommandOutput
+  >;
 
   constructor(readonly input: ExecuteTransactionCommandInput) {
     super();
+    this.clientCommand = new __ExecuteTransactionCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**
@@ -53,16 +77,10 @@ export class ExecuteTransactionCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExecuteTransactionCommandInput, ExecuteTransactionCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __ExecuteTransactionCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    this.addMarshallingMiddleware(configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(this.clientCommand);
   }
 }

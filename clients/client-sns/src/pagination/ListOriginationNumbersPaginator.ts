@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListOriginationNumbersCommand,
   ListOriginationNumbersCommandInput,
   ListOriginationNumbersCommandOutput,
 } from "../commands/ListOriginationNumbersCommand";
-import { SNS } from "../SNS";
 import { SNSClient } from "../SNSClient";
 import { SNSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SNSClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListOriginationNumbersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SNS,
-  input: ListOriginationNumbersCommandInput,
-  ...args: any
-): Promise<ListOriginationNumbersCommandOutput> => {
-  // @ts-ignore
-  return await client.listOriginationNumbers(input, ...args);
-};
 export async function* paginateListOriginationNumbers(
   config: SNSPaginationConfiguration,
   input: ListOriginationNumbersCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListOriginationNumbers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SNS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SNSClient) {
+    if (config.client instanceof SNSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SNS | SNSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

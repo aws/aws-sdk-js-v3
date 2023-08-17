@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Detective } from "../Detective";
 import { DetectiveClient } from "../DetectiveClient";
 
+/**
+ * @public
+ */
 export interface DetectivePaginationConfiguration extends PaginationConfiguration {
-  client: Detective | DetectiveClient;
+  client: DetectiveClient;
 }

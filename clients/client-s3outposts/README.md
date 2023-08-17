@@ -1,7 +1,6 @@
-# @aws-sdk/client-s3outposts
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-s3outposts/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-s3outposts)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-s3outposts.svg)](https://www.npmjs.com/package/@aws-sdk/client-s3outposts)
+# @aws-sdk/client-s3outposts
 
 ## Description
 
@@ -115,7 +114,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -149,7 +148,7 @@ client
 
 // callbacks.
 client.createEndpoint(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -163,7 +162,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -201,3 +200,46 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/classes/createendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/createendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/createendpointcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/classes/deleteendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/deleteendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/deleteendpointcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListEndpoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/classes/listendpointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/listendpointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/listendpointscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListOutpostsWithS3
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/classes/listoutpostswiths3command.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/listoutpostswiths3commandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/listoutpostswiths3commandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSharedEndpoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/classes/listsharedendpointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/listsharedendpointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/listsharedendpointscommandoutput.html)
+
+</details>

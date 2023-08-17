@@ -1,4 +1,4 @@
-const { Before, Given } = require("cucumber");
+const { Before, Given } = require("@cucumber/cucumber");
 
 Before({ tags: "@route53domains" }, function (scenario, callback) {
   const { Route53Domains } = require("../../../clients/client-route-53-domains");

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { GetPreparedStatementInput, GetPreparedStatementOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPreparedStatementCommand,
-  serializeAws_json1_1GetPreparedStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetPreparedStatementCommand, se_GetPreparedStatementCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetPreparedStatementCommand}.
+ */
 export interface GetPreparedStatementCommandInput extends GetPreparedStatementInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetPreparedStatementCommand}.
+ */
 export interface GetPreparedStatementCommandOutput extends GetPreparedStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the prepared statement with the specified name from the specified
  *             workgroup.</p>
  * @example
@@ -30,13 +44,43 @@ export interface GetPreparedStatementCommandOutput extends GetPreparedStatementO
  * import { AthenaClient, GetPreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetPreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // GetPreparedStatementInput
+ *   StatementName: "STRING_VALUE", // required
+ *   WorkGroup: "STRING_VALUE", // required
+ * };
  * const command = new GetPreparedStatementCommand(input);
  * const response = await client.send(command);
+ * // { // GetPreparedStatementOutput
+ * //   PreparedStatement: { // PreparedStatement
+ * //     StatementName: "STRING_VALUE",
+ * //     QueryStatement: "STRING_VALUE",
+ * //     WorkGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetPreparedStatementCommandInput - {@link GetPreparedStatementCommandInput}
+ * @returns {@link GetPreparedStatementCommandOutput}
  * @see {@link GetPreparedStatementCommandInput} for command's `input` shape.
  * @see {@link GetPreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource, such as a workgroup, was not found.</p>
+ *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetPreparedStatementCommand extends $Command<
@@ -47,6 +91,18 @@ export class GetPreparedStatementCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetPreparedStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +118,9 @@ export class GetPreparedStatementCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPreparedStatementCommandInput, GetPreparedStatementCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetPreparedStatementCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +131,8 @@ export class GetPreparedStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPreparedStatementInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPreparedStatementOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +142,18 @@ export class GetPreparedStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPreparedStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPreparedStatementCommand(input, context);
+    return se_GetPreparedStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPreparedStatementCommandOutput> {
-    return deserializeAws_json1_1GetPreparedStatementCommand(output, context);
+    return de_GetPreparedStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

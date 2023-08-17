@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { DeleteAlarmModelRequest, DeleteAlarmModelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAlarmModelCommand,
-  serializeAws_restJson1DeleteAlarmModelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAlarmModelCommand, se_DeleteAlarmModelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteAlarmModelCommand}.
+ */
 export interface DeleteAlarmModelCommandInput extends DeleteAlarmModelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAlarmModelCommand}.
+ */
 export interface DeleteAlarmModelCommandOutput extends DeleteAlarmModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an alarm model. Any alarm instances that were created based on this alarm model
  *       are also deleted. This action can't be undone.</p>
  * @example
@@ -30,13 +44,41 @@ export interface DeleteAlarmModelCommandOutput extends DeleteAlarmModelResponse,
  * import { IoTEventsClient, DeleteAlarmModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DeleteAlarmModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // DeleteAlarmModelRequest
+ *   alarmModelName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAlarmModelCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteAlarmModelCommandInput - {@link DeleteAlarmModelCommandInput}
+ * @returns {@link DeleteAlarmModelCommandOutput}
  * @see {@link DeleteAlarmModelCommandInput} for command's `input` shape.
  * @see {@link DeleteAlarmModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class DeleteAlarmModelCommand extends $Command<
@@ -47,6 +89,18 @@ export class DeleteAlarmModelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAlarmModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +116,9 @@ export class DeleteAlarmModelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteAlarmModelCommandInput, DeleteAlarmModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteAlarmModelCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +129,8 @@ export class DeleteAlarmModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAlarmModelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAlarmModelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +140,18 @@ export class DeleteAlarmModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAlarmModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAlarmModelCommand(input, context);
+    return se_DeleteAlarmModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlarmModelCommandOutput> {
-    return deserializeAws_restJson1DeleteAlarmModelCommand(output, context);
+    return de_DeleteAlarmModelCommand(output, context);
   }
 
   // Start section: command_body_extra

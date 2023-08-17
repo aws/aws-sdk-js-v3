@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { DeleteDeploymentGroupInput, DeleteDeploymentGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDeploymentGroupCommand,
-  serializeAws_json1_1DeleteDeploymentGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDeploymentGroupCommand, se_DeleteDeploymentGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteDeploymentGroupCommand}.
+ */
 export interface DeleteDeploymentGroupCommandInput extends DeleteDeploymentGroupInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDeploymentGroupCommand}.
+ */
 export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a deployment group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,48 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  * import { CodeDeployClient, DeleteDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeleteDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // DeleteDeploymentGroupInput
+ *   applicationName: "STRING_VALUE", // required
+ *   deploymentGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeploymentGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDeploymentGroupOutput
+ * //   hooksNotCleanedUp: [ // AutoScalingGroupList
+ * //     { // AutoScalingGroup
+ * //       name: "STRING_VALUE",
+ * //       hook: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DeleteDeploymentGroupCommandInput - {@link DeleteDeploymentGroupCommandInput}
+ * @returns {@link DeleteDeploymentGroupCommandOutput}
  * @see {@link DeleteDeploymentGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link DeploymentGroupNameRequiredException} (client fault)
+ *  <p>The deployment group name was not specified.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentGroupNameException} (client fault)
+ *  <p>The deployment group name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidRoleException} (client fault)
+ *  <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling
+ *             group was specified, the specified service role does not grant the appropriate
+ *             permissions to Amazon EC2 Auto Scaling.</p>
+ *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeleteDeploymentGroupCommand extends $Command<
@@ -46,6 +95,18 @@ export class DeleteDeploymentGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeploymentGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +122,9 @@ export class DeleteDeploymentGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDeploymentGroupCommandInput, DeleteDeploymentGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteDeploymentGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +135,8 @@ export class DeleteDeploymentGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeploymentGroupInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDeploymentGroupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +146,18 @@ export class DeleteDeploymentGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeploymentGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeploymentGroupCommand(input, context);
+    return se_DeleteDeploymentGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeploymentGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteDeploymentGroupCommand(output, context);
+    return de_DeleteDeploymentGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

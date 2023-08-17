@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { CreateVaultInput, CreateVaultOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVaultCommand,
-  serializeAws_restJson1CreateVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateVaultCommand, se_CreateVaultCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateVaultCommand}.
+ */
 export interface CreateVaultCommandInput extends CreateVaultInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVaultCommand}.
+ */
 export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation creates a new vault with the specified name. The name of the vault
  *          must be unique within a region for an AWS account. You can create up to 1,000 vaults per
  *          account. If you need to create more vaults, contact Amazon S3 Glacier.</p>
@@ -52,13 +66,55 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  * import { GlacierClient, CreateVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, CreateVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // CreateVaultInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new CreateVaultCommand(input);
  * const response = await client.send(command);
+ * // { // CreateVaultOutput
+ * //   location: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateVaultCommandInput - {@link CreateVaultCommandInput}
+ * @returns {@link CreateVaultCommandOutput}
  * @see {@link CreateVaultCommandInput} for command's `input` shape.
  * @see {@link CreateVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Returned if the request results in a vault or account limit being exceeded.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
+ *
+ * @example To create a new vault
+ * ```javascript
+ * // The following example creates a new vault named my-vault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "my-vault"
+ * };
+ * const command = new CreateVaultCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "location": "/111122223333/vaults/my-vault"
+ * }
+ * *\/
+ * // example id: 1dc0313d-ace1-4e6c-9d13-1ec7813b14b7
+ * ```
  *
  */
 export class CreateVaultCommand extends $Command<
@@ -69,6 +125,18 @@ export class CreateVaultCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +152,7 @@ export class CreateVaultCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateVaultCommandInput, CreateVaultCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateVaultCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -94,8 +163,8 @@ export class CreateVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVaultInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateVaultOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +174,18 @@ export class CreateVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVaultCommand(input, context);
+    return se_CreateVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVaultCommandOutput> {
-    return deserializeAws_restJson1CreateVaultCommand(output, context);
+    return de_CreateVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

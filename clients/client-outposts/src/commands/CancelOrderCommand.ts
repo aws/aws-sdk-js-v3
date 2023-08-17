@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,35 +11,70 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CancelOrderInput, CancelOrderOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1CancelOrderCommand,
-  serializeAws_restJson1CancelOrderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelOrderCommand, se_CancelOrderCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CancelOrderCommand}.
+ */
 export interface CancelOrderCommandInput extends CancelOrderInput {}
+/**
+ * @public
+ *
+ * The output of {@link CancelOrderCommand}.
+ */
 export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       Cancels an order for an Outpost.
- *     </p>
+ * @public
+ * <p>Cancels the specified order for an Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OutpostsClient, CancelOrderCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CancelOrderCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // CancelOrderInput
+ *   OrderId: "STRING_VALUE", // required
+ * };
  * const command = new CancelOrderCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CancelOrderCommandInput - {@link CancelOrderCommandInput}
+ * @returns {@link CancelOrderCommandOutput}
  * @see {@link CancelOrderCommandInput} for command's `input` shape.
  * @see {@link CancelOrderCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified request is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class CancelOrderCommand extends $Command<
@@ -48,6 +85,18 @@ export class CancelOrderCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CancelOrderCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +112,7 @@ export class CancelOrderCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CancelOrderCommandInput, CancelOrderCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CancelOrderCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +123,8 @@ export class CancelOrderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelOrderInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelOrderOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +134,18 @@ export class CancelOrderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelOrderCommand(input, context);
+    return se_CancelOrderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelOrderCommandOutput> {
-    return deserializeAws_restJson1CancelOrderCommand(output, context);
+    return de_CancelOrderCommand(output, context);
   }
 
   // Start section: command_body_extra

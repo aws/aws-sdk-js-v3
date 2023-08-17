@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetPhoneNumberRequest, GetPhoneNumberResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetPhoneNumberCommand,
-  serializeAws_restJson1GetPhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+  GetPhoneNumberRequest,
+  GetPhoneNumberResponse,
+  GetPhoneNumberResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_GetPhoneNumberCommand, se_GetPhoneNumberCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetPhoneNumberCommand}.
+ */
 export interface GetPhoneNumberCommandInput extends GetPhoneNumberRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPhoneNumberCommand}.
+ */
 export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details for the specified phone number ID, such as associations, capabilities, and product type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +47,73 @@ export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __M
  * import { ChimeClient, GetPhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetPhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // GetPhoneNumberRequest
+ *   PhoneNumberId: "STRING_VALUE", // required
+ * };
  * const command = new GetPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * // { // GetPhoneNumberResponse
+ * //   PhoneNumber: { // PhoneNumber
+ * //     PhoneNumberId: "STRING_VALUE",
+ * //     E164PhoneNumber: "STRING_VALUE",
+ * //     Country: "STRING_VALUE",
+ * //     Type: "Local" || "TollFree",
+ * //     ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn",
+ * //     Status: "AcquireInProgress" || "AcquireFailed" || "Unassigned" || "Assigned" || "ReleaseInProgress" || "DeleteInProgress" || "ReleaseFailed" || "DeleteFailed",
+ * //     Capabilities: { // PhoneNumberCapabilities
+ * //       InboundCall: true || false,
+ * //       OutboundCall: true || false,
+ * //       InboundSMS: true || false,
+ * //       OutboundSMS: true || false,
+ * //       InboundMMS: true || false,
+ * //       OutboundMMS: true || false,
+ * //     },
+ * //     Associations: [ // PhoneNumberAssociationList
+ * //       { // PhoneNumberAssociation
+ * //         Value: "STRING_VALUE",
+ * //         Name: "AccountId" || "UserId" || "VoiceConnectorId" || "VoiceConnectorGroupId" || "SipRuleId",
+ * //         AssociatedTimestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //     CallingName: "STRING_VALUE",
+ * //     CallingNameStatus: "Unassigned" || "UpdateInProgress" || "UpdateSucceeded" || "UpdateFailed",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     DeletionTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetPhoneNumberCommandInput - {@link GetPhoneNumberCommandInput}
+ * @returns {@link GetPhoneNumberCommandOutput}
  * @see {@link GetPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link GetPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetPhoneNumberCommand extends $Command<
@@ -46,6 +124,18 @@ export class GetPhoneNumberCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +151,9 @@ export class GetPhoneNumberCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPhoneNumberCommandInput, GetPhoneNumberCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetPhoneNumberCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +164,8 @@ export class GetPhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPhoneNumberRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPhoneNumberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetPhoneNumberResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +175,18 @@ export class GetPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPhoneNumberCommand(input, context);
+    return se_GetPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPhoneNumberCommandOutput> {
-    return deserializeAws_restJson1GetPhoneNumberCommand(output, context);
+    return de_GetPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

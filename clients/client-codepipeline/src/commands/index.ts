@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcknowledgeJobCommand";
 export * from "./AcknowledgeThirdPartyJobCommand";
 export * from "./CreateCustomActionTypeCommand";

@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,34 +19,45 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   AcceptEnvironmentAccountConnectionCommandInput,
   AcceptEnvironmentAccountConnectionCommandOutput,
 } from "./commands/AcceptEnvironmentAccountConnectionCommand";
+import {
+  CancelComponentDeploymentCommandInput,
+  CancelComponentDeploymentCommandOutput,
+} from "./commands/CancelComponentDeploymentCommand";
 import {
   CancelEnvironmentDeploymentCommandInput,
   CancelEnvironmentDeploymentCommandOutput,
@@ -67,6 +70,7 @@ import {
   CancelServicePipelineDeploymentCommandInput,
   CancelServicePipelineDeploymentCommandOutput,
 } from "./commands/CancelServicePipelineDeploymentCommand";
+import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
 import {
   CreateEnvironmentAccountConnectionCommandInput,
   CreateEnvironmentAccountConnectionCommandOutput,
@@ -83,6 +87,14 @@ import {
 import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
 import {
+  CreateServiceInstanceCommandInput,
+  CreateServiceInstanceCommandOutput,
+} from "./commands/CreateServiceInstanceCommand";
+import {
+  CreateServiceSyncConfigCommandInput,
+  CreateServiceSyncConfigCommandOutput,
+} from "./commands/CreateServiceSyncConfigCommand";
+import {
   CreateServiceTemplateCommandInput,
   CreateServiceTemplateCommandOutput,
 } from "./commands/CreateServiceTemplateCommand";
@@ -94,6 +106,8 @@ import {
   CreateTemplateSyncConfigCommandInput,
   CreateTemplateSyncConfigCommandOutput,
 } from "./commands/CreateTemplateSyncConfigCommand";
+import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
+import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
 import {
   DeleteEnvironmentAccountConnectionCommandInput,
   DeleteEnvironmentAccountConnectionCommandOutput,
@@ -110,6 +124,10 @@ import {
 import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
 import {
+  DeleteServiceSyncConfigCommandInput,
+  DeleteServiceSyncConfigCommandOutput,
+} from "./commands/DeleteServiceSyncConfigCommand";
+import {
   DeleteServiceTemplateCommandInput,
   DeleteServiceTemplateCommandOutput,
 } from "./commands/DeleteServiceTemplateCommand";
@@ -122,6 +140,8 @@ import {
   DeleteTemplateSyncConfigCommandOutput,
 } from "./commands/DeleteTemplateSyncConfigCommand";
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
+import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
+import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
 import {
   GetEnvironmentAccountConnectionCommandInput,
   GetEnvironmentAccountConnectionCommandOutput,
@@ -140,8 +160,24 @@ import {
   GetRepositorySyncStatusCommandInput,
   GetRepositorySyncStatusCommandOutput,
 } from "./commands/GetRepositorySyncStatusCommand";
+import {
+  GetResourcesSummaryCommandInput,
+  GetResourcesSummaryCommandOutput,
+} from "./commands/GetResourcesSummaryCommand";
 import { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import { GetServiceInstanceCommandInput, GetServiceInstanceCommandOutput } from "./commands/GetServiceInstanceCommand";
+import {
+  GetServiceInstanceSyncStatusCommandInput,
+  GetServiceInstanceSyncStatusCommandOutput,
+} from "./commands/GetServiceInstanceSyncStatusCommand";
+import {
+  GetServiceSyncBlockerSummaryCommandInput,
+  GetServiceSyncBlockerSummaryCommandOutput,
+} from "./commands/GetServiceSyncBlockerSummaryCommand";
+import {
+  GetServiceSyncConfigCommandInput,
+  GetServiceSyncConfigCommandOutput,
+} from "./commands/GetServiceSyncConfigCommand";
 import { GetServiceTemplateCommandInput, GetServiceTemplateCommandOutput } from "./commands/GetServiceTemplateCommand";
 import {
   GetServiceTemplateVersionCommandInput,
@@ -155,6 +191,16 @@ import {
   GetTemplateSyncStatusCommandInput,
   GetTemplateSyncStatusCommandOutput,
 } from "./commands/GetTemplateSyncStatusCommand";
+import {
+  ListComponentOutputsCommandInput,
+  ListComponentOutputsCommandOutput,
+} from "./commands/ListComponentOutputsCommand";
+import {
+  ListComponentProvisionedResourcesCommandInput,
+  ListComponentProvisionedResourcesCommandOutput,
+} from "./commands/ListComponentProvisionedResourcesCommand";
+import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
 import {
   ListEnvironmentAccountConnectionsCommandInput,
   ListEnvironmentAccountConnectionsCommandOutput,
@@ -228,6 +274,7 @@ import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
+import { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "./commands/UpdateComponentCommand";
 import {
   UpdateEnvironmentAccountConnectionCommandInput,
   UpdateEnvironmentAccountConnectionCommandOutput,
@@ -251,6 +298,14 @@ import {
   UpdateServicePipelineCommandOutput,
 } from "./commands/UpdateServicePipelineCommand";
 import {
+  UpdateServiceSyncBlockerCommandInput,
+  UpdateServiceSyncBlockerCommandOutput,
+} from "./commands/UpdateServiceSyncBlockerCommand";
+import {
+  UpdateServiceSyncConfigCommandInput,
+  UpdateServiceSyncConfigCommandOutput,
+} from "./commands/UpdateServiceSyncConfigCommand";
+import {
   UpdateServiceTemplateCommandInput,
   UpdateServiceTemplateCommandOutput,
 } from "./commands/UpdateServiceTemplateCommand";
@@ -262,44 +317,73 @@ import {
   UpdateTemplateSyncConfigCommandInput,
   UpdateTemplateSyncConfigCommandOutput,
 } from "./commands/UpdateTemplateSyncConfigCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptEnvironmentAccountConnectionCommandInput
+  | CancelComponentDeploymentCommandInput
   | CancelEnvironmentDeploymentCommandInput
   | CancelServiceInstanceDeploymentCommandInput
   | CancelServicePipelineDeploymentCommandInput
+  | CreateComponentCommandInput
   | CreateEnvironmentAccountConnectionCommandInput
   | CreateEnvironmentCommandInput
   | CreateEnvironmentTemplateCommandInput
   | CreateEnvironmentTemplateVersionCommandInput
   | CreateRepositoryCommandInput
   | CreateServiceCommandInput
+  | CreateServiceInstanceCommandInput
+  | CreateServiceSyncConfigCommandInput
   | CreateServiceTemplateCommandInput
   | CreateServiceTemplateVersionCommandInput
   | CreateTemplateSyncConfigCommandInput
+  | DeleteComponentCommandInput
+  | DeleteDeploymentCommandInput
   | DeleteEnvironmentAccountConnectionCommandInput
   | DeleteEnvironmentCommandInput
   | DeleteEnvironmentTemplateCommandInput
   | DeleteEnvironmentTemplateVersionCommandInput
   | DeleteRepositoryCommandInput
   | DeleteServiceCommandInput
+  | DeleteServiceSyncConfigCommandInput
   | DeleteServiceTemplateCommandInput
   | DeleteServiceTemplateVersionCommandInput
   | DeleteTemplateSyncConfigCommandInput
   | GetAccountSettingsCommandInput
+  | GetComponentCommandInput
+  | GetDeploymentCommandInput
   | GetEnvironmentAccountConnectionCommandInput
   | GetEnvironmentCommandInput
   | GetEnvironmentTemplateCommandInput
   | GetEnvironmentTemplateVersionCommandInput
   | GetRepositoryCommandInput
   | GetRepositorySyncStatusCommandInput
+  | GetResourcesSummaryCommandInput
   | GetServiceCommandInput
   | GetServiceInstanceCommandInput
+  | GetServiceInstanceSyncStatusCommandInput
+  | GetServiceSyncBlockerSummaryCommandInput
+  | GetServiceSyncConfigCommandInput
   | GetServiceTemplateCommandInput
   | GetServiceTemplateVersionCommandInput
   | GetTemplateSyncConfigCommandInput
   | GetTemplateSyncStatusCommandInput
+  | ListComponentOutputsCommandInput
+  | ListComponentProvisionedResourcesCommandInput
+  | ListComponentsCommandInput
+  | ListDeploymentsCommandInput
   | ListEnvironmentAccountConnectionsCommandInput
   | ListEnvironmentOutputsCommandInput
   | ListEnvironmentProvisionedResourcesCommandInput
@@ -322,6 +406,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccountSettingsCommandInput
+  | UpdateComponentCommandInput
   | UpdateEnvironmentAccountConnectionCommandInput
   | UpdateEnvironmentCommandInput
   | UpdateEnvironmentTemplateCommandInput
@@ -329,46 +414,68 @@ export type ServiceInputTypes =
   | UpdateServiceCommandInput
   | UpdateServiceInstanceCommandInput
   | UpdateServicePipelineCommandInput
+  | UpdateServiceSyncBlockerCommandInput
+  | UpdateServiceSyncConfigCommandInput
   | UpdateServiceTemplateCommandInput
   | UpdateServiceTemplateVersionCommandInput
   | UpdateTemplateSyncConfigCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptEnvironmentAccountConnectionCommandOutput
+  | CancelComponentDeploymentCommandOutput
   | CancelEnvironmentDeploymentCommandOutput
   | CancelServiceInstanceDeploymentCommandOutput
   | CancelServicePipelineDeploymentCommandOutput
+  | CreateComponentCommandOutput
   | CreateEnvironmentAccountConnectionCommandOutput
   | CreateEnvironmentCommandOutput
   | CreateEnvironmentTemplateCommandOutput
   | CreateEnvironmentTemplateVersionCommandOutput
   | CreateRepositoryCommandOutput
   | CreateServiceCommandOutput
+  | CreateServiceInstanceCommandOutput
+  | CreateServiceSyncConfigCommandOutput
   | CreateServiceTemplateCommandOutput
   | CreateServiceTemplateVersionCommandOutput
   | CreateTemplateSyncConfigCommandOutput
+  | DeleteComponentCommandOutput
+  | DeleteDeploymentCommandOutput
   | DeleteEnvironmentAccountConnectionCommandOutput
   | DeleteEnvironmentCommandOutput
   | DeleteEnvironmentTemplateCommandOutput
   | DeleteEnvironmentTemplateVersionCommandOutput
   | DeleteRepositoryCommandOutput
   | DeleteServiceCommandOutput
+  | DeleteServiceSyncConfigCommandOutput
   | DeleteServiceTemplateCommandOutput
   | DeleteServiceTemplateVersionCommandOutput
   | DeleteTemplateSyncConfigCommandOutput
   | GetAccountSettingsCommandOutput
+  | GetComponentCommandOutput
+  | GetDeploymentCommandOutput
   | GetEnvironmentAccountConnectionCommandOutput
   | GetEnvironmentCommandOutput
   | GetEnvironmentTemplateCommandOutput
   | GetEnvironmentTemplateVersionCommandOutput
   | GetRepositoryCommandOutput
   | GetRepositorySyncStatusCommandOutput
+  | GetResourcesSummaryCommandOutput
   | GetServiceCommandOutput
   | GetServiceInstanceCommandOutput
+  | GetServiceInstanceSyncStatusCommandOutput
+  | GetServiceSyncBlockerSummaryCommandOutput
+  | GetServiceSyncConfigCommandOutput
   | GetServiceTemplateCommandOutput
   | GetServiceTemplateVersionCommandOutput
   | GetTemplateSyncConfigCommandOutput
   | GetTemplateSyncStatusCommandOutput
+  | ListComponentOutputsCommandOutput
+  | ListComponentProvisionedResourcesCommandOutput
+  | ListComponentsCommandOutput
+  | ListDeploymentsCommandOutput
   | ListEnvironmentAccountConnectionsCommandOutput
   | ListEnvironmentOutputsCommandOutput
   | ListEnvironmentProvisionedResourcesCommandOutput
@@ -391,6 +498,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccountSettingsCommandOutput
+  | UpdateComponentCommandOutput
   | UpdateEnvironmentAccountConnectionCommandOutput
   | UpdateEnvironmentCommandOutput
   | UpdateEnvironmentTemplateCommandOutput
@@ -398,10 +506,15 @@ export type ServiceOutputTypes =
   | UpdateServiceCommandOutput
   | UpdateServiceInstanceCommandOutput
   | UpdateServicePipelineCommandOutput
+  | UpdateServiceSyncBlockerCommandOutput
+  | UpdateServiceSyncConfigCommandOutput
   | UpdateServiceTemplateCommandOutput
   | UpdateServiceTemplateVersionCommandOutput
   | UpdateTemplateSyncConfigCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -409,11 +522,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -464,10 +577,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -485,77 +631,57 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type ProtonClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type ProtonClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of ProtonClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ProtonClient class constructor that set the region, credentials and other options.
  */
 export interface ProtonClientConfig extends ProtonClientConfigType {}
 
-type ProtonClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type ProtonClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ProtonClient class. This is resolved and normalized from the {@link ProtonClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ProtonClient class. This is resolved and normalized from the {@link ProtonClientConfig | constructor configuration interface}.
  */
 export interface ProtonClientResolvedConfig extends ProtonClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>This is the Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the
  *     <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the Proton
  *    service.</p>
@@ -572,8 +698,7 @@ export interface ProtonClientResolvedConfig extends ProtonClientResolvedConfigTy
  *     <i>create</i>, <i>list</i>, <i>update</i> and <i>delete</i>
  *    API operations and the service instance <i>list</i> and <i>update</i> API
  *    operations.</p>
- *          <p>To learn more about Proton administration, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html">Proton Administrator Guide</a>.</p>
- *          <p>To learn more about deploying serverless and containerized applications on Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">Proton User Guide</a>.</p>
+ *          <p>To learn more about Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">Proton User Guide</a>.</p>
  *          <p>
  *             <b>Ensuring Idempotency</b>
  *          </p>
@@ -698,20 +823,23 @@ export class ProtonClient extends __Client<
    */
   readonly config: ProtonClientResolvedConfig;
 
-  constructor(configuration: ProtonClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<ProtonClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

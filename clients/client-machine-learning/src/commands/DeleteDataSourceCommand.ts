@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { DeleteDataSourceInput, DeleteDataSourceOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDataSourceCommand,
-  serializeAws_json1_1DeleteDataSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDataSourceCommand, se_DeleteDataSourceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteDataSourceCommand}.
+ */
 export interface DeleteDataSourceCommandInput extends DeleteDataSourceInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDataSourceCommand}.
+ */
 export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the DELETED status to a <code>DataSource</code>, rendering it unusable.</p>
  *         <p>After using the <code>DeleteDataSource</code> operation, you can use the <a>GetDataSource</a> operation to verify that the status of the <code>DataSource</code> changed to DELETED.</p>
  *         <p>
@@ -32,13 +46,34 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * import { MachineLearningClient, DeleteDataSourceCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteDataSourceCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // DeleteDataSourceInput
+ *   DataSourceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDataSourceOutput
+ * //   DataSourceId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DeleteDataSourceCommandInput - {@link DeleteDataSourceCommandInput}
+ * @returns {@link DeleteDataSourceCommandOutput}
  * @see {@link DeleteDataSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSourceCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource cannot be located.</p>
+ *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteDataSourceCommand extends $Command<
@@ -49,6 +84,18 @@ export class DeleteDataSourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +111,9 @@ export class DeleteDataSourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteDataSourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +124,8 @@ export class DeleteDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataSourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataSourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +135,18 @@ export class DeleteDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataSourceCommand(input, context);
+    return se_DeleteDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataSourceCommandOutput> {
-    return deserializeAws_json1_1DeleteDataSourceCommand(output, context);
+    return de_DeleteDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

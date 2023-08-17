@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   CodeStarConnectionsClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
 import { CreateHostInput, CreateHostOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateHostCommand,
-  serializeAws_json1_0CreateHostCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateHostCommand, se_CreateHostCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateHostCommand}.
+ */
 export interface CreateHostCommandInput extends CreateHostInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateHostCommand}.
+ */
 export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a resource that represents the infrastructure where a third-party provider is
  *       installed. The host is used when you create connections to an installed third-party provider
  *       type, such as GitHub Enterprise Server. You create one host for all connections to that
@@ -40,13 +54,52 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * import { CodeStarConnectionsClient, CreateHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, CreateHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = { // CreateHostInput
+ *   Name: "STRING_VALUE", // required
+ *   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab", // required
+ *   ProviderEndpoint: "STRING_VALUE", // required
+ *   VpcConfiguration: { // VpcConfiguration
+ *     VpcId: "STRING_VALUE", // required
+ *     SubnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     TlsCertificate: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHostCommand(input);
  * const response = await client.send(command);
+ * // { // CreateHostOutput
+ * //   HostArn: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param CreateHostCommandInput - {@link CreateHostCommandInput}
+ * @returns {@link CreateHostCommandOutput}
  * @see {@link CreateHostCommandInput} for command's `input` shape.
  * @see {@link CreateHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Exceeded the maximum limit for connections.</p>
+ *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class CreateHostCommand extends $Command<
@@ -57,6 +110,18 @@ export class CreateHostCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHostCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +137,7 @@ export class CreateHostCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateHostCommandInput, CreateHostCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateHostCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -82,8 +148,8 @@ export class CreateHostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHostInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateHostOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,12 +159,18 @@ export class CreateHostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateHostCommand(input, context);
+    return se_CreateHostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHostCommandOutput> {
-    return deserializeAws_json1_0CreateHostCommand(output, context);
+    return de_CreateHostCommand(output, context);
   }
 
   // Start section: command_body_extra

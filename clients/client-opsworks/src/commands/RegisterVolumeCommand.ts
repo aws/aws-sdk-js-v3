@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { RegisterVolumeRequest, RegisterVolumeResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1RegisterVolumeCommand,
-  serializeAws_json1_1RegisterVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterVolumeCommand, se_RegisterVolumeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RegisterVolumeCommand}.
+ */
 export interface RegisterVolumeCommandInput extends RegisterVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterVolumeCommand}.
+ */
 export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one
  *       stack at a time. If the volume is already registered, you must first deregister it by calling
  *         <a>DeregisterVolume</a>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
@@ -36,13 +50,32 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  * import { OpsWorksClient, RegisterVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, RegisterVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // RegisterVolumeRequest
+ *   Ec2VolumeId: "STRING_VALUE",
+ *   StackId: "STRING_VALUE", // required
+ * };
  * const command = new RegisterVolumeCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterVolumeResult
+ * //   VolumeId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param RegisterVolumeCommandInput - {@link RegisterVolumeCommandInput}
+ * @returns {@link RegisterVolumeCommandOutput}
  * @see {@link RegisterVolumeCommandInput} for command's `input` shape.
  * @see {@link RegisterVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class RegisterVolumeCommand extends $Command<
@@ -53,6 +86,18 @@ export class RegisterVolumeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +113,9 @@ export class RegisterVolumeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterVolumeCommandInput, RegisterVolumeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterVolumeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +126,8 @@ export class RegisterVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterVolumeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterVolumeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +137,18 @@ export class RegisterVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterVolumeCommand(input, context);
+    return se_RegisterVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterVolumeCommandOutput> {
-    return deserializeAws_json1_1RegisterVolumeCommand(output, context);
+    return de_RegisterVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

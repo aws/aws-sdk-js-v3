@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListDiscoveredResourcesCommand,
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "../commands/ListDiscoveredResourcesCommand";
-import { ConfigService } from "../ConfigService";
 import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConfigServiceClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDiscoveredResourcesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ConfigService,
-  input: ListDiscoveredResourcesCommandInput,
-  ...args: any
-): Promise<ListDiscoveredResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listDiscoveredResources(input, ...args);
-};
 export async function* paginateListDiscoveredResources(
   config: ConfigServicePaginationConfiguration,
   input: ListDiscoveredResourcesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListDiscoveredResources(
   while (hasNext) {
     input.nextToken = token;
     input["limit"] = config.pageSize;
-    if (config.client instanceof ConfigService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConfigServiceClient) {
+    if (config.client instanceof ConfigServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConfigService | ConfigServiceClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

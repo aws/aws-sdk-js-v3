@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GenerateCredentialReportResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGenerateCredentialReportCommand,
-  serializeAws_queryGenerateCredentialReportCommand,
-} from "../protocols/Aws_query";
+import { de_GenerateCredentialReportCommand, se_GenerateCredentialReportCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GenerateCredentialReportCommand}.
+ */
 export interface GenerateCredentialReportCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link GenerateCredentialReportCommand}.
+ */
 export interface GenerateCredentialReportCommandOutput extends GenerateCredentialReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Generates a credential report for the Amazon Web Services account. For more information about the
  *             credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in
  *             the <i>IAM User Guide</i>.</p>
@@ -31,13 +45,32 @@ export interface GenerateCredentialReportCommandOutput extends GenerateCredentia
  * import { IAMClient, GenerateCredentialReportCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GenerateCredentialReportCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {};
  * const command = new GenerateCredentialReportCommand(input);
  * const response = await client.send(command);
+ * // { // GenerateCredentialReportResponse
+ * //   State: "STARTED" || "INPROGRESS" || "COMPLETE",
+ * //   Description: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GenerateCredentialReportCommandInput - {@link GenerateCredentialReportCommandInput}
+ * @returns {@link GenerateCredentialReportCommandOutput}
  * @see {@link GenerateCredentialReportCommandInput} for command's `input` shape.
  * @see {@link GenerateCredentialReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GenerateCredentialReportCommand extends $Command<
@@ -48,6 +81,18 @@ export class GenerateCredentialReportCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateCredentialReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +108,9 @@ export class GenerateCredentialReportCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GenerateCredentialReportCommandInput, GenerateCredentialReportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GenerateCredentialReportCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +121,8 @@ export class GenerateCredentialReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GenerateCredentialReportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +132,18 @@ export class GenerateCredentialReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateCredentialReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGenerateCredentialReportCommand(input, context);
+    return se_GenerateCredentialReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateCredentialReportCommandOutput> {
-    return deserializeAws_queryGenerateCredentialReportCommand(output, context);
+    return de_GenerateCredentialReportCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,4 +1,4 @@
-import exec from "execa";
+import { execa as exec } from "execa";
 import { promises as fsPromise } from "fs";
 import { join } from "path";
 import prettier from "prettier";

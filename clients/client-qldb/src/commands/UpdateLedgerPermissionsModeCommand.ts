@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateLedgerPermissionsModeRequest, UpdateLedgerPermissionsModeResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateLedgerPermissionsModeCommand,
-  serializeAws_restJson1UpdateLedgerPermissionsModeCommand,
+  de_UpdateLedgerPermissionsModeCommand,
+  se_UpdateLedgerPermissionsModeCommand,
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateLedgerPermissionsModeCommand}.
+ */
 export interface UpdateLedgerPermissionsModeCommandInput extends UpdateLedgerPermissionsModeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateLedgerPermissionsModeCommand}.
+ */
 export interface UpdateLedgerPermissionsModeCommandOutput
   extends UpdateLedgerPermissionsModeResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the permissions mode of a ledger.</p>
  *          <important>
  *             <p>Before you switch to the <code>STANDARD</code> permissions mode, you must first
@@ -37,13 +54,34 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  * import { QLDBClient, UpdateLedgerPermissionsModeCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, UpdateLedgerPermissionsModeCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // UpdateLedgerPermissionsModeRequest
+ *   Name: "STRING_VALUE", // required
+ *   PermissionsMode: "ALLOW_ALL" || "STANDARD", // required
+ * };
  * const command = new UpdateLedgerPermissionsModeCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateLedgerPermissionsModeResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   PermissionsMode: "ALLOW_ALL" || "STANDARD",
+ * // };
+ *
  * ```
  *
+ * @param UpdateLedgerPermissionsModeCommandInput - {@link UpdateLedgerPermissionsModeCommandInput}
+ * @returns {@link UpdateLedgerPermissionsModeCommandOutput}
  * @see {@link UpdateLedgerPermissionsModeCommandInput} for command's `input` shape.
  * @see {@link UpdateLedgerPermissionsModeCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class UpdateLedgerPermissionsModeCommand extends $Command<
@@ -54,6 +92,18 @@ export class UpdateLedgerPermissionsModeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLedgerPermissionsModeCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +119,9 @@ export class UpdateLedgerPermissionsModeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateLedgerPermissionsModeCommandInput, UpdateLedgerPermissionsModeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateLedgerPermissionsModeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +132,8 @@ export class UpdateLedgerPermissionsModeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLedgerPermissionsModeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLedgerPermissionsModeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,15 +143,21 @@ export class UpdateLedgerPermissionsModeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLedgerPermissionsModeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLedgerPermissionsModeCommand(input, context);
+    return se_UpdateLedgerPermissionsModeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLedgerPermissionsModeCommandOutput> {
-    return deserializeAws_restJson1UpdateLedgerPermissionsModeCommand(output, context);
+    return de_UpdateLedgerPermissionsModeCommand(output, context);
   }
 
   // Start section: command_body_extra

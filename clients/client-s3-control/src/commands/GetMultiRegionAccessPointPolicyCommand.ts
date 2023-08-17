@@ -1,8 +1,10 @@
-import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
+// smithy-typescript generated code
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -11,21 +13,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetMultiRegionAccessPointPolicyRequest, GetMultiRegionAccessPointPolicyResult } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetMultiRegionAccessPointPolicyCommand,
-  serializeAws_restXmlGetMultiRegionAccessPointPolicyCommand,
+  de_GetMultiRegionAccessPointPolicyCommand,
+  se_GetMultiRegionAccessPointPolicyCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetMultiRegionAccessPointPolicyCommand}.
+ */
 export interface GetMultiRegionAccessPointPolicyCommandInput extends GetMultiRegionAccessPointPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMultiRegionAccessPointPolicyCommand}.
+ */
 export interface GetMultiRegionAccessPointPolicyCommandOutput
   extends GetMultiRegionAccessPointPolicyResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the access control policy of the specified Multi-Region Access Point.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information
  *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
@@ -50,13 +67,33 @@ export interface GetMultiRegionAccessPointPolicyCommandOutput
  * import { S3ControlClient, GetMultiRegionAccessPointPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetMultiRegionAccessPointPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetMultiRegionAccessPointPolicyRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetMultiRegionAccessPointPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetMultiRegionAccessPointPolicyResult
+ * //   Policy: { // MultiRegionAccessPointPolicyDocument
+ * //     Established: { // EstablishedMultiRegionAccessPointPolicy
+ * //       Policy: "STRING_VALUE",
+ * //     },
+ * //     Proposed: { // ProposedMultiRegionAccessPointPolicy
+ * //       Policy: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetMultiRegionAccessPointPolicyCommandInput - {@link GetMultiRegionAccessPointPolicyCommandInput}
+ * @returns {@link GetMultiRegionAccessPointPolicyCommandOutput}
  * @see {@link GetMultiRegionAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link GetMultiRegionAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetMultiRegionAccessPointPolicyCommand extends $Command<
@@ -67,6 +104,21 @@ export class GetMultiRegionAccessPointPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
+      AccountId: { type: "contextParams", name: "AccountId" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetMultiRegionAccessPointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +134,9 @@ export class GetMultiRegionAccessPointPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetMultiRegionAccessPointPolicyCommandInput, GetMultiRegionAccessPointPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetMultiRegionAccessPointPolicyCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getProcessArnablesPlugin(configuration));
     this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
 
@@ -94,8 +149,8 @@ export class GetMultiRegionAccessPointPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMultiRegionAccessPointPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMultiRegionAccessPointPolicyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +160,24 @@ export class GetMultiRegionAccessPointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetMultiRegionAccessPointPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetMultiRegionAccessPointPolicyCommand(input, context);
+    return se_GetMultiRegionAccessPointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMultiRegionAccessPointPolicyCommandOutput> {
-    return deserializeAws_restXmlGetMultiRegionAccessPointPolicyCommand(output, context);
+    return de_GetMultiRegionAccessPointPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetTraceSummariesCommand,
   GetTraceSummariesCommandInput,
   GetTraceSummariesCommandOutput,
 } from "../commands/GetTraceSummariesCommand";
-import { XRay } from "../XRay";
 import { XRayClient } from "../XRayClient";
 import { XRayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: XRayClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetTraceSummariesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: XRay,
-  input: GetTraceSummariesCommandInput,
-  ...args: any
-): Promise<GetTraceSummariesCommandOutput> => {
-  // @ts-ignore
-  return await client.getTraceSummaries(input, ...args);
-};
 export async function* paginateGetTraceSummaries(
   config: XRayPaginationConfiguration,
   input: GetTraceSummariesCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateGetTraceSummaries(
   let page: GetTraceSummariesCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof XRay) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof XRayClient) {
+    if (config.client instanceof XRayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected XRay | XRayClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

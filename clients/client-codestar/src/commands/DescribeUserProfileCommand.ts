@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { DescribeUserProfileRequest, DescribeUserProfileResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeUserProfileCommand,
-  serializeAws_json1_1DescribeUserProfileCommand,
-} from "../protocols/Aws_json1_1";
+  DescribeUserProfileRequest,
+  DescribeUserProfileResult,
+  DescribeUserProfileResultFilterSensitiveLog,
+} from "../models/models_0";
+import { de_DescribeUserProfileCommand, se_DescribeUserProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeUserProfileCommand}.
+ */
 export interface DescribeUserProfileCommandInput extends DescribeUserProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeUserProfileCommand}.
+ */
 export interface DescribeUserProfileCommandOutput extends DescribeUserProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a user in AWS CodeStar and the user attributes across all projects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +47,36 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * import { CodeStarClient, DescribeUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, DescribeUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // DescribeUserProfileRequest
+ *   userArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeUserProfileCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeUserProfileResult
+ * //   userArn: "STRING_VALUE", // required
+ * //   displayName: "STRING_VALUE",
+ * //   emailAddress: "STRING_VALUE",
+ * //   sshPublicKey: "STRING_VALUE",
+ * //   createdTimestamp: new Date("TIMESTAMP"), // required
+ * //   lastModifiedTimestamp: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
+ * @param DescribeUserProfileCommandInput - {@link DescribeUserProfileCommandInput}
+ * @returns {@link DescribeUserProfileCommandOutput}
  * @see {@link DescribeUserProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
+ *
+ * @throws {@link UserProfileNotFoundException} (client fault)
+ *  <p>The user profile was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class DescribeUserProfileCommand extends $Command<
@@ -46,6 +87,18 @@ export class DescribeUserProfileCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +114,9 @@ export class DescribeUserProfileCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeUserProfileCommandInput, DescribeUserProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeUserProfileCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +127,8 @@ export class DescribeUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserProfileResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeUserProfileResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +138,18 @@ export class DescribeUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserProfileCommand(input, context);
+    return se_DescribeUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserProfileCommandOutput> {
-    return deserializeAws_json1_1DescribeUserProfileCommand(output, context);
+    return de_DescribeUserProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

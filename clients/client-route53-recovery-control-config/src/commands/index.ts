@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateClusterCommand";
 export * from "./CreateControlPanelCommand";
 export * from "./CreateRoutingControlCommand";

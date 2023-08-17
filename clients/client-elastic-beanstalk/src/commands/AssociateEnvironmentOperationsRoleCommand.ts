@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { AssociateEnvironmentOperationsRoleMessage } from "../models/models_0";
 import {
-  deserializeAws_queryAssociateEnvironmentOperationsRoleCommand,
-  serializeAws_queryAssociateEnvironmentOperationsRoleCommand,
+  de_AssociateEnvironmentOperationsRoleCommand,
+  se_AssociateEnvironmentOperationsRoleCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateEnvironmentOperationsRoleCommand}.
+ */
 export interface AssociateEnvironmentOperationsRoleCommandInput extends AssociateEnvironmentOperationsRoleMessage {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateEnvironmentOperationsRoleCommand}.
+ */
 export interface AssociateEnvironmentOperationsRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add or change the operations role used by an environment. After this call is made, Elastic Beanstalk
  *       uses the associated operations role for permissions to downstream services during subsequent
  *       calls acting on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
@@ -32,13 +49,28 @@ export interface AssociateEnvironmentOperationsRoleCommandOutput extends __Metad
  * import { ElasticBeanstalkClient, AssociateEnvironmentOperationsRoleCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, AssociateEnvironmentOperationsRoleCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // AssociateEnvironmentOperationsRoleMessage
+ *   EnvironmentName: "STRING_VALUE", // required
+ *   OperationsRole: "STRING_VALUE", // required
+ * };
  * const command = new AssociateEnvironmentOperationsRoleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param AssociateEnvironmentOperationsRoleCommandInput - {@link AssociateEnvironmentOperationsRoleCommandInput}
+ * @returns {@link AssociateEnvironmentOperationsRoleCommandOutput}
  * @see {@link AssociateEnvironmentOperationsRoleCommandInput} for command's `input` shape.
  * @see {@link AssociateEnvironmentOperationsRoleCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class AssociateEnvironmentOperationsRoleCommand extends $Command<
@@ -49,6 +81,18 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateEnvironmentOperationsRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +108,9 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateEnvironmentOperationsRoleCommandInput, AssociateEnvironmentOperationsRoleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateEnvironmentOperationsRoleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +121,8 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateEnvironmentOperationsRoleMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,18 +132,24 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateEnvironmentOperationsRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAssociateEnvironmentOperationsRoleCommand(input, context);
+    return se_AssociateEnvironmentOperationsRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateEnvironmentOperationsRoleCommandOutput> {
-    return deserializeAws_queryAssociateEnvironmentOperationsRoleCommand(output, context);
+    return de_AssociateEnvironmentOperationsRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

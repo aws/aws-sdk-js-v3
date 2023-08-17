@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribePortfolioSharesInput, DescribePortfolioSharesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePortfolioSharesCommand,
-  serializeAws_json1_1DescribePortfolioSharesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribePortfolioSharesCommand, se_DescribePortfolioSharesCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribePortfolioSharesCommand}.
+ */
 export interface DescribePortfolioSharesCommandInput extends DescribePortfolioSharesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePortfolioSharesCommand}.
+ */
 export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a summary of each of the portfolio shares that were created for the specified portfolio.</p>
  *          <p>You can use this API to determine which accounts or organizational nodes this
  *          portfolio have been shared, whether the recipient entity has imported the share, and
@@ -33,13 +47,43 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  * import { ServiceCatalogClient, DescribePortfolioSharesCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribePortfolioSharesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribePortfolioSharesInput
+ *   PortfolioId: "STRING_VALUE", // required
+ *   Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ORGANIZATION_MEMBER_ACCOUNT", // required
+ *   PageToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new DescribePortfolioSharesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePortfolioSharesOutput
+ * //   NextPageToken: "STRING_VALUE",
+ * //   PortfolioShareDetails: [ // PortfolioShareDetails
+ * //     { // PortfolioShareDetail
+ * //       PrincipalId: "STRING_VALUE",
+ * //       Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ORGANIZATION_MEMBER_ACCOUNT",
+ * //       Accepted: true || false,
+ * //       ShareTagOptions: true || false,
+ * //       SharePrincipals: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribePortfolioSharesCommandInput - {@link DescribePortfolioSharesCommandInput}
+ * @returns {@link DescribePortfolioSharesCommandOutput}
  * @see {@link DescribePortfolioSharesCommandInput} for command's `input` shape.
  * @see {@link DescribePortfolioSharesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribePortfolioSharesCommand extends $Command<
@@ -50,6 +94,18 @@ export class DescribePortfolioSharesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePortfolioSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +121,9 @@ export class DescribePortfolioSharesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribePortfolioSharesCommandInput, DescribePortfolioSharesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribePortfolioSharesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +134,8 @@ export class DescribePortfolioSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePortfolioSharesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePortfolioSharesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +145,18 @@ export class DescribePortfolioSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePortfolioSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePortfolioSharesCommand(input, context);
+    return se_DescribePortfolioSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePortfolioSharesCommandOutput> {
-    return deserializeAws_json1_1DescribePortfolioSharesCommand(output, context);
+    return de_DescribePortfolioSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

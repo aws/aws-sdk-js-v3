@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelTaskCommand";
 export * from "./CreateTaskCommand";
 export * from "./DescribeDeviceCommand";

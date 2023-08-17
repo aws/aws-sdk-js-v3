@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { CloudFront } from "../CloudFront";
 import { CloudFrontClient } from "../CloudFrontClient";
 
+/**
+ * @public
+ */
 export interface CloudFrontPaginationConfiguration extends PaginationConfiguration {
-  client: CloudFront | CloudFrontClient;
+  client: CloudFrontClient;
 }

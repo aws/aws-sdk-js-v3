@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,29 +19,36 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   AddAttachmentsToSetCommandInput,
@@ -66,11 +65,19 @@ import {
   DescribeCommunicationsCommandInput,
   DescribeCommunicationsCommandOutput,
 } from "./commands/DescribeCommunicationsCommand";
+import {
+  DescribeCreateCaseOptionsCommandInput,
+  DescribeCreateCaseOptionsCommandOutput,
+} from "./commands/DescribeCreateCaseOptionsCommand";
 import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
 import {
   DescribeSeverityLevelsCommandInput,
   DescribeSeverityLevelsCommandOutput,
 } from "./commands/DescribeSeverityLevelsCommand";
+import {
+  DescribeSupportedLanguagesCommandInput,
+  DescribeSupportedLanguagesCommandOutput,
+} from "./commands/DescribeSupportedLanguagesCommand";
 import {
   DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
   DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput,
@@ -92,8 +99,20 @@ import {
   RefreshTrustedAdvisorCheckCommandOutput,
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
 import { ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddAttachmentsToSetCommandInput
   | AddCommunicationToCaseCommandInput
@@ -101,8 +120,10 @@ export type ServiceInputTypes =
   | DescribeAttachmentCommandInput
   | DescribeCasesCommandInput
   | DescribeCommunicationsCommandInput
+  | DescribeCreateCaseOptionsCommandInput
   | DescribeServicesCommandInput
   | DescribeSeverityLevelsCommandInput
+  | DescribeSupportedLanguagesCommandInput
   | DescribeTrustedAdvisorCheckRefreshStatusesCommandInput
   | DescribeTrustedAdvisorCheckResultCommandInput
   | DescribeTrustedAdvisorCheckSummariesCommandInput
@@ -110,6 +131,9 @@ export type ServiceInputTypes =
   | RefreshTrustedAdvisorCheckCommandInput
   | ResolveCaseCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddAttachmentsToSetCommandOutput
   | AddCommunicationToCaseCommandOutput
@@ -117,8 +141,10 @@ export type ServiceOutputTypes =
   | DescribeAttachmentCommandOutput
   | DescribeCasesCommandOutput
   | DescribeCommunicationsCommandOutput
+  | DescribeCreateCaseOptionsCommandOutput
   | DescribeServicesCommandOutput
   | DescribeSeverityLevelsCommandOutput
+  | DescribeSupportedLanguagesCommandOutput
   | DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
   | DescribeTrustedAdvisorCheckResultCommandOutput
   | DescribeTrustedAdvisorCheckSummariesCommandOutput
@@ -126,6 +152,9 @@ export type ServiceOutputTypes =
   | RefreshTrustedAdvisorCheckCommandOutput
   | ResolveCaseCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -133,11 +162,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -188,10 +217,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -209,151 +271,101 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type SupportClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type SupportClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of SupportClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SupportClient class constructor that set the region, credentials and other options.
  */
 export interface SupportClientConfig extends SupportClientConfigType {}
 
-type SupportClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type SupportClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SupportClient class. This is resolved and normalized from the {@link SupportClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SupportClient class. This is resolved and normalized from the {@link SupportClientConfig | constructor configuration interface}.
  */
 export interface SupportClientResolvedConfig extends SupportClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Web Services Support</fullname>
- *         <p>The <i>Amazon Web Services Support API Reference</i> is intended for programmers who need detailed
+ *          <p>The <i>Amazon Web Services Support API Reference</i> is intended for programmers who need detailed
  *             information about the Amazon Web Services Support operations and data types. You can use the API to manage
  *             your support cases programmatically. The Amazon Web Services Support API uses HTTP methods that return
  *             results in JSON format.</p>
- *         <note>
+ *          <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
+ *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  *                         API. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
  *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </note>
- *         <p>The Amazon Web Services Support service also exposes a set of <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">Trusted Advisor</a> features. You can
- *             retrieve a list of checks and their descriptions, get check results, specify checks to
- *             refresh, and get the refresh status of checks.</p>
- *         <p>The following list describes the Amazon Web Services Support case management operations:</p>
- *         <ul>
+ *          </note>
+ *          <p>You can also use the Amazon Web Services Support API to access features for <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">Trusted Advisor</a>. You can return a list of
+ *             checks and their descriptions, get check results, specify checks to refresh, and get the
+ *             refresh status of checks.</p>
+ *          <p>You can manage your support cases with the following Amazon Web Services Support API operations:</p>
+ *          <ul>
  *             <li>
- *                 <p> Service names, issue categories, and available severity levels  - The
- *                         <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return Amazon Web Services service names,
- *                     service codes, service categories, and problem severity levels. You use these
- *                     values when you call the <a>CreateCase</a> operation.</p>
- *             </li>
- *             <li>
- *                 <p> Case creation, case details, and case resolution - The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations
+ *                <p>The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations
  *                     create Amazon Web Services Support cases, retrieve information about cases, and resolve cases.</p>
  *             </li>
  *             <li>
- *                 <p> Case communication - The <a>DescribeCommunications</a>,
- *                         <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add communications
- *                     and attachments to Amazon Web Services Support cases.</p>
+ *                <p>The <a>DescribeCommunications</a>, <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add communications and attachments to Amazon Web Services Support
+ *                     cases.</p>
+ *             </li>
+ *             <li>
+ *                <p>The <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return Amazon Web Service names, service codes, service categories, and problem
+ *                     severity levels. You use these values when you call the <a>CreateCase</a> operation.</p>
  *             </li>
  *          </ul>
- *         <p>The following list describes the operations available from the Amazon Web Services Support service for
- *             Trusted Advisor:</p>
- *         <ul>
- *             <li>
- *                 <p>
- *                     <a>DescribeTrustedAdvisorChecks</a> returns the list of checks that
- *                     run against your Amazon Web Services resources.</p>
- *             </li>
- *             <li>
- *                 <p>Using the <code>checkId</code> for a specific check returned by <a>DescribeTrustedAdvisorChecks</a>, you can call <a>DescribeTrustedAdvisorCheckResult</a> to obtain the results for the
- *                     check that you specified.</p>
- *             </li>
- *             <li>
- *                 <p>
- *                     <a>DescribeTrustedAdvisorCheckSummaries</a> returns summarized
- *                     results for one or more Trusted Advisor checks.</p>
- *             </li>
- *             <li>
- *                 <p>
- *                     <a>RefreshTrustedAdvisorCheck</a> requests that Trusted Advisor rerun a
- *                     specified check.</p>
- *             </li>
- *             <li>
- *                 <p>
- *                     <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> reports the refresh
- *                     status of one or more checks.</p>
- *             </li>
- *          </ul>
- *         <p>For authentication of requests, Amazon Web Services Support uses <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
+ *          <p>You can also use the Amazon Web Services Support API to call the  Trusted Advisor operations. For more
+ *             information, see <a href="https://docs.aws.amazon.com/">Trusted Advisor</a> in the
+ *                 <i>Amazon Web Services Support User Guide</i>.</p>
+ *          <p>For authentication of requests, Amazon Web Services Support uses <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
  *                 Process</a>.</p>
- *         <p>See <a href="https://docs.aws.amazon.com/awssupport/latest/user/Welcome.html">About the
- *             Amazon Web Services Support API</a> in the <i>Amazon Web Services Support User Guide</i> for
- *             information about how to use this service to create and manage your support cases, and
- *             how to call Trusted Advisor for results of checks on your resources.</p>
+ *          <p>For more information about this service and the endpoints to use, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html">About the
+ *                 Amazon Web Services Support API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
  */
 export class SupportClient extends __Client<
   __HttpHandlerOptions,
@@ -366,20 +378,23 @@ export class SupportClient extends __Client<
    */
   readonly config: SupportClientResolvedConfig;
 
-  constructor(configuration: SupportClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<SupportClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

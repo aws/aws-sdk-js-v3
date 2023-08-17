@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,22 +11,37 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UntagResourceInput, UntagResourceOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UntagResourceCommand,
-  serializeAws_restJson1UntagResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandInput extends UntagResourceInput {}
+/**
+ * @public
+ *
+ * The output of {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes specified tags from a resource.</p>
- *         <p>To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:</p>
- *         <p>
+ *          <note>
+ *             <p>The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile ARN.</p>
+ *          </note>
+ *          <p>To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:</p>
+ *          <p>
  *             <code>DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2</code>
  *          </p>
  * @example
@@ -33,13 +50,32 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * import { WellArchitectedClient, UntagResourceCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UntagResourceCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // UntagResourceInput
+ *   WorkloadArn: "STRING_VALUE", // required
+ *   TagKeys: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<
@@ -50,6 +86,18 @@ export class UntagResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +113,7 @@ export class UntagResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +124,8 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +135,18 @@ export class UntagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagResourceCommand(input, context);
+    return se_UntagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
-    return deserializeAws_restJson1UntagResourceCommand(output, context);
+    return de_UntagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

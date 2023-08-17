@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,27 +11,39 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryResetDBClusterParameterGroupCommand,
-  serializeAws_queryResetDBClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ResetDBClusterParameterGroupCommand, se_ResetDBClusterParameterGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ResetDBClusterParameterGroupCommand}.
+ */
 export interface ResetDBClusterParameterGroupCommandInput extends ResetDBClusterParameterGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ResetDBClusterParameterGroupCommand}.
+ */
 export interface ResetDBClusterParameterGroupCommandOutput
   extends DBClusterParameterGroupNameMessage,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Modifies the parameters of a cluster parameter group to the default value. To
  *             reset specific parameters, submit a list of the following: <code>ParameterName</code>
  *             and <code>ApplyMethod</code>. To reset the entire cluster parameter group, specify
  *             the <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code>
  *             parameters. </p>
- *         <p> When you reset the entire group, dynamic parameters are updated immediately and
+ *          <p> When you reset the entire group, dynamic parameters are updated immediately and
  *             static parameters are set to <code>pending-reboot</code> to take effect on the next DB
  *             instance reboot.</p>
  * @example
@@ -38,13 +52,47 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * import { DocDBClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // ResetDBClusterParameterGroupMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   ResetAllParameters: true || false,
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       ApplyType: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       ApplyMethod: "immediate" || "pending-reboot",
+ *     },
+ *   ],
+ * };
  * const command = new ResetDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DBClusterParameterGroupNameMessage
+ * //   DBClusterParameterGroupName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ResetDBClusterParameterGroupCommandInput - {@link ResetDBClusterParameterGroupCommandInput}
+ * @returns {@link ResetDBClusterParameterGroupCommandOutput}
  * @see {@link ResetDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+ *
+ * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
+ *  <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+ *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class ResetDBClusterParameterGroupCommand extends $Command<
@@ -55,6 +103,18 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ResetDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +130,9 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ResetDBClusterParameterGroupCommandInput, ResetDBClusterParameterGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ResetDBClusterParameterGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +143,8 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetDBClusterParameterGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupNameMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,15 +154,21 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResetDBClusterParameterGroupCommand(input, context);
+    return se_ResetDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryResetDBClusterParameterGroupCommand(output, context);
+    return de_ResetDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

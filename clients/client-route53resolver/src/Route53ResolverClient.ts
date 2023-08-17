@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,29 +19,36 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   AssociateFirewallRuleGroupCommandInput,
@@ -77,6 +76,10 @@ import {
   CreateFirewallRuleGroupCommandOutput,
 } from "./commands/CreateFirewallRuleGroupCommand";
 import {
+  CreateOutpostResolverCommandInput,
+  CreateOutpostResolverCommandOutput,
+} from "./commands/CreateOutpostResolverCommand";
+import {
   CreateResolverEndpointCommandInput,
   CreateResolverEndpointCommandOutput,
 } from "./commands/CreateResolverEndpointCommand";
@@ -94,6 +97,10 @@ import {
   DeleteFirewallRuleGroupCommandInput,
   DeleteFirewallRuleGroupCommandOutput,
 } from "./commands/DeleteFirewallRuleGroupCommand";
+import {
+  DeleteOutpostResolverCommandInput,
+  DeleteOutpostResolverCommandOutput,
+} from "./commands/DeleteOutpostResolverCommand";
 import {
   DeleteResolverEndpointCommandInput,
   DeleteResolverEndpointCommandOutput,
@@ -136,6 +143,7 @@ import {
   GetFirewallRuleGroupPolicyCommandInput,
   GetFirewallRuleGroupPolicyCommandOutput,
 } from "./commands/GetFirewallRuleGroupPolicyCommand";
+import { GetOutpostResolverCommandInput, GetOutpostResolverCommandOutput } from "./commands/GetOutpostResolverCommand";
 import { GetResolverConfigCommandInput, GetResolverConfigCommandOutput } from "./commands/GetResolverConfigCommand";
 import {
   GetResolverDnssecConfigCommandInput,
@@ -191,6 +199,10 @@ import {
   ListFirewallRuleGroupsCommandOutput,
 } from "./commands/ListFirewallRuleGroupsCommand";
 import { ListFirewallRulesCommandInput, ListFirewallRulesCommandOutput } from "./commands/ListFirewallRulesCommand";
+import {
+  ListOutpostResolversCommandInput,
+  ListOutpostResolversCommandOutput,
+} from "./commands/ListOutpostResolversCommand";
 import {
   ListResolverConfigsCommandInput,
   ListResolverConfigsCommandOutput,
@@ -252,6 +264,10 @@ import {
   UpdateFirewallRuleGroupAssociationCommandOutput,
 } from "./commands/UpdateFirewallRuleGroupAssociationCommand";
 import {
+  UpdateOutpostResolverCommandInput,
+  UpdateOutpostResolverCommandOutput,
+} from "./commands/UpdateOutpostResolverCommand";
+import {
   UpdateResolverConfigCommandInput,
   UpdateResolverConfigCommandOutput,
 } from "./commands/UpdateResolverConfigCommand";
@@ -264,8 +280,20 @@ import {
   UpdateResolverEndpointCommandOutput,
 } from "./commands/UpdateResolverEndpointCommand";
 import { UpdateResolverRuleCommandInput, UpdateResolverRuleCommandOutput } from "./commands/UpdateResolverRuleCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateFirewallRuleGroupCommandInput
   | AssociateResolverEndpointIpAddressCommandInput
@@ -274,12 +302,14 @@ export type ServiceInputTypes =
   | CreateFirewallDomainListCommandInput
   | CreateFirewallRuleCommandInput
   | CreateFirewallRuleGroupCommandInput
+  | CreateOutpostResolverCommandInput
   | CreateResolverEndpointCommandInput
   | CreateResolverQueryLogConfigCommandInput
   | CreateResolverRuleCommandInput
   | DeleteFirewallDomainListCommandInput
   | DeleteFirewallRuleCommandInput
   | DeleteFirewallRuleGroupCommandInput
+  | DeleteOutpostResolverCommandInput
   | DeleteResolverEndpointCommandInput
   | DeleteResolverQueryLogConfigCommandInput
   | DeleteResolverRuleCommandInput
@@ -292,6 +322,7 @@ export type ServiceInputTypes =
   | GetFirewallRuleGroupAssociationCommandInput
   | GetFirewallRuleGroupCommandInput
   | GetFirewallRuleGroupPolicyCommandInput
+  | GetOutpostResolverCommandInput
   | GetResolverConfigCommandInput
   | GetResolverDnssecConfigCommandInput
   | GetResolverEndpointCommandInput
@@ -308,6 +339,7 @@ export type ServiceInputTypes =
   | ListFirewallRuleGroupAssociationsCommandInput
   | ListFirewallRuleGroupsCommandInput
   | ListFirewallRulesCommandInput
+  | ListOutpostResolversCommandInput
   | ListResolverConfigsCommandInput
   | ListResolverDnssecConfigsCommandInput
   | ListResolverEndpointIpAddressesCommandInput
@@ -326,11 +358,15 @@ export type ServiceInputTypes =
   | UpdateFirewallDomainsCommandInput
   | UpdateFirewallRuleCommandInput
   | UpdateFirewallRuleGroupAssociationCommandInput
+  | UpdateOutpostResolverCommandInput
   | UpdateResolverConfigCommandInput
   | UpdateResolverDnssecConfigCommandInput
   | UpdateResolverEndpointCommandInput
   | UpdateResolverRuleCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateFirewallRuleGroupCommandOutput
   | AssociateResolverEndpointIpAddressCommandOutput
@@ -339,12 +375,14 @@ export type ServiceOutputTypes =
   | CreateFirewallDomainListCommandOutput
   | CreateFirewallRuleCommandOutput
   | CreateFirewallRuleGroupCommandOutput
+  | CreateOutpostResolverCommandOutput
   | CreateResolverEndpointCommandOutput
   | CreateResolverQueryLogConfigCommandOutput
   | CreateResolverRuleCommandOutput
   | DeleteFirewallDomainListCommandOutput
   | DeleteFirewallRuleCommandOutput
   | DeleteFirewallRuleGroupCommandOutput
+  | DeleteOutpostResolverCommandOutput
   | DeleteResolverEndpointCommandOutput
   | DeleteResolverQueryLogConfigCommandOutput
   | DeleteResolverRuleCommandOutput
@@ -357,6 +395,7 @@ export type ServiceOutputTypes =
   | GetFirewallRuleGroupAssociationCommandOutput
   | GetFirewallRuleGroupCommandOutput
   | GetFirewallRuleGroupPolicyCommandOutput
+  | GetOutpostResolverCommandOutput
   | GetResolverConfigCommandOutput
   | GetResolverDnssecConfigCommandOutput
   | GetResolverEndpointCommandOutput
@@ -373,6 +412,7 @@ export type ServiceOutputTypes =
   | ListFirewallRuleGroupAssociationsCommandOutput
   | ListFirewallRuleGroupsCommandOutput
   | ListFirewallRulesCommandOutput
+  | ListOutpostResolversCommandOutput
   | ListResolverConfigsCommandOutput
   | ListResolverDnssecConfigsCommandOutput
   | ListResolverEndpointIpAddressesCommandOutput
@@ -391,11 +431,15 @@ export type ServiceOutputTypes =
   | UpdateFirewallDomainsCommandOutput
   | UpdateFirewallRuleCommandOutput
   | UpdateFirewallRuleGroupAssociationCommandOutput
+  | UpdateOutpostResolverCommandOutput
   | UpdateResolverConfigCommandOutput
   | UpdateResolverDnssecConfigCommandOutput
   | UpdateResolverEndpointCommandOutput
   | UpdateResolverRuleCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -403,11 +447,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -458,10 +502,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -479,108 +556,82 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type Route53ResolverClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type Route53ResolverClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of Route53ResolverClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of Route53ResolverClient class constructor that set the region, credentials and other options.
  */
 export interface Route53ResolverClientConfig extends Route53ResolverClientConfigType {}
 
-type Route53ResolverClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type Route53ResolverClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of Route53ResolverClient class. This is resolved and normalized from the {@link Route53ResolverClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of Route53ResolverClient class. This is resolved and normalized from the {@link Route53ResolverClientConfig | constructor configuration interface}.
  */
 export interface Route53ResolverClientResolvedConfig extends Route53ResolverClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC
  * 			from Route 53 Resolver. By default, Resolver answers DNS queries for VPC domain names
  * 			such as domain names for EC2 instances or Elastic Load Balancing load balancers.
  * 			Resolver performs recursive lookups against public name servers for all other domain
  * 			names.</p>
- *
- * 		       <p>You can also configure DNS resolution between your VPC and your network over a Direct Connect or VPN connection:</p>
- *
- * 		       <p>
+ *          <p>You can also configure DNS resolution between your VPC and your network over a Direct Connect or VPN connection:</p>
+ *          <p>
  *             <b>Forward DNS queries from resolvers on your network to Route 53 Resolver</b>
  *          </p>
- *
- * 		       <p>DNS resolvers on your network can forward DNS queries to Resolver in a specified VPC. This allows your DNS resolvers
+ *          <p>DNS resolvers on your network can forward DNS queries to Resolver in a specified VPC. This allows your DNS resolvers
  * 			to easily resolve domain names for Amazon Web Services resources such as EC2 instances or records in a Route 53 private hosted zone.
  * 			For more information, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-network-to-vpc">How DNS Resolvers
  * 			on Your Network Forward DNS Queries to Route 53 Resolver</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
- *
- * 		       <p>
+ *          <p>
  *             <b>Conditionally forward queries from a VPC to resolvers on your network</b>
  *          </p>
- *
- * 		       <p>You can configure Resolver to forward queries that it receives from EC2 instances in your VPCs to DNS resolvers on your network.
+ *          <p>You can configure Resolver to forward queries that it receives from EC2 instances in your VPCs to DNS resolvers on your network.
  * 			To forward selected queries, you create Resolver rules that specify the domain names for the DNS queries that you want to forward
  * 			(such as example.com), and the IP addresses of the DNS resolvers on your network that you want to forward the queries to.
  * 			If a query matches multiple rules (example.com, acme.example.com), Resolver chooses the rule with the most specific match
  * 			(acme.example.com) and forwards the query to the IP addresses that you specified in that rule. For more information, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-vpc-to-network">How Route 53 Resolver
  * 			Forwards DNS Queries from Your VPCs to Your Network</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
- *
- * 		       <p>Like Amazon VPC, Resolver is Regional. In each Region where you have VPCs, you can choose
+ *          <p>Like Amazon VPC, Resolver is Regional. In each Region where you have VPCs, you can choose
  * 			whether to forward queries from your VPCs to your network (outbound queries), from your
  * 			network to your VPCs (inbound queries), or both.</p>
  */
@@ -595,20 +646,23 @@ export class Route53ResolverClient extends __Client<
    */
   readonly config: Route53ResolverClientResolvedConfig;
 
-  constructor(configuration: Route53ResolverClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<Route53ResolverClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

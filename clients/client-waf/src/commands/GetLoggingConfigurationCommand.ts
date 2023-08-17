@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetLoggingConfigurationRequest, GetLoggingConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLoggingConfigurationCommand,
-  serializeAws_json1_1GetLoggingConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetLoggingConfigurationCommand, se_GetLoggingConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetLoggingConfigurationCommand}.
+ */
 export interface GetLoggingConfigurationCommandInput extends GetLoggingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLoggingConfigurationCommand}.
+ */
 export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -37,13 +51,42 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * import { WAFClient, GetLoggingConfigurationCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetLoggingConfigurationCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // GetLoggingConfigurationRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // GetLoggingConfigurationResponse
+ * //   LoggingConfiguration: { // LoggingConfiguration
+ * //     ResourceArn: "STRING_VALUE", // required
+ * //     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RedactedFields: [ // RedactedFields
+ * //       { // FieldToMatch
+ * //         Type: "STRING_VALUE", // required
+ * //         Data: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetLoggingConfigurationCommandInput - {@link GetLoggingConfigurationCommandInput}
+ * @returns {@link GetLoggingConfigurationCommandOutput}
  * @see {@link GetLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class GetLoggingConfigurationCommand extends $Command<
@@ -54,6 +97,18 @@ export class GetLoggingConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +124,9 @@ export class GetLoggingConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetLoggingConfigurationCommandInput, GetLoggingConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetLoggingConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +137,8 @@ export class GetLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLoggingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLoggingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +148,18 @@ export class GetLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLoggingConfigurationCommand(input, context);
+    return se_GetLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetLoggingConfigurationCommand(output, context);
+    return de_GetLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

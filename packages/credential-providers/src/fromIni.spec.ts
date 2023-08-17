@@ -1,15 +1,15 @@
-const ROLE_ASSUMER = "ROLE_ASSUMER";
-const ROLE_ASSUMER_WITH_WEB_IDENTITY = "ROLE_ASSUMER_WITH_WEB_IDENTITY";
-
-jest.mock("@aws-sdk/client-sts", () => ({
-  getDefaultRoleAssumer: jest.fn().mockReturnValue(ROLE_ASSUMER),
-  getDefaultRoleAssumerWithWebIdentity: jest.fn().mockReturnValue(ROLE_ASSUMER_WITH_WEB_IDENTITY),
-}));
-
 import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 import { fromIni as coreProvider } from "@aws-sdk/credential-provider-ini";
 
 import { fromIni } from "./fromIni";
+
+const mockRoleAssumer = jest.fn().mockResolvedValue("ROLE_ASSUMER");
+const mockRoleAssumerWithWebIdentity = jest.fn().mockResolvedValue("ROLE_ASSUMER_WITH_WEB_IDENTITY");
+
+jest.mock("@aws-sdk/client-sts", () => ({
+  getDefaultRoleAssumer: jest.fn().mockImplementation(() => mockRoleAssumer),
+  getDefaultRoleAssumerWithWebIdentity: jest.fn().mockImplementation(() => mockRoleAssumerWithWebIdentity),
+}));
 
 jest.mock("@aws-sdk/credential-provider-ini", () => ({
   fromIni: jest.fn(),
@@ -25,8 +25,8 @@ describe("fromIni", () => {
     fromIni({ profile });
     expect(coreProvider).toBeCalledWith({
       profile,
-      roleAssumer: ROLE_ASSUMER,
-      roleAssumerWithWebIdentity: ROLE_ASSUMER_WITH_WEB_IDENTITY,
+      roleAssumer: mockRoleAssumer,
+      roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
     });
     expect(getDefaultRoleAssumer).toBeCalled();
     expect(getDefaultRoleAssumerWithWebIdentity).toBeCalled();
@@ -46,13 +46,14 @@ describe("fromIni", () => {
     expect(getDefaultRoleAssumerWithWebIdentity).not.toBeCalled();
   });
 
-  it("should use supplied sts options", () => {
+  it("should use supplied sts and plugins options", () => {
     const profile = "profile";
     const clientConfig = {
       region: "US_BAR_1",
     };
-    fromIni({ profile, clientConfig });
-    expect(getDefaultRoleAssumer).toBeCalledWith(clientConfig);
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig);
+    const plugin = { applyToStack: () => {} };
+    fromIni({ profile, clientConfig, clientPlugins: [plugin] });
+    expect(getDefaultRoleAssumer).toBeCalledWith(clientConfig, [plugin]);
+    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig, [plugin]);
   });
 });

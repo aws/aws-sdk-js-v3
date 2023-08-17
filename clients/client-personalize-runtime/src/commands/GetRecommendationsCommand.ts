@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,39 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/models_0";
+import {
+  GetRecommendationsRequest,
+  GetRecommendationsRequestFilterSensitiveLog,
+  GetRecommendationsResponse,
+} from "../models/models_0";
 import {
   PersonalizeRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient";
-import {
-  deserializeAws_restJson1GetRecommendationsCommand,
-  serializeAws_restJson1GetRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRecommendationsCommand, se_GetRecommendationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetRecommendationsCommand}.
+ */
 export interface GetRecommendationsCommandInput extends GetRecommendationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRecommendationsCommand}.
+ */
 export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to
  *       create the solution backing the campaign as follows:</p>
  *          <ul>
@@ -50,13 +68,59 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * import { PersonalizeRuntimeClient, GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
  * // const { PersonalizeRuntimeClient, GetRecommendationsCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
  * const client = new PersonalizeRuntimeClient(config);
+ * const input = { // GetRecommendationsRequest
+ *   campaignArn: "STRING_VALUE",
+ *   itemId: "STRING_VALUE",
+ *   userId: "STRING_VALUE",
+ *   numResults: Number("int"),
+ *   context: { // Context
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   filterArn: "STRING_VALUE",
+ *   filterValues: { // FilterValues
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   recommenderArn: "STRING_VALUE",
+ *   promotions: [ // PromotionList
+ *     { // Promotion
+ *       name: "STRING_VALUE",
+ *       percentPromotedItems: Number("int"),
+ *       filterArn: "STRING_VALUE",
+ *       filterValues: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
+ * // { // GetRecommendationsResponse
+ * //   itemList: [ // ItemList
+ * //     { // PredictedItem
+ * //       itemId: "STRING_VALUE",
+ * //       score: Number("double"),
+ * //       promotionName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   recommendationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetRecommendationsCommandInput - {@link GetRecommendationsCommandInput}
+ * @returns {@link GetRecommendationsCommandOutput}
  * @see {@link GetRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for PersonalizeRuntimeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link PersonalizeRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
  */
 export class GetRecommendationsCommand extends $Command<
@@ -67,6 +131,18 @@ export class GetRecommendationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +158,9 @@ export class GetRecommendationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRecommendationsCommandInput, GetRecommendationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetRecommendationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -92,8 +171,8 @@ export class GetRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommendationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommendationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRecommendationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +182,18 @@ export class GetRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecommendationsCommand(input, context);
+    return se_GetRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecommendationsCommandOutput> {
-    return deserializeAws_restJson1GetRecommendationsCommand(output, context);
+    return de_GetRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

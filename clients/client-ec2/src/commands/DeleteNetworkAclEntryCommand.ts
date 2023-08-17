@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteNetworkAclEntryRequest } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteNetworkAclEntryCommand,
-  serializeAws_ec2DeleteNetworkAclEntryCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteNetworkAclEntryCommand, se_DeleteNetworkAclEntryCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteNetworkAclEntryCommand}.
+ */
 export interface DeleteNetworkAclEntryCommandInput extends DeleteNetworkAclEntryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNetworkAclEntryCommand}.
+ */
 export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified ingress or egress entry (rule) from the specified network ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,39 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteNetworkAclEntryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkAclEntryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteNetworkAclEntryRequest
+ *   DryRun: true || false,
+ *   Egress: true || false, // required
+ *   NetworkAclId: "STRING_VALUE", // required
+ *   RuleNumber: Number("int"), // required
+ * };
  * const command = new DeleteNetworkAclEntryCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteNetworkAclEntryCommandInput - {@link DeleteNetworkAclEntryCommandInput}
+ * @returns {@link DeleteNetworkAclEntryCommandOutput}
  * @see {@link DeleteNetworkAclEntryCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
+ *
+ * @example To delete a network ACL entry
+ * ```javascript
+ * // This example deletes ingress rule number 100 from the specified network ACL.
+ * const input = {
+ *   "Egress": true,
+ *   "NetworkAclId": "acl-5fb85d36",
+ *   "RuleNumber": 100
+ * };
+ * const command = new DeleteNetworkAclEntryCommand(input);
+ * await client.send(command);
+ * // example id: ec2-delete-network-acl-entry-1
+ * ```
  *
  */
 export class DeleteNetworkAclEntryCommand extends $Command<
@@ -46,6 +86,18 @@ export class DeleteNetworkAclEntryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkAclEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +113,9 @@ export class DeleteNetworkAclEntryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteNetworkAclEntryCommandInput, DeleteNetworkAclEntryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteNetworkAclEntryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +126,8 @@ export class DeleteNetworkAclEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkAclEntryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +137,18 @@ export class DeleteNetworkAclEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkAclEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkAclEntryCommand(input, context);
+    return se_DeleteNetworkAclEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkAclEntryCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkAclEntryCommand(output, context);
+    return de_DeleteNetworkAclEntryCommand(output, context);
   }
 
   // Start section: command_body_extra

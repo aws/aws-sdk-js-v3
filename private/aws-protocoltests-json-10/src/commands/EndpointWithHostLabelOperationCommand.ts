@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,30 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import { EndpointWithHostLabelOperationInput } from "../models/models_0";
 import {
-  deserializeAws_json1_0EndpointWithHostLabelOperationCommand,
-  serializeAws_json1_0EndpointWithHostLabelOperationCommand,
+  de_EndpointWithHostLabelOperationCommand,
+  se_EndpointWithHostLabelOperationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link EndpointWithHostLabelOperationCommand}.
+ */
 export interface EndpointWithHostLabelOperationCommandInput extends EndpointWithHostLabelOperationInput {}
+/**
+ * @public
+ *
+ * The output of {@link EndpointWithHostLabelOperationCommand}.
+ */
 export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataBearer {}
 
 export class EndpointWithHostLabelOperationCommand extends $Command<
@@ -29,6 +44,9 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: EndpointWithHostLabelOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +72,8 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EndpointWithHostLabelOperationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,18 +83,24 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EndpointWithHostLabelOperationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0EndpointWithHostLabelOperationCommand(input, context);
+    return se_EndpointWithHostLabelOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EndpointWithHostLabelOperationCommandOutput> {
-    return deserializeAws_json1_0EndpointWithHostLabelOperationCommand(output, context);
+    return de_EndpointWithHostLabelOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

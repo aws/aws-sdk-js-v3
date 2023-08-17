@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListRulesRequest, ListRulesResponse } from "../models/models_0";
-import { deserializeAws_json1_1ListRulesCommand, serializeAws_json1_1ListRulesCommand } from "../protocols/Aws_json1_1";
+import { de_ListRulesCommand, se_ListRulesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListRulesCommand}.
+ */
 export interface ListRulesCommandInput extends ListRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRulesCommand}.
+ */
 export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -34,13 +51,59 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * import { WAFRegionalClient, ListRulesCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListRulesCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // ListRulesRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
+ * // { // ListRulesResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   Rules: [ // RuleSummaries
+ * //     { // RuleSummary
+ * //       RuleId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListRulesCommandInput - {@link ListRulesCommandInput}
+ * @returns {@link ListRulesCommandOutput}
  * @see {@link ListRulesCommandInput} for command's `input` shape.
  * @see {@link ListRulesCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
+ *
+ * @example To list rules
+ * ```javascript
+ * // The following example returns an array of up to 100 rules.
+ * const input = {
+ *   "Limit": 100
+ * };
+ * const command = new ListRulesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Rules": [
+ *     {
+ *       "Name": "WAFByteHeaderRule",
+ *       "RuleId": "WAFRule-1-Example"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: listrules-1475258406433
+ * ```
  *
  */
 export class ListRulesCommand extends $Command<
@@ -51,6 +114,18 @@ export class ListRulesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +141,7 @@ export class ListRulesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListRulesCommandInput, ListRulesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListRulesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +152,8 @@ export class ListRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRulesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRulesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +163,18 @@ export class ListRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRulesCommand(input, context);
+    return se_ListRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesCommandOutput> {
-    return deserializeAws_json1_1ListRulesCommand(output, context);
+    return de_ListRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

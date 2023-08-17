@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteGatewayInput, DeleteGatewayOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGatewayCommand,
-  serializeAws_json1_1DeleteGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteGatewayCommand, se_DeleteGatewayCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteGatewayCommand}.
+ */
 export interface DeleteGatewayCommandInput extends DeleteGatewayInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteGatewayCommand}.
+ */
 export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name
  *          (ARN) of the gateway in your request. The operation deletes the gateway; however, it does
  *          not delete the gateway virtual machine (VM) from your host computer.</p>
@@ -46,13 +60,49 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * import { StorageGatewayClient, DeleteGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DeleteGatewayInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteGatewayOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DeleteGatewayCommandInput - {@link DeleteGatewayCommandInput}
+ * @returns {@link DeleteGatewayCommandOutput}
  * @see {@link DeleteGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
+ *
+ * @example To delete a gatgeway
+ * ```javascript
+ * // This operation deletes the gateway, but not the gateway's VM from the host computer.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new DeleteGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-delete-a-gatgeway-1471381697333
+ * ```
  *
  */
 export class DeleteGatewayCommand extends $Command<
@@ -63,6 +113,18 @@ export class DeleteGatewayCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +140,7 @@ export class DeleteGatewayCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteGatewayCommandInput, DeleteGatewayCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteGatewayCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -88,8 +151,8 @@ export class DeleteGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGatewayInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGatewayOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +162,18 @@ export class DeleteGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGatewayCommand(input, context);
+    return se_DeleteGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayCommandOutput> {
-    return deserializeAws_json1_1DeleteGatewayCommand(output, context);
+    return de_DeleteGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

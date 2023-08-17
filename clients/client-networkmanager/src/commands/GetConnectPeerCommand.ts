@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetConnectPeerRequest, GetConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetConnectPeerCommand,
-  serializeAws_restJson1GetConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectPeerCommand, se_GetConnectPeerCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetConnectPeerCommand}.
+ */
 export interface GetConnectPeerCommandInput extends GetConnectPeerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetConnectPeerCommand}.
+ */
 export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a core network Connect peer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,69 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  * import { NetworkManagerClient, GetConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetConnectPeerRequest
+ *   ConnectPeerId: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectPeerCommand(input);
  * const response = await client.send(command);
+ * // { // GetConnectPeerResponse
+ * //   ConnectPeer: { // ConnectPeer
+ * //     CoreNetworkId: "STRING_VALUE",
+ * //     ConnectAttachmentId: "STRING_VALUE",
+ * //     ConnectPeerId: "STRING_VALUE",
+ * //     EdgeLocation: "STRING_VALUE",
+ * //     State: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     Configuration: { // ConnectPeerConfiguration
+ * //       CoreNetworkAddress: "STRING_VALUE",
+ * //       PeerAddress: "STRING_VALUE",
+ * //       InsideCidrBlocks: [ // ConstrainedStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Protocol: "GRE",
+ * //       BgpConfigurations: [ // ConnectPeerBgpConfigurationList
+ * //         { // ConnectPeerBgpConfiguration
+ * //           CoreNetworkAsn: Number("long"),
+ * //           PeerAsn: Number("long"),
+ * //           CoreNetworkAddress: "STRING_VALUE",
+ * //           PeerAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetConnectPeerCommandInput - {@link GetConnectPeerCommandInput}
+ * @returns {@link GetConnectPeerCommandOutput}
  * @see {@link GetConnectPeerCommandInput} for command's `input` shape.
  * @see {@link GetConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetConnectPeerCommand extends $Command<
@@ -46,6 +116,18 @@ export class GetConnectPeerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +143,9 @@ export class GetConnectPeerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetConnectPeerCommandInput, GetConnectPeerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetConnectPeerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +156,8 @@ export class GetConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectPeerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectPeerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +167,18 @@ export class GetConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectPeerCommand(input, context);
+    return se_GetConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectPeerCommandOutput> {
-    return deserializeAws_restJson1GetConnectPeerCommand(output, context);
+    return de_GetConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

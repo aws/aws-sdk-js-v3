@@ -1,32 +1,47 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-} from "@aws-sdk/smithy-client";
+  map,
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CancelChangeSetCommandInput, CancelChangeSetCommandOutput } from "../commands/CancelChangeSetCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "../commands/DescribeChangeSetCommand";
 import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "../commands/DescribeEntityCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "../commands/ListChangeSetsCommand";
 import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "../commands/ListEntitiesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { StartChangeSetCommandInput, StartChangeSetCommandOutput } from "../commands/StartChangeSetCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { MarketplaceCatalogServiceException as __BaseException } from "../models/MarketplaceCatalogServiceException";
 import {
   AccessDeniedException,
   Change,
-  ChangeSetSummaryListItem,
-  ChangeSummary,
   Entity,
-  EntitySummary,
-  ErrorDetail,
   Filter,
   InternalServiceException,
   ResourceInUseException,
@@ -34,21 +49,25 @@ import {
   ResourceNotSupportedException,
   ServiceQuotaExceededException,
   Sort,
+  Tag,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CancelChangeSetCommand = async (
+/**
+ * serializeAws_restJson1CancelChangeSetCommand
+ */
+export const se_CancelChangeSetCommand = async (
   input: CancelChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CancelChangeSet";
-  const query: any = {
-    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
-    ...(input.ChangeSetId !== undefined && { changeSetId: input.ChangeSetId }),
-  };
+  const query: any = map({
+    catalog: [, __expectNonNull(input.Catalog!, `Catalog`)],
+    changeSetId: [, __expectNonNull(input.ChangeSetId!, `ChangeSetId`)],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -62,17 +81,46 @@ export const serializeAws_restJson1CancelChangeSetCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeChangeSetCommand = async (
+/**
+ * serializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteResourcePolicy";
+  const query: any = map({
+    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeChangeSetCommand
+ */
+export const se_DescribeChangeSetCommand = async (
   input: DescribeChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeChangeSet";
-  const query: any = {
-    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
-    ...(input.ChangeSetId !== undefined && { changeSetId: input.ChangeSetId }),
-  };
+  const query: any = map({
+    catalog: [, __expectNonNull(input.Catalog!, `Catalog`)],
+    changeSetId: [, __expectNonNull(input.ChangeSetId!, `ChangeSetId`)],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -86,17 +134,20 @@ export const serializeAws_restJson1DescribeChangeSetCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeEntityCommand = async (
+/**
+ * serializeAws_restJson1DescribeEntityCommand
+ */
+export const se_DescribeEntityCommand = async (
   input: DescribeEntityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeEntity";
-  const query: any = {
-    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
-    ...(input.EntityId !== undefined && { entityId: input.EntityId }),
-  };
+  const query: any = map({
+    catalog: [, __expectNonNull(input.Catalog!, `Catalog`)],
+    entityId: [, __expectNonNull(input.EntityId!, `EntityId`)],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -110,7 +161,36 @@ export const serializeAws_restJson1DescribeEntityCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListChangeSetsCommand = async (
+/**
+ * serializeAws_restJson1GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetResourcePolicy";
+  const query: any = map({
+    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListChangeSetsCommand
+ */
+export const se_ListChangeSetsCommand = async (
   input: ListChangeSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -120,14 +200,15 @@ export const serializeAws_restJson1ListChangeSetsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListChangeSets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
-    ...(input.FilterList !== undefined &&
-      input.FilterList !== null && { FilterList: serializeAws_restJson1FilterList(input.FilterList, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Sort !== undefined && input.Sort !== null && { Sort: serializeAws_restJson1Sort(input.Sort, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Catalog: [],
+      FilterList: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      Sort: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -139,7 +220,10 @@ export const serializeAws_restJson1ListChangeSetsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListEntitiesCommand = async (
+/**
+ * serializeAws_restJson1ListEntitiesCommand
+ */
+export const se_ListEntitiesCommand = async (
   input: ListEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -149,15 +233,17 @@ export const serializeAws_restJson1ListEntitiesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListEntities";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
-    ...(input.EntityType !== undefined && input.EntityType !== null && { EntityType: input.EntityType }),
-    ...(input.FilterList !== undefined &&
-      input.FilterList !== null && { FilterList: serializeAws_restJson1FilterList(input.FilterList, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Sort !== undefined && input.Sort !== null && { Sort: serializeAws_restJson1Sort(input.Sort, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Catalog: [],
+      EntityType: [],
+      FilterList: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      OwnershipType: [],
+      Sort: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -169,7 +255,69 @@ export const serializeAws_restJson1ListEntitiesCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartChangeSetCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTagsForResource";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutResourcePolicy";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Policy: [],
+      ResourceArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartChangeSetCommand
+ */
+export const se_StartChangeSetCommand = async (
   input: StartChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -179,14 +327,15 @@ export const serializeAws_restJson1StartChangeSetCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartChangeSet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
-    ...(input.ChangeSet !== undefined &&
-      input.ChangeSet !== null && { ChangeSet: serializeAws_restJson1RequestedChangeList(input.ChangeSet, context) }),
-    ...(input.ChangeSetName !== undefined && input.ChangeSetName !== null && { ChangeSetName: input.ChangeSetName }),
-    ...(input.ClientRequestToken !== undefined &&
-      input.ClientRequestToken !== null && { ClientRequestToken: input.ClientRequestToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Catalog: [],
+      ChangeSet: (_) => _json(_),
+      ChangeSetName: [],
+      ChangeSetTags: (_) => _json(_),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -198,424 +347,798 @@ export const serializeAws_restJson1StartChangeSetCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CancelChangeSetCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TagResource";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UntagResource";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * deserializeAws_restJson1CancelChangeSetCommand
+ */
+export const de_CancelChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelChangeSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CancelChangeSetCommandError(output, context);
+    return de_CancelChangeSetCommandError(output, context);
   }
-  const contents: CancelChangeSetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ChangeSetArn: undefined,
-    ChangeSetId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChangeSetArn !== undefined && data.ChangeSetArn !== null) {
-    contents.ChangeSetArn = __expectString(data.ChangeSetArn);
-  }
-  if (data.ChangeSetId !== undefined && data.ChangeSetId !== null) {
-    contents.ChangeSetId = __expectString(data.ChangeSetId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChangeSetArn: __expectString,
+    ChangeSetId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CancelChangeSetCommandError = async (
+/**
+ * deserializeAws_restJson1CancelChangeSetCommandError
+ */
+const de_CancelChangeSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplacecatalog#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.marketplacecatalog#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.marketplacecatalog#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.marketplacecatalog#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.marketplacecatalog#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DescribeChangeSetCommand = async (
+/**
+ * deserializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteResourcePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteResourcePolicyCommandError
+ */
+const de_DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.marketplacecatalog#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.marketplacecatalog#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.marketplacecatalog#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeChangeSetCommand
+ */
+export const de_DescribeChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChangeSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeChangeSetCommandError(output, context);
+    return de_DescribeChangeSetCommandError(output, context);
   }
-  const contents: DescribeChangeSetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ChangeSet: undefined,
-    ChangeSetArn: undefined,
-    ChangeSetId: undefined,
-    ChangeSetName: undefined,
-    EndTime: undefined,
-    FailureCode: undefined,
-    FailureDescription: undefined,
-    StartTime: undefined,
-    Status: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChangeSet !== undefined && data.ChangeSet !== null) {
-    contents.ChangeSet = deserializeAws_restJson1ChangeSetDescription(data.ChangeSet, context);
-  }
-  if (data.ChangeSetArn !== undefined && data.ChangeSetArn !== null) {
-    contents.ChangeSetArn = __expectString(data.ChangeSetArn);
-  }
-  if (data.ChangeSetId !== undefined && data.ChangeSetId !== null) {
-    contents.ChangeSetId = __expectString(data.ChangeSetId);
-  }
-  if (data.ChangeSetName !== undefined && data.ChangeSetName !== null) {
-    contents.ChangeSetName = __expectString(data.ChangeSetName);
-  }
-  if (data.EndTime !== undefined && data.EndTime !== null) {
-    contents.EndTime = __expectString(data.EndTime);
-  }
-  if (data.FailureCode !== undefined && data.FailureCode !== null) {
-    contents.FailureCode = __expectString(data.FailureCode);
-  }
-  if (data.FailureDescription !== undefined && data.FailureDescription !== null) {
-    contents.FailureDescription = __expectString(data.FailureDescription);
-  }
-  if (data.StartTime !== undefined && data.StartTime !== null) {
-    contents.StartTime = __expectString(data.StartTime);
-  }
-  if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = __expectString(data.Status);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChangeSet: _json,
+    ChangeSetArn: __expectString,
+    ChangeSetId: __expectString,
+    ChangeSetName: __expectString,
+    EndTime: __expectString,
+    FailureCode: __expectString,
+    FailureDescription: __expectString,
+    StartTime: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeChangeSetCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeChangeSetCommandError
+ */
+const de_DescribeChangeSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplacecatalog#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.marketplacecatalog#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.marketplacecatalog#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.marketplacecatalog#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DescribeEntityCommand = async (
+/**
+ * deserializeAws_restJson1DescribeEntityCommand
+ */
+export const de_DescribeEntityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeEntityCommandError(output, context);
+    return de_DescribeEntityCommandError(output, context);
   }
-  const contents: DescribeEntityCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Details: undefined,
-    EntityArn: undefined,
-    EntityIdentifier: undefined,
-    EntityType: undefined,
-    LastModifiedDate: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Details !== undefined && data.Details !== null) {
-    contents.Details = __expectString(data.Details);
-  }
-  if (data.EntityArn !== undefined && data.EntityArn !== null) {
-    contents.EntityArn = __expectString(data.EntityArn);
-  }
-  if (data.EntityIdentifier !== undefined && data.EntityIdentifier !== null) {
-    contents.EntityIdentifier = __expectString(data.EntityIdentifier);
-  }
-  if (data.EntityType !== undefined && data.EntityType !== null) {
-    contents.EntityType = __expectString(data.EntityType);
-  }
-  if (data.LastModifiedDate !== undefined && data.LastModifiedDate !== null) {
-    contents.LastModifiedDate = __expectString(data.LastModifiedDate);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Details: __expectString,
+    EntityArn: __expectString,
+    EntityIdentifier: __expectString,
+    EntityType: __expectString,
+    LastModifiedDate: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeEntityCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeEntityCommandError
+ */
+const de_DescribeEntityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplacecatalog#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.marketplacecatalog#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceNotSupportedException":
     case "com.amazonaws.marketplacecatalog#ResourceNotSupportedException":
-      throw await deserializeAws_restJson1ResourceNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotSupportedExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.marketplacecatalog#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.marketplacecatalog#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListChangeSetsCommand = async (
+/**
+ * deserializeAws_restJson1GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListChangeSetsCommandOutput> => {
+): Promise<GetResourcePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChangeSetsCommandError(output, context);
+    return de_GetResourcePolicyCommandError(output, context);
   }
-  const contents: ListChangeSetsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ChangeSetSummaryList: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChangeSetSummaryList !== undefined && data.ChangeSetSummaryList !== null) {
-    contents.ChangeSetSummaryList = deserializeAws_restJson1ChangeSetSummaryList(data.ChangeSetSummaryList, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Policy: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListChangeSetsCommandError = async (
+/**
+ * deserializeAws_restJson1GetResourcePolicyCommandError
+ */
+const de_GetResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListChangeSetsCommandOutput> => {
+): Promise<GetResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplacecatalog#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.marketplacecatalog#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.marketplacecatalog#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.marketplacecatalog#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      });
-      throw __decorateServiceException(response, parsedBody);
-  }
-};
-
-export const deserializeAws_restJson1ListEntitiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEntitiesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEntitiesCommandError(output, context);
-  }
-  const contents: ListEntitiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    EntitySummaryList: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EntitySummaryList !== undefined && data.EntitySummaryList !== null) {
-    contents.EntitySummaryList = deserializeAws_restJson1EntitySummaryList(data.EntitySummaryList, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1ListEntitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEntitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.marketplacecatalog#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.marketplacecatalog#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.marketplacecatalog#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1StartChangeSetCommand = async (
+/**
+ * deserializeAws_restJson1ListChangeSetsCommand
+ */
+export const de_ListChangeSetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChangeSetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListChangeSetsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChangeSetSummaryList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListChangeSetsCommandError
+ */
+const de_ListChangeSetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChangeSetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.marketplacecatalog#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.marketplacecatalog#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.marketplacecatalog#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListEntitiesCommand
+ */
+export const de_ListEntitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEntitiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListEntitiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EntitySummaryList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEntitiesCommandError
+ */
+const de_ListEntitiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEntitiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.marketplacecatalog#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.marketplacecatalog#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.marketplacecatalog#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTagsForResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ResourceArn: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.marketplacecatalog#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.marketplacecatalog#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.marketplacecatalog#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutResourcePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutResourcePolicyCommandError
+ */
+const de_PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.marketplacecatalog#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.marketplacecatalog#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.marketplacecatalog#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartChangeSetCommand
+ */
+export const de_StartChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartChangeSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartChangeSetCommandError(output, context);
+    return de_StartChangeSetCommandError(output, context);
   }
-  const contents: StartChangeSetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ChangeSetArn: undefined,
-    ChangeSetId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChangeSetArn !== undefined && data.ChangeSetArn !== null) {
-    contents.ChangeSetArn = __expectString(data.ChangeSetArn);
-  }
-  if (data.ChangeSetId !== undefined && data.ChangeSetId !== null) {
-    contents.ChangeSetId = __expectString(data.ChangeSetId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChangeSetArn: __expectString,
+    ChangeSetId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartChangeSetCommandError = async (
+/**
+ * deserializeAws_restJson1StartChangeSetCommandError
+ */
+const de_StartChangeSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplacecatalog#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.marketplacecatalog#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.marketplacecatalog#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.marketplacecatalog#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.marketplacecatalog#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.marketplacecatalog#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_TagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.marketplacecatalog#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.marketplacecatalog#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.marketplacecatalog#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UntagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.marketplacecatalog#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.marketplacecatalog#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.marketplacecatalog#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.marketplacecatalog#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -623,15 +1146,19 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServiceExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServiceExceptionRes
+ */
+const de_InternalServiceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -639,15 +1166,19 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -655,15 +1186,19 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -671,15 +1206,19 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotSupportedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotSupportedExceptionRes
+ */
+const de_ResourceNotSupportedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotSupportedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -687,15 +1226,19 @@ const deserializeAws_restJson1ResourceNotSupportedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -703,15 +1246,16 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -719,15 +1263,16 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -735,208 +1280,57 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1Change = (input: Change, context: __SerdeContext): any => {
-  return {
-    ...(input.ChangeName !== undefined && input.ChangeName !== null && { ChangeName: input.ChangeName }),
-    ...(input.ChangeType !== undefined && input.ChangeType !== null && { ChangeType: input.ChangeType }),
-    ...(input.Details !== undefined && input.Details !== null && { Details: input.Details }),
-    ...(input.Entity !== undefined &&
-      input.Entity !== null && { Entity: serializeAws_restJson1Entity(input.Entity, context) }),
-  };
-};
+// se_Change omitted.
 
-const serializeAws_restJson1Entity = (input: Entity, context: __SerdeContext): any => {
-  return {
-    ...(input.Identifier !== undefined && input.Identifier !== null && { Identifier: input.Identifier }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-  };
-};
+// se_Entity omitted.
 
-const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ValueList !== undefined &&
-      input.ValueList !== null && { ValueList: serializeAws_restJson1ValueList(input.ValueList, context) }),
-  };
-};
+// se_Filter omitted.
 
-const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Filter(entry, context);
-    });
-};
+// se_FilterList omitted.
 
-const serializeAws_restJson1RequestedChangeList = (input: Change[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Change(entry, context);
-    });
-};
+// se_RequestedChangeList omitted.
 
-const serializeAws_restJson1Sort = (input: Sort, context: __SerdeContext): any => {
-  return {
-    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
-  };
-};
+// se_Sort omitted.
 
-const serializeAws_restJson1ValueList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// se_Tag omitted.
 
-const deserializeAws_restJson1ChangeSetDescription = (output: any, context: __SerdeContext): ChangeSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ChangeSummary(entry, context);
-    });
-  return retVal;
-};
+// se_TagKeyList omitted.
 
-const deserializeAws_restJson1ChangeSetSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ChangeSetSummaryListItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ChangeSetSummaryListItem(entry, context);
-    });
-  return retVal;
-};
+// se_TagList omitted.
 
-const deserializeAws_restJson1ChangeSetSummaryListItem = (
-  output: any,
-  context: __SerdeContext
-): ChangeSetSummaryListItem => {
-  return {
-    ChangeSetArn: __expectString(output.ChangeSetArn),
-    ChangeSetId: __expectString(output.ChangeSetId),
-    ChangeSetName: __expectString(output.ChangeSetName),
-    EndTime: __expectString(output.EndTime),
-    EntityIdList:
-      output.EntityIdList !== undefined && output.EntityIdList !== null
-        ? deserializeAws_restJson1ResourceIdList(output.EntityIdList, context)
-        : undefined,
-    FailureCode: __expectString(output.FailureCode),
-    StartTime: __expectString(output.StartTime),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// se_ValueList omitted.
 
-const deserializeAws_restJson1ChangeSummary = (output: any, context: __SerdeContext): ChangeSummary => {
-  return {
-    ChangeName: __expectString(output.ChangeName),
-    ChangeType: __expectString(output.ChangeType),
-    Details: __expectString(output.Details),
-    Entity:
-      output.Entity !== undefined && output.Entity !== null
-        ? deserializeAws_restJson1Entity(output.Entity, context)
-        : undefined,
-    ErrorDetailList:
-      output.ErrorDetailList !== undefined && output.ErrorDetailList !== null
-        ? deserializeAws_restJson1ErrorDetailList(output.ErrorDetailList, context)
-        : undefined,
-  } as any;
-};
+// de_ChangeSetDescription omitted.
 
-const deserializeAws_restJson1Entity = (output: any, context: __SerdeContext): Entity => {
-  return {
-    Identifier: __expectString(output.Identifier),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_ChangeSetSummaryList omitted.
 
-const deserializeAws_restJson1EntitySummary = (output: any, context: __SerdeContext): EntitySummary => {
-  return {
-    EntityArn: __expectString(output.EntityArn),
-    EntityId: __expectString(output.EntityId),
-    EntityType: __expectString(output.EntityType),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Name: __expectString(output.Name),
-    Visibility: __expectString(output.Visibility),
-  } as any;
-};
+// de_ChangeSetSummaryListItem omitted.
 
-const deserializeAws_restJson1EntitySummaryList = (output: any, context: __SerdeContext): EntitySummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1EntitySummary(entry, context);
-    });
-  return retVal;
-};
+// de_ChangeSummary omitted.
 
-const deserializeAws_restJson1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-  } as any;
-};
+// de_Entity omitted.
 
-const deserializeAws_restJson1ErrorDetailList = (output: any, context: __SerdeContext): ErrorDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ErrorDetail(entry, context);
-    });
-  return retVal;
-};
+// de_EntitySummary omitted.
 
-const deserializeAws_restJson1ResourceIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_EntitySummaryList omitted.
+
+// de_ErrorDetail omitted.
+
+// de_ErrorDetailList omitted.
+
+// de_ResourceIdList omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -957,14 +1351,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -986,6 +1392,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

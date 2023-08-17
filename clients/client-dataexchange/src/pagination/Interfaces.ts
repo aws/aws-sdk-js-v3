@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { DataExchange } from "../DataExchange";
 import { DataExchangeClient } from "../DataExchangeClient";
 
+/**
+ * @public
+ */
 export interface DataExchangePaginationConfiguration extends PaginationConfiguration {
-  client: DataExchange | DataExchangeClient;
+  client: DataExchangeClient;
 }

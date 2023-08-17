@@ -1,17 +1,21 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectLong as __expectLong,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   AddAttachmentsToSetCommandInput,
@@ -28,11 +32,19 @@ import {
   DescribeCommunicationsCommandInput,
   DescribeCommunicationsCommandOutput,
 } from "../commands/DescribeCommunicationsCommand";
+import {
+  DescribeCreateCaseOptionsCommandInput,
+  DescribeCreateCaseOptionsCommandOutput,
+} from "../commands/DescribeCreateCaseOptionsCommand";
 import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "../commands/DescribeServicesCommand";
 import {
   DescribeSeverityLevelsCommandInput,
   DescribeSeverityLevelsCommandOutput,
 } from "../commands/DescribeSeverityLevelsCommand";
+import {
+  DescribeSupportedLanguagesCommandInput,
+  DescribeSupportedLanguagesCommandOutput,
+} from "../commands/DescribeSupportedLanguagesCommand";
 import {
   DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
   DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput,
@@ -56,36 +68,26 @@ import {
 import { ResolveCaseCommandInput, ResolveCaseCommandOutput } from "../commands/ResolveCaseCommand";
 import {
   AddAttachmentsToSetRequest,
-  AddAttachmentsToSetResponse,
   AddCommunicationToCaseRequest,
-  AddCommunicationToCaseResponse,
   Attachment,
-  AttachmentDetails,
   AttachmentIdNotFound,
   AttachmentLimitExceeded,
   AttachmentSetExpired,
   AttachmentSetIdNotFound,
   AttachmentSetSizeLimitExceeded,
   CaseCreationLimitExceeded,
-  CaseDetails,
   CaseIdNotFound,
-  Category,
-  Communication,
   CreateCaseRequest,
-  CreateCaseResponse,
   DescribeAttachmentLimitExceeded,
   DescribeAttachmentRequest,
   DescribeAttachmentResponse,
   DescribeCasesRequest,
-  DescribeCasesResponse,
   DescribeCommunicationsRequest,
-  DescribeCommunicationsResponse,
+  DescribeCreateCaseOptionsRequest,
   DescribeServicesRequest,
-  DescribeServicesResponse,
   DescribeSeverityLevelsRequest,
-  DescribeSeverityLevelsResponse,
+  DescribeSupportedLanguagesRequest,
   DescribeTrustedAdvisorCheckRefreshStatusesRequest,
-  DescribeTrustedAdvisorCheckRefreshStatusesResponse,
   DescribeTrustedAdvisorCheckResultRequest,
   DescribeTrustedAdvisorCheckResultResponse,
   DescribeTrustedAdvisorChecksRequest,
@@ -93,859 +95,1034 @@ import {
   DescribeTrustedAdvisorCheckSummariesRequest,
   DescribeTrustedAdvisorCheckSummariesResponse,
   InternalServerError,
-  RecentCaseCommunications,
   RefreshTrustedAdvisorCheckRequest,
-  RefreshTrustedAdvisorCheckResponse,
   ResolveCaseRequest,
-  ResolveCaseResponse,
-  Service,
-  SeverityLevel,
+  ThrottlingException,
   TrustedAdvisorCategorySpecificSummary,
   TrustedAdvisorCheckDescription,
-  TrustedAdvisorCheckRefreshStatus,
   TrustedAdvisorCheckResult,
   TrustedAdvisorCheckSummary,
   TrustedAdvisorCostOptimizingSummary,
   TrustedAdvisorResourceDetail,
-  TrustedAdvisorResourcesSummary,
 } from "../models/models_0";
 import { SupportServiceException as __BaseException } from "../models/SupportServiceException";
 
-export const serializeAws_json1_1AddAttachmentsToSetCommand = async (
+/**
+ * serializeAws_json1_1AddAttachmentsToSetCommand
+ */
+export const se_AddAttachmentsToSetCommand = async (
   input: AddAttachmentsToSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.AddAttachmentsToSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddAttachmentsToSet");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddAttachmentsToSetRequest(input, context));
+  body = JSON.stringify(se_AddAttachmentsToSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AddCommunicationToCaseCommand = async (
+/**
+ * serializeAws_json1_1AddCommunicationToCaseCommand
+ */
+export const se_AddCommunicationToCaseCommand = async (
   input: AddCommunicationToCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.AddCommunicationToCase",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddCommunicationToCase");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddCommunicationToCaseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateCaseCommand = async (
+/**
+ * serializeAws_json1_1CreateCaseCommand
+ */
+export const se_CreateCaseCommand = async (
   input: CreateCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.CreateCase",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCase");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateCaseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeAttachmentCommand = async (
+/**
+ * serializeAws_json1_1DescribeAttachmentCommand
+ */
+export const se_DescribeAttachmentCommand = async (
   input: DescribeAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeAttachment",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAttachment");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeAttachmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCasesCommand = async (
+/**
+ * serializeAws_json1_1DescribeCasesCommand
+ */
+export const se_DescribeCasesCommand = async (
   input: DescribeCasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeCases",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCases");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCasesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCommunicationsCommand = async (
+/**
+ * serializeAws_json1_1DescribeCommunicationsCommand
+ */
+export const se_DescribeCommunicationsCommand = async (
   input: DescribeCommunicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeCommunications",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCommunications");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCommunicationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeServicesCommand = async (
+/**
+ * serializeAws_json1_1DescribeCreateCaseOptionsCommand
+ */
+export const se_DescribeCreateCaseOptionsCommand = async (
+  input: DescribeCreateCaseOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeCreateCaseOptions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeServicesCommand
+ */
+export const se_DescribeServicesCommand = async (
   input: DescribeServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeServices",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeServices");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeServicesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSeverityLevelsCommand = async (
+/**
+ * serializeAws_json1_1DescribeSeverityLevelsCommand
+ */
+export const se_DescribeSeverityLevelsCommand = async (
   input: DescribeSeverityLevelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeSeverityLevels",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSeverityLevels");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSeverityLevelsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand = async (
+/**
+ * serializeAws_json1_1DescribeSupportedLanguagesCommand
+ */
+export const se_DescribeSupportedLanguagesCommand = async (
+  input: DescribeSupportedLanguagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeSupportedLanguages");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand
+ */
+export const se_DescribeTrustedAdvisorCheckRefreshStatusesCommand = async (
   input: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrustedAdvisorCheckRefreshStatuses");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest(input, context));
+  body = JSON.stringify(se_DescribeTrustedAdvisorCheckRefreshStatusesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand = async (
+/**
+ * serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand
+ */
+export const se_DescribeTrustedAdvisorCheckResultCommand = async (
   input: DescribeTrustedAdvisorCheckResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrustedAdvisorCheckResult");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTrustedAdvisorChecksCommand = async (
+/**
+ * serializeAws_json1_1DescribeTrustedAdvisorChecksCommand
+ */
+export const se_DescribeTrustedAdvisorChecksCommand = async (
   input: DescribeTrustedAdvisorChecksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeTrustedAdvisorChecks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrustedAdvisorChecks");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTrustedAdvisorChecksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand = async (
+/**
+ * serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
+ */
+export const se_DescribeTrustedAdvisorCheckSummariesCommand = async (
   input: DescribeTrustedAdvisorCheckSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrustedAdvisorCheckSummaries");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest(input, context));
+  body = JSON.stringify(se_DescribeTrustedAdvisorCheckSummariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RefreshTrustedAdvisorCheckCommand = async (
+/**
+ * serializeAws_json1_1RefreshTrustedAdvisorCheckCommand
+ */
+export const se_RefreshTrustedAdvisorCheckCommand = async (
   input: RefreshTrustedAdvisorCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.RefreshTrustedAdvisorCheck",
-  };
+  const headers: __HeaderBag = sharedHeaders("RefreshTrustedAdvisorCheck");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RefreshTrustedAdvisorCheckRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ResolveCaseCommand = async (
+/**
+ * serializeAws_json1_1ResolveCaseCommand
+ */
+export const se_ResolveCaseCommand = async (
   input: ResolveCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.ResolveCase",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResolveCase");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ResolveCaseRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AddAttachmentsToSetCommand = async (
+/**
+ * deserializeAws_json1_1AddAttachmentsToSetCommand
+ */
+export const de_AddAttachmentsToSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddAttachmentsToSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddAttachmentsToSetCommandError(output, context);
+    return de_AddAttachmentsToSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddAttachmentsToSetResponse(data, context);
+  contents = _json(data);
   const response: AddAttachmentsToSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1AddAttachmentsToSetCommandError = async (
+/**
+ * deserializeAws_json1_1AddAttachmentsToSetCommandError
+ */
+const de_AddAttachmentsToSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddAttachmentsToSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AttachmentLimitExceeded":
     case "com.amazonaws.support#AttachmentLimitExceeded":
-      throw await deserializeAws_json1_1AttachmentLimitExceededResponse(parsedOutput, context);
+      throw await de_AttachmentLimitExceededRes(parsedOutput, context);
     case "AttachmentSetExpired":
     case "com.amazonaws.support#AttachmentSetExpired":
-      throw await deserializeAws_json1_1AttachmentSetExpiredResponse(parsedOutput, context);
+      throw await de_AttachmentSetExpiredRes(parsedOutput, context);
     case "AttachmentSetIdNotFound":
     case "com.amazonaws.support#AttachmentSetIdNotFound":
-      throw await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(parsedOutput, context);
+      throw await de_AttachmentSetIdNotFoundRes(parsedOutput, context);
     case "AttachmentSetSizeLimitExceeded":
     case "com.amazonaws.support#AttachmentSetSizeLimitExceeded":
-      throw await deserializeAws_json1_1AttachmentSetSizeLimitExceededResponse(parsedOutput, context);
+      throw await de_AttachmentSetSizeLimitExceededRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1AddCommunicationToCaseCommand = async (
+/**
+ * deserializeAws_json1_1AddCommunicationToCaseCommand
+ */
+export const de_AddCommunicationToCaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddCommunicationToCaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddCommunicationToCaseCommandError(output, context);
+    return de_AddCommunicationToCaseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddCommunicationToCaseResponse(data, context);
+  contents = _json(data);
   const response: AddCommunicationToCaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1AddCommunicationToCaseCommandError = async (
+/**
+ * deserializeAws_json1_1AddCommunicationToCaseCommandError
+ */
+const de_AddCommunicationToCaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddCommunicationToCaseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AttachmentSetExpired":
     case "com.amazonaws.support#AttachmentSetExpired":
-      throw await deserializeAws_json1_1AttachmentSetExpiredResponse(parsedOutput, context);
+      throw await de_AttachmentSetExpiredRes(parsedOutput, context);
     case "AttachmentSetIdNotFound":
     case "com.amazonaws.support#AttachmentSetIdNotFound":
-      throw await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(parsedOutput, context);
+      throw await de_AttachmentSetIdNotFoundRes(parsedOutput, context);
     case "CaseIdNotFound":
     case "com.amazonaws.support#CaseIdNotFound":
-      throw await deserializeAws_json1_1CaseIdNotFoundResponse(parsedOutput, context);
+      throw await de_CaseIdNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1CreateCaseCommand = async (
+/**
+ * deserializeAws_json1_1CreateCaseCommand
+ */
+export const de_CreateCaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateCaseCommandError(output, context);
+    return de_CreateCaseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCaseResponse(data, context);
+  contents = _json(data);
   const response: CreateCaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateCaseCommandError = async (
+/**
+ * deserializeAws_json1_1CreateCaseCommandError
+ */
+const de_CreateCaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCaseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AttachmentSetExpired":
     case "com.amazonaws.support#AttachmentSetExpired":
-      throw await deserializeAws_json1_1AttachmentSetExpiredResponse(parsedOutput, context);
+      throw await de_AttachmentSetExpiredRes(parsedOutput, context);
     case "AttachmentSetIdNotFound":
     case "com.amazonaws.support#AttachmentSetIdNotFound":
-      throw await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(parsedOutput, context);
+      throw await de_AttachmentSetIdNotFoundRes(parsedOutput, context);
     case "CaseCreationLimitExceeded":
     case "com.amazonaws.support#CaseCreationLimitExceeded":
-      throw await deserializeAws_json1_1CaseCreationLimitExceededResponse(parsedOutput, context);
+      throw await de_CaseCreationLimitExceededRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeAttachmentCommand = async (
+/**
+ * deserializeAws_json1_1DescribeAttachmentCommand
+ */
+export const de_DescribeAttachmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeAttachmentCommandError(output, context);
+    return de_DescribeAttachmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAttachmentResponse(data, context);
+  contents = de_DescribeAttachmentResponse(data, context);
   const response: DescribeAttachmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeAttachmentCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeAttachmentCommandError
+ */
+const de_DescribeAttachmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AttachmentIdNotFound":
     case "com.amazonaws.support#AttachmentIdNotFound":
-      throw await deserializeAws_json1_1AttachmentIdNotFoundResponse(parsedOutput, context);
+      throw await de_AttachmentIdNotFoundRes(parsedOutput, context);
     case "DescribeAttachmentLimitExceeded":
     case "com.amazonaws.support#DescribeAttachmentLimitExceeded":
-      throw await deserializeAws_json1_1DescribeAttachmentLimitExceededResponse(parsedOutput, context);
+      throw await de_DescribeAttachmentLimitExceededRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeCasesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCasesCommand
+ */
+export const de_DescribeCasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCasesCommandError(output, context);
+    return de_DescribeCasesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCasesResponse(data, context);
+  contents = _json(data);
   const response: DescribeCasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeCasesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCasesCommandError
+ */
+const de_DescribeCasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CaseIdNotFound":
     case "com.amazonaws.support#CaseIdNotFound":
-      throw await deserializeAws_json1_1CaseIdNotFoundResponse(parsedOutput, context);
+      throw await de_CaseIdNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeCommunicationsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCommunicationsCommand
+ */
+export const de_DescribeCommunicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCommunicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCommunicationsCommandError(output, context);
+    return de_DescribeCommunicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCommunicationsResponse(data, context);
+  contents = _json(data);
   const response: DescribeCommunicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeCommunicationsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCommunicationsCommandError
+ */
+const de_DescribeCommunicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCommunicationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CaseIdNotFound":
     case "com.amazonaws.support#CaseIdNotFound":
-      throw await deserializeAws_json1_1CaseIdNotFoundResponse(parsedOutput, context);
+      throw await de_CaseIdNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeServicesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCreateCaseOptionsCommand
+ */
+export const de_DescribeCreateCaseOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCreateCaseOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeCreateCaseOptionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeCreateCaseOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCreateCaseOptionsCommandError
+ */
+const de_DescribeCreateCaseOptionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCreateCaseOptionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.support#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.support#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeServicesCommand
+ */
+export const de_DescribeServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeServicesCommandError(output, context);
+    return de_DescribeServicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeServicesResponse(data, context);
+  contents = _json(data);
   const response: DescribeServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeServicesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeServicesCommandError
+ */
+const de_DescribeServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeSeverityLevelsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSeverityLevelsCommand
+ */
+export const de_DescribeSeverityLevelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSeverityLevelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSeverityLevelsCommandError(output, context);
+    return de_DescribeSeverityLevelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSeverityLevelsResponse(data, context);
+  contents = _json(data);
   const response: DescribeSeverityLevelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeSeverityLevelsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSeverityLevelsCommandError
+ */
+const de_DescribeSeverityLevelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSeverityLevelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSupportedLanguagesCommand
+ */
+export const de_DescribeSupportedLanguagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSupportedLanguagesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeSupportedLanguagesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeSupportedLanguagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSupportedLanguagesCommandError
+ */
+const de_DescribeSupportedLanguagesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSupportedLanguagesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.support#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.support#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand
+ */
+export const de_DescribeTrustedAdvisorCheckRefreshStatusesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandError(output, context);
+    return de_DescribeTrustedAdvisorCheckRefreshStatusesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesResponse(data, context);
+  contents = _json(data);
   const response: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandError
+ */
+const de_DescribeTrustedAdvisorCheckRefreshStatusesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.support#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand = async (
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand
+ */
+export const de_DescribeTrustedAdvisorCheckResultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError(output, context);
+    return de_DescribeTrustedAdvisorCheckResultCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTrustedAdvisorCheckResultResponse(data, context);
+  contents = de_DescribeTrustedAdvisorCheckResultResponse(data, context);
   const response: DescribeTrustedAdvisorCheckResultCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError
+ */
+const de_DescribeTrustedAdvisorCheckResultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.support#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand = async (
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand
+ */
+export const de_DescribeTrustedAdvisorChecksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorChecksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(output, context);
+    return de_DescribeTrustedAdvisorChecksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTrustedAdvisorChecksResponse(data, context);
+  contents = de_DescribeTrustedAdvisorChecksResponse(data, context);
   const response: DescribeTrustedAdvisorChecksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError
+ */
+const de_DescribeTrustedAdvisorChecksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorChecksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.support#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
+ */
+export const de_DescribeTrustedAdvisorCheckSummariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError(output, context);
+    return de_DescribeTrustedAdvisorCheckSummariesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesResponse(data, context);
+  contents = de_DescribeTrustedAdvisorCheckSummariesResponse(data, context);
   const response: DescribeTrustedAdvisorCheckSummariesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError
+ */
+const de_DescribeTrustedAdvisorCheckSummariesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.support#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand = async (
+/**
+ * deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand
+ */
+export const de_RefreshTrustedAdvisorCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RefreshTrustedAdvisorCheckCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(output, context);
+    return de_RefreshTrustedAdvisorCheckCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RefreshTrustedAdvisorCheckResponse(data, context);
+  contents = _json(data);
   const response: RefreshTrustedAdvisorCheckCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError = async (
+/**
+ * deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError
+ */
+const de_RefreshTrustedAdvisorCheckCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RefreshTrustedAdvisorCheckCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ResolveCaseCommand = async (
+/**
+ * deserializeAws_json1_1ResolveCaseCommand
+ */
+export const de_ResolveCaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResolveCaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ResolveCaseCommandError(output, context);
+    return de_ResolveCaseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ResolveCaseResponse(data, context);
+  contents = _json(data);
   const response: ResolveCaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ResolveCaseCommandError = async (
+/**
+ * deserializeAws_json1_1ResolveCaseCommandError
+ */
+const de_ResolveCaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResolveCaseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CaseIdNotFound":
     case "com.amazonaws.support#CaseIdNotFound":
-      throw await deserializeAws_json1_1CaseIdNotFoundResponse(parsedOutput, context);
+      throw await de_CaseIdNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_json1_1AttachmentIdNotFoundResponse = async (
+/**
+ * deserializeAws_json1_1AttachmentIdNotFoundRes
+ */
+const de_AttachmentIdNotFoundRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AttachmentIdNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AttachmentIdNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new AttachmentIdNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -953,12 +1130,15 @@ const deserializeAws_json1_1AttachmentIdNotFoundResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AttachmentLimitExceededResponse = async (
+/**
+ * deserializeAws_json1_1AttachmentLimitExceededRes
+ */
+const de_AttachmentLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AttachmentLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AttachmentLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new AttachmentLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -966,12 +1146,15 @@ const deserializeAws_json1_1AttachmentLimitExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AttachmentSetExpiredResponse = async (
+/**
+ * deserializeAws_json1_1AttachmentSetExpiredRes
+ */
+const de_AttachmentSetExpiredRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AttachmentSetExpired> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AttachmentSetExpired(body, context);
+  const deserialized: any = _json(body);
   const exception = new AttachmentSetExpired({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -979,12 +1162,15 @@ const deserializeAws_json1_1AttachmentSetExpiredResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AttachmentSetIdNotFoundResponse = async (
+/**
+ * deserializeAws_json1_1AttachmentSetIdNotFoundRes
+ */
+const de_AttachmentSetIdNotFoundRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AttachmentSetIdNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AttachmentSetIdNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new AttachmentSetIdNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -992,12 +1178,15 @@ const deserializeAws_json1_1AttachmentSetIdNotFoundResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AttachmentSetSizeLimitExceededResponse = async (
+/**
+ * deserializeAws_json1_1AttachmentSetSizeLimitExceededRes
+ */
+const de_AttachmentSetSizeLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AttachmentSetSizeLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AttachmentSetSizeLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new AttachmentSetSizeLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1005,12 +1194,15 @@ const deserializeAws_json1_1AttachmentSetSizeLimitExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CaseCreationLimitExceededResponse = async (
+/**
+ * deserializeAws_json1_1CaseCreationLimitExceededRes
+ */
+const de_CaseCreationLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CaseCreationLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CaseCreationLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new CaseCreationLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1018,12 +1210,12 @@ const deserializeAws_json1_1CaseCreationLimitExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CaseIdNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<CaseIdNotFound> => {
+/**
+ * deserializeAws_json1_1CaseIdNotFoundRes
+ */
+const de_CaseIdNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<CaseIdNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CaseIdNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new CaseIdNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1031,12 +1223,15 @@ const deserializeAws_json1_1CaseIdNotFoundResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DescribeAttachmentLimitExceededResponse = async (
+/**
+ * deserializeAws_json1_1DescribeAttachmentLimitExceededRes
+ */
+const de_DescribeAttachmentLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DescribeAttachmentLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DescribeAttachmentLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new DescribeAttachmentLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1044,12 +1239,12 @@ const deserializeAws_json1_1DescribeAttachmentLimitExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServerErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalServerError> => {
+/**
+ * deserializeAws_json1_1InternalServerErrorRes
+ */
+const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1057,831 +1252,403 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AddAttachmentsToSetRequest = (
-  input: AddAttachmentsToSetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.attachmentSetId !== undefined &&
-      input.attachmentSetId !== null && { attachmentSetId: input.attachmentSetId }),
-    ...(input.attachments !== undefined &&
-      input.attachments !== null && { attachments: serializeAws_json1_1Attachments(input.attachments, context) }),
-  };
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AddCommunicationToCaseRequest = (
-  input: AddCommunicationToCaseRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.attachmentSetId !== undefined &&
-      input.attachmentSetId !== null && { attachmentSetId: input.attachmentSetId }),
-    ...(input.caseId !== undefined && input.caseId !== null && { caseId: input.caseId }),
-    ...(input.ccEmailAddresses !== undefined &&
-      input.ccEmailAddresses !== null && {
-        ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(input.ccEmailAddresses, context),
-      }),
-    ...(input.communicationBody !== undefined &&
-      input.communicationBody !== null && { communicationBody: input.communicationBody }),
-  };
+/**
+ * serializeAws_json1_1AddAttachmentsToSetRequest
+ */
+const se_AddAttachmentsToSetRequest = (input: AddAttachmentsToSetRequest, context: __SerdeContext): any => {
+  return take(input, {
+    attachmentSetId: [],
+    attachments: (_) => se_Attachments(_, context),
+  });
 };
 
-const serializeAws_json1_1Attachment = (input: Attachment, context: __SerdeContext): any => {
-  return {
-    ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
-    ...(input.fileName !== undefined && input.fileName !== null && { fileName: input.fileName }),
-  };
+// se_AddCommunicationToCaseRequest omitted.
+
+/**
+ * serializeAws_json1_1Attachment
+ */
+const se_Attachment = (input: Attachment, context: __SerdeContext): any => {
+  return take(input, {
+    data: context.base64Encoder,
+    fileName: [],
+  });
 };
 
-const serializeAws_json1_1Attachments = (input: Attachment[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Attachments
+ */
+const se_Attachments = (input: Attachment[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1Attachment(entry, context);
+      return se_Attachment(entry, context);
     });
 };
 
-const serializeAws_json1_1CaseIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// se_CaseIdList omitted.
 
-const serializeAws_json1_1CcEmailAddressList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// se_CcEmailAddressList omitted.
 
-const serializeAws_json1_1CreateCaseRequest = (input: CreateCaseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.attachmentSetId !== undefined &&
-      input.attachmentSetId !== null && { attachmentSetId: input.attachmentSetId }),
-    ...(input.categoryCode !== undefined && input.categoryCode !== null && { categoryCode: input.categoryCode }),
-    ...(input.ccEmailAddresses !== undefined &&
-      input.ccEmailAddresses !== null && {
-        ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(input.ccEmailAddresses, context),
-      }),
-    ...(input.communicationBody !== undefined &&
-      input.communicationBody !== null && { communicationBody: input.communicationBody }),
-    ...(input.issueType !== undefined && input.issueType !== null && { issueType: input.issueType }),
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
-    ...(input.serviceCode !== undefined && input.serviceCode !== null && { serviceCode: input.serviceCode }),
-    ...(input.severityCode !== undefined && input.severityCode !== null && { severityCode: input.severityCode }),
-    ...(input.subject !== undefined && input.subject !== null && { subject: input.subject }),
-  };
-};
+// se_CreateCaseRequest omitted.
 
-const serializeAws_json1_1DescribeAttachmentRequest = (
-  input: DescribeAttachmentRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.attachmentId !== undefined && input.attachmentId !== null && { attachmentId: input.attachmentId }),
-  };
-};
+// se_DescribeAttachmentRequest omitted.
 
-const serializeAws_json1_1DescribeCasesRequest = (input: DescribeCasesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.afterTime !== undefined && input.afterTime !== null && { afterTime: input.afterTime }),
-    ...(input.beforeTime !== undefined && input.beforeTime !== null && { beforeTime: input.beforeTime }),
-    ...(input.caseIdList !== undefined &&
-      input.caseIdList !== null && { caseIdList: serializeAws_json1_1CaseIdList(input.caseIdList, context) }),
-    ...(input.displayId !== undefined && input.displayId !== null && { displayId: input.displayId }),
-    ...(input.includeCommunications !== undefined &&
-      input.includeCommunications !== null && { includeCommunications: input.includeCommunications }),
-    ...(input.includeResolvedCases !== undefined &&
-      input.includeResolvedCases !== null && { includeResolvedCases: input.includeResolvedCases }),
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_DescribeCasesRequest omitted.
 
-const serializeAws_json1_1DescribeCommunicationsRequest = (
-  input: DescribeCommunicationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.afterTime !== undefined && input.afterTime !== null && { afterTime: input.afterTime }),
-    ...(input.beforeTime !== undefined && input.beforeTime !== null && { beforeTime: input.beforeTime }),
-    ...(input.caseId !== undefined && input.caseId !== null && { caseId: input.caseId }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_DescribeCommunicationsRequest omitted.
 
-const serializeAws_json1_1DescribeServicesRequest = (input: DescribeServicesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
-    ...(input.serviceCodeList !== undefined &&
-      input.serviceCodeList !== null && {
-        serviceCodeList: serializeAws_json1_1ServiceCodeList(input.serviceCodeList, context),
-      }),
-  };
-};
+// se_DescribeCreateCaseOptionsRequest omitted.
 
-const serializeAws_json1_1DescribeSeverityLevelsRequest = (
-  input: DescribeSeverityLevelsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
-  };
-};
+// se_DescribeServicesRequest omitted.
 
-const serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest = (
+// se_DescribeSeverityLevelsRequest omitted.
+
+// se_DescribeSupportedLanguagesRequest omitted.
+
+/**
+ * serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest
+ */
+const se_DescribeTrustedAdvisorCheckRefreshStatusesRequest = (
   input: DescribeTrustedAdvisorCheckRefreshStatusesRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.checkIds !== undefined &&
-      input.checkIds !== null && { checkIds: serializeAws_json1_1StringList(input.checkIds, context) }),
-  };
+  return take(input, {
+    checkIds: (_) => se_StringList(_, context),
+  });
 };
 
-const serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest = (
-  input: DescribeTrustedAdvisorCheckResultRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.checkId !== undefined && input.checkId !== null && { checkId: input.checkId }),
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
-  };
-};
+// se_DescribeTrustedAdvisorCheckResultRequest omitted.
 
-const serializeAws_json1_1DescribeTrustedAdvisorChecksRequest = (
-  input: DescribeTrustedAdvisorChecksRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
-  };
-};
+// se_DescribeTrustedAdvisorChecksRequest omitted.
 
-const serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest = (
+/**
+ * serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest
+ */
+const se_DescribeTrustedAdvisorCheckSummariesRequest = (
   input: DescribeTrustedAdvisorCheckSummariesRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.checkIds !== undefined &&
-      input.checkIds !== null && { checkIds: serializeAws_json1_1StringList(input.checkIds, context) }),
-  };
+  return take(input, {
+    checkIds: (_) => se_StringList(_, context),
+  });
 };
 
-const serializeAws_json1_1RefreshTrustedAdvisorCheckRequest = (
-  input: RefreshTrustedAdvisorCheckRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.checkId !== undefined && input.checkId !== null && { checkId: input.checkId }),
-  };
+// se_RefreshTrustedAdvisorCheckRequest omitted.
+
+// se_ResolveCaseRequest omitted.
+
+// se_ServiceCodeList omitted.
+
+/**
+ * serializeAws_json1_1StringList
+ */
+const se_StringList = (input: string[], context: __SerdeContext): any => {
+  return input;
 };
 
-const serializeAws_json1_1ResolveCaseRequest = (input: ResolveCaseRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.caseId !== undefined && input.caseId !== null && { caseId: input.caseId }),
-  };
+// de_AddAttachmentsToSetResponse omitted.
+
+// de_AddCommunicationToCaseResponse omitted.
+
+/**
+ * deserializeAws_json1_1Attachment
+ */
+const de_Attachment = (output: any, context: __SerdeContext): Attachment => {
+  return take(output, {
+    data: context.base64Decoder,
+    fileName: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1ServiceCodeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
+// de_AttachmentDetails omitted.
+
+// de_AttachmentIdNotFound omitted.
+
+// de_AttachmentLimitExceeded omitted.
+
+// de_AttachmentSet omitted.
+
+// de_AttachmentSetExpired omitted.
+
+// de_AttachmentSetIdNotFound omitted.
+
+// de_AttachmentSetSizeLimitExceeded omitted.
+
+// de_CaseCreationLimitExceeded omitted.
+
+// de_CaseDetails omitted.
+
+// de_CaseIdNotFound omitted.
+
+// de_CaseList omitted.
+
+// de_Category omitted.
+
+// de_CategoryList omitted.
+
+// de_CcEmailAddressList omitted.
+
+// de_Communication omitted.
+
+// de_CommunicationList omitted.
+
+// de_CommunicationTypeOptions omitted.
+
+// de_CommunicationTypeOptionsList omitted.
+
+// de_CreateCaseResponse omitted.
+
+// de_DateInterval omitted.
+
+// de_DatesWithoutSupportList omitted.
+
+// de_DescribeAttachmentLimitExceeded omitted.
+
+/**
+ * deserializeAws_json1_1DescribeAttachmentResponse
+ */
+const de_DescribeAttachmentResponse = (output: any, context: __SerdeContext): DescribeAttachmentResponse => {
+  return take(output, {
+    attachment: (_: any) => de_Attachment(_, context),
+  }) as any;
 };
 
-const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// de_DescribeCasesResponse omitted.
 
-const deserializeAws_json1_1AddAttachmentsToSetResponse = (
-  output: any,
-  context: __SerdeContext
-): AddAttachmentsToSetResponse => {
-  return {
-    attachmentSetId: __expectString(output.attachmentSetId),
-    expiryTime: __expectString(output.expiryTime),
-  } as any;
-};
+// de_DescribeCommunicationsResponse omitted.
 
-const deserializeAws_json1_1AddCommunicationToCaseResponse = (
-  output: any,
-  context: __SerdeContext
-): AddCommunicationToCaseResponse => {
-  return {
-    result: __expectBoolean(output.result),
-  } as any;
-};
+// de_DescribeCreateCaseOptionsResponse omitted.
 
-const deserializeAws_json1_1Attachment = (output: any, context: __SerdeContext): Attachment => {
-  return {
-    data: output.data !== undefined && output.data !== null ? context.base64Decoder(output.data) : undefined,
-    fileName: __expectString(output.fileName),
-  } as any;
-};
+// de_DescribeServicesResponse omitted.
 
-const deserializeAws_json1_1AttachmentDetails = (output: any, context: __SerdeContext): AttachmentDetails => {
-  return {
-    attachmentId: __expectString(output.attachmentId),
-    fileName: __expectString(output.fileName),
-  } as any;
-};
+// de_DescribeSeverityLevelsResponse omitted.
 
-const deserializeAws_json1_1AttachmentIdNotFound = (output: any, context: __SerdeContext): AttachmentIdNotFound => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DescribeSupportedLanguagesResponse omitted.
 
-const deserializeAws_json1_1AttachmentLimitExceeded = (
-  output: any,
-  context: __SerdeContext
-): AttachmentLimitExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DescribeTrustedAdvisorCheckRefreshStatusesResponse omitted.
 
-const deserializeAws_json1_1AttachmentSet = (output: any, context: __SerdeContext): AttachmentDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1AttachmentDetails(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1AttachmentSetExpired = (output: any, context: __SerdeContext): AttachmentSetExpired => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1AttachmentSetIdNotFound = (
-  output: any,
-  context: __SerdeContext
-): AttachmentSetIdNotFound => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1AttachmentSetSizeLimitExceeded = (
-  output: any,
-  context: __SerdeContext
-): AttachmentSetSizeLimitExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1CaseCreationLimitExceeded = (
-  output: any,
-  context: __SerdeContext
-): CaseCreationLimitExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1CaseDetails = (output: any, context: __SerdeContext): CaseDetails => {
-  return {
-    caseId: __expectString(output.caseId),
-    categoryCode: __expectString(output.categoryCode),
-    ccEmailAddresses:
-      output.ccEmailAddresses !== undefined && output.ccEmailAddresses !== null
-        ? deserializeAws_json1_1CcEmailAddressList(output.ccEmailAddresses, context)
-        : undefined,
-    displayId: __expectString(output.displayId),
-    language: __expectString(output.language),
-    recentCommunications:
-      output.recentCommunications !== undefined && output.recentCommunications !== null
-        ? deserializeAws_json1_1RecentCaseCommunications(output.recentCommunications, context)
-        : undefined,
-    serviceCode: __expectString(output.serviceCode),
-    severityCode: __expectString(output.severityCode),
-    status: __expectString(output.status),
-    subject: __expectString(output.subject),
-    submittedBy: __expectString(output.submittedBy),
-    timeCreated: __expectString(output.timeCreated),
-  } as any;
-};
-
-const deserializeAws_json1_1CaseIdNotFound = (output: any, context: __SerdeContext): CaseIdNotFound => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1CaseList = (output: any, context: __SerdeContext): CaseDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CaseDetails(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Category = (output: any, context: __SerdeContext): Category => {
-  return {
-    code: __expectString(output.code),
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_json1_1CategoryList = (output: any, context: __SerdeContext): Category[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Category(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1CcEmailAddressList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Communication = (output: any, context: __SerdeContext): Communication => {
-  return {
-    attachmentSet:
-      output.attachmentSet !== undefined && output.attachmentSet !== null
-        ? deserializeAws_json1_1AttachmentSet(output.attachmentSet, context)
-        : undefined,
-    body: __expectString(output.body),
-    caseId: __expectString(output.caseId),
-    submittedBy: __expectString(output.submittedBy),
-    timeCreated: __expectString(output.timeCreated),
-  } as any;
-};
-
-const deserializeAws_json1_1CommunicationList = (output: any, context: __SerdeContext): Communication[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Communication(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1CreateCaseResponse = (output: any, context: __SerdeContext): CreateCaseResponse => {
-  return {
-    caseId: __expectString(output.caseId),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeAttachmentLimitExceeded = (
-  output: any,
-  context: __SerdeContext
-): DescribeAttachmentLimitExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeAttachmentResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeAttachmentResponse => {
-  return {
-    attachment:
-      output.attachment !== undefined && output.attachment !== null
-        ? deserializeAws_json1_1Attachment(output.attachment, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeCasesResponse = (output: any, context: __SerdeContext): DescribeCasesResponse => {
-  return {
-    cases:
-      output.cases !== undefined && output.cases !== null
-        ? deserializeAws_json1_1CaseList(output.cases, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeCommunicationsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeCommunicationsResponse => {
-  return {
-    communications:
-      output.communications !== undefined && output.communications !== null
-        ? deserializeAws_json1_1CommunicationList(output.communications, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeServicesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeServicesResponse => {
-  return {
-    services:
-      output.services !== undefined && output.services !== null
-        ? deserializeAws_json1_1ServiceList(output.services, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeSeverityLevelsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeSeverityLevelsResponse => {
-  return {
-    severityLevels:
-      output.severityLevels !== undefined && output.severityLevels !== null
-        ? deserializeAws_json1_1SeverityLevelsList(output.severityLevels, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeTrustedAdvisorCheckRefreshStatusesResponse => {
-  return {
-    statuses:
-      output.statuses !== undefined && output.statuses !== null
-        ? deserializeAws_json1_1TrustedAdvisorCheckRefreshStatusList(output.statuses, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeTrustedAdvisorCheckResultResponse = (
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorCheckResultResponse
+ */
+const de_DescribeTrustedAdvisorCheckResultResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTrustedAdvisorCheckResultResponse => {
-  return {
-    result:
-      output.result !== undefined && output.result !== null
-        ? deserializeAws_json1_1TrustedAdvisorCheckResult(output.result, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    result: (_: any) => de_TrustedAdvisorCheckResult(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeTrustedAdvisorChecksResponse = (
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorChecksResponse
+ */
+const de_DescribeTrustedAdvisorChecksResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTrustedAdvisorChecksResponse => {
-  return {
-    checks:
-      output.checks !== undefined && output.checks !== null
-        ? deserializeAws_json1_1TrustedAdvisorCheckList(output.checks, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    checks: (_: any) => de_TrustedAdvisorCheckList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesResponse = (
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesResponse
+ */
+const de_DescribeTrustedAdvisorCheckSummariesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTrustedAdvisorCheckSummariesResponse => {
-  return {
-    summaries:
-      output.summaries !== undefined && output.summaries !== null
-        ? deserializeAws_json1_1TrustedAdvisorCheckSummaryList(output.summaries, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    summaries: (_: any) => de_TrustedAdvisorCheckSummaryList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InternalServerError omitted.
 
-const deserializeAws_json1_1RecentCaseCommunications = (
-  output: any,
-  context: __SerdeContext
-): RecentCaseCommunications => {
-  return {
-    communications:
-      output.communications !== undefined && output.communications !== null
-        ? deserializeAws_json1_1CommunicationList(output.communications, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_RecentCaseCommunications omitted.
 
-const deserializeAws_json1_1RefreshTrustedAdvisorCheckResponse = (
-  output: any,
-  context: __SerdeContext
-): RefreshTrustedAdvisorCheckResponse => {
-  return {
-    status:
-      output.status !== undefined && output.status !== null
-        ? deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus(output.status, context)
-        : undefined,
-  } as any;
-};
+// de_RefreshTrustedAdvisorCheckResponse omitted.
 
-const deserializeAws_json1_1ResolveCaseResponse = (output: any, context: __SerdeContext): ResolveCaseResponse => {
-  return {
-    finalCaseStatus: __expectString(output.finalCaseStatus),
-    initialCaseStatus: __expectString(output.initialCaseStatus),
-  } as any;
-};
+// de_ResolveCaseResponse omitted.
 
-const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Service => {
-  return {
-    categories:
-      output.categories !== undefined && output.categories !== null
-        ? deserializeAws_json1_1CategoryList(output.categories, context)
-        : undefined,
-    code: __expectString(output.code),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_Service omitted.
 
-const deserializeAws_json1_1ServiceList = (output: any, context: __SerdeContext): Service[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Service(entry, context);
-    });
+// de_ServiceList omitted.
+
+// de_SeverityLevel omitted.
+
+// de_SeverityLevelsList omitted.
+
+/**
+ * deserializeAws_json1_1StringList
+ */
+const de_StringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      return null as any;
+    }
+    return __expectString(entry) as any;
+  });
   return retVal;
 };
 
-const deserializeAws_json1_1SeverityLevel = (output: any, context: __SerdeContext): SeverityLevel => {
-  return {
-    code: __expectString(output.code),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_SupportedHour omitted.
 
-const deserializeAws_json1_1SeverityLevelsList = (output: any, context: __SerdeContext): SeverityLevel[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1SeverityLevel(entry, context);
-    });
-  return retVal;
-};
+// de_SupportedHoursList omitted.
 
-const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SupportedLanguage omitted.
 
-const deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary = (
+// de_SupportedLanguagesList omitted.
+
+// de_ThrottlingException omitted.
+
+/**
+ * deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary
+ */
+const de_TrustedAdvisorCategorySpecificSummary = (
   output: any,
   context: __SerdeContext
 ): TrustedAdvisorCategorySpecificSummary => {
-  return {
-    costOptimizing:
-      output.costOptimizing !== undefined && output.costOptimizing !== null
-        ? deserializeAws_json1_1TrustedAdvisorCostOptimizingSummary(output.costOptimizing, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    costOptimizing: (_: any) => de_TrustedAdvisorCostOptimizingSummary(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1TrustedAdvisorCheckDescription = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorCheckDescription => {
-  return {
-    category: __expectString(output.category),
-    description: __expectString(output.description),
-    id: __expectString(output.id),
-    metadata:
-      output.metadata !== undefined && output.metadata !== null
-        ? deserializeAws_json1_1StringList(output.metadata, context)
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
+/**
+ * deserializeAws_json1_1TrustedAdvisorCheckDescription
+ */
+const de_TrustedAdvisorCheckDescription = (output: any, context: __SerdeContext): TrustedAdvisorCheckDescription => {
+  return take(output, {
+    category: __expectString,
+    description: __expectString,
+    id: __expectString,
+    metadata: (_: any) => de_StringList(_, context),
+    name: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1TrustedAdvisorCheckList = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorCheckDescription[] => {
+/**
+ * deserializeAws_json1_1TrustedAdvisorCheckList
+ */
+const de_TrustedAdvisorCheckList = (output: any, context: __SerdeContext): TrustedAdvisorCheckDescription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TrustedAdvisorCheckDescription(entry, context);
+      return de_TrustedAdvisorCheckDescription(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorCheckRefreshStatus => {
-  return {
-    checkId: __expectString(output.checkId),
-    millisUntilNextRefreshable: __expectLong(output.millisUntilNextRefreshable),
-    status: __expectString(output.status),
-  } as any;
+// de_TrustedAdvisorCheckRefreshStatus omitted.
+
+// de_TrustedAdvisorCheckRefreshStatusList omitted.
+
+/**
+ * deserializeAws_json1_1TrustedAdvisorCheckResult
+ */
+const de_TrustedAdvisorCheckResult = (output: any, context: __SerdeContext): TrustedAdvisorCheckResult => {
+  return take(output, {
+    categorySpecificSummary: (_: any) => de_TrustedAdvisorCategorySpecificSummary(_, context),
+    checkId: __expectString,
+    flaggedResources: (_: any) => de_TrustedAdvisorResourceDetailList(_, context),
+    resourcesSummary: _json,
+    status: __expectString,
+    timestamp: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1TrustedAdvisorCheckRefreshStatusList = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorCheckRefreshStatus[] => {
+/**
+ * deserializeAws_json1_1TrustedAdvisorCheckSummary
+ */
+const de_TrustedAdvisorCheckSummary = (output: any, context: __SerdeContext): TrustedAdvisorCheckSummary => {
+  return take(output, {
+    categorySpecificSummary: (_: any) => de_TrustedAdvisorCategorySpecificSummary(_, context),
+    checkId: __expectString,
+    hasFlaggedResources: __expectBoolean,
+    resourcesSummary: _json,
+    status: __expectString,
+    timestamp: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1TrustedAdvisorCheckSummaryList
+ */
+const de_TrustedAdvisorCheckSummaryList = (output: any, context: __SerdeContext): TrustedAdvisorCheckSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus(entry, context);
+      return de_TrustedAdvisorCheckSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TrustedAdvisorCheckResult = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorCheckResult => {
-  return {
-    categorySpecificSummary:
-      output.categorySpecificSummary !== undefined && output.categorySpecificSummary !== null
-        ? deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary(output.categorySpecificSummary, context)
-        : undefined,
-    checkId: __expectString(output.checkId),
-    flaggedResources:
-      output.flaggedResources !== undefined && output.flaggedResources !== null
-        ? deserializeAws_json1_1TrustedAdvisorResourceDetailList(output.flaggedResources, context)
-        : undefined,
-    resourcesSummary:
-      output.resourcesSummary !== undefined && output.resourcesSummary !== null
-        ? deserializeAws_json1_1TrustedAdvisorResourcesSummary(output.resourcesSummary, context)
-        : undefined,
-    status: __expectString(output.status),
-    timestamp: __expectString(output.timestamp),
-  } as any;
-};
-
-const deserializeAws_json1_1TrustedAdvisorCheckSummary = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorCheckSummary => {
-  return {
-    categorySpecificSummary:
-      output.categorySpecificSummary !== undefined && output.categorySpecificSummary !== null
-        ? deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary(output.categorySpecificSummary, context)
-        : undefined,
-    checkId: __expectString(output.checkId),
-    hasFlaggedResources: __expectBoolean(output.hasFlaggedResources),
-    resourcesSummary:
-      output.resourcesSummary !== undefined && output.resourcesSummary !== null
-        ? deserializeAws_json1_1TrustedAdvisorResourcesSummary(output.resourcesSummary, context)
-        : undefined,
-    status: __expectString(output.status),
-    timestamp: __expectString(output.timestamp),
-  } as any;
-};
-
-const deserializeAws_json1_1TrustedAdvisorCheckSummaryList = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorCheckSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TrustedAdvisorCheckSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TrustedAdvisorCostOptimizingSummary = (
+/**
+ * deserializeAws_json1_1TrustedAdvisorCostOptimizingSummary
+ */
+const de_TrustedAdvisorCostOptimizingSummary = (
   output: any,
   context: __SerdeContext
 ): TrustedAdvisorCostOptimizingSummary => {
-  return {
-    estimatedMonthlySavings: __limitedParseDouble(output.estimatedMonthlySavings),
-    estimatedPercentMonthlySavings: __limitedParseDouble(output.estimatedPercentMonthlySavings),
-  } as any;
+  return take(output, {
+    estimatedMonthlySavings: __limitedParseDouble,
+    estimatedPercentMonthlySavings: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_json1_1TrustedAdvisorResourceDetail = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorResourceDetail => {
-  return {
-    isSuppressed: __expectBoolean(output.isSuppressed),
-    metadata:
-      output.metadata !== undefined && output.metadata !== null
-        ? deserializeAws_json1_1StringList(output.metadata, context)
-        : undefined,
-    region: __expectString(output.region),
-    resourceId: __expectString(output.resourceId),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1TrustedAdvisorResourceDetail
+ */
+const de_TrustedAdvisorResourceDetail = (output: any, context: __SerdeContext): TrustedAdvisorResourceDetail => {
+  return take(output, {
+    isSuppressed: __expectBoolean,
+    metadata: (_: any) => de_StringList(_, context),
+    region: __expectString,
+    resourceId: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1TrustedAdvisorResourceDetailList = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorResourceDetail[] => {
+/**
+ * deserializeAws_json1_1TrustedAdvisorResourceDetailList
+ */
+const de_TrustedAdvisorResourceDetailList = (output: any, context: __SerdeContext): TrustedAdvisorResourceDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TrustedAdvisorResourceDetail(entry, context);
+      return de_TrustedAdvisorResourceDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TrustedAdvisorResourcesSummary = (
-  output: any,
-  context: __SerdeContext
-): TrustedAdvisorResourcesSummary => {
-  return {
-    resourcesFlagged: __expectLong(output.resourcesFlagged),
-    resourcesIgnored: __expectLong(output.resourcesIgnored),
-    resourcesProcessed: __expectLong(output.resourcesProcessed),
-    resourcesSuppressed: __expectLong(output.resourcesSuppressed),
-  } as any;
-};
+// de_TrustedAdvisorResourcesSummary omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -1906,6 +1673,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSSupport_20130415.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
@@ -1915,14 +1688,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -1944,6 +1729,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

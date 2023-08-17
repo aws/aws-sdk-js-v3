@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   SimulatePrincipalPolicyCommand,
   SimulatePrincipalPolicyCommandInput,
   SimulatePrincipalPolicyCommandOutput,
 } from "../commands/SimulatePrincipalPolicyCommand";
-import { IAM } from "../IAM";
 import { IAMClient } from "../IAMClient";
 import { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IAMClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new SimulatePrincipalPolicyCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IAM,
-  input: SimulatePrincipalPolicyCommandInput,
-  ...args: any
-): Promise<SimulatePrincipalPolicyCommandOutput> => {
-  // @ts-ignore
-  return await client.simulatePrincipalPolicy(input, ...args);
-};
 export async function* paginateSimulatePrincipalPolicy(
   config: IAMPaginationConfiguration,
   input: SimulatePrincipalPolicyCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateSimulatePrincipalPolicy(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof IAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IAMClient) {
+    if (config.client instanceof IAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IAM | IAMClient");
     }
     yield page;
+    const prevToken = token;
     token = page.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

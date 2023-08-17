@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DeleteDomainRequest, DeleteDomainResponse } from "../models/models_0";
-import { deserializeAws_queryDeleteDomainCommand, serializeAws_queryDeleteDomainCommand } from "../protocols/Aws_query";
+import { de_DeleteDomainCommand, se_DeleteDomainCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteDomainCommand}.
+ */
 export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDomainCommand}.
+ */
 export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes a search domain and all of its data. Once a domain has been deleted, it cannot be recovered. For more information,
  *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html" target="_blank">Deleting a Search  Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
  * @example
@@ -27,13 +44,53 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * import { CloudSearchClient, DeleteDomainCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DeleteDomainCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // DeleteDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDomainResponse
+ * //   DomainStatus: { // DomainStatus
+ * //     DomainId: "STRING_VALUE", // required
+ * //     DomainName: "STRING_VALUE", // required
+ * //     ARN: "STRING_VALUE",
+ * //     Created: true || false,
+ * //     Deleted: true || false,
+ * //     DocService: { // ServiceEndpoint
+ * //       Endpoint: "STRING_VALUE",
+ * //     },
+ * //     SearchService: {
+ * //       Endpoint: "STRING_VALUE",
+ * //     },
+ * //     RequiresIndexDocuments: true || false, // required
+ * //     Processing: true || false,
+ * //     SearchInstanceType: "STRING_VALUE",
+ * //     SearchPartitionCount: Number("int"),
+ * //     SearchInstanceCount: Number("int"),
+ * //     Limits: { // Limits
+ * //       MaximumReplicationCount: Number("int"), // required
+ * //       MaximumPartitionCount: Number("int"), // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
+ * @returns {@link DeleteDomainCommandOutput}
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An internal error occurred while processing the request. If this problem persists,
+ *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DeleteDomainCommand extends $Command<
@@ -44,6 +101,18 @@ export class DeleteDomainCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -59,6 +128,7 @@ export class DeleteDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDomainCommandInput, DeleteDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteDomainCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -69,8 +139,8 @@ export class DeleteDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -80,12 +150,18 @@ export class DeleteDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDomainCommand(input, context);
+    return se_DeleteDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainCommandOutput> {
-    return deserializeAws_queryDeleteDomainCommand(output, context);
+    return de_DeleteDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

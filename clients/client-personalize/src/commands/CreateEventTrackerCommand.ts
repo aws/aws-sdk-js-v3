@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateEventTrackerRequest, CreateEventTrackerResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateEventTrackerCommand,
-  serializeAws_json1_1CreateEventTrackerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateEventTrackerCommand, se_CreateEventTrackerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateEventTrackerCommand}.
+ */
 export interface CreateEventTrackerCommandInput extends CreateEventTrackerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEventTrackerCommand}.
+ */
 export interface CreateEventTrackerCommandOutput extends CreateEventTrackerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an event tracker that you use when adding event data to a specified dataset
  *       group using the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
@@ -44,7 +58,7 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
  *             </li>
  *          </ul>
- *          <p>To get the status of the event tracker, call <a>DescribeEventTracker</a>.</p>
+ *          <p>To get the status of the event tracker, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html">DescribeEventTracker</a>.</p>
  *          <note>
  *             <p>The event tracker must be in the ACTIVE state before using the tracking ID.</p>
  *          </note>
@@ -54,17 +68,17 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListEventTrackers</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListEventTrackers.html">ListEventTrackers</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeEventTracker</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html">DescribeEventTracker</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteEventTracker</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html">DeleteEventTracker</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -74,13 +88,51 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  * import { PersonalizeClient, CreateEventTrackerCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateEventTrackerCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateEventTrackerRequest
+ *   name: "STRING_VALUE", // required
+ *   datasetGroupArn: "STRING_VALUE", // required
+ *   tags: [ // Tags
+ *     { // Tag
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEventTrackerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateEventTrackerResponse
+ * //   eventTrackerArn: "STRING_VALUE",
+ * //   trackingId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateEventTrackerCommandInput - {@link CreateEventTrackerCommandInput}
+ * @returns {@link CreateEventTrackerCommandOutput}
  * @see {@link CreateEventTrackerCommandInput} for command's `input` shape.
  * @see {@link CreateEventTrackerCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateEventTrackerCommand extends $Command<
@@ -91,6 +143,18 @@ export class CreateEventTrackerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,6 +170,9 @@ export class CreateEventTrackerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateEventTrackerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -116,8 +183,8 @@ export class CreateEventTrackerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEventTrackerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateEventTrackerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +194,18 @@ export class CreateEventTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEventTrackerCommand(input, context);
+    return se_CreateEventTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventTrackerCommandOutput> {
-    return deserializeAws_json1_1CreateEventTrackerCommand(output, context);
+    return de_CreateEventTrackerCommand(output, context);
   }
 
   // Start section: command_body_extra

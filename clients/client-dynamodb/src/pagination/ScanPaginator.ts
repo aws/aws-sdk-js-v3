@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "../commands/ScanCommand";
-import { DynamoDB } from "../DynamoDB";
 import { DynamoDBClient } from "../DynamoDBClient";
 import { DynamoDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DynamoDBClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ScanCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DynamoDB,
-  input: ScanCommandInput,
-  ...args: any
-): Promise<ScanCommandOutput> => {
-  // @ts-ignore
-  return await client.scan(input, ...args);
-};
 export async function* paginateScan(
   config: DynamoDBPaginationConfiguration,
   input: ScanCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateScan(
   while (hasNext) {
     input.ExclusiveStartKey = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof DynamoDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DynamoDBClient) {
+    if (config.client instanceof DynamoDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DynamoDB | DynamoDBClient");
     }
     yield page;
+    const prevToken = token;
     token = page.LastEvaluatedKey;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

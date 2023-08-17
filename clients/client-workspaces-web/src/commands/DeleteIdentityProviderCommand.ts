@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteIdentityProviderRequest, DeleteIdentityProviderResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIdentityProviderCommand,
-  serializeAws_restJson1DeleteIdentityProviderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteIdentityProviderCommand, se_DeleteIdentityProviderCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteIdentityProviderCommand}.
+ */
 export interface DeleteIdentityProviderCommandInput extends DeleteIdentityProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteIdentityProviderCommand}.
+ */
 export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,38 @@ export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProvi
  * import { WorkSpacesWebClient, DeleteIdentityProviderCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteIdentityProviderCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // DeleteIdentityProviderRequest
+ *   identityProviderArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteIdentityProviderCommandInput - {@link DeleteIdentityProviderCommandInput}
+ * @returns {@link DeleteIdentityProviderCommandOutput}
  * @see {@link DeleteIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeleteIdentityProviderCommand extends $Command<
@@ -46,6 +85,18 @@ export class DeleteIdentityProviderCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +112,9 @@ export class DeleteIdentityProviderCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteIdentityProviderCommandInput, DeleteIdentityProviderCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteIdentityProviderCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +125,8 @@ export class DeleteIdentityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIdentityProviderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIdentityProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +136,18 @@ export class DeleteIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIdentityProviderCommand(input, context);
+    return se_DeleteIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityProviderCommandOutput> {
-    return deserializeAws_restJson1DeleteIdentityProviderCommand(output, context);
+    return de_DeleteIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

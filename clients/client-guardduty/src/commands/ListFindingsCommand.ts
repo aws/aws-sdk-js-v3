@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { ListFindingsRequest, ListFindingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFindingsCommand,
-  serializeAws_restJson1ListFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFindingsCommand, se_ListFindingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListFindingsCommand}.
+ */
 export interface ListFindingsCommandInput extends ListFindingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFindingsCommand}.
+ */
 export interface ListFindingsCommandOutput extends ListFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists Amazon GuardDuty findings for the specified detector ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,66 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * import { GuardDutyClient, ListFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // ListFindingsRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   FindingCriteria: { // FindingCriteria
+ *     Criterion: { // Criterion
+ *       "<keys>": { // Condition
+ *         Eq: [ // Eq
+ *           "STRING_VALUE",
+ *         ],
+ *         Neq: [ // Neq
+ *           "STRING_VALUE",
+ *         ],
+ *         Gt: Number("int"),
+ *         Gte: Number("int"),
+ *         Lt: Number("int"),
+ *         Lte: Number("int"),
+ *         Equals: [ // Equals
+ *           "STRING_VALUE",
+ *         ],
+ *         NotEquals: [ // NotEquals
+ *           "STRING_VALUE",
+ *         ],
+ *         GreaterThan: Number("long"),
+ *         GreaterThanOrEqual: Number("long"),
+ *         LessThan: Number("long"),
+ *         LessThanOrEqual: Number("long"),
+ *       },
+ *     },
+ *   },
+ *   SortCriteria: { // SortCriteria
+ *     AttributeName: "STRING_VALUE",
+ *     OrderBy: "ASC" || "DESC",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFindingsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFindingsResponse
+ * //   FindingIds: [ // FindingIds // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListFindingsCommandInput - {@link ListFindingsCommandInput}
+ * @returns {@link ListFindingsCommandOutput}
  * @see {@link ListFindingsCommandInput} for command's `input` shape.
  * @see {@link ListFindingsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListFindingsCommand extends $Command<
@@ -46,6 +113,18 @@ export class ListFindingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +140,7 @@ export class ListFindingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListFindingsCommandInput, ListFindingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListFindingsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +151,8 @@ export class ListFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFindingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +162,18 @@ export class ListFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFindingsCommand(input, context);
+    return se_ListFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFindingsCommandOutput> {
-    return deserializeAws_restJson1ListFindingsCommand(output, context);
+    return de_ListFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

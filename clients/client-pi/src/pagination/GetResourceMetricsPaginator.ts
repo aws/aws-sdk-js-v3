@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetResourceMetricsCommand,
   GetResourceMetricsCommandInput,
   GetResourceMetricsCommandOutput,
 } from "../commands/GetResourceMetricsCommand";
-import { PI } from "../PI";
 import { PIClient } from "../PIClient";
 import { PIPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PIClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetResourceMetricsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: PI,
-  input: GetResourceMetricsCommandInput,
-  ...args: any
-): Promise<GetResourceMetricsCommandOutput> => {
-  // @ts-ignore
-  return await client.getResourceMetrics(input, ...args);
-};
 export async function* paginateGetResourceMetrics(
   config: PIPaginationConfiguration,
   input: GetResourceMetricsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateGetResourceMetrics(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof PI) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PIClient) {
+    if (config.client instanceof PIClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PI | PIClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

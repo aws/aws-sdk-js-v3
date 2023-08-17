@@ -61,6 +61,11 @@ final class DefaultsModeConfigGenerator {
     private DefaultsModeConfigGenerator() {}
 
     public static void main(String[] args) throws IOException {
+        // file has been moved to smithy-typescript
+        if (true) {
+            return;
+        }
+
         Path outputPath = Paths.get(args[0]);
         TypeScriptWriter writer = new TypeScriptWriter(outputPath.toString());
         String defaultsConfigJson = IoUtils.readUtf8Resource(DefaultsModeConfigGenerator.class,

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DeleteScalingPolicyCommand";
 export * from "./DeleteScheduledActionCommand";
 export * from "./DeregisterScalableTargetCommand";
@@ -5,6 +6,9 @@ export * from "./DescribeScalableTargetsCommand";
 export * from "./DescribeScalingActivitiesCommand";
 export * from "./DescribeScalingPoliciesCommand";
 export * from "./DescribeScheduledActionsCommand";
+export * from "./ListTagsForResourceCommand";
 export * from "./PutScalingPolicyCommand";
 export * from "./PutScheduledActionCommand";
 export * from "./RegisterScalableTargetCommand";
+export * from "./TagResourceCommand";
+export * from "./UntagResourceCommand";

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { DeleteScheduleRequest, DeleteScheduleResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteScheduleCommand,
-  serializeAws_restJson1DeleteScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteScheduleCommand, se_DeleteScheduleCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteScheduleCommand}.
+ */
 export interface DeleteScheduleCommandInput extends DeleteScheduleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteScheduleCommand}.
+ */
 export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Delete all schedule actions on a channel.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,44 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * import { MediaLiveClient, DeleteScheduleCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteScheduleCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DeleteScheduleRequest
+ *   ChannelId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteScheduleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteScheduleCommandInput - {@link DeleteScheduleCommandInput}
+ * @returns {@link DeleteScheduleCommandOutput}
  * @see {@link DeleteScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DeleteScheduleCommand extends $Command<
@@ -46,6 +91,18 @@ export class DeleteScheduleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +118,9 @@ export class DeleteScheduleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteScheduleCommandInput, DeleteScheduleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteScheduleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +131,8 @@ export class DeleteScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScheduleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +142,18 @@ export class DeleteScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteScheduleCommand(input, context);
+    return se_DeleteScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduleCommandOutput> {
-    return deserializeAws_restJson1DeleteScheduleCommand(output, context);
+    return de_DeleteScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

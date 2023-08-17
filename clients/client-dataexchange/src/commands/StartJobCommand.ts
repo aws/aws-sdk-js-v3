@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { StartJobRequest, StartJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartJobCommand,
-  serializeAws_restJson1StartJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartJobCommand, se_StartJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StartJobCommand}.
+ */
 export interface StartJobCommandInput extends StartJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartJobCommand}.
+ */
 export interface StartJobCommandOutput extends StartJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation starts a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,41 @@ export interface StartJobCommandOutput extends StartJobResponse, __MetadataBeare
  * import { DataExchangeClient, StartJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, StartJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // StartJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StartJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StartJobCommandInput - {@link StartJobCommandInput}
+ * @returns {@link StartJobCommandOutput}
  * @see {@link StartJobCommandInput} for command's `input` shape.
  * @see {@link StartJobCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to the resource is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception occurred with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource couldn't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class StartJobCommand extends $Command<
@@ -46,6 +88,18 @@ export class StartJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StartJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +115,7 @@ export class StartJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartJobCommandInput, StartJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StartJobCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +126,8 @@ export class StartJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +137,18 @@ export class StartJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartJobCommand(input, context);
+    return se_StartJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartJobCommandOutput> {
-    return deserializeAws_restJson1StartJobCommand(output, context);
+    return de_StartJobCommand(output, context);
   }
 
   // Start section: command_body_extra

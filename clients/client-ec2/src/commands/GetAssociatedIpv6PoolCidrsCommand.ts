@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
-  serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
-} from "../protocols/Aws_ec2";
+import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_5";
+import { de_GetAssociatedIpv6PoolCidrsCommand, se_GetAssociatedIpv6PoolCidrsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetAssociatedIpv6PoolCidrsCommand}.
+ */
 export interface GetAssociatedIpv6PoolCidrsCommandInput extends GetAssociatedIpv6PoolCidrsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAssociatedIpv6PoolCidrsCommand}.
+ */
 export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIpv6PoolCidrsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the IPv6 CIDR block associations for a specified IPv6 address pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,34 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  * import { EC2Client, GetAssociatedIpv6PoolCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetAssociatedIpv6PoolCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetAssociatedIpv6PoolCidrsRequest
+ *   PoolId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new GetAssociatedIpv6PoolCidrsCommand(input);
  * const response = await client.send(command);
+ * // { // GetAssociatedIpv6PoolCidrsResult
+ * //   Ipv6CidrAssociations: [ // Ipv6CidrAssociationSet
+ * //     { // Ipv6CidrAssociation
+ * //       Ipv6Cidr: "STRING_VALUE",
+ * //       AssociatedResource: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetAssociatedIpv6PoolCidrsCommandInput - {@link GetAssociatedIpv6PoolCidrsCommandInput}
+ * @returns {@link GetAssociatedIpv6PoolCidrsCommandOutput}
  * @see {@link GetAssociatedIpv6PoolCidrsCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedIpv6PoolCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
@@ -46,6 +81,18 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssociatedIpv6PoolCidrsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +108,9 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAssociatedIpv6PoolCidrsCommandInput, GetAssociatedIpv6PoolCidrsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetAssociatedIpv6PoolCidrsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +121,8 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssociatedIpv6PoolCidrsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAssociatedIpv6PoolCidrsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +132,21 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssociatedIpv6PoolCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(input, context);
+    return se_GetAssociatedIpv6PoolCidrsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> {
-    return deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(output, context);
+    return de_GetAssociatedIpv6PoolCidrsCommand(output, context);
   }
 
   // Start section: command_body_extra

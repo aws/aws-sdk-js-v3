@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Supplier;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.Model;
@@ -48,7 +49,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *
  * Timestamps are serialized to {@link Format}.DATE_TIME by default.
  *
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
 @SmithyInternalApi
 final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
@@ -76,13 +77,16 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Filter out null entries if we don't have the sparse trait.
         String potentialFilter = "";
-        if (!shape.hasTrait(SparseTrait.ID)) {
+        boolean hasSparseTrait = shape.hasTrait(SparseTrait.ID);
+        if (!hasSparseTrait) {
             potentialFilter = ".filter((e: any) => e != null)";
         }
 
         writer.openBlock("return input$L.map(entry => {", "});", potentialFilter, () -> {
             // Short circuit null values from serialization.
-            writer.write("if (entry === null) { return null as any; }");
+            if (hasSparseTrait) {
+                writer.write("if (entry === null) { return null as any; }");
+            }
 
             // Dispatch to the input value provider for any additional handling.
             writer.write("const node = $L;", target.accept(getMemberVisitor("entry")));
@@ -151,7 +155,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             writer.write("var node;");
             if (shape.hasTrait(SparseTrait.ID)) {
                 writer.openBlock("if (value === null) {", "} else {", () ->
-                        writer.write("node = new __XmlNode($S).addChildNode(new __XmlText(null));", valueName));
+                        writer.write("node = __XmlNode.of($S, null);", valueName));
                 writer.indent();
             }
 
@@ -205,7 +209,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Handle if the member is an idempotency token that should be auto-filled.
             AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
-            writer.openBlock("if ($1L !== undefined && $1L !== null) {", "}", inputLocation, () -> {
+            writer.openBlock("if ($1L != null) {", "}", inputLocation, () -> {
                 serializeNamedMember(context, memberName, memberShape, () -> inputLocation);
             });
         });
@@ -233,17 +237,20 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Grab the target shape so we can use a member serializer on it.
             Shape target = context.getModel().expectShape(memberShape.getTarget());
             XmlMemberSerVisitor inputVisitor = getMemberVisitor(inputLocation.get());
-
             // Collected members must be handled with flattening and renaming.
             if (serializationReturnsArray(target)) {
                 serializeNamedMemberFromArray(context, locationName, memberShape, target, inputVisitor);
             } else {
                 // Handle @timestampFormat on members not just the targeted shape.
                 String valueProvider;
-                if (memberShape.hasTrait(TimestampFormatTrait.class)) {
+                if (memberShape.hasTrait(TimestampFormatTrait.class) || target.hasTrait(TimestampFormatTrait.class)) {
+                    Optional<TimestampFormatTrait> timestampFormat = memberShape.getTrait(TimestampFormatTrait.class);
+                    if (timestampFormat.isEmpty()) {
+                        timestampFormat = target.getTrait(TimestampFormatTrait.class);
+                    }
                     valueProvider = inputVisitor.getAsXmlText(target,
                             AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                                    TIMESTAMP_FORMAT, inputLocation.get()) + ".toString()");
+                                    timestampFormat.get().getFormat(), inputLocation.get()) + ".toString()");
                 } else {
                     valueProvider = target.accept(inputVisitor);
                 }

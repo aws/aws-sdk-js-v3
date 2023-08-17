@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListDatabasesCommand,
   ListDatabasesCommandInput,
   ListDatabasesCommandOutput,
 } from "../commands/ListDatabasesCommand";
-import { RedshiftData } from "../RedshiftData";
 import { RedshiftDataClient } from "../RedshiftDataClient";
 import { RedshiftDataPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RedshiftDataClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDatabasesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RedshiftData,
-  input: ListDatabasesCommandInput,
-  ...args: any
-): Promise<ListDatabasesCommandOutput> => {
-  // @ts-ignore
-  return await client.listDatabases(input, ...args);
-};
 export async function* paginateListDatabases(
   config: RedshiftDataPaginationConfiguration,
   input: ListDatabasesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListDatabases(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof RedshiftData) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RedshiftDataClient) {
+    if (config.client instanceof RedshiftDataClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RedshiftData | RedshiftDataClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

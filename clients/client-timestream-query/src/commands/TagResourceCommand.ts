@@ -1,7 +1,9 @@
+// smithy-typescript generated code
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,19 +12,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0TagResourceCommand,
-  serializeAws_json1_0TagResourceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandInput extends TagResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate a set of tags with a Timestream resource. You can then activate these
  *             user-defined tags so that they appear on the Billing and Cost Management console for
  *             cost allocation tracking. </p>
@@ -32,13 +46,44 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { TimestreamQueryClient, TagResourceCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, TagResourceCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
+ * const input = { // TagResourceRequest
+ *   ResourceARN: "STRING_VALUE", // required
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *  <p>The requested endpoint was not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded the service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Invalid or malformed request. </p>
+ *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class TagResourceCommand extends $Command<
@@ -49,6 +94,18 @@ export class TagResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +121,7 @@ export class TagResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(
       getEndpointDiscoveryPlugin(configuration, { clientStack, options, isDiscoveredEndpointRequired: true })
     );
@@ -77,8 +135,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +146,18 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0TagResourceCommand(input, context);
+    return se_TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_json1_0TagResourceCommand(output, context);
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

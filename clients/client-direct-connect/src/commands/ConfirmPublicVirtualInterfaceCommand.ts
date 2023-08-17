@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { ConfirmPublicVirtualInterfaceRequest, ConfirmPublicVirtualInterfaceResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand,
-  serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand,
+  de_ConfirmPublicVirtualInterfaceCommand,
+  se_ConfirmPublicVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ConfirmPublicVirtualInterfaceCommand}.
+ */
 export interface ConfirmPublicVirtualInterfaceCommandInput extends ConfirmPublicVirtualInterfaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ConfirmPublicVirtualInterfaceCommand}.
+ */
 export interface ConfirmPublicVirtualInterfaceCommandOutput
   extends ConfirmPublicVirtualInterfaceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts ownership of a public virtual interface created by another Amazon Web Services account.</p>
  *          <p>After the virtual interface owner makes this call, the specified virtual interface is
  *       created and made available to handle traffic.</p>
@@ -33,13 +50,31 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
  * import { DirectConnectClient, ConfirmPublicVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ConfirmPublicVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // ConfirmPublicVirtualInterfaceRequest
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ * };
  * const command = new ConfirmPublicVirtualInterfaceCommand(input);
  * const response = await client.send(command);
+ * // { // ConfirmPublicVirtualInterfaceResponse
+ * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * // };
+ *
  * ```
  *
+ * @param ConfirmPublicVirtualInterfaceCommandInput - {@link ConfirmPublicVirtualInterfaceCommandInput}
+ * @returns {@link ConfirmPublicVirtualInterfaceCommandOutput}
  * @see {@link ConfirmPublicVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link ConfirmPublicVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class ConfirmPublicVirtualInterfaceCommand extends $Command<
@@ -50,6 +85,18 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmPublicVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +112,9 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ConfirmPublicVirtualInterfaceCommandInput, ConfirmPublicVirtualInterfaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ConfirmPublicVirtualInterfaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +125,8 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmPublicVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmPublicVirtualInterfaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,15 +136,21 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmPublicVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(input, context);
+    return se_ConfirmPublicVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfirmPublicVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(output, context);
+    return de_ConfirmPublicVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreatePolicyVersionRequest, CreatePolicyVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePolicyVersionCommand,
-  serializeAws_restJson1CreatePolicyVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePolicyVersionCommand, se_CreatePolicyVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreatePolicyVersionCommand}.
+ */
 export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePolicyVersionCommand}.
+ */
 export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of the specified IoT policy. To update a policy, create a
  *          new policy version. A managed policy can have up to five versions. If the policy has five
  *          versions, you must use <a>DeletePolicyVersion</a> to delete an existing version
@@ -36,13 +50,54 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * import { IoTClient, CreatePolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreatePolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreatePolicyVersionRequest
+ *   policyName: "STRING_VALUE", // required
+ *   policyDocument: "STRING_VALUE", // required
+ *   setAsDefault: true || false,
+ * };
  * const command = new CreatePolicyVersionCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePolicyVersionResponse
+ * //   policyArn: "STRING_VALUE",
+ * //   policyDocument: "STRING_VALUE",
+ * //   policyVersionId: "STRING_VALUE",
+ * //   isDefaultVersion: true || false,
+ * // };
+ *
  * ```
  *
+ * @param CreatePolicyVersionCommandInput - {@link CreatePolicyVersionCommandInput}
+ * @returns {@link CreatePolicyVersionCommandOutput}
  * @see {@link CreatePolicyVersionCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link MalformedPolicyException} (client fault)
+ *  <p>The policy documentation is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
+ * @throws {@link VersionsLimitExceededException} (client fault)
+ *  <p>The number of policy versions exceeds the limit.</p>
+ *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreatePolicyVersionCommand extends $Command<
@@ -53,6 +108,18 @@ export class CreatePolicyVersionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +135,9 @@ export class CreatePolicyVersionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePolicyVersionCommandInput, CreatePolicyVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePolicyVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +148,8 @@ export class CreatePolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePolicyVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePolicyVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +159,18 @@ export class CreatePolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePolicyVersionCommand(input, context);
+    return se_CreatePolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyVersionCommandOutput> {
-    return deserializeAws_restJson1CreatePolicyVersionCommand(output, context);
+    return de_CreatePolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { UpdateBatchPredictionInput, UpdateBatchPredictionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateBatchPredictionCommand,
-  serializeAws_json1_1UpdateBatchPredictionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateBatchPredictionCommand, se_UpdateBatchPredictionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateBatchPredictionCommand}.
+ */
 export interface UpdateBatchPredictionCommandInput extends UpdateBatchPredictionInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateBatchPredictionCommand}.
+ */
 export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.</p>
  *         <p>You can use the <code>GetBatchPrediction</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -30,13 +44,35 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  * import { MachineLearningClient, UpdateBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, UpdateBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // UpdateBatchPredictionInput
+ *   BatchPredictionId: "STRING_VALUE", // required
+ *   BatchPredictionName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateBatchPredictionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateBatchPredictionOutput
+ * //   BatchPredictionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param UpdateBatchPredictionCommandInput - {@link UpdateBatchPredictionCommandInput}
+ * @returns {@link UpdateBatchPredictionCommandOutput}
  * @see {@link UpdateBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link UpdateBatchPredictionCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource cannot be located.</p>
+ *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class UpdateBatchPredictionCommand extends $Command<
@@ -47,6 +83,18 @@ export class UpdateBatchPredictionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBatchPredictionCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +110,9 @@ export class UpdateBatchPredictionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateBatchPredictionCommandInput, UpdateBatchPredictionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateBatchPredictionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +123,8 @@ export class UpdateBatchPredictionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBatchPredictionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBatchPredictionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +134,18 @@ export class UpdateBatchPredictionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBatchPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateBatchPredictionCommand(input, context);
+    return se_UpdateBatchPredictionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBatchPredictionCommandOutput> {
-    return deserializeAws_json1_1UpdateBatchPredictionCommand(output, context);
+    return de_UpdateBatchPredictionCommand(output, context);
   }
 
   // Start section: command_body_extra

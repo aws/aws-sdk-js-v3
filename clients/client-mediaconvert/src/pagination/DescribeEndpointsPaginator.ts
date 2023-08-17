@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeEndpointsCommand,
   DescribeEndpointsCommandInput,
   DescribeEndpointsCommandOutput,
 } from "../commands/DescribeEndpointsCommand";
-import { MediaConvert } from "../MediaConvert";
 import { MediaConvertClient } from "../MediaConvertClient";
 import { MediaConvertPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaConvertClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeEndpointsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MediaConvert,
-  input: DescribeEndpointsCommandInput,
-  ...args: any
-): Promise<DescribeEndpointsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeEndpoints(input, ...args);
-};
 export async function* paginateDescribeEndpoints(
   config: MediaConvertPaginationConfiguration,
   input: DescribeEndpointsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeEndpoints(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaConvert) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaConvertClient) {
+    if (config.client instanceof MediaConvertClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaConvert | MediaConvertClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

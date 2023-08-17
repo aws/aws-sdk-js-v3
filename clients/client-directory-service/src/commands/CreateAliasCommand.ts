@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { CreateAliasRequest, CreateAliasResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAliasCommand,
-  serializeAws_json1_1CreateAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAliasCommand, se_CreateAliasCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateAliasCommand}.
+ */
 export interface CreateAliasCommandInput extends CreateAliasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAliasCommand}.
+ */
 export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an alias for a directory and assigns the alias to the directory. The alias is used
  *          to construct the access URL for the directory, such as
  *             <code>http://<alias>.awsapps.com</code>.</p>
@@ -34,13 +48,42 @@ export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataB
  * import { DirectoryServiceClient, CreateAliasCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateAliasCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // CreateAliasRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   Alias: "STRING_VALUE", // required
+ * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAliasResult
+ * //   DirectoryId: "STRING_VALUE",
+ * //   Alias: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
+ * @returns {@link CreateAliasCommandOutput}
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link EntityAlreadyExistsException} (client fault)
+ *  <p>The specified entity already exists.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateAliasCommand extends $Command<
@@ -51,6 +94,18 @@ export class CreateAliasCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +121,7 @@ export class CreateAliasCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAliasCommandInput, CreateAliasCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateAliasCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +132,8 @@ export class CreateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAliasResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +143,18 @@ export class CreateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAliasCommand(input, context);
+    return se_CreateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAliasCommandOutput> {
-    return deserializeAws_json1_1CreateAliasCommand(output, context);
+    return de_CreateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

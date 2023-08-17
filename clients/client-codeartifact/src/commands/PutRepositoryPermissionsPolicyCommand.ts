@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { PutRepositoryPermissionsPolicyRequest, PutRepositoryPermissionsPolicyResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutRepositoryPermissionsPolicyCommand,
-  serializeAws_restJson1PutRepositoryPermissionsPolicyCommand,
+  de_PutRepositoryPermissionsPolicyCommand,
+  se_PutRepositoryPermissionsPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutRepositoryPermissionsPolicyCommand}.
+ */
 export interface PutRepositoryPermissionsPolicyCommandInput extends PutRepositoryPermissionsPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutRepositoryPermissionsPolicyCommand}.
+ */
 export interface PutRepositoryPermissionsPolicyCommandOutput
   extends PutRepositoryPermissionsPolicyResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Sets the resource policy on a repository that specifies permissions to access it.
  *       </p>
@@ -38,13 +55,66 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
  * import { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // PutRepositoryPermissionsPolicyRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   policyRevision: "STRING_VALUE",
+ *   policyDocument: "STRING_VALUE", // required
+ * };
  * const command = new PutRepositoryPermissionsPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutRepositoryPermissionsPolicyResult
+ * //   policy: { // ResourcePolicy
+ * //     resourceArn: "STRING_VALUE",
+ * //     revision: "STRING_VALUE",
+ * //     document: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param PutRepositoryPermissionsPolicyCommandInput - {@link PutRepositoryPermissionsPolicyCommandInput}
+ * @returns {@link PutRepositoryPermissionsPolicyCommandOutput}
  * @see {@link PutRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *         The operation did not succeed because of an unauthorized access attempt.
+ *       </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>
+ *         The operation did not succeed because prerequisites are not met.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The operation did not succeed because the resource requested is not found in the service.
+ *     </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>
+ *         The operation did not succeed because it would have exceeded a service limit for your account.
+ *       </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The operation did not succeed because too many requests are sent to the service.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *       The operation did not succeed because a parameter in the request was sent with an invalid value.
+ *     </p>
+ *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class PutRepositoryPermissionsPolicyCommand extends $Command<
@@ -55,6 +125,18 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutRepositoryPermissionsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +152,9 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutRepositoryPermissionsPolicyCommandInput, PutRepositoryPermissionsPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutRepositoryPermissionsPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +165,8 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRepositoryPermissionsPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutRepositoryPermissionsPolicyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,18 +176,24 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutRepositoryPermissionsPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRepositoryPermissionsPolicyCommand(input, context);
+    return se_PutRepositoryPermissionsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRepositoryPermissionsPolicyCommandOutput> {
-    return deserializeAws_restJson1PutRepositoryPermissionsPolicyCommand(output, context);
+    return de_PutRepositoryPermissionsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

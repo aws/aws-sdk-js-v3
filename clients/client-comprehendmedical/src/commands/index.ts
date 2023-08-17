@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DescribeEntitiesDetectionV2JobCommand";
 export * from "./DescribeICD10CMInferenceJobCommand";
 export * from "./DescribePHIDetectionJobCommand";

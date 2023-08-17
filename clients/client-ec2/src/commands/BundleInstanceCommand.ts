@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,34 +11,91 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { BundleInstanceRequest, BundleInstanceResult } from "../models/models_0";
-import { deserializeAws_ec2BundleInstanceCommand, serializeAws_ec2BundleInstanceCommand } from "../protocols/Aws_ec2";
+import { de_BundleInstanceCommand, se_BundleInstanceCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link BundleInstanceCommand}.
+ */
 export interface BundleInstanceCommandInput extends BundleInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BundleInstanceCommand}.
+ */
 export interface BundleInstanceCommandOutput extends BundleInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Bundles an Amazon instance store-backed Windows instance.</p>
  *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p>
  *          <note>
  *             <p>This action is not applicable for Linux/Unix instances or Windows instances that are backed by Amazon EBS.</p>
- * 			      </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, BundleInstanceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, BundleInstanceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // BundleInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Storage: { // Storage
+ *     S3: { // S3Storage
+ *       AWSAccessKeyId: "STRING_VALUE",
+ *       Bucket: "STRING_VALUE",
+ *       Prefix: "STRING_VALUE",
+ *       UploadPolicy: "BLOB_VALUE",
+ *       UploadPolicySignature: "STRING_VALUE",
+ *     },
+ *   },
+ *   DryRun: true || false,
+ * };
  * const command = new BundleInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // BundleInstanceResult
+ * //   BundleTask: { // BundleTask
+ * //     BundleId: "STRING_VALUE",
+ * //     BundleTaskError: { // BundleTaskError
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     InstanceId: "STRING_VALUE",
+ * //     Progress: "STRING_VALUE",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     State: "pending" || "waiting-for-shutdown" || "bundling" || "storing" || "cancelling" || "complete" || "failed",
+ * //     Storage: { // Storage
+ * //       S3: { // S3Storage
+ * //         AWSAccessKeyId: "STRING_VALUE",
+ * //         Bucket: "STRING_VALUE",
+ * //         Prefix: "STRING_VALUE",
+ * //         UploadPolicy: "BLOB_VALUE",
+ * //         UploadPolicySignature: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     UpdateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param BundleInstanceCommandInput - {@link BundleInstanceCommandInput}
+ * @returns {@link BundleInstanceCommandOutput}
  * @see {@link BundleInstanceCommandInput} for command's `input` shape.
  * @see {@link BundleInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class BundleInstanceCommand extends $Command<
@@ -47,6 +106,18 @@ export class BundleInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: BundleInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +133,9 @@ export class BundleInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BundleInstanceCommandInput, BundleInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BundleInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +146,8 @@ export class BundleInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BundleInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BundleInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +157,18 @@ export class BundleInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BundleInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2BundleInstanceCommand(input, context);
+    return se_BundleInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BundleInstanceCommandOutput> {
-    return deserializeAws_ec2BundleInstanceCommand(output, context);
+    return de_BundleInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ProvisionByoipCidrRequest, ProvisionByoipCidrResult } from "../models/models_5";
-import {
-  deserializeAws_ec2ProvisionByoipCidrCommand,
-  serializeAws_ec2ProvisionByoipCidrCommand,
-} from "../protocols/Aws_ec2";
+import { ProvisionByoipCidrRequest, ProvisionByoipCidrResult } from "../models/models_6";
+import { de_ProvisionByoipCidrCommand, se_ProvisionByoipCidrCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ProvisionByoipCidrCommand}.
+ */
 export interface ProvisionByoipCidrCommandInput extends ProvisionByoipCidrRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ProvisionByoipCidrCommand}.
+ */
 export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP
  *          addresses (BYOIP) and creates a corresponding address pool. After the address range is
  *          provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.</p>
@@ -40,13 +54,49 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
  * import { EC2Client, ProvisionByoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ProvisionByoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ProvisionByoipCidrRequest
+ *   Cidr: "STRING_VALUE", // required
+ *   CidrAuthorizationContext: { // CidrAuthorizationContext
+ *     Message: "STRING_VALUE", // required
+ *     Signature: "STRING_VALUE", // required
+ *   },
+ *   PubliclyAdvertisable: true || false,
+ *   Description: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   PoolTagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MultiRegion: true || false,
+ * };
  * const command = new ProvisionByoipCidrCommand(input);
  * const response = await client.send(command);
+ * // { // ProvisionByoipCidrResult
+ * //   ByoipCidr: { // ByoipCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param ProvisionByoipCidrCommandInput - {@link ProvisionByoipCidrCommandInput}
+ * @returns {@link ProvisionByoipCidrCommandOutput}
  * @see {@link ProvisionByoipCidrCommandInput} for command's `input` shape.
  * @see {@link ProvisionByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ProvisionByoipCidrCommand extends $Command<
@@ -57,6 +107,18 @@ export class ProvisionByoipCidrCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ProvisionByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +134,9 @@ export class ProvisionByoipCidrCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ProvisionByoipCidrCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -82,8 +147,8 @@ export class ProvisionByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ProvisionByoipCidrRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ProvisionByoipCidrResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,12 +158,18 @@ export class ProvisionByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvisionByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ProvisionByoipCidrCommand(input, context);
+    return se_ProvisionByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionByoipCidrCommandOutput> {
-    return deserializeAws_ec2ProvisionByoipCidrCommand(output, context);
+    return de_ProvisionByoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

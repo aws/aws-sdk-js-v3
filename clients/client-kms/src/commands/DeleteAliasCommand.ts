@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,22 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { DeleteAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAliasCommand,
-  serializeAws_json1_1DeleteAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAliasCommand, se_DeleteAliasCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteAliasCommand}.
+ */
 export interface DeleteAliasCommandInput extends DeleteAliasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAliasCommand}.
+ */
 export interface DeleteAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified alias. </p>
  *          <note>
- *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          </note>
  *          <p>Because an alias is not a property of a KMS key, you can delete and change the aliases of
  *       a KMS key without affecting the KMS key. Also, aliases do not appear in the response from the
@@ -76,13 +90,66 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * import { KMSClient, DeleteAliasCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DeleteAliasCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // DeleteAliasRequest
+ *   AliasName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAliasCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
+ * @returns {@link DeleteAliasCommandOutput}
  * @see {@link DeleteAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
+ *
+ * @example To delete an alias
+ * ```javascript
+ * // The following example deletes the specified alias.
+ * const input = {
+ *   "AliasName": "alias/ExampleAlias"
+ * };
+ * const command = new DeleteAliasCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-alias-1478285209338
+ * ```
  *
  */
 export class DeleteAliasCommand extends $Command<
@@ -93,6 +160,18 @@ export class DeleteAliasCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,6 +187,7 @@ export class DeleteAliasCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteAliasCommandInput, DeleteAliasCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteAliasCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -118,8 +198,8 @@ export class DeleteAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +209,18 @@ export class DeleteAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAliasCommand(input, context);
+    return se_DeleteAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAliasCommandOutput> {
-    return deserializeAws_json1_1DeleteAliasCommand(output, context);
+    return de_DeleteAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

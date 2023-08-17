@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { DescribeRulesetRequest, DescribeRulesetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRulesetCommand,
-  serializeAws_restJson1DescribeRulesetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeRulesetCommand, se_DescribeRulesetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeRulesetCommand}.
+ */
 export interface DescribeRulesetCommandInput extends DescribeRulesetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRulesetCommand}.
+ */
 export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves detailed information about the ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,62 @@ export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, _
  * import { DataBrewClient, DescribeRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // DescribeRulesetRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRulesetCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRulesetResponse
+ * //   Name: "STRING_VALUE", // required
+ * //   Description: "STRING_VALUE",
+ * //   TargetArn: "STRING_VALUE",
+ * //   Rules: [ // RuleList
+ * //     { // Rule
+ * //       Name: "STRING_VALUE", // required
+ * //       Disabled: true || false,
+ * //       CheckExpression: "STRING_VALUE", // required
+ * //       SubstitutionMap: { // ValuesMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Threshold: { // Threshold
+ * //         Value: Number("double"), // required
+ * //         Type: "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "GREATER_THAN" || "LESS_THAN",
+ * //         Unit: "COUNT" || "PERCENTAGE",
+ * //       },
+ * //       ColumnSelectors: [ // ColumnSelectorList
+ * //         { // ColumnSelector
+ * //           Regex: "STRING_VALUE",
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   CreateDate: new Date("TIMESTAMP"),
+ * //   CreatedBy: "STRING_VALUE",
+ * //   LastModifiedBy: "STRING_VALUE",
+ * //   LastModifiedDate: new Date("TIMESTAMP"),
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeRulesetCommandInput - {@link DescribeRulesetCommandInput}
+ * @returns {@link DescribeRulesetCommandOutput}
  * @see {@link DescribeRulesetCommandInput} for command's `input` shape.
  * @see {@link DescribeRulesetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class DescribeRulesetCommand extends $Command<
@@ -46,6 +109,18 @@ export class DescribeRulesetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +136,9 @@ export class DescribeRulesetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeRulesetCommandInput, DescribeRulesetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeRulesetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +149,8 @@ export class DescribeRulesetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRulesetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRulesetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +160,18 @@ export class DescribeRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRulesetCommand(input, context);
+    return se_DescribeRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRulesetCommandOutput> {
-    return deserializeAws_restJson1DescribeRulesetCommand(output, context);
+    return de_DescribeRulesetCommand(output, context);
   }
 
   // Start section: command_body_extra

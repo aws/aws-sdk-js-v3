@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteNetworkSettingsRequest, DeleteNetworkSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteNetworkSettingsCommand,
-  serializeAws_restJson1DeleteNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteNetworkSettingsCommand, se_DeleteNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteNetworkSettingsCommand}.
+ */
 export interface DeleteNetworkSettingsCommandInput extends DeleteNetworkSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNetworkSettingsCommand}.
+ */
 export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes network settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,38 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * import { WorkSpacesWebClient, DeleteNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // DeleteNetworkSettingsRequest
+ *   networkSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteNetworkSettingsCommandInput - {@link DeleteNetworkSettingsCommandInput}
+ * @returns {@link DeleteNetworkSettingsCommandOutput}
  * @see {@link DeleteNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeleteNetworkSettingsCommand extends $Command<
@@ -46,6 +85,18 @@ export class DeleteNetworkSettingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +112,9 @@ export class DeleteNetworkSettingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteNetworkSettingsCommandInput, DeleteNetworkSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteNetworkSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +125,8 @@ export class DeleteNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +136,18 @@ export class DeleteNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNetworkSettingsCommand(input, context);
+    return se_DeleteNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1DeleteNetworkSettingsCommand(output, context);
+    return de_DeleteNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

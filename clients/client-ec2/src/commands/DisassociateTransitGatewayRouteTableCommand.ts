@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,24 +11,39 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DisassociateTransitGatewayRouteTableRequest,
   DisassociateTransitGatewayRouteTableResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
-  deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand,
-  serializeAws_ec2DisassociateTransitGatewayRouteTableCommand,
+  de_DisassociateTransitGatewayRouteTableCommand,
+  se_DisassociateTransitGatewayRouteTableCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisassociateTransitGatewayRouteTableCommand}.
+ */
 export interface DisassociateTransitGatewayRouteTableCommandInput extends DisassociateTransitGatewayRouteTableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateTransitGatewayRouteTableCommand}.
+ */
 export interface DisassociateTransitGatewayRouteTableCommandOutput
   extends DisassociateTransitGatewayRouteTableResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a resource attachment from a transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +51,33 @@ export interface DisassociateTransitGatewayRouteTableCommandOutput
  * import { EC2Client, DisassociateTransitGatewayRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateTransitGatewayRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisassociateTransitGatewayRouteTableRequest
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateTransitGatewayRouteTableCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateTransitGatewayRouteTableResult
+ * //   Association: { // TransitGatewayAssociation
+ * //     TransitGatewayRouteTableId: "STRING_VALUE",
+ * //     TransitGatewayAttachmentId: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //     State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DisassociateTransitGatewayRouteTableCommandInput - {@link DisassociateTransitGatewayRouteTableCommandInput}
+ * @returns {@link DisassociateTransitGatewayRouteTableCommandOutput}
  * @see {@link DisassociateTransitGatewayRouteTableCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisassociateTransitGatewayRouteTableCommand extends $Command<
@@ -51,6 +88,18 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTransitGatewayRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +115,9 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateTransitGatewayRouteTableCommandInput, DisassociateTransitGatewayRouteTableCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateTransitGatewayRouteTableCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +128,8 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTransitGatewayRouteTableRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTransitGatewayRouteTableResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,18 +139,24 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateTransitGatewayRouteTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateTransitGatewayRouteTableCommand(input, context);
+    return se_DisassociateTransitGatewayRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTransitGatewayRouteTableCommandOutput> {
-    return deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand(output, context);
+    return de_DisassociateTransitGatewayRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

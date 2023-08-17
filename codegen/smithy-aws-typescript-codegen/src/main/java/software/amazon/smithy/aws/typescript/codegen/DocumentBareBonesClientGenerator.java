@@ -27,6 +27,7 @@ import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.ApplicationProtocol;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -70,7 +71,9 @@ final class DocumentBareBonesClientGenerator implements Runnable {
         // Add required imports.
         writer.addImport(serviceName, serviceName, "@aws-sdk/client-dynamodb");
         writer.addImport(configType, configType, "@aws-sdk/client-dynamodb");
-        writer.addImport("Client", "__Client", "@aws-sdk/smithy-client");
+        writer.addImport("Client", "__Client", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        writer.writeDocs("@public");
+        writer.write("export { __Client };");
         generateInputOutputImports(serviceInputTypes, serviceOutputTypes);
 
         generateInputOutputTypeUnion(serviceInputTypes,
@@ -80,7 +83,7 @@ final class DocumentBareBonesClientGenerator implements Runnable {
         writer.write("");
         generateConfiguration();
 
-        writer.writeDocs(DocumentClientUtils.getClientDocs());
+        writer.writeDocs(DocumentClientUtils.getClientDocs() + "\n\n@public");
         writer.openBlock("export class $L extends __Client<$T, $L, $L, $L> {", "}",
             DocumentClientUtils.CLIENT_NAME,
             ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType(),
@@ -124,6 +127,7 @@ final class DocumentBareBonesClientGenerator implements Runnable {
     }
 
     private void generateInputOutputTypeUnion(String typeName, Function<Symbol, String> mapper) {
+        writer.writeDocs("@public");
         Set<OperationShape> containedOperations =
                 new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
 
@@ -179,11 +183,13 @@ final class DocumentBareBonesClientGenerator implements Runnable {
     private void generateConfiguration() {
         writer.pushState(CLIENT_CONFIG_SECTION);
         String translateConfigType = DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE;
+        writer.writeDocs("@public");
         writer.openBlock("export type $L = {", "}", translateConfigType, () -> {
             generateTranslateConfigOption(DocumentClientUtils.CLIENT_MARSHALL_OPTIONS);
             generateTranslateConfigOption(DocumentClientUtils.CLIENT_UNMARSHALL_OPTIONS);
         });
         writer.write("");
+        writer.writeDocs("@public");
         writer.openBlock("export type $L = $L & {", "};", DocumentClientUtils.CLIENT_CONFIG_NAME,
             configType, () -> {
                 writer.write("$L?: $L;", DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_KEY, translateConfigType);

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,47 +11,80 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyDefaultCreditSpecificationRequest, ModifyDefaultCreditSpecificationResult } from "../models/models_5";
+import { ModifyDefaultCreditSpecificationRequest, ModifyDefaultCreditSpecificationResult } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyDefaultCreditSpecificationCommand,
-  serializeAws_ec2ModifyDefaultCreditSpecificationCommand,
+  de_ModifyDefaultCreditSpecificationCommand,
+  se_ModifyDefaultCreditSpecificationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ModifyDefaultCreditSpecificationCommand}.
+ */
 export interface ModifyDefaultCreditSpecificationCommandInput extends ModifyDefaultCreditSpecificationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyDefaultCreditSpecificationCommand}.
+ */
 export interface ModifyDefaultCreditSpecificationCommandOutput
   extends ModifyDefaultCreditSpecificationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the default credit option for CPU usage of burstable performance instances.
- *             The default credit option is set at the account level per Amazon Web Services Region, and is specified
- *             per instance family. All new burstable performance instances in the account launch using
- *             the default credit option.</p>
- *         <p>
- *             <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which works at an Amazon Web Services Region
- *             level and modifies the credit option for each Availability Zone. All zones in a
- *             Region are updated within five minutes. But if instances are launched during this
- *             operation, they might not get the new credit option until the zone is updated. To verify
- *             whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code> and check
- *             <code>DefaultCreditSpecification</code> for updates.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
- *             performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *             The default credit option is set at the account level per Amazon Web Services Region, and
+ *             is specified per instance family. All new burstable performance instances in the account
+ *             launch using the default credit option.</p>
+ *          <p>
+ *             <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which
+ *             works at an Amazon Web Services Region level and modifies the credit option for each
+ *             Availability Zone. All zones in a Region are updated within five minutes. But if
+ *             instances are launched during this operation, they might not get the new credit option
+ *             until the zone is updated. To verify whether the update has occurred, you can call
+ *                 <code>GetDefaultCreditSpecification</code> and check
+ *                 <code>DefaultCreditSpecification</code> for updates.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+ *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ModifyDefaultCreditSpecificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyDefaultCreditSpecificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyDefaultCreditSpecificationRequest
+ *   DryRun: true || false,
+ *   InstanceFamily: "t2" || "t3" || "t3a" || "t4g", // required
+ *   CpuCredits: "STRING_VALUE", // required
+ * };
  * const command = new ModifyDefaultCreditSpecificationCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyDefaultCreditSpecificationResult
+ * //   InstanceFamilyCreditSpecification: { // InstanceFamilyCreditSpecification
+ * //     InstanceFamily: "t2" || "t3" || "t3a" || "t4g",
+ * //     CpuCredits: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param ModifyDefaultCreditSpecificationCommandInput - {@link ModifyDefaultCreditSpecificationCommandInput}
+ * @returns {@link ModifyDefaultCreditSpecificationCommandOutput}
  * @see {@link ModifyDefaultCreditSpecificationCommandInput} for command's `input` shape.
  * @see {@link ModifyDefaultCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyDefaultCreditSpecificationCommand extends $Command<
@@ -60,6 +95,18 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDefaultCreditSpecificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +122,9 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyDefaultCreditSpecificationCommandInput, ModifyDefaultCreditSpecificationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyDefaultCreditSpecificationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,8 +135,8 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDefaultCreditSpecificationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDefaultCreditSpecificationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,18 +146,24 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyDefaultCreditSpecificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyDefaultCreditSpecificationCommand(input, context);
+    return se_ModifyDefaultCreditSpecificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDefaultCreditSpecificationCommandOutput> {
-    return deserializeAws_ec2ModifyDefaultCreditSpecificationCommand(output, context);
+    return de_ModifyDefaultCreditSpecificationCommand(output, context);
   }
 
   // Start section: command_body_extra

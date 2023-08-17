@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { CreateGraphRequest, CreateGraphResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateGraphCommand,
-  serializeAws_restJson1CreateGraphCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateGraphCommand, se_CreateGraphCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateGraphCommand}.
+ */
 export interface CreateGraphCommandInput extends CreateGraphRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGraphCommand}.
+ */
 export interface CreateGraphCommandOutput extends CreateGraphResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new behavior graph for the calling account, and sets that account as the
  *          administrator account. This operation is called by the account that is enabling Detective.</p>
  *          <p>Before you try to enable Detective, make sure that your account has been
@@ -44,13 +58,55 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  * import { DetectiveClient, CreateGraphCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, CreateGraphCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // CreateGraphRequest
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateGraphCommand(input);
  * const response = await client.send(command);
+ * // { // CreateGraphResponse
+ * //   GraphArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateGraphCommandInput - {@link CreateGraphCommandInput}
+ * @returns {@link CreateGraphCommandOutput}
  * @see {@link CreateGraphCommandInput} for command's `input` shape.
  * @see {@link CreateGraphCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request issuer does not have permission to access this resource or perform this
+ *          operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request attempted an invalid action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This request cannot be completed for one of the following reasons.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The request would cause the number of member accounts in the behavior graph to
+ *                exceed the maximum allowed. A behavior graph cannot have more than 1200 member
+ *                accounts.</p>
+ *             </li>
+ *             <li>
+ *                <p>The request would cause the data rate for the behavior graph to exceed the maximum
+ *                allowed.</p>
+ *             </li>
+ *             <li>
+ *                <p>Detective is unable to verify the data rate for the member account. This
+ *                is usually because the member account is not enrolled in Amazon GuardDuty.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class CreateGraphCommand extends $Command<
@@ -61,6 +117,18 @@ export class CreateGraphCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +144,7 @@ export class CreateGraphCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateGraphCommandInput, CreateGraphCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateGraphCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -86,8 +155,8 @@ export class CreateGraphCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGraphRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateGraphResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +166,18 @@ export class CreateGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGraphCommand(input, context);
+    return se_CreateGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGraphCommandOutput> {
-    return deserializeAws_restJson1CreateGraphCommand(output, context);
+    return de_CreateGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

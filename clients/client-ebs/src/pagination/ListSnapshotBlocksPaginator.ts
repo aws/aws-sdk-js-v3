@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListSnapshotBlocksCommand,
   ListSnapshotBlocksCommandInput,
   ListSnapshotBlocksCommandOutput,
 } from "../commands/ListSnapshotBlocksCommand";
-import { EBS } from "../EBS";
 import { EBSClient } from "../EBSClient";
 import { EBSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EBSClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSnapshotBlocksCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EBS,
-  input: ListSnapshotBlocksCommandInput,
-  ...args: any
-): Promise<ListSnapshotBlocksCommandOutput> => {
-  // @ts-ignore
-  return await client.listSnapshotBlocks(input, ...args);
-};
 export async function* paginateListSnapshotBlocks(
   config: EBSPaginationConfiguration,
   input: ListSnapshotBlocksCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListSnapshotBlocks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof EBS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EBSClient) {
+    if (config.client instanceof EBSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EBS | EBSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

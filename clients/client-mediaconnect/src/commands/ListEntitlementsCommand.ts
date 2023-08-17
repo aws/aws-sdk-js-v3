@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { ListEntitlementsRequest, ListEntitlementsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEntitlementsCommand,
-  serializeAws_restJson1ListEntitlementsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEntitlementsCommand, se_ListEntitlementsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListEntitlementsCommand}.
+ */
 export interface ListEntitlementsCommandInput extends ListEntitlementsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEntitlementsCommand}.
+ */
 export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,45 @@ export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse,
  * import { MediaConnectClient, ListEntitlementsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, ListEntitlementsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // ListEntitlementsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListEntitlementsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEntitlementsResponse
+ * //   Entitlements: [ // __listOfListedEntitlement
+ * //     { // ListedEntitlement
+ * //       DataTransferSubscriberFeePercent: Number("int"),
+ * //       EntitlementArn: "STRING_VALUE", // required
+ * //       EntitlementName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListEntitlementsCommandInput - {@link ListEntitlementsCommandInput}
+ * @returns {@link ListEntitlementsCommandOutput}
  * @see {@link ListEntitlementsCommandInput} for command's `input` shape.
  * @see {@link ListEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class ListEntitlementsCommand extends $Command<
@@ -46,6 +92,18 @@ export class ListEntitlementsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitlementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +119,9 @@ export class ListEntitlementsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListEntitlementsCommandInput, ListEntitlementsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListEntitlementsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +132,8 @@ export class ListEntitlementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntitlementsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEntitlementsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +143,18 @@ export class ListEntitlementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitlementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEntitlementsCommand(input, context);
+    return se_ListEntitlementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitlementsCommandOutput> {
-    return deserializeAws_restJson1ListEntitlementsCommand(output, context);
+    return de_ListEntitlementsCommand(output, context);
   }
 
   // Start section: command_body_extra

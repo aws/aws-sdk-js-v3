@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,22 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteResolverEndpointRequest, DeleteResolverEndpointResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResolverEndpointCommand,
-  serializeAws_json1_1DeleteResolverEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteResolverEndpointCommand, se_DeleteResolverEndpointCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteResolverEndpointCommand}.
+ */
 export interface DeleteResolverEndpointCommandInput extends DeleteResolverEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteResolverEndpointCommand}.
+ */
 export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound
  * 			Resolver endpoint:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <b>Inbound</b>: DNS queries from your network are no longer routed
@@ -41,13 +55,58 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  * import { Route53ResolverClient, DeleteResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DeleteResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // DeleteResolverEndpointRequest
+ *   ResolverEndpointId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResolverEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteResolverEndpointResponse
+ * //   ResolverEndpoint: { // ResolverEndpoint
+ * //     Id: "STRING_VALUE",
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     SecurityGroupIds: [ // SecurityGroupIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Direction: "INBOUND" || "OUTBOUND",
+ * //     IpAddressCount: Number("int"),
+ * //     HostVPCId: "STRING_VALUE",
+ * //     Status: "CREATING" || "OPERATIONAL" || "UPDATING" || "AUTO_RECOVERING" || "ACTION_NEEDED" || "DELETING",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //     ModificationTime: "STRING_VALUE",
+ * //     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ * //     OutpostArn: "STRING_VALUE",
+ * //     PreferredInstanceType: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DeleteResolverEndpointCommandInput - {@link DeleteResolverEndpointCommandInput}
+ * @returns {@link DeleteResolverEndpointCommandOutput}
  * @see {@link DeleteResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class DeleteResolverEndpointCommand extends $Command<
@@ -58,6 +117,18 @@ export class DeleteResolverEndpointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResolverEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +144,9 @@ export class DeleteResolverEndpointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteResolverEndpointCommandInput, DeleteResolverEndpointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteResolverEndpointCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -83,8 +157,8 @@ export class DeleteResolverEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResolverEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResolverEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +168,18 @@ export class DeleteResolverEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResolverEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResolverEndpointCommand(input, context);
+    return se_DeleteResolverEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResolverEndpointCommandOutput> {
-    return deserializeAws_json1_1DeleteResolverEndpointCommand(output, context);
+    return de_DeleteResolverEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

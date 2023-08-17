@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Polly } from "../Polly";
 import { PollyClient } from "../PollyClient";
 
+/**
+ * @public
+ */
 export interface PollyPaginationConfiguration extends PaginationConfiguration {
-  client: Polly | PollyClient;
+  client: PollyClient;
 }

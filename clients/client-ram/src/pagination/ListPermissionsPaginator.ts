@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListPermissionsCommand,
   ListPermissionsCommandInput,
   ListPermissionsCommandOutput,
 } from "../commands/ListPermissionsCommand";
-import { RAM } from "../RAM";
 import { RAMClient } from "../RAMClient";
 import { RAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RAMClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPermissionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RAM,
-  input: ListPermissionsCommandInput,
-  ...args: any
-): Promise<ListPermissionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPermissions(input, ...args);
-};
 export async function* paginateListPermissions(
   config: RAMPaginationConfiguration,
   input: ListPermissionsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListPermissions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RAMClient) {
+    if (config.client instanceof RAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RAM | RAMClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

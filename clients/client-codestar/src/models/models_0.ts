@@ -1,66 +1,61 @@
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { CodeStarServiceException as __BaseException } from "./CodeStarServiceException";
 
+/**
+ * @public
+ */
 export interface AssociateTeamMemberRequest {
   /**
+   * @public
    * <p>The ID of the project to which you will add the IAM user.</p>
    */
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>A user- or system-generated token that identifies the entity that requested the team
    *       member association to the project. This token can be used to repeat the request.</p>
    */
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar
    *       project.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The AWS CodeStar project role that will apply to this user. This role determines what actions
    *       a user can take in an AWS CodeStar project.</p>
    */
   projectRole: string | undefined;
 
   /**
+   * @public
    * <p>Whether the team member is allowed to use an SSH public/private key pair to remotely
    *       access project resources, for example Amazon EC2 instances.</p>
    */
   remoteAccessAllowed?: boolean;
 }
 
-export namespace AssociateTeamMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTeamMemberRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateTeamMemberResult {
   /**
+   * @public
    * <p>The user- or system-generated token from the initial request that can be used to repeat
    *       the request.</p>
    */
   clientRequestToken?: string;
 }
 
-export namespace AssociateTeamMemberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTeamMemberResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Another modification is being made. That modification must complete before you can make
  *       your change.</p>
  */
@@ -81,6 +76,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service role is not valid.</p>
  */
 export class InvalidServiceRoleException extends __BaseException {
@@ -100,6 +96,7 @@ export class InvalidServiceRoleException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource limit has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -119,6 +116,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Project configuration information is required but not specified.</p>
  */
 export class ProjectConfigurationException extends __BaseException {
@@ -138,6 +136,7 @@ export class ProjectConfigurationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified AWS CodeStar project was not found.</p>
  */
 export class ProjectNotFoundException extends __BaseException {
@@ -157,6 +156,7 @@ export class ProjectNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The team member is already associated with a role in this project.</p>
  */
 export class TeamMemberAlreadyAssociatedException extends __BaseException {
@@ -176,6 +176,7 @@ export class TeamMemberAlreadyAssociatedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified input is either not valid, or it could not be validated.</p>
  */
 export class ValidationException extends __BaseException {
@@ -195,324 +196,271 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided
  *       with the project request will be uploaded after project creation.</p>
  */
 export interface CodeCommitCodeDestination {
   /**
+   * @public
    * <p>The name of the AWS CodeCommit repository to be created in AWS CodeStar.</p>
    */
   name: string | undefined;
 }
 
-export namespace CodeCommitCodeDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeCommitCodeDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the
  *       project request will be uploaded after project creation.</p>
  */
 export interface GitHubCodeDestination {
   /**
+   * @public
    * <p>Name of the GitHub repository to be created in AWS CodeStar.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>Description for the GitHub repository to be created in AWS CodeStar. This description displays in
    *       GitHub after the repository is created.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.</p>
    */
   type: string | undefined;
 
   /**
+   * @public
    * <p>The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should
    *       be owned by a GitHub organization, provide its name.</p>
    */
   owner: string | undefined;
 
   /**
+   * @public
    * <p>Whether the GitHub repository is to be a private repository.</p>
    */
   privateRepository: boolean | undefined;
 
   /**
+   * @public
    * <p>Whether to enable issues for the GitHub repository.</p>
    */
   issuesEnabled: boolean | undefined;
 
   /**
+   * @public
    * <p>The GitHub user's personal access token for the GitHub repository.</p>
    */
   token: string | undefined;
 }
 
-export namespace GitHubCodeDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GitHubCodeDestination): any => ({
-    ...obj,
-    ...(obj.token && { token: SENSITIVE_STRING }),
-  });
-}
-
 /**
+ * @public
  * <p>The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the
  *       source code files provided with the project request are placed in the repository.</p>
  */
 export interface CodeDestination {
   /**
+   * @public
    * <p>Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided
    *       with the project request will be uploaded after project creation.</p>
    */
   codeCommit?: CodeCommitCodeDestination;
 
   /**
+   * @public
    * <p>Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the
    *       project request will be uploaded after project creation.</p>
    */
   gitHub?: GitHubCodeDestination;
 }
 
-export namespace CodeDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeDestination): any => ({
-    ...obj,
-    ...(obj.gitHub && { gitHub: GitHubCodeDestination.filterSensitiveLog(obj.gitHub) }),
-  });
-}
-
 /**
+ * @public
  * <p>The Amazon S3 location where the source code files provided with the project
  *       request are stored.</p>
  */
 export interface S3Location {
   /**
+   * @public
    * <p>The Amazon S3 bucket name where the source code files provided with the project
    *       request are stored.</p>
    */
   bucketName?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 object key where the source code files provided with the project
    *       request are stored.</p>
    */
   bucketKey?: string;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The location where the source code files provided with the project request are
  *       stored. AWS CodeStar retrieves the files during project creation.</p>
  */
 export interface CodeSource {
   /**
+   * @public
    * <p>Information about the Amazon S3 location where the source code files provided with the
    *       project request are stored. </p>
    */
   s3: S3Location | undefined;
 }
 
-export namespace CodeSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeSource): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Location and destination information about the source code files provided with the
  *       project request. The source code is uploaded to the new project source repository after
  *       project creation.</p>
  */
 export interface Code {
   /**
+   * @public
    * <p>The location where the source code files provided with the project request are
    *       stored. AWS CodeStar retrieves the files during project creation.</p>
    */
   source: CodeSource | undefined;
 
   /**
+   * @public
    * <p>The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the
    *       source code files provided with the project request are placed in the repository.</p>
    */
   destination: CodeDestination | undefined;
 }
 
-export namespace Code {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Code): any => ({
-    ...obj,
-    ...(obj.destination && { destination: CodeDestination.filterSensitiveLog(obj.destination) }),
-  });
-}
-
 /**
+ * @public
  * <p>The Amazon S3 location where the toolchain template file provided with the
  *       project request is stored. AWS CodeStar retrieves the file during project creation.</p>
  */
 export interface ToolchainSource {
   /**
+   * @public
    * <p>The Amazon S3 bucket where the toolchain template file provided with the project
    *       request is stored.</p>
    */
   s3: S3Location | undefined;
 }
 
-export namespace ToolchainSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ToolchainSource): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The toolchain template file provided with the project request. AWS CodeStar uses
  *       the template to provision the toolchain stack in AWS CloudFormation.</p>
  */
 export interface Toolchain {
   /**
+   * @public
    * <p>The Amazon S3 location where the toolchain template file provided with the
    *       project request is stored. AWS CodeStar retrieves the file during project creation.</p>
    */
   source: ToolchainSource | undefined;
 
   /**
+   * @public
    * <p>The service role ARN for AWS CodeStar to use for the toolchain template during stack
    *       provisioning.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>The list of parameter overrides to be passed into the toolchain template during stack
    *       provisioning, if any.</p>
    */
-  stackParameters?: { [key: string]: string };
+  stackParameters?: Record<string, string>;
 }
 
-export namespace Toolchain {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Toolchain): any => ({
-    ...obj,
-    ...(obj.stackParameters && { stackParameters: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateProjectRequest {
   /**
+   * @public
    * <p>The display name for the project to be created in AWS CodeStar.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the project to be created in AWS CodeStar.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The description of the project, if any.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A user- or system-generated token that identifies the entity that requested project
    *       creation. This token can be used to repeat the request.</p>
    */
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>A list of the Code objects submitted with the project request. If this
    *       parameter is specified, the request must also include the toolchain parameter.</p>
    */
   sourceCode?: Code[];
 
   /**
+   * @public
    * <p>The name of the toolchain template file submitted with the project request. If
    *       this parameter is specified, the request must also include the sourceCode parameter.</p>
    */
   toolchain?: Toolchain;
 
   /**
+   * @public
    * <p>The tags created for the project.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace CreateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
-    ...obj,
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.sourceCode && { sourceCode: obj.sourceCode.map((item) => Code.filterSensitiveLog(item)) }),
-    ...(obj.toolchain && { toolchain: Toolchain.filterSensitiveLog(obj.toolchain) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateProjectResult {
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the created project.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>A user- or system-generated token that identifies the entity that requested project
    *       creation.</p>
    */
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>Reserved for future use.</p>
    */
   projectTemplateId?: string;
 }
 
-export namespace CreateProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An AWS CodeStar project with the same ID already exists in this region for the AWS account.
  *       AWS CodeStar project IDs must be unique within a region for the AWS account.</p>
  */
@@ -533,6 +481,7 @@ export class ProjectAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The project creation request was valid, but a nonspecific exception or error occurred
  *       during project creation. The project could not be created in AWS CodeStar.</p>
  */
@@ -552,24 +501,31 @@ export class ProjectCreationFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateUserProfileRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The name that will be displayed as the friendly name for the user in AWS CodeStar. </p>
    */
   displayName: string | undefined;
 
   /**
+   * @public
    * <p>The email address that will be displayed as part of the user's profile in
    *       AWS CodeStar.</p>
    */
   emailAddress: string | undefined;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the
    *       user remote access to project resources, this public key will be used along with the user's
    *       private key for SSH access.</p>
@@ -577,34 +533,30 @@ export interface CreateUserProfileRequest {
   sshPublicKey?: string;
 }
 
-export namespace CreateUserProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateUserProfileResult {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The email address that is displayed as part of the user's profile in AWS CodeStar.</p>
    */
   emailAddress?: string;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user in AWS CodeStar. This is the public portion of the
    *       public/private keypair the user can use to access project resources if a project owner allows
    *       the user remote access to those resources.</p>
@@ -612,28 +564,20 @@ export interface CreateUserProfileResult {
   sshPublicKey?: string;
 
   /**
+   * @public
    * <p>The date the user profile was created, in timestamp format.</p>
    */
   createdTimestamp?: Date;
 
   /**
+   * @public
    * <p>The date the user profile was last modified, in timestamp format.</p>
    */
   lastModifiedTimestamp?: Date;
 }
 
-export namespace CreateUserProfileResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserProfileResult): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
-}
-
 /**
+ * @public
  * <p>A user profile with that name already exists in this region for the AWS account. AWS
  *       CodeStar user profile names must be unique within a region for the AWS account. </p>
  */
@@ -653,19 +597,25 @@ export class UserProfileAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectRequest {
   /**
+   * @public
    * <p>The ID of the project to be deleted in AWS CodeStar.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>A user- or system-generated token that identifies the entity that requested project
    *       deletion. This token can be used to repeat the request. </p>
    */
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>Whether to send a delete request for the primary stack in AWS CloudFormation originally
    *       used to generate the project and its resources. This option will delete all AWS resources for
    *       the project (except for any buckets in Amazon S3) as well as deleting the project itself.
@@ -674,194 +624,161 @@ export interface DeleteProjectRequest {
   deleteStack?: boolean;
 }
 
-export namespace DeleteProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteProjectResult {
   /**
+   * @public
    * <p>The ID of the primary stack in AWS CloudFormation that will be deleted as part of
    *       deleting the project and its resources.</p>
    */
   stackId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the deleted project.</p>
    */
   projectArn?: string;
 }
 
-export namespace DeleteProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteUserProfileRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.</p>
    */
   userArn: string | undefined;
 }
 
-export namespace DeleteUserProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserProfileRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteUserProfileResult {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.</p>
    */
   userArn: string | undefined;
 }
 
-export namespace DeleteUserProfileResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserProfileResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProjectRequest {
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   id: string | undefined;
 }
 
-export namespace DescribeProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An indication of whether a project creation or deletion is failed or
  *       successful.</p>
  */
 export interface ProjectStatus {
   /**
+   * @public
    * <p>The phase of completion for a project creation or deletion.</p>
    */
   state: string | undefined;
 
   /**
+   * @public
    * <p>In the case of a project creation or deletion failure, a reason for the
    *       failure.</p>
    */
   reason?: string;
 }
 
-export namespace ProjectStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectStatus): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProjectResult {
   /**
+   * @public
    * <p>The display name for the project.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the project.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The description of the project, if any.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A user- or system-generated token that identifies the entity that requested project
    *       creation. </p>
    */
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>The date and time the project was created, in timestamp format.</p>
    */
   createdTimeStamp?: Date;
 
   /**
+   * @public
    * <p>The ID of the primary stack in AWS CloudFormation used to generate resources for the
    *       project.</p>
    */
   stackId?: string;
 
   /**
+   * @public
    * <p>The ID for the AWS CodeStar project template used to create the project.</p>
    */
   projectTemplateId?: string;
 
   /**
+   * @public
    * <p>The project creation or deletion status.</p>
    */
   status?: ProjectStatus;
 }
 
-export namespace DescribeProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
-    ...obj,
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeUserProfileRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
   userArn: string | undefined;
 }
 
-export namespace DescribeUserProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserProfileRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeUserProfileResult {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The display name shown for the user in AWS CodeStar projects. For example, this could be set
    *       to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also
    *       used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are
@@ -874,11 +791,13 @@ export interface DescribeUserProfileResult {
   displayName?: string;
 
   /**
+   * @public
    * <p>The email address for the user. Optional.</p>
    */
   emailAddress?: string;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user. This SSH public key is associated with the
    *       user profile, and can be used in conjunction with the associated private key for access to
    *       project resources, such as Amazon EC2 instances, if a project owner grants remote access to
@@ -887,30 +806,22 @@ export interface DescribeUserProfileResult {
   sshPublicKey?: string;
 
   /**
+   * @public
    * <p>The date and time when the user profile was created in AWS CodeStar, in timestamp
    *       format.</p>
    */
   createdTimestamp: Date | undefined;
 
   /**
+   * @public
    * <p>The date and time when the user profile was last modified, in timestamp
    *       format.</p>
    */
   lastModifiedTimestamp: Date | undefined;
 }
 
-export namespace DescribeUserProfileResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserProfileResult): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
-}
-
 /**
+ * @public
  * <p>The user profile was not found.</p>
  */
 export class UserProfileNotFoundException extends __BaseException {
@@ -929,40 +840,31 @@ export class UserProfileNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTeamMemberRequest {
   /**
+   * @public
    * <p>The ID of the AWS CodeStar project from which you want to remove a team member.</p>
    */
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from
    *       the project.</p>
    */
   userArn: string | undefined;
 }
 
-export namespace DisassociateTeamMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTeamMemberRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateTeamMemberResult {}
 
-export namespace DisassociateTeamMemberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTeamMemberResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The next token is not valid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -981,226 +883,191 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsRequest {
   /**
+   * @public
    * <p>The continuation token to be used to return the next set of results, if the results
    *       cannot be returned in one response.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum amount of data that can be contained in a single set of results.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListProjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the metadata for a project.</p>
  */
 export interface ProjectSummary {
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   projectId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the project.</p>
    */
   projectArn?: string;
 }
 
-export namespace ProjectSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListProjectsResult {
   /**
+   * @public
    * <p>A list of projects.</p>
    */
   projects: ProjectSummary[] | undefined;
 
   /**
+   * @public
    * <p>The continuation token to use when requesting the next set of results, if there are
    *       more results to be returned.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListProjectsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListResourcesRequest {
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>The continuation token for the next set of results, if the results cannot be returned
    *       in one response.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum amount of data that can be contained in a single set of results.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a resource for a project.</p>
  */
 export interface Resource {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   id: string | undefined;
 }
 
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListResourcesResult {
   /**
+   * @public
    * <p>An array of resources associated with the project. </p>
    */
   resources?: Resource[];
 
   /**
+   * @public
    * <p>The continuation token to use when requesting the next set of results, if there are
    *       more results to be returned.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListResourcesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForProjectRequest {
   /**
+   * @public
    * <p>The ID of the project to get tags for.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>Reserved for future use.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Reserved for future use.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListTagsForProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForProjectRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForProjectResult {
   /**
+   * @public
    * <p>The tags for the project.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>Reserved for future use.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListTagsForProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForProjectResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTeamMembersRequest {
   /**
+   * @public
    * <p>The ID of the project for which you want to list team members.</p>
    */
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>The continuation token for the next set of results, if the results cannot be returned
    *       in one response.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of team members you want returned in a response.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListTeamMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTeamMembersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a team member in a project.</p>
  */
 export interface TeamMember {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The role assigned to the user in the project. Project roles have different levels of
    *       access. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html">Working with
    *         Teams</a> in the <i>AWS CodeStar User Guide</i>. </p>
@@ -1208,75 +1075,62 @@ export interface TeamMember {
   projectRole: string | undefined;
 
   /**
+   * @public
    * <p>Whether the user is allowed to remotely access project resources using an SSH
    *       public/private key pair.</p>
    */
   remoteAccessAllowed?: boolean;
 }
 
-export namespace TeamMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TeamMember): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTeamMembersResult {
   /**
+   * @public
    * <p>A list of team member objects for the project.</p>
    */
   teamMembers: TeamMember[] | undefined;
 
   /**
+   * @public
    * <p>The continuation token to use when requesting the next set of results, if there are
    *       more results to be returned.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListTeamMembersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTeamMembersResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListUserProfilesRequest {
   /**
+   * @public
    * <p>The continuation token for the next set of results, if the results cannot be returned
    *       in one response.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in a response.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListUserProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserProfilesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a user's profile in AWS CodeStar.</p>
  */
 export interface UserProfileSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
    */
   userArn?: string;
 
   /**
+   * @public
    * <p>The display name of a user in AWS CodeStar. For example, this could be set to both first and
    *       last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate
    *       the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the
@@ -1289,11 +1143,13 @@ export interface UserProfileSummary {
   displayName?: string;
 
   /**
+   * @public
    * <p>The email address associated with the user.</p>
    */
   emailAddress?: string;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the
    *       user remote access to project resources, this public key will be used along with the user's
    *       private key for SSH access.</p>
@@ -1301,151 +1157,104 @@ export interface UserProfileSummary {
   sshPublicKey?: string;
 }
 
-export namespace UserProfileSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserProfileSummary): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListUserProfilesResult {
   /**
+   * @public
    * <p>All the user profiles configured in AWS CodeStar for an AWS account.</p>
    */
   userProfiles: UserProfileSummary[] | undefined;
 
   /**
+   * @public
    * <p>The continuation token to use when requesting the next set of results, if there are
    *       more results to be returned.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListUserProfilesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserProfilesResult): any => ({
-    ...obj,
-    ...(obj.userProfiles && {
-      userProfiles: obj.userProfiles.map((item) => UserProfileSummary.filterSensitiveLog(item)),
-    }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagProjectRequest {
   /**
+   * @public
    * <p>The ID of the project you want to add a tag to.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The tags you want to add to the project.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
-export namespace TagProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagProjectRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagProjectResult {
   /**
+   * @public
    * <p>The tags for the project.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace TagProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagProjectResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagProjectRequest {
   /**
+   * @public
    * <p>The ID of the project to remove tags from.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The tags to remove from the project.</p>
    */
   tags: string[] | undefined;
 }
 
-export namespace UntagProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagProjectRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagProjectResult {}
 
-export namespace UntagProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagProjectResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateProjectRequest {
   /**
+   * @public
    * <p>The ID of the project you want to update.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the project you want to update.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the project, if any.</p>
    */
   description?: string;
 }
 
-export namespace UpdateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-    ...obj,
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateProjectResult {}
 
-export namespace UpdateProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The specified team member was not found.</p>
  */
 export class TeamMemberNotFoundException extends __BaseException {
@@ -1464,19 +1273,25 @@ export class TeamMemberNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateTeamMemberRequest {
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user for whom you want to change team membership
    *       attributes.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The role assigned to the user in the project. Project roles have different levels of
    *       access. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html">Working with
    *         Teams</a> in the <i>AWS CodeStar User Guide</i>.</p>
@@ -1484,6 +1299,7 @@ export interface UpdateTeamMemberRequest {
   projectRole?: string;
 
   /**
+   * @public
    * <p>Whether a team member is allowed to remotely access project resources using the SSH
    *       public key associated with the user's profile. Even if this is set to True, the user must
    *       associate a public key with their profile before the user can access resources.</p>
@@ -1491,62 +1307,57 @@ export interface UpdateTeamMemberRequest {
   remoteAccessAllowed?: boolean;
 }
 
-export namespace UpdateTeamMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTeamMemberRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateTeamMemberResult {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user whose team membership attributes were
    *       updated.</p>
    */
   userArn?: string;
 
   /**
+   * @public
    * <p>The project role granted to the user.</p>
    */
   projectRole?: string;
 
   /**
+   * @public
    * <p>Whether a team member is allowed to remotely access project resources using the SSH
    *       public key associated with the user's profile.</p>
    */
   remoteAccessAllowed?: boolean;
 }
 
-export namespace UpdateTeamMemberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTeamMemberResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateUserProfileRequest {
   /**
+   * @public
    * <p>The name that will be displayed as the friendly name for the user in AWS
    *       CodeStar.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The email address that is displayed as part of the user's profile in AWS
    *       CodeStar.</p>
    */
   emailAddress?: string;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the
    *       user remote access to project resources, this public key will be used along with the user's
    *       private key for SSH access.</p>
@@ -1554,35 +1365,31 @@ export interface UpdateUserProfileRequest {
   sshPublicKey?: string;
 }
 
-export namespace UpdateUserProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateUserProfileResult {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The email address that is displayed as part of the user's profile in AWS
    *       CodeStar.</p>
    */
   emailAddress?: string;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user in AWS CodeStar. This is the public portion of the
    *       public/private keypair the user can use to access project resources if a project owner allows
    *       the user remote access to those resources.</p>
@@ -1590,23 +1397,137 @@ export interface UpdateUserProfileResult {
   sshPublicKey?: string;
 
   /**
+   * @public
    * <p>The date the user profile was created, in timestamp format.</p>
    */
   createdTimestamp?: Date;
 
   /**
+   * @public
    * <p>The date the user profile was last modified, in timestamp format.</p>
    */
   lastModifiedTimestamp?: Date;
 }
 
-export namespace UpdateUserProfileResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserProfileResult): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @internal
+ */
+export const GitHubCodeDestinationFilterSensitiveLog = (obj: GitHubCodeDestination): any => ({
+  ...obj,
+  ...(obj.token && { token: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CodeDestinationFilterSensitiveLog = (obj: CodeDestination): any => ({
+  ...obj,
+  ...(obj.gitHub && { gitHub: GitHubCodeDestinationFilterSensitiveLog(obj.gitHub) }),
+});
+
+/**
+ * @internal
+ */
+export const CodeFilterSensitiveLog = (obj: Code): any => ({
+  ...obj,
+  ...(obj.destination && { destination: CodeDestinationFilterSensitiveLog(obj.destination) }),
+});
+
+/**
+ * @internal
+ */
+export const ToolchainFilterSensitiveLog = (obj: Toolchain): any => ({
+  ...obj,
+  ...(obj.stackParameters && { stackParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.sourceCode && { sourceCode: obj.sourceCode.map((item) => CodeFilterSensitiveLog(item)) }),
+  ...(obj.toolchain && { toolchain: ToolchainFilterSensitiveLog(obj.toolchain) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserProfileRequestFilterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserProfileResultFilterSensitiveLog = (obj: CreateUserProfileResult): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectResultFilterSensitiveLog = (obj: DescribeProjectResult): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserProfileResultFilterSensitiveLog = (obj: DescribeUserProfileResult): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UserProfileSummaryFilterSensitiveLog = (obj: UserProfileSummary): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListUserProfilesResultFilterSensitiveLog = (obj: ListUserProfilesResult): any => ({
+  ...obj,
+  ...(obj.userProfiles && { userProfiles: obj.userProfiles.map((item) => UserProfileSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectRequestFilterSensitiveLog = (obj: UpdateProjectRequest): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserProfileRequestFilterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserProfileResultFilterSensitiveLog = (obj: UpdateUserProfileResult): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});

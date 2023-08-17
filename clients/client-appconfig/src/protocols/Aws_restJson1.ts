@@ -1,5 +1,8 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
@@ -8,15 +11,19 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  map,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import {
@@ -28,6 +35,11 @@ import {
   CreateDeploymentStrategyCommandOutput,
 } from "../commands/CreateDeploymentStrategyCommand";
 import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "../commands/CreateEnvironmentCommand";
+import {
+  CreateExtensionAssociationCommandInput,
+  CreateExtensionAssociationCommandOutput,
+} from "../commands/CreateExtensionAssociationCommand";
+import { CreateExtensionCommandInput, CreateExtensionCommandOutput } from "../commands/CreateExtensionCommand";
 import {
   CreateHostedConfigurationVersionCommandInput,
   CreateHostedConfigurationVersionCommandOutput,
@@ -42,6 +54,11 @@ import {
   DeleteDeploymentStrategyCommandOutput,
 } from "../commands/DeleteDeploymentStrategyCommand";
 import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "../commands/DeleteEnvironmentCommand";
+import {
+  DeleteExtensionAssociationCommandInput,
+  DeleteExtensionAssociationCommandOutput,
+} from "../commands/DeleteExtensionAssociationCommand";
+import { DeleteExtensionCommandInput, DeleteExtensionCommandOutput } from "../commands/DeleteExtensionCommand";
 import {
   DeleteHostedConfigurationVersionCommandInput,
   DeleteHostedConfigurationVersionCommandOutput,
@@ -59,6 +76,11 @@ import {
 } from "../commands/GetDeploymentStrategyCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "../commands/GetEnvironmentCommand";
 import {
+  GetExtensionAssociationCommandInput,
+  GetExtensionAssociationCommandOutput,
+} from "../commands/GetExtensionAssociationCommand";
+import { GetExtensionCommandInput, GetExtensionCommandOutput } from "../commands/GetExtensionCommand";
+import {
   GetHostedConfigurationVersionCommandInput,
   GetHostedConfigurationVersionCommandOutput,
 } from "../commands/GetHostedConfigurationVersionCommand";
@@ -73,6 +95,11 @@ import {
   ListDeploymentStrategiesCommandOutput,
 } from "../commands/ListDeploymentStrategiesCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "../commands/ListEnvironmentsCommand";
+import {
+  ListExtensionAssociationsCommandInput,
+  ListExtensionAssociationsCommandOutput,
+} from "../commands/ListExtensionAssociationsCommand";
+import { ListExtensionsCommandInput, ListExtensionsCommandOutput } from "../commands/ListExtensionsCommand";
 import {
   ListHostedConfigurationVersionsCommandInput,
   ListHostedConfigurationVersionsCommandOutput,
@@ -96,32 +123,35 @@ import {
 } from "../commands/UpdateDeploymentStrategyCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "../commands/UpdateEnvironmentCommand";
 import {
+  UpdateExtensionAssociationCommandInput,
+  UpdateExtensionAssociationCommandOutput,
+} from "../commands/UpdateExtensionAssociationCommand";
+import { UpdateExtensionCommandInput, UpdateExtensionCommandOutput } from "../commands/UpdateExtensionCommand";
+import {
   ValidateConfigurationCommandInput,
   ValidateConfigurationCommandOutput,
 } from "../commands/ValidateConfigurationCommand";
 import { AppConfigServiceException as __BaseException } from "../models/AppConfigServiceException";
 import {
-  Application,
-  BadRequestDetails,
+  Action,
   BadRequestException,
-  ConfigurationProfileSummary,
   ConflictException,
   DeploymentEvent,
   DeploymentStrategy,
   DeploymentSummary,
-  Environment,
-  HostedConfigurationVersionSummary,
   InternalServerException,
-  InvalidConfigurationDetail,
   Monitor,
+  Parameter,
   PayloadTooLargeException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   Validator,
-  ValidatorType,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateApplicationCommand = async (
+/**
+ * serializeAws_restJson1CreateApplicationCommand
+ */
+export const se_CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -131,11 +161,13 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -147,7 +179,10 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateConfigurationProfileCommand = async (
+/**
+ * serializeAws_restJson1CreateConfigurationProfileCommand
+ */
+export const se_CreateConfigurationProfileCommand = async (
   input: CreateConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -158,27 +193,26 @@ export const serializeAws_restJson1CreateConfigurationProfileCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/configurationprofiles";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.LocationUri !== undefined && input.LocationUri !== null && { LocationUri: input.LocationUri }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.RetrievalRoleArn !== undefined &&
-      input.RetrievalRoleArn !== null && { RetrievalRoleArn: input.RetrievalRoleArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-    ...(input.Validators !== undefined &&
-      input.Validators !== null && { Validators: serializeAws_restJson1ValidatorList(input.Validators, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      LocationUri: [],
+      Name: [],
+      RetrievalRoleArn: [],
+      Tags: (_) => _json(_),
+      Type: [],
+      Validators: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -190,7 +224,10 @@ export const serializeAws_restJson1CreateConfigurationProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDeploymentStrategyCommand = async (
+/**
+ * serializeAws_restJson1CreateDeploymentStrategyCommand
+ */
+export const se_CreateDeploymentStrategyCommand = async (
   input: CreateDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -200,19 +237,18 @@ export const serializeAws_restJson1CreateDeploymentStrategyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deploymentstrategies";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeploymentDurationInMinutes !== undefined &&
-      input.DeploymentDurationInMinutes !== null && { DeploymentDurationInMinutes: input.DeploymentDurationInMinutes }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.FinalBakeTimeInMinutes !== undefined &&
-      input.FinalBakeTimeInMinutes !== null && { FinalBakeTimeInMinutes: input.FinalBakeTimeInMinutes }),
-    ...(input.GrowthFactor !== undefined &&
-      input.GrowthFactor !== null && { GrowthFactor: __serializeFloat(input.GrowthFactor) }),
-    ...(input.GrowthType !== undefined && input.GrowthType !== null && { GrowthType: input.GrowthType }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ReplicateTo !== undefined && input.ReplicateTo !== null && { ReplicateTo: input.ReplicateTo }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeploymentDurationInMinutes: [],
+      Description: [],
+      FinalBakeTimeInMinutes: [],
+      GrowthFactor: (_) => __serializeFloat(_),
+      GrowthType: [],
+      Name: [],
+      ReplicateTo: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -224,7 +260,10 @@ export const serializeAws_restJson1CreateDeploymentStrategyCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateEnvironmentCommand = async (
+/**
+ * serializeAws_restJson1CreateEnvironmentCommand
+ */
+export const se_CreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -235,23 +274,23 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/environments";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Monitors !== undefined &&
-      input.Monitors !== null && { Monitors: serializeAws_restJson1MonitorList(input.Monitors, context) }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Monitors: (_) => _json(_),
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -263,40 +302,112 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateHostedConfigurationVersionCommand = async (
-  input: CreateHostedConfigurationVersionCommandInput,
+/**
+ * serializeAws_restJson1CreateExtensionCommand
+ */
+export const se_CreateExtensionCommand = async (
+  input: CreateExtensionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    "latest-version-number": [
+      () => isSerializableHeaderValue(input.LatestVersionNumber),
+      () => input.LatestVersionNumber!.toString(),
+    ],
+  });
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensions";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Actions: (_) => _json(_),
+      Description: [],
+      Name: [],
+      Parameters: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateExtensionAssociationCommand
+ */
+export const se_CreateExtensionAssociationCommand = async (
+  input: CreateExtensionAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
-    "content-type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.Description) && { description: input.Description! }),
-    ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
-    ...(isSerializableHeaderValue(input.LatestVersionNumber) && {
-      "latest-version-number": input.LatestVersionNumber!.toString(),
-    }),
+    "content-type": "application/json",
   };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensionassociations";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ExtensionIdentifier: [],
+      ExtensionVersionNumber: [],
+      Parameters: (_) => _json(_),
+      ResourceIdentifier: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateHostedConfigurationVersionCommand
+ */
+export const se_CreateHostedConfigurationVersionCommand = async (
+  input: CreateHostedConfigurationVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": input.ContentType! || "application/octet-stream",
+    description: input.Description!,
+    "latest-version-number": [
+      () => isSerializableHeaderValue(input.LatestVersionNumber),
+      () => input.LatestVersionNumber!.toString(),
+    ],
+    versionlabel: input.VersionLabel!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationProfileId",
+    () => input.ConfigurationProfileId!,
+    "{ConfigurationProfileId}",
+    false
+  );
   let body: any;
   if (input.Content !== undefined) {
     body = input.Content;
@@ -312,7 +423,10 @@ export const serializeAws_restJson1CreateHostedConfigurationVersionCommand = asy
   });
 };
 
-export const serializeAws_restJson1DeleteApplicationCommand = async (
+/**
+ * serializeAws_restJson1DeleteApplicationCommand
+ */
+export const se_DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -320,15 +434,14 @@ export const serializeAws_restJson1DeleteApplicationCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -341,7 +454,10 @@ export const serializeAws_restJson1DeleteApplicationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteConfigurationProfileCommand = async (
+/**
+ * serializeAws_restJson1DeleteConfigurationProfileCommand
+ */
+export const se_DeleteConfigurationProfileCommand = async (
   input: DeleteConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -350,24 +466,22 @@ export const serializeAws_restJson1DeleteConfigurationProfileCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationProfileId",
+    () => input.ConfigurationProfileId!,
+    "{ConfigurationProfileId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -380,7 +494,10 @@ export const serializeAws_restJson1DeleteConfigurationProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDeploymentStrategyCommand = async (
+/**
+ * serializeAws_restJson1DeleteDeploymentStrategyCommand
+ */
+export const se_DeleteDeploymentStrategyCommand = async (
   input: DeleteDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -389,15 +506,14 @@ export const serializeAws_restJson1DeleteDeploymentStrategyCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/deployementstrategies/{DeploymentStrategyId}";
-  if (input.DeploymentStrategyId !== undefined) {
-    const labelValue: string = input.DeploymentStrategyId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DeploymentStrategyId.");
-    }
-    resolvedPath = resolvedPath.replace("{DeploymentStrategyId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DeploymentStrategyId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "DeploymentStrategyId",
+    () => input.DeploymentStrategyId!,
+    "{DeploymentStrategyId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -410,7 +526,10 @@ export const serializeAws_restJson1DeleteDeploymentStrategyCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteEnvironmentCommand = async (
+/**
+ * serializeAws_restJson1DeleteEnvironmentCommand
+ */
+export const se_DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -419,24 +538,22 @@ export const serializeAws_restJson1DeleteEnvironmentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/environments/{EnvironmentId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
-    }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EnvironmentId",
+    () => input.EnvironmentId!,
+    "{EnvironmentId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -449,7 +566,77 @@ export const serializeAws_restJson1DeleteEnvironmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteHostedConfigurationVersionCommand = async (
+/**
+ * serializeAws_restJson1DeleteExtensionCommand
+ */
+export const se_DeleteExtensionCommand = async (
+  input: DeleteExtensionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensions/{ExtensionIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ExtensionIdentifier",
+    () => input.ExtensionIdentifier!,
+    "{ExtensionIdentifier}",
+    false
+  );
+  const query: any = map({
+    version: [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteExtensionAssociationCommand
+ */
+export const se_DeleteExtensionAssociationCommand = async (
+  input: DeleteExtensionAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/extensionassociations/{ExtensionAssociationId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ExtensionAssociationId",
+    () => input.ExtensionAssociationId!,
+    "{ExtensionAssociationId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteHostedConfigurationVersionCommand
+ */
+export const se_DeleteHostedConfigurationVersionCommand = async (
   input: DeleteHostedConfigurationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -458,33 +645,30 @@ export const serializeAws_restJson1DeleteHostedConfigurationVersionCommand = asy
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
-  }
-  if (input.VersionNumber !== undefined) {
-    const labelValue: string = input.VersionNumber.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: VersionNumber.");
-    }
-    resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: VersionNumber.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationProfileId",
+    () => input.ConfigurationProfileId!,
+    "{ConfigurationProfileId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VersionNumber",
+    () => input.VersionNumber!.toString(),
+    "{VersionNumber}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -497,7 +681,10 @@ export const serializeAws_restJson1DeleteHostedConfigurationVersionCommand = asy
   });
 };
 
-export const serializeAws_restJson1GetApplicationCommand = async (
+/**
+ * serializeAws_restJson1GetApplicationCommand
+ */
+export const se_GetApplicationCommand = async (
   input: GetApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -505,15 +692,14 @@ export const serializeAws_restJson1GetApplicationCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -526,7 +712,10 @@ export const serializeAws_restJson1GetApplicationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetConfigurationCommand = async (
+/**
+ * serializeAws_restJson1GetConfigurationCommand
+ */
+export const se_GetConfigurationCommand = async (
   input: GetConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -535,39 +724,20 @@ export const serializeAws_restJson1GetConfigurationCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{Application}/environments/{Environment}/configurations/{Configuration}";
-  if (input.Application !== undefined) {
-    const labelValue: string = input.Application;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Application.");
-    }
-    resolvedPath = resolvedPath.replace("{Application}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Application.");
-  }
-  if (input.Environment !== undefined) {
-    const labelValue: string = input.Environment;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Environment.");
-    }
-    resolvedPath = resolvedPath.replace("{Environment}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Environment.");
-  }
-  if (input.Configuration !== undefined) {
-    const labelValue: string = input.Configuration;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Configuration.");
-    }
-    resolvedPath = resolvedPath.replace("{Configuration}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Configuration.");
-  }
-  const query: any = {
-    ...(input.ClientId !== undefined && { client_id: input.ClientId }),
-    ...(input.ClientConfigurationVersion !== undefined && {
-      client_configuration_version: input.ClientConfigurationVersion,
-    }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "Application", () => input.Application!, "{Application}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "Environment", () => input.Environment!, "{Environment}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "Configuration",
+    () => input.Configuration!,
+    "{Configuration}",
+    false
+  );
+  const query: any = map({
+    client_id: [, __expectNonNull(input.ClientId!, `ClientId`)],
+    client_configuration_version: [, input.ClientConfigurationVersion!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -581,7 +751,10 @@ export const serializeAws_restJson1GetConfigurationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetConfigurationProfileCommand = async (
+/**
+ * serializeAws_restJson1GetConfigurationProfileCommand
+ */
+export const se_GetConfigurationProfileCommand = async (
   input: GetConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -590,24 +763,22 @@ export const serializeAws_restJson1GetConfigurationProfileCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationProfileId",
+    () => input.ConfigurationProfileId!,
+    "{ConfigurationProfileId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -620,7 +791,10 @@ export const serializeAws_restJson1GetConfigurationProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDeploymentCommand = async (
+/**
+ * serializeAws_restJson1GetDeploymentCommand
+ */
+export const se_GetDeploymentCommand = async (
   input: GetDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -629,33 +803,30 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
-    }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
-  }
-  if (input.DeploymentNumber !== undefined) {
-    const labelValue: string = input.DeploymentNumber.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DeploymentNumber.");
-    }
-    resolvedPath = resolvedPath.replace("{DeploymentNumber}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DeploymentNumber.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EnvironmentId",
+    () => input.EnvironmentId!,
+    "{EnvironmentId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "DeploymentNumber",
+    () => input.DeploymentNumber!.toString(),
+    "{DeploymentNumber}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -668,7 +839,10 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDeploymentStrategyCommand = async (
+/**
+ * serializeAws_restJson1GetDeploymentStrategyCommand
+ */
+export const se_GetDeploymentStrategyCommand = async (
   input: GetDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -677,15 +851,14 @@ export const serializeAws_restJson1GetDeploymentStrategyCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/deploymentstrategies/{DeploymentStrategyId}";
-  if (input.DeploymentStrategyId !== undefined) {
-    const labelValue: string = input.DeploymentStrategyId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DeploymentStrategyId.");
-    }
-    resolvedPath = resolvedPath.replace("{DeploymentStrategyId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DeploymentStrategyId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "DeploymentStrategyId",
+    () => input.DeploymentStrategyId!,
+    "{DeploymentStrategyId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -698,7 +871,10 @@ export const serializeAws_restJson1GetDeploymentStrategyCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEnvironmentCommand = async (
+/**
+ * serializeAws_restJson1GetEnvironmentCommand
+ */
+export const se_GetEnvironmentCommand = async (
   input: GetEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -707,24 +883,22 @@ export const serializeAws_restJson1GetEnvironmentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/environments/{EnvironmentId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
-    }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EnvironmentId",
+    () => input.EnvironmentId!,
+    "{EnvironmentId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -737,7 +911,77 @@ export const serializeAws_restJson1GetEnvironmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetHostedConfigurationVersionCommand = async (
+/**
+ * serializeAws_restJson1GetExtensionCommand
+ */
+export const se_GetExtensionCommand = async (
+  input: GetExtensionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensions/{ExtensionIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ExtensionIdentifier",
+    () => input.ExtensionIdentifier!,
+    "{ExtensionIdentifier}",
+    false
+  );
+  const query: any = map({
+    version_number: [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetExtensionAssociationCommand
+ */
+export const se_GetExtensionAssociationCommand = async (
+  input: GetExtensionAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/extensionassociations/{ExtensionAssociationId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ExtensionAssociationId",
+    () => input.ExtensionAssociationId!,
+    "{ExtensionAssociationId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetHostedConfigurationVersionCommand
+ */
+export const se_GetHostedConfigurationVersionCommand = async (
   input: GetHostedConfigurationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -746,33 +990,30 @@ export const serializeAws_restJson1GetHostedConfigurationVersionCommand = async 
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
-  }
-  if (input.VersionNumber !== undefined) {
-    const labelValue: string = input.VersionNumber.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: VersionNumber.");
-    }
-    resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: VersionNumber.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationProfileId",
+    () => input.ConfigurationProfileId!,
+    "{ConfigurationProfileId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VersionNumber",
+    () => input.VersionNumber!.toString(),
+    "{VersionNumber}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -785,17 +1026,20 @@ export const serializeAws_restJson1GetHostedConfigurationVersionCommand = async 
   });
 };
 
-export const serializeAws_restJson1ListApplicationsCommand = async (
+/**
+ * serializeAws_restJson1ListApplicationsCommand
+ */
+export const se_ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
-  const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
-  };
+  const query: any = map({
+    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    next_token: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -809,7 +1053,10 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListConfigurationProfilesCommand = async (
+/**
+ * serializeAws_restJson1ListConfigurationProfilesCommand
+ */
+export const se_ListConfigurationProfilesCommand = async (
   input: ListConfigurationProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -818,20 +1065,19 @@ export const serializeAws_restJson1ListConfigurationProfilesCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/configurationprofiles";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
-    ...(input.Type !== undefined && { type: input.Type }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  const query: any = map({
+    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    next_token: [, input.NextToken!],
+    type: [, input.Type!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -845,7 +1091,10 @@ export const serializeAws_restJson1ListConfigurationProfilesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDeploymentsCommand = async (
+/**
+ * serializeAws_restJson1ListDeploymentsCommand
+ */
+export const se_ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -854,28 +1103,26 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
-    }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
-  }
-  const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EnvironmentId",
+    () => input.EnvironmentId!,
+    "{EnvironmentId}",
+    false
+  );
+  const query: any = map({
+    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    next_token: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -889,17 +1136,20 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDeploymentStrategiesCommand = async (
+/**
+ * serializeAws_restJson1ListDeploymentStrategiesCommand
+ */
+export const se_ListDeploymentStrategiesCommand = async (
   input: ListDeploymentStrategiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deploymentstrategies";
-  const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
-  };
+  const query: any = map({
+    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    next_token: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -913,7 +1163,10 @@ export const serializeAws_restJson1ListDeploymentStrategiesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListEnvironmentsCommand = async (
+/**
+ * serializeAws_restJson1ListEnvironmentsCommand
+ */
+export const se_ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -922,19 +1175,18 @@ export const serializeAws_restJson1ListEnvironmentsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/environments";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  const query: any = map({
+    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    next_token: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -948,7 +1200,71 @@ export const serializeAws_restJson1ListEnvironmentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListHostedConfigurationVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListExtensionAssociationsCommand
+ */
+export const se_ListExtensionAssociationsCommand = async (
+  input: ListExtensionAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensionassociations";
+  const query: any = map({
+    resource_identifier: [, input.ResourceIdentifier!],
+    extension_identifier: [, input.ExtensionIdentifier!],
+    extension_version_number: [
+      () => input.ExtensionVersionNumber !== void 0,
+      () => input.ExtensionVersionNumber!.toString(),
+    ],
+    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    next_token: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListExtensionsCommand
+ */
+export const se_ListExtensionsCommand = async (
+  input: ListExtensionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensions";
+  const query: any = map({
+    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    next_token: [, input.NextToken!],
+    name: [, input.Name!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListHostedConfigurationVersionsCommand
+ */
+export const se_ListHostedConfigurationVersionsCommand = async (
   input: ListHostedConfigurationVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -957,28 +1273,27 @@ export const serializeAws_restJson1ListHostedConfigurationVersionsCommand = asyn
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
-  }
-  const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationProfileId",
+    () => input.ConfigurationProfileId!,
+    "{ConfigurationProfileId}",
+    false
+  );
+  const query: any = map({
+    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    next_token: [, input.NextToken!],
+    version_label: [, input.VersionLabel!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -992,22 +1307,17 @@ export const serializeAws_restJson1ListHostedConfigurationVersionsCommand = asyn
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1020,7 +1330,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartDeploymentCommand = async (
+/**
+ * serializeAws_restJson1StartDeploymentCommand
+ */
+export const se_StartDeploymentCommand = async (
   input: StartDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1031,35 +1344,33 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
-    }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EnvironmentId",
+    () => input.EnvironmentId!,
+    "{EnvironmentId}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationProfileId !== undefined &&
-      input.ConfigurationProfileId !== null && { ConfigurationProfileId: input.ConfigurationProfileId }),
-    ...(input.ConfigurationVersion !== undefined &&
-      input.ConfigurationVersion !== null && { ConfigurationVersion: input.ConfigurationVersion }),
-    ...(input.DeploymentStrategyId !== undefined &&
-      input.DeploymentStrategyId !== null && { DeploymentStrategyId: input.DeploymentStrategyId }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationProfileId: [],
+      ConfigurationVersion: [],
+      DeploymentStrategyId: [],
+      Description: [],
+      KmsKeyIdentifier: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1071,7 +1382,10 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopDeploymentCommand = async (
+/**
+ * serializeAws_restJson1StopDeploymentCommand
+ */
+export const se_StopDeploymentCommand = async (
   input: StopDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1080,33 +1394,30 @@ export const serializeAws_restJson1StopDeploymentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
-    }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
-  }
-  if (input.DeploymentNumber !== undefined) {
-    const labelValue: string = input.DeploymentNumber.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DeploymentNumber.");
-    }
-    resolvedPath = resolvedPath.replace("{DeploymentNumber}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DeploymentNumber.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EnvironmentId",
+    () => input.EnvironmentId!,
+    "{EnvironmentId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "DeploymentNumber",
+    () => input.DeploymentNumber!.toString(),
+    "{DeploymentNumber}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1119,7 +1430,10 @@ export const serializeAws_restJson1StopDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1128,19 +1442,13 @@ export const serializeAws_restJson1TagResourceCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1152,25 +1460,23 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
-  const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  const query: any = map({
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1184,7 +1490,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateApplicationCommand = async (
+/**
+ * serializeAws_restJson1UpdateApplicationCommand
+ */
+export const se_UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1194,20 +1503,21 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1219,7 +1529,10 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateConfigurationProfileCommand = async (
+/**
+ * serializeAws_restJson1UpdateConfigurationProfileCommand
+ */
+export const se_UpdateConfigurationProfileCommand = async (
   input: UpdateConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1230,33 +1543,31 @@ export const serializeAws_restJson1UpdateConfigurationProfileCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationProfileId",
+    () => input.ConfigurationProfileId!,
+    "{ConfigurationProfileId}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.RetrievalRoleArn !== undefined &&
-      input.RetrievalRoleArn !== null && { RetrievalRoleArn: input.RetrievalRoleArn }),
-    ...(input.Validators !== undefined &&
-      input.Validators !== null && { Validators: serializeAws_restJson1ValidatorList(input.Validators, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+      RetrievalRoleArn: [],
+      Validators: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1268,7 +1579,10 @@ export const serializeAws_restJson1UpdateConfigurationProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateDeploymentStrategyCommand = async (
+/**
+ * serializeAws_restJson1UpdateDeploymentStrategyCommand
+ */
+export const se_UpdateDeploymentStrategyCommand = async (
   input: UpdateDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1279,26 +1593,24 @@ export const serializeAws_restJson1UpdateDeploymentStrategyCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/deploymentstrategies/{DeploymentStrategyId}";
-  if (input.DeploymentStrategyId !== undefined) {
-    const labelValue: string = input.DeploymentStrategyId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DeploymentStrategyId.");
-    }
-    resolvedPath = resolvedPath.replace("{DeploymentStrategyId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DeploymentStrategyId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "DeploymentStrategyId",
+    () => input.DeploymentStrategyId!,
+    "{DeploymentStrategyId}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.DeploymentDurationInMinutes !== undefined &&
-      input.DeploymentDurationInMinutes !== null && { DeploymentDurationInMinutes: input.DeploymentDurationInMinutes }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.FinalBakeTimeInMinutes !== undefined &&
-      input.FinalBakeTimeInMinutes !== null && { FinalBakeTimeInMinutes: input.FinalBakeTimeInMinutes }),
-    ...(input.GrowthFactor !== undefined &&
-      input.GrowthFactor !== null && { GrowthFactor: __serializeFloat(input.GrowthFactor) }),
-    ...(input.GrowthType !== undefined && input.GrowthType !== null && { GrowthType: input.GrowthType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DeploymentDurationInMinutes: [],
+      Description: [],
+      FinalBakeTimeInMinutes: [],
+      GrowthFactor: (_) => __serializeFloat(_),
+      GrowthType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1310,7 +1622,10 @@ export const serializeAws_restJson1UpdateDeploymentStrategyCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateEnvironmentCommand = async (
+/**
+ * serializeAws_restJson1UpdateEnvironmentCommand
+ */
+export const se_UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1321,31 +1636,30 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/environments/{EnvironmentId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
-    }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EnvironmentId",
+    () => input.EnvironmentId!,
+    "{EnvironmentId}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Monitors !== undefined &&
-      input.Monitors !== null && { Monitors: serializeAws_restJson1MonitorList(input.Monitors, context) }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Monitors: (_) => _json(_),
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1357,7 +1671,90 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1ValidateConfigurationCommand = async (
+/**
+ * serializeAws_restJson1UpdateExtensionCommand
+ */
+export const se_UpdateExtensionCommand = async (
+  input: UpdateExtensionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensions/{ExtensionIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ExtensionIdentifier",
+    () => input.ExtensionIdentifier!,
+    "{ExtensionIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Actions: (_) => _json(_),
+      Description: [],
+      Parameters: (_) => _json(_),
+      VersionNumber: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateExtensionAssociationCommand
+ */
+export const se_UpdateExtensionAssociationCommand = async (
+  input: UpdateExtensionAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/extensionassociations/{ExtensionAssociationId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ExtensionAssociationId",
+    () => input.ExtensionAssociationId!,
+    "{ExtensionAssociationId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Parameters: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ValidateConfigurationCommand
+ */
+export const se_ValidateConfigurationCommand = async (
   input: ValidateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1366,27 +1763,25 @@ export const serializeAws_restJson1ValidateConfigurationCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
-  if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
-  }
-  const query: any = {
-    ...(input.ConfigurationVersion !== undefined && { configuration_version: input.ConfigurationVersion }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationProfileId",
+    () => input.ConfigurationProfileId!,
+    "{ConfigurationProfileId}",
+    false
+  );
+  const query: any = map({
+    configuration_version: [, __expectNonNull(input.ConfigurationVersion!, `ConfigurationVersion`)],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1400,2167 +1795,2442 @@ export const serializeAws_restJson1ValidateConfigurationCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateApplicationCommand = async (
+/**
+ * deserializeAws_restJson1CreateApplicationCommand
+ */
+export const de_CreateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateApplicationCommandError(output, context);
+    return de_CreateApplicationCommandError(output, context);
   }
-  const contents: CreateApplicationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Description: undefined,
-    Id: undefined,
-    Name: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateApplicationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateApplicationCommandError
+ */
+const de_CreateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateConfigurationProfileCommand = async (
+/**
+ * deserializeAws_restJson1CreateConfigurationProfileCommand
+ */
+export const de_CreateConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationProfileCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateConfigurationProfileCommandError(output, context);
+    return de_CreateConfigurationProfileCommandError(output, context);
   }
-  const contents: CreateConfigurationProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: undefined,
-    Description: undefined,
-    Id: undefined,
-    LocationUri: undefined,
-    Name: undefined,
-    RetrievalRoleArn: undefined,
-    Type: undefined,
-    Validators: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LocationUri !== undefined && data.LocationUri !== null) {
-    contents.LocationUri = __expectString(data.LocationUri);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RetrievalRoleArn !== undefined && data.RetrievalRoleArn !== null) {
-    contents.RetrievalRoleArn = __expectString(data.RetrievalRoleArn);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.Validators !== undefined && data.Validators !== null) {
-    contents.Validators = deserializeAws_restJson1ValidatorList(data.Validators, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    LocationUri: __expectString,
+    Name: __expectString,
+    RetrievalRoleArn: __expectString,
+    Type: __expectString,
+    Validators: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateConfigurationProfileCommandError = async (
+/**
+ * deserializeAws_restJson1CreateConfigurationProfileCommandError
+ */
+const de_CreateConfigurationProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateDeploymentStrategyCommand = async (
+/**
+ * deserializeAws_restJson1CreateDeploymentStrategyCommand
+ */
+export const de_CreateDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentStrategyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDeploymentStrategyCommandError(output, context);
+    return de_CreateDeploymentStrategyCommandError(output, context);
   }
-  const contents: CreateDeploymentStrategyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DeploymentDurationInMinutes: undefined,
-    Description: undefined,
-    FinalBakeTimeInMinutes: undefined,
-    GrowthFactor: undefined,
-    GrowthType: undefined,
-    Id: undefined,
-    Name: undefined,
-    ReplicateTo: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType !== undefined && data.GrowthType !== null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ReplicateTo !== undefined && data.ReplicateTo !== null) {
-    contents.ReplicateTo = __expectString(data.ReplicateTo);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DeploymentDurationInMinutes: __expectInt32,
+    Description: __expectString,
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReplicateTo: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateDeploymentStrategyCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDeploymentStrategyCommandError
+ */
+const de_CreateDeploymentStrategyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentStrategyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateEnvironmentCommand = async (
+/**
+ * deserializeAws_restJson1CreateEnvironmentCommand
+ */
+export const de_CreateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateEnvironmentCommandError(output, context);
+    return de_CreateEnvironmentCommandError(output, context);
   }
-  const contents: CreateEnvironmentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: undefined,
-    Description: undefined,
-    Id: undefined,
-    Monitors: undefined,
-    Name: undefined,
-    State: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Monitors !== undefined && data.Monitors !== null) {
-    contents.Monitors = deserializeAws_restJson1MonitorList(data.Monitors, context);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.State !== undefined && data.State !== null) {
-    contents.State = __expectString(data.State);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Monitors: _json,
+    Name: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateEnvironmentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateEnvironmentCommandError
+ */
+const de_CreateEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateHostedConfigurationVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateExtensionCommand
+ */
+export const de_CreateExtensionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHostedConfigurationVersionCommandOutput> => {
+): Promise<CreateExtensionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateHostedConfigurationVersionCommandError(output, context);
+    return de_CreateExtensionCommandError(output, context);
   }
-  const contents: CreateHostedConfigurationVersionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: undefined,
-    ConfigurationProfileId: undefined,
-    Content: undefined,
-    ContentType: undefined,
-    Description: undefined,
-    VersionNumber: undefined,
-  };
-  if (output.headers["application-id"] !== undefined) {
-    contents.ApplicationId = output.headers["application-id"];
-  }
-  if (output.headers["configuration-profile-id"] !== undefined) {
-    contents.ConfigurationProfileId = output.headers["configuration-profile-id"];
-  }
-  if (output.headers["version-number"] !== undefined) {
-    contents.VersionNumber = __strictParseInt32(output.headers["version-number"]);
-  }
-  if (output.headers["description"] !== undefined) {
-    contents.Description = output.headers["description"];
-  }
-  if (output.headers["content-type"] !== undefined) {
-    contents.ContentType = output.headers["content-type"];
-  }
-  const data: any = await collectBody(output.body, context);
-  contents.Content = data;
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Actions: _json,
+    Arn: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Parameters: _json,
+    VersionNumber: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateHostedConfigurationVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateExtensionCommandError
+ */
+const de_CreateExtensionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHostedConfigurationVersionCommandOutput> => {
+): Promise<CreateExtensionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.appconfig#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.appconfig#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteApplicationCommand = async (
+/**
+ * deserializeAws_restJson1CreateExtensionAssociationCommand
+ */
+export const de_CreateExtensionAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExtensionAssociationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateExtensionAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ExtensionArn: __expectString,
+    ExtensionVersionNumber: __expectInt32,
+    Id: __expectString,
+    Parameters: _json,
+    ResourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateExtensionAssociationCommandError
+ */
+const de_CreateExtensionAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExtensionAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appconfig#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateHostedConfigurationVersionCommand
+ */
+export const de_CreateHostedConfigurationVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHostedConfigurationVersionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateHostedConfigurationVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    ApplicationId: [, output.headers["application-id"]],
+    ConfigurationProfileId: [, output.headers["configuration-profile-id"]],
+    VersionNumber: [
+      () => void 0 !== output.headers["version-number"],
+      () => __strictParseInt32(output.headers["version-number"]),
+    ],
+    Description: [, output.headers["description"]],
+    ContentType: [, output.headers["content-type"]],
+    VersionLabel: [, output.headers["versionlabel"]],
+  });
+  const data: any = await collectBody(output.body, context);
+  contents.Content = data;
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateHostedConfigurationVersionCommandError
+ */
+const de_CreateHostedConfigurationVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHostedConfigurationVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.appconfig#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "PayloadTooLargeException":
+    case "com.amazonaws.appconfig#PayloadTooLargeException":
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appconfig#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteApplicationCommand
+ */
+export const de_DeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteApplicationCommandError(output, context);
+    return de_DeleteApplicationCommandError(output, context);
   }
-  const contents: DeleteApplicationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteApplicationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteApplicationCommandError
+ */
+const de_DeleteApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteConfigurationProfileCommand = async (
+/**
+ * deserializeAws_restJson1DeleteConfigurationProfileCommand
+ */
+export const de_DeleteConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationProfileCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteConfigurationProfileCommandError(output, context);
+    return de_DeleteConfigurationProfileCommandError(output, context);
   }
-  const contents: DeleteConfigurationProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteConfigurationProfileCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteConfigurationProfileCommandError
+ */
+const de_DeleteConfigurationProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteDeploymentStrategyCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDeploymentStrategyCommand
+ */
+export const de_DeleteDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentStrategyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDeploymentStrategyCommandError(output, context);
+    return de_DeleteDeploymentStrategyCommandError(output, context);
   }
-  const contents: DeleteDeploymentStrategyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteDeploymentStrategyCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDeploymentStrategyCommandError
+ */
+const de_DeleteDeploymentStrategyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentStrategyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteEnvironmentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteEnvironmentCommand
+ */
+export const de_DeleteEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteEnvironmentCommandError(output, context);
+    return de_DeleteEnvironmentCommandError(output, context);
   }
-  const contents: DeleteEnvironmentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteEnvironmentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteEnvironmentCommandError
+ */
+const de_DeleteEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteHostedConfigurationVersionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteExtensionCommand
+ */
+export const de_DeleteExtensionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExtensionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteExtensionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteExtensionCommandError
+ */
+const de_DeleteExtensionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExtensionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteExtensionAssociationCommand
+ */
+export const de_DeleteExtensionAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExtensionAssociationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteExtensionAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteExtensionAssociationCommandError
+ */
+const de_DeleteExtensionAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExtensionAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteHostedConfigurationVersionCommand
+ */
+export const de_DeleteHostedConfigurationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHostedConfigurationVersionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteHostedConfigurationVersionCommandError(output, context);
+    return de_DeleteHostedConfigurationVersionCommandError(output, context);
   }
-  const contents: DeleteHostedConfigurationVersionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteHostedConfigurationVersionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteHostedConfigurationVersionCommandError
+ */
+const de_DeleteHostedConfigurationVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHostedConfigurationVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetApplicationCommand = async (
+/**
+ * deserializeAws_restJson1GetApplicationCommand
+ */
+export const de_GetApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApplicationCommandError(output, context);
+    return de_GetApplicationCommandError(output, context);
   }
-  const contents: GetApplicationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Description: undefined,
-    Id: undefined,
-    Name: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetApplicationCommandError = async (
+/**
+ * deserializeAws_restJson1GetApplicationCommandError
+ */
+const de_GetApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1GetConfigurationCommand
+ */
+export const de_GetConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetConfigurationCommandError(output, context);
+    return de_GetConfigurationCommandError(output, context);
   }
-  const contents: GetConfigurationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ConfigurationVersion: undefined,
-    Content: undefined,
-    ContentType: undefined,
-  };
-  if (output.headers["configuration-version"] !== undefined) {
-    contents.ConfigurationVersion = output.headers["configuration-version"];
-  }
-  if (output.headers["content-type"] !== undefined) {
-    contents.ContentType = output.headers["content-type"];
-  }
+    ConfigurationVersion: [, output.headers["configuration-version"]],
+    ContentType: [, output.headers["content-type"]],
+  });
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1GetConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1GetConfigurationCommandError
+ */
+const de_GetConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetConfigurationProfileCommand = async (
+/**
+ * deserializeAws_restJson1GetConfigurationProfileCommand
+ */
+export const de_GetConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetConfigurationProfileCommandError(output, context);
+    return de_GetConfigurationProfileCommandError(output, context);
   }
-  const contents: GetConfigurationProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: undefined,
-    Description: undefined,
-    Id: undefined,
-    LocationUri: undefined,
-    Name: undefined,
-    RetrievalRoleArn: undefined,
-    Type: undefined,
-    Validators: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LocationUri !== undefined && data.LocationUri !== null) {
-    contents.LocationUri = __expectString(data.LocationUri);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RetrievalRoleArn !== undefined && data.RetrievalRoleArn !== null) {
-    contents.RetrievalRoleArn = __expectString(data.RetrievalRoleArn);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.Validators !== undefined && data.Validators !== null) {
-    contents.Validators = deserializeAws_restJson1ValidatorList(data.Validators, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    LocationUri: __expectString,
+    Name: __expectString,
+    RetrievalRoleArn: __expectString,
+    Type: __expectString,
+    Validators: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetConfigurationProfileCommandError = async (
+/**
+ * deserializeAws_restJson1GetConfigurationProfileCommandError
+ */
+const de_GetConfigurationProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1GetDeploymentCommand
+ */
+export const de_GetDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeploymentCommandError(output, context);
+    return de_GetDeploymentCommandError(output, context);
   }
-  const contents: GetDeploymentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: undefined,
-    CompletedAt: undefined,
-    ConfigurationLocationUri: undefined,
-    ConfigurationName: undefined,
-    ConfigurationProfileId: undefined,
-    ConfigurationVersion: undefined,
-    DeploymentDurationInMinutes: undefined,
-    DeploymentNumber: undefined,
-    DeploymentStrategyId: undefined,
-    Description: undefined,
-    EnvironmentId: undefined,
-    EventLog: undefined,
-    FinalBakeTimeInMinutes: undefined,
-    GrowthFactor: undefined,
-    GrowthType: undefined,
-    PercentageComplete: undefined,
-    StartedAt: undefined,
-    State: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.CompletedAt !== undefined && data.CompletedAt !== null) {
-    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTime(data.CompletedAt));
-  }
-  if (data.ConfigurationLocationUri !== undefined && data.ConfigurationLocationUri !== null) {
-    contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
-  }
-  if (data.ConfigurationName !== undefined && data.ConfigurationName !== null) {
-    contents.ConfigurationName = __expectString(data.ConfigurationName);
-  }
-  if (data.ConfigurationProfileId !== undefined && data.ConfigurationProfileId !== null) {
-    contents.ConfigurationProfileId = __expectString(data.ConfigurationProfileId);
-  }
-  if (data.ConfigurationVersion !== undefined && data.ConfigurationVersion !== null) {
-    contents.ConfigurationVersion = __expectString(data.ConfigurationVersion);
-  }
-  if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.DeploymentNumber !== undefined && data.DeploymentNumber !== null) {
-    contents.DeploymentNumber = __expectInt32(data.DeploymentNumber);
-  }
-  if (data.DeploymentStrategyId !== undefined && data.DeploymentStrategyId !== null) {
-    contents.DeploymentStrategyId = __expectString(data.DeploymentStrategyId);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EnvironmentId !== undefined && data.EnvironmentId !== null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.EventLog !== undefined && data.EventLog !== null) {
-    contents.EventLog = deserializeAws_restJson1DeploymentEvents(data.EventLog, context);
-  }
-  if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType !== undefined && data.GrowthType !== null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.PercentageComplete !== undefined && data.PercentageComplete !== null) {
-    contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
-  }
-  if (data.StartedAt !== undefined && data.StartedAt !== null) {
-    contents.StartedAt = __expectNonNull(__parseRfc3339DateTime(data.StartedAt));
-  }
-  if (data.State !== undefined && data.State !== null) {
-    contents.State = __expectString(data.State);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    AppliedExtensions: _json,
+    CompletedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ConfigurationLocationUri: __expectString,
+    ConfigurationName: __expectString,
+    ConfigurationProfileId: __expectString,
+    ConfigurationVersion: __expectString,
+    DeploymentDurationInMinutes: __expectInt32,
+    DeploymentNumber: __expectInt32,
+    DeploymentStrategyId: __expectString,
+    Description: __expectString,
+    EnvironmentId: __expectString,
+    EventLog: (_) => de_DeploymentEvents(_, context),
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
+    PercentageComplete: __limitedParseFloat32,
+    StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeploymentCommandError
+ */
+const de_GetDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetDeploymentStrategyCommand = async (
+/**
+ * deserializeAws_restJson1GetDeploymentStrategyCommand
+ */
+export const de_GetDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentStrategyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeploymentStrategyCommandError(output, context);
+    return de_GetDeploymentStrategyCommandError(output, context);
   }
-  const contents: GetDeploymentStrategyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DeploymentDurationInMinutes: undefined,
-    Description: undefined,
-    FinalBakeTimeInMinutes: undefined,
-    GrowthFactor: undefined,
-    GrowthType: undefined,
-    Id: undefined,
-    Name: undefined,
-    ReplicateTo: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType !== undefined && data.GrowthType !== null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ReplicateTo !== undefined && data.ReplicateTo !== null) {
-    contents.ReplicateTo = __expectString(data.ReplicateTo);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DeploymentDurationInMinutes: __expectInt32,
+    Description: __expectString,
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReplicateTo: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetDeploymentStrategyCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeploymentStrategyCommandError
+ */
+const de_GetDeploymentStrategyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentStrategyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetEnvironmentCommand = async (
+/**
+ * deserializeAws_restJson1GetEnvironmentCommand
+ */
+export const de_GetEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEnvironmentCommandError(output, context);
+    return de_GetEnvironmentCommandError(output, context);
   }
-  const contents: GetEnvironmentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: undefined,
-    Description: undefined,
-    Id: undefined,
-    Monitors: undefined,
-    Name: undefined,
-    State: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Monitors !== undefined && data.Monitors !== null) {
-    contents.Monitors = deserializeAws_restJson1MonitorList(data.Monitors, context);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.State !== undefined && data.State !== null) {
-    contents.State = __expectString(data.State);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Monitors: _json,
+    Name: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetEnvironmentCommandError = async (
+/**
+ * deserializeAws_restJson1GetEnvironmentCommandError
+ */
+const de_GetEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetHostedConfigurationVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetExtensionCommand
+ */
+export const de_GetExtensionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExtensionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetExtensionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Actions: _json,
+    Arn: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Parameters: _json,
+    VersionNumber: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetExtensionCommandError
+ */
+const de_GetExtensionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExtensionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetExtensionAssociationCommand
+ */
+export const de_GetExtensionAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExtensionAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetExtensionAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ExtensionArn: __expectString,
+    ExtensionVersionNumber: __expectInt32,
+    Id: __expectString,
+    Parameters: _json,
+    ResourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetExtensionAssociationCommandError
+ */
+const de_GetExtensionAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExtensionAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetHostedConfigurationVersionCommand
+ */
+export const de_GetHostedConfigurationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHostedConfigurationVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetHostedConfigurationVersionCommandError(output, context);
+    return de_GetHostedConfigurationVersionCommandError(output, context);
   }
-  const contents: GetHostedConfigurationVersionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: undefined,
-    ConfigurationProfileId: undefined,
-    Content: undefined,
-    ContentType: undefined,
-    Description: undefined,
-    VersionNumber: undefined,
-  };
-  if (output.headers["application-id"] !== undefined) {
-    contents.ApplicationId = output.headers["application-id"];
-  }
-  if (output.headers["configuration-profile-id"] !== undefined) {
-    contents.ConfigurationProfileId = output.headers["configuration-profile-id"];
-  }
-  if (output.headers["version-number"] !== undefined) {
-    contents.VersionNumber = __strictParseInt32(output.headers["version-number"]);
-  }
-  if (output.headers["description"] !== undefined) {
-    contents.Description = output.headers["description"];
-  }
-  if (output.headers["content-type"] !== undefined) {
-    contents.ContentType = output.headers["content-type"];
-  }
+    ApplicationId: [, output.headers["application-id"]],
+    ConfigurationProfileId: [, output.headers["configuration-profile-id"]],
+    VersionNumber: [
+      () => void 0 !== output.headers["version-number"],
+      () => __strictParseInt32(output.headers["version-number"]),
+    ],
+    Description: [, output.headers["description"]],
+    ContentType: [, output.headers["content-type"]],
+    VersionLabel: [, output.headers["versionlabel"]],
+  });
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1GetHostedConfigurationVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetHostedConfigurationVersionCommandError
+ */
+const de_GetHostedConfigurationVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHostedConfigurationVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListApplicationsCommand = async (
+/**
+ * deserializeAws_restJson1ListApplicationsCommand
+ */
+export const de_ListApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListApplicationsCommandError(output, context);
+    return de_ListApplicationsCommandError(output, context);
   }
-  const contents: ListApplicationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1ApplicationList(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListApplicationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListApplicationsCommandError
+ */
+const de_ListApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListConfigurationProfilesCommand = async (
+/**
+ * deserializeAws_restJson1ListConfigurationProfilesCommand
+ */
+export const de_ListConfigurationProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListConfigurationProfilesCommandError(output, context);
+    return de_ListConfigurationProfilesCommandError(output, context);
   }
-  const contents: ListConfigurationProfilesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1ConfigurationProfileSummaryList(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListConfigurationProfilesCommandError = async (
+/**
+ * deserializeAws_restJson1ListConfigurationProfilesCommandError
+ */
+const de_ListConfigurationProfilesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListDeploymentsCommand = async (
+/**
+ * deserializeAws_restJson1ListDeploymentsCommand
+ */
+export const de_ListDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDeploymentsCommandError(output, context);
+    return de_ListDeploymentsCommandError(output, context);
   }
-  const contents: ListDeploymentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1DeploymentList(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de_DeploymentList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListDeploymentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDeploymentsCommandError
+ */
+const de_ListDeploymentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListDeploymentStrategiesCommand = async (
+/**
+ * deserializeAws_restJson1ListDeploymentStrategiesCommand
+ */
+export const de_ListDeploymentStrategiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentStrategiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDeploymentStrategiesCommandError(output, context);
+    return de_ListDeploymentStrategiesCommandError(output, context);
   }
-  const contents: ListDeploymentStrategiesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1DeploymentStrategyList(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de_DeploymentStrategyList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListDeploymentStrategiesCommandError = async (
+/**
+ * deserializeAws_restJson1ListDeploymentStrategiesCommandError
+ */
+const de_ListDeploymentStrategiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentStrategiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListEnvironmentsCommand = async (
+/**
+ * deserializeAws_restJson1ListEnvironmentsCommand
+ */
+export const de_ListEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnvironmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEnvironmentsCommandError(output, context);
+    return de_ListEnvironmentsCommandError(output, context);
   }
-  const contents: ListEnvironmentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1EnvironmentList(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListEnvironmentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListEnvironmentsCommandError
+ */
+const de_ListEnvironmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnvironmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListHostedConfigurationVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListExtensionAssociationsCommand
+ */
+export const de_ListExtensionAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExtensionAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListExtensionAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListExtensionAssociationsCommandError
+ */
+const de_ListExtensionAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExtensionAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListExtensionsCommand
+ */
+export const de_ListExtensionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExtensionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListExtensionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListExtensionsCommandError
+ */
+const de_ListExtensionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExtensionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListHostedConfigurationVersionsCommand
+ */
+export const de_ListHostedConfigurationVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHostedConfigurationVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListHostedConfigurationVersionsCommandError(output, context);
+    return de_ListHostedConfigurationVersionsCommandError(output, context);
   }
-  const contents: ListHostedConfigurationVersionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1HostedConfigurationVersionSummaryList(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListHostedConfigurationVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListHostedConfigurationVersionsCommandError
+ */
+const de_ListHostedConfigurationVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHostedConfigurationVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
-  const contents: ListTagsForResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags !== undefined && data.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1StartDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1StartDeploymentCommand
+ */
+export const de_StartDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeploymentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartDeploymentCommandError(output, context);
+    return de_StartDeploymentCommandError(output, context);
   }
-  const contents: StartDeploymentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: undefined,
-    CompletedAt: undefined,
-    ConfigurationLocationUri: undefined,
-    ConfigurationName: undefined,
-    ConfigurationProfileId: undefined,
-    ConfigurationVersion: undefined,
-    DeploymentDurationInMinutes: undefined,
-    DeploymentNumber: undefined,
-    DeploymentStrategyId: undefined,
-    Description: undefined,
-    EnvironmentId: undefined,
-    EventLog: undefined,
-    FinalBakeTimeInMinutes: undefined,
-    GrowthFactor: undefined,
-    GrowthType: undefined,
-    PercentageComplete: undefined,
-    StartedAt: undefined,
-    State: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.CompletedAt !== undefined && data.CompletedAt !== null) {
-    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTime(data.CompletedAt));
-  }
-  if (data.ConfigurationLocationUri !== undefined && data.ConfigurationLocationUri !== null) {
-    contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
-  }
-  if (data.ConfigurationName !== undefined && data.ConfigurationName !== null) {
-    contents.ConfigurationName = __expectString(data.ConfigurationName);
-  }
-  if (data.ConfigurationProfileId !== undefined && data.ConfigurationProfileId !== null) {
-    contents.ConfigurationProfileId = __expectString(data.ConfigurationProfileId);
-  }
-  if (data.ConfigurationVersion !== undefined && data.ConfigurationVersion !== null) {
-    contents.ConfigurationVersion = __expectString(data.ConfigurationVersion);
-  }
-  if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.DeploymentNumber !== undefined && data.DeploymentNumber !== null) {
-    contents.DeploymentNumber = __expectInt32(data.DeploymentNumber);
-  }
-  if (data.DeploymentStrategyId !== undefined && data.DeploymentStrategyId !== null) {
-    contents.DeploymentStrategyId = __expectString(data.DeploymentStrategyId);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EnvironmentId !== undefined && data.EnvironmentId !== null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.EventLog !== undefined && data.EventLog !== null) {
-    contents.EventLog = deserializeAws_restJson1DeploymentEvents(data.EventLog, context);
-  }
-  if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType !== undefined && data.GrowthType !== null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.PercentageComplete !== undefined && data.PercentageComplete !== null) {
-    contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
-  }
-  if (data.StartedAt !== undefined && data.StartedAt !== null) {
-    contents.StartedAt = __expectNonNull(__parseRfc3339DateTime(data.StartedAt));
-  }
-  if (data.State !== undefined && data.State !== null) {
-    contents.State = __expectString(data.State);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    AppliedExtensions: _json,
+    CompletedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ConfigurationLocationUri: __expectString,
+    ConfigurationName: __expectString,
+    ConfigurationProfileId: __expectString,
+    ConfigurationVersion: __expectString,
+    DeploymentDurationInMinutes: __expectInt32,
+    DeploymentNumber: __expectInt32,
+    DeploymentStrategyId: __expectString,
+    Description: __expectString,
+    EnvironmentId: __expectString,
+    EventLog: (_) => de_DeploymentEvents(_, context),
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
+    PercentageComplete: __limitedParseFloat32,
+    StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1StartDeploymentCommandError
+ */
+const de_StartDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1StopDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1StopDeploymentCommand
+ */
+export const de_StopDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDeploymentCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopDeploymentCommandError(output, context);
+    return de_StopDeploymentCommandError(output, context);
   }
-  const contents: StopDeploymentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: undefined,
-    CompletedAt: undefined,
-    ConfigurationLocationUri: undefined,
-    ConfigurationName: undefined,
-    ConfigurationProfileId: undefined,
-    ConfigurationVersion: undefined,
-    DeploymentDurationInMinutes: undefined,
-    DeploymentNumber: undefined,
-    DeploymentStrategyId: undefined,
-    Description: undefined,
-    EnvironmentId: undefined,
-    EventLog: undefined,
-    FinalBakeTimeInMinutes: undefined,
-    GrowthFactor: undefined,
-    GrowthType: undefined,
-    PercentageComplete: undefined,
-    StartedAt: undefined,
-    State: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.CompletedAt !== undefined && data.CompletedAt !== null) {
-    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTime(data.CompletedAt));
-  }
-  if (data.ConfigurationLocationUri !== undefined && data.ConfigurationLocationUri !== null) {
-    contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
-  }
-  if (data.ConfigurationName !== undefined && data.ConfigurationName !== null) {
-    contents.ConfigurationName = __expectString(data.ConfigurationName);
-  }
-  if (data.ConfigurationProfileId !== undefined && data.ConfigurationProfileId !== null) {
-    contents.ConfigurationProfileId = __expectString(data.ConfigurationProfileId);
-  }
-  if (data.ConfigurationVersion !== undefined && data.ConfigurationVersion !== null) {
-    contents.ConfigurationVersion = __expectString(data.ConfigurationVersion);
-  }
-  if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.DeploymentNumber !== undefined && data.DeploymentNumber !== null) {
-    contents.DeploymentNumber = __expectInt32(data.DeploymentNumber);
-  }
-  if (data.DeploymentStrategyId !== undefined && data.DeploymentStrategyId !== null) {
-    contents.DeploymentStrategyId = __expectString(data.DeploymentStrategyId);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EnvironmentId !== undefined && data.EnvironmentId !== null) {
-    contents.EnvironmentId = __expectString(data.EnvironmentId);
-  }
-  if (data.EventLog !== undefined && data.EventLog !== null) {
-    contents.EventLog = deserializeAws_restJson1DeploymentEvents(data.EventLog, context);
-  }
-  if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType !== undefined && data.GrowthType !== null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.PercentageComplete !== undefined && data.PercentageComplete !== null) {
-    contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
-  }
-  if (data.StartedAt !== undefined && data.StartedAt !== null) {
-    contents.StartedAt = __expectNonNull(__parseRfc3339DateTime(data.StartedAt));
-  }
-  if (data.State !== undefined && data.State !== null) {
-    contents.State = __expectString(data.State);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    AppliedExtensions: _json,
+    CompletedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ConfigurationLocationUri: __expectString,
+    ConfigurationName: __expectString,
+    ConfigurationProfileId: __expectString,
+    ConfigurationVersion: __expectString,
+    DeploymentDurationInMinutes: __expectInt32,
+    DeploymentNumber: __expectInt32,
+    DeploymentStrategyId: __expectString,
+    Description: __expectString,
+    EnvironmentId: __expectString,
+    EventLog: (_) => de_DeploymentEvents(_, context),
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
+    PercentageComplete: __limitedParseFloat32,
+    StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StopDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1StopDeploymentCommandError
+ */
+const de_StopDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateApplicationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateApplicationCommand
+ */
+export const de_UpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateApplicationCommandError(output, context);
+    return de_UpdateApplicationCommandError(output, context);
   }
-  const contents: UpdateApplicationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Description: undefined,
-    Id: undefined,
-    Name: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateApplicationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateApplicationCommandError
+ */
+const de_UpdateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateConfigurationProfileCommand = async (
+/**
+ * deserializeAws_restJson1UpdateConfigurationProfileCommand
+ */
+export const de_UpdateConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateConfigurationProfileCommandError(output, context);
+    return de_UpdateConfigurationProfileCommandError(output, context);
   }
-  const contents: UpdateConfigurationProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: undefined,
-    Description: undefined,
-    Id: undefined,
-    LocationUri: undefined,
-    Name: undefined,
-    RetrievalRoleArn: undefined,
-    Type: undefined,
-    Validators: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.LocationUri !== undefined && data.LocationUri !== null) {
-    contents.LocationUri = __expectString(data.LocationUri);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.RetrievalRoleArn !== undefined && data.RetrievalRoleArn !== null) {
-    contents.RetrievalRoleArn = __expectString(data.RetrievalRoleArn);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  if (data.Validators !== undefined && data.Validators !== null) {
-    contents.Validators = deserializeAws_restJson1ValidatorList(data.Validators, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    LocationUri: __expectString,
+    Name: __expectString,
+    RetrievalRoleArn: __expectString,
+    Type: __expectString,
+    Validators: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateConfigurationProfileCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateConfigurationProfileCommandError
+ */
+const de_UpdateConfigurationProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateDeploymentStrategyCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDeploymentStrategyCommand
+ */
+export const de_UpdateDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeploymentStrategyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDeploymentStrategyCommandError(output, context);
+    return de_UpdateDeploymentStrategyCommandError(output, context);
   }
-  const contents: UpdateDeploymentStrategyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DeploymentDurationInMinutes: undefined,
-    Description: undefined,
-    FinalBakeTimeInMinutes: undefined,
-    GrowthFactor: undefined,
-    GrowthType: undefined,
-    Id: undefined,
-    Name: undefined,
-    ReplicateTo: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectInt32(data.FinalBakeTimeInMinutes);
-  }
-  if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __limitedParseFloat32(data.GrowthFactor);
-  }
-  if (data.GrowthType !== undefined && data.GrowthType !== null) {
-    contents.GrowthType = __expectString(data.GrowthType);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ReplicateTo !== undefined && data.ReplicateTo !== null) {
-    contents.ReplicateTo = __expectString(data.ReplicateTo);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DeploymentDurationInMinutes: __expectInt32,
+    Description: __expectString,
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReplicateTo: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateDeploymentStrategyCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDeploymentStrategyCommandError
+ */
+const de_UpdateDeploymentStrategyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeploymentStrategyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateEnvironmentCommand = async (
+/**
+ * deserializeAws_restJson1UpdateEnvironmentCommand
+ */
+export const de_UpdateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateEnvironmentCommandError(output, context);
+    return de_UpdateEnvironmentCommandError(output, context);
   }
-  const contents: UpdateEnvironmentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: undefined,
-    Description: undefined,
-    Id: undefined,
-    Monitors: undefined,
-    Name: undefined,
-    State: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
-    contents.ApplicationId = __expectString(data.ApplicationId);
-  }
-  if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.Monitors !== undefined && data.Monitors !== null) {
-    contents.Monitors = deserializeAws_restJson1MonitorList(data.Monitors, context);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.State !== undefined && data.State !== null) {
-    contents.State = __expectString(data.State);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Monitors: _json,
+    Name: __expectString,
+    State: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateEnvironmentCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateEnvironmentCommandError
+ */
+const de_UpdateEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ValidateConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateExtensionCommand
+ */
+export const de_UpdateExtensionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateExtensionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateExtensionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Actions: _json,
+    Arn: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Parameters: _json,
+    VersionNumber: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateExtensionCommandError
+ */
+const de_UpdateExtensionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateExtensionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.appconfig#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateExtensionAssociationCommand
+ */
+export const de_UpdateExtensionAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateExtensionAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateExtensionAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ExtensionArn: __expectString,
+    ExtensionVersionNumber: __expectInt32,
+    Id: __expectString,
+    Parameters: _json,
+    ResourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateExtensionAssociationCommandError
+ */
+const de_UpdateExtensionAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateExtensionAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ValidateConfigurationCommand
+ */
+export const de_ValidateConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ValidateConfigurationCommandError(output, context);
+    return de_ValidateConfigurationCommandError(output, context);
   }
-  const contents: ValidateConfigurationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1ValidateConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1ValidateConfigurationCommandError
+ */
+const de_ValidateConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appconfig#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
-  const contents: any = {};
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Details !== undefined && data.Details !== null) {
-    contents.Details = deserializeAws_restJson1BadRequestDetails(__expectUnion(data.Details), context);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Reason !== undefined && data.Reason !== null) {
-    contents.Reason = __expectString(data.Reason);
-  }
+  const doc = take(data, {
+    Details: (_) => _json(__expectUnion(_)),
+    Message: __expectString,
+    Reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3568,15 +4238,16 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3584,15 +4255,19 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3600,24 +4275,22 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
+/**
+ * deserializeAws_restJson1PayloadTooLargeExceptionRes
+ */
+const de_PayloadTooLargeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PayloadTooLargeException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Limit !== undefined && data.Limit !== null) {
-    contents.Limit = __limitedParseFloat32(data.Limit);
-  }
-  if (data.Measure !== undefined && data.Measure !== null) {
-    contents.Measure = __expectString(data.Measure);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Size !== undefined && data.Size !== null) {
-    contents.Size = __limitedParseFloat32(data.Size);
-  }
+  const doc = take(data, {
+    Limit: __limitedParseFloat32,
+    Measure: __expectString,
+    Message: __expectString,
+    Size: __limitedParseFloat32,
+  });
+  Object.assign(contents, doc);
   const exception = new PayloadTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3625,18 +4298,20 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceName !== undefined && data.ResourceName !== null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3644,15 +4319,19 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3660,361 +4339,181 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1Monitor = (input: Monitor, context: __SerdeContext): any => {
-  return {
-    ...(input.AlarmArn !== undefined && input.AlarmArn !== null && { AlarmArn: input.AlarmArn }),
-    ...(input.AlarmRoleArn !== undefined && input.AlarmRoleArn !== null && { AlarmRoleArn: input.AlarmRoleArn }),
-  };
+// se_Action omitted.
+
+// se_ActionList omitted.
+
+// se_ActionsMap omitted.
+
+// se_Monitor omitted.
+
+// se_MonitorList omitted.
+
+// se_Parameter omitted.
+
+// se_ParameterMap omitted.
+
+// se_ParameterValueMap omitted.
+
+// se_TagMap omitted.
+
+// se_Validator omitted.
+
+// se_ValidatorList omitted.
+
+// de_Action omitted.
+
+// de_ActionInvocation omitted.
+
+// de_ActionInvocations omitted.
+
+// de_ActionList omitted.
+
+// de_ActionsMap omitted.
+
+// de_Application omitted.
+
+// de_ApplicationList omitted.
+
+// de_AppliedExtension omitted.
+
+// de_AppliedExtensions omitted.
+
+// de_BadRequestDetails omitted.
+
+// de_ConfigurationProfileSummary omitted.
+
+// de_ConfigurationProfileSummaryList omitted.
+
+/**
+ * deserializeAws_restJson1DeploymentEvent
+ */
+const de_DeploymentEvent = (output: any, context: __SerdeContext): DeploymentEvent => {
+  return take(output, {
+    ActionInvocations: _json,
+    Description: __expectString,
+    EventType: __expectString,
+    OccurredAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    TriggeredBy: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1MonitorList = (input: Monitor[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Monitor(entry, context);
-    });
-};
-
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_restJson1Validator = (input: Validator, context: __SerdeContext): any => {
-  return {
-    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-  };
-};
-
-const serializeAws_restJson1ValidatorList = (input: Validator[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Validator(entry, context);
-    });
-};
-
-const deserializeAws_restJson1Application = (output: any, context: __SerdeContext): Application => {
-  return {
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
-
-const deserializeAws_restJson1ApplicationList = (output: any, context: __SerdeContext): Application[] => {
+/**
+ * deserializeAws_restJson1DeploymentEvents
+ */
+const de_DeploymentEvents = (output: any, context: __SerdeContext): DeploymentEvent[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Application(entry, context);
+      return de_DeploymentEvent(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BadRequestDetails = (output: any, context: __SerdeContext): BadRequestDetails => {
-  if (output.InvalidConfiguration !== undefined && output.InvalidConfiguration !== null) {
-    return {
-      InvalidConfiguration: deserializeAws_restJson1InvalidConfigurationDetailList(
-        output.InvalidConfiguration,
-        context
-      ),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1ConfigurationProfileSummary = (
-  output: any,
-  context: __SerdeContext
-): ConfigurationProfileSummary => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    Id: __expectString(output.Id),
-    LocationUri: __expectString(output.LocationUri),
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-    ValidatorTypes:
-      output.ValidatorTypes !== undefined && output.ValidatorTypes !== null
-        ? deserializeAws_restJson1ValidatorTypeList(output.ValidatorTypes, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ConfigurationProfileSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ConfigurationProfileSummary[] => {
+/**
+ * deserializeAws_restJson1DeploymentList
+ */
+const de_DeploymentList = (output: any, context: __SerdeContext): DeploymentSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ConfigurationProfileSummary(entry, context);
+      return de_DeploymentSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DeploymentEvent = (output: any, context: __SerdeContext): DeploymentEvent => {
-  return {
-    Description: __expectString(output.Description),
-    EventType: __expectString(output.EventType),
-    OccurredAt:
-      output.OccurredAt !== undefined && output.OccurredAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.OccurredAt))
-        : undefined,
-    TriggeredBy: __expectString(output.TriggeredBy),
-  } as any;
+/**
+ * deserializeAws_restJson1DeploymentStrategy
+ */
+const de_DeploymentStrategy = (output: any, context: __SerdeContext): DeploymentStrategy => {
+  return take(output, {
+    DeploymentDurationInMinutes: __expectInt32,
+    Description: __expectString,
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ReplicateTo: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1DeploymentEvents = (output: any, context: __SerdeContext): DeploymentEvent[] => {
+/**
+ * deserializeAws_restJson1DeploymentStrategyList
+ */
+const de_DeploymentStrategyList = (output: any, context: __SerdeContext): DeploymentStrategy[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DeploymentEvent(entry, context);
+      return de_DeploymentStrategy(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DeploymentList = (output: any, context: __SerdeContext): DeploymentSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DeploymentSummary(entry, context);
-    });
-  return retVal;
+/**
+ * deserializeAws_restJson1DeploymentSummary
+ */
+const de_DeploymentSummary = (output: any, context: __SerdeContext): DeploymentSummary => {
+  return take(output, {
+    CompletedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ConfigurationName: __expectString,
+    ConfigurationVersion: __expectString,
+    DeploymentDurationInMinutes: __expectInt32,
+    DeploymentNumber: __expectInt32,
+    FinalBakeTimeInMinutes: __expectInt32,
+    GrowthFactor: __limitedParseFloat32,
+    GrowthType: __expectString,
+    PercentageComplete: __limitedParseFloat32,
+    StartedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    State: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1DeploymentStrategy = (output: any, context: __SerdeContext): DeploymentStrategy => {
-  return {
-    DeploymentDurationInMinutes: __expectInt32(output.DeploymentDurationInMinutes),
-    Description: __expectString(output.Description),
-    FinalBakeTimeInMinutes: __expectInt32(output.FinalBakeTimeInMinutes),
-    GrowthFactor: __limitedParseFloat32(output.GrowthFactor),
-    GrowthType: __expectString(output.GrowthType),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    ReplicateTo: __expectString(output.ReplicateTo),
-  } as any;
-};
+// de_Environment omitted.
 
-const deserializeAws_restJson1DeploymentStrategyList = (output: any, context: __SerdeContext): DeploymentStrategy[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DeploymentStrategy(entry, context);
-    });
-  return retVal;
-};
+// de_EnvironmentList omitted.
 
-const deserializeAws_restJson1DeploymentSummary = (output: any, context: __SerdeContext): DeploymentSummary => {
-  return {
-    CompletedAt:
-      output.CompletedAt !== undefined && output.CompletedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CompletedAt))
-        : undefined,
-    ConfigurationName: __expectString(output.ConfigurationName),
-    ConfigurationVersion: __expectString(output.ConfigurationVersion),
-    DeploymentDurationInMinutes: __expectInt32(output.DeploymentDurationInMinutes),
-    DeploymentNumber: __expectInt32(output.DeploymentNumber),
-    FinalBakeTimeInMinutes: __expectInt32(output.FinalBakeTimeInMinutes),
-    GrowthFactor: __limitedParseFloat32(output.GrowthFactor),
-    GrowthType: __expectString(output.GrowthType),
-    PercentageComplete: __limitedParseFloat32(output.PercentageComplete),
-    StartedAt:
-      output.StartedAt !== undefined && output.StartedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.StartedAt))
-        : undefined,
-    State: __expectString(output.State),
-  } as any;
-};
+// de_ExtensionAssociationSummaries omitted.
 
-const deserializeAws_restJson1Environment = (output: any, context: __SerdeContext): Environment => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Monitors:
-      output.Monitors !== undefined && output.Monitors !== null
-        ? deserializeAws_restJson1MonitorList(output.Monitors, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-  } as any;
-};
+// de_ExtensionAssociationSummary omitted.
 
-const deserializeAws_restJson1EnvironmentList = (output: any, context: __SerdeContext): Environment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Environment(entry, context);
-    });
-  return retVal;
-};
+// de_ExtensionSummaries omitted.
 
-const deserializeAws_restJson1HostedConfigurationVersionSummary = (
-  output: any,
-  context: __SerdeContext
-): HostedConfigurationVersionSummary => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    ConfigurationProfileId: __expectString(output.ConfigurationProfileId),
-    ContentType: __expectString(output.ContentType),
-    Description: __expectString(output.Description),
-    VersionNumber: __expectInt32(output.VersionNumber),
-  } as any;
-};
+// de_ExtensionSummary omitted.
 
-const deserializeAws_restJson1HostedConfigurationVersionSummaryList = (
-  output: any,
-  context: __SerdeContext
-): HostedConfigurationVersionSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1HostedConfigurationVersionSummary(entry, context);
-    });
-  return retVal;
-};
+// de_HostedConfigurationVersionSummary omitted.
 
-const deserializeAws_restJson1InvalidConfigurationDetail = (
-  output: any,
-  context: __SerdeContext
-): InvalidConfigurationDetail => {
-  return {
-    Constraint: __expectString(output.Constraint),
-    Location: __expectString(output.Location),
-    Reason: __expectString(output.Reason),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_HostedConfigurationVersionSummaryList omitted.
 
-const deserializeAws_restJson1InvalidConfigurationDetailList = (
-  output: any,
-  context: __SerdeContext
-): InvalidConfigurationDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1InvalidConfigurationDetail(entry, context);
-    });
-  return retVal;
-};
+// de_InvalidConfigurationDetail omitted.
 
-const deserializeAws_restJson1Monitor = (output: any, context: __SerdeContext): Monitor => {
-  return {
-    AlarmArn: __expectString(output.AlarmArn),
-    AlarmRoleArn: __expectString(output.AlarmRoleArn),
-  } as any;
-};
+// de_InvalidConfigurationDetailList omitted.
 
-const deserializeAws_restJson1MonitorList = (output: any, context: __SerdeContext): Monitor[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Monitor(entry, context);
-    });
-  return retVal;
-};
+// de_Monitor omitted.
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
+// de_MonitorList omitted.
 
-const deserializeAws_restJson1Validator = (output: any, context: __SerdeContext): Validator => {
-  return {
-    Content: __expectString(output.Content),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Parameter omitted.
 
-const deserializeAws_restJson1ValidatorList = (output: any, context: __SerdeContext): Validator[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Validator(entry, context);
-    });
-  return retVal;
-};
+// de_ParameterMap omitted.
 
-const deserializeAws_restJson1ValidatorTypeList = (
-  output: any,
-  context: __SerdeContext
-): (ValidatorType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ParameterValueMap omitted.
+
+// de_TagMap omitted.
+
+// de_Validator omitted.
+
+// de_ValidatorList omitted.
+
+// de_ValidatorTypeList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -4035,14 +4534,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -4064,6 +4575,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

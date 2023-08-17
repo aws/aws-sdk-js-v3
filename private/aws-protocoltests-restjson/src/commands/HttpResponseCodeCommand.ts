@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,27 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { HttpResponseCodeOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpResponseCodeCommand,
-  serializeAws_restJson1HttpResponseCodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_HttpResponseCodeCommand, se_HttpResponseCodeCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link HttpResponseCodeCommand}.
+ */
 export interface HttpResponseCodeCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link HttpResponseCodeCommand}.
+ */
 export interface HttpResponseCodeCommandOutput extends HttpResponseCodeOutput, __MetadataBearer {}
 
 export class HttpResponseCodeCommand extends $Command<
@@ -29,6 +41,9 @@ export class HttpResponseCodeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpResponseCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +69,8 @@ export class HttpResponseCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: HttpResponseCodeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,12 +80,18 @@ export class HttpResponseCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpResponseCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpResponseCodeCommand(input, context);
+    return se_HttpResponseCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpResponseCodeCommandOutput> {
-    return deserializeAws_restJson1HttpResponseCodeCommand(output, context);
+    return de_HttpResponseCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

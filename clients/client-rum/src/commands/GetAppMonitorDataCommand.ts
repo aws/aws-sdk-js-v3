@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetAppMonitorDataRequest, GetAppMonitorDataResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAppMonitorDataCommand,
-  serializeAws_restJson1GetAppMonitorDataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAppMonitorDataCommand, se_GetAppMonitorDataCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetAppMonitorDataCommand}.
+ */
 export interface GetAppMonitorDataCommandInput extends GetAppMonitorDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAppMonitorDataCommand}.
+ */
 export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the raw performance events that RUM has collected from your web application,
  *          so that you can do your own processing or analysis of this data.</p>
  * @example
@@ -30,13 +44,57 @@ export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataRespons
  * import { RUMClient, GetAppMonitorDataCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, GetAppMonitorDataCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = { // GetAppMonitorDataRequest
+ *   Name: "STRING_VALUE", // required
+ *   TimeRange: { // TimeRange
+ *     After: Number("long"), // required
+ *     Before: Number("long"),
+ *   },
+ *   Filters: [ // QueryFilters
+ *     { // QueryFilter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // QueryFilterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetAppMonitorDataCommand(input);
  * const response = await client.send(command);
+ * // { // GetAppMonitorDataResponse
+ * //   Events: [ // EventDataList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetAppMonitorDataCommandInput - {@link GetAppMonitorDataCommandInput}
+ * @returns {@link GetAppMonitorDataCommandOutput}
  * @see {@link GetAppMonitorDataCommandInput} for command's `input` shape.
  * @see {@link GetAppMonitorDataCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled because of quota limits.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the arguments for the request is not valid.</p>
+ *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class GetAppMonitorDataCommand extends $Command<
@@ -47,6 +105,18 @@ export class GetAppMonitorDataCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppMonitorDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +132,9 @@ export class GetAppMonitorDataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAppMonitorDataCommandInput, GetAppMonitorDataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetAppMonitorDataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +145,8 @@ export class GetAppMonitorDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppMonitorDataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAppMonitorDataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +156,18 @@ export class GetAppMonitorDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppMonitorDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAppMonitorDataCommand(input, context);
+    return se_GetAppMonitorDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppMonitorDataCommandOutput> {
-    return deserializeAws_restJson1GetAppMonitorDataCommand(output, context);
+    return de_GetAppMonitorDataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { StopStreamRequest, StopStreamResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopStreamCommand,
-  serializeAws_restJson1StopStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopStreamCommand, se_StopStreamCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StopStreamCommand}.
+ */
 export interface StopStreamCommandInput extends StopStreamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopStreamCommand}.
+ */
 export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects the incoming RTMPS stream for the specified channel. Can be used in
  *       conjunction with <a>DeleteStreamKey</a> to prevent further streaming to a
  *       channel.</p>
@@ -36,13 +50,38 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * import { IvsClient, StopStreamCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, StopStreamCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // StopStreamRequest
+ *   channelArn: "STRING_VALUE", // required
+ * };
  * const command = new StopStreamCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StopStreamCommandInput - {@link StopStreamCommandInput}
+ * @returns {@link StopStreamCommandOutput}
  * @see {@link StopStreamCommandInput} for command's `input` shape.
  * @see {@link StopStreamCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ChannelNotBroadcasting} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link StreamUnavailable} (server fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class StopStreamCommand extends $Command<
@@ -53,6 +92,18 @@ export class StopStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StopStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +119,7 @@ export class StopStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopStreamCommandInput, StopStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StopStreamCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +130,8 @@ export class StopStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +141,18 @@ export class StopStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopStreamCommand(input, context);
+    return se_StopStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamCommandOutput> {
-    return deserializeAws_restJson1StopStreamCommand(output, context);
+    return de_StopStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

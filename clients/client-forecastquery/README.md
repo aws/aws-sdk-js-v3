@@ -1,7 +1,6 @@
-# @aws-sdk/client-forecastquery
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-forecastquery/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-forecastquery)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-forecastquery.svg)](https://www.npmjs.com/package/@aws-sdk/client-forecastquery)
+# @aws-sdk/client-forecastquery
 
 ## Description
 
@@ -115,7 +114,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -149,7 +148,7 @@ client
 
 // callbacks.
 client.queryForecast(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -163,7 +162,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -201,3 +200,22 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+QueryForecast
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/classes/queryforecastcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/queryforecastcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/queryforecastcommandoutput.html)
+
+</details>
+<details>
+<summary>
+QueryWhatIfForecast
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/classes/querywhatifforecastcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/querywhatifforecastcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/querywhatifforecastcommandoutput.html)
+
+</details>

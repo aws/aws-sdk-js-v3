@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListBrokersCommand, ListBrokersCommandInput, ListBrokersCommandOutput } from "../commands/ListBrokersCommand";
-import { Mq } from "../Mq";
 import { MqClient } from "../MqClient";
 import { MqPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MqClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListBrokersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Mq,
-  input: ListBrokersCommandInput,
-  ...args: any
-): Promise<ListBrokersCommandOutput> => {
-  // @ts-ignore
-  return await client.listBrokers(input, ...args);
-};
 export async function* paginateListBrokers(
   config: MqPaginationConfiguration,
   input: ListBrokersCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListBrokers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Mq) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MqClient) {
+    if (config.client instanceof MqClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Mq | MqClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

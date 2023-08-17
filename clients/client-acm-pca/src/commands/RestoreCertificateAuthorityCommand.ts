@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,28 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { RestoreCertificateAuthorityRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreCertificateAuthorityCommand,
-  serializeAws_json1_1RestoreCertificateAuthorityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RestoreCertificateAuthorityCommand, se_RestoreCertificateAuthorityCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RestoreCertificateAuthorityCommand}.
+ */
 export interface RestoreCertificateAuthorityCommandInput extends RestoreCertificateAuthorityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RestoreCertificateAuthorityCommand}.
+ */
 export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a certificate authority (CA) that is in the <code>DELETED</code> state. You
- * 			can restore a CA during the period that you defined in the <b>PermanentDeletionTimeInDays</b> parameter of the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthority.html">DeleteCertificateAuthority</a> action. Currently, you can specify 7 to 30 days.
+ * 			can restore a CA during the period that you defined in the <b>PermanentDeletionTimeInDays</b> parameter of the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthority.html">DeleteCertificateAuthority</a> action. Currently, you can specify 7 to 30 days.
  * 			If you did not specify a <b>PermanentDeletionTimeInDays</b>
  * 			value, by default you can restore the CA at any time in a 30 day period. You can check
  * 			the time remaining in the restoration period of a private CA in the <code>DELETED</code>
- * 			state by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DescribeCertificateAuthority.html">DescribeCertificateAuthority</a> or <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> actions. The status of a restored CA is set to
+ * 			state by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthority.html">DescribeCertificateAuthority</a> or <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> actions. The status of a restored CA is set to
  * 			its pre-deletion status when the <b>RestoreCertificateAuthority</b> action returns. To change its status to
- * 				<code>ACTIVE</code>, call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> action. If the private CA was in the
- * 				<code>PENDING_CERTIFICATE</code> state at deletion, you must use the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html">ImportCertificateAuthorityCertificate</a> action to import a certificate
+ * 				<code>ACTIVE</code>, call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> action. If the private CA was in the
+ * 				<code>PENDING_CERTIFICATE</code> state at deletion, you must use the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html">ImportCertificateAuthorityCertificate</a> action to import a certificate
  * 			authority into the private CA before it can be activated. You cannot restore a CA after
  * 			the restoration period has ended.</p>
  * @example
@@ -39,13 +53,34 @@ export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBear
  * import { ACMPCAClient, RestoreCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, RestoreCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // RestoreCertificateAuthorityRequest
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ * };
  * const command = new RestoreCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param RestoreCertificateAuthorityCommandInput - {@link RestoreCertificateAuthorityCommandInput}
+ * @returns {@link RestoreCertificateAuthorityCommandOutput}
  * @see {@link RestoreCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link RestoreCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ * 			resource.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
+ *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class RestoreCertificateAuthorityCommand extends $Command<
@@ -56,6 +91,18 @@ export class RestoreCertificateAuthorityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +118,9 @@ export class RestoreCertificateAuthorityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RestoreCertificateAuthorityCommandInput, RestoreCertificateAuthorityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RestoreCertificateAuthorityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +131,8 @@ export class RestoreCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreCertificateAuthorityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,15 +142,21 @@ export class RestoreCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreCertificateAuthorityCommand(input, context);
+    return se_RestoreCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1RestoreCertificateAuthorityCommand(output, context);
+    return de_RestoreCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

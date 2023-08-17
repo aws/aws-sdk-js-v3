@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { GetVPCEConfigurationRequest, GetVPCEConfigurationResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetVPCEConfigurationCommand,
-  serializeAws_json1_1GetVPCEConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetVPCEConfigurationCommand, se_GetVPCEConfigurationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetVPCEConfigurationCommand}.
+ */
 export interface GetVPCEConfigurationCommandInput extends GetVPCEConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVPCEConfigurationCommand}.
+ */
 export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the configuration settings for your Amazon Virtual Private
  *             Cloud (VPC) endpoint.</p>
  * @example
@@ -30,13 +44,40 @@ export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationR
  * import { DeviceFarmClient, GetVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetVPCEConfigurationRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetVPCEConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // GetVPCEConfigurationResult
+ * //   vpceConfiguration: { // VPCEConfiguration
+ * //     arn: "STRING_VALUE",
+ * //     vpceConfigurationName: "STRING_VALUE",
+ * //     vpceServiceName: "STRING_VALUE",
+ * //     serviceDnsName: "STRING_VALUE",
+ * //     vpceConfigurationDescription: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetVPCEConfigurationCommandInput - {@link GetVPCEConfigurationCommandInput}
+ * @returns {@link GetVPCEConfigurationCommandOutput}
  * @see {@link GetVPCEConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetVPCEConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class GetVPCEConfigurationCommand extends $Command<
@@ -47,6 +88,18 @@ export class GetVPCEConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetVPCEConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +115,9 @@ export class GetVPCEConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetVPCEConfigurationCommandInput, GetVPCEConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetVPCEConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +128,8 @@ export class GetVPCEConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVPCEConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetVPCEConfigurationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +139,18 @@ export class GetVPCEConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVPCEConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetVPCEConfigurationCommand(input, context);
+    return se_GetVPCEConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVPCEConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetVPCEConfigurationCommand(output, context);
+    return de_GetVPCEConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

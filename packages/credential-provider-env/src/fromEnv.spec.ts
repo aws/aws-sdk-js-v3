@@ -1,4 +1,4 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { ENV_EXPIRATION, ENV_KEY, ENV_SECRET, ENV_SESSION, fromEnv } from "./fromEnv";
 

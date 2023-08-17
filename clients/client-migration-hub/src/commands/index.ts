@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateCreatedArtifactCommand";
 export * from "./AssociateDiscoveredResourceCommand";
 export * from "./CreateProgressUpdateStreamCommand";

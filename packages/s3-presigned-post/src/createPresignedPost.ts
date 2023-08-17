@@ -1,8 +1,14 @@
-import { S3Client } from "@aws-sdk/client-s3";
-import { createScope, getSigningKey } from "@aws-sdk/signature-v4";
-import { HashConstructor, SourceData } from "@aws-sdk/types";
+import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { formatUrl } from "@aws-sdk/util-format-url";
-import { toHex } from "@aws-sdk/util-hex-encoding";
+import {
+  EndpointParameterInstructionsSupplier,
+  getEndpointFromInstructions,
+  toEndpointV1,
+} from "@smithy/middleware-endpoint";
+import { createScope, getSigningKey } from "@smithy/signature-v4";
+import { ChecksumConstructor, HashConstructor, SourceData } from "@smithy/types";
+import { toHex } from "@smithy/util-hex-encoding";
+import { toUint8Array } from "@smithy/util-utf8";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -14,7 +20,7 @@ import {
 } from "./constants";
 import { Conditions as PolicyEntry } from "./types";
 
-type Fields = { [key: string]: string };
+type Fields = Record<string, string>;
 
 export interface PresignedPostOptions {
   Bucket: string;
@@ -41,7 +47,7 @@ export const createPresignedPost = async (
 
   // signingDate in format like '20201028T070711Z'.
   const signingDate = iso8601(now).replace(/[\-:]/g, "");
-  const shortDate = signingDate.substr(0, 8);
+  const shortDate = signingDate.slice(0, 8);
   const clientRegion = await client.config.region();
 
   // Prepare credentials.
@@ -80,10 +86,18 @@ export const createPresignedPost = async (
   const signingKey = await getSigningKey(sha256, clientCredentials, shortDate, clientRegion, "s3");
   const signature = await hmac(sha256, signingKey, encodedPolicy);
 
-  const endpoint = await client.config.endpoint();
-  if (!client.config.bucketEndpoint) {
-    endpoint.path = `/${Bucket}`;
-  }
+  const endpoint = toEndpointV1(
+    await getEndpointFromInstructions(
+      { Bucket, Key },
+      PutObjectCommand as EndpointParameterInstructionsSupplier,
+      {
+        ...client.config,
+      },
+      {
+        logger: client.config.logger,
+      }
+    )
+  );
 
   return {
     url: formatUrl(endpoint),
@@ -98,8 +112,12 @@ export const createPresignedPost = async (
 
 const iso8601 = (date: Date) => date.toISOString().replace(/\.\d{3}Z$/, "Z");
 
-const hmac = (ctor: HashConstructor, secret: SourceData, data: SourceData): Promise<Uint8Array> => {
+const hmac = (
+  ctor: ChecksumConstructor | HashConstructor,
+  secret: SourceData,
+  data: SourceData
+): Promise<Uint8Array> => {
   const hash = new ctor(secret);
-  hash.update(data);
+  hash.update(toUint8Array(data));
   return hash.digest();
 };

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { DeleteEventActionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEventActionCommand,
-  serializeAws_restJson1DeleteEventActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEventActionCommand, se_DeleteEventActionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteEventActionCommand}.
+ */
 export interface DeleteEventActionCommandInput extends DeleteEventActionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEventActionCommand}.
+ */
 export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes the event action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,35 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, DeleteEventActionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, DeleteEventActionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // DeleteEventActionRequest
+ *   EventActionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventActionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteEventActionCommandInput - {@link DeleteEventActionCommandInput}
+ * @returns {@link DeleteEventActionCommandOutput}
  * @see {@link DeleteEventActionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventActionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception occurred with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource couldn't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class DeleteEventActionCommand extends $Command<
@@ -46,6 +82,18 @@ export class DeleteEventActionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +109,9 @@ export class DeleteEventActionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteEventActionCommandInput, DeleteEventActionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteEventActionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +122,8 @@ export class DeleteEventActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventActionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +133,18 @@ export class DeleteEventActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEventActionCommand(input, context);
+    return se_DeleteEventActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventActionCommandOutput> {
-    return deserializeAws_restJson1DeleteEventActionCommand(output, context);
+    return de_DeleteEventActionCommand(output, context);
   }
 
   // Start section: command_body_extra

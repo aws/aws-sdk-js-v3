@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetTrustStoreRequest, GetTrustStoreResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTrustStoreCommand,
-  serializeAws_restJson1GetTrustStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTrustStoreCommand, se_GetTrustStoreCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetTrustStoreCommand}.
+ */
 export interface GetTrustStoreCommandInput extends GetTrustStoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTrustStoreCommand}.
+ */
 export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,45 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __Met
  * import { WorkSpacesWebClient, GetTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // GetTrustStoreRequest
+ *   trustStoreArn: "STRING_VALUE", // required
+ * };
  * const command = new GetTrustStoreCommand(input);
  * const response = await client.send(command);
+ * // { // GetTrustStoreResponse
+ * //   trustStore: { // TrustStore
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     trustStoreArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetTrustStoreCommandInput - {@link GetTrustStoreCommandInput}
+ * @returns {@link GetTrustStoreCommandOutput}
  * @see {@link GetTrustStoreCommandInput} for command's `input` shape.
  * @see {@link GetTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetTrustStoreCommand extends $Command<
@@ -46,6 +92,18 @@ export class GetTrustStoreCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +119,7 @@ export class GetTrustStoreCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetTrustStoreCommandInput, GetTrustStoreCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetTrustStoreCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +130,8 @@ export class GetTrustStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTrustStoreRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTrustStoreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +141,18 @@ export class GetTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTrustStoreCommand(input, context);
+    return se_GetTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrustStoreCommandOutput> {
-    return deserializeAws_restJson1GetTrustStoreCommand(output, context);
+    return de_GetTrustStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

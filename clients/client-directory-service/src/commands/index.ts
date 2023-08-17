@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptSharedDirectoryCommand";
 export * from "./AddIpRoutesCommand";
 export * from "./AddRegionCommand";
@@ -27,9 +28,11 @@ export * from "./DescribeDomainControllersCommand";
 export * from "./DescribeEventTopicsCommand";
 export * from "./DescribeLDAPSSettingsCommand";
 export * from "./DescribeRegionsCommand";
+export * from "./DescribeSettingsCommand";
 export * from "./DescribeSharedDirectoriesCommand";
 export * from "./DescribeSnapshotsCommand";
 export * from "./DescribeTrustsCommand";
+export * from "./DescribeUpdateDirectoryCommand";
 export * from "./DisableClientAuthenticationCommand";
 export * from "./DisableLDAPSCommand";
 export * from "./DisableRadiusCommand";
@@ -57,7 +60,9 @@ export * from "./ShareDirectoryCommand";
 export * from "./StartSchemaExtensionCommand";
 export * from "./UnshareDirectoryCommand";
 export * from "./UpdateConditionalForwarderCommand";
+export * from "./UpdateDirectorySetupCommand";
 export * from "./UpdateNumberOfDomainControllersCommand";
 export * from "./UpdateRadiusCommand";
+export * from "./UpdateSettingsCommand";
 export * from "./UpdateTrustCommand";
 export * from "./VerifyTrustCommand";

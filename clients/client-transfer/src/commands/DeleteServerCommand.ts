@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,32 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteServerRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteServerCommand,
-  serializeAws_json1_1DeleteServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteServerCommand, se_DeleteServerCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteServerCommand}.
+ */
 export interface DeleteServerCommandInput extends DeleteServerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteServerCommand}.
+ */
 export interface DeleteServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
- *
  *          <p>No response returns from this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +44,39 @@ export interface DeleteServerCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DeleteServerRequest
+ *   ServerId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteServerCommandInput - {@link DeleteServerCommandInput}
+ * @returns {@link DeleteServerCommandOutput}
  * @see {@link DeleteServerCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DeleteServerCommand extends $Command<
@@ -48,6 +87,18 @@ export class DeleteServerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +114,7 @@ export class DeleteServerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteServerCommandInput, DeleteServerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteServerCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +125,8 @@ export class DeleteServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +136,18 @@ export class DeleteServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteServerCommand(input, context);
+    return se_DeleteServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServerCommandOutput> {
-    return deserializeAws_json1_1DeleteServerCommand(output, context);
+    return de_DeleteServerCommand(output, context);
   }
 
   // Start section: command_body_extra

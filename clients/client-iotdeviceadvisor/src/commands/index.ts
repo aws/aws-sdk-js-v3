@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateSuiteDefinitionCommand";
 export * from "./DeleteSuiteDefinitionCommand";
 export * from "./GetEndpointCommand";

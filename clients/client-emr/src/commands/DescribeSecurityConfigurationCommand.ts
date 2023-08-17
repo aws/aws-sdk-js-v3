@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { DescribeSecurityConfigurationInput, DescribeSecurityConfigurationOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeSecurityConfigurationCommand,
-  serializeAws_json1_1DescribeSecurityConfigurationCommand,
+  de_DescribeSecurityConfigurationCommand,
+  se_DescribeSecurityConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeSecurityConfigurationCommand}.
+ */
 export interface DescribeSecurityConfigurationCommandInput extends DescribeSecurityConfigurationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSecurityConfigurationCommand}.
+ */
 export interface DescribeSecurityConfigurationCommandOutput
   extends DescribeSecurityConfigurationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the details of a security configuration by returning the configuration
  *          JSON.</p>
  * @example
@@ -32,13 +49,34 @@ export interface DescribeSecurityConfigurationCommandOutput
  * import { EMRClient, DescribeSecurityConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeSecurityConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // DescribeSecurityConfigurationInput
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSecurityConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSecurityConfigurationOutput
+ * //   Name: "STRING_VALUE",
+ * //   SecurityConfiguration: "STRING_VALUE",
+ * //   CreationDateTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
+ * @param DescribeSecurityConfigurationCommandInput - {@link DescribeSecurityConfigurationCommandInput}
+ * @returns {@link DescribeSecurityConfigurationCommandOutput}
  * @see {@link DescribeSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class DescribeSecurityConfigurationCommand extends $Command<
@@ -49,6 +87,18 @@ export class DescribeSecurityConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +114,9 @@ export class DescribeSecurityConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeSecurityConfigurationCommandInput, DescribeSecurityConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeSecurityConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +127,8 @@ export class DescribeSecurityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSecurityConfigurationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSecurityConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,15 +138,21 @@ export class DescribeSecurityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecurityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSecurityConfigurationCommand(input, context);
+    return se_DescribeSecurityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSecurityConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeSecurityConfigurationCommand(output, context);
+    return de_DescribeSecurityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

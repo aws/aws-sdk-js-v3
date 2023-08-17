@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { DeleteSkillGroupRequest, DeleteSkillGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSkillGroupCommand,
-  serializeAws_json1_1DeleteSkillGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSkillGroupCommand, se_DeleteSkillGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteSkillGroupCommand}.
+ */
 export interface DeleteSkillGroupCommandInput extends DeleteSkillGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSkillGroupCommand}.
+ */
 export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
+ * @deprecated
+ *
  * <p>Deletes a skill group by skill group ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +45,29 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
  * import { AlexaForBusinessClient, DeleteSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteSkillGroupRequest
+ *   SkillGroupArn: "STRING_VALUE",
+ * };
  * const command = new DeleteSkillGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteSkillGroupCommandInput - {@link DeleteSkillGroupCommandInput}
+ * @returns {@link DeleteSkillGroupCommandOutput}
  * @see {@link DeleteSkillGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteSkillGroupCommand extends $Command<
@@ -46,6 +78,18 @@ export class DeleteSkillGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSkillGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +105,9 @@ export class DeleteSkillGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteSkillGroupCommandInput, DeleteSkillGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteSkillGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +118,8 @@ export class DeleteSkillGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSkillGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSkillGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +129,18 @@ export class DeleteSkillGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSkillGroupCommand(input, context);
+    return se_DeleteSkillGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSkillGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteSkillGroupCommand(output, context);
+    return de_DeleteSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,11 +16,13 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Set;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
@@ -66,38 +68,61 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set<Shape> shapes) {
         AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes,
                 // AWS JSON does not support jsonName
-                new JsonShapeSerVisitor(context, (shape, name) -> name));
+                new JsonShapeSerVisitor(context, (shape, name) -> name, enableSerdeElision()));
     }
 
     @Override
     protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
         AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes,
                 // AWS JSON does not support jsonName
-                new JsonShapeDeserVisitor(context, (shape, name) -> name));
+                new JsonShapeDeserVisitor(context, (shape, name) -> name, enableSerdeElision()));
     }
 
     @Override
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateJsonParseBody(context);
+        AwsProtocolUtils.generateJsonParseErrorBody(context);
         AwsProtocolUtils.addItempotencyAutofillImport(context);
 
         TypeScriptWriter writer = context.getWriter();
         writer.addUseImports(getApplicationProtocol().getResponseType());
         writer.write(IoUtils.readUtf8Resource(getClass(), "load-json-error-code-stub.ts"));
+
+        if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
+            AwsProtocolUtils.generateJsonParseBodyWithQueryHeader(context);
+        }
     }
 
     @Override
-    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
-        super.writeDefaultHeaders(context, operation);
-        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
-
-        // AWS JSON RPC protocols use a combination of the service and operation shape names,
-        // separated by a '.' character, for the target header.
+    protected void writeRequestHeaders(GenerationContext context, OperationShape operation) {
         TypeScriptWriter writer = context.getWriter();
         ServiceShape serviceShape = context.getService();
-        String target = serviceShape.getId().getName(serviceShape) + "." + operation.getId().getName(serviceShape);
-        writer.write("'x-amz-target': $S,", target);
+        String operationName = operation.getId().getName(serviceShape);
+        if (AwsProtocolUtils.includeUnsignedPayloadSigV4Header(operation)) {
+            writer.openBlock("const headers: __HeaderBag = { ", " }", () -> {
+                AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
+                writer.write("...sharedHeaders($S)", operationName);
+            });
+        } else {
+            writer.write("const headers: __HeaderBag = sharedHeaders($S)", operationName);
+        }
+    }
+
+    @Override
+    protected void writeSharedRequestHeaders(GenerationContext context) {
+        ServiceShape serviceShape = context.getService();
+        TypeScriptWriter writer = context.getWriter();
+        writer.addImport("HeaderBag", "__HeaderBag", TypeScriptDependency.SMITHY_TYPES);
+        String targetHeader = serviceShape.getId().getName(serviceShape) + ".${operation}";
+        writer.openBlock("function sharedHeaders(operation: string): __HeaderBag { return {", "}};",
+                () -> {
+                    writer.write("'content-type': $S,", getDocumentContentType());
+                    // AWS JSON RPC protocols use a combination of the service and operation shape names,
+                    // separated by a '.' character, for the target header.
+                    writer.write("'x-amz-target': `$L`,", targetHeader);
+                }
+        );
     }
 
     @Override
@@ -127,8 +152,16 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     protected void writeErrorCodeParser(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
 
+        if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
+            // Populate parsedOutput.body with 'Code' and 'Type' fields
+            // "x-amzn-query-error" header is available when AwsQueryCompatibleTrait is applied to a service
+            // The header value contains query error Code and Type joined by ';'
+            // E.g. "MalformedInput;Sender" or "InternalFailure;Receiver"
+            writer.write("populateBodyWithQueryCompatibility(parsedOutput, output.headers);");
+        }
+
         // Outsource error code parsing since it's complex for this protocol.
-        writer.write("errorCode = loadRestJsonErrorCode(output, parsedOutput.body);");
+        writer.write("const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);");
     }
 
     @Override
@@ -149,5 +182,10 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     @Override
     public void generateProtocolTests(GenerationContext context) {
         AwsProtocolUtils.generateProtocolTests(this, context);
+    }
+
+    @Override
+    protected boolean enableSerdeElision() {
+        return true;
     }
 }

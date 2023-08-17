@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { DescribeNodeFromTemplateJobRequest, DescribeNodeFromTemplateJobResponse } from "../models/models_0";
+import {
+  DescribeNodeFromTemplateJobRequest,
+  DescribeNodeFromTemplateJobResponse,
+  DescribeNodeFromTemplateJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
-  deserializeAws_restJson1DescribeNodeFromTemplateJobCommand,
-  serializeAws_restJson1DescribeNodeFromTemplateJobCommand,
+  de_DescribeNodeFromTemplateJobCommand,
+  se_DescribeNodeFromTemplateJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeNodeFromTemplateJobCommand}.
+ */
 export interface DescribeNodeFromTemplateJobCommandInput extends DescribeNodeFromTemplateJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNodeFromTemplateJobCommand}.
+ */
 export interface DescribeNodeFromTemplateJobCommandOutput
   extends DescribeNodeFromTemplateJobResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a job to create a camera stream node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +52,57 @@ export interface DescribeNodeFromTemplateJobCommandOutput
  * import { PanoramaClient, DescribeNodeFromTemplateJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribeNodeFromTemplateJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // DescribeNodeFromTemplateJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeNodeFromTemplateJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeNodeFromTemplateJobResponse
+ * //   JobId: "STRING_VALUE", // required
+ * //   Status: "STRING_VALUE", // required
+ * //   StatusMessage: "STRING_VALUE", // required
+ * //   CreatedTime: new Date("TIMESTAMP"), // required
+ * //   LastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //   OutputPackageName: "STRING_VALUE", // required
+ * //   OutputPackageVersion: "STRING_VALUE", // required
+ * //   NodeName: "STRING_VALUE", // required
+ * //   NodeDescription: "STRING_VALUE",
+ * //   TemplateType: "STRING_VALUE", // required
+ * //   TemplateParameters: { // TemplateParametersMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   JobTags: [ // JobTagsList
+ * //     { // JobResourceTags
+ * //       ResourceType: "STRING_VALUE", // required
+ * //       Tags: { // TagMap // required
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeNodeFromTemplateJobCommandInput - {@link DescribeNodeFromTemplateJobCommandInput}
+ * @returns {@link DescribeNodeFromTemplateJobCommandOutput}
  * @see {@link DescribeNodeFromTemplateJobCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeFromTemplateJobCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The requestor does not have permission to access the target action or resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The target resource is in use.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request contains an invalid parameter value.</p>
+ *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DescribeNodeFromTemplateJobCommand extends $Command<
@@ -48,6 +113,18 @@ export class DescribeNodeFromTemplateJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNodeFromTemplateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +140,9 @@ export class DescribeNodeFromTemplateJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeNodeFromTemplateJobCommandInput, DescribeNodeFromTemplateJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeNodeFromTemplateJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +153,8 @@ export class DescribeNodeFromTemplateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNodeFromTemplateJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNodeFromTemplateJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeNodeFromTemplateJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +164,21 @@ export class DescribeNodeFromTemplateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNodeFromTemplateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeNodeFromTemplateJobCommand(input, context);
+    return se_DescribeNodeFromTemplateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNodeFromTemplateJobCommandOutput> {
-    return deserializeAws_restJson1DescribeNodeFromTemplateJobCommand(output, context);
+    return de_DescribeNodeFromTemplateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

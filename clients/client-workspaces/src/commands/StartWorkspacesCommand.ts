@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { StartWorkspacesRequest, StartWorkspacesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartWorkspacesCommand,
-  serializeAws_json1_1StartWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartWorkspacesCommand, se_StartWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StartWorkspacesCommand}.
+ */
 export interface StartWorkspacesCommandInput extends StartWorkspacesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartWorkspacesCommand}.
+ */
 export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the specified WorkSpaces.</p>
  *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
  *          state of <code>STOPPED</code>.</p>
@@ -31,13 +45,35 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * import { WorkSpacesClient, StartWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, StartWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // StartWorkspacesRequest
+ *   StartWorkspaceRequests: [ // StartWorkspaceRequests // required
+ *     { // StartRequest
+ *       WorkspaceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new StartWorkspacesCommand(input);
  * const response = await client.send(command);
+ * // { // StartWorkspacesResult
+ * //   FailedRequests: [ // FailedStartWorkspaceRequests
+ * //     { // FailedWorkspaceChangeRequest
+ * //       WorkspaceId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param StartWorkspacesCommandInput - {@link StartWorkspacesCommandInput}
+ * @returns {@link StartWorkspacesCommandOutput}
  * @see {@link StartWorkspacesCommandInput} for command's `input` shape.
  * @see {@link StartWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class StartWorkspacesCommand extends $Command<
@@ -48,6 +84,18 @@ export class StartWorkspacesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StartWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +111,9 @@ export class StartWorkspacesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartWorkspacesCommandInput, StartWorkspacesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartWorkspacesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +124,8 @@ export class StartWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartWorkspacesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartWorkspacesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +135,18 @@ export class StartWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartWorkspacesCommand(input, context);
+    return se_StartWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartWorkspacesCommandOutput> {
-    return deserializeAws_json1_1StartWorkspacesCommand(output, context);
+    return de_StartWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

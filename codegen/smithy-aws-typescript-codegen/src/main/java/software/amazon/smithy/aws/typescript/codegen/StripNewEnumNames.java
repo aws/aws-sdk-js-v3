@@ -19,7 +19,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
-import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.model.shapes.Shape;
@@ -59,8 +58,7 @@ public final class StripNewEnumNames implements TypeScriptIntegration {
     }
 
     @Override
-    public Model preprocessModel(PluginContext context, TypeScriptSettings settings) {
-        Model model = context.getModel();
+    public Model preprocessModel(Model model, TypeScriptSettings settings) {
         Set<Shape> shapesToUpdate = model.shapes(StringShape.class)
                 .filter(shape -> enumsToStrip.contains(shape.getId()))
                 .flatMap(shape -> Trait.flatMapStream(shape, EnumTrait.class))

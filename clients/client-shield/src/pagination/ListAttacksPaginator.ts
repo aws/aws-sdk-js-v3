@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListAttacksCommand, ListAttacksCommandInput, ListAttacksCommandOutput } from "../commands/ListAttacksCommand";
-import { Shield } from "../Shield";
 import { ShieldClient } from "../ShieldClient";
 import { ShieldPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ShieldClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAttacksCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Shield,
-  input: ListAttacksCommandInput,
-  ...args: any
-): Promise<ListAttacksCommandOutput> => {
-  // @ts-ignore
-  return await client.listAttacks(input, ...args);
-};
 export async function* paginateListAttacks(
   config: ShieldPaginationConfiguration,
   input: ListAttacksCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListAttacks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Shield) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ShieldClient) {
+    if (config.client instanceof ShieldClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Shield | ShieldClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UntagResourceRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagResourceCommand,
-  serializeAws_json1_1UntagResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandInput extends UntagResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes specific tags from a secret.</p>
  *          <p>This operation is idempotent. If a requested tag is not attached to the secret, no error
  *       is returned and the secret metadata is unchanged.</p>
@@ -31,10 +45,11 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *         permissions for this secret, then the operation is blocked and returns an Access Denied
  *         error.</p>
  *          </important>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:UntagResource</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+ *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  * @example
@@ -43,13 +58,68 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { SecretsManagerClient, UntagResourceCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, UntagResourceCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // UntagResourceRequest
+ *   SecretId: "STRING_VALUE", // required
+ *   TagKeys: [ // TagKeyListType // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The parameter name or value is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>A parameter value is not valid for the current state of the
+ *       resource.</p>
+ *          <p>Possible causes:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The secret is scheduled for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
+ *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
+ *             </li>
+ *             <li>
+ *                <p>The secret is managed by another service, and you must use that service to update it.
+ *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
+ *
+ * @example To remove tags from a secret
+ * ```javascript
+ * // The following example shows how to remove two tags from a secret's metadata. For each, both the tag and the associated value are removed. There is no output from this API. To see the result, use the DescribeSecret operation.
+ * const input = {
+ *   "SecretId": "MyTestDatabaseSecret",
+ *   "TagKeys": [
+ *     "FirstTag",
+ *     "SecondTag"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * await client.send(command);
+ * // example id: to-remove-tags-from-a-secret-1524002239065
+ * ```
  *
  */
 export class UntagResourceCommand extends $Command<
@@ -60,6 +130,18 @@ export class UntagResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +157,7 @@ export class UntagResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,8 +168,8 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +179,18 @@ export class UntagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagResourceCommand(input, context);
+    return se_UntagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
-    return deserializeAws_json1_1UntagResourceCommand(output, context);
+    return de_UntagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

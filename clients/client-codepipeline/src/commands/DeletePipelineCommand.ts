@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { DeletePipelineInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePipelineCommand,
-  serializeAws_json1_1DeletePipelineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePipelineCommand, se_DeletePipelineCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeletePipelineCommand}.
+ */
 export interface DeletePipelineCommandInput extends DeletePipelineInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePipelineCommand}.
+ */
 export interface DeletePipelineCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,29 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * import { CodePipelineClient, DeletePipelineCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DeletePipelineCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // DeletePipelineInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
+ * @returns {@link DeletePipelineCommandOutput}
  * @see {@link DeletePipelineCommandInput} for command's `input` shape.
  * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class DeletePipelineCommand extends $Command<
@@ -46,6 +76,18 @@ export class DeletePipelineCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +103,9 @@ export class DeletePipelineCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeletePipelineCommandInput, DeletePipelineCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeletePipelineCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +116,8 @@ export class DeletePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePipelineInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +127,18 @@ export class DeletePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePipelineCommand(input, context);
+    return se_DeletePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipelineCommandOutput> {
-    return deserializeAws_json1_1DeletePipelineCommand(output, context);
+    return de_DeletePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

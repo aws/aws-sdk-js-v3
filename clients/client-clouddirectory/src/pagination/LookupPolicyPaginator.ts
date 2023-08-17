@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CloudDirectory } from "../CloudDirectory";
 import { CloudDirectoryClient } from "../CloudDirectoryClient";
 import {
   LookupPolicyCommand,
@@ -10,7 +10,7 @@ import {
 import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudDirectoryClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new LookupPolicyCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudDirectory,
-  input: LookupPolicyCommandInput,
-  ...args: any
-): Promise<LookupPolicyCommandOutput> => {
-  // @ts-ignore
-  return await client.lookupPolicy(input, ...args);
-};
 export async function* paginateLookupPolicy(
   config: CloudDirectoryPaginationConfiguration,
   input: LookupPolicyCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateLookupPolicy(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CloudDirectory) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudDirectoryClient) {
+    if (config.client instanceof CloudDirectoryClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudDirectory | CloudDirectoryClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

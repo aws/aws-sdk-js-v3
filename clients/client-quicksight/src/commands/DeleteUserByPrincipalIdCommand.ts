@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { DeleteUserByPrincipalIdRequest, DeleteUserByPrincipalIdResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUserByPrincipalIdCommand,
-  serializeAws_restJson1DeleteUserByPrincipalIdCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteUserByPrincipalIdRequest, DeleteUserByPrincipalIdResponse } from "../models/models_3";
+import { de_DeleteUserByPrincipalIdCommand, se_DeleteUserByPrincipalIdCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteUserByPrincipalIdCommand}.
+ */
 export interface DeleteUserByPrincipalIdCommandInput extends DeleteUserByPrincipalIdRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteUserByPrincipalIdCommand}.
+ */
 export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrincipalIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a user identified by its principal ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,52 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
  * import { QuickSightClient, DeleteUserByPrincipalIdCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteUserByPrincipalIdCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteUserByPrincipalIdRequest
+ *   PrincipalId: "STRING_VALUE", // required
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserByPrincipalIdCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteUserByPrincipalIdResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
+ * @param DeleteUserByPrincipalIdCommandInput - {@link DeleteUserByPrincipalIdCommandInput}
+ * @returns {@link DeleteUserByPrincipalIdCommandOutput}
  * @see {@link DeleteUserByPrincipalIdCommandInput} for command's `input` shape.
  * @see {@link DeleteUserByPrincipalIdCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link PreconditionNotMetException} (client fault)
+ *  <p>One or more preconditions aren't met.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (server fault)
+ *  <p>This resource is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteUserByPrincipalIdCommand extends $Command<
@@ -46,6 +99,18 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserByPrincipalIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +126,9 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteUserByPrincipalIdCommandInput, DeleteUserByPrincipalIdCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteUserByPrincipalIdCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +139,8 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserByPrincipalIdRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserByPrincipalIdResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +150,18 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserByPrincipalIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUserByPrincipalIdCommand(input, context);
+    return se_DeleteUserByPrincipalIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserByPrincipalIdCommandOutput> {
-    return deserializeAws_restJson1DeleteUserByPrincipalIdCommand(output, context);
+    return de_DeleteUserByPrincipalIdCommand(output, context);
   }
 
   // Start section: command_body_extra

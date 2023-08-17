@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,27 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MalformedByteInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedByteCommand,
-  serializeAws_restJson1MalformedByteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedByteCommand, se_MalformedByteCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link MalformedByteCommand}.
+ */
 export interface MalformedByteCommandInput extends MalformedByteInput {}
+/**
+ * @public
+ *
+ * The output of {@link MalformedByteCommand}.
+ */
 export interface MalformedByteCommandOutput extends __MetadataBearer {}
 
 export class MalformedByteCommand extends $Command<
@@ -29,6 +41,9 @@ export class MalformedByteCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedByteCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +69,8 @@ export class MalformedByteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedByteInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,12 +80,18 @@ export class MalformedByteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedByteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedByteCommand(input, context);
+    return se_MalformedByteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedByteCommandOutput> {
-    return deserializeAws_restJson1MalformedByteCommand(output, context);
+    return de_MalformedByteCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,40 +11,67 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { TerminateJobFlowsInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1TerminateJobFlowsCommand,
-  serializeAws_json1_1TerminateJobFlowsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TerminateJobFlowsCommand, se_TerminateJobFlowsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link TerminateJobFlowsCommand}.
+ */
 export interface TerminateJobFlowsCommandInput extends TerminateJobFlowsInput {}
+/**
+ * @public
+ *
+ * The output of {@link TerminateJobFlowsCommand}.
+ */
 export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut
- *          down, any step not yet completed is canceled and the EC2 instances on which the cluster is
- *          running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri
- *          was specified when the cluster was created.</p>
+ *          down, any step not yet completed is canceled and the Amazon EC2 instances on which
+ *          the cluster is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the cluster was created.</p>
  *          <p>The maximum number of clusters allowed is 10. The call to <code>TerminateJobFlows</code>
  *          is asynchronous. Depending on the configuration of the cluster, it may take up to 1-5
  *          minutes for the cluster to completely terminate and release allocated resources, such as
- *          Amazon EC2 instances.</p>
+ *             Amazon EC2 instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, TerminateJobFlowsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, TerminateJobFlowsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // TerminateJobFlowsInput
+ *   JobFlowIds: [ // XmlStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new TerminateJobFlowsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param TerminateJobFlowsCommandInput - {@link TerminateJobFlowsCommandInput}
+ * @returns {@link TerminateJobFlowsCommandOutput}
  * @see {@link TerminateJobFlowsCommandInput} for command's `input` shape.
  * @see {@link TerminateJobFlowsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class TerminateJobFlowsCommand extends $Command<
@@ -53,6 +82,18 @@ export class TerminateJobFlowsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateJobFlowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +109,9 @@ export class TerminateJobFlowsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TerminateJobFlowsCommandInput, TerminateJobFlowsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, TerminateJobFlowsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +122,8 @@ export class TerminateJobFlowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateJobFlowsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +133,18 @@ export class TerminateJobFlowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateJobFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateJobFlowsCommand(input, context);
+    return se_TerminateJobFlowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateJobFlowsCommandOutput> {
-    return deserializeAws_json1_1TerminateJobFlowsCommand(output, context);
+    return de_TerminateJobFlowsCommand(output, context);
   }
 
   // Start section: command_body_extra

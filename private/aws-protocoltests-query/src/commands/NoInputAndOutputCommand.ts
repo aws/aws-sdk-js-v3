@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +10,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { NoInputAndOutputInput, NoInputAndOutputOutput } from "../models/models_0";
-import {
-  deserializeAws_queryNoInputAndOutputCommand,
-  serializeAws_queryNoInputAndOutputCommand,
-} from "../protocols/Aws_query";
+import { de_NoInputAndOutputCommand, se_NoInputAndOutputCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link NoInputAndOutputCommand}.
+ */
 export interface NoInputAndOutputCommandInput extends NoInputAndOutputInput {}
+/**
+ * @public
+ *
+ * The output of {@link NoInputAndOutputCommand}.
+ */
 export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * The example tests how requests and responses are serialized when there's
  * no request payload or response members.
  *
@@ -32,13 +45,21 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * import { QueryProtocolClient, NoInputAndOutputCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, NoInputAndOutputCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new NoInputAndOutputCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param NoInputAndOutputCommandInput - {@link NoInputAndOutputCommandInput}
+ * @returns {@link NoInputAndOutputCommandOutput}
  * @see {@link NoInputAndOutputCommandInput} for command's `input` shape.
  * @see {@link NoInputAndOutputCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
+ *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class NoInputAndOutputCommand extends $Command<
@@ -49,6 +70,9 @@ export class NoInputAndOutputCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: NoInputAndOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,8 +98,8 @@ export class NoInputAndOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NoInputAndOutputInput.filterSensitiveLog,
-      outputFilterSensitiveLog: NoInputAndOutputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +109,18 @@ export class NoInputAndOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NoInputAndOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryNoInputAndOutputCommand(input, context);
+    return se_NoInputAndOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NoInputAndOutputCommandOutput> {
-    return deserializeAws_queryNoInputAndOutputCommand(output, context);
+    return de_NoInputAndOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

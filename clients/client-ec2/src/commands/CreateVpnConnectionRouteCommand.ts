@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateVpnConnectionRouteRequest } from "../models/models_2";
-import {
-  deserializeAws_ec2CreateVpnConnectionRouteCommand,
-  serializeAws_ec2CreateVpnConnectionRouteCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateVpnConnectionRouteCommand, se_CreateVpnConnectionRouteCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateVpnConnectionRouteCommand}.
+ */
 export interface CreateVpnConnectionRouteCommandInput extends CreateVpnConnectionRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVpnConnectionRouteCommand}.
+ */
 export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a static route associated with a VPN connection between an existing virtual
  *             private gateway and a VPN customer gateway. The static route allows traffic to be routed
  *             from the virtual private gateway to the VPN customer gateway.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
  *                 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,24 @@ export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * import { EC2Client, CreateVpnConnectionRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVpnConnectionRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateVpnConnectionRouteRequest
+ *   DestinationCidrBlock: "STRING_VALUE", // required
+ *   VpnConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new CreateVpnConnectionRouteCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateVpnConnectionRouteCommandInput - {@link CreateVpnConnectionRouteCommandInput}
+ * @returns {@link CreateVpnConnectionRouteCommandOutput}
  * @see {@link CreateVpnConnectionRouteCommandInput} for command's `input` shape.
  * @see {@link CreateVpnConnectionRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateVpnConnectionRouteCommand extends $Command<
@@ -50,6 +75,18 @@ export class CreateVpnConnectionRouteCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpnConnectionRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +102,9 @@ export class CreateVpnConnectionRouteCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateVpnConnectionRouteCommandInput, CreateVpnConnectionRouteCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateVpnConnectionRouteCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +115,8 @@ export class CreateVpnConnectionRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpnConnectionRouteRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +126,18 @@ export class CreateVpnConnectionRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpnConnectionRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVpnConnectionRouteCommand(input, context);
+    return se_CreateVpnConnectionRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpnConnectionRouteCommandOutput> {
-    return deserializeAws_ec2CreateVpnConnectionRouteCommand(output, context);
+    return de_CreateVpnConnectionRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

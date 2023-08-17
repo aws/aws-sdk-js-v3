@@ -1,8 +1,10 @@
-import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
+// smithy-typescript generated code
 import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -11,19 +13,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateBucketRequest, CreateBucketResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateBucketCommand,
-  serializeAws_restXmlCreateBucketCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateBucketCommand, se_CreateBucketCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateBucketCommand}.
+ */
 export interface CreateBucketCommandInput extends CreateBucketRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBucketCommand}.
+ */
 export interface CreateBucketCommandOutput extends CreateBucketResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">Create
  *                Bucket</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -49,7 +63,6 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
  *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your API request, see the
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html#API_control_CreateBucket_Examples">Examples</a> section.</p>
- *
  *          <p>The following actions are related to <code>CreateBucket</code> for
  *          Amazon S3 on Outposts:</p>
  *          <ul>
@@ -85,13 +98,45 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * import { S3ControlClient, CreateBucketCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateBucketCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // CreateBucketRequest
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",
+ *   Bucket: "STRING_VALUE", // required
+ *   CreateBucketConfiguration: { // CreateBucketConfiguration
+ *     LocationConstraint: "EU" || "eu-west-1" || "us-west-1" || "us-west-2" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "sa-east-1" || "cn-north-1" || "eu-central-1",
+ *   },
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWrite: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   ObjectLockEnabledForBucket: true || false,
+ *   OutpostId: "STRING_VALUE",
+ * };
  * const command = new CreateBucketCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBucketResult
+ * //   Location: "STRING_VALUE",
+ * //   BucketArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateBucketCommandInput - {@link CreateBucketCommandInput}
+ * @returns {@link CreateBucketCommandOutput}
  * @see {@link CreateBucketCommandInput} for command's `input` shape.
  * @see {@link CreateBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
+ * @throws {@link BucketAlreadyExists} (client fault)
+ *  <p>The requested Outposts bucket name is not available. The bucket namespace is shared by
+ *          all users of the Outposts in this Region. Select a different name and try
+ *          again.</p>
+ *
+ * @throws {@link BucketAlreadyOwnedByYou} (client fault)
+ *  <p>The Outposts bucket you tried to create already exists, and you own it. </p>
+ *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class CreateBucketCommand extends $Command<
@@ -102,6 +147,21 @@ export class CreateBucketCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      OutpostId: { type: "contextParams", name: "OutpostId" },
+      Bucket: { type: "contextParams", name: "Bucket" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +177,7 @@ export class CreateBucketCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateBucketCommandInput, CreateBucketCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateBucketCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getRedirectFromPostIdPlugin(configuration));
     this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
 
@@ -129,8 +190,8 @@ export class CreateBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBucketRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateBucketResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +201,18 @@ export class CreateBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateBucketCommand(input, context);
+    return se_CreateBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketCommandOutput> {
-    return deserializeAws_restXmlCreateBucketCommand(output, context);
+    return de_CreateBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

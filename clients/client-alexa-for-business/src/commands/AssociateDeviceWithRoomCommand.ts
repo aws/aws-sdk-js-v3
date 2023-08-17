@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { AssociateDeviceWithRoomRequest, AssociateDeviceWithRoomResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateDeviceWithRoomCommand,
-  serializeAws_json1_1AssociateDeviceWithRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateDeviceWithRoomCommand, se_AssociateDeviceWithRoomCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateDeviceWithRoomCommand}.
+ */
 export interface AssociateDeviceWithRoomCommandInput extends AssociateDeviceWithRoomRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateDeviceWithRoomCommand}.
+ */
 export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWithRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
+ * @deprecated
+ *
  * <p>Associates a device with a given room. This applies all the settings from the room
  *          profile to the device, and all the skills in any skill groups added to that room. This
  *          operation requires the device to be online, or else a manual sync is required. </p>
@@ -31,13 +47,33 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  * import { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // AssociateDeviceWithRoomRequest
+ *   DeviceArn: "STRING_VALUE",
+ *   RoomArn: "STRING_VALUE",
+ * };
  * const command = new AssociateDeviceWithRoomCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param AssociateDeviceWithRoomCommandInput - {@link AssociateDeviceWithRoomCommandInput}
+ * @returns {@link AssociateDeviceWithRoomCommandOutput}
  * @see {@link AssociateDeviceWithRoomCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link DeviceNotRegisteredException} (client fault)
+ *  <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class AssociateDeviceWithRoomCommand extends $Command<
@@ -48,6 +84,18 @@ export class AssociateDeviceWithRoomCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDeviceWithRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +111,9 @@ export class AssociateDeviceWithRoomCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateDeviceWithRoomCommandInput, AssociateDeviceWithRoomCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateDeviceWithRoomCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +124,8 @@ export class AssociateDeviceWithRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDeviceWithRoomRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDeviceWithRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +135,18 @@ export class AssociateDeviceWithRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDeviceWithRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDeviceWithRoomCommand(input, context);
+    return se_AssociateDeviceWithRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDeviceWithRoomCommandOutput> {
-    return deserializeAws_json1_1AssociateDeviceWithRoomCommand(output, context);
+    return de_AssociateDeviceWithRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

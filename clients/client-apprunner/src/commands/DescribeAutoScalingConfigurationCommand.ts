@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { DescribeAutoScalingConfigurationRequest, DescribeAutoScalingConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeAutoScalingConfigurationCommand,
-  serializeAws_json1_0DescribeAutoScalingConfigurationCommand,
+  de_DescribeAutoScalingConfigurationCommand,
+  se_DescribeAutoScalingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeAutoScalingConfigurationCommand}.
+ */
 export interface DescribeAutoScalingConfigurationCommandInput extends DescribeAutoScalingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAutoScalingConfigurationCommand}.
+ */
 export interface DescribeAutoScalingConfigurationCommandOutput
   extends DescribeAutoScalingConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a full description of an App Runner automatic scaling configuration resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,45 @@ export interface DescribeAutoScalingConfigurationCommandOutput
  * import { AppRunnerClient, DescribeAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DescribeAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // DescribeAutoScalingConfigurationRequest
+ *   AutoScalingConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAutoScalingConfigurationResponse
+ * //   AutoScalingConfiguration: { // AutoScalingConfiguration
+ * //     AutoScalingConfigurationArn: "STRING_VALUE",
+ * //     AutoScalingConfigurationName: "STRING_VALUE",
+ * //     AutoScalingConfigurationRevision: Number("int"),
+ * //     Latest: true || false,
+ * //     Status: "ACTIVE" || "INACTIVE",
+ * //     MaxConcurrency: Number("int"),
+ * //     MinSize: Number("int"),
+ * //     MaxSize: Number("int"),
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     DeletedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeAutoScalingConfigurationCommandInput - {@link DescribeAutoScalingConfigurationCommandInput}
+ * @returns {@link DescribeAutoScalingConfigurationCommandOutput}
  * @see {@link DescribeAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+ *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DescribeAutoScalingConfigurationCommand extends $Command<
@@ -48,6 +97,18 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutoScalingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +124,9 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAutoScalingConfigurationCommandInput, DescribeAutoScalingConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAutoScalingConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +137,8 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAutoScalingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAutoScalingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,18 +148,24 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAutoScalingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeAutoScalingConfigurationCommand(input, context);
+    return se_DescribeAutoScalingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingConfigurationCommandOutput> {
-    return deserializeAws_json1_0DescribeAutoScalingConfigurationCommand(output, context);
+    return de_DescribeAutoScalingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

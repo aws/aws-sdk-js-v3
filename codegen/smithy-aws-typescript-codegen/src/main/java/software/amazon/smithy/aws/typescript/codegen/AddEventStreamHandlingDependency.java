@@ -52,11 +52,13 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                         .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency,
                                 "EventStream", HAS_CONFIG)
                         .servicePredicate(AddEventStreamHandlingDependency::hasEventStreamInput)
+                        .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency,
                                 "EventStream", HAS_MIDDLEWARE)
                         .operationPredicate(AddEventStreamHandlingDependency::hasEventStreamInput)
+                        .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                         .build()
         );
     }
@@ -68,9 +70,13 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
+        if (settings.getExperimentalIdentityAndAuth()) {
+            return;
+        }
+        // feat(experimentalIdentityAndAuth): control branch for event stream handler interface fields
         if (hasEventStreamInput(model, settings.getService(model))) {
             writer.addImport("EventStreamPayloadHandlerProvider", "__EventStreamPayloadHandlerProvider",
-                    TypeScriptDependency.AWS_SDK_TYPES.packageName);
+                    TypeScriptDependency.AWS_SDK_TYPES);
             writer.writeDocs("The function that provides necessary utilities for handling request event stream.\n"
                             + "@internal");
             writer.write("eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;\n");
@@ -89,24 +95,29 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
             return Collections.emptyMap();
         }
 
+        if (settings.getExperimentalIdentityAndAuth()) {
+            return Collections.emptyMap();
+        }
+        // feat(experimentalIdentityAndAuth): control branch for event stream handler runtime config
         switch (target) {
             case NODE:
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE);
                     writer.addImport("eventStreamPayloadHandlerProvider", "eventStreamPayloadHandlerProvider",
-                            AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE.packageName);
+                            AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE);
                     writer.write("eventStreamPayloadHandlerProvider");
                 });
             case BROWSER:
                 /**
-                 * Browser doesn't support streaming requests as of March 2020.
+                 * Browser doesn't support streaming requests as of Aug 2022.
                  * Each service client needs to support eventstream request in browser individually.
-                 * Services like TranscribeStreaming support it via WebSocket.
+                 * Services like TranscribeStreaming and Rekognition supports it via WebSocket.
+                 * See the websocket customization in AddWebsocketPlugin.
                  */
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.addImport("invalidFunction", "invalidFunction",
-                            TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+                            TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.openBlock("(() => ({", "}))", () -> {
                         writer.write("handle: invalidFunction(\"event stream request is not supported in browser.\"),");
                     });
@@ -120,7 +131,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.addImport("invalidFunction", "invalidFunction",
-                            TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+                            TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.openBlock("(() => ({", "}))", () -> {
                         writer.write("handle: invalidFunction(\"event stream request "
                                 + "is not supported in ReactNative.\"),");

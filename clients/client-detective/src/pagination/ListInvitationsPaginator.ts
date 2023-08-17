@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
 } from "../commands/ListInvitationsCommand";
-import { Detective } from "../Detective";
 import { DetectiveClient } from "../DetectiveClient";
 import { DetectivePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DetectiveClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListInvitationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Detective,
-  input: ListInvitationsCommandInput,
-  ...args: any
-): Promise<ListInvitationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listInvitations(input, ...args);
-};
 export async function* paginateListInvitations(
   config: DetectivePaginationConfiguration,
   input: ListInvitationsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListInvitations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Detective) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DetectiveClient) {
+    if (config.client instanceof DetectiveClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Detective | DetectiveClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

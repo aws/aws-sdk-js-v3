@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { RegisterInstanceRequest, RegisterInstanceResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1RegisterInstanceCommand,
-  serializeAws_json1_1RegisterInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterInstanceCommand, se_RegisterInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RegisterInstanceCommand}.
+ */
 export interface RegisterInstanceCommandInput extends RegisterInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterInstanceCommand}.
+ */
 export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.</p>
  *          <note>
  *             <p>We do not recommend using this action to register instances. The complete registration
@@ -47,13 +61,40 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, _
  * import { OpsWorksClient, RegisterInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, RegisterInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // RegisterInstanceRequest
+ *   StackId: "STRING_VALUE", // required
+ *   Hostname: "STRING_VALUE",
+ *   PublicIp: "STRING_VALUE",
+ *   PrivateIp: "STRING_VALUE",
+ *   RsaPublicKey: "STRING_VALUE",
+ *   RsaPublicKeyFingerprint: "STRING_VALUE",
+ *   InstanceIdentity: { // InstanceIdentity
+ *     Document: "STRING_VALUE",
+ *     Signature: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RegisterInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterInstanceResult
+ * //   InstanceId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param RegisterInstanceCommandInput - {@link RegisterInstanceCommandInput}
+ * @returns {@link RegisterInstanceCommandOutput}
  * @see {@link RegisterInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class RegisterInstanceCommand extends $Command<
@@ -64,6 +105,18 @@ export class RegisterInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +132,9 @@ export class RegisterInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterInstanceCommandInput, RegisterInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -89,8 +145,8 @@ export class RegisterInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +156,18 @@ export class RegisterInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterInstanceCommand(input, context);
+    return se_RegisterInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterInstanceCommandOutput> {
-    return deserializeAws_json1_1RegisterInstanceCommand(output, context);
+    return de_RegisterInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

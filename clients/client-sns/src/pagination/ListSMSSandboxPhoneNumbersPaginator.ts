@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListSMSSandboxPhoneNumbersCommand,
   ListSMSSandboxPhoneNumbersCommandInput,
   ListSMSSandboxPhoneNumbersCommandOutput,
 } from "../commands/ListSMSSandboxPhoneNumbersCommand";
-import { SNS } from "../SNS";
 import { SNSClient } from "../SNSClient";
 import { SNSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SNSClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSMSSandboxPhoneNumbersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SNS,
-  input: ListSMSSandboxPhoneNumbersCommandInput,
-  ...args: any
-): Promise<ListSMSSandboxPhoneNumbersCommandOutput> => {
-  // @ts-ignore
-  return await client.listSMSSandboxPhoneNumbers(input, ...args);
-};
 export async function* paginateListSMSSandboxPhoneNumbers(
   config: SNSPaginationConfiguration,
   input: ListSMSSandboxPhoneNumbersCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListSMSSandboxPhoneNumbers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SNS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SNSClient) {
+    if (config.client instanceof SNSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SNS | SNSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

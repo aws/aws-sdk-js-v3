@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GetUsagePlansRequest, UsagePlans } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUsagePlansCommand,
-  serializeAws_restJson1GetUsagePlansCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUsagePlansCommand, se_GetUsagePlansCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetUsagePlansCommand}.
+ */
 export interface GetUsagePlansCommandInput extends GetUsagePlansRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUsagePlansCommand}.
+ */
 export interface GetUsagePlansCommandOutput extends UsagePlans, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all the usage plans of the caller's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,71 @@ export interface GetUsagePlansCommandOutput extends UsagePlans, __MetadataBearer
  * import { APIGatewayClient, GetUsagePlansCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetUsagePlansCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetUsagePlansRequest
+ *   position: "STRING_VALUE",
+ *   keyId: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new GetUsagePlansCommand(input);
  * const response = await client.send(command);
+ * // { // UsagePlans
+ * //   items: [ // ListOfUsagePlan
+ * //     { // UsagePlan
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       apiStages: [ // ListOfApiStage
+ * //         { // ApiStage
+ * //           apiId: "STRING_VALUE",
+ * //           stage: "STRING_VALUE",
+ * //           throttle: { // MapOfApiStageThrottleSettings
+ * //             "<keys>": { // ThrottleSettings
+ * //               burstLimit: Number("int"),
+ * //               rateLimit: Number("double"),
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       throttle: {
+ * //         burstLimit: Number("int"),
+ * //         rateLimit: Number("double"),
+ * //       },
+ * //       quota: { // QuotaSettings
+ * //         limit: Number("int"),
+ * //         offset: Number("int"),
+ * //         period: "DAY" || "WEEK" || "MONTH",
+ * //       },
+ * //       productCode: "STRING_VALUE",
+ * //       tags: { // MapOfStringToString
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetUsagePlansCommandInput - {@link GetUsagePlansCommandInput}
+ * @returns {@link GetUsagePlansCommandOutput}
  * @see {@link GetUsagePlansCommandInput} for command's `input` shape.
  * @see {@link GetUsagePlansCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetUsagePlansCommand extends $Command<
@@ -46,6 +118,18 @@ export class GetUsagePlansCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsagePlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +145,7 @@ export class GetUsagePlansCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetUsagePlansCommandInput, GetUsagePlansCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetUsagePlansCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +156,8 @@ export class GetUsagePlansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUsagePlansRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UsagePlans.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +167,18 @@ export class GetUsagePlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsagePlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUsagePlansCommand(input, context);
+    return se_GetUsagePlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsagePlansCommandOutput> {
-    return deserializeAws_restJson1GetUsagePlansCommand(output, context);
+    return de_GetUsagePlansCommand(output, context);
   }
 
   // Start section: command_body_extra

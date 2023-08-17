@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,34 +11,75 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { ListDeploymentGroupsInput, ListDeploymentGroupsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeploymentGroupsCommand,
-  serializeAws_json1_1ListDeploymentGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDeploymentGroupsCommand, se_ListDeploymentGroupsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListDeploymentGroupsCommand}.
+ */
 export interface ListDeploymentGroupsCommandInput extends ListDeploymentGroupsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListDeploymentGroupsCommand}.
+ */
 export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the deployment groups for an application registered with the IAM user or AWS
- *             account.</p>
+ * @public
+ * <p>Lists the deployment groups for an application registered with the IAM
+ *             user or Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, ListDeploymentGroupsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentGroupsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // ListDeploymentGroupsInput
+ *   applicationName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeploymentGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeploymentGroupsOutput
+ * //   applicationName: "STRING_VALUE",
+ * //   deploymentGroups: [ // DeploymentGroupsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListDeploymentGroupsCommandInput - {@link ListDeploymentGroupsCommandInput}
+ * @returns {@link ListDeploymentGroupsCommandOutput}
  * @see {@link ListDeploymentGroupsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link ApplicationDoesNotExistException} (client fault)
+ *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListDeploymentGroupsCommand extends $Command<
@@ -47,6 +90,18 @@ export class ListDeploymentGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +117,9 @@ export class ListDeploymentGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDeploymentGroupsCommandInput, ListDeploymentGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDeploymentGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +130,8 @@ export class ListDeploymentGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeploymentGroupsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDeploymentGroupsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +141,18 @@ export class ListDeploymentGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeploymentGroupsCommand(input, context);
+    return se_ListDeploymentGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentGroupsCommandOutput> {
-    return deserializeAws_json1_1ListDeploymentGroupsCommand(output, context);
+    return de_ListDeploymentGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

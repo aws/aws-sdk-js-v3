@@ -1,12 +1,14 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { ParsedIniData, Profile } from "@aws-sdk/shared-ini-file-loader";
-import { getMasterProfileName } from "@aws-sdk/util-credentials";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { getProfileName } from "@smithy/shared-ini-file-loader";
+import { ParsedIniData, Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
 import { resolveCredentialSource } from "./resolveCredentialSource";
 import { resolveProfileData } from "./resolveProfileData";
 
 /**
+ * @internal
+ *
  * @see http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
  * TODO update the above to link to V3 docs
  */
@@ -49,6 +51,9 @@ interface AssumeRoleWithProviderProfile extends Profile {
   credential_source: string;
 }
 
+/**
+ * @internal
+ */
 export const isAssumeRoleProfile = (arg: any) =>
   Boolean(arg) &&
   typeof arg === "object" &&
@@ -64,11 +69,14 @@ const isAssumeRoleWithSourceProfile = (arg: any): arg is AssumeRoleWithSourcePro
 const isAssumeRoleWithProviderProfile = (arg: any): arg is AssumeRoleWithProviderProfile =>
   typeof arg.credential_source === "string" && typeof arg.source_profile === "undefined";
 
+/**
+ * @internal
+ */
 export const resolveAssumeRoleCredentials = async (
   profileName: string,
   profiles: ParsedIniData,
   options: FromIniInit,
-  visitedProfiles: { [profileName: string]: true } = {}
+  visitedProfiles: Record<string, true> = {}
 ) => {
   const data = profiles[profileName];
 
@@ -83,7 +91,7 @@ export const resolveAssumeRoleCredentials = async (
   if (source_profile && source_profile in visitedProfiles) {
     throw new CredentialsProviderError(
       `Detected a cycle attempting to resolve credentials for profile` +
-        ` ${getMasterProfileName(options)}. Profiles visited: ` +
+        ` ${getProfileName(options)}. Profiles visited: ` +
         Object.keys(visitedProfiles).join(", "),
       false
     );

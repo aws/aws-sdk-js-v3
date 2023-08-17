@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -72,6 +72,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#AssociateRoleToGroupResponse": {
@@ -83,6 +86,9 @@
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the role ARN was associated with the group."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#AssociateServiceRoleToAccount": {
@@ -120,6 +126,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#AssociateServiceRoleToAccountResponse": {
@@ -131,6 +140,9 @@
             "smithy.api#documentation": "The time when the service role was associated with the account."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#BadRequestException": {
@@ -187,18 +199,21 @@
         "InvalidInputRecords": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version."
           }
         },
         "RecordsProcessed": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "The total number of group records from the input file that have been processed so far, or attempted."
           }
         },
         "RetryAttempts": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. ''StartBulkDeployment'' retries a group deployment up to five times."
           }
         }
@@ -270,35 +285,47 @@
       }
     },
     "com.amazonaws.greengrass#BulkDeploymentStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "The current status of the bulk deployment.",
-        "smithy.api#enum": [
-          {
-            "value": "Initializing",
-            "name": "Initializing"
-          },
-          {
-            "value": "Running",
-            "name": "Running"
-          },
-          {
-            "value": "Completed",
-            "name": "Completed"
-          },
-          {
-            "value": "Stopping",
-            "name": "Stopping"
-          },
-          {
-            "value": "Stopped",
-            "name": "Stopped"
-          },
-          {
-            "value": "Failed",
-            "name": "Failed"
+      "type": "enum",
+      "members": {
+        "Initializing": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Initializing"
           }
-        ]
+        },
+        "Running": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Running"
+          }
+        },
+        "Completed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Completed"
+          }
+        },
+        "Stopping": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Stopping"
+          }
+        },
+        "Stopped": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Stopped"
+          }
+        },
+        "Failed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The current status of the bulk deployment."
       }
     },
     "com.amazonaws.greengrass#BulkDeployments": {
@@ -308,18 +335,20 @@
       }
     },
     "com.amazonaws.greengrass#ConfigurationSyncStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "InSync",
-            "name": "InSync"
-          },
-          {
-            "value": "OutOfSync",
-            "name": "OutOfSync"
+      "type": "enum",
+      "members": {
+        "InSync": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InSync"
           }
-        ]
+        },
+        "OutOfSync": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OutOfSync"
+          }
+        }
       }
     },
     "com.amazonaws.greengrass#ConnectivityInfo": {
@@ -346,6 +375,7 @@
         "PortNumber": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "The port of the Greengrass core. Usually 8883."
           }
         }
@@ -416,6 +446,7 @@
         "SyncShadow": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "If true, the core's local shadow is automatically synced with the cloud."
           }
         },
@@ -495,6 +526,9 @@
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateConnectorDefinitionResponse": {
@@ -542,6 +576,9 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateConnectorDefinitionVersion": {
@@ -590,6 +627,9 @@
             "smithy.api#documentation": "A list of references to connectors in this version, with their corresponding configuration settings."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateConnectorDefinitionVersionResponse": {
@@ -619,6 +659,9 @@
             "smithy.api#documentation": "The ID of the version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateCoreDefinition": {
@@ -673,7 +716,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Information needed to create a core definition."
+        "smithy.api#documentation": "Information needed to create a core definition.",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateCoreDefinitionResponse": {
@@ -721,6 +765,9 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateCoreDefinitionVersion": {
@@ -769,6 +816,9 @@
             "smithy.api#documentation": "A list of cores in the core definition version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateCoreDefinitionVersionResponse": {
@@ -798,6 +848,9 @@
             "smithy.api#documentation": "The ID of the version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateDeployment": {
@@ -859,6 +912,9 @@
             "smithy.api#documentation": "The ID of the group version to be deployed."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateDeploymentResponse": {
@@ -876,6 +932,9 @@
             "smithy.api#documentation": "The ID of the deployment."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateDeviceDefinition": {
@@ -928,6 +987,9 @@
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateDeviceDefinitionResponse": {
@@ -975,6 +1037,9 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateDeviceDefinitionVersion": {
@@ -1023,6 +1088,9 @@
             "smithy.api#documentation": "A list of devices in the definition version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateDeviceDefinitionVersionResponse": {
@@ -1052,6 +1120,9 @@
             "smithy.api#documentation": "The ID of the version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateFunctionDefinition": {
@@ -1104,6 +1175,9 @@
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateFunctionDefinitionResponse": {
@@ -1151,6 +1225,9 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateFunctionDefinitionVersion": {
@@ -1207,7 +1284,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Information needed to create a function definition version."
+        "smithy.api#documentation": "Information needed to create a function definition version.",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateFunctionDefinitionVersionResponse": {
@@ -1237,6 +1315,9 @@
             "smithy.api#documentation": "The ID of the version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateGroup": {
@@ -1304,6 +1385,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateGroupCertificateAuthorityResponse": {
@@ -1315,6 +1399,9 @@
             "smithy.api#documentation": "The ARN of the group certificate authority."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateGroupRequest": {
@@ -1346,6 +1433,9 @@
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateGroupResponse": {
@@ -1393,6 +1483,9 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateGroupVersion": {
@@ -1477,6 +1570,9 @@
             "smithy.api#documentation": "The ARN of the subscription definition version for this group."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateGroupVersionResponse": {
@@ -1506,6 +1602,9 @@
             "smithy.api#documentation": "The ID of the version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateLoggerDefinition": {
@@ -1558,6 +1657,9 @@
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateLoggerDefinitionResponse": {
@@ -1605,6 +1707,9 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateLoggerDefinitionVersion": {
@@ -1653,6 +1758,9 @@
             "smithy.api#documentation": "A list of loggers."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateLoggerDefinitionVersionResponse": {
@@ -1682,6 +1790,9 @@
             "smithy.api#documentation": "The ID of the version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateResourceDefinition": {
@@ -1734,6 +1845,9 @@
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateResourceDefinitionResponse": {
@@ -1781,6 +1895,9 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateResourceDefinitionVersion": {
@@ -1829,6 +1946,9 @@
             "smithy.api#documentation": "A list of resources."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateResourceDefinitionVersionResponse": {
@@ -1858,6 +1978,9 @@
             "smithy.api#documentation": "The ID of the version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateSoftwareUpdateJob": {
@@ -1928,6 +2051,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateSoftwareUpdateJobResponse": {
@@ -1951,6 +2077,9 @@
             "smithy.api#documentation": "The software version installed on the device or devices after the update."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateSubscriptionDefinition": {
@@ -2003,6 +2132,9 @@
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateSubscriptionDefinitionResponse": {
@@ -2050,6 +2182,9 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#CreateSubscriptionDefinitionVersion": {
@@ -2098,6 +2233,9 @@
             "smithy.api#documentation": "A list of subscriptions."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#CreateSubscriptionDefinitionVersionResponse": {
@@ -2127,6 +2265,9 @@
             "smithy.api#documentation": "The ID of the version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#DefinitionInformation": {
@@ -2219,11 +2360,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#DeleteConnectorDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#DeleteCoreDefinition": {
       "type": "operation",
@@ -2258,11 +2405,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#DeleteCoreDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#DeleteDeviceDefinition": {
       "type": "operation",
@@ -2297,11 +2450,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#DeleteDeviceDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#DeleteFunctionDefinition": {
       "type": "operation",
@@ -2336,11 +2495,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#DeleteFunctionDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#DeleteGroup": {
       "type": "operation",
@@ -2375,11 +2540,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#DeleteGroupResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#DeleteLoggerDefinition": {
       "type": "operation",
@@ -2414,11 +2585,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#DeleteLoggerDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#DeleteResourceDefinition": {
       "type": "operation",
@@ -2453,11 +2630,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#DeleteResourceDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#DeleteSubscriptionDefinition": {
       "type": "operation",
@@ -2492,11 +2675,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#DeleteSubscriptionDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#Deployment": {
       "type": "structure",
@@ -2537,27 +2726,35 @@
       }
     },
     "com.amazonaws.greengrass#DeploymentType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.",
-        "smithy.api#enum": [
-          {
-            "value": "NewDeployment",
-            "name": "NewDeployment"
-          },
-          {
-            "value": "Redeployment",
-            "name": "Redeployment"
-          },
-          {
-            "value": "ResetDeployment",
-            "name": "ResetDeployment"
-          },
-          {
-            "value": "ForceResetDeployment",
-            "name": "ForceResetDeployment"
+      "type": "enum",
+      "members": {
+        "NewDeployment": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NewDeployment"
           }
-        ]
+        },
+        "Redeployment": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Redeployment"
+          }
+        },
+        "ResetDeployment": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResetDeployment"
+          }
+        },
+        "ForceResetDeployment": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ForceResetDeployment"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid."
       }
     },
     "com.amazonaws.greengrass#Deployments": {
@@ -2586,6 +2783,7 @@
         "SyncShadow": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "If true, the device's local shadow will be automatically synced with the cloud."
           }
         },
@@ -2651,6 +2849,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#DisassociateRoleFromGroupResponse": {
@@ -2662,6 +2863,9 @@
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the role was disassociated from the group."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#DisassociateServiceRoleFromAccount": {
@@ -2688,7 +2892,10 @@
     },
     "com.amazonaws.greengrass#DisassociateServiceRoleFromAccountRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.greengrass#DisassociateServiceRoleFromAccountResponse": {
       "type": "structure",
@@ -2699,21 +2906,26 @@
             "smithy.api#documentation": "The time when the service role was disassociated from the account."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#EncodingType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "binary",
-            "name": "binary"
-          },
-          {
-            "value": "json",
-            "name": "json"
+      "type": "enum",
+      "members": {
+        "binary": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "binary"
           }
-        ]
+        },
+        "json": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "json"
+          }
+        }
       }
     },
     "com.amazonaws.greengrass#ErrorDetail": {
@@ -2802,19 +3014,28 @@
         "MemorySize": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization."
           }
         },
         "Pinned": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "True if the function is pinned. Pinned means the function is long-lived and starts when the core starts."
           }
         },
         "Timeout": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request."
+          }
+        },
+        "FunctionRuntimeOverride": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The Lambda runtime supported by Greengrass which is to be used instead of the one specified in the Lambda function."
           }
         }
       },
@@ -2828,6 +3049,7 @@
         "AccessSysfs": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container."
           }
         },
@@ -2914,19 +3136,23 @@
       }
     },
     "com.amazonaws.greengrass#FunctionIsolationMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.",
-        "smithy.api#enum": [
-          {
-            "value": "GreengrassContainer",
-            "name": "GreengrassContainer"
-          },
-          {
-            "value": "NoContainer",
-            "name": "NoContainer"
+      "type": "enum",
+      "members": {
+        "GreengrassContainer": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GreengrassContainer"
           }
-        ]
+        },
+        "NoContainer": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NoContainer"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group."
       }
     },
     "com.amazonaws.greengrass#FunctionRunAsConfig": {
@@ -2935,12 +3161,14 @@
         "Gid": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "The group ID whose permissions are used to run a Lambda function."
           }
         },
         "Uid": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "The user ID whose permissions are used to run a Lambda function."
           }
         }
@@ -2985,6 +3213,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetAssociatedRoleResponse": {
@@ -3002,6 +3233,9 @@
             "smithy.api#documentation": "The ARN of the role that is associated with the group."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetBulkDeploymentStatus": {
@@ -3037,6 +3271,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetBulkDeploymentStatusResponse": {
@@ -3078,6 +3315,9 @@
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetConnectivityInfo": {
@@ -3116,6 +3356,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetConnectivityInfoResponse": {
@@ -3134,6 +3377,9 @@
             "smithy.api#jsonName": "message"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetConnectorDefinition": {
@@ -3169,6 +3415,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetConnectorDefinitionResponse": {
@@ -3222,6 +3471,9 @@
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetConnectorDefinitionVersion": {
@@ -3272,6 +3524,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetConnectorDefinitionVersionResponse": {
@@ -3313,6 +3568,9 @@
             "smithy.api#documentation": "The version of the connector definition version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetCoreDefinition": {
@@ -3348,6 +3606,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetCoreDefinitionResponse": {
@@ -3401,6 +3662,9 @@
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetCoreDefinitionVersion": {
@@ -3444,6 +3708,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetCoreDefinitionVersionResponse": {
@@ -3485,6 +3752,9 @@
             "smithy.api#documentation": "The version of the core definition version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetDeploymentStatus": {
@@ -3528,6 +3798,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetDeploymentStatusResponse": {
@@ -3563,6 +3836,9 @@
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the deployment status was updated."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetDeviceDefinition": {
@@ -3598,6 +3874,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetDeviceDefinitionResponse": {
@@ -3651,6 +3930,9 @@
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetDeviceDefinitionVersion": {
@@ -3701,6 +3983,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetDeviceDefinitionVersionResponse": {
@@ -3742,6 +4027,9 @@
             "smithy.api#documentation": "The version of the device definition version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetFunctionDefinition": {
@@ -3777,6 +4065,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetFunctionDefinitionResponse": {
@@ -3830,6 +4121,9 @@
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetFunctionDefinitionVersion": {
@@ -3880,6 +4174,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetFunctionDefinitionVersionResponse": {
@@ -3921,6 +4218,9 @@
             "smithy.api#documentation": "The version of the function definition version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetGroup": {
@@ -3990,6 +4290,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetGroupCertificateAuthorityResponse": {
@@ -4013,6 +4316,9 @@
             "smithy.api#documentation": "The PEM encoded certificate for the group."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetGroupCertificateConfiguration": {
@@ -4051,6 +4357,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetGroupCertificateConfigurationResponse": {
@@ -4074,6 +4383,9 @@
             "smithy.api#documentation": "The ID of the group certificate configuration."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetGroupRequest": {
@@ -4087,6 +4399,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetGroupResponse": {
@@ -4140,6 +4455,9 @@
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetGroupVersion": {
@@ -4183,6 +4501,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetGroupVersionResponse": {
@@ -4218,6 +4539,9 @@
             "smithy.api#documentation": "The ID of the group version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetLoggerDefinition": {
@@ -4253,6 +4577,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetLoggerDefinitionResponse": {
@@ -4306,6 +4633,9 @@
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetLoggerDefinitionVersion": {
@@ -4356,6 +4686,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetLoggerDefinitionVersionResponse": {
@@ -4391,6 +4724,9 @@
             "smithy.api#documentation": "The version of the logger definition version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetResourceDefinition": {
@@ -4426,6 +4762,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetResourceDefinitionResponse": {
@@ -4479,6 +4818,9 @@
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetResourceDefinitionVersion": {
@@ -4522,6 +4864,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetResourceDefinitionVersionResponse": {
@@ -4557,6 +4902,9 @@
             "smithy.api#documentation": "The version of the resource definition version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetServiceRoleForAccount": {
@@ -4583,7 +4931,10 @@
     },
     "com.amazonaws.greengrass#GetServiceRoleForAccountRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.greengrass#GetServiceRoleForAccountResponse": {
       "type": "structure",
@@ -4600,6 +4951,9 @@
             "smithy.api#documentation": "The ARN of the role which is associated with the account."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetSubscriptionDefinition": {
@@ -4635,6 +4989,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetSubscriptionDefinitionResponse": {
@@ -4688,6 +5045,9 @@
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetSubscriptionDefinitionVersion": {
@@ -4738,6 +5098,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetSubscriptionDefinitionVersionResponse": {
@@ -4779,6 +5142,9 @@
             "smithy.api#documentation": "The version of the subscription definition version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#GetThingRuntimeConfiguration": {
@@ -4817,6 +5183,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#GetThingRuntimeConfigurationResponse": {
@@ -4828,6 +5197,9 @@
             "smithy.api#documentation": "Runtime configuration for a thing."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#Greengrass": {
@@ -5124,7 +5496,925 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#documentation": "AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. AWS IoT Greengrass ensures your devices can respond quickly to local events and operate with intermittent connectivity. AWS IoT Greengrass minimizes the cost of transmitting data to the cloud by allowing you to author AWS Lambda functions that execute locally.",
-        "smithy.api#title": "AWS Greengrass"
+        "smithy.api#title": "AWS Greengrass",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": true,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://greengrass-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "Region"
+                                    },
+                                    "us-gov-east-1"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://greengrass.us-gov-east-1.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "Region"
+                                    },
+                                    "us-gov-west-1"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://greengrass.us-gov-west-1.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://greengrass-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://greengrass.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "dataplane-us-gov-east-1"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://greengrass-ats.iot.us-gov-east-1.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingRegion": "us-gov-east-1",
+                              "signingName": "greengrass"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "dataplane-us-gov-west-1"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://greengrass-ats.iot.us-gov-west-1.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingRegion": "us-gov-west-1",
+                              "signingName": "greengrass"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "us-gov-east-1"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://greengrass.us-gov-east-1.amazonaws.com",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "us-gov-west-1"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://greengrass.us-gov-west-1.amazonaws.com",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://greengrass.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region dataplane-us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "signingName": "greengrass",
+                        "signingRegion": "us-gov-east-1",
+                        "name": "sigv4"
+                      }
+                    ]
+                  },
+                  "url": "https://greengrass-ats.iot.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "dataplane-us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region dataplane-us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "signingName": "greengrass",
+                        "signingRegion": "us-gov-west-1",
+                        "name": "sigv4"
+                      }
+                    ]
+                  },
+                  "url": "https://greengrass-ats.iot.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "dataplane-us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
       }
     },
     "com.amazonaws.greengrass#GroupCertificateAuthorityProperties": {
@@ -5203,6 +6493,7 @@
         "AutoAddGroupOwner": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "If true, AWS IoT Greengrass automatically adds the specified Linux OS group owner of the resource to the Lambda process privileges. Thus the Lambda process will have the file access permissions of the added Linux group."
           }
         },
@@ -5336,6 +6627,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListBulkDeploymentDetailedReportsResponse": {
@@ -5353,6 +6647,9 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListBulkDeployments": {
@@ -5394,6 +6691,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListBulkDeploymentsResponse": {
@@ -5411,6 +6711,9 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListConnectorDefinitionVersions": {
@@ -5460,6 +6763,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListConnectorDefinitionVersionsResponse": {
@@ -5477,6 +6783,9 @@
             "smithy.api#documentation": "Information about a version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListConnectorDefinitions": {
@@ -5513,6 +6822,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListConnectorDefinitionsResponse": {
@@ -5530,6 +6842,9 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListCoreDefinitionVersions": {
@@ -5579,6 +6894,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListCoreDefinitionVersionsResponse": {
@@ -5596,6 +6914,9 @@
             "smithy.api#documentation": "Information about a version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListCoreDefinitions": {
@@ -5632,6 +6953,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListCoreDefinitionsResponse": {
@@ -5649,6 +6973,9 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListDeployments": {
@@ -5698,6 +7025,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListDeploymentsResponse": {
@@ -5715,6 +7045,9 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListDeviceDefinitionVersions": {
@@ -5764,6 +7097,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListDeviceDefinitionVersionsResponse": {
@@ -5781,6 +7117,9 @@
             "smithy.api#documentation": "Information about a version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListDeviceDefinitions": {
@@ -5817,6 +7156,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListDeviceDefinitionsResponse": {
@@ -5834,6 +7176,9 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListFunctionDefinitionVersions": {
@@ -5883,6 +7228,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListFunctionDefinitionVersionsResponse": {
@@ -5900,6 +7248,9 @@
             "smithy.api#documentation": "Information about a version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListFunctionDefinitions": {
@@ -5936,6 +7287,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListFunctionDefinitionsResponse": {
@@ -5953,6 +7307,9 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListGroupCertificateAuthorities": {
@@ -5991,6 +7348,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListGroupCertificateAuthoritiesResponse": {
@@ -6002,6 +7362,9 @@
             "smithy.api#documentation": "A list of certificate authorities associated with the group."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListGroupVersions": {
@@ -6051,6 +7414,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListGroupVersionsResponse": {
@@ -6068,6 +7434,9 @@
             "smithy.api#documentation": "Information about a version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListGroups": {
@@ -6104,6 +7473,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListGroupsResponse": {
@@ -6121,6 +7493,9 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListLoggerDefinitionVersions": {
@@ -6170,6 +7545,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListLoggerDefinitionVersionsResponse": {
@@ -6187,6 +7565,9 @@
             "smithy.api#documentation": "Information about a version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListLoggerDefinitions": {
@@ -6223,6 +7604,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListLoggerDefinitionsResponse": {
@@ -6240,6 +7624,9 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListResourceDefinitionVersions": {
@@ -6289,6 +7676,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListResourceDefinitionVersionsResponse": {
@@ -6306,6 +7696,9 @@
             "smithy.api#documentation": "Information about a version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListResourceDefinitions": {
@@ -6342,6 +7735,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListResourceDefinitionsResponse": {
@@ -6359,6 +7755,9 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListSubscriptionDefinitionVersions": {
@@ -6408,6 +7807,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListSubscriptionDefinitionVersionsResponse": {
@@ -6425,6 +7827,9 @@
             "smithy.api#documentation": "Information about a version."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListSubscriptionDefinitions": {
@@ -6461,6 +7866,9 @@
             "smithy.api#httpQuery": "NextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListSubscriptionDefinitionsResponse": {
@@ -6478,6 +7886,9 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#ListTagsForResource": {
@@ -6513,6 +7924,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ListTagsForResourceResponse": {
@@ -6521,6 +7935,9 @@
         "tags": {
           "target": "com.amazonaws.greengrass#Tags"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#LocalDeviceResourceData": {
@@ -6596,6 +8013,7 @@
         "Space": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "The amount of file space, in KB, to use if the local file system is used for logging purposes."
           }
         },
@@ -6612,18 +8030,20 @@
       }
     },
     "com.amazonaws.greengrass#LoggerComponent": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "GreengrassSystem",
-            "name": "GreengrassSystem"
-          },
-          {
-            "value": "Lambda",
-            "name": "Lambda"
+      "type": "enum",
+      "members": {
+        "GreengrassSystem": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GreengrassSystem"
           }
-        ]
+        },
+        "Lambda": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Lambda"
+          }
+        }
       }
     },
     "com.amazonaws.greengrass#LoggerDefinitionVersion": {
@@ -6641,61 +8061,75 @@
       }
     },
     "com.amazonaws.greengrass#LoggerLevel": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEBUG",
-            "name": "DEBUG"
-          },
-          {
-            "value": "INFO",
-            "name": "INFO"
-          },
-          {
-            "value": "WARN",
-            "name": "WARN"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
-          },
-          {
-            "value": "FATAL",
-            "name": "FATAL"
+      "type": "enum",
+      "members": {
+        "DEBUG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEBUG"
           }
-        ]
+        },
+        "INFO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INFO"
+          }
+        },
+        "WARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WARN"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        },
+        "FATAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FATAL"
+          }
+        }
       }
     },
     "com.amazonaws.greengrass#LoggerType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FileSystem",
-            "name": "FileSystem"
-          },
-          {
-            "value": "AWSCloudWatch",
-            "name": "AWSCloudWatch"
+      "type": "enum",
+      "members": {
+        "FileSystem": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FileSystem"
           }
-        ]
+        },
+        "AWSCloudWatch": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWSCloudWatch"
+          }
+        }
       }
     },
     "com.amazonaws.greengrass#Permission": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "The type of permission a function has to access a resource.",
-        "smithy.api#enum": [
-          {
-            "value": "ro",
-            "name": "ro"
-          },
-          {
-            "value": "rw",
-            "name": "rw"
+      "type": "enum",
+      "members": {
+        "ro": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ro"
           }
-        ]
+        },
+        "rw": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "rw"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The type of permission a function has to access a resource."
       }
     },
     "com.amazonaws.greengrass#ResetDeployments": {
@@ -6733,6 +8167,7 @@
         "Force": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "If true, performs a best-effort only core reset."
           }
         },
@@ -6746,7 +8181,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Information needed to reset deployments."
+        "smithy.api#documentation": "Information needed to reset deployments.",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#ResetDeploymentsResponse": {
@@ -6764,6 +8200,9 @@
             "smithy.api#documentation": "The ID of the deployment."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#Resource": {
@@ -6977,19 +8416,23 @@
       }
     },
     "com.amazonaws.greengrass#SoftwareToUpdate": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "The piece of software on the Greengrass core that will be updated.",
-        "smithy.api#enum": [
-          {
-            "value": "core",
-            "name": "core"
-          },
-          {
-            "value": "ota_agent",
-            "name": "ota_agent"
+      "type": "enum",
+      "members": {
+        "core": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "core"
           }
-        ]
+        },
+        "ota_agent": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ota_agent"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The piece of software on the Greengrass core that will be updated."
       }
     },
     "com.amazonaws.greengrass#StartBulkDeployment": {
@@ -7044,6 +8487,9 @@
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#StartBulkDeploymentResponse": {
@@ -7061,6 +8507,9 @@
             "smithy.api#documentation": "The ID of the bulk deployment."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#StopBulkDeployment": {
@@ -7096,11 +8545,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#StopBulkDeploymentResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#Subscription": {
       "type": "structure",
@@ -7157,6 +8612,9 @@
       "input": {
         "target": "com.amazonaws.greengrass#TagResourceRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.greengrass#BadRequestException"
@@ -7187,7 +8645,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "A map of the key-value pairs for the resource tag."
+        "smithy.api#documentation": "A map of the key-value pairs for the resource tag.",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#Tags": {
@@ -7203,18 +8662,20 @@
       }
     },
     "com.amazonaws.greengrass#Telemetry": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "On",
-            "name": "On"
-          },
-          {
-            "value": "Off",
-            "name": "Off"
+      "type": "enum",
+      "members": {
+        "On": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "On"
           }
-        ]
+        },
+        "Off": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Off"
+          }
+        }
       }
     },
     "com.amazonaws.greengrass#TelemetryConfiguration": {
@@ -7258,6 +8719,9 @@
       "input": {
         "target": "com.amazonaws.greengrass#UntagResourceRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.greengrass#BadRequestException"
@@ -7291,46 +8755,65 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateAgentLogLevel": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "The minimum level of log statements that should be logged by the OTA Agent during an update.",
-        "smithy.api#enum": [
-          {
-            "value": "NONE",
-            "name": "NONE"
-          },
-          {
-            "value": "TRACE",
-            "name": "TRACE"
-          },
-          {
-            "value": "DEBUG",
-            "name": "DEBUG"
-          },
-          {
-            "value": "VERBOSE",
-            "name": "VERBOSE"
-          },
-          {
-            "value": "INFO",
-            "name": "INFO"
-          },
-          {
-            "value": "WARN",
-            "name": "WARN"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
-          },
-          {
-            "value": "FATAL",
-            "name": "FATAL"
+      "type": "enum",
+      "members": {
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
           }
-        ]
+        },
+        "TRACE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRACE"
+          }
+        },
+        "DEBUG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEBUG"
+          }
+        },
+        "VERBOSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VERBOSE"
+          }
+        },
+        "INFO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INFO"
+          }
+        },
+        "WARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WARN"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        },
+        "FATAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FATAL"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The minimum level of log statements that should be logged by the OTA Agent during an update."
       }
     },
     "com.amazonaws.greengrass#UpdateConnectivityInfo": {
@@ -7377,7 +8860,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Connectivity information."
+        "smithy.api#documentation": "Connectivity information.",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateConnectivityInfoResponse": {
@@ -7396,6 +8880,9 @@
             "smithy.api#documentation": "The new version of the connectivity info."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#UpdateConnectorDefinition": {
@@ -7437,11 +8924,17 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateConnectorDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#UpdateCoreDefinition": {
       "type": "operation",
@@ -7482,11 +8975,17 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateCoreDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#UpdateDeviceDefinition": {
       "type": "operation",
@@ -7527,11 +9026,17 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateDeviceDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#UpdateFunctionDefinition": {
       "type": "operation",
@@ -7572,11 +9077,17 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateFunctionDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#UpdateGroup": {
       "type": "operation",
@@ -7642,6 +9153,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateGroupCertificateConfigurationResponse": {
@@ -7665,6 +9179,9 @@
             "smithy.api#documentation": "The ID of the group certificate configuration."
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.greengrass#UpdateGroupRequest": {
@@ -7684,11 +9201,17 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateGroupResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#UpdateLoggerDefinition": {
       "type": "operation",
@@ -7729,11 +9252,17 @@
             "smithy.api#documentation": "The name of the definition."
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateLoggerDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#UpdateResourceDefinition": {
       "type": "operation",
@@ -7774,11 +9303,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateResourceDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#UpdateSubscriptionDefinition": {
       "type": "operation",
@@ -7819,11 +9354,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateSubscriptionDefinitionResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#UpdateTargets": {
       "type": "list",
@@ -7835,51 +9376,67 @@
       }
     },
     "com.amazonaws.greengrass#UpdateTargetsArchitecture": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "The architecture of the cores which are the targets of an update.",
-        "smithy.api#enum": [
-          {
-            "value": "armv6l",
-            "name": "armv6l"
-          },
-          {
-            "value": "armv7l",
-            "name": "armv7l"
-          },
-          {
-            "value": "x86_64",
-            "name": "x86_64"
-          },
-          {
-            "value": "aarch64",
-            "name": "aarch64"
+      "type": "enum",
+      "members": {
+        "armv6l": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "armv6l"
           }
-        ]
+        },
+        "armv7l": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "armv7l"
+          }
+        },
+        "x86_64": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "x86_64"
+          }
+        },
+        "aarch64": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "aarch64"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The architecture of the cores which are the targets of an update."
       }
     },
     "com.amazonaws.greengrass#UpdateTargetsOperatingSystem": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "The operating system of the cores which are the targets of an update.",
-        "smithy.api#enum": [
-          {
-            "value": "ubuntu",
-            "name": "ubuntu"
-          },
-          {
-            "value": "raspbian",
-            "name": "raspbian"
-          },
-          {
-            "value": "amazon_linux",
-            "name": "amazon_linux"
-          },
-          {
-            "value": "openwrt",
-            "name": "openwrt"
+      "type": "enum",
+      "members": {
+        "ubuntu": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ubuntu"
           }
-        ]
+        },
+        "raspbian": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "raspbian"
+          }
+        },
+        "amazon_linux": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "amazon_linux"
+          }
+        },
+        "openwrt": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "openwrt"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The operating system of the cores which are the targets of an update."
       }
     },
     "com.amazonaws.greengrass#UpdateThingRuntimeConfiguration": {
@@ -7924,11 +9481,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.greengrass#UpdateThingRuntimeConfigurationResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.greengrass#VersionInformation": {
       "type": "structure",
@@ -7963,10 +9526,16 @@
       }
     },
     "com.amazonaws.greengrass#__boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.greengrass#__integer": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.greengrass#__listOfConnectivityInfo": {
       "type": "list",

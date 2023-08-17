@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1TagResourceCommand,
-  serializeAws_json1_1TagResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandInput extends TagResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified tags to a resource with the specified
  * 				<code>resourceArn</code>. If existing tags on a resource aren't specified in the
  * 			request parameters, they aren't changed. When a resource is deleted, the tags that are
@@ -32,13 +46,64 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { ECSClient, TagResourceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, TagResourceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // TagResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: [ // Tags // required
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource wasn't found.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
+ * @example To tag a cluster.
+ * ```javascript
+ * // This example tags the 'dev' cluster with key 'team' and value 'dev'.
+ * const input = {
+ *   "resourceArn": "arn:aws:ecs:region:aws_account_id:cluster/dev",
+ *   "tags": [
+ *     {
+ *       "key": "team",
+ *       "value": "dev"
+ *     }
+ *   ]
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * // example id: to-tag-a-cluster-1540581863751
+ * ```
  *
  */
 export class TagResourceCommand extends $Command<
@@ -49,6 +114,18 @@ export class TagResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +141,7 @@ export class TagResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +152,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +163,18 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagResourceCommand(input, context);
+    return se_TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_json1_1TagResourceCommand(output, context);
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

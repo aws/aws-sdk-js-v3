@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DeleteAlarmsCommand";
 export * from "./DeleteAnomalyDetectorCommand";
 export * from "./DeleteDashboardsCommand";
@@ -19,6 +20,7 @@ export * from "./GetMetricStatisticsCommand";
 export * from "./GetMetricStreamCommand";
 export * from "./GetMetricWidgetImageCommand";
 export * from "./ListDashboardsCommand";
+export * from "./ListManagedInsightRulesCommand";
 export * from "./ListMetricStreamsCommand";
 export * from "./ListMetricsCommand";
 export * from "./ListTagsForResourceCommand";
@@ -26,6 +28,7 @@ export * from "./PutAnomalyDetectorCommand";
 export * from "./PutCompositeAlarmCommand";
 export * from "./PutDashboardCommand";
 export * from "./PutInsightRuleCommand";
+export * from "./PutManagedInsightRulesCommand";
 export * from "./PutMetricAlarmCommand";
 export * from "./PutMetricDataCommand";
 export * from "./PutMetricStreamCommand";

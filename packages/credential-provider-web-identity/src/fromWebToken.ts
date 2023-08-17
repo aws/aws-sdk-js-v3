@@ -1,6 +1,9 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { CredentialProvider, Credentials } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
+/**
+ * @internal
+ */
 export interface AssumeRoleWithWebIdentityParams {
   /**
    * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
@@ -112,6 +115,9 @@ export interface AssumeRoleWithWebIdentityParams {
 }
 
 type LowerCaseKey<T> = { [K in keyof T as `${Uncapitalize<string & K>}`]: T[K] };
+/**
+ * @internal
+ */
 export interface FromWebTokenInit extends Omit<LowerCaseKey<AssumeRoleWithWebIdentityParams>, "roleSessionName"> {
   /**
    * The IAM session name used to distinguish sessions.
@@ -124,11 +130,14 @@ export interface FromWebTokenInit extends Omit<LowerCaseKey<AssumeRoleWithWebIde
    *
    * @param params input parameter of sts:AssumeRoleWithWebIdentity API.
    */
-  roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<Credentials>;
+  roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<AwsCredentialIdentity>;
 }
 
+/**
+ * @internal
+ */
 export const fromWebToken =
-  (init: FromWebTokenInit): CredentialProvider =>
+  (init: FromWebTokenInit): AwsCredentialIdentityProvider =>
   () => {
     const {
       roleArn,

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
 import { DescribeObjectRequest, DescribeObjectResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeObjectCommand,
-  serializeAws_restJson1DescribeObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeObjectCommand, se_DescribeObjectCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeObjectCommand}.
+ */
 export interface DescribeObjectCommandInput extends DescribeObjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeObjectCommand}.
+ */
 export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the headers for an object at the specified path.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,38 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  * import { MediaStoreDataClient, DescribeObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
  * // const { MediaStoreDataClient, DescribeObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
  * const client = new MediaStoreDataClient(config);
+ * const input = { // DescribeObjectRequest
+ *   Path: "STRING_VALUE", // required
+ * };
  * const command = new DescribeObjectCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeObjectResponse
+ * //   ETag: "STRING_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * //   ContentLength: Number("long"),
+ * //   CacheControl: "STRING_VALUE",
+ * //   LastModified: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
+ * @param DescribeObjectCommandInput - {@link DescribeObjectCommandInput}
+ * @returns {@link DescribeObjectCommandOutput}
  * @see {@link DescribeObjectCommandInput} for command's `input` shape.
  * @see {@link DescribeObjectCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The specified container was not found for the specified account.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ObjectNotFoundException} (client fault)
+ *  <p>Could not perform an operation on an object that does not exist.</p>
+ *
+ * @throws {@link MediaStoreDataServiceException}
+ * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
  */
 export class DescribeObjectCommand extends $Command<
@@ -46,6 +85,18 @@ export class DescribeObjectCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +112,9 @@ export class DescribeObjectCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeObjectCommandInput, DescribeObjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeObjectCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +125,8 @@ export class DescribeObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeObjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeObjectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +136,18 @@ export class DescribeObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeObjectCommand(input, context);
+    return se_DescribeObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeObjectCommandOutput> {
-    return deserializeAws_restJson1DescribeObjectCommand(output, context);
+    return de_DescribeObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

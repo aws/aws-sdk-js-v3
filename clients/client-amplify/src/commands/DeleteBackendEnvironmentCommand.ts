@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { DeleteBackendEnvironmentRequest, DeleteBackendEnvironmentResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBackendEnvironmentCommand,
-  serializeAws_restJson1DeleteBackendEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteBackendEnvironmentCommand, se_DeleteBackendEnvironmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteBackendEnvironmentCommand}.
+ */
 export interface DeleteBackendEnvironmentCommandInput extends DeleteBackendEnvironmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBackendEnvironmentCommand}.
+ */
 export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvironmentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a backend environment for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,48 @@ export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvi
  * import { AmplifyClient, DeleteBackendEnvironmentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteBackendEnvironmentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // DeleteBackendEnvironmentRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBackendEnvironmentCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBackendEnvironmentResult
+ * //   backendEnvironment: { // BackendEnvironment
+ * //     backendEnvironmentArn: "STRING_VALUE", // required
+ * //     environmentName: "STRING_VALUE", // required
+ * //     stackName: "STRING_VALUE",
+ * //     deploymentArtifacts: "STRING_VALUE",
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DeleteBackendEnvironmentCommandInput - {@link DeleteBackendEnvironmentCommandInput}
+ * @returns {@link DeleteBackendEnvironmentCommandOutput}
  * @see {@link DeleteBackendEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteBackendEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link DependentServiceFailureException} (server fault)
+ *  <p> An operation failed because a dependent service threw an exception. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p> An entity was not found during an operation. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class DeleteBackendEnvironmentCommand extends $Command<
@@ -46,6 +95,18 @@ export class DeleteBackendEnvironmentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackendEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +122,9 @@ export class DeleteBackendEnvironmentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteBackendEnvironmentCommandInput, DeleteBackendEnvironmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteBackendEnvironmentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +135,8 @@ export class DeleteBackendEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackendEnvironmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBackendEnvironmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +146,18 @@ export class DeleteBackendEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackendEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackendEnvironmentCommand(input, context);
+    return se_DeleteBackendEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackendEnvironmentCommandOutput> {
-    return deserializeAws_restJson1DeleteBackendEnvironmentCommand(output, context);
+    return de_DeleteBackendEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

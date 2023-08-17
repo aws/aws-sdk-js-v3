@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListKeyspacesCommand,
   ListKeyspacesCommandInput,
   ListKeyspacesCommandOutput,
 } from "../commands/ListKeyspacesCommand";
-import { Keyspaces } from "../Keyspaces";
 import { KeyspacesClient } from "../KeyspacesClient";
 import { KeyspacesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KeyspacesClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListKeyspacesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Keyspaces,
-  input: ListKeyspacesCommandInput,
-  ...args: any
-): Promise<ListKeyspacesCommandOutput> => {
-  // @ts-ignore
-  return await client.listKeyspaces(input, ...args);
-};
 export async function* paginateListKeyspaces(
   config: KeyspacesPaginationConfiguration,
   input: ListKeyspacesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListKeyspaces(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Keyspaces) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KeyspacesClient) {
+    if (config.client instanceof KeyspacesClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Keyspaces | KeyspacesClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

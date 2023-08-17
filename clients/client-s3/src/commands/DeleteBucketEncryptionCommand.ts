@@ -1,7 +1,8 @@
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,31 +11,42 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteBucketEncryptionRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketEncryptionCommand,
-  serializeAws_restXmlDeleteBucketEncryptionCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteBucketEncryptionCommand, se_DeleteBucketEncryptionCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteBucketEncryptionCommand}.
+ */
 export interface DeleteBucketEncryptionCommandInput extends DeleteBucketEncryptionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBucketEncryptionCommand}.
+ */
 export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This implementation of the DELETE action removes default encryption from the bucket.
- *          For information about the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ * @public
+ * <p>This implementation of the DELETE action resets the default encryption for the
+ *          bucket as server-side encryption with Amazon S3 managed keys (SSE-S3). For information about the
+ *          bucket default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket Default Encryption</a>
+ *          in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>To use this operation, you must have permissions to perform the
  *             <code>s3:PutEncryptionConfiguration</code> action. The bucket owner has this permission
  *          by default. The bucket owner can grant this permission to others. For more information
- *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to your Amazon S3
- *             Resources</a> in the <i>Amazon S3 User Guide</i>.</p>
- *
- *          <p class="title">
- *             <b>Related Resources</b>
- *          </p>
+ *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+ *             Access Permissions to your Amazon S3 Resources</a> in the
+ *             <i>Amazon S3 User Guide</i>.</p>
+ *          <p>The following operations are related to <code>DeleteBucketEncryption</code>:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -53,13 +65,24 @@ export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
  * import { S3Client, DeleteBucketEncryptionCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketEncryptionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeleteBucketEncryptionRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteBucketEncryptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteBucketEncryptionCommandInput - {@link DeleteBucketEncryptionCommandInput}
+ * @returns {@link DeleteBucketEncryptionCommandOutput}
  * @see {@link DeleteBucketEncryptionCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class DeleteBucketEncryptionCommand extends $Command<
@@ -70,6 +93,24 @@ export class DeleteBucketEncryptionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,7 +126,9 @@ export class DeleteBucketEncryptionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteBucketEncryptionCommandInput, DeleteBucketEncryptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteBucketEncryptionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -96,8 +139,8 @@ export class DeleteBucketEncryptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketEncryptionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +150,18 @@ export class DeleteBucketEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketEncryptionCommand(input, context);
+    return se_DeleteBucketEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketEncryptionCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketEncryptionCommand(output, context);
+    return de_DeleteBucketEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

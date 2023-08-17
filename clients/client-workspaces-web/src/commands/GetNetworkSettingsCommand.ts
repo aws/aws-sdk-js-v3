@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetNetworkSettingsRequest, GetNetworkSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetNetworkSettingsCommand,
-  serializeAws_restJson1GetNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetNetworkSettingsCommand, se_GetNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetNetworkSettingsCommand}.
+ */
 export interface GetNetworkSettingsCommandInput extends GetNetworkSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetNetworkSettingsCommand}.
+ */
 export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the network settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,52 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  * import { WorkSpacesWebClient, GetNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // GetNetworkSettingsRequest
+ *   networkSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new GetNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // GetNetworkSettingsResponse
+ * //   networkSettings: { // NetworkSettings
+ * //     networkSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     vpcId: "STRING_VALUE",
+ * //     subnetIds: [ // SubnetIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     securityGroupIds: [ // SecurityGroupIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetNetworkSettingsCommandInput - {@link GetNetworkSettingsCommandInput}
+ * @returns {@link GetNetworkSettingsCommandOutput}
  * @see {@link GetNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetNetworkSettingsCommand extends $Command<
@@ -46,6 +99,18 @@ export class GetNetworkSettingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +126,9 @@ export class GetNetworkSettingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetNetworkSettingsCommandInput, GetNetworkSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetNetworkSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +139,8 @@ export class GetNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +150,18 @@ export class GetNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkSettingsCommand(input, context);
+    return se_GetNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1GetNetworkSettingsCommand(output, context);
+    return de_GetNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { SecretsManager } from "../SecretsManager";
 import { SecretsManagerClient } from "../SecretsManagerClient";
 
+/**
+ * @public
+ */
 export interface SecretsManagerPaginationConfiguration extends PaginationConfiguration {
-  client: SecretsManager | SecretsManagerClient;
+  client: SecretsManagerClient;
 }

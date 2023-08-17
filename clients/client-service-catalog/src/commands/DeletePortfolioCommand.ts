@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeletePortfolioInput, DeletePortfolioOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePortfolioCommand,
-  serializeAws_json1_1DeletePortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePortfolioCommand, se_DeletePortfolioCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeletePortfolioCommand}.
+ */
 export interface DeletePortfolioCommandInput extends DeletePortfolioInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePortfolioCommand}.
+ */
 export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified portfolio.</p>
  *          <p>You cannot delete a portfolio if it was shared with you or if it has associated
  *          products, users, constraints, or shared accounts.</p>
@@ -32,13 +46,38 @@ export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __M
  * import { ServiceCatalogClient, DeletePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeletePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DeletePortfolioInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeletePortfolioCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeletePortfolioCommandInput - {@link DeletePortfolioCommandInput}
+ * @returns {@link DeletePortfolioCommandOutput}
  * @see {@link DeletePortfolioCommandInput} for command's `input` shape.
  * @see {@link DeletePortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link TagOptionNotMigratedException} (client fault)
+ *  <p>An operation requiring TagOptions failed because the TagOptions migration process has
+ *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
+ *          process before retrying the operation.</p>
+ *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeletePortfolioCommand extends $Command<
@@ -49,6 +88,18 @@ export class DeletePortfolioCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +115,9 @@ export class DeletePortfolioCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeletePortfolioCommandInput, DeletePortfolioCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeletePortfolioCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +128,8 @@ export class DeletePortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePortfolioInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePortfolioOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +139,18 @@ export class DeletePortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePortfolioCommand(input, context);
+    return se_DeletePortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePortfolioCommandOutput> {
-    return deserializeAws_json1_1DeletePortfolioCommand(output, context);
+    return de_DeletePortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

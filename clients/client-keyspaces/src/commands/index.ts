@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateKeyspaceCommand";
 export * from "./CreateTableCommand";
 export * from "./DeleteKeyspaceCommand";

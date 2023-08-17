@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,24 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListMFADevicesRequest, ListMFADevicesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListMFADevicesCommand,
-  serializeAws_queryListMFADevicesCommand,
-} from "../protocols/Aws_query";
+import { de_ListMFADevicesCommand, se_ListMFADevicesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListMFADevicesCommand}.
+ */
 export interface ListMFADevicesCommandInput extends ListMFADevicesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMFADevicesCommand}.
+ */
 export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the MFA devices for an IAM user. If the request includes a IAM user name,
  *             then this operation lists all the MFA devices associated with the specified user. If you
  *             do not specify a user name, IAM determines the user name implicitly based on the Amazon Web Services
  *             access key ID signing the request for this operation.</p>
- *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +48,43 @@ export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __M
  * import { IAMClient, ListMFADevicesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListMFADevicesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListMFADevicesRequest
+ *   UserName: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListMFADevicesCommand(input);
  * const response = await client.send(command);
+ * // { // ListMFADevicesResponse
+ * //   MFADevices: [ // mfaDeviceListType // required
+ * //     { // MFADevice
+ * //       UserName: "STRING_VALUE", // required
+ * //       SerialNumber: "STRING_VALUE", // required
+ * //       EnableDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListMFADevicesCommandInput - {@link ListMFADevicesCommandInput}
+ * @returns {@link ListMFADevicesCommandOutput}
  * @see {@link ListMFADevicesCommandInput} for command's `input` shape.
  * @see {@link ListMFADevicesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListMFADevicesCommand extends $Command<
@@ -51,6 +95,18 @@ export class ListMFADevicesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListMFADevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +122,9 @@ export class ListMFADevicesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListMFADevicesCommandInput, ListMFADevicesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListMFADevicesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +135,8 @@ export class ListMFADevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMFADevicesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMFADevicesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +146,18 @@ export class ListMFADevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMFADevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListMFADevicesCommand(input, context);
+    return se_ListMFADevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMFADevicesCommandOutput> {
-    return deserializeAws_queryListMFADevicesCommand(output, context);
+    return de_ListMFADevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

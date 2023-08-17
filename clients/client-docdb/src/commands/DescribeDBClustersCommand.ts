@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DBClusterMessage, DescribeDBClustersMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBClustersCommand,
-  serializeAws_queryDescribeDBClustersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBClustersCommand, se_DescribeDBClustersCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeDBClustersCommand}.
+ */
 export interface DescribeDBClustersCommandInput extends DescribeDBClustersMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDBClustersCommand}.
+ */
 export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about provisioned Amazon DocumentDB clusters. This API
  *             operation supports pagination. For certain management features
  *             such as cluster and instance lifecycle management, Amazon DocumentDB leverages
@@ -34,13 +48,98 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * import { DocDBClient, DescribeDBClustersCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBClustersCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DescribeDBClustersMessage
+ *   DBClusterIdentifier: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBClustersCommand(input);
  * const response = await client.send(command);
+ * // { // DBClusterMessage
+ * //   Marker: "STRING_VALUE",
+ * //   DBClusters: [ // DBClusterList
+ * //     { // DBCluster
+ * //       AvailabilityZones: [ // AvailabilityZones
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       BackupRetentionPeriod: Number("int"),
+ * //       DBClusterIdentifier: "STRING_VALUE",
+ * //       DBClusterParameterGroup: "STRING_VALUE",
+ * //       DBSubnetGroup: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       PercentProgress: "STRING_VALUE",
+ * //       EarliestRestorableTime: new Date("TIMESTAMP"),
+ * //       Endpoint: "STRING_VALUE",
+ * //       ReaderEndpoint: "STRING_VALUE",
+ * //       MultiAZ: true || false,
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       LatestRestorableTime: new Date("TIMESTAMP"),
+ * //       Port: Number("int"),
+ * //       MasterUsername: "STRING_VALUE",
+ * //       PreferredBackupWindow: "STRING_VALUE",
+ * //       PreferredMaintenanceWindow: "STRING_VALUE",
+ * //       ReplicationSourceIdentifier: "STRING_VALUE",
+ * //       ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DBClusterMembers: [ // DBClusterMemberList
+ * //         { // DBClusterMember
+ * //           DBInstanceIdentifier: "STRING_VALUE",
+ * //           IsClusterWriter: true || false,
+ * //           DBClusterParameterGroupStatus: "STRING_VALUE",
+ * //           PromotionTier: Number("int"),
+ * //         },
+ * //       ],
+ * //       VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ * //         { // VpcSecurityGroupMembership
+ * //           VpcSecurityGroupId: "STRING_VALUE",
+ * //           Status: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       HostedZoneId: "STRING_VALUE",
+ * //       StorageEncrypted: true || false,
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       DbClusterResourceId: "STRING_VALUE",
+ * //       DBClusterArn: "STRING_VALUE",
+ * //       AssociatedRoles: [ // DBClusterRoles
+ * //         { // DBClusterRole
+ * //           RoleArn: "STRING_VALUE",
+ * //           Status: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CloneGroupId: "STRING_VALUE",
+ * //       ClusterCreateTime: new Date("TIMESTAMP"),
+ * //       EnabledCloudwatchLogsExports: [ // LogTypeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DeletionProtection: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeDBClustersCommandInput - {@link DescribeDBClustersCommandInput}
+ * @returns {@link DescribeDBClustersCommandOutput}
  * @see {@link DescribeDBClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClustersCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeDBClustersCommand extends $Command<
@@ -51,6 +150,18 @@ export class DescribeDBClustersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +177,9 @@ export class DescribeDBClustersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeDBClustersCommandInput, DescribeDBClustersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeDBClustersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +190,8 @@ export class DescribeDBClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClustersMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +201,18 @@ export class DescribeDBClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClustersCommand(input, context);
+    return se_DescribeDBClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBClustersCommandOutput> {
-    return deserializeAws_queryDescribeDBClustersCommand(output, context);
+    return de_DescribeDBClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

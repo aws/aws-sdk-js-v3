@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { BackupGateway } from "../BackupGateway";
 import { BackupGatewayClient } from "../BackupGatewayClient";
 
+/**
+ * @public
+ */
 export interface BackupGatewayPaginationConfiguration extends PaginationConfiguration {
-  client: BackupGateway | BackupGatewayClient;
+  client: BackupGatewayClient;
 }

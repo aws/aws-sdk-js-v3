@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeApplicationInstanceRequest, DescribeApplicationInstanceResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
-  deserializeAws_restJson1DescribeApplicationInstanceCommand,
-  serializeAws_restJson1DescribeApplicationInstanceCommand,
+  de_DescribeApplicationInstanceCommand,
+  se_DescribeApplicationInstanceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeApplicationInstanceCommand}.
+ */
 export interface DescribeApplicationInstanceCommandInput extends DescribeApplicationInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeApplicationInstanceCommand}.
+ */
 export interface DescribeApplicationInstanceCommandOutput
   extends DescribeApplicationInstanceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an application instance on a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,63 @@ export interface DescribeApplicationInstanceCommandOutput
  * import { PanoramaClient, DescribeApplicationInstanceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribeApplicationInstanceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // DescribeApplicationInstanceRequest
+ *   ApplicationInstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeApplicationInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeApplicationInstanceResponse
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   DefaultRuntimeContextDevice: "STRING_VALUE",
+ * //   DefaultRuntimeContextDeviceName: "STRING_VALUE",
+ * //   ApplicationInstanceIdToReplace: "STRING_VALUE",
+ * //   RuntimeRoleArn: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   HealthStatus: "STRING_VALUE",
+ * //   StatusDescription: "STRING_VALUE",
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   ApplicationInstanceId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   RuntimeContextStates: [ // ReportedRuntimeContextStates
+ * //     { // ReportedRuntimeContextState
+ * //       DesiredState: "STRING_VALUE", // required
+ * //       RuntimeContextName: "STRING_VALUE", // required
+ * //       DeviceReportedStatus: "STRING_VALUE", // required
+ * //       DeviceReportedTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeApplicationInstanceCommandInput - {@link DescribeApplicationInstanceCommandInput}
+ * @returns {@link DescribeApplicationInstanceCommandOutput}
  * @see {@link DescribeApplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The requestor does not have permission to access the target action or resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The target resource is in use.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request contains an invalid parameter value.</p>
+ *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DescribeApplicationInstanceCommand extends $Command<
@@ -48,6 +115,18 @@ export class DescribeApplicationInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +142,9 @@ export class DescribeApplicationInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeApplicationInstanceCommandInput, DescribeApplicationInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeApplicationInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +155,8 @@ export class DescribeApplicationInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +166,21 @@ export class DescribeApplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeApplicationInstanceCommand(input, context);
+    return se_DescribeApplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeApplicationInstanceCommandOutput> {
-    return deserializeAws_restJson1DescribeApplicationInstanceCommand(output, context);
+    return de_DescribeApplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

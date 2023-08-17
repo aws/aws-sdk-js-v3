@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ListPartnerAccountsRequest, ListPartnerAccountsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListPartnerAccountsCommand,
-  serializeAws_restJson1ListPartnerAccountsCommand,
-} from "../protocols/Aws_restJson1";
+  ListPartnerAccountsRequest,
+  ListPartnerAccountsResponse,
+  ListPartnerAccountsResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_ListPartnerAccountsCommand, se_ListPartnerAccountsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListPartnerAccountsCommand}.
+ */
 export interface ListPartnerAccountsCommandInput extends ListPartnerAccountsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPartnerAccountsCommand}.
+ */
 export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the partner accounts associated with your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +47,45 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  * import { IoTWirelessClient, ListPartnerAccountsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListPartnerAccountsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListPartnerAccountsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPartnerAccountsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPartnerAccountsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Sidewalk: [ // SidewalkAccountList
+ * //     { // SidewalkAccountInfoWithFingerprint
+ * //       AmazonId: "STRING_VALUE",
+ * //       Fingerprint: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListPartnerAccountsCommandInput - {@link ListPartnerAccountsCommandInput}
+ * @returns {@link ListPartnerAccountsCommandOutput}
  * @see {@link ListPartnerAccountsCommandInput} for command's `input` shape.
  * @see {@link ListPartnerAccountsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListPartnerAccountsCommand extends $Command<
@@ -46,6 +96,18 @@ export class ListPartnerAccountsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListPartnerAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +123,9 @@ export class ListPartnerAccountsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListPartnerAccountsCommandInput, ListPartnerAccountsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListPartnerAccountsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +136,8 @@ export class ListPartnerAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPartnerAccountsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPartnerAccountsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ListPartnerAccountsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +147,18 @@ export class ListPartnerAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPartnerAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPartnerAccountsCommand(input, context);
+    return se_ListPartnerAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartnerAccountsCommandOutput> {
-    return deserializeAws_restJson1ListPartnerAccountsCommand(output, context);
+    return de_ListPartnerAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

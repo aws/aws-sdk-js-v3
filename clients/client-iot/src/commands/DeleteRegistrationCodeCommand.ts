@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteRegistrationCodeRequest, DeleteRegistrationCodeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRegistrationCodeCommand,
-  serializeAws_restJson1DeleteRegistrationCodeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRegistrationCodeRequest, DeleteRegistrationCodeResponse } from "../models/models_1";
+import { de_DeleteRegistrationCodeCommand, se_DeleteRegistrationCodeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteRegistrationCodeCommand}.
+ */
 export interface DeleteRegistrationCodeCommandInput extends DeleteRegistrationCodeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRegistrationCodeCommand}.
+ */
 export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a CA certificate registration code.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRegistrationCode</a> action.</p>
  * @example
@@ -30,13 +44,36 @@ export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationC
  * import { IoTClient, DeleteRegistrationCodeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteRegistrationCodeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new DeleteRegistrationCodeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteRegistrationCodeCommandInput - {@link DeleteRegistrationCodeCommandInput}
+ * @returns {@link DeleteRegistrationCodeCommandOutput}
  * @see {@link DeleteRegistrationCodeCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistrationCodeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteRegistrationCodeCommand extends $Command<
@@ -47,6 +84,18 @@ export class DeleteRegistrationCodeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRegistrationCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +111,9 @@ export class DeleteRegistrationCodeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteRegistrationCodeCommandInput, DeleteRegistrationCodeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteRegistrationCodeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +124,8 @@ export class DeleteRegistrationCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRegistrationCodeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRegistrationCodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +135,18 @@ export class DeleteRegistrationCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRegistrationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRegistrationCodeCommand(input, context);
+    return se_DeleteRegistrationCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistrationCodeCommandOutput> {
-    return deserializeAws_restJson1DeleteRegistrationCodeCommand(output, context);
+    return de_DeleteRegistrationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteScheduledActionMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteScheduledActionCommand,
-  serializeAws_queryDeleteScheduledActionCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteScheduledActionCommand, se_DeleteScheduledActionCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteScheduledActionCommand}.
+ */
 export interface DeleteScheduledActionCommandInput extends DeleteScheduledActionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteScheduledActionCommand}.
+ */
 export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a scheduled action.
  *              </p>
  * @example
@@ -30,13 +44,29 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * import { RedshiftClient, DeleteScheduledActionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteScheduledActionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteScheduledActionMessage
+ *   ScheduledActionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteScheduledActionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteScheduledActionCommandInput - {@link DeleteScheduledActionCommandInput}
+ * @returns {@link DeleteScheduledActionCommandOutput}
  * @see {@link DeleteScheduledActionCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ScheduledActionNotFoundFault} (client fault)
+ *  <p>The scheduled action cannot be found. </p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteScheduledActionCommand extends $Command<
@@ -47,6 +77,18 @@ export class DeleteScheduledActionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +104,9 @@ export class DeleteScheduledActionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteScheduledActionCommandInput, DeleteScheduledActionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteScheduledActionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +117,8 @@ export class DeleteScheduledActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduledActionMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +128,18 @@ export class DeleteScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteScheduledActionCommand(input, context);
+    return se_DeleteScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledActionCommandOutput> {
-    return deserializeAws_queryDeleteScheduledActionCommand(output, context);
+    return de_DeleteScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

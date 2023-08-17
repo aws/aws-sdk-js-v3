@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { ListInputSecurityGroupsRequest, ListInputSecurityGroupsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListInputSecurityGroupsCommand,
-  serializeAws_restJson1ListInputSecurityGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListInputSecurityGroupsCommand, se_ListInputSecurityGroupsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListInputSecurityGroupsCommand}.
+ */
 export interface ListInputSecurityGroupsCommandInput extends ListInputSecurityGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListInputSecurityGroupsCommand}.
+ */
 export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Produces a list of Input Security Groups for an account
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,62 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
  * import { MediaLiveClient, ListInputSecurityGroupsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListInputSecurityGroupsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // ListInputSecurityGroupsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInputSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListInputSecurityGroupsResponse
+ * //   InputSecurityGroups: [ // __listOfInputSecurityGroup
+ * //     { // InputSecurityGroup
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Inputs: [ // __listOf__string
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       State: "IDLE" || "IN_USE" || "UPDATING" || "DELETED",
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       WhitelistRules: [ // __listOfInputWhitelistRule
+ * //         { // InputWhitelistRule
+ * //           Cidr: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListInputSecurityGroupsCommandInput - {@link ListInputSecurityGroupsCommandInput}
+ * @returns {@link ListInputSecurityGroupsCommandOutput}
  * @see {@link ListInputSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link ListInputSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class ListInputSecurityGroupsCommand extends $Command<
@@ -46,6 +109,18 @@ export class ListInputSecurityGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListInputSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +136,9 @@ export class ListInputSecurityGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListInputSecurityGroupsCommandInput, ListInputSecurityGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListInputSecurityGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +149,8 @@ export class ListInputSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInputSecurityGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListInputSecurityGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +160,18 @@ export class ListInputSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInputSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInputSecurityGroupsCommand(input, context);
+    return se_ListInputSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1ListInputSecurityGroupsCommand(output, context);
+    return de_ListInputSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

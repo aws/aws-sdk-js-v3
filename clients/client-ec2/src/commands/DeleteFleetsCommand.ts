@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteFleetsRequest, DeleteFleetsResult } from "../models/models_2";
-import { deserializeAws_ec2DeleteFleetsCommand, serializeAws_ec2DeleteFleetsCommand } from "../protocols/Aws_ec2";
+import { de_DeleteFleetsCommand, se_DeleteFleetsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteFleetsCommand}.
+ */
 export interface DeleteFleetsCommandInput extends DeleteFleetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFleetsCommand}.
+ */
 export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified EC2 Fleet.</p>
+ * @public
+ * <p>Deletes the specified EC2 Fleets.</p>
  *          <p>After you delete an EC2 Fleet, it launches no new instances.</p>
- *          <p>You must specify whether a deleted EC2 Fleet should also terminate its instances. If you
+ *          <p>You must also specify whether a deleted EC2 Fleet should terminate its instances. If you
  *          choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code>
  *          state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and the instances
  *          continue to run until they are interrupted or you terminate them manually.</p>
@@ -43,7 +60,6 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  *                <code>instant</code> fleets.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete an EC2
  *          Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -52,13 +68,44 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  * import { EC2Client, DeleteFleetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteFleetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteFleetsRequest
+ *   DryRun: true || false,
+ *   FleetIds: [ // FleetIdSet // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TerminateInstances: true || false, // required
+ * };
  * const command = new DeleteFleetsCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteFleetsResult
+ * //   SuccessfulFleetDeletions: [ // DeleteFleetSuccessSet
+ * //     { // DeleteFleetSuccessItem
+ * //       CurrentFleetState: "submitted" || "active" || "deleted" || "failed" || "deleted_running" || "deleted_terminating" || "modifying",
+ * //       PreviousFleetState: "submitted" || "active" || "deleted" || "failed" || "deleted_running" || "deleted_terminating" || "modifying",
+ * //       FleetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   UnsuccessfulFleetDeletions: [ // DeleteFleetErrorSet
+ * //     { // DeleteFleetErrorItem
+ * //       Error: { // DeleteFleetError
+ * //         Code: "fleetIdDoesNotExist" || "fleetIdMalformed" || "fleetNotInDeletableState" || "unexpectedError",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       FleetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DeleteFleetsCommandInput - {@link DeleteFleetsCommandInput}
+ * @returns {@link DeleteFleetsCommandOutput}
  * @see {@link DeleteFleetsCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteFleetsCommand extends $Command<
@@ -69,6 +116,18 @@ export class DeleteFleetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +143,7 @@ export class DeleteFleetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteFleetsCommandInput, DeleteFleetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteFleetsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -94,8 +154,8 @@ export class DeleteFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFleetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFleetsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +165,18 @@ export class DeleteFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteFleetsCommand(input, context);
+    return se_DeleteFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetsCommandOutput> {
-    return deserializeAws_ec2DeleteFleetsCommand(output, context);
+    return de_DeleteFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

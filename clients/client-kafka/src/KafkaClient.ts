@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,29 +19,36 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   BatchAssociateScramSecretCommandInput,
@@ -65,16 +64,32 @@ import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand";
+import {
+  CreateVpcConnectionCommandInput,
+  CreateVpcConnectionCommandOutput,
+} from "./commands/CreateVpcConnectionCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import {
+  DeleteClusterPolicyCommandInput,
+  DeleteClusterPolicyCommandOutput,
+} from "./commands/DeleteClusterPolicyCommand";
 import {
   DeleteConfigurationCommandInput,
   DeleteConfigurationCommandOutput,
 } from "./commands/DeleteConfigurationCommand";
+import {
+  DeleteVpcConnectionCommandInput,
+  DeleteVpcConnectionCommandOutput,
+} from "./commands/DeleteVpcConnectionCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import {
   DescribeClusterOperationCommandInput,
   DescribeClusterOperationCommandOutput,
 } from "./commands/DescribeClusterOperationCommand";
+import {
+  DescribeClusterOperationV2CommandInput,
+  DescribeClusterOperationV2CommandOutput,
+} from "./commands/DescribeClusterOperationV2Command";
 import { DescribeClusterV2CommandInput, DescribeClusterV2CommandOutput } from "./commands/DescribeClusterV2Command";
 import {
   DescribeConfigurationCommandInput,
@@ -85,17 +100,30 @@ import {
   DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand";
 import {
+  DescribeVpcConnectionCommandInput,
+  DescribeVpcConnectionCommandOutput,
+} from "./commands/DescribeVpcConnectionCommand";
+import {
   GetBootstrapBrokersCommandInput,
   GetBootstrapBrokersCommandOutput,
 } from "./commands/GetBootstrapBrokersCommand";
+import { GetClusterPolicyCommandInput, GetClusterPolicyCommandOutput } from "./commands/GetClusterPolicyCommand";
 import {
   GetCompatibleKafkaVersionsCommandInput,
   GetCompatibleKafkaVersionsCommandOutput,
 } from "./commands/GetCompatibleKafkaVersionsCommand";
 import {
+  ListClientVpcConnectionsCommandInput,
+  ListClientVpcConnectionsCommandOutput,
+} from "./commands/ListClientVpcConnectionsCommand";
+import {
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
 } from "./commands/ListClusterOperationsCommand";
+import {
+  ListClusterOperationsV2CommandInput,
+  ListClusterOperationsV2CommandOutput,
+} from "./commands/ListClusterOperationsV2Command";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import { ListClustersV2CommandInput, ListClustersV2CommandOutput } from "./commands/ListClustersV2Command";
 import {
@@ -110,7 +138,13 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListVpcConnectionsCommandInput, ListVpcConnectionsCommandOutput } from "./commands/ListVpcConnectionsCommand";
+import { PutClusterPolicyCommandInput, PutClusterPolicyCommandOutput } from "./commands/PutClusterPolicyCommand";
 import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand";
+import {
+  RejectClientVpcConnectionCommandInput,
+  RejectClientVpcConnectionCommandOutput,
+} from "./commands/RejectClientVpcConnectionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBrokerCountCommandInput, UpdateBrokerCountCommandOutput } from "./commands/UpdateBrokerCountCommand";
@@ -134,24 +168,45 @@ import {
 import { UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput } from "./commands/UpdateConnectivityCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand";
 import { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "./commands/UpdateSecurityCommand";
+import { UpdateStorageCommandInput, UpdateStorageCommandOutput } from "./commands/UpdateStorageCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchAssociateScramSecretCommandInput
   | BatchDisassociateScramSecretCommandInput
   | CreateClusterCommandInput
   | CreateClusterV2CommandInput
   | CreateConfigurationCommandInput
+  | CreateVpcConnectionCommandInput
   | DeleteClusterCommandInput
+  | DeleteClusterPolicyCommandInput
   | DeleteConfigurationCommandInput
+  | DeleteVpcConnectionCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterOperationCommandInput
+  | DescribeClusterOperationV2CommandInput
   | DescribeClusterV2CommandInput
   | DescribeConfigurationCommandInput
   | DescribeConfigurationRevisionCommandInput
+  | DescribeVpcConnectionCommandInput
   | GetBootstrapBrokersCommandInput
+  | GetClusterPolicyCommandInput
   | GetCompatibleKafkaVersionsCommandInput
+  | ListClientVpcConnectionsCommandInput
   | ListClusterOperationsCommandInput
+  | ListClusterOperationsV2CommandInput
   | ListClustersCommandInput
   | ListClustersV2CommandInput
   | ListConfigurationRevisionsCommandInput
@@ -160,7 +215,10 @@ export type ServiceInputTypes =
   | ListNodesCommandInput
   | ListScramSecretsCommandInput
   | ListTagsForResourceCommandInput
+  | ListVpcConnectionsCommandInput
+  | PutClusterPolicyCommandInput
   | RebootBrokerCommandInput
+  | RejectClientVpcConnectionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBrokerCountCommandInput
@@ -171,24 +229,36 @@ export type ServiceInputTypes =
   | UpdateConfigurationCommandInput
   | UpdateConnectivityCommandInput
   | UpdateMonitoringCommandInput
-  | UpdateSecurityCommandInput;
+  | UpdateSecurityCommandInput
+  | UpdateStorageCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchAssociateScramSecretCommandOutput
   | BatchDisassociateScramSecretCommandOutput
   | CreateClusterCommandOutput
   | CreateClusterV2CommandOutput
   | CreateConfigurationCommandOutput
+  | CreateVpcConnectionCommandOutput
   | DeleteClusterCommandOutput
+  | DeleteClusterPolicyCommandOutput
   | DeleteConfigurationCommandOutput
+  | DeleteVpcConnectionCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterOperationCommandOutput
+  | DescribeClusterOperationV2CommandOutput
   | DescribeClusterV2CommandOutput
   | DescribeConfigurationCommandOutput
   | DescribeConfigurationRevisionCommandOutput
+  | DescribeVpcConnectionCommandOutput
   | GetBootstrapBrokersCommandOutput
+  | GetClusterPolicyCommandOutput
   | GetCompatibleKafkaVersionsCommandOutput
+  | ListClientVpcConnectionsCommandOutput
   | ListClusterOperationsCommandOutput
+  | ListClusterOperationsV2CommandOutput
   | ListClustersCommandOutput
   | ListClustersV2CommandOutput
   | ListConfigurationRevisionsCommandOutput
@@ -197,7 +267,10 @@ export type ServiceOutputTypes =
   | ListNodesCommandOutput
   | ListScramSecretsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVpcConnectionsCommandOutput
+  | PutClusterPolicyCommandOutput
   | RebootBrokerCommandOutput
+  | RejectClientVpcConnectionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBrokerCountCommandOutput
@@ -208,8 +281,12 @@ export type ServiceOutputTypes =
   | UpdateConfigurationCommandOutput
   | UpdateConnectivityCommandOutput
   | UpdateMonitoringCommandOutput
-  | UpdateSecurityCommandOutput;
+  | UpdateSecurityCommandOutput
+  | UpdateStorageCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -217,11 +294,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -272,10 +349,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -293,77 +403,57 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type KafkaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type KafkaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of KafkaClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of KafkaClient class constructor that set the region, credentials and other options.
  */
 export interface KafkaClientConfig extends KafkaClientConfigType {}
 
-type KafkaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type KafkaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of KafkaClient class. This is resolved and normalized from the {@link KafkaClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of KafkaClient class. This is resolved and normalized from the {@link KafkaClientConfig | constructor configuration interface}.
  */
 export interface KafkaClientResolvedConfig extends KafkaClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The operations for managing an Amazon MSK cluster.</p>
  */
 export class KafkaClient extends __Client<
@@ -377,20 +467,23 @@ export class KafkaClient extends __Client<
    */
   readonly config: KafkaClientResolvedConfig;
 
-  constructor(configuration: KafkaClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<KafkaClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateAppCommand";
 export * from "./CreateCampaignCommand";
 export * from "./CreateEmailTemplateCommand";
@@ -65,6 +66,9 @@ export * from "./GetJourneyCommand";
 export * from "./GetJourneyDateRangeKpiCommand";
 export * from "./GetJourneyExecutionActivityMetricsCommand";
 export * from "./GetJourneyExecutionMetricsCommand";
+export * from "./GetJourneyRunExecutionActivityMetricsCommand";
+export * from "./GetJourneyRunExecutionMetricsCommand";
+export * from "./GetJourneyRunsCommand";
 export * from "./GetPushTemplateCommand";
 export * from "./GetRecommenderConfigurationCommand";
 export * from "./GetRecommenderConfigurationsCommand";

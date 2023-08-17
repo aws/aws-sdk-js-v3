@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Glacier } from "../Glacier";
 import { GlacierClient } from "../GlacierClient";
 
+/**
+ * @public
+ */
 export interface GlacierPaginationConfiguration extends PaginationConfiguration {
-  client: Glacier | GlacierClient;
+  client: GlacierClient;
 }

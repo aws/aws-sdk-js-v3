@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchPutMessageCommand";
 export * from "./CancelPipelineReprocessingCommand";
 export * from "./CreateChannelCommand";

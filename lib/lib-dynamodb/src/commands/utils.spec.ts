@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
 import { marshallInput, unmarshallOutput } from "./utils";

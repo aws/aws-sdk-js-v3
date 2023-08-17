@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,81 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { ListMapsRequest, ListMapsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMapsCommand,
-  serializeAws_restJson1ListMapsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListMapsCommand, se_ListMapsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListMapsCommand}.
+ */
 export interface ListMapsCommandInput extends ListMapsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMapsCommand}.
+ */
 export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists map resources in your AWS account.</p>
+ * @public
+ * <p>Lists map resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LocationClient, ListMapsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListMapsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // ListMapsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListMapsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMapsResponse
+ * //   Entries: [ // ListMapsResponseEntryList // required
+ * //     { // ListMapsResponseEntry
+ * //       MapName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       DataSource: "STRING_VALUE", // required
+ * //       PricingPlan: "STRING_VALUE",
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListMapsCommandInput - {@link ListMapsCommandInput}
+ * @returns {@link ListMapsCommandOutput}
  * @see {@link ListMapsCommandInput} for command's `input` shape.
  * @see {@link ListMapsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class ListMapsCommand extends $Command<
@@ -46,6 +96,18 @@ export class ListMapsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListMapsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +123,7 @@ export class ListMapsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListMapsCommandInput, ListMapsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListMapsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +134,8 @@ export class ListMapsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMapsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMapsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +145,18 @@ export class ListMapsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMapsCommand(input, context);
+    return se_ListMapsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMapsCommandOutput> {
-    return deserializeAws_restJson1ListMapsCommand(output, context);
+    return de_ListMapsCommand(output, context);
   }
 
   // Start section: command_body_extra

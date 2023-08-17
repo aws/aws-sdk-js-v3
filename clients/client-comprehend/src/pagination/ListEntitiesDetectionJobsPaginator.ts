@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListEntitiesDetectionJobsCommand,
   ListEntitiesDetectionJobsCommandInput,
   ListEntitiesDetectionJobsCommandOutput,
 } from "../commands/ListEntitiesDetectionJobsCommand";
-import { Comprehend } from "../Comprehend";
 import { ComprehendClient } from "../ComprehendClient";
 import { ComprehendPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ComprehendClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEntitiesDetectionJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Comprehend,
-  input: ListEntitiesDetectionJobsCommandInput,
-  ...args: any
-): Promise<ListEntitiesDetectionJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEntitiesDetectionJobs(input, ...args);
-};
 export async function* paginateListEntitiesDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListEntitiesDetectionJobsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListEntitiesDetectionJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Comprehend) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ComprehendClient) {
+    if (config.client instanceof ComprehendClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Comprehend | ComprehendClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

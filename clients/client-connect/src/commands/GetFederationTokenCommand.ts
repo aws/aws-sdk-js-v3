@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,26 +11,42 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetFederationTokenCommand,
-  serializeAws_restJson1GetFederationTokenCommand,
-} from "../protocols/Aws_restJson1";
+  GetFederationTokenRequest,
+  GetFederationTokenResponse,
+  GetFederationTokenResponseFilterSensitiveLog,
+} from "../models/models_1";
+import { de_GetFederationTokenCommand, se_GetFederationTokenCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetFederationTokenCommand}.
+ */
 export interface GetFederationTokenCommandInput extends GetFederationTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFederationTokenCommand}.
+ */
 export interface GetFederationTokenCommandOutput extends GetFederationTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a token for federation.</p>
  *          <note>
  *             <p>This API doesn't support root users. If you try to invoke GetFederationToken with root
  *     credentials, an error message similar to the following one appears: </p>
  *             <p>
  *                <code>Provided identity: Principal: .... User: .... cannot be used for federation with
- *      Amazon Connect</code>
+ *       Amazon Connect</code>
  *             </p>
  *          </note>
  * @example
@@ -37,13 +55,51 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * import { ConnectClient, GetFederationTokenCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetFederationTokenCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // GetFederationTokenRequest
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
+ * // { // GetFederationTokenResponse
+ * //   Credentials: { // Credentials
+ * //     AccessToken: "STRING_VALUE",
+ * //     AccessTokenExpiration: new Date("TIMESTAMP"),
+ * //     RefreshToken: "STRING_VALUE",
+ * //     RefreshTokenExpiration: new Date("TIMESTAMP"),
+ * //   },
+ * //   SignInUrl: "STRING_VALUE",
+ * //   UserArn: "STRING_VALUE",
+ * //   UserId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetFederationTokenCommandInput - {@link GetFederationTokenCommandInput}
+ * @returns {@link GetFederationTokenCommandOutput}
  * @see {@link GetFederationTokenCommandInput} for command's `input` shape.
  * @see {@link GetFederationTokenCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link DuplicateResourceException} (client fault)
+ *  <p>A resource with the specified name already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>No user with the specified credentials was found in the Amazon Connect instance.</p>
+ *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class GetFederationTokenCommand extends $Command<
@@ -54,6 +110,18 @@ export class GetFederationTokenCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetFederationTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +137,9 @@ export class GetFederationTokenCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetFederationTokenCommandInput, GetFederationTokenCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetFederationTokenCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +150,8 @@ export class GetFederationTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFederationTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFederationTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetFederationTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +161,18 @@ export class GetFederationTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFederationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFederationTokenCommand(input, context);
+    return se_GetFederationTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFederationTokenCommandOutput> {
-    return deserializeAws_restJson1GetFederationTokenCommand(output, context);
+    return de_GetFederationTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

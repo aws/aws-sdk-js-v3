@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AssociateTrustStoreRequest, AssociateTrustStoreResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateTrustStoreCommand,
-  serializeAws_restJson1AssociateTrustStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateTrustStoreCommand, se_AssociateTrustStoreCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateTrustStoreCommand}.
+ */
 export interface AssociateTrustStoreCommandInput extends AssociateTrustStoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateTrustStoreCommand}.
+ */
 export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a trust store with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,42 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  * import { WorkSpacesWebClient, AssociateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // AssociateTrustStoreRequest
+ *   portalArn: "STRING_VALUE", // required
+ *   trustStoreArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateTrustStoreCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateTrustStoreResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   trustStoreArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
+ * @param AssociateTrustStoreCommandInput - {@link AssociateTrustStoreCommandInput}
+ * @returns {@link AssociateTrustStoreCommandOutput}
  * @see {@link AssociateTrustStoreCommandInput} for command's `input` shape.
  * @see {@link AssociateTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class AssociateTrustStoreCommand extends $Command<
@@ -46,6 +89,18 @@ export class AssociateTrustStoreCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +116,9 @@ export class AssociateTrustStoreCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateTrustStoreCommandInput, AssociateTrustStoreCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateTrustStoreCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +129,8 @@ export class AssociateTrustStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTrustStoreRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTrustStoreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +140,18 @@ export class AssociateTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateTrustStoreCommand(input, context);
+    return se_AssociateTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTrustStoreCommandOutput> {
-    return deserializeAws_restJson1AssociateTrustStoreCommand(output, context);
+    return de_AssociateTrustStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

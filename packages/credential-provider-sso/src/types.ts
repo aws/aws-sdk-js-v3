@@ -1,6 +1,8 @@
-import { Profile } from "@aws-sdk/shared-ini-file-loader";
+import { Profile } from "@smithy/types";
 
 /**
+ * @internal
+ *
  * Cached SSO token retrieved from SSO login flow.
  */
 export interface SSOToken {
@@ -17,6 +19,7 @@ export interface SSOToken {
  */
 export interface SsoProfile extends Profile {
   sso_start_url: string;
+  sso_session?: string;
   sso_account_id: string;
   sso_region: string;
   sso_role_name: string;

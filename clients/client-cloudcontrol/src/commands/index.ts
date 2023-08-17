@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelResourceRequestCommand";
 export * from "./CreateResourceCommand";
 export * from "./DeleteResourceCommand";

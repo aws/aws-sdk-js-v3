@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DescribeInterconnectsRequest, Interconnects } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInterconnectsCommand,
-  serializeAws_json1_1DescribeInterconnectsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeInterconnectsCommand, se_DescribeInterconnectsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeInterconnectsCommand}.
+ */
 export interface DescribeInterconnectsCommandInput extends DescribeInterconnectsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInterconnectsCommand}.
+ */
 export interface DescribeInterconnectsCommandOutput extends Interconnects, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the interconnects owned by the Amazon Web Services account or only the specified interconnect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,54 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  * import { DirectConnectClient, DescribeInterconnectsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeInterconnectsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeInterconnectsRequest
+ *   interconnectId: "STRING_VALUE",
+ * };
  * const command = new DescribeInterconnectsCommand(input);
  * const response = await client.send(command);
+ * // { // Interconnects
+ * //   interconnects: [ // InterconnectList
+ * //     { // Interconnect
+ * //       interconnectId: "STRING_VALUE",
+ * //       interconnectName: "STRING_VALUE",
+ * //       interconnectState: "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "unknown",
+ * //       region: "STRING_VALUE",
+ * //       location: "STRING_VALUE",
+ * //       bandwidth: "STRING_VALUE",
+ * //       loaIssueTime: new Date("TIMESTAMP"),
+ * //       lagId: "STRING_VALUE",
+ * //       awsDevice: "STRING_VALUE",
+ * //       jumboFrameCapable: true || false,
+ * //       awsDeviceV2: "STRING_VALUE",
+ * //       awsLogicalDeviceId: "STRING_VALUE",
+ * //       hasLogicalRedundancy: "unknown" || "yes" || "no",
+ * //       tags: [ // TagList
+ * //         { // Tag
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       providerName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeInterconnectsCommandInput - {@link DescribeInterconnectsCommandInput}
+ * @returns {@link DescribeInterconnectsCommandOutput}
  * @see {@link DescribeInterconnectsCommandInput} for command's `input` shape.
  * @see {@link DescribeInterconnectsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeInterconnectsCommand extends $Command<
@@ -46,6 +101,18 @@ export class DescribeInterconnectsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInterconnectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +128,9 @@ export class DescribeInterconnectsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeInterconnectsCommandInput, DescribeInterconnectsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeInterconnectsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +141,8 @@ export class DescribeInterconnectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInterconnectsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Interconnects.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +152,18 @@ export class DescribeInterconnectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInterconnectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInterconnectsCommand(input, context);
+    return se_DescribeInterconnectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInterconnectsCommandOutput> {
-    return deserializeAws_json1_1DescribeInterconnectsCommand(output, context);
+    return de_DescribeInterconnectsCommand(output, context);
   }
 
   // Start section: command_body_extra

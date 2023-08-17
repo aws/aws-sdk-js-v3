@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { PutJobFailureResultInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutJobFailureResultCommand,
-  serializeAws_json1_1PutJobFailureResultCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutJobFailureResultCommand, se_PutJobFailureResultCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutJobFailureResultCommand}.
+ */
 export interface PutJobFailureResultCommandInput extends PutJobFailureResultInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutJobFailureResultCommand}.
+ */
 export interface PutJobFailureResultCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents the failure of a job as returned to the pipeline by a job worker. Used
  *             for custom actions only.</p>
  * @example
@@ -30,13 +44,37 @@ export interface PutJobFailureResultCommandOutput extends __MetadataBearer {}
  * import { CodePipelineClient, PutJobFailureResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutJobFailureResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // PutJobFailureResultInput
+ *   jobId: "STRING_VALUE", // required
+ *   failureDetails: { // FailureDetails
+ *     type: "JobFailed" || "ConfigurationError" || "PermissionError" || "RevisionOutOfSync" || "RevisionUnavailable" || "SystemUnavailable", // required
+ *     message: "STRING_VALUE", // required
+ *     externalExecutionId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutJobFailureResultCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param PutJobFailureResultCommandInput - {@link PutJobFailureResultCommandInput}
+ * @returns {@link PutJobFailureResultCommandOutput}
  * @see {@link PutJobFailureResultCommandInput} for command's `input` shape.
  * @see {@link PutJobFailureResultCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link InvalidJobStateException} (client fault)
+ *  <p>The job state was specified in an invalid format.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class PutJobFailureResultCommand extends $Command<
@@ -47,6 +85,18 @@ export class PutJobFailureResultCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutJobFailureResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +112,9 @@ export class PutJobFailureResultCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutJobFailureResultCommandInput, PutJobFailureResultCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutJobFailureResultCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +125,8 @@ export class PutJobFailureResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutJobFailureResultInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +136,18 @@ export class PutJobFailureResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutJobFailureResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutJobFailureResultCommand(input, context);
+    return se_PutJobFailureResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutJobFailureResultCommandOutput> {
-    return deserializeAws_json1_1PutJobFailureResultCommand(output, context);
+    return de_PutJobFailureResultCommand(output, context);
   }
 
   // Start section: command_body_extra

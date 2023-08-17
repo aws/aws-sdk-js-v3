@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { GetLogRecordRequest, GetLogRecordResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLogRecordCommand,
-  serializeAws_json1_1GetLogRecordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetLogRecordCommand, se_GetLogRecordCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetLogRecordCommand}.
+ */
 export interface GetLogRecordCommandInput extends GetLogRecordRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLogRecordCommand}.
+ */
 export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all of the fields and values of a single log event. All fields are retrieved,
  *       even if the original query that produced the <code>logRecordPointer</code> retrieved only a
  *       subset of fields. Fields are returned as field name/field value pairs.</p>
@@ -32,13 +46,40 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  * import { CloudWatchLogsClient, GetLogRecordCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetLogRecordCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // GetLogRecordRequest
+ *   logRecordPointer: "STRING_VALUE", // required
+ *   unmask: true || false,
+ * };
  * const command = new GetLogRecordCommand(input);
  * const response = await client.send(command);
+ * // { // GetLogRecordResponse
+ * //   logRecord: { // LogRecord
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetLogRecordCommandInput - {@link GetLogRecordCommandInput}
+ * @returns {@link GetLogRecordCommandOutput}
  * @see {@link GetLogRecordCommandInput} for command's `input` shape.
  * @see {@link GetLogRecordCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class GetLogRecordCommand extends $Command<
@@ -49,6 +90,18 @@ export class GetLogRecordCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetLogRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +117,7 @@ export class GetLogRecordCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetLogRecordCommandInput, GetLogRecordCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetLogRecordCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +128,8 @@ export class GetLogRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLogRecordRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLogRecordResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +139,18 @@ export class GetLogRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLogRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLogRecordCommand(input, context);
+    return se_GetLogRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLogRecordCommandOutput> {
-    return deserializeAws_json1_1GetLogRecordCommand(output, context);
+    return de_GetLogRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

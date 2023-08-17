@@ -1,9 +1,30 @@
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { RDSDataServiceException as __BaseException } from "./RDSDataServiceException";
 
 /**
+ * @public
+ * <p>You do not have sufficient access to perform this action.</p>
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>There is an error in the call or in a SQL statement.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -22,16 +43,26 @@ export class BadRequestException extends __BaseException {
   }
 }
 
-export enum TypeHint {
-  DATE = "DATE",
-  DECIMAL = "DECIMAL",
-  JSON = "JSON",
-  TIME = "TIME",
-  TIMESTAMP = "TIMESTAMP",
-  UUID = "UUID",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TypeHint = {
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  JSON: "JSON",
+  TIME: "TIME",
+  TIMESTAMP: "TIMESTAMP",
+  UUID: "UUID",
+} as const;
 
 /**
+ * @public
+ */
+export type TypeHint = (typeof TypeHint)[keyof typeof TypeHint];
+
+/**
+ * @public
  * <p>There are insufficient privileges to make the call.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -51,6 +82,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal error occurred.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -70,6 +102,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service specified by the <code>resourceArn</code> parameter is not
  *             available.</p>
  */
@@ -90,12 +123,14 @@ export class ServiceUnavailableError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The execution of the SQL statement timed out.</p>
  */
 export class StatementTimeoutException extends __BaseException {
   readonly name: "StatementTimeoutException" = "StatementTimeoutException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The database connection ID that executed the SQL statement.</p>
    */
   dbConnectionId?: number;
@@ -115,193 +150,177 @@ export class StatementTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request parameters represent the input of a request to start a SQL
  *             transaction.</p>
  */
 export interface BeginTransactionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The name or ARN of the secret that enables access to the DB cluster.</p>
    */
   secretArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database.</p>
    */
   database?: string;
 
   /**
+   * @public
    * <p>The name of the database schema.</p>
    */
   schema?: string;
 }
 
-export namespace BeginTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BeginTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The response elements represent the output of a request to start a SQL
  *             transaction.</p>
  */
 export interface BeginTransactionResponse {
   /**
+   * @public
    * <p>The transaction ID of the transaction started by the call.</p>
    */
   transactionId?: string;
 }
 
-export namespace BeginTransactionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BeginTransactionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the metadata for a column.</p>
  */
 export interface ColumnMetadata {
   /**
+   * @public
    * <p>The name of the column.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The type of the column.</p>
    */
   type?: number;
 
   /**
+   * @public
    * <p>The database-specific data type of the column.</p>
    */
   typeName?: string;
 
   /**
+   * @public
    * <p>The label for the column.</p>
    */
   label?: string;
 
   /**
+   * @public
    * <p>The name of the schema that owns the table that includes the column.</p>
    */
   schemaName?: string;
 
   /**
+   * @public
    * <p>The name of the table that includes the column.</p>
    */
   tableName?: string;
 
   /**
+   * @public
    * <p>A value that indicates whether the column increments automatically.</p>
    */
   isAutoIncrement?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates whether an integer column is signed.</p>
    */
   isSigned?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates whether the column contains currency values.</p>
    */
   isCurrency?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates whether the column is case-sensitive.</p>
    */
   isCaseSensitive?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates whether the column is nullable.</p>
    */
   nullable?: number;
 
   /**
+   * @public
    * <p>The precision value of a decimal number column.</p>
    */
   precision?: number;
 
   /**
+   * @public
    * <p>The scale value of a decimal number column.</p>
    */
   scale?: number;
 
   /**
+   * @public
    * <p>The type of the column.</p>
    */
   arrayBaseColumnType?: number;
 }
 
-export namespace ColumnMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The request parameters represent the input of a commit transaction request.</p>
  */
 export interface CommitTransactionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The name or ARN of the secret that enables access to the DB cluster.</p>
    */
   secretArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the transaction to end and commit.</p>
    */
   transactionId: string | undefined;
 }
 
-export namespace CommitTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The response elements represent the output of a commit transaction request.</p>
  */
 export interface CommitTransactionResponse {
   /**
+   * @public
    * <p>The status of the commit operation.</p>
    */
   transactionStatus?: string;
 }
 
-export namespace CommitTransactionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitTransactionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -320,27 +339,42 @@ export class NotFoundException extends __BaseException {
   }
 }
 
-export enum DecimalReturnType {
-  DOUBLE_OR_LONG = "DOUBLE_OR_LONG",
-  STRING = "STRING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DecimalReturnType = {
+  DOUBLE_OR_LONG: "DOUBLE_OR_LONG",
+  STRING: "STRING",
+} as const;
 
 /**
+ * @public
+ */
+export type DecimalReturnType = (typeof DecimalReturnType)[keyof typeof DecimalReturnType];
+
+/**
+ * @public
  * <p>The request parameters represent the input of a request to run one or more SQL
  *             statements.</p>
  */
 export interface ExecuteSqlRequest {
   /**
+   * @public
    * <p>The ARN of the Aurora Serverless DB cluster.</p>
    */
   dbClusterOrInstanceArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the secret that enables access to the DB cluster.</p>
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the secret that enables access to the DB cluster. Enter the database user name and password
+   *             for the credentials in the secret.</p>
+   *         <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
    */
   awsSecretStoreArn: string | undefined;
 
   /**
+   * @public
    * <p>One or more SQL statements to run on the DB cluster.</p>
    *         <p>You can separate SQL statements from each other with a semicolon (;). Any valid SQL
    *             statement is permitted, including data definition, data manipulation, and commit
@@ -349,127 +383,134 @@ export interface ExecuteSqlRequest {
   sqlStatements: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database.</p>
    */
   database?: string;
 
   /**
+   * @public
    * <p>The name of the database schema.</p>
    */
   schema?: string;
 }
 
-export namespace ExecuteSqlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteSqlRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The metadata of the result set returned by a SQL statement.</p>
  */
 export interface ResultSetMetadata {
   /**
+   * @public
    * <p>The number of columns in the result set.</p>
    */
   columnCount?: number;
 
   /**
+   * @public
    * <p>The metadata of the columns in the result set.</p>
    */
   columnMetadata?: ColumnMetadata[];
 }
 
-export namespace ResultSetMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultSetMetadata): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecordsFormatType = {
+  JSON: "JSON",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type RecordsFormatType = (typeof RecordsFormatType)[keyof typeof RecordsFormatType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LongReturnType = {
+  LONG: "LONG",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type LongReturnType = (typeof LongReturnType)[keyof typeof LongReturnType];
+
+/**
+ * @public
  * <p>Options that control how the result set is returned.</p>
  */
 export interface ResultSetOptions {
   /**
+   * @public
    * <p>A value that indicates how a field of <code>DECIMAL</code> type is represented
    *             in the response. The value of <code>STRING</code>, the default, specifies that
    *             it is converted to a String value. The value of <code>DOUBLE_OR_LONG</code>
    *             specifies that it is converted to a Long value if its scale is 0, or to a Double
    *             value otherwise.</p>
-   *         <important>
+   *         <note>
    *             <p>Conversion to Double or Long can result in roundoff errors due to precision loss.
    *                 We recommend converting to String, especially when working with currency values.</p>
-   *         </important>
+   *         </note>
    */
   decimalReturnType?: DecimalReturnType | string;
-}
 
-export namespace ResultSetOptions {
   /**
-   * @internal
+   * @public
+   * <p>A value that indicates how a field of <code>LONG</code> type is represented.
+   *         Allowed values are <code>LONG</code> and <code>STRING</code>. The default
+   *         is <code>LONG</code>. Specify <code>STRING</code> if the length or
+   *         precision of numeric values might cause truncation or rounding errors.
+   *         </p>
    */
-  export const filterSensitiveLog = (obj: ResultSetOptions): any => ({
-    ...obj,
-  });
+  longReturnType?: LongReturnType | string;
 }
 
 /**
+ * @public
  * <p>The request parameters represent the input of a request to perform a rollback of a
  *             transaction.</p>
  */
 export interface RollbackTransactionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The name or ARN of the secret that enables access to the DB cluster.</p>
    */
   secretArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the transaction to roll back.</p>
    */
   transactionId: string | undefined;
 }
 
-export namespace RollbackTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RollbackTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The response elements represent the output of a request to perform a rollback of a
  *             transaction.</p>
  */
 export interface RollbackTransactionResponse {
   /**
+   * @public
    * <p>The status of the rollback operation.</p>
    */
   transactionStatus?: string;
 }
 
-export namespace RollbackTransactionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RollbackTransactionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains an array.</p>
  */
 export type ArrayValue =
@@ -480,8 +521,12 @@ export type ArrayValue =
   | ArrayValue.StringValuesMember
   | ArrayValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ArrayValue {
   /**
+   * @public
    * <p>An array of Boolean values.</p>
    */
   export interface BooleanValuesMember {
@@ -494,7 +539,8 @@ export namespace ArrayValue {
   }
 
   /**
-   * <p>An array of floating point numbers.</p>
+   * @public
+   * <p>An array of integers.</p>
    */
   export interface LongValuesMember {
     booleanValues?: never;
@@ -506,7 +552,8 @@ export namespace ArrayValue {
   }
 
   /**
-   * <p>An array of integers.</p>
+   * @public
+   * <p>An array of floating-point numbers.</p>
    */
   export interface DoubleValuesMember {
     booleanValues?: never;
@@ -518,6 +565,7 @@ export namespace ArrayValue {
   }
 
   /**
+   * @public
    * <p>An array of strings.</p>
    */
   export interface StringValuesMember {
@@ -530,6 +578,7 @@ export namespace ArrayValue {
   }
 
   /**
+   * @public
    * <p>An array of arrays.</p>
    */
   export interface ArrayValuesMember {
@@ -541,6 +590,9 @@ export namespace ArrayValue {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     booleanValues?: never;
     longValues?: never;
@@ -567,22 +619,10 @@ export namespace ArrayValue {
     if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArrayValue): any => {
-    if (obj.booleanValues !== undefined) return { booleanValues: obj.booleanValues };
-    if (obj.longValues !== undefined) return { longValues: obj.longValues };
-    if (obj.doubleValues !== undefined) return { doubleValues: obj.doubleValues };
-    if (obj.stringValues !== undefined) return { stringValues: obj.stringValues };
-    if (obj.arrayValues !== undefined)
-      return { arrayValues: obj.arrayValues.map((item) => ArrayValue.filterSensitiveLog(item)) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
+ * @public
  * <p>Contains a value.</p>
  */
 export type Field =
@@ -595,8 +635,12 @@ export type Field =
   | Field.StringValueMember
   | Field.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Field {
   /**
+   * @public
    * <p>A NULL value.</p>
    */
   export interface IsNullMember {
@@ -611,6 +655,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>A value of Boolean data type.</p>
    */
   export interface BooleanValueMember {
@@ -625,6 +670,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>A value of long data type.</p>
    */
   export interface LongValueMember {
@@ -639,6 +685,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>A value of double data type.</p>
    */
   export interface DoubleValueMember {
@@ -653,6 +700,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>A value of string data type.</p>
    */
   export interface StringValueMember {
@@ -667,6 +715,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>A value of BLOB data type.</p>
    */
   export interface BlobValueMember {
@@ -681,6 +730,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>An array of values.</p>
    */
   export interface ArrayValueMember {
@@ -694,6 +744,9 @@ export namespace Field {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     isNull?: never;
     booleanValue?: never;
@@ -726,37 +779,27 @@ export namespace Field {
     if (value.arrayValue !== undefined) return visitor.arrayValue(value.arrayValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Field): any => {
-    if (obj.isNull !== undefined) return { isNull: obj.isNull };
-    if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
-    if (obj.longValue !== undefined) return { longValue: obj.longValue };
-    if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
-    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
-    if (obj.arrayValue !== undefined) return { arrayValue: ArrayValue.filterSensitiveLog(obj.arrayValue) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
+ * @public
  * <p>A parameter used in a SQL statement.</p>
  */
 export interface SqlParameter {
   /**
+   * @public
    * <p>The name of the parameter.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The value of the parameter.</p>
    */
   value?: Field;
 
   /**
+   * @public
    * <p>A hint that specifies the correct object type for data type mapping. Possible values
    *             are as follows:</p>
    *         <ul>
@@ -796,42 +839,26 @@ export interface SqlParameter {
   typeHint?: TypeHint | string;
 }
 
-export namespace SqlParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlParameter): any => ({
-    ...obj,
-    ...(obj.value && { value: Field.filterSensitiveLog(obj.value) }),
-  });
-}
-
 /**
+ * @public
  * <p>The response elements represent the results of an update.</p>
  */
 export interface UpdateResult {
   /**
+   * @public
    * <p>Values for fields generated during the request.</p>
    */
   generatedFields?: Field[];
 }
 
-export namespace UpdateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResult): any => ({
-    ...obj,
-    ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => Field.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
+ * @public
  * <p>Contains the value of a column.</p>
  *
- *         <important>
- *             <p>This data type is deprecated.</p>
- *         </important>
+ *         <note>
+ *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
+ *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
+ *         </note>
  */
 export type Value =
   | Value.ArrayValuesMember
@@ -846,8 +873,12 @@ export type Value =
   | Value.StructValueMember
   | Value.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Value {
   /**
+   * @public
    * <p>A NULL value.</p>
    */
   export interface IsNullMember {
@@ -865,6 +896,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of BIT data type.</p>
    */
   export interface BitValueMember {
@@ -882,6 +914,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of big integer data type.</p>
    */
   export interface BigIntValueMember {
@@ -899,6 +932,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of integer data type.</p>
    */
   export interface IntValueMember {
@@ -916,6 +950,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of double data type.</p>
    */
   export interface DoubleValueMember {
@@ -933,6 +968,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of real data type.</p>
    */
   export interface RealValueMember {
@@ -950,6 +986,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of string data type.</p>
    */
   export interface StringValueMember {
@@ -967,6 +1004,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of BLOB data type.</p>
    */
   export interface BlobValueMember {
@@ -984,6 +1022,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>An array of column values.</p>
    */
   export interface ArrayValuesMember {
@@ -1001,6 +1040,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of STRUCT data type.</p>
    */
   export interface StructValueMember {
@@ -1017,6 +1057,9 @@ export namespace Value {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     isNull?: never;
     bitValue?: never;
@@ -1058,52 +1101,42 @@ export namespace Value {
     if (value.structValue !== undefined) return visitor.structValue(value.structValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Value): any => {
-    if (obj.isNull !== undefined) return { isNull: obj.isNull };
-    if (obj.bitValue !== undefined) return { bitValue: obj.bitValue };
-    if (obj.bigIntValue !== undefined) return { bigIntValue: obj.bigIntValue };
-    if (obj.intValue !== undefined) return { intValue: obj.intValue };
-    if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
-    if (obj.realValue !== undefined) return { realValue: obj.realValue };
-    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
-    if (obj.arrayValues !== undefined)
-      return { arrayValues: obj.arrayValues.map((item) => Value.filterSensitiveLog(item)) };
-    if (obj.structValue !== undefined) return { structValue: StructValue.filterSensitiveLog(obj.structValue) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
+ * @public
  * <p>The request parameters represent the input of a request to run a SQL statement against
  *             a database.</p>
  */
 export interface ExecuteStatementRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the DB cluster.</p>
+   * @public
+   * <p>The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in
+   *             the secret.</p>
+   *         <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
    */
   secretArn: string | undefined;
 
   /**
+   * @public
    * <p>The SQL statement to run.</p>
    */
   sql: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database.</p>
    */
   database?: string;
 
   /**
+   * @public
    * <p>The name of the database schema.</p>
    *         <note>
    *             <p>Currently, the <code>schema</code> parameter isn't supported.</p>
@@ -1112,6 +1145,7 @@ export interface ExecuteStatementRequest {
   schema?: string;
 
   /**
+   * @public
    * <p>The parameters for the SQL statement.</p>
    *         <note>
    *             <p>Array parameters are not supported.</p>
@@ -1120,6 +1154,7 @@ export interface ExecuteStatementRequest {
   parameters?: SqlParameter[];
 
   /**
+   * @public
    * <p>The identifier of a transaction that was started by using the
    *                 <code>BeginTransaction</code> operation. Specify the transaction ID of the
    *             transaction that you want to include the SQL statement in.</p>
@@ -1128,89 +1163,102 @@ export interface ExecuteStatementRequest {
   transactionId?: string;
 
   /**
+   * @public
    * <p>A value that indicates whether to include metadata in the results.</p>
    */
   includeResultMetadata?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates whether to continue running the statement after
    *             the call times out. By default, the statement stops running when the call
    *             times out.</p>
-   *         <important>
+   *         <note>
    *             <p>For DDL statements, we recommend continuing to run the statement after
    *                the call times out. When a DDL statement terminates before it is finished
    *                running, it can result in errors and possibly corrupted data structures.</p>
-   *         </important>
+   *         </note>
    */
   continueAfterTimeout?: boolean;
 
   /**
+   * @public
    * <p>Options that control how the result set is returned.</p>
    */
   resultSetOptions?: ResultSetOptions;
-}
 
-export namespace ExecuteStatementRequest {
   /**
-   * @internal
+   * @public
+   * <p>A value that indicates whether to format the result set as a single JSON string.
+   *         This parameter only applies to <code>SELECT</code> statements and is ignored for
+   *         other types of statements. Allowed values are <code>NONE</code> and <code>JSON</code>.
+   *         The default value is <code>NONE</code>. The result is returned in the <code>formattedRecords</code> field.</p>
+   *         <p>For usage information about the JSON format for result sets, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API</a>
+   *           in the <i>Amazon Aurora User Guide</i>.</p>
    */
-  export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
-    ...obj,
-    ...(obj.parameters && { parameters: obj.parameters.map((item) => SqlParameter.filterSensitiveLog(item)) }),
-  });
+  formatRecordsAs?: RecordsFormatType | string;
 }
 
 /**
+ * @public
  * <p>A structure value returned by a call.</p>
+ *         <note>
+ *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
+ *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
+ *         </note>
  */
 export interface StructValue {
   /**
+   * @public
    * <p>The attributes returned in the record.</p>
    */
   attributes?: Value[];
 }
 
-export namespace StructValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StructValue): any => ({
-    ...obj,
-    ...(obj.attributes && { attributes: obj.attributes.map((item) => Value.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
+ * @public
  * <p>The request parameters represent the input of a SQL statement over an array of
  *             data.</p>
  */
 export interface BatchExecuteStatementRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the DB cluster.</p>
+   * @public
+   * <p>The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in
+   *             the secret.</p>
+   *         <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The SQL statement to run.</p>
+   * @public
+   * <p>The SQL statement to run. Don't include a semicolon (;) at the end of the SQL statement.</p>
    */
   sql: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database.</p>
    */
   database?: string;
 
   /**
+   * @public
    * <p>The name of the database schema.</p>
+   *         <note>
+   *             <p>Currently, the <code>schema</code> parameter isn't supported.</p>
+   *         </note>
    */
   schema?: string;
 
   /**
+   * @public
    * <p>The parameter set for the batch operation.</p>
    *         <p>The SQL statement is executed as many times as the number of parameter sets provided.
    *           To execute a SQL statement with no parameters, use one of the following options:</p>
@@ -1229,6 +1277,7 @@ export interface BatchExecuteStatementRequest {
   parameterSets?: SqlParameter[][];
 
   /**
+   * @public
    * <p>The identifier of a transaction that was started by using the
    *                 <code>BeginTransaction</code> operation. Specify the transaction ID of the
    *             transaction that you want to include the SQL statement in.</p>
@@ -1238,81 +1287,64 @@ export interface BatchExecuteStatementRequest {
   transactionId?: string;
 }
 
-export namespace BatchExecuteStatementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchExecuteStatementRequest): any => ({
-    ...obj,
-    ...(obj.parameterSets && {
-      parameterSets: obj.parameterSets.map((item) => item.map((item) => SqlParameter.filterSensitiveLog(item))),
-    }),
-  });
-}
-
 /**
+ * @public
  * <p>The response elements represent the output of a SQL statement over an array of
  *             data.</p>
  */
 export interface BatchExecuteStatementResponse {
   /**
+   * @public
    * <p>The execution results of each batch entry.</p>
    */
   updateResults?: UpdateResult[];
 }
 
-export namespace BatchExecuteStatementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchExecuteStatementResponse): any => ({
-    ...obj,
-    ...(obj.updateResults && { updateResults: obj.updateResults.map((item) => UpdateResult.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
+ * @public
  * <p>A record returned by a call.</p>
+ *         <note>
+ *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
+ *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
+ *         </note>
  */
 export interface _Record {
   /**
+   * @public
    * <p>The values returned in the record.</p>
    */
   values?: Value[];
 }
 
-export namespace _Record {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj,
-    ...(obj.values && { values: obj.values.map((item) => Value.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
+ * @public
  * <p>The response elements represent the output of a request to run a SQL statement against
  *             a database.</p>
  */
 export interface ExecuteStatementResponse {
   /**
-   * <p>The records returned by the SQL statement.</p>
+   * @public
+   * <p>The records returned by the SQL statement. This field is blank if the
+   *         <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>
    */
   records?: Field[][];
 
   /**
-   * <p>Metadata for the columns included in the results.</p>
+   * @public
+   * <p>Metadata for the columns included in the results. This field is blank if the
+   *         <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>
    */
   columnMetadata?: ColumnMetadata[];
 
   /**
+   * @public
    * <p>The number of records updated by the request.</p>
    */
   numberOfRecordsUpdated?: number;
 
   /**
-   * <p>Values for fields generated during the request.</p>
+   * @public
+   * <p>Values for fields generated during a DML request.</p>
    *
    *         <note>
    *             <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL.
@@ -1322,88 +1354,72 @@ export interface ExecuteStatementResponse {
    *         </note>
    */
   generatedFields?: Field[];
-}
 
-export namespace ExecuteStatementResponse {
   /**
-   * @internal
+   * @public
+   * <p>A string value that represents the result set of a <code>SELECT</code> statement
+   *         in JSON format. This value is only present when the <code>formatRecordsAs</code>
+   *         parameter is set to <code>JSON</code>.</p>
+   *         <p>The size limit for this field is currently 10 MB. If the JSON-formatted string representing the
+   *           result set requires more than 10 MB, the call returns an error.</p>
    */
-  export const filterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
-    ...obj,
-    ...(obj.records && { records: obj.records.map((item) => item.map((item) => Field.filterSensitiveLog(item))) }),
-    ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => Field.filterSensitiveLog(item)) }),
-  });
+  formattedRecords?: string;
 }
 
 /**
+ * @public
  * <p>The result set returned by a SQL statement.</p>
+ *         <note>
+ *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
+ *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
+ *         </note>
  */
 export interface ResultFrame {
   /**
+   * @public
    * <p>The result-set metadata in the result set.</p>
    */
   resultSetMetadata?: ResultSetMetadata;
 
   /**
+   * @public
    * <p>The records in the result set.</p>
    */
   records?: _Record[];
 }
 
-export namespace ResultFrame {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultFrame): any => ({
-    ...obj,
-    ...(obj.records && { records: obj.records.map((item) => _Record.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
+ * @public
  * <p>The result of a SQL statement.</p>
  *
- *         <important>
- *             <p>This data type is deprecated.</p>
- *         </important>
+ *         <note>
+ *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
+ *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
+ *         </note>
  */
 export interface SqlStatementResult {
   /**
+   * @public
    * <p>The result set of the SQL statement.</p>
    */
   resultFrame?: ResultFrame;
 
   /**
+   * @public
    * <p>The number of records updated by a SQL statement.</p>
    */
   numberOfRecordsUpdated?: number;
 }
 
-export namespace SqlStatementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlStatementResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The response elements represent the output of a request to run one or more SQL
  *             statements.</p>
  */
 export interface ExecuteSqlResponse {
   /**
+   * @public
    * <p>The results of the SQL statement or statements.</p>
    */
   sqlStatementResults?: SqlStatementResult[];
-}
-
-export namespace ExecuteSqlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteSqlResponse): any => ({
-    ...obj,
-  });
 }

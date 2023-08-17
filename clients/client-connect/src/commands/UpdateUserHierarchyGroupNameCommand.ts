@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateUserHierarchyGroupNameRequest } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateUserHierarchyGroupNameCommand,
-  serializeAws_restJson1UpdateUserHierarchyGroupNameCommand,
+  de_UpdateUserHierarchyGroupNameCommand,
+  se_UpdateUserHierarchyGroupNameCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateUserHierarchyGroupNameCommand}.
+ */
 export interface UpdateUserHierarchyGroupNameCommandInput extends UpdateUserHierarchyGroupNameRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateUserHierarchyGroupNameCommand}.
+ */
 export interface UpdateUserHierarchyGroupNameCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name of the user hierarchy group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +46,43 @@ export interface UpdateUserHierarchyGroupNameCommandOutput extends __MetadataBea
  * import { ConnectClient, UpdateUserHierarchyGroupNameCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserHierarchyGroupNameCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateUserHierarchyGroupNameRequest
+ *   Name: "STRING_VALUE", // required
+ *   HierarchyGroupId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateUserHierarchyGroupNameCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateUserHierarchyGroupNameCommandInput - {@link UpdateUserHierarchyGroupNameCommandInput}
+ * @returns {@link UpdateUserHierarchyGroupNameCommandOutput}
  * @see {@link UpdateUserHierarchyGroupNameCommandInput} for command's `input` shape.
  * @see {@link UpdateUserHierarchyGroupNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link DuplicateResourceException} (client fault)
+ *  <p>A resource with the specified name already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateUserHierarchyGroupNameCommand extends $Command<
@@ -46,6 +93,18 @@ export class UpdateUserHierarchyGroupNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserHierarchyGroupNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +120,9 @@ export class UpdateUserHierarchyGroupNameCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateUserHierarchyGroupNameCommandInput, UpdateUserHierarchyGroupNameCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateUserHierarchyGroupNameCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +133,8 @@ export class UpdateUserHierarchyGroupNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserHierarchyGroupNameRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +144,21 @@ export class UpdateUserHierarchyGroupNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserHierarchyGroupNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserHierarchyGroupNameCommand(input, context);
+    return se_UpdateUserHierarchyGroupNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserHierarchyGroupNameCommandOutput> {
-    return deserializeAws_restJson1UpdateUserHierarchyGroupNameCommand(output, context);
+    return de_UpdateUserHierarchyGroupNameCommand(output, context);
   }
 
   // Start section: command_body_extra

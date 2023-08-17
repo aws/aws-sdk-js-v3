@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { DeleteGatewayInput, DeleteGatewayOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteGatewayCommand,
-  serializeAws_json1_0DeleteGatewayCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteGatewayCommand, se_DeleteGatewayCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteGatewayCommand}.
+ */
 export interface DeleteGatewayCommandInput extends DeleteGatewayInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteGatewayCommand}.
+ */
 export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a backup gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,38 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * import { BackupGatewayClient, DeleteGatewayCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, DeleteGatewayCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // DeleteGatewayInput
+ *   GatewayArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteGatewayOutput
+ * //   GatewayArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DeleteGatewayCommandInput - {@link DeleteGatewayCommandInput}
+ * @returns {@link DeleteGatewayCommandOutput}
  * @see {@link DeleteGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action wasn't found.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>TPS has been limited to protect against intentional or unintentional
+ *     high request volumes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class DeleteGatewayCommand extends $Command<
@@ -46,6 +85,18 @@ export class DeleteGatewayCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +112,7 @@ export class DeleteGatewayCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteGatewayCommandInput, DeleteGatewayCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteGatewayCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +123,8 @@ export class DeleteGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGatewayInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGatewayOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +134,18 @@ export class DeleteGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteGatewayCommand(input, context);
+    return se_DeleteGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayCommandOutput> {
-    return deserializeAws_json1_0DeleteGatewayCommand(output, context);
+    return de_DeleteGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

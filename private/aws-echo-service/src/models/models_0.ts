@@ -1,34 +1,24 @@
+// smithy-typescript generated code
 import { EchoServiceServiceException as __BaseException } from "./EchoServiceServiceException";
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+/**
+ * @public
+ */
 export interface EchoInput {
   string?: string;
 }
 
-export namespace EchoInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EchoInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface EchoOutput {
   string?: string;
 }
 
-export namespace EchoOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EchoOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * For some reason, this service does not like palindromes!
  */
 export class PalindromeException extends __BaseException {
@@ -47,28 +37,16 @@ export class PalindromeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface LengthInput {
   string: string | undefined;
 }
 
-export namespace LengthInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LengthInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface LengthOutput {
   length?: number;
-}
-
-export namespace LengthOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LengthOutput): any => ({
-    ...obj,
-  });
 }

@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -31,6 +31,15 @@
   "shapes": {
     "com.amazonaws.personalizeruntime#AmazonPersonalizeRuntime": {
       "type": "service",
+      "version": "2018-05-22",
+      "operations": [
+        {
+          "target": "com.amazonaws.personalizeruntime#GetPersonalizedRanking"
+        },
+        {
+          "target": "com.amazonaws.personalizeruntime#GetRecommendations"
+        }
+      ],
       "traits": {
         "aws.api#service": {
           "sdkId": "Personalize Runtime",
@@ -44,17 +53,360 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p></p>",
-        "smithy.api#title": "Amazon Personalize Runtime"
-      },
-      "version": "2018-05-22",
-      "operations": [
-        {
-          "target": "com.amazonaws.personalizeruntime#GetPersonalizedRanking"
+        "smithy.api#title": "Amazon Personalize Runtime",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://personalize-runtime-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://personalize-runtime-fips.{Region}.{PartitionResult#dnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://personalize-runtime.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://personalize-runtime.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
         },
-        {
-          "target": "com.amazonaws.personalizeruntime#GetRecommendations"
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
         }
-      ]
+      }
     },
     "com.amazonaws.personalizeruntime#Arn": {
       "type": "string",
@@ -276,6 +628,7 @@
         "numResults": {
           "target": "com.amazonaws.personalizeruntime#NumResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of results to return. The default is 25. The maximum is 500.</p>"
           }
         },
@@ -294,13 +647,19 @@
         "filterValues": {
           "target": "com.amazonaws.personalizeruntime#FilterValues",
           "traits": {
-            "smithy.api#documentation": "<p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case)\n      as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma.\n    </p> \n         <p>For filter expressions that use an <code>INCLUDE</code> element to include items,\n    you must provide values for all parameters that are defined in the expression. For\n    filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you\n      can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of\n    the expression to filter recommendations.</p>\n         <p>For more information, see\n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>.</p>"
+            "smithy.api#documentation": "<p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case)\n      as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma.\n    </p> \n         <p>For filter expressions that use an <code>INCLUDE</code> element to include items,\n    you must provide values for all parameters that are defined in the expression. For\n    filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you\n      can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of\n    the expression to filter recommendations.</p>\n         <p>For more information, see\n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering recommendations and user segments</a>.</p>"
           }
         },
         "recommenderArn": {
           "target": "com.amazonaws.personalizeruntime#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the recommender to use to get recommendations. Provide a recommender ARN if you\n    created a Domain dataset group with a recommender for a domain use case.</p>"
+          }
+        },
+        "promotions": {
+          "target": "com.amazonaws.personalizeruntime#PromotionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The promotions to apply to the recommendation request. \n      A promotion defines additional business rules that apply to a configurable subset of recommended items.</p>"
           }
         }
       }
@@ -356,11 +715,32 @@
         "target": "com.amazonaws.personalizeruntime#PredictedItem"
       }
     },
+    "com.amazonaws.personalizeruntime#Name": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 63
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9][a-zA-Z0-9\\-_]*$"
+      }
+    },
     "com.amazonaws.personalizeruntime#NumResults": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0
+        }
+      }
+    },
+    "com.amazonaws.personalizeruntime#PercentPromotedItems": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
         }
       }
     },
@@ -378,10 +758,61 @@
           "traits": {
             "smithy.api#documentation": "<p>A numeric representation of the model's certainty that the item will be the next user\n      selection. For more information on scoring logic, see <a>how-scores-work</a>.</p>"
           }
+        },
+        "promotionName": {
+          "target": "com.amazonaws.personalizeruntime#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the promotion that included the predicted item.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>An object that identifies an item.</p>\n         <p>The  and  APIs return a list of\n      <code>PredictedItem</code>s.</p>"
+      }
+    },
+    "com.amazonaws.personalizeruntime#Promotion": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.personalizeruntime#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the promotion.</p>"
+          }
+        },
+        "percentPromotedItems": {
+          "target": "com.amazonaws.personalizeruntime#PercentPromotedItems",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The percentage of recommended items to apply the promotion to.</p>"
+          }
+        },
+        "filterArn": {
+          "target": "com.amazonaws.personalizeruntime#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the filter used by the promotion. This filter defines the criteria for promoted items. For more information, see \n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/promoting-items.html#promotion-filters\">Promotion filters</a>.</p>"
+          }
+        },
+        "filterValues": {
+          "target": "com.amazonaws.personalizeruntime#FilterValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The values to use when promoting items.\n      For each placeholder parameter in your promotion's filter expression, provide the parameter name (in matching case) as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma. \n    </p>\n         <p>For filter expressions that use an <code>INCLUDE</code> element to include items,\n      you must provide values for all parameters that are defined in the expression. For\n      filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you\n      can omit the <code>filter-values</code>. In this case, Amazon Personalize doesn't use that portion of\n      the expression to filter recommendations.</p>\n         <p>For more information on creating filters, see\n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering recommendations and user segments</a>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information on a promotion. A promotion defines additional business rules that apply to a configurable subset of recommended items.</p>"
+      }
+    },
+    "com.amazonaws.personalizeruntime#PromotionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.personalizeruntime#Promotion"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1
+        }
       }
     },
     "com.amazonaws.personalizeruntime#RecommendationID": {
@@ -401,10 +832,7 @@
       }
     },
     "com.amazonaws.personalizeruntime#Score": {
-      "type": "double",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "double"
     },
     "com.amazonaws.personalizeruntime#UserID": {
       "type": "string",

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddTagsToResourceCommand";
 export * from "./AuthorizeCacheSecurityGroupIngressCommand";
 export * from "./BatchApplyUpdateActionCommand";
@@ -63,3 +64,4 @@ export * from "./ResetCacheParameterGroupCommand";
 export * from "./RevokeCacheSecurityGroupIngressCommand";
 export * from "./StartMigrationCommand";
 export * from "./TestFailoverCommand";
+export * from "./TestMigrationCommand";

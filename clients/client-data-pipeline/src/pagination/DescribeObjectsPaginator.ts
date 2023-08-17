@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeObjectsCommand,
   DescribeObjectsCommandInput,
   DescribeObjectsCommandOutput,
 } from "../commands/DescribeObjectsCommand";
-import { DataPipeline } from "../DataPipeline";
 import { DataPipelineClient } from "../DataPipelineClient";
 import { DataPipelinePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DataPipelineClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeObjectsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DataPipeline,
-  input: DescribeObjectsCommandInput,
-  ...args: any
-): Promise<DescribeObjectsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeObjects(input, ...args);
-};
 export async function* paginateDescribeObjects(
   config: DataPipelinePaginationConfiguration,
   input: DescribeObjectsCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateDescribeObjects(
   let page: DescribeObjectsCommandOutput;
   while (hasNext) {
     input.marker = token;
-    if (config.client instanceof DataPipeline) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DataPipelineClient) {
+    if (config.client instanceof DataPipelineClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DataPipeline | DataPipelineClient");
     }
     yield page;
+    const prevToken = token;
     token = page.marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

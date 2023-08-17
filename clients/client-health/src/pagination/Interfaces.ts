@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Health } from "../Health";
 import { HealthClient } from "../HealthClient";
 
+/**
+ * @public
+ */
 export interface HealthPaginationConfiguration extends PaginationConfiguration {
-  client: Health | HealthClient;
+  client: HealthClient;
 }

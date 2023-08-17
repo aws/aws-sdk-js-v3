@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
@@ -17,17 +19,32 @@ import {
   DeleteNetworkInsightsAccessScopeAnalysisResult,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand,
-  serializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand,
+  de_DeleteNetworkInsightsAccessScopeAnalysisCommand,
+  se_DeleteNetworkInsightsAccessScopeAnalysisCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteNetworkInsightsAccessScopeAnalysisCommand}.
+ */
 export interface DeleteNetworkInsightsAccessScopeAnalysisCommandInput
   extends DeleteNetworkInsightsAccessScopeAnalysisRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNetworkInsightsAccessScopeAnalysisCommand}.
+ */
 export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
   extends DeleteNetworkInsightsAccessScopeAnalysisResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Network Access Scope analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +52,26 @@ export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
  * import { EC2Client, DeleteNetworkInsightsAccessScopeAnalysisCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkInsightsAccessScopeAnalysisCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteNetworkInsightsAccessScopeAnalysisRequest
+ *   NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteNetworkInsightsAccessScopeAnalysisCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteNetworkInsightsAccessScopeAnalysisResult
+ * //   NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DeleteNetworkInsightsAccessScopeAnalysisCommandInput - {@link DeleteNetworkInsightsAccessScopeAnalysisCommandInput}
+ * @returns {@link DeleteNetworkInsightsAccessScopeAnalysisCommandOutput}
  * @see {@link DeleteNetworkInsightsAccessScopeAnalysisCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInsightsAccessScopeAnalysisCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
@@ -52,6 +82,18 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkInsightsAccessScopeAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +112,12 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DeleteNetworkInsightsAccessScopeAnalysisCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +128,8 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkInsightsAccessScopeAnalysisRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkInsightsAccessScopeAnalysisResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,18 +139,24 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand(input, context);
+    return se_DeleteNetworkInsightsAccessScopeAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNetworkInsightsAccessScopeAnalysisCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand(output, context);
+    return de_DeleteNetworkInsightsAccessScopeAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

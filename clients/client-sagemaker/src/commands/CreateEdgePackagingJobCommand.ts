@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { CreateEdgePackagingJobRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEdgePackagingJobCommand,
-  serializeAws_json1_1CreateEdgePackagingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateEdgePackagingJobRequest } from "../models/models_1";
+import { de_CreateEdgePackagingJobCommand, se_CreateEdgePackagingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateEdgePackagingJobCommand}.
+ */
 export interface CreateEdgePackagingJobCommandInput extends CreateEdgePackagingJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEdgePackagingJobCommand}.
+ */
 export interface CreateEdgePackagingJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a SageMaker Edge Manager model packaging job. Edge Manager will use the model artifacts from the Amazon Simple Storage Service bucket that you specify. After the model has been packaged, Amazon SageMaker saves the resulting artifacts to an S3 bucket that you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,44 @@ export interface CreateEdgePackagingJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, CreateEdgePackagingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEdgePackagingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateEdgePackagingJobRequest
+ *   EdgePackagingJobName: "STRING_VALUE", // required
+ *   CompilationJobName: "STRING_VALUE", // required
+ *   ModelName: "STRING_VALUE", // required
+ *   ModelVersion: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   OutputConfig: { // EdgeOutputConfig
+ *     S3OutputLocation: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *     PresetDeploymentType: "GreengrassV2Component",
+ *     PresetDeploymentConfig: "STRING_VALUE",
+ *   },
+ *   ResourceKey: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEdgePackagingJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateEdgePackagingJobCommandInput - {@link CreateEdgePackagingJobCommandInput}
+ * @returns {@link CreateEdgePackagingJobCommandOutput}
  * @see {@link CreateEdgePackagingJobCommandInput} for command's `input` shape.
  * @see {@link CreateEdgePackagingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateEdgePackagingJobCommand extends $Command<
@@ -46,6 +91,18 @@ export class CreateEdgePackagingJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEdgePackagingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +118,9 @@ export class CreateEdgePackagingJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateEdgePackagingJobCommandInput, CreateEdgePackagingJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateEdgePackagingJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +131,8 @@ export class CreateEdgePackagingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEdgePackagingJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +142,18 @@ export class CreateEdgePackagingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEdgePackagingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEdgePackagingJobCommand(input, context);
+    return se_CreateEdgePackagingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEdgePackagingJobCommandOutput> {
-    return deserializeAws_json1_1CreateEdgePackagingJobCommand(output, context);
+    return de_CreateEdgePackagingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

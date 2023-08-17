@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { DescribeParametersRequest, DescribeParametersResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeParametersCommand,
-  serializeAws_json1_1DescribeParametersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeParametersCommand, se_DescribeParametersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeParametersCommand}.
+ */
 export interface DescribeParametersCommandInput extends DescribeParametersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeParametersCommand}.
+ */
 export interface DescribeParametersCommandOutput extends DescribeParametersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the detailed parameter list for a particular parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,59 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * import { DAXClient, DescribeParametersCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeParametersCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = { // DescribeParametersRequest
+ *   ParameterGroupName: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeParametersResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Parameters: [ // ParameterList
+ * //     { // Parameter
+ * //       ParameterName: "STRING_VALUE",
+ * //       ParameterType: "STRING_VALUE",
+ * //       ParameterValue: "STRING_VALUE",
+ * //       NodeTypeSpecificValues: [ // NodeTypeSpecificValueList
+ * //         { // NodeTypeSpecificValue
+ * //           NodeType: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Description: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
+ * //       DataType: "STRING_VALUE",
+ * //       AllowedValues: "STRING_VALUE",
+ * //       IsModifiable: "STRING_VALUE",
+ * //       ChangeType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
+ * @returns {@link DescribeParametersCommandOutput}
  * @see {@link DescribeParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ParameterGroupNotFoundFault} (client fault)
+ *  <p>The specified parameter group does not exist.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DescribeParametersCommand extends $Command<
@@ -46,6 +106,18 @@ export class DescribeParametersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +133,9 @@ export class DescribeParametersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeParametersCommandInput, DescribeParametersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeParametersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +146,8 @@ export class DescribeParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeParametersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeParametersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +157,18 @@ export class DescribeParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeParametersCommand(input, context);
+    return se_DescribeParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeParametersCommand(output, context);
+    return de_DescribeParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

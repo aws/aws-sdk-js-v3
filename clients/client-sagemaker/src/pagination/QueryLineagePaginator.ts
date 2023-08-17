@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   QueryLineageCommand,
   QueryLineageCommandInput,
   QueryLineageCommandOutput,
 } from "../commands/QueryLineageCommand";
-import { SageMaker } from "../SageMaker";
 import { SageMakerClient } from "../SageMakerClient";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SageMakerClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new QueryLineageCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SageMaker,
-  input: QueryLineageCommandInput,
-  ...args: any
-): Promise<QueryLineageCommandOutput> => {
-  // @ts-ignore
-  return await client.queryLineage(input, ...args);
-};
 export async function* paginateQueryLineage(
   config: SageMakerPaginationConfiguration,
   input: QueryLineageCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateQueryLineage(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SageMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerClient) {
+    if (config.client instanceof SageMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

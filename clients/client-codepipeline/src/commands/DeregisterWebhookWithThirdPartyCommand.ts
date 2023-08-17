@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,37 +11,69 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { DeregisterWebhookWithThirdPartyInput, DeregisterWebhookWithThirdPartyOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommand,
-  serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand,
+  de_DeregisterWebhookWithThirdPartyCommand,
+  se_DeregisterWebhookWithThirdPartyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeregisterWebhookWithThirdPartyCommand}.
+ */
 export interface DeregisterWebhookWithThirdPartyCommandInput extends DeregisterWebhookWithThirdPartyInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterWebhookWithThirdPartyCommand}.
+ */
 export interface DeregisterWebhookWithThirdPartyCommandOutput
   extends DeregisterWebhookWithThirdPartyOutput,
     __MetadataBearer {}
 
 /**
- * <p>Removes the connection between the webhook that was created by CodePipeline and the
- *             external tool with events to be detected. Currently supported only for webhooks that
- *             target an action type of GitHub.</p>
+ * @public
+ * <p>Removes the connection between the webhook that was created by CodePipeline
+ *             and the external tool with events to be detected. Currently supported only for webhooks
+ *             that target an action type of GitHub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, DeregisterWebhookWithThirdPartyCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DeregisterWebhookWithThirdPartyCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // DeregisterWebhookWithThirdPartyInput
+ *   webhookName: "STRING_VALUE",
+ * };
  * const command = new DeregisterWebhookWithThirdPartyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeregisterWebhookWithThirdPartyCommandInput - {@link DeregisterWebhookWithThirdPartyCommandInput}
+ * @returns {@link DeregisterWebhookWithThirdPartyCommandOutput}
  * @see {@link DeregisterWebhookWithThirdPartyCommandInput} for command's `input` shape.
  * @see {@link DeregisterWebhookWithThirdPartyCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ * @throws {@link WebhookNotFoundException} (client fault)
+ *  <p>The specified webhook was entered in an invalid format or cannot be
+ *             found.</p>
+ *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class DeregisterWebhookWithThirdPartyCommand extends $Command<
@@ -50,6 +84,18 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterWebhookWithThirdPartyCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +111,9 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeregisterWebhookWithThirdPartyCommandInput, DeregisterWebhookWithThirdPartyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeregisterWebhookWithThirdPartyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +124,8 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterWebhookWithThirdPartyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterWebhookWithThirdPartyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,18 +135,24 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterWebhookWithThirdPartyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand(input, context);
+    return se_DeregisterWebhookWithThirdPartyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterWebhookWithThirdPartyCommandOutput> {
-    return deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommand(output, context);
+    return de_DeregisterWebhookWithThirdPartyCommand(output, context);
   }
 
   // Start section: command_body_extra

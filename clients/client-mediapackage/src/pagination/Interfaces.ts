@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { MediaPackage } from "../MediaPackage";
 import { MediaPackageClient } from "../MediaPackageClient";
 
+/**
+ * @public
+ */
 export interface MediaPackagePaginationConfiguration extends PaginationConfiguration {
-  client: MediaPackage | MediaPackageClient;
+  client: MediaPackageClient;
 }

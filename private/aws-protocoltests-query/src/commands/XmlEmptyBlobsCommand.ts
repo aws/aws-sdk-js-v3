@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,27 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { XmlBlobsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryXmlEmptyBlobsCommand,
-  serializeAws_queryXmlEmptyBlobsCommand,
-} from "../protocols/Aws_query";
+import { de_XmlEmptyBlobsCommand, se_XmlEmptyBlobsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link XmlEmptyBlobsCommand}.
+ */
 export interface XmlEmptyBlobsCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link XmlEmptyBlobsCommand}.
+ */
 export interface XmlEmptyBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer {}
 
 export class XmlEmptyBlobsCommand extends $Command<
@@ -29,6 +41,9 @@ export class XmlEmptyBlobsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlEmptyBlobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +69,8 @@ export class XmlEmptyBlobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlBlobsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,12 +80,18 @@ export class XmlEmptyBlobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlEmptyBlobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryXmlEmptyBlobsCommand(input, context);
+    return se_XmlEmptyBlobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyBlobsCommandOutput> {
-    return deserializeAws_queryXmlEmptyBlobsCommand(output, context);
+    return de_XmlEmptyBlobsCommand(output, context);
   }
 
   // Start section: command_body_extra

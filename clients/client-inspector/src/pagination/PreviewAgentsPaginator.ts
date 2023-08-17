@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   PreviewAgentsCommand,
   PreviewAgentsCommandInput,
   PreviewAgentsCommandOutput,
 } from "../commands/PreviewAgentsCommand";
-import { Inspector } from "../Inspector";
 import { InspectorClient } from "../InspectorClient";
 import { InspectorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: InspectorClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new PreviewAgentsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Inspector,
-  input: PreviewAgentsCommandInput,
-  ...args: any
-): Promise<PreviewAgentsCommandOutput> => {
-  // @ts-ignore
-  return await client.previewAgents(input, ...args);
-};
 export async function* paginatePreviewAgents(
   config: InspectorPaginationConfiguration,
   input: PreviewAgentsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginatePreviewAgents(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Inspector) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof InspectorClient) {
+    if (config.client instanceof InspectorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Inspector | InspectorClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

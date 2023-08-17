@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeEcsClustersCommand,
   DescribeEcsClustersCommandInput,
   DescribeEcsClustersCommandOutput,
 } from "../commands/DescribeEcsClustersCommand";
-import { OpsWorks } from "../OpsWorks";
 import { OpsWorksClient } from "../OpsWorksClient";
 import { OpsWorksPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpsWorksClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeEcsClustersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: OpsWorks,
-  input: DescribeEcsClustersCommandInput,
-  ...args: any
-): Promise<DescribeEcsClustersCommandOutput> => {
-  // @ts-ignore
-  return await client.describeEcsClusters(input, ...args);
-};
 export async function* paginateDescribeEcsClusters(
   config: OpsWorksPaginationConfiguration,
   input: DescribeEcsClustersCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeEcsClusters(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof OpsWorks) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OpsWorksClient) {
+    if (config.client instanceof OpsWorksClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OpsWorks | OpsWorksClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

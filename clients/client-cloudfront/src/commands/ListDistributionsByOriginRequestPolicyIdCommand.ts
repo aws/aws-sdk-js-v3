@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
@@ -17,20 +19,35 @@ import {
   ListDistributionsByOriginRequestPolicyIdResult,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand,
-  serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand,
+  de_ListDistributionsByOriginRequestPolicyIdCommand,
+  se_ListDistributionsByOriginRequestPolicyIdCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListDistributionsByOriginRequestPolicyIdCommand}.
+ */
 export interface ListDistributionsByOriginRequestPolicyIdCommandInput
   extends ListDistributionsByOriginRequestPolicyIdRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDistributionsByOriginRequestPolicyIdCommand}.
+ */
 export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
   extends ListDistributionsByOriginRequestPolicyIdResult,
     __MetadataBearer {}
 
 /**
- * <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
+ * @public
+ * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
  * 			associated with the specified origin request policy.</p>
- * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+ *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
  * 			default maximum, the response is paginated. To get the next page of items, send a
  * 			subsequent request that specifies the <code>NextMarker</code> value from the current
@@ -41,13 +58,45 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  * import { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListDistributionsByOriginRequestPolicyIdRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   OriginRequestPolicyId: "STRING_VALUE", // required
+ * };
  * const command = new ListDistributionsByOriginRequestPolicyIdCommand(input);
  * const response = await client.send(command);
+ * // { // ListDistributionsByOriginRequestPolicyIdResult
+ * //   DistributionIdList: { // DistributionIdList
+ * //     Marker: "STRING_VALUE", // required
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     IsTruncated: true || false, // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // DistributionIdListSummary
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param ListDistributionsByOriginRequestPolicyIdCommandInput - {@link ListDistributionsByOriginRequestPolicyIdCommandInput}
+ * @returns {@link ListDistributionsByOriginRequestPolicyIdCommandOutput}
  * @see {@link ListDistributionsByOriginRequestPolicyIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByOriginRequestPolicyIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchOriginRequestPolicy} (client fault)
+ *  <p>The origin request policy does not exist.</p>
+ *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
@@ -58,6 +107,18 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByOriginRequestPolicyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +137,12 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
     ListDistributionsByOriginRequestPolicyIdCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        ListDistributionsByOriginRequestPolicyIdCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -86,8 +153,8 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsByOriginRequestPolicyIdRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDistributionsByOriginRequestPolicyIdResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,18 +164,24 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDistributionsByOriginRequestPolicyIdCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand(input, context);
+    return se_ListDistributionsByOriginRequestPolicyIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByOriginRequestPolicyIdCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand(output, context);
+    return de_ListDistributionsByOriginRequestPolicyIdCommand(output, context);
   }
 
   // Start section: command_body_extra

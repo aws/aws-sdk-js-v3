@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   CloudSearchDomainClientResolvedConfig,
@@ -17,12 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
 import { SearchRequest, SearchResponse } from "../models/models_0";
-import { deserializeAws_restJson1SearchCommand, serializeAws_restJson1SearchCommand } from "../protocols/Aws_restJson1";
+import { de_SearchCommand, se_SearchCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SearchCommand}.
+ */
 export interface SearchCommandInput extends SearchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchCommand}.
+ */
 export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of documents that match the specified search criteria. How you specify the search criteria depends on which query parser you use. Amazon CloudSearch supports four query parsers:</p>
  *       <ul>
  *          <li><code>simple</code>: search all <code>text</code> and <code>text-array</code> fields for the specified string. Search for phrases, individual terms, and prefixes. </li>
@@ -38,13 +55,87 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * import { CloudSearchDomainClient, SearchCommand } from "@aws-sdk/client-cloudsearch-domain"; // ES Modules import
  * // const { CloudSearchDomainClient, SearchCommand } = require("@aws-sdk/client-cloudsearch-domain"); // CommonJS import
  * const client = new CloudSearchDomainClient(config);
+ * const input = { // SearchRequest
+ *   cursor: "STRING_VALUE",
+ *   expr: "STRING_VALUE",
+ *   facet: "STRING_VALUE",
+ *   filterQuery: "STRING_VALUE",
+ *   highlight: "STRING_VALUE",
+ *   partial: true || false,
+ *   query: "STRING_VALUE", // required
+ *   queryOptions: "STRING_VALUE",
+ *   queryParser: "STRING_VALUE",
+ *   return: "STRING_VALUE",
+ *   size: Number("long"),
+ *   sort: "STRING_VALUE",
+ *   start: Number("long"),
+ *   stats: "STRING_VALUE",
+ * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);
+ * // { // SearchResponse
+ * //   status: { // SearchStatus
+ * //     timems: Number("long"),
+ * //     rid: "STRING_VALUE",
+ * //   },
+ * //   hits: { // Hits
+ * //     found: Number("long"),
+ * //     start: Number("long"),
+ * //     cursor: "STRING_VALUE",
+ * //     hit: [ // HitList
+ * //       { // Hit
+ * //         id: "STRING_VALUE",
+ * //         fields: { // Fields
+ * //           "<keys>": [ // FieldValue
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         exprs: { // Exprs
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         highlights: { // Highlights
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   facets: { // Facets
+ * //     "<keys>": { // BucketInfo
+ * //       buckets: [ // BucketList
+ * //         { // Bucket
+ * //           value: "STRING_VALUE",
+ * //           count: Number("long"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   stats: { // Stats
+ * //     "<keys>": { // FieldStats
+ * //       min: "STRING_VALUE",
+ * //       max: "STRING_VALUE",
+ * //       count: Number("long"),
+ * //       missing: Number("long"),
+ * //       sum: Number("double"),
+ * //       sumOfSquares: Number("double"),
+ * //       mean: "STRING_VALUE",
+ * //       stddev: Number("double"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param SearchCommandInput - {@link SearchCommandInput}
+ * @returns {@link SearchCommandOutput}
  * @see {@link SearchCommandInput} for command's `input` shape.
  * @see {@link SearchCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchDomainClientResolvedConfig | config} for CloudSearchDomainClient's `config` shape.
+ *
+ * @throws {@link SearchException} (client fault)
+ *  <p>Information about any problems encountered while processing a search request.</p>
+ *
+ * @throws {@link CloudSearchDomainServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
  */
 export class SearchCommand extends $Command<
@@ -55,6 +146,18 @@ export class SearchCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +173,7 @@ export class SearchCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchCommandInput, SearchCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, SearchCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +184,8 @@ export class SearchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +195,18 @@ export class SearchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchCommand(input, context);
+    return se_SearchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> {
-    return deserializeAws_restJson1SearchCommand(output, context);
+    return de_SearchCommand(output, context);
   }
 
   // Start section: command_body_extra

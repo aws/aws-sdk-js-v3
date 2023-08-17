@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeBundleTasksRequest, DescribeBundleTasksResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DescribeBundleTasksCommand,
-  serializeAws_ec2DescribeBundleTasksCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeBundleTasksRequest, DescribeBundleTasksResult } from "../models/models_3";
+import { de_DescribeBundleTasksCommand, se_DescribeBundleTasksCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeBundleTasksCommand}.
+ */
 export interface DescribeBundleTasksCommandInput extends DescribeBundleTasksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBundleTasksCommand}.
+ */
 export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified bundle tasks or all of your bundle tasks.</p>
  *          <note>
  *             <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p>
@@ -32,13 +46,58 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  * import { EC2Client, DescribeBundleTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeBundleTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeBundleTasksRequest
+ *   BundleIds: [ // BundleIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeBundleTasksCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeBundleTasksResult
+ * //   BundleTasks: [ // BundleTaskList
+ * //     { // BundleTask
+ * //       BundleId: "STRING_VALUE",
+ * //       BundleTaskError: { // BundleTaskError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       InstanceId: "STRING_VALUE",
+ * //       Progress: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       State: "pending" || "waiting-for-shutdown" || "bundling" || "storing" || "cancelling" || "complete" || "failed",
+ * //       Storage: { // Storage
+ * //         S3: { // S3Storage
+ * //           AWSAccessKeyId: "STRING_VALUE",
+ * //           Bucket: "STRING_VALUE",
+ * //           Prefix: "STRING_VALUE",
+ * //           UploadPolicy: "BLOB_VALUE",
+ * //           UploadPolicySignature: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       UpdateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeBundleTasksCommandInput - {@link DescribeBundleTasksCommandInput}
+ * @returns {@link DescribeBundleTasksCommandOutput}
  * @see {@link DescribeBundleTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeBundleTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeBundleTasksCommand extends $Command<
@@ -49,6 +108,18 @@ export class DescribeBundleTasksCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBundleTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +135,9 @@ export class DescribeBundleTasksCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeBundleTasksCommandInput, DescribeBundleTasksCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeBundleTasksCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +148,8 @@ export class DescribeBundleTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBundleTasksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBundleTasksResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +159,18 @@ export class DescribeBundleTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBundleTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeBundleTasksCommand(input, context);
+    return se_DescribeBundleTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBundleTasksCommandOutput> {
-    return deserializeAws_ec2DescribeBundleTasksCommand(output, context);
+    return de_DescribeBundleTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

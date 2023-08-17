@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetDataflowGraphRequest, GetDataflowGraphResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDataflowGraphCommand,
-  serializeAws_json1_1GetDataflowGraphCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDataflowGraphCommand, se_GetDataflowGraphCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetDataflowGraphCommand}.
+ */
 export interface GetDataflowGraphCommandInput extends GetDataflowGraphRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDataflowGraphCommand}.
+ */
 export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transforms a Python script into a directed acyclic graph (DAG). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,54 @@ export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse,
  * import { GlueClient, GetDataflowGraphCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataflowGraphCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetDataflowGraphRequest
+ *   PythonScript: "STRING_VALUE",
+ * };
  * const command = new GetDataflowGraphCommand(input);
  * const response = await client.send(command);
+ * // { // GetDataflowGraphResponse
+ * //   DagNodes: [ // DagNodes
+ * //     { // CodeGenNode
+ * //       Id: "STRING_VALUE", // required
+ * //       NodeType: "STRING_VALUE", // required
+ * //       Args: [ // CodeGenNodeArgs // required
+ * //         { // CodeGenNodeArg
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //           Param: true || false,
+ * //         },
+ * //       ],
+ * //       LineNumber: Number("int"),
+ * //     },
+ * //   ],
+ * //   DagEdges: [ // DagEdges
+ * //     { // CodeGenEdge
+ * //       Source: "STRING_VALUE", // required
+ * //       Target: "STRING_VALUE", // required
+ * //       TargetParameter: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GetDataflowGraphCommandInput - {@link GetDataflowGraphCommandInput}
+ * @returns {@link GetDataflowGraphCommandOutput}
  * @see {@link GetDataflowGraphCommandInput} for command's `input` shape.
  * @see {@link GetDataflowGraphCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetDataflowGraphCommand extends $Command<
@@ -46,6 +101,18 @@ export class GetDataflowGraphCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataflowGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +128,9 @@ export class GetDataflowGraphCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetDataflowGraphCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +141,8 @@ export class GetDataflowGraphCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataflowGraphRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDataflowGraphResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +152,18 @@ export class GetDataflowGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataflowGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataflowGraphCommand(input, context);
+    return se_GetDataflowGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataflowGraphCommandOutput> {
-    return deserializeAws_json1_1GetDataflowGraphCommand(output, context);
+    return de_GetDataflowGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

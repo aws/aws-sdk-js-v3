@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PutComplianceItemsRequest, PutComplianceItemsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutComplianceItemsCommand,
-  serializeAws_json1_1PutComplianceItemsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutComplianceItemsCommand, se_PutComplianceItemsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutComplianceItemsCommand}.
+ */
 export interface PutComplianceItemsCommandInput extends PutComplianceItemsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutComplianceItemsCommand}.
+ */
 export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a compliance type and other compliance details on a designated resource. This
  *    operation lets you register custom compliance details with a resource. This call overwrites
  *    existing compliance information on the resource, so you must provide a full list of compliance
@@ -50,7 +64,7 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  *      or <code>Failed</code> for associations.</p>
  *             </li>
  *             <li>
- *                <p>Severity: A patch severity. For example, <code>critical</code>.</p>
+ *                <p>Severity: A patch severity. For example, <code>Critical</code>.</p>
  *             </li>
  *             <li>
  *                <p>DocumentName: An SSM document name. For example, <code>AWS-RunPatchBaseline</code>.</p>
@@ -84,13 +98,66 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * import { SSMClient, PutComplianceItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, PutComplianceItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // PutComplianceItemsRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE", // required
+ *   ComplianceType: "STRING_VALUE", // required
+ *   ExecutionSummary: { // ComplianceExecutionSummary
+ *     ExecutionTime: new Date("TIMESTAMP"), // required
+ *     ExecutionId: "STRING_VALUE",
+ *     ExecutionType: "STRING_VALUE",
+ *   },
+ *   Items: [ // ComplianceItemEntryList // required
+ *     { // ComplianceItemEntry
+ *       Id: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Severity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED", // required
+ *       Status: "COMPLIANT" || "NON_COMPLIANT", // required
+ *       Details: { // ComplianceItemDetails
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   ItemContentHash: "STRING_VALUE",
+ *   UploadType: "COMPLETE" || "PARTIAL",
+ * };
  * const command = new PutComplianceItemsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param PutComplianceItemsCommandInput - {@link PutComplianceItemsCommandInput}
+ * @returns {@link PutComplianceItemsCommandOutput}
  * @see {@link PutComplianceItemsCommandInput} for command's `input` shape.
  * @see {@link PutComplianceItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link ComplianceTypeCountLimitExceededException} (client fault)
+ *  <p>You specified too many custom compliance types. You can specify a maximum of 10 different
+ *    types. </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidItemContentException} (client fault)
+ *  <p>One or more content items isn't valid.</p>
+ *
+ * @throws {@link InvalidResourceId} (client fault)
+ *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ * @throws {@link InvalidResourceType} (client fault)
+ *  <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance,
+ *    the instance must be a registered managed node.</p>
+ *
+ * @throws {@link ItemSizeLimitExceededException} (client fault)
+ *  <p>The inventory item size has exceeded the size limit.</p>
+ *
+ * @throws {@link TotalSizeLimitExceededException} (client fault)
+ *  <p>The size of inventory data has exceeded the total size limit for the resource.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class PutComplianceItemsCommand extends $Command<
@@ -101,6 +168,18 @@ export class PutComplianceItemsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutComplianceItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +195,9 @@ export class PutComplianceItemsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutComplianceItemsCommandInput, PutComplianceItemsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutComplianceItemsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -126,8 +208,8 @@ export class PutComplianceItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutComplianceItemsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutComplianceItemsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +219,18 @@ export class PutComplianceItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutComplianceItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutComplianceItemsCommand(input, context);
+    return se_PutComplianceItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutComplianceItemsCommandOutput> {
-    return deserializeAws_json1_1PutComplianceItemsCommand(output, context);
+    return de_PutComplianceItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

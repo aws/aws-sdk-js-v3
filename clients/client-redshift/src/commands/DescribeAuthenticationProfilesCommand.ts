@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeAuthenticationProfilesMessage, DescribeAuthenticationProfilesResult } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeAuthenticationProfilesCommand,
-  serializeAws_queryDescribeAuthenticationProfilesCommand,
+  de_DescribeAuthenticationProfilesCommand,
+  se_DescribeAuthenticationProfilesCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeAuthenticationProfilesCommand}.
+ */
 export interface DescribeAuthenticationProfilesCommandInput extends DescribeAuthenticationProfilesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAuthenticationProfilesCommand}.
+ */
 export interface DescribeAuthenticationProfilesCommandOutput
   extends DescribeAuthenticationProfilesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an authentication profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,37 @@ export interface DescribeAuthenticationProfilesCommandOutput
  * import { RedshiftClient, DescribeAuthenticationProfilesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeAuthenticationProfilesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeAuthenticationProfilesMessage
+ *   AuthenticationProfileName: "STRING_VALUE",
+ * };
  * const command = new DescribeAuthenticationProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAuthenticationProfilesResult
+ * //   AuthenticationProfiles: [ // AuthenticationProfileList
+ * //     { // AuthenticationProfile
+ * //       AuthenticationProfileName: "STRING_VALUE",
+ * //       AuthenticationProfileContent: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeAuthenticationProfilesCommandInput - {@link DescribeAuthenticationProfilesCommandInput}
+ * @returns {@link DescribeAuthenticationProfilesCommandOutput}
  * @see {@link DescribeAuthenticationProfilesCommandInput} for command's `input` shape.
  * @see {@link DescribeAuthenticationProfilesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link AuthenticationProfileNotFoundFault} (client fault)
+ *  <p>The authentication profile can't be found.</p>
+ *
+ * @throws {@link InvalidAuthenticationProfileRequestFault} (client fault)
+ *  <p>The authentication profile request is not valid. The profile name can't be null or empty.
+ *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
+ *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeAuthenticationProfilesCommand extends $Command<
@@ -48,6 +89,18 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAuthenticationProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +116,9 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAuthenticationProfilesCommandInput, DescribeAuthenticationProfilesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAuthenticationProfilesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +129,8 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAuthenticationProfilesMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAuthenticationProfilesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,18 +140,24 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAuthenticationProfilesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAuthenticationProfilesCommand(input, context);
+    return se_DescribeAuthenticationProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAuthenticationProfilesCommandOutput> {
-    return deserializeAws_queryDescribeAuthenticationProfilesCommand(output, context);
+    return de_DescribeAuthenticationProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

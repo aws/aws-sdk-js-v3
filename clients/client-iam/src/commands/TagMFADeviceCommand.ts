@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { TagMFADeviceRequest } from "../models/models_0";
-import { deserializeAws_queryTagMFADeviceCommand, serializeAws_queryTagMFADeviceCommand } from "../protocols/Aws_query";
+import { de_TagMFADeviceCommand, se_TagMFADeviceCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link TagMFADeviceCommand}.
+ */
 export interface TagMFADeviceCommandInput extends TagMFADeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagMFADeviceCommand}.
+ */
 export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM virtual multi-factor authentication (MFA) device. If
  *       a tag with the same key name already exists, then that tag is overwritten with the new
  *       value.</p>
@@ -62,13 +79,49 @@ export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
  * import { IAMClient, TagMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // TagMFADeviceRequest
+ *   SerialNumber: "STRING_VALUE", // required
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagMFADeviceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param TagMFADeviceCommandInput - {@link TagMFADeviceCommandInput}
+ * @returns {@link TagMFADeviceCommandOutput}
  * @see {@link TagMFADeviceCommandInput} for command's `input` shape.
  * @see {@link TagMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class TagMFADeviceCommand extends $Command<
@@ -79,6 +132,18 @@ export class TagMFADeviceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: TagMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,6 +159,7 @@ export class TagMFADeviceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TagMFADeviceCommandInput, TagMFADeviceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagMFADeviceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -104,8 +170,8 @@ export class TagMFADeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagMFADeviceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +181,18 @@ export class TagMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagMFADeviceCommand(input, context);
+    return se_TagMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagMFADeviceCommandOutput> {
-    return deserializeAws_queryTagMFADeviceCommand(output, context);
+    return de_TagMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

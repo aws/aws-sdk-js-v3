@@ -1,8 +1,10 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -10,13 +12,17 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
+  resolvedPath as __resolvedPath,
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   CreateConfigurationSetCommandInput,
@@ -176,24 +182,19 @@ import {
   ConcurrentModificationException,
   Content,
   DailyVolume,
-  DedicatedIp,
   DeliverabilityTestReport,
   DeliveryOptions,
   Destination,
-  DkimAttributes,
   DomainDeliverabilityCampaign,
   DomainDeliverabilityTrackingOption,
   DomainIspPlacement,
   EmailContent,
-  EventDestination,
   EventDestinationDefinition,
   EventType,
-  IdentityInfo,
   InboxPlacementTrackingOption,
   IspPlacement,
   KinesisFirehoseDestination,
   LimitExceededException,
-  MailFromAttributes,
   MailFromDomainNotVerifiedException,
   Message,
   MessageRejected,
@@ -212,11 +213,13 @@ import {
   Template,
   TooManyRequestsException,
   TrackingOptions,
-  VolumeStatistics,
 } from "../models/models_0";
 import { PinpointEmailServiceException as __BaseException } from "../models/PinpointEmailServiceException";
 
-export const serializeAws_restJson1CreateConfigurationSetCommand = async (
+/**
+ * serializeAws_restJson1CreateConfigurationSetCommand
+ */
+export const se_CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -227,28 +230,16 @@ export const serializeAws_restJson1CreateConfigurationSetCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/configuration-sets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationSetName !== undefined &&
-      input.ConfigurationSetName !== null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.DeliveryOptions !== undefined &&
-      input.DeliveryOptions !== null && {
-        DeliveryOptions: serializeAws_restJson1DeliveryOptions(input.DeliveryOptions, context),
-      }),
-    ...(input.ReputationOptions !== undefined &&
-      input.ReputationOptions !== null && {
-        ReputationOptions: serializeAws_restJson1ReputationOptions(input.ReputationOptions, context),
-      }),
-    ...(input.SendingOptions !== undefined &&
-      input.SendingOptions !== null && {
-        SendingOptions: serializeAws_restJson1SendingOptions(input.SendingOptions, context),
-      }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.TrackingOptions !== undefined &&
-      input.TrackingOptions !== null && {
-        TrackingOptions: serializeAws_restJson1TrackingOptions(input.TrackingOptions, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationSetName: [],
+      DeliveryOptions: (_) => _json(_),
+      ReputationOptions: (_) => se_ReputationOptions(_, context),
+      SendingOptions: (_) => _json(_),
+      Tags: (_) => _json(_),
+      TrackingOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -260,7 +251,10 @@ export const serializeAws_restJson1CreateConfigurationSetCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand = async (
+/**
+ * serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
+ */
+export const se_CreateConfigurationSetEventDestinationCommand = async (
   input: CreateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -271,24 +265,21 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.EventDestination !== undefined &&
-      input.EventDestination !== null && {
-        EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
-      }),
-    ...(input.EventDestinationName !== undefined &&
-      input.EventDestinationName !== null && { EventDestinationName: input.EventDestinationName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EventDestination: (_) => _json(_),
+      EventDestinationName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -300,7 +291,10 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
   });
 };
 
-export const serializeAws_restJson1CreateDedicatedIpPoolCommand = async (
+/**
+ * serializeAws_restJson1CreateDedicatedIpPoolCommand
+ */
+export const se_CreateDedicatedIpPoolCommand = async (
   input: CreateDedicatedIpPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -311,11 +305,12 @@ export const serializeAws_restJson1CreateDedicatedIpPoolCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ip-pools";
   let body: any;
-  body = JSON.stringify({
-    ...(input.PoolName !== undefined && input.PoolName !== null && { PoolName: input.PoolName }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PoolName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -327,7 +322,10 @@ export const serializeAws_restJson1CreateDedicatedIpPoolCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDeliverabilityTestReportCommand = async (
+/**
+ * serializeAws_restJson1CreateDeliverabilityTestReportCommand
+ */
+export const se_CreateDeliverabilityTestReportCommand = async (
   input: CreateDeliverabilityTestReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -338,15 +336,14 @@ export const serializeAws_restJson1CreateDeliverabilityTestReportCommand = async
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/deliverability-dashboard/test";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Content !== undefined &&
-      input.Content !== null && { Content: serializeAws_restJson1EmailContent(input.Content, context) }),
-    ...(input.FromEmailAddress !== undefined &&
-      input.FromEmailAddress !== null && { FromEmailAddress: input.FromEmailAddress }),
-    ...(input.ReportName !== undefined && input.ReportName !== null && { ReportName: input.ReportName }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Content: (_) => se_EmailContent(_, context),
+      FromEmailAddress: [],
+      ReportName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -358,7 +355,10 @@ export const serializeAws_restJson1CreateDeliverabilityTestReportCommand = async
   });
 };
 
-export const serializeAws_restJson1CreateEmailIdentityCommand = async (
+/**
+ * serializeAws_restJson1CreateEmailIdentityCommand
+ */
+export const se_CreateEmailIdentityCommand = async (
   input: CreateEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -368,11 +368,12 @@ export const serializeAws_restJson1CreateEmailIdentityCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/identities";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EmailIdentity !== undefined && input.EmailIdentity !== null && { EmailIdentity: input.EmailIdentity }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EmailIdentity: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -384,7 +385,10 @@ export const serializeAws_restJson1CreateEmailIdentityCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteConfigurationSetCommand = async (
+/**
+ * serializeAws_restJson1DeleteConfigurationSetCommand
+ */
+export const se_DeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -393,15 +397,14 @@ export const serializeAws_restJson1DeleteConfigurationSetCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/configuration-sets/{ConfigurationSetName}";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -414,7 +417,10 @@ export const serializeAws_restJson1DeleteConfigurationSetCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand = async (
+/**
+ * serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
+ */
+export const se_DeleteConfigurationSetEventDestinationCommand = async (
   input: DeleteConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -423,24 +429,22 @@ export const serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
-  if (input.EventDestinationName !== undefined) {
-    const labelValue: string = input.EventDestinationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EventDestinationName.");
-    }
-    resolvedPath = resolvedPath.replace("{EventDestinationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EventDestinationName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EventDestinationName",
+    () => input.EventDestinationName!,
+    "{EventDestinationName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -453,7 +457,10 @@ export const serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
   });
 };
 
-export const serializeAws_restJson1DeleteDedicatedIpPoolCommand = async (
+/**
+ * serializeAws_restJson1DeleteDedicatedIpPoolCommand
+ */
+export const se_DeleteDedicatedIpPoolCommand = async (
   input: DeleteDedicatedIpPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -461,15 +468,7 @@ export const serializeAws_restJson1DeleteDedicatedIpPoolCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ip-pools/{PoolName}";
-  if (input.PoolName !== undefined) {
-    const labelValue: string = input.PoolName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: PoolName.");
-    }
-    resolvedPath = resolvedPath.replace("{PoolName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: PoolName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "PoolName", () => input.PoolName!, "{PoolName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -482,7 +481,10 @@ export const serializeAws_restJson1DeleteDedicatedIpPoolCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteEmailIdentityCommand = async (
+/**
+ * serializeAws_restJson1DeleteEmailIdentityCommand
+ */
+export const se_DeleteEmailIdentityCommand = async (
   input: DeleteEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -490,15 +492,14 @@ export const serializeAws_restJson1DeleteEmailIdentityCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/identities/{EmailIdentity}";
-  if (input.EmailIdentity !== undefined) {
-    const labelValue: string = input.EmailIdentity;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
-    }
-    resolvedPath = resolvedPath.replace("{EmailIdentity}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EmailIdentity.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EmailIdentity",
+    () => input.EmailIdentity!,
+    "{EmailIdentity}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -511,7 +512,10 @@ export const serializeAws_restJson1DeleteEmailIdentityCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAccountCommand = async (
+/**
+ * serializeAws_restJson1GetAccountCommand
+ */
+export const se_GetAccountCommand = async (
   input: GetAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -533,7 +537,10 @@ export const serializeAws_restJson1GetAccountCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBlacklistReportsCommand = async (
+/**
+ * serializeAws_restJson1GetBlacklistReportsCommand
+ */
+export const se_GetBlacklistReportsCommand = async (
   input: GetBlacklistReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -542,11 +549,12 @@ export const serializeAws_restJson1GetBlacklistReportsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/deliverability-dashboard/blacklist-report";
-  const query: any = {
-    ...(input.BlacklistItemNames !== undefined && {
-      BlacklistItemNames: (input.BlacklistItemNames || []).map((_entry) => _entry as any),
-    }),
-  };
+  const query: any = map({
+    BlacklistItemNames: [
+      __expectNonNull(input.BlacklistItemNames, `BlacklistItemNames`) != null,
+      () => (input.BlacklistItemNames! || []).map((_entry) => _entry as any),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -560,7 +568,10 @@ export const serializeAws_restJson1GetBlacklistReportsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetConfigurationSetCommand = async (
+/**
+ * serializeAws_restJson1GetConfigurationSetCommand
+ */
+export const se_GetConfigurationSetCommand = async (
   input: GetConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -569,15 +580,14 @@ export const serializeAws_restJson1GetConfigurationSetCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/configuration-sets/{ConfigurationSetName}";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -590,7 +600,10 @@ export const serializeAws_restJson1GetConfigurationSetCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetConfigurationSetEventDestinationsCommand = async (
+/**
+ * serializeAws_restJson1GetConfigurationSetEventDestinationsCommand
+ */
+export const se_GetConfigurationSetEventDestinationsCommand = async (
   input: GetConfigurationSetEventDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -599,15 +612,14 @@ export const serializeAws_restJson1GetConfigurationSetEventDestinationsCommand =
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -620,7 +632,10 @@ export const serializeAws_restJson1GetConfigurationSetEventDestinationsCommand =
   });
 };
 
-export const serializeAws_restJson1GetDedicatedIpCommand = async (
+/**
+ * serializeAws_restJson1GetDedicatedIpCommand
+ */
+export const se_GetDedicatedIpCommand = async (
   input: GetDedicatedIpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -628,15 +643,7 @@ export const serializeAws_restJson1GetDedicatedIpCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ips/{Ip}";
-  if (input.Ip !== undefined) {
-    const labelValue: string = input.Ip;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Ip.");
-    }
-    resolvedPath = resolvedPath.replace("{Ip}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Ip.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Ip", () => input.Ip!, "{Ip}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -649,7 +656,10 @@ export const serializeAws_restJson1GetDedicatedIpCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDedicatedIpsCommand = async (
+/**
+ * serializeAws_restJson1GetDedicatedIpsCommand
+ */
+export const se_GetDedicatedIpsCommand = async (
   input: GetDedicatedIpsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -657,11 +667,11 @@ export const serializeAws_restJson1GetDedicatedIpsCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ips";
-  const query: any = {
-    ...(input.PoolName !== undefined && { PoolName: input.PoolName }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
-  };
+  const query: any = map({
+    PoolName: [, input.PoolName!],
+    NextToken: [, input.NextToken!],
+    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -675,7 +685,10 @@ export const serializeAws_restJson1GetDedicatedIpsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDeliverabilityDashboardOptionsCommand = async (
+/**
+ * serializeAws_restJson1GetDeliverabilityDashboardOptionsCommand
+ */
+export const se_GetDeliverabilityDashboardOptionsCommand = async (
   input: GetDeliverabilityDashboardOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -698,7 +711,10 @@ export const serializeAws_restJson1GetDeliverabilityDashboardOptionsCommand = as
   });
 };
 
-export const serializeAws_restJson1GetDeliverabilityTestReportCommand = async (
+/**
+ * serializeAws_restJson1GetDeliverabilityTestReportCommand
+ */
+export const se_GetDeliverabilityTestReportCommand = async (
   input: GetDeliverabilityTestReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -707,15 +723,7 @@ export const serializeAws_restJson1GetDeliverabilityTestReportCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/deliverability-dashboard/test-reports/{ReportId}";
-  if (input.ReportId !== undefined) {
-    const labelValue: string = input.ReportId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ReportId.");
-    }
-    resolvedPath = resolvedPath.replace("{ReportId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ReportId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ReportId", () => input.ReportId!, "{ReportId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -728,7 +736,10 @@ export const serializeAws_restJson1GetDeliverabilityTestReportCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDomainDeliverabilityCampaignCommand = async (
+/**
+ * serializeAws_restJson1GetDomainDeliverabilityCampaignCommand
+ */
+export const se_GetDomainDeliverabilityCampaignCommand = async (
   input: GetDomainDeliverabilityCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -737,15 +748,7 @@ export const serializeAws_restJson1GetDomainDeliverabilityCampaignCommand = asyn
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/deliverability-dashboard/campaigns/{CampaignId}";
-  if (input.CampaignId !== undefined) {
-    const labelValue: string = input.CampaignId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: CampaignId.");
-    }
-    resolvedPath = resolvedPath.replace("{CampaignId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: CampaignId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "CampaignId", () => input.CampaignId!, "{CampaignId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -758,7 +761,10 @@ export const serializeAws_restJson1GetDomainDeliverabilityCampaignCommand = asyn
   });
 };
 
-export const serializeAws_restJson1GetDomainStatisticsReportCommand = async (
+/**
+ * serializeAws_restJson1GetDomainStatisticsReportCommand
+ */
+export const se_GetDomainStatisticsReportCommand = async (
   input: GetDomainStatisticsReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -767,19 +773,17 @@ export const serializeAws_restJson1GetDomainStatisticsReportCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/deliverability-dashboard/statistics-report/{Domain}";
-  if (input.Domain !== undefined) {
-    const labelValue: string = input.Domain;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Domain.");
-    }
-    resolvedPath = resolvedPath.replace("{Domain}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Domain.");
-  }
-  const query: any = {
-    ...(input.StartDate !== undefined && { StartDate: (input.StartDate.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.EndDate !== undefined && { EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString() }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "Domain", () => input.Domain!, "{Domain}", false);
+  const query: any = map({
+    StartDate: [
+      __expectNonNull(input.StartDate, `StartDate`) != null,
+      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    EndDate: [
+      __expectNonNull(input.EndDate, `EndDate`) != null,
+      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -793,7 +797,10 @@ export const serializeAws_restJson1GetDomainStatisticsReportCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEmailIdentityCommand = async (
+/**
+ * serializeAws_restJson1GetEmailIdentityCommand
+ */
+export const se_GetEmailIdentityCommand = async (
   input: GetEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -801,15 +808,14 @@ export const serializeAws_restJson1GetEmailIdentityCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/identities/{EmailIdentity}";
-  if (input.EmailIdentity !== undefined) {
-    const labelValue: string = input.EmailIdentity;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
-    }
-    resolvedPath = resolvedPath.replace("{EmailIdentity}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EmailIdentity.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EmailIdentity",
+    () => input.EmailIdentity!,
+    "{EmailIdentity}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -822,7 +828,10 @@ export const serializeAws_restJson1GetEmailIdentityCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListConfigurationSetsCommand = async (
+/**
+ * serializeAws_restJson1ListConfigurationSetsCommand
+ */
+export const se_ListConfigurationSetsCommand = async (
   input: ListConfigurationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -830,10 +839,10 @@ export const serializeAws_restJson1ListConfigurationSetsCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/configuration-sets";
-  const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
-  };
+  const query: any = map({
+    NextToken: [, input.NextToken!],
+    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -847,7 +856,10 @@ export const serializeAws_restJson1ListConfigurationSetsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDedicatedIpPoolsCommand = async (
+/**
+ * serializeAws_restJson1ListDedicatedIpPoolsCommand
+ */
+export const se_ListDedicatedIpPoolsCommand = async (
   input: ListDedicatedIpPoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -855,10 +867,10 @@ export const serializeAws_restJson1ListDedicatedIpPoolsCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ip-pools";
-  const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
-  };
+  const query: any = map({
+    NextToken: [, input.NextToken!],
+    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -872,7 +884,10 @@ export const serializeAws_restJson1ListDedicatedIpPoolsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDeliverabilityTestReportsCommand = async (
+/**
+ * serializeAws_restJson1ListDeliverabilityTestReportsCommand
+ */
+export const se_ListDeliverabilityTestReportsCommand = async (
   input: ListDeliverabilityTestReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -881,10 +896,10 @@ export const serializeAws_restJson1ListDeliverabilityTestReportsCommand = async 
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/deliverability-dashboard/test-reports";
-  const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
-  };
+  const query: any = map({
+    NextToken: [, input.NextToken!],
+    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -898,7 +913,10 @@ export const serializeAws_restJson1ListDeliverabilityTestReportsCommand = async 
   });
 };
 
-export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = async (
+/**
+ * serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand
+ */
+export const se_ListDomainDeliverabilityCampaignsCommand = async (
   input: ListDomainDeliverabilityCampaignsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -907,21 +925,26 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns";
-  if (input.SubscribedDomain !== undefined) {
-    const labelValue: string = input.SubscribedDomain;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SubscribedDomain.");
-    }
-    resolvedPath = resolvedPath.replace("{SubscribedDomain}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SubscribedDomain.");
-  }
-  const query: any = {
-    ...(input.StartDate !== undefined && { StartDate: (input.StartDate.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.EndDate !== undefined && { EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SubscribedDomain",
+    () => input.SubscribedDomain!,
+    "{SubscribedDomain}",
+    false
+  );
+  const query: any = map({
+    StartDate: [
+      __expectNonNull(input.StartDate, `StartDate`) != null,
+      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    EndDate: [
+      __expectNonNull(input.EndDate, `EndDate`) != null,
+      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    NextToken: [, input.NextToken!],
+    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -935,17 +958,20 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
   });
 };
 
-export const serializeAws_restJson1ListEmailIdentitiesCommand = async (
+/**
+ * serializeAws_restJson1ListEmailIdentitiesCommand
+ */
+export const se_ListEmailIdentitiesCommand = async (
   input: ListEmailIdentitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/identities";
-  const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
-  };
+  const query: any = map({
+    NextToken: [, input.NextToken!],
+    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -959,16 +985,19 @@ export const serializeAws_restJson1ListEmailIdentitiesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/tags";
-  const query: any = {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-  };
+  const query: any = map({
+    ResourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -982,7 +1011,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand = async (
+/**
+ * serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand
+ */
+export const se_PutAccountDedicatedIpWarmupAttributesCommand = async (
   input: PutAccountDedicatedIpWarmupAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -993,10 +1025,11 @@ export const serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand 
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/account/dedicated-ips/warmup";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AutoWarmupEnabled !== undefined &&
-      input.AutoWarmupEnabled !== null && { AutoWarmupEnabled: input.AutoWarmupEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AutoWarmupEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1008,7 +1041,10 @@ export const serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand 
   });
 };
 
-export const serializeAws_restJson1PutAccountSendingAttributesCommand = async (
+/**
+ * serializeAws_restJson1PutAccountSendingAttributesCommand
+ */
+export const se_PutAccountSendingAttributesCommand = async (
   input: PutAccountSendingAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1019,10 +1055,11 @@ export const serializeAws_restJson1PutAccountSendingAttributesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/account/sending";
   let body: any;
-  body = JSON.stringify({
-    ...(input.SendingEnabled !== undefined &&
-      input.SendingEnabled !== null && { SendingEnabled: input.SendingEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SendingEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1034,7 +1071,10 @@ export const serializeAws_restJson1PutAccountSendingAttributesCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand = async (
+/**
+ * serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand
+ */
+export const se_PutConfigurationSetDeliveryOptionsCommand = async (
   input: PutConfigurationSetDeliveryOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1045,21 +1085,21 @@ export const serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand = a
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/configuration-sets/{ConfigurationSetName}/delivery-options";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SendingPoolName !== undefined &&
-      input.SendingPoolName !== null && { SendingPoolName: input.SendingPoolName }),
-    ...(input.TlsPolicy !== undefined && input.TlsPolicy !== null && { TlsPolicy: input.TlsPolicy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SendingPoolName: [],
+      TlsPolicy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1071,7 +1111,10 @@ export const serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand = a
   });
 };
 
-export const serializeAws_restJson1PutConfigurationSetReputationOptionsCommand = async (
+/**
+ * serializeAws_restJson1PutConfigurationSetReputationOptionsCommand
+ */
+export const se_PutConfigurationSetReputationOptionsCommand = async (
   input: PutConfigurationSetReputationOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1082,20 +1125,20 @@ export const serializeAws_restJson1PutConfigurationSetReputationOptionsCommand =
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/configuration-sets/{ConfigurationSetName}/reputation-options";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ReputationMetricsEnabled !== undefined &&
-      input.ReputationMetricsEnabled !== null && { ReputationMetricsEnabled: input.ReputationMetricsEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ReputationMetricsEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1107,7 +1150,10 @@ export const serializeAws_restJson1PutConfigurationSetReputationOptionsCommand =
   });
 };
 
-export const serializeAws_restJson1PutConfigurationSetSendingOptionsCommand = async (
+/**
+ * serializeAws_restJson1PutConfigurationSetSendingOptionsCommand
+ */
+export const se_PutConfigurationSetSendingOptionsCommand = async (
   input: PutConfigurationSetSendingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1118,20 +1164,20 @@ export const serializeAws_restJson1PutConfigurationSetSendingOptionsCommand = as
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/configuration-sets/{ConfigurationSetName}/sending";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SendingEnabled !== undefined &&
-      input.SendingEnabled !== null && { SendingEnabled: input.SendingEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SendingEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1143,7 +1189,10 @@ export const serializeAws_restJson1PutConfigurationSetSendingOptionsCommand = as
   });
 };
 
-export const serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand = async (
+/**
+ * serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand
+ */
+export const se_PutConfigurationSetTrackingOptionsCommand = async (
   input: PutConfigurationSetTrackingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1154,20 +1203,20 @@ export const serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand = a
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/configuration-sets/{ConfigurationSetName}/tracking-options";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.CustomRedirectDomain !== undefined &&
-      input.CustomRedirectDomain !== null && { CustomRedirectDomain: input.CustomRedirectDomain }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CustomRedirectDomain: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1179,7 +1228,10 @@ export const serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand = a
   });
 };
 
-export const serializeAws_restJson1PutDedicatedIpInPoolCommand = async (
+/**
+ * serializeAws_restJson1PutDedicatedIpInPoolCommand
+ */
+export const se_PutDedicatedIpInPoolCommand = async (
   input: PutDedicatedIpInPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1189,20 +1241,13 @@ export const serializeAws_restJson1PutDedicatedIpInPoolCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ips/{Ip}/pool";
-  if (input.Ip !== undefined) {
-    const labelValue: string = input.Ip;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Ip.");
-    }
-    resolvedPath = resolvedPath.replace("{Ip}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Ip.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Ip", () => input.Ip!, "{Ip}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.DestinationPoolName !== undefined &&
-      input.DestinationPoolName !== null && { DestinationPoolName: input.DestinationPoolName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DestinationPoolName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1214,7 +1259,10 @@ export const serializeAws_restJson1PutDedicatedIpInPoolCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand = async (
+/**
+ * serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand
+ */
+export const se_PutDedicatedIpWarmupAttributesCommand = async (
   input: PutDedicatedIpWarmupAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1224,20 +1272,13 @@ export const serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand = async
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ips/{Ip}/warmup";
-  if (input.Ip !== undefined) {
-    const labelValue: string = input.Ip;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Ip.");
-    }
-    resolvedPath = resolvedPath.replace("{Ip}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Ip.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Ip", () => input.Ip!, "{Ip}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.WarmupPercentage !== undefined &&
-      input.WarmupPercentage !== null && { WarmupPercentage: input.WarmupPercentage }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      WarmupPercentage: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1249,7 +1290,10 @@ export const serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand = async
   });
 };
 
-export const serializeAws_restJson1PutDeliverabilityDashboardOptionCommand = async (
+/**
+ * serializeAws_restJson1PutDeliverabilityDashboardOptionCommand
+ */
+export const se_PutDeliverabilityDashboardOptionCommand = async (
   input: PutDeliverabilityDashboardOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1260,14 +1304,12 @@ export const serializeAws_restJson1PutDeliverabilityDashboardOptionCommand = asy
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/deliverability-dashboard";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DashboardEnabled !== undefined &&
-      input.DashboardEnabled !== null && { DashboardEnabled: input.DashboardEnabled }),
-    ...(input.SubscribedDomains !== undefined &&
-      input.SubscribedDomains !== null && {
-        SubscribedDomains: serializeAws_restJson1DomainDeliverabilityTrackingOptions(input.SubscribedDomains, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DashboardEnabled: [],
+      SubscribedDomains: (_) => se_DomainDeliverabilityTrackingOptions(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1279,7 +1321,10 @@ export const serializeAws_restJson1PutDeliverabilityDashboardOptionCommand = asy
   });
 };
 
-export const serializeAws_restJson1PutEmailIdentityDkimAttributesCommand = async (
+/**
+ * serializeAws_restJson1PutEmailIdentityDkimAttributesCommand
+ */
+export const se_PutEmailIdentityDkimAttributesCommand = async (
   input: PutEmailIdentityDkimAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1289,20 +1334,20 @@ export const serializeAws_restJson1PutEmailIdentityDkimAttributesCommand = async
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/identities/{EmailIdentity}/dkim";
-  if (input.EmailIdentity !== undefined) {
-    const labelValue: string = input.EmailIdentity;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
-    }
-    resolvedPath = resolvedPath.replace("{EmailIdentity}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EmailIdentity.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EmailIdentity",
+    () => input.EmailIdentity!,
+    "{EmailIdentity}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SigningEnabled !== undefined &&
-      input.SigningEnabled !== null && { SigningEnabled: input.SigningEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SigningEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1314,7 +1359,10 @@ export const serializeAws_restJson1PutEmailIdentityDkimAttributesCommand = async
   });
 };
 
-export const serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand = async (
+/**
+ * serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand
+ */
+export const se_PutEmailIdentityFeedbackAttributesCommand = async (
   input: PutEmailIdentityFeedbackAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1325,20 +1373,20 @@ export const serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand = a
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/identities/{EmailIdentity}/feedback";
-  if (input.EmailIdentity !== undefined) {
-    const labelValue: string = input.EmailIdentity;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
-    }
-    resolvedPath = resolvedPath.replace("{EmailIdentity}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EmailIdentity.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EmailIdentity",
+    () => input.EmailIdentity!,
+    "{EmailIdentity}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.EmailForwardingEnabled !== undefined &&
-      input.EmailForwardingEnabled !== null && { EmailForwardingEnabled: input.EmailForwardingEnabled }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EmailForwardingEnabled: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1350,7 +1398,10 @@ export const serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand = a
   });
 };
 
-export const serializeAws_restJson1PutEmailIdentityMailFromAttributesCommand = async (
+/**
+ * serializeAws_restJson1PutEmailIdentityMailFromAttributesCommand
+ */
+export const se_PutEmailIdentityMailFromAttributesCommand = async (
   input: PutEmailIdentityMailFromAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1361,22 +1412,21 @@ export const serializeAws_restJson1PutEmailIdentityMailFromAttributesCommand = a
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/identities/{EmailIdentity}/mail-from";
-  if (input.EmailIdentity !== undefined) {
-    const labelValue: string = input.EmailIdentity;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
-    }
-    resolvedPath = resolvedPath.replace("{EmailIdentity}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EmailIdentity.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EmailIdentity",
+    () => input.EmailIdentity!,
+    "{EmailIdentity}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BehaviorOnMxFailure !== undefined &&
-      input.BehaviorOnMxFailure !== null && { BehaviorOnMxFailure: input.BehaviorOnMxFailure }),
-    ...(input.MailFromDomain !== undefined &&
-      input.MailFromDomain !== null && { MailFromDomain: input.MailFromDomain }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BehaviorOnMxFailure: [],
+      MailFromDomain: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1388,7 +1438,10 @@ export const serializeAws_restJson1PutEmailIdentityMailFromAttributesCommand = a
   });
 };
 
-export const serializeAws_restJson1SendEmailCommand = async (
+/**
+ * serializeAws_restJson1SendEmailCommand
+ */
+export const se_SendEmailCommand = async (
   input: SendEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1399,26 +1452,17 @@ export const serializeAws_restJson1SendEmailCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/outbound-emails";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConfigurationSetName !== undefined &&
-      input.ConfigurationSetName !== null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Content !== undefined &&
-      input.Content !== null && { Content: serializeAws_restJson1EmailContent(input.Content, context) }),
-    ...(input.Destination !== undefined &&
-      input.Destination !== null && { Destination: serializeAws_restJson1Destination(input.Destination, context) }),
-    ...(input.EmailTags !== undefined &&
-      input.EmailTags !== null && { EmailTags: serializeAws_restJson1MessageTagList(input.EmailTags, context) }),
-    ...(input.FeedbackForwardingEmailAddress !== undefined &&
-      input.FeedbackForwardingEmailAddress !== null && {
-        FeedbackForwardingEmailAddress: input.FeedbackForwardingEmailAddress,
-      }),
-    ...(input.FromEmailAddress !== undefined &&
-      input.FromEmailAddress !== null && { FromEmailAddress: input.FromEmailAddress }),
-    ...(input.ReplyToAddresses !== undefined &&
-      input.ReplyToAddresses !== null && {
-        ReplyToAddresses: serializeAws_restJson1EmailAddressList(input.ReplyToAddresses, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationSetName: [],
+      Content: (_) => se_EmailContent(_, context),
+      Destination: (_) => _json(_),
+      EmailTags: (_) => _json(_),
+      FeedbackForwardingEmailAddress: [],
+      FromEmailAddress: [],
+      ReplyToAddresses: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1430,7 +1474,10 @@ export const serializeAws_restJson1SendEmailCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1440,11 +1487,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/tags";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1456,17 +1504,23 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/tags";
-  const query: any = {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && { TagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
-  };
+  const query: any = map({
+    ResourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+    TagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1480,7 +1534,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand = async (
+/**
+ * serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
+ */
+export const se_UpdateConfigurationSetEventDestinationCommand = async (
   input: UpdateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1491,31 +1548,28 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
-  if (input.EventDestinationName !== undefined) {
-    const labelValue: string = input.EventDestinationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EventDestinationName.");
-    }
-    resolvedPath = resolvedPath.replace("{EventDestinationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EventDestinationName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EventDestinationName",
+    () => input.EventDestinationName!,
+    "{EventDestinationName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.EventDestination !== undefined &&
-      input.EventDestination !== null && {
-        EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EventDestination: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1527,2235 +1581,2250 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
   });
 };
 
-export const deserializeAws_restJson1CreateConfigurationSetCommand = async (
+/**
+ * deserializeAws_restJson1CreateConfigurationSetCommand
+ */
+export const de_CreateConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateConfigurationSetCommandError(output, context);
+    return de_CreateConfigurationSetCommandError(output, context);
   }
-  const contents: CreateConfigurationSetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateConfigurationSetCommandError = async (
+/**
+ * deserializeAws_restJson1CreateConfigurationSetCommandError
+ */
+const de_CreateConfigurationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.pinpointemail#AlreadyExistsException":
-      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand = async (
+/**
+ * deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand
+ */
+export const de_CreateConfigurationSetEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError(output, context);
+    return de_CreateConfigurationSetEventDestinationCommandError(output, context);
   }
-  const contents: CreateConfigurationSetEventDestinationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError
+ */
+const de_CreateConfigurationSetEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.pinpointemail#AlreadyExistsException":
-      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateDedicatedIpPoolCommand = async (
+/**
+ * deserializeAws_restJson1CreateDedicatedIpPoolCommand
+ */
+export const de_CreateDedicatedIpPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDedicatedIpPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDedicatedIpPoolCommandError(output, context);
+    return de_CreateDedicatedIpPoolCommandError(output, context);
   }
-  const contents: CreateDedicatedIpPoolCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateDedicatedIpPoolCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDedicatedIpPoolCommandError
+ */
+const de_CreateDedicatedIpPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDedicatedIpPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.pinpointemail#AlreadyExistsException":
-      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateDeliverabilityTestReportCommand = async (
+/**
+ * deserializeAws_restJson1CreateDeliverabilityTestReportCommand
+ */
+export const de_CreateDeliverabilityTestReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeliverabilityTestReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDeliverabilityTestReportCommandError(output, context);
+    return de_CreateDeliverabilityTestReportCommandError(output, context);
   }
-  const contents: CreateDeliverabilityTestReportCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DeliverabilityTestStatus: undefined,
-    ReportId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeliverabilityTestStatus !== undefined && data.DeliverabilityTestStatus !== null) {
-    contents.DeliverabilityTestStatus = __expectString(data.DeliverabilityTestStatus);
-  }
-  if (data.ReportId !== undefined && data.ReportId !== null) {
-    contents.ReportId = __expectString(data.ReportId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DeliverabilityTestStatus: __expectString,
+    ReportId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateDeliverabilityTestReportCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDeliverabilityTestReportCommandError
+ */
+const de_CreateDeliverabilityTestReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeliverabilityTestReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSuspendedException":
     case "com.amazonaws.pinpointemail#AccountSuspendedException":
-      throw await deserializeAws_restJson1AccountSuspendedExceptionResponse(parsedOutput, context);
+      throw await de_AccountSuspendedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MailFromDomainNotVerifiedException":
     case "com.amazonaws.pinpointemail#MailFromDomainNotVerifiedException":
-      throw await deserializeAws_restJson1MailFromDomainNotVerifiedExceptionResponse(parsedOutput, context);
+      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
     case "MessageRejected":
     case "com.amazonaws.pinpointemail#MessageRejected":
-      throw await deserializeAws_restJson1MessageRejectedResponse(parsedOutput, context);
+      throw await de_MessageRejectedRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "SendingPausedException":
     case "com.amazonaws.pinpointemail#SendingPausedException":
-      throw await deserializeAws_restJson1SendingPausedExceptionResponse(parsedOutput, context);
+      throw await de_SendingPausedExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateEmailIdentityCommand = async (
+/**
+ * deserializeAws_restJson1CreateEmailIdentityCommand
+ */
+export const de_CreateEmailIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateEmailIdentityCommandError(output, context);
+    return de_CreateEmailIdentityCommandError(output, context);
   }
-  const contents: CreateEmailIdentityCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DkimAttributes: undefined,
-    IdentityType: undefined,
-    VerifiedForSendingStatus: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DkimAttributes !== undefined && data.DkimAttributes !== null) {
-    contents.DkimAttributes = deserializeAws_restJson1DkimAttributes(data.DkimAttributes, context);
-  }
-  if (data.IdentityType !== undefined && data.IdentityType !== null) {
-    contents.IdentityType = __expectString(data.IdentityType);
-  }
-  if (data.VerifiedForSendingStatus !== undefined && data.VerifiedForSendingStatus !== null) {
-    contents.VerifiedForSendingStatus = __expectBoolean(data.VerifiedForSendingStatus);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DkimAttributes: _json,
+    IdentityType: __expectString,
+    VerifiedForSendingStatus: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateEmailIdentityCommandError = async (
+/**
+ * deserializeAws_restJson1CreateEmailIdentityCommandError
+ */
+const de_CreateEmailIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEmailIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteConfigurationSetCommand = async (
+/**
+ * deserializeAws_restJson1DeleteConfigurationSetCommand
+ */
+export const de_DeleteConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteConfigurationSetCommandError(output, context);
+    return de_DeleteConfigurationSetCommandError(output, context);
   }
-  const contents: DeleteConfigurationSetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteConfigurationSetCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteConfigurationSetCommandError
+ */
+const de_DeleteConfigurationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
+ */
+export const de_DeleteConfigurationSetEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError(output, context);
+    return de_DeleteConfigurationSetEventDestinationCommandError(output, context);
   }
-  const contents: DeleteConfigurationSetEventDestinationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError
+ */
+const de_DeleteConfigurationSetEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteDedicatedIpPoolCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDedicatedIpPoolCommand
+ */
+export const de_DeleteDedicatedIpPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDedicatedIpPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDedicatedIpPoolCommandError(output, context);
+    return de_DeleteDedicatedIpPoolCommandError(output, context);
   }
-  const contents: DeleteDedicatedIpPoolCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteDedicatedIpPoolCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDedicatedIpPoolCommandError
+ */
+const de_DeleteDedicatedIpPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDedicatedIpPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteEmailIdentityCommand = async (
+/**
+ * deserializeAws_restJson1DeleteEmailIdentityCommand
+ */
+export const de_DeleteEmailIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteEmailIdentityCommandError(output, context);
+    return de_DeleteEmailIdentityCommandError(output, context);
   }
-  const contents: DeleteEmailIdentityCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteEmailIdentityCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteEmailIdentityCommandError
+ */
+const de_DeleteEmailIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetAccountCommand = async (
+/**
+ * deserializeAws_restJson1GetAccountCommand
+ */
+export const de_GetAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAccountCommandError(output, context);
+    return de_GetAccountCommandError(output, context);
   }
-  const contents: GetAccountCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DedicatedIpAutoWarmupEnabled: undefined,
-    EnforcementStatus: undefined,
-    ProductionAccessEnabled: undefined,
-    SendQuota: undefined,
-    SendingEnabled: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DedicatedIpAutoWarmupEnabled !== undefined && data.DedicatedIpAutoWarmupEnabled !== null) {
-    contents.DedicatedIpAutoWarmupEnabled = __expectBoolean(data.DedicatedIpAutoWarmupEnabled);
-  }
-  if (data.EnforcementStatus !== undefined && data.EnforcementStatus !== null) {
-    contents.EnforcementStatus = __expectString(data.EnforcementStatus);
-  }
-  if (data.ProductionAccessEnabled !== undefined && data.ProductionAccessEnabled !== null) {
-    contents.ProductionAccessEnabled = __expectBoolean(data.ProductionAccessEnabled);
-  }
-  if (data.SendQuota !== undefined && data.SendQuota !== null) {
-    contents.SendQuota = deserializeAws_restJson1SendQuota(data.SendQuota, context);
-  }
-  if (data.SendingEnabled !== undefined && data.SendingEnabled !== null) {
-    contents.SendingEnabled = __expectBoolean(data.SendingEnabled);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DedicatedIpAutoWarmupEnabled: __expectBoolean,
+    EnforcementStatus: __expectString,
+    ProductionAccessEnabled: __expectBoolean,
+    SendQuota: (_) => de_SendQuota(_, context),
+    SendingEnabled: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetAccountCommandError = async (
+/**
+ * deserializeAws_restJson1GetAccountCommandError
+ */
+const de_GetAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetBlacklistReportsCommand = async (
+/**
+ * deserializeAws_restJson1GetBlacklistReportsCommand
+ */
+export const de_GetBlacklistReportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlacklistReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBlacklistReportsCommandError(output, context);
+    return de_GetBlacklistReportsCommandError(output, context);
   }
-  const contents: GetBlacklistReportsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BlacklistReport: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BlacklistReport !== undefined && data.BlacklistReport !== null) {
-    contents.BlacklistReport = deserializeAws_restJson1BlacklistReport(data.BlacklistReport, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BlacklistReport: (_) => de_BlacklistReport(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBlacklistReportsCommandError = async (
+/**
+ * deserializeAws_restJson1GetBlacklistReportsCommandError
+ */
+const de_GetBlacklistReportsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlacklistReportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetConfigurationSetCommand = async (
+/**
+ * deserializeAws_restJson1GetConfigurationSetCommand
+ */
+export const de_GetConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetConfigurationSetCommandError(output, context);
+    return de_GetConfigurationSetCommandError(output, context);
   }
-  const contents: GetConfigurationSetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ConfigurationSetName: undefined,
-    DeliveryOptions: undefined,
-    ReputationOptions: undefined,
-    SendingOptions: undefined,
-    Tags: undefined,
-    TrackingOptions: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConfigurationSetName !== undefined && data.ConfigurationSetName !== null) {
-    contents.ConfigurationSetName = __expectString(data.ConfigurationSetName);
-  }
-  if (data.DeliveryOptions !== undefined && data.DeliveryOptions !== null) {
-    contents.DeliveryOptions = deserializeAws_restJson1DeliveryOptions(data.DeliveryOptions, context);
-  }
-  if (data.ReputationOptions !== undefined && data.ReputationOptions !== null) {
-    contents.ReputationOptions = deserializeAws_restJson1ReputationOptions(data.ReputationOptions, context);
-  }
-  if (data.SendingOptions !== undefined && data.SendingOptions !== null) {
-    contents.SendingOptions = deserializeAws_restJson1SendingOptions(data.SendingOptions, context);
-  }
-  if (data.Tags !== undefined && data.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
-  }
-  if (data.TrackingOptions !== undefined && data.TrackingOptions !== null) {
-    contents.TrackingOptions = deserializeAws_restJson1TrackingOptions(data.TrackingOptions, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfigurationSetName: __expectString,
+    DeliveryOptions: _json,
+    ReputationOptions: (_) => de_ReputationOptions(_, context),
+    SendingOptions: _json,
+    Tags: _json,
+    TrackingOptions: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetConfigurationSetCommandError = async (
+/**
+ * deserializeAws_restJson1GetConfigurationSetCommandError
+ */
+const de_GetConfigurationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand = async (
+/**
+ * deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand
+ */
+export const de_GetConfigurationSetEventDestinationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError(output, context);
+    return de_GetConfigurationSetEventDestinationsCommandError(output, context);
   }
-  const contents: GetConfigurationSetEventDestinationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    EventDestinations: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventDestinations !== undefined && data.EventDestinations !== null) {
-    contents.EventDestinations = deserializeAws_restJson1EventDestinations(data.EventDestinations, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EventDestinations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError
+ */
+const de_GetConfigurationSetEventDestinationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetDedicatedIpCommand = async (
+/**
+ * deserializeAws_restJson1GetDedicatedIpCommand
+ */
+export const de_GetDedicatedIpCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDedicatedIpCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDedicatedIpCommandError(output, context);
+    return de_GetDedicatedIpCommandError(output, context);
   }
-  const contents: GetDedicatedIpCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DedicatedIp: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DedicatedIp !== undefined && data.DedicatedIp !== null) {
-    contents.DedicatedIp = deserializeAws_restJson1DedicatedIp(data.DedicatedIp, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DedicatedIp: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetDedicatedIpCommandError = async (
+/**
+ * deserializeAws_restJson1GetDedicatedIpCommandError
+ */
+const de_GetDedicatedIpCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDedicatedIpCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetDedicatedIpsCommand = async (
+/**
+ * deserializeAws_restJson1GetDedicatedIpsCommand
+ */
+export const de_GetDedicatedIpsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDedicatedIpsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDedicatedIpsCommandError(output, context);
+    return de_GetDedicatedIpsCommandError(output, context);
   }
-  const contents: GetDedicatedIpsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DedicatedIps: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DedicatedIps !== undefined && data.DedicatedIps !== null) {
-    contents.DedicatedIps = deserializeAws_restJson1DedicatedIpList(data.DedicatedIps, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DedicatedIps: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetDedicatedIpsCommandError = async (
+/**
+ * deserializeAws_restJson1GetDedicatedIpsCommandError
+ */
+const de_GetDedicatedIpsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDedicatedIpsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand = async (
+/**
+ * deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand
+ */
+export const de_GetDeliverabilityDashboardOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeliverabilityDashboardOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommandError(output, context);
+    return de_GetDeliverabilityDashboardOptionsCommandError(output, context);
   }
-  const contents: GetDeliverabilityDashboardOptionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AccountStatus: undefined,
-    ActiveSubscribedDomains: undefined,
-    DashboardEnabled: undefined,
-    PendingExpirationSubscribedDomains: undefined,
-    SubscriptionExpiryDate: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccountStatus !== undefined && data.AccountStatus !== null) {
-    contents.AccountStatus = __expectString(data.AccountStatus);
-  }
-  if (data.ActiveSubscribedDomains !== undefined && data.ActiveSubscribedDomains !== null) {
-    contents.ActiveSubscribedDomains = deserializeAws_restJson1DomainDeliverabilityTrackingOptions(
-      data.ActiveSubscribedDomains,
-      context
-    );
-  }
-  if (data.DashboardEnabled !== undefined && data.DashboardEnabled !== null) {
-    contents.DashboardEnabled = __expectBoolean(data.DashboardEnabled);
-  }
-  if (data.PendingExpirationSubscribedDomains !== undefined && data.PendingExpirationSubscribedDomains !== null) {
-    contents.PendingExpirationSubscribedDomains = deserializeAws_restJson1DomainDeliverabilityTrackingOptions(
-      data.PendingExpirationSubscribedDomains,
-      context
-    );
-  }
-  if (data.SubscriptionExpiryDate !== undefined && data.SubscriptionExpiryDate !== null) {
-    contents.SubscriptionExpiryDate = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.SubscriptionExpiryDate))
-    );
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccountStatus: __expectString,
+    ActiveSubscribedDomains: (_) => de_DomainDeliverabilityTrackingOptions(_, context),
+    DashboardEnabled: __expectBoolean,
+    PendingExpirationSubscribedDomains: (_) => de_DomainDeliverabilityTrackingOptions(_, context),
+    SubscriptionExpiryDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommandError
+ */
+const de_GetDeliverabilityDashboardOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeliverabilityDashboardOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetDeliverabilityTestReportCommand = async (
+/**
+ * deserializeAws_restJson1GetDeliverabilityTestReportCommand
+ */
+export const de_GetDeliverabilityTestReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeliverabilityTestReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeliverabilityTestReportCommandError(output, context);
+    return de_GetDeliverabilityTestReportCommandError(output, context);
   }
-  const contents: GetDeliverabilityTestReportCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DeliverabilityTestReport: undefined,
-    IspPlacements: undefined,
-    Message: undefined,
-    OverallPlacement: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeliverabilityTestReport !== undefined && data.DeliverabilityTestReport !== null) {
-    contents.DeliverabilityTestReport = deserializeAws_restJson1DeliverabilityTestReport(
-      data.DeliverabilityTestReport,
-      context
-    );
-  }
-  if (data.IspPlacements !== undefined && data.IspPlacements !== null) {
-    contents.IspPlacements = deserializeAws_restJson1IspPlacements(data.IspPlacements, context);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.OverallPlacement !== undefined && data.OverallPlacement !== null) {
-    contents.OverallPlacement = deserializeAws_restJson1PlacementStatistics(data.OverallPlacement, context);
-  }
-  if (data.Tags !== undefined && data.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DeliverabilityTestReport: (_) => de_DeliverabilityTestReport(_, context),
+    IspPlacements: (_) => de_IspPlacements(_, context),
+    Message: __expectString,
+    OverallPlacement: (_) => de_PlacementStatistics(_, context),
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetDeliverabilityTestReportCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeliverabilityTestReportCommandError
+ */
+const de_GetDeliverabilityTestReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeliverabilityTestReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand = async (
+/**
+ * deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand
+ */
+export const de_GetDomainDeliverabilityCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainDeliverabilityCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDomainDeliverabilityCampaignCommandError(output, context);
+    return de_GetDomainDeliverabilityCampaignCommandError(output, context);
   }
-  const contents: GetDomainDeliverabilityCampaignCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DomainDeliverabilityCampaign: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainDeliverabilityCampaign !== undefined && data.DomainDeliverabilityCampaign !== null) {
-    contents.DomainDeliverabilityCampaign = deserializeAws_restJson1DomainDeliverabilityCampaign(
-      data.DomainDeliverabilityCampaign,
-      context
-    );
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DomainDeliverabilityCampaign: (_) => de_DomainDeliverabilityCampaign(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetDomainDeliverabilityCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1GetDomainDeliverabilityCampaignCommandError
+ */
+const de_GetDomainDeliverabilityCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainDeliverabilityCampaignCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetDomainStatisticsReportCommand = async (
+/**
+ * deserializeAws_restJson1GetDomainStatisticsReportCommand
+ */
+export const de_GetDomainStatisticsReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainStatisticsReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDomainStatisticsReportCommandError(output, context);
+    return de_GetDomainStatisticsReportCommandError(output, context);
   }
-  const contents: GetDomainStatisticsReportCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DailyVolumes: undefined,
-    OverallVolume: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DailyVolumes !== undefined && data.DailyVolumes !== null) {
-    contents.DailyVolumes = deserializeAws_restJson1DailyVolumes(data.DailyVolumes, context);
-  }
-  if (data.OverallVolume !== undefined && data.OverallVolume !== null) {
-    contents.OverallVolume = deserializeAws_restJson1OverallVolume(data.OverallVolume, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DailyVolumes: (_) => de_DailyVolumes(_, context),
+    OverallVolume: (_) => de_OverallVolume(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetDomainStatisticsReportCommandError = async (
+/**
+ * deserializeAws_restJson1GetDomainStatisticsReportCommandError
+ */
+const de_GetDomainStatisticsReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainStatisticsReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetEmailIdentityCommand = async (
+/**
+ * deserializeAws_restJson1GetEmailIdentityCommand
+ */
+export const de_GetEmailIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEmailIdentityCommandError(output, context);
+    return de_GetEmailIdentityCommandError(output, context);
   }
-  const contents: GetEmailIdentityCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DkimAttributes: undefined,
-    FeedbackForwardingStatus: undefined,
-    IdentityType: undefined,
-    MailFromAttributes: undefined,
-    Tags: undefined,
-    VerifiedForSendingStatus: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DkimAttributes !== undefined && data.DkimAttributes !== null) {
-    contents.DkimAttributes = deserializeAws_restJson1DkimAttributes(data.DkimAttributes, context);
-  }
-  if (data.FeedbackForwardingStatus !== undefined && data.FeedbackForwardingStatus !== null) {
-    contents.FeedbackForwardingStatus = __expectBoolean(data.FeedbackForwardingStatus);
-  }
-  if (data.IdentityType !== undefined && data.IdentityType !== null) {
-    contents.IdentityType = __expectString(data.IdentityType);
-  }
-  if (data.MailFromAttributes !== undefined && data.MailFromAttributes !== null) {
-    contents.MailFromAttributes = deserializeAws_restJson1MailFromAttributes(data.MailFromAttributes, context);
-  }
-  if (data.Tags !== undefined && data.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
-  }
-  if (data.VerifiedForSendingStatus !== undefined && data.VerifiedForSendingStatus !== null) {
-    contents.VerifiedForSendingStatus = __expectBoolean(data.VerifiedForSendingStatus);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DkimAttributes: _json,
+    FeedbackForwardingStatus: __expectBoolean,
+    IdentityType: __expectString,
+    MailFromAttributes: _json,
+    Tags: _json,
+    VerifiedForSendingStatus: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetEmailIdentityCommandError = async (
+/**
+ * deserializeAws_restJson1GetEmailIdentityCommandError
+ */
+const de_GetEmailIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListConfigurationSetsCommand = async (
+/**
+ * deserializeAws_restJson1ListConfigurationSetsCommand
+ */
+export const de_ListConfigurationSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListConfigurationSetsCommandError(output, context);
+    return de_ListConfigurationSetsCommandError(output, context);
   }
-  const contents: ListConfigurationSetsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ConfigurationSets: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConfigurationSets !== undefined && data.ConfigurationSets !== null) {
-    contents.ConfigurationSets = deserializeAws_restJson1ConfigurationSetNameList(data.ConfigurationSets, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfigurationSets: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListConfigurationSetsCommandError = async (
+/**
+ * deserializeAws_restJson1ListConfigurationSetsCommandError
+ */
+const de_ListConfigurationSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListDedicatedIpPoolsCommand = async (
+/**
+ * deserializeAws_restJson1ListDedicatedIpPoolsCommand
+ */
+export const de_ListDedicatedIpPoolsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDedicatedIpPoolsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDedicatedIpPoolsCommandError(output, context);
+    return de_ListDedicatedIpPoolsCommandError(output, context);
   }
-  const contents: ListDedicatedIpPoolsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DedicatedIpPools: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DedicatedIpPools !== undefined && data.DedicatedIpPools !== null) {
-    contents.DedicatedIpPools = deserializeAws_restJson1ListOfDedicatedIpPools(data.DedicatedIpPools, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DedicatedIpPools: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListDedicatedIpPoolsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDedicatedIpPoolsCommandError
+ */
+const de_ListDedicatedIpPoolsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDedicatedIpPoolsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListDeliverabilityTestReportsCommand = async (
+/**
+ * deserializeAws_restJson1ListDeliverabilityTestReportsCommand
+ */
+export const de_ListDeliverabilityTestReportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeliverabilityTestReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDeliverabilityTestReportsCommandError(output, context);
+    return de_ListDeliverabilityTestReportsCommandError(output, context);
   }
-  const contents: ListDeliverabilityTestReportsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DeliverabilityTestReports: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DeliverabilityTestReports !== undefined && data.DeliverabilityTestReports !== null) {
-    contents.DeliverabilityTestReports = deserializeAws_restJson1DeliverabilityTestReports(
-      data.DeliverabilityTestReports,
-      context
-    );
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DeliverabilityTestReports: (_) => de_DeliverabilityTestReports(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListDeliverabilityTestReportsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDeliverabilityTestReportsCommandError
+ */
+const de_ListDeliverabilityTestReportsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeliverabilityTestReportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = async (
+/**
+ * deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommand
+ */
+export const de_ListDomainDeliverabilityCampaignsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommandError(output, context);
+    return de_ListDomainDeliverabilityCampaignsCommandError(output, context);
   }
-  const contents: ListDomainDeliverabilityCampaignsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DomainDeliverabilityCampaigns: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainDeliverabilityCampaigns !== undefined && data.DomainDeliverabilityCampaigns !== null) {
-    contents.DomainDeliverabilityCampaigns = deserializeAws_restJson1DomainDeliverabilityCampaignList(
-      data.DomainDeliverabilityCampaigns,
-      context
-    );
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DomainDeliverabilityCampaigns: (_) => de_DomainDeliverabilityCampaignList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommandError
+ */
+const de_ListDomainDeliverabilityCampaignsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListEmailIdentitiesCommand = async (
+/**
+ * deserializeAws_restJson1ListEmailIdentitiesCommand
+ */
+export const de_ListEmailIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEmailIdentitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEmailIdentitiesCommandError(output, context);
+    return de_ListEmailIdentitiesCommandError(output, context);
   }
-  const contents: ListEmailIdentitiesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    EmailIdentities: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EmailIdentities !== undefined && data.EmailIdentities !== null) {
-    contents.EmailIdentities = deserializeAws_restJson1IdentityInfoList(data.EmailIdentities, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EmailIdentities: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListEmailIdentitiesCommandError = async (
+/**
+ * deserializeAws_restJson1ListEmailIdentitiesCommandError
+ */
+const de_ListEmailIdentitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEmailIdentitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
-  const contents: ListTagsForResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags !== undefined && data.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand = async (
+/**
+ * deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand
+ */
+export const de_PutAccountDedicatedIpWarmupAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommandError(output, context);
+    return de_PutAccountDedicatedIpWarmupAttributesCommandError(output, context);
   }
-  const contents: PutAccountDedicatedIpWarmupAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommandError
+ */
+const de_PutAccountDedicatedIpWarmupAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutAccountSendingAttributesCommand = async (
+/**
+ * deserializeAws_restJson1PutAccountSendingAttributesCommand
+ */
+export const de_PutAccountSendingAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountSendingAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutAccountSendingAttributesCommandError(output, context);
+    return de_PutAccountSendingAttributesCommandError(output, context);
   }
-  const contents: PutAccountSendingAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutAccountSendingAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1PutAccountSendingAttributesCommandError
+ */
+const de_PutAccountSendingAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountSendingAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand = async (
+/**
+ * deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand
+ */
+export const de_PutConfigurationSetDeliveryOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommandError(output, context);
+    return de_PutConfigurationSetDeliveryOptionsCommandError(output, context);
   }
-  const contents: PutConfigurationSetDeliveryOptionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommandError = async (
+/**
+ * deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommandError
+ */
+const de_PutConfigurationSetDeliveryOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand = async (
+/**
+ * deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand
+ */
+export const de_PutConfigurationSetReputationOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetReputationOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutConfigurationSetReputationOptionsCommandError(output, context);
+    return de_PutConfigurationSetReputationOptionsCommandError(output, context);
   }
-  const contents: PutConfigurationSetReputationOptionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutConfigurationSetReputationOptionsCommandError = async (
+/**
+ * deserializeAws_restJson1PutConfigurationSetReputationOptionsCommandError
+ */
+const de_PutConfigurationSetReputationOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetReputationOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand = async (
+/**
+ * deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand
+ */
+export const de_PutConfigurationSetSendingOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetSendingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutConfigurationSetSendingOptionsCommandError(output, context);
+    return de_PutConfigurationSetSendingOptionsCommandError(output, context);
   }
-  const contents: PutConfigurationSetSendingOptionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutConfigurationSetSendingOptionsCommandError = async (
+/**
+ * deserializeAws_restJson1PutConfigurationSetSendingOptionsCommandError
+ */
+const de_PutConfigurationSetSendingOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetSendingOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommand = async (
+/**
+ * deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommand
+ */
+export const de_PutConfigurationSetTrackingOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommandError(output, context);
+    return de_PutConfigurationSetTrackingOptionsCommandError(output, context);
   }
-  const contents: PutConfigurationSetTrackingOptionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommandError = async (
+/**
+ * deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommandError
+ */
+const de_PutConfigurationSetTrackingOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutDedicatedIpInPoolCommand = async (
+/**
+ * deserializeAws_restJson1PutDedicatedIpInPoolCommand
+ */
+export const de_PutDedicatedIpInPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDedicatedIpInPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutDedicatedIpInPoolCommandError(output, context);
+    return de_PutDedicatedIpInPoolCommandError(output, context);
   }
-  const contents: PutDedicatedIpInPoolCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutDedicatedIpInPoolCommandError = async (
+/**
+ * deserializeAws_restJson1PutDedicatedIpInPoolCommandError
+ */
+const de_PutDedicatedIpInPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDedicatedIpInPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand = async (
+/**
+ * deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand
+ */
+export const de_PutDedicatedIpWarmupAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommandError(output, context);
+    return de_PutDedicatedIpWarmupAttributesCommandError(output, context);
   }
-  const contents: PutDedicatedIpWarmupAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommandError
+ */
+const de_PutDedicatedIpWarmupAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand = async (
+/**
+ * deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand
+ */
+export const de_PutDeliverabilityDashboardOptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDeliverabilityDashboardOptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutDeliverabilityDashboardOptionCommandError(output, context);
+    return de_PutDeliverabilityDashboardOptionCommandError(output, context);
   }
-  const contents: PutDeliverabilityDashboardOptionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutDeliverabilityDashboardOptionCommandError = async (
+/**
+ * deserializeAws_restJson1PutDeliverabilityDashboardOptionCommandError
+ */
+const de_PutDeliverabilityDashboardOptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDeliverabilityDashboardOptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.pinpointemail#AlreadyExistsException":
-      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand = async (
+/**
+ * deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand
+ */
+export const de_PutEmailIdentityDkimAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityDkimAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutEmailIdentityDkimAttributesCommandError(output, context);
+    return de_PutEmailIdentityDkimAttributesCommandError(output, context);
   }
-  const contents: PutEmailIdentityDkimAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutEmailIdentityDkimAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1PutEmailIdentityDkimAttributesCommandError
+ */
+const de_PutEmailIdentityDkimAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityDkimAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand = async (
+/**
+ * deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand
+ */
+export const de_PutEmailIdentityFeedbackAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommandError(output, context);
+    return de_PutEmailIdentityFeedbackAttributesCommandError(output, context);
   }
-  const contents: PutEmailIdentityFeedbackAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommandError
+ */
+const de_PutEmailIdentityFeedbackAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommand = async (
+/**
+ * deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommand
+ */
+export const de_PutEmailIdentityMailFromAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityMailFromAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommandError(output, context);
+    return de_PutEmailIdentityMailFromAttributesCommandError(output, context);
   }
-  const contents: PutEmailIdentityMailFromAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommandError
+ */
+const de_PutEmailIdentityMailFromAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityMailFromAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1SendEmailCommand = async (
+/**
+ * deserializeAws_restJson1SendEmailCommand
+ */
+export const de_SendEmailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendEmailCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SendEmailCommandError(output, context);
+    return de_SendEmailCommandError(output, context);
   }
-  const contents: SendEmailCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    MessageId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MessageId !== undefined && data.MessageId !== null) {
-    contents.MessageId = __expectString(data.MessageId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MessageId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1SendEmailCommandError = async (
+/**
+ * deserializeAws_restJson1SendEmailCommandError
+ */
+const de_SendEmailCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSuspendedException":
     case "com.amazonaws.pinpointemail#AccountSuspendedException":
-      throw await deserializeAws_restJson1AccountSuspendedExceptionResponse(parsedOutput, context);
+      throw await de_AccountSuspendedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MailFromDomainNotVerifiedException":
     case "com.amazonaws.pinpointemail#MailFromDomainNotVerifiedException":
-      throw await deserializeAws_restJson1MailFromDomainNotVerifiedExceptionResponse(parsedOutput, context);
+      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
     case "MessageRejected":
     case "com.amazonaws.pinpointemail#MessageRejected":
-      throw await deserializeAws_restJson1MessageRejectedResponse(parsedOutput, context);
+      throw await de_MessageRejectedRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "SendingPausedException":
     case "com.amazonaws.pinpointemail#SendingPausedException":
-      throw await deserializeAws_restJson1SendingPausedExceptionResponse(parsedOutput, context);
+      throw await de_SendingPausedExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
+ */
+export const de_UpdateConfigurationSetEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError(output, context);
+    return de_UpdateConfigurationSetEventDestinationCommandError(output, context);
   }
-  const contents: UpdateConfigurationSetEventDestinationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError
+ */
+const de_UpdateConfigurationSetEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_restJson1AccountSuspendedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccountSuspendedExceptionRes
+ */
+const de_AccountSuspendedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccountSuspendedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccountSuspendedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3763,15 +3832,19 @@ const deserializeAws_restJson1AccountSuspendedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AlreadyExistsExceptionRes
+ */
+const de_AlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3779,15 +3852,16 @@ const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3795,15 +3869,19 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3811,15 +3889,19 @@ const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3827,15 +3909,19 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MailFromDomainNotVerifiedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1MailFromDomainNotVerifiedExceptionRes
+ */
+const de_MailFromDomainNotVerifiedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MailFromDomainNotVerifiedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MailFromDomainNotVerifiedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3843,15 +3929,16 @@ const deserializeAws_restJson1MailFromDomainNotVerifiedExceptionResponse = async
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MessageRejectedResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<MessageRejected> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1MessageRejectedRes
+ */
+const de_MessageRejectedRes = async (parsedOutput: any, context: __SerdeContext): Promise<MessageRejected> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MessageRejected({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3859,15 +3946,16 @@ const deserializeAws_restJson1MessageRejectedResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3875,15 +3963,19 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1SendingPausedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1SendingPausedExceptionRes
+ */
+const de_SendingPausedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SendingPausedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SendingPausedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3891,15 +3983,19 @@ const deserializeAws_restJson1SendingPausedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3907,890 +4003,413 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1Body = (input: Body, context: __SerdeContext): any => {
-  return {
-    ...(input.Html !== undefined &&
-      input.Html !== null && { Html: serializeAws_restJson1Content(input.Html, context) }),
-    ...(input.Text !== undefined &&
-      input.Text !== null && { Text: serializeAws_restJson1Content(input.Text, context) }),
-  };
-};
+// se_Body omitted.
 
-const serializeAws_restJson1CloudWatchDestination = (input: CloudWatchDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.DimensionConfigurations !== undefined &&
-      input.DimensionConfigurations !== null && {
-        DimensionConfigurations: serializeAws_restJson1CloudWatchDimensionConfigurations(
-          input.DimensionConfigurations,
-          context
-        ),
-      }),
-  };
-};
+// se_CloudWatchDestination omitted.
 
-const serializeAws_restJson1CloudWatchDimensionConfiguration = (
-  input: CloudWatchDimensionConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DefaultDimensionValue !== undefined &&
-      input.DefaultDimensionValue !== null && { DefaultDimensionValue: input.DefaultDimensionValue }),
-    ...(input.DimensionName !== undefined && input.DimensionName !== null && { DimensionName: input.DimensionName }),
-    ...(input.DimensionValueSource !== undefined &&
-      input.DimensionValueSource !== null && { DimensionValueSource: input.DimensionValueSource }),
-  };
-};
+// se_CloudWatchDimensionConfiguration omitted.
 
-const serializeAws_restJson1CloudWatchDimensionConfigurations = (
-  input: CloudWatchDimensionConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1CloudWatchDimensionConfiguration(entry, context);
-    });
-};
+// se_CloudWatchDimensionConfigurations omitted.
 
-const serializeAws_restJson1Content = (input: Content, context: __SerdeContext): any => {
-  return {
-    ...(input.Charset !== undefined && input.Charset !== null && { Charset: input.Charset }),
-    ...(input.Data !== undefined && input.Data !== null && { Data: input.Data }),
-  };
-};
+// se_Content omitted.
 
-const serializeAws_restJson1DeliveryOptions = (input: DeliveryOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.SendingPoolName !== undefined &&
-      input.SendingPoolName !== null && { SendingPoolName: input.SendingPoolName }),
-    ...(input.TlsPolicy !== undefined && input.TlsPolicy !== null && { TlsPolicy: input.TlsPolicy }),
-  };
-};
+// se_DeliveryOptions omitted.
 
-const serializeAws_restJson1Destination = (input: Destination, context: __SerdeContext): any => {
-  return {
-    ...(input.BccAddresses !== undefined &&
-      input.BccAddresses !== null && {
-        BccAddresses: serializeAws_restJson1EmailAddressList(input.BccAddresses, context),
-      }),
-    ...(input.CcAddresses !== undefined &&
-      input.CcAddresses !== null && {
-        CcAddresses: serializeAws_restJson1EmailAddressList(input.CcAddresses, context),
-      }),
-    ...(input.ToAddresses !== undefined &&
-      input.ToAddresses !== null && {
-        ToAddresses: serializeAws_restJson1EmailAddressList(input.ToAddresses, context),
-      }),
-  };
-};
+// se_Destination omitted.
 
-const serializeAws_restJson1DomainDeliverabilityTrackingOption = (
+/**
+ * serializeAws_restJson1DomainDeliverabilityTrackingOption
+ */
+const se_DomainDeliverabilityTrackingOption = (
   input: DomainDeliverabilityTrackingOption,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
-    ...(input.InboxPlacementTrackingOption !== undefined &&
-      input.InboxPlacementTrackingOption !== null && {
-        InboxPlacementTrackingOption: serializeAws_restJson1InboxPlacementTrackingOption(
-          input.InboxPlacementTrackingOption,
-          context
-        ),
-      }),
-    ...(input.SubscriptionStartDate !== undefined &&
-      input.SubscriptionStartDate !== null && {
-        SubscriptionStartDate: Math.round(input.SubscriptionStartDate.getTime() / 1000),
-      }),
-  };
+  return take(input, {
+    Domain: [],
+    InboxPlacementTrackingOption: _json,
+    SubscriptionStartDate: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_restJson1DomainDeliverabilityTrackingOptions = (
+/**
+ * serializeAws_restJson1DomainDeliverabilityTrackingOptions
+ */
+const se_DomainDeliverabilityTrackingOptions = (
   input: DomainDeliverabilityTrackingOption[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1DomainDeliverabilityTrackingOption(entry, context);
+      return se_DomainDeliverabilityTrackingOption(entry, context);
     });
 };
 
-const serializeAws_restJson1EmailAddressList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
+// se_EmailAddressList omitted.
+
+/**
+ * serializeAws_restJson1EmailContent
+ */
+const se_EmailContent = (input: EmailContent, context: __SerdeContext): any => {
+  return take(input, {
+    Raw: (_) => se_RawMessage(_, context),
+    Simple: _json,
+    Template: _json,
+  });
 };
 
-const serializeAws_restJson1EmailContent = (input: EmailContent, context: __SerdeContext): any => {
-  return {
-    ...(input.Raw !== undefined && input.Raw !== null && { Raw: serializeAws_restJson1RawMessage(input.Raw, context) }),
-    ...(input.Simple !== undefined &&
-      input.Simple !== null && { Simple: serializeAws_restJson1Message(input.Simple, context) }),
-    ...(input.Template !== undefined &&
-      input.Template !== null && { Template: serializeAws_restJson1Template(input.Template, context) }),
-  };
+// se_EventDestinationDefinition omitted.
+
+// se_EventTypes omitted.
+
+// se_InboxPlacementTrackingOption omitted.
+
+// se_IspNameList omitted.
+
+// se_KinesisFirehoseDestination omitted.
+
+// se_Message omitted.
+
+// se_MessageTag omitted.
+
+// se_MessageTagList omitted.
+
+// se_PinpointDestination omitted.
+
+/**
+ * serializeAws_restJson1RawMessage
+ */
+const se_RawMessage = (input: RawMessage, context: __SerdeContext): any => {
+  return take(input, {
+    Data: context.base64Encoder,
+  });
 };
 
-const serializeAws_restJson1EventDestinationDefinition = (
-  input: EventDestinationDefinition,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CloudWatchDestination !== undefined &&
-      input.CloudWatchDestination !== null && {
-        CloudWatchDestination: serializeAws_restJson1CloudWatchDestination(input.CloudWatchDestination, context),
-      }),
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
-    ...(input.KinesisFirehoseDestination !== undefined &&
-      input.KinesisFirehoseDestination !== null && {
-        KinesisFirehoseDestination: serializeAws_restJson1KinesisFirehoseDestination(
-          input.KinesisFirehoseDestination,
-          context
-        ),
-      }),
-    ...(input.MatchingEventTypes !== undefined &&
-      input.MatchingEventTypes !== null && {
-        MatchingEventTypes: serializeAws_restJson1EventTypes(input.MatchingEventTypes, context),
-      }),
-    ...(input.PinpointDestination !== undefined &&
-      input.PinpointDestination !== null && {
-        PinpointDestination: serializeAws_restJson1PinpointDestination(input.PinpointDestination, context),
-      }),
-    ...(input.SnsDestination !== undefined &&
-      input.SnsDestination !== null && {
-        SnsDestination: serializeAws_restJson1SnsDestination(input.SnsDestination, context),
-      }),
-  };
+/**
+ * serializeAws_restJson1ReputationOptions
+ */
+const se_ReputationOptions = (input: ReputationOptions, context: __SerdeContext): any => {
+  return take(input, {
+    LastFreshStart: (_) => Math.round(_.getTime() / 1000),
+    ReputationMetricsEnabled: [],
+  });
 };
 
-const serializeAws_restJson1EventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// se_SendingOptions omitted.
 
-const serializeAws_restJson1InboxPlacementTrackingOption = (
-  input: InboxPlacementTrackingOption,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Global !== undefined && input.Global !== null && { Global: input.Global }),
-    ...(input.TrackedIsps !== undefined &&
-      input.TrackedIsps !== null && { TrackedIsps: serializeAws_restJson1IspNameList(input.TrackedIsps, context) }),
-  };
-};
+// se_SnsDestination omitted.
 
-const serializeAws_restJson1IspNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// se_Tag omitted.
 
-const serializeAws_restJson1KinesisFirehoseDestination = (
-  input: KinesisFirehoseDestination,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DeliveryStreamArn !== undefined &&
-      input.DeliveryStreamArn !== null && { DeliveryStreamArn: input.DeliveryStreamArn }),
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-  };
-};
+// se_TagList omitted.
 
-const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
-  return {
-    ...(input.Body !== undefined && input.Body !== null && { Body: serializeAws_restJson1Body(input.Body, context) }),
-    ...(input.Subject !== undefined &&
-      input.Subject !== null && { Subject: serializeAws_restJson1Content(input.Subject, context) }),
-  };
-};
+// se_Template omitted.
 
-const serializeAws_restJson1MessageTag = (input: MessageTag, context: __SerdeContext): any => {
-  return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
-};
+// se_TrackingOptions omitted.
 
-const serializeAws_restJson1MessageTagList = (input: MessageTag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1MessageTag(entry, context);
-    });
-};
-
-const serializeAws_restJson1PinpointDestination = (input: PinpointDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.ApplicationArn !== undefined &&
-      input.ApplicationArn !== null && { ApplicationArn: input.ApplicationArn }),
-  };
-};
-
-const serializeAws_restJson1RawMessage = (input: RawMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Data !== undefined && input.Data !== null && { Data: context.base64Encoder(input.Data) }),
-  };
-};
-
-const serializeAws_restJson1ReputationOptions = (input: ReputationOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.LastFreshStart !== undefined &&
-      input.LastFreshStart !== null && { LastFreshStart: Math.round(input.LastFreshStart.getTime() / 1000) }),
-    ...(input.ReputationMetricsEnabled !== undefined &&
-      input.ReputationMetricsEnabled !== null && { ReputationMetricsEnabled: input.ReputationMetricsEnabled }),
-  };
-};
-
-const serializeAws_restJson1SendingOptions = (input: SendingOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.SendingEnabled !== undefined &&
-      input.SendingEnabled !== null && { SendingEnabled: input.SendingEnabled }),
-  };
-};
-
-const serializeAws_restJson1SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.TopicArn !== undefined && input.TopicArn !== null && { TopicArn: input.TopicArn }),
-  };
-};
-
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Tag(entry, context);
-    });
-};
-
-const serializeAws_restJson1Template = (input: Template, context: __SerdeContext): any => {
-  return {
-    ...(input.TemplateArn !== undefined && input.TemplateArn !== null && { TemplateArn: input.TemplateArn }),
-    ...(input.TemplateData !== undefined && input.TemplateData !== null && { TemplateData: input.TemplateData }),
-  };
-};
-
-const serializeAws_restJson1TrackingOptions = (input: TrackingOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomRedirectDomain !== undefined &&
-      input.CustomRedirectDomain !== null && { CustomRedirectDomain: input.CustomRedirectDomain }),
-  };
-};
-
-const deserializeAws_restJson1BlacklistEntries = (output: any, context: __SerdeContext): BlacklistEntry[] => {
+/**
+ * deserializeAws_restJson1BlacklistEntries
+ */
+const de_BlacklistEntries = (output: any, context: __SerdeContext): BlacklistEntry[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BlacklistEntry(entry, context);
+      return de_BlacklistEntry(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BlacklistEntry = (output: any, context: __SerdeContext): BlacklistEntry => {
-  return {
-    Description: __expectString(output.Description),
-    ListingTime:
-      output.ListingTime !== undefined && output.ListingTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ListingTime)))
-        : undefined,
-    RblName: __expectString(output.RblName),
-  } as any;
+/**
+ * deserializeAws_restJson1BlacklistEntry
+ */
+const de_BlacklistEntry = (output: any, context: __SerdeContext): BlacklistEntry => {
+  return take(output, {
+    Description: __expectString,
+    ListingTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RblName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BlacklistReport = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: BlacklistEntry[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: BlacklistEntry[] }, [key, value]: [string, any]) => {
+/**
+ * deserializeAws_restJson1BlacklistReport
+ */
+const de_BlacklistReport = (output: any, context: __SerdeContext): Record<string, BlacklistEntry[]> => {
+  return Object.entries(output).reduce((acc: Record<string, BlacklistEntry[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1BlacklistEntries(value, context),
-    };
+    acc[key] = de_BlacklistEntries(value, context);
+    return acc;
   }, {});
 };
 
-const deserializeAws_restJson1CloudWatchDestination = (output: any, context: __SerdeContext): CloudWatchDestination => {
-  return {
-    DimensionConfigurations:
-      output.DimensionConfigurations !== undefined && output.DimensionConfigurations !== null
-        ? deserializeAws_restJson1CloudWatchDimensionConfigurations(output.DimensionConfigurations, context)
-        : undefined,
-  } as any;
+// de_CloudWatchDestination omitted.
+
+// de_CloudWatchDimensionConfiguration omitted.
+
+// de_CloudWatchDimensionConfigurations omitted.
+
+// de_ConfigurationSetNameList omitted.
+
+/**
+ * deserializeAws_restJson1DailyVolume
+ */
+const de_DailyVolume = (output: any, context: __SerdeContext): DailyVolume => {
+  return take(output, {
+    DomainIspPlacements: (_: any) => de_DomainIspPlacements(_, context),
+    StartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VolumeStatistics: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1CloudWatchDimensionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchDimensionConfiguration => {
-  return {
-    DefaultDimensionValue: __expectString(output.DefaultDimensionValue),
-    DimensionName: __expectString(output.DimensionName),
-    DimensionValueSource: __expectString(output.DimensionValueSource),
-  } as any;
-};
-
-const deserializeAws_restJson1CloudWatchDimensionConfigurations = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchDimensionConfiguration[] => {
+/**
+ * deserializeAws_restJson1DailyVolumes
+ */
+const de_DailyVolumes = (output: any, context: __SerdeContext): DailyVolume[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1CloudWatchDimensionConfiguration(entry, context);
+      return de_DailyVolume(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ConfigurationSetNameList = (output: any, context: __SerdeContext): string[] => {
+// de_DedicatedIp omitted.
+
+// de_DedicatedIpList omitted.
+
+/**
+ * deserializeAws_restJson1DeliverabilityTestReport
+ */
+const de_DeliverabilityTestReport = (output: any, context: __SerdeContext): DeliverabilityTestReport => {
+  return take(output, {
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeliverabilityTestStatus: __expectString,
+    FromEmailAddress: __expectString,
+    ReportId: __expectString,
+    ReportName: __expectString,
+    Subject: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DeliverabilityTestReports
+ */
+const de_DeliverabilityTestReports = (output: any, context: __SerdeContext): DeliverabilityTestReport[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_DeliverabilityTestReport(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DailyVolume = (output: any, context: __SerdeContext): DailyVolume => {
-  return {
-    DomainIspPlacements:
-      output.DomainIspPlacements !== undefined && output.DomainIspPlacements !== null
-        ? deserializeAws_restJson1DomainIspPlacements(output.DomainIspPlacements, context)
-        : undefined,
-    StartDate:
-      output.StartDate !== undefined && output.StartDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDate)))
-        : undefined,
-    VolumeStatistics:
-      output.VolumeStatistics !== undefined && output.VolumeStatistics !== null
-        ? deserializeAws_restJson1VolumeStatistics(output.VolumeStatistics, context)
-        : undefined,
-  } as any;
+// de_DeliveryOptions omitted.
+
+// de_DkimAttributes omitted.
+
+// de_DnsTokenList omitted.
+
+/**
+ * deserializeAws_restJson1DomainDeliverabilityCampaign
+ */
+const de_DomainDeliverabilityCampaign = (output: any, context: __SerdeContext): DomainDeliverabilityCampaign => {
+  return take(output, {
+    CampaignId: __expectString,
+    DeleteRate: __limitedParseDouble,
+    Esps: _json,
+    FirstSeenDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FromAddress: __expectString,
+    ImageUrl: __expectString,
+    InboxCount: __expectLong,
+    LastSeenDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ProjectedVolume: __expectLong,
+    ReadDeleteRate: __limitedParseDouble,
+    ReadRate: __limitedParseDouble,
+    SendingIps: _json,
+    SpamCount: __expectLong,
+    Subject: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1DailyVolumes = (output: any, context: __SerdeContext): DailyVolume[] => {
+/**
+ * deserializeAws_restJson1DomainDeliverabilityCampaignList
+ */
+const de_DomainDeliverabilityCampaignList = (output: any, context: __SerdeContext): DomainDeliverabilityCampaign[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DailyVolume(entry, context);
+      return de_DomainDeliverabilityCampaign(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DedicatedIp = (output: any, context: __SerdeContext): DedicatedIp => {
-  return {
-    Ip: __expectString(output.Ip),
-    PoolName: __expectString(output.PoolName),
-    WarmupPercentage: __expectInt32(output.WarmupPercentage),
-    WarmupStatus: __expectString(output.WarmupStatus),
-  } as any;
-};
-
-const deserializeAws_restJson1DedicatedIpList = (output: any, context: __SerdeContext): DedicatedIp[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DedicatedIp(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1DeliverabilityTestReport = (
-  output: any,
-  context: __SerdeContext
-): DeliverabilityTestReport => {
-  return {
-    CreateDate:
-      output.CreateDate !== undefined && output.CreateDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate)))
-        : undefined,
-    DeliverabilityTestStatus: __expectString(output.DeliverabilityTestStatus),
-    FromEmailAddress: __expectString(output.FromEmailAddress),
-    ReportId: __expectString(output.ReportId),
-    ReportName: __expectString(output.ReportName),
-    Subject: __expectString(output.Subject),
-  } as any;
-};
-
-const deserializeAws_restJson1DeliverabilityTestReports = (
-  output: any,
-  context: __SerdeContext
-): DeliverabilityTestReport[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DeliverabilityTestReport(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1DeliveryOptions = (output: any, context: __SerdeContext): DeliveryOptions => {
-  return {
-    SendingPoolName: __expectString(output.SendingPoolName),
-    TlsPolicy: __expectString(output.TlsPolicy),
-  } as any;
-};
-
-const deserializeAws_restJson1DkimAttributes = (output: any, context: __SerdeContext): DkimAttributes => {
-  return {
-    SigningEnabled: __expectBoolean(output.SigningEnabled),
-    Status: __expectString(output.Status),
-    Tokens:
-      output.Tokens !== undefined && output.Tokens !== null
-        ? deserializeAws_restJson1DnsTokenList(output.Tokens, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DnsTokenList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1DomainDeliverabilityCampaign = (
-  output: any,
-  context: __SerdeContext
-): DomainDeliverabilityCampaign => {
-  return {
-    CampaignId: __expectString(output.CampaignId),
-    DeleteRate: __limitedParseDouble(output.DeleteRate),
-    Esps:
-      output.Esps !== undefined && output.Esps !== null
-        ? deserializeAws_restJson1Esps(output.Esps, context)
-        : undefined,
-    FirstSeenDateTime:
-      output.FirstSeenDateTime !== undefined && output.FirstSeenDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FirstSeenDateTime)))
-        : undefined,
-    FromAddress: __expectString(output.FromAddress),
-    ImageUrl: __expectString(output.ImageUrl),
-    InboxCount: __expectLong(output.InboxCount),
-    LastSeenDateTime:
-      output.LastSeenDateTime !== undefined && output.LastSeenDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSeenDateTime)))
-        : undefined,
-    ProjectedVolume: __expectLong(output.ProjectedVolume),
-    ReadDeleteRate: __limitedParseDouble(output.ReadDeleteRate),
-    ReadRate: __limitedParseDouble(output.ReadRate),
-    SendingIps:
-      output.SendingIps !== undefined && output.SendingIps !== null
-        ? deserializeAws_restJson1IpList(output.SendingIps, context)
-        : undefined,
-    SpamCount: __expectLong(output.SpamCount),
-    Subject: __expectString(output.Subject),
-  } as any;
-};
-
-const deserializeAws_restJson1DomainDeliverabilityCampaignList = (
-  output: any,
-  context: __SerdeContext
-): DomainDeliverabilityCampaign[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DomainDeliverabilityCampaign(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1DomainDeliverabilityTrackingOption = (
+/**
+ * deserializeAws_restJson1DomainDeliverabilityTrackingOption
+ */
+const de_DomainDeliverabilityTrackingOption = (
   output: any,
   context: __SerdeContext
 ): DomainDeliverabilityTrackingOption => {
-  return {
-    Domain: __expectString(output.Domain),
-    InboxPlacementTrackingOption:
-      output.InboxPlacementTrackingOption !== undefined && output.InboxPlacementTrackingOption !== null
-        ? deserializeAws_restJson1InboxPlacementTrackingOption(output.InboxPlacementTrackingOption, context)
-        : undefined,
-    SubscriptionStartDate:
-      output.SubscriptionStartDate !== undefined && output.SubscriptionStartDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubscriptionStartDate)))
-        : undefined,
-  } as any;
+  return take(output, {
+    Domain: __expectString,
+    InboxPlacementTrackingOption: _json,
+    SubscriptionStartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1DomainDeliverabilityTrackingOptions = (
+/**
+ * deserializeAws_restJson1DomainDeliverabilityTrackingOptions
+ */
+const de_DomainDeliverabilityTrackingOptions = (
   output: any,
   context: __SerdeContext
 ): DomainDeliverabilityTrackingOption[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DomainDeliverabilityTrackingOption(entry, context);
+      return de_DomainDeliverabilityTrackingOption(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DomainIspPlacement = (output: any, context: __SerdeContext): DomainIspPlacement => {
-  return {
-    InboxPercentage: __limitedParseDouble(output.InboxPercentage),
-    InboxRawCount: __expectLong(output.InboxRawCount),
-    IspName: __expectString(output.IspName),
-    SpamPercentage: __limitedParseDouble(output.SpamPercentage),
-    SpamRawCount: __expectLong(output.SpamRawCount),
-  } as any;
+/**
+ * deserializeAws_restJson1DomainIspPlacement
+ */
+const de_DomainIspPlacement = (output: any, context: __SerdeContext): DomainIspPlacement => {
+  return take(output, {
+    InboxPercentage: __limitedParseDouble,
+    InboxRawCount: __expectLong,
+    IspName: __expectString,
+    SpamPercentage: __limitedParseDouble,
+    SpamRawCount: __expectLong,
+  }) as any;
 };
 
-const deserializeAws_restJson1DomainIspPlacements = (output: any, context: __SerdeContext): DomainIspPlacement[] => {
+/**
+ * deserializeAws_restJson1DomainIspPlacements
+ */
+const de_DomainIspPlacements = (output: any, context: __SerdeContext): DomainIspPlacement[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DomainIspPlacement(entry, context);
+      return de_DomainIspPlacement(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Esps = (output: any, context: __SerdeContext): string[] => {
+// de_Esps omitted.
+
+// de_EventDestination omitted.
+
+// de_EventDestinations omitted.
+
+// de_EventTypes omitted.
+
+// de_IdentityInfo omitted.
+
+// de_IdentityInfoList omitted.
+
+// de_InboxPlacementTrackingOption omitted.
+
+// de_IpList omitted.
+
+// de_IspNameList omitted.
+
+/**
+ * deserializeAws_restJson1IspPlacement
+ */
+const de_IspPlacement = (output: any, context: __SerdeContext): IspPlacement => {
+  return take(output, {
+    IspName: __expectString,
+    PlacementStatistics: (_: any) => de_PlacementStatistics(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1IspPlacements
+ */
+const de_IspPlacements = (output: any, context: __SerdeContext): IspPlacement[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_IspPlacement(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeContext): EventDestination => {
-  return {
-    CloudWatchDestination:
-      output.CloudWatchDestination !== undefined && output.CloudWatchDestination !== null
-        ? deserializeAws_restJson1CloudWatchDestination(output.CloudWatchDestination, context)
-        : undefined,
-    Enabled: __expectBoolean(output.Enabled),
-    KinesisFirehoseDestination:
-      output.KinesisFirehoseDestination !== undefined && output.KinesisFirehoseDestination !== null
-        ? deserializeAws_restJson1KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
-        : undefined,
-    MatchingEventTypes:
-      output.MatchingEventTypes !== undefined && output.MatchingEventTypes !== null
-        ? deserializeAws_restJson1EventTypes(output.MatchingEventTypes, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    PinpointDestination:
-      output.PinpointDestination !== undefined && output.PinpointDestination !== null
-        ? deserializeAws_restJson1PinpointDestination(output.PinpointDestination, context)
-        : undefined,
-    SnsDestination:
-      output.SnsDestination !== undefined && output.SnsDestination !== null
-        ? deserializeAws_restJson1SnsDestination(output.SnsDestination, context)
-        : undefined,
-  } as any;
+// de_KinesisFirehoseDestination omitted.
+
+// de_ListOfDedicatedIpPools omitted.
+
+// de_MailFromAttributes omitted.
+
+/**
+ * deserializeAws_restJson1OverallVolume
+ */
+const de_OverallVolume = (output: any, context: __SerdeContext): OverallVolume => {
+  return take(output, {
+    DomainIspPlacements: (_: any) => de_DomainIspPlacements(_, context),
+    ReadRatePercent: __limitedParseDouble,
+    VolumeStatistics: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1EventDestinations = (output: any, context: __SerdeContext): EventDestination[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1EventDestination(entry, context);
-    });
-  return retVal;
+// de_PinpointDestination omitted.
+
+/**
+ * deserializeAws_restJson1PlacementStatistics
+ */
+const de_PlacementStatistics = (output: any, context: __SerdeContext): PlacementStatistics => {
+  return take(output, {
+    DkimPercentage: __limitedParseDouble,
+    InboxPercentage: __limitedParseDouble,
+    MissingPercentage: __limitedParseDouble,
+    SpamPercentage: __limitedParseDouble,
+    SpfPercentage: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
+/**
+ * deserializeAws_restJson1ReputationOptions
+ */
+const de_ReputationOptions = (output: any, context: __SerdeContext): ReputationOptions => {
+  return take(output, {
+    LastFreshStart: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReputationMetricsEnabled: __expectBoolean,
+  }) as any;
 };
 
-const deserializeAws_restJson1IdentityInfo = (output: any, context: __SerdeContext): IdentityInfo => {
-  return {
-    IdentityName: __expectString(output.IdentityName),
-    IdentityType: __expectString(output.IdentityType),
-    SendingEnabled: __expectBoolean(output.SendingEnabled),
-  } as any;
+// de_SendingOptions omitted.
+
+/**
+ * deserializeAws_restJson1SendQuota
+ */
+const de_SendQuota = (output: any, context: __SerdeContext): SendQuota => {
+  return take(output, {
+    Max24HourSend: __limitedParseDouble,
+    MaxSendRate: __limitedParseDouble,
+    SentLast24Hours: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_restJson1IdentityInfoList = (output: any, context: __SerdeContext): IdentityInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1IdentityInfo(entry, context);
-    });
-  return retVal;
-};
+// de_SnsDestination omitted.
 
-const deserializeAws_restJson1InboxPlacementTrackingOption = (
-  output: any,
-  context: __SerdeContext
-): InboxPlacementTrackingOption => {
-  return {
-    Global: __expectBoolean(output.Global),
-    TrackedIsps:
-      output.TrackedIsps !== undefined && output.TrackedIsps !== null
-        ? deserializeAws_restJson1IspNameList(output.TrackedIsps, context)
-        : undefined,
-  } as any;
-};
+// de_Tag omitted.
 
-const deserializeAws_restJson1IpList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-const deserializeAws_restJson1IspNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TrackingOptions omitted.
 
-const deserializeAws_restJson1IspPlacement = (output: any, context: __SerdeContext): IspPlacement => {
-  return {
-    IspName: __expectString(output.IspName),
-    PlacementStatistics:
-      output.PlacementStatistics !== undefined && output.PlacementStatistics !== null
-        ? deserializeAws_restJson1PlacementStatistics(output.PlacementStatistics, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1IspPlacements = (output: any, context: __SerdeContext): IspPlacement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1IspPlacement(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1KinesisFirehoseDestination = (
-  output: any,
-  context: __SerdeContext
-): KinesisFirehoseDestination => {
-  return {
-    DeliveryStreamArn: __expectString(output.DeliveryStreamArn),
-    IamRoleArn: __expectString(output.IamRoleArn),
-  } as any;
-};
-
-const deserializeAws_restJson1ListOfDedicatedIpPools = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1MailFromAttributes = (output: any, context: __SerdeContext): MailFromAttributes => {
-  return {
-    BehaviorOnMxFailure: __expectString(output.BehaviorOnMxFailure),
-    MailFromDomain: __expectString(output.MailFromDomain),
-    MailFromDomainStatus: __expectString(output.MailFromDomainStatus),
-  } as any;
-};
-
-const deserializeAws_restJson1OverallVolume = (output: any, context: __SerdeContext): OverallVolume => {
-  return {
-    DomainIspPlacements:
-      output.DomainIspPlacements !== undefined && output.DomainIspPlacements !== null
-        ? deserializeAws_restJson1DomainIspPlacements(output.DomainIspPlacements, context)
-        : undefined,
-    ReadRatePercent: __limitedParseDouble(output.ReadRatePercent),
-    VolumeStatistics:
-      output.VolumeStatistics !== undefined && output.VolumeStatistics !== null
-        ? deserializeAws_restJson1VolumeStatistics(output.VolumeStatistics, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1PinpointDestination = (output: any, context: __SerdeContext): PinpointDestination => {
-  return {
-    ApplicationArn: __expectString(output.ApplicationArn),
-  } as any;
-};
-
-const deserializeAws_restJson1PlacementStatistics = (output: any, context: __SerdeContext): PlacementStatistics => {
-  return {
-    DkimPercentage: __limitedParseDouble(output.DkimPercentage),
-    InboxPercentage: __limitedParseDouble(output.InboxPercentage),
-    MissingPercentage: __limitedParseDouble(output.MissingPercentage),
-    SpamPercentage: __limitedParseDouble(output.SpamPercentage),
-    SpfPercentage: __limitedParseDouble(output.SpfPercentage),
-  } as any;
-};
-
-const deserializeAws_restJson1ReputationOptions = (output: any, context: __SerdeContext): ReputationOptions => {
-  return {
-    LastFreshStart:
-      output.LastFreshStart !== undefined && output.LastFreshStart !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastFreshStart)))
-        : undefined,
-    ReputationMetricsEnabled: __expectBoolean(output.ReputationMetricsEnabled),
-  } as any;
-};
-
-const deserializeAws_restJson1SendingOptions = (output: any, context: __SerdeContext): SendingOptions => {
-  return {
-    SendingEnabled: __expectBoolean(output.SendingEnabled),
-  } as any;
-};
-
-const deserializeAws_restJson1SendQuota = (output: any, context: __SerdeContext): SendQuota => {
-  return {
-    Max24HourSend: __limitedParseDouble(output.Max24HourSend),
-    MaxSendRate: __limitedParseDouble(output.MaxSendRate),
-    SentLast24Hours: __limitedParseDouble(output.SentLast24Hours),
-  } as any;
-};
-
-const deserializeAws_restJson1SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
-  return {
-    TopicArn: __expectString(output.TopicArn),
-  } as any;
-};
-
-const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1TrackingOptions = (output: any, context: __SerdeContext): TrackingOptions => {
-  return {
-    CustomRedirectDomain: __expectString(output.CustomRedirectDomain),
-  } as any;
-};
-
-const deserializeAws_restJson1VolumeStatistics = (output: any, context: __SerdeContext): VolumeStatistics => {
-  return {
-    InboxRawCount: __expectLong(output.InboxRawCount),
-    ProjectedInbox: __expectLong(output.ProjectedInbox),
-    ProjectedSpam: __expectLong(output.ProjectedSpam),
-    SpamRawCount: __expectLong(output.SpamRawCount),
-  } as any;
-};
+// de_VolumeStatistics omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -4811,14 +4430,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -4840,6 +4471,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

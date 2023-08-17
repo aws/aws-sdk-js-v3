@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,29 +19,36 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CancelKeyDeletionCommandInput, CancelKeyDeletionCommandOutput } from "./commands/CancelKeyDeletionCommand";
 import {
@@ -100,6 +99,7 @@ import {
   GenerateDataKeyWithoutPlaintextCommandInput,
   GenerateDataKeyWithoutPlaintextCommandOutput,
 } from "./commands/GenerateDataKeyWithoutPlaintextCommand";
+import { GenerateMacCommandInput, GenerateMacCommandOutput } from "./commands/GenerateMacCommand";
 import { GenerateRandomCommandInput, GenerateRandomCommandOutput } from "./commands/GenerateRandomCommand";
 import { GetKeyPolicyCommandInput, GetKeyPolicyCommandOutput } from "./commands/GetKeyPolicyCommand";
 import {
@@ -147,8 +147,21 @@ import {
   UpdatePrimaryRegionCommandOutput,
 } from "./commands/UpdatePrimaryRegionCommand";
 import { VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand";
+import { VerifyMacCommandInput, VerifyMacCommandOutput } from "./commands/VerifyMacCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelKeyDeletionCommandInput
   | ConnectCustomKeyStoreCommandInput
@@ -172,6 +185,7 @@ export type ServiceInputTypes =
   | GenerateDataKeyPairCommandInput
   | GenerateDataKeyPairWithoutPlaintextCommandInput
   | GenerateDataKeyWithoutPlaintextCommandInput
+  | GenerateMacCommandInput
   | GenerateRandomCommandInput
   | GetKeyPolicyCommandInput
   | GetKeyRotationStatusCommandInput
@@ -197,8 +211,12 @@ export type ServiceInputTypes =
   | UpdateCustomKeyStoreCommandInput
   | UpdateKeyDescriptionCommandInput
   | UpdatePrimaryRegionCommandInput
-  | VerifyCommandInput;
+  | VerifyCommandInput
+  | VerifyMacCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelKeyDeletionCommandOutput
   | ConnectCustomKeyStoreCommandOutput
@@ -222,6 +240,7 @@ export type ServiceOutputTypes =
   | GenerateDataKeyPairCommandOutput
   | GenerateDataKeyPairWithoutPlaintextCommandOutput
   | GenerateDataKeyWithoutPlaintextCommandOutput
+  | GenerateMacCommandOutput
   | GenerateRandomCommandOutput
   | GetKeyPolicyCommandOutput
   | GetKeyRotationStatusCommandOutput
@@ -247,8 +266,12 @@ export type ServiceOutputTypes =
   | UpdateCustomKeyStoreCommandOutput
   | UpdateKeyDescriptionCommandOutput
   | UpdatePrimaryRegionCommandOutput
-  | VerifyCommandOutput;
+  | VerifyCommandOutput
+  | VerifyMacCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -256,11 +279,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -311,10 +334,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -332,77 +388,57 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type KMSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type KMSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of KMSClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of KMSClient class constructor that set the region, credentials and other options.
  */
 export interface KMSClientConfig extends KMSClientConfigType {}
 
-type KMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type KMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of KMSClient class. This is resolved and normalized from the {@link KMSClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of KMSClient class. This is resolved and normalized from the {@link KMSClientConfig | constructor configuration interface}.
  */
 export interface KMSClientResolvedConfig extends KMSClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Key Management Service</fullname>
  *          <p>Key Management Service (KMS) is an encryption and key management web service. This guide describes
  *       the KMS operations that you can call programmatically. For general information about KMS,
@@ -410,7 +446,7 @@ export interface KMSClientResolvedConfig extends KMSClientResolvedConfigType {}
  *                <i>Key Management Service Developer Guide</i>
  *             </a>.</p>
  *          <note>
- *             <p>KMS is replacing the term <i>customer master key (CMK)</i> with <i>KMS key</i> and <i>KMS key</i>. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
+ *             <p>KMS has replaced the term <i>customer master key (CMK)</i> with <i>KMS key</i> and <i>KMS key</i>. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
  *             <p>Amazon Web Services provides SDKs that consist of libraries and sample code for various programming
  *         languages and platforms (Java, Ruby, .Net, macOS, Android, etc.). The SDKs provide a
  *         convenient way to create programmatic access to KMS and other Amazon Web Services services. For example,
@@ -420,19 +456,24 @@ export interface KMSClientResolvedConfig extends KMSClientResolvedConfigType {}
  *           Services</a>.</p>
  *          </note>
  *          <p>We recommend that you use the Amazon Web Services SDKs to make programmatic API calls to KMS.</p>
- *          <p>Clients must support TLS (Transport Layer Security) 1.0. We recommend TLS 1.2. Clients
- *       must also support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral
- *       Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems
- *       such as Java 7 and later support these modes.</p>
+ *          <p>If you need to use FIPS 140-2 validated cryptographic modules when communicating with
+ *       Amazon Web Services, use the FIPS endpoint in your preferred Amazon Web Services Region. For more information about the
+ *       available FIPS endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">Service endpoints</a> in the Key Management Service topic of
+ *       the <i>Amazon Web Services General Reference</i>.</p>
+ *          <p>All KMS API calls must be signed and be transmitted using Transport Layer Security
+ *       (TLS). KMS recommends you always use the latest supported TLS version. Clients must also
+ *       support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral Diffie-Hellman
+ *       (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7
+ *       and later support these modes.</p>
  *          <p>
  *             <b>Signing Requests</b>
  *          </p>
- *          <p>Requests must be signed by using an access key ID and a secret access key. We strongly
- *       recommend that you <i>do not</i> use your Amazon Web Services account (root) access key ID and
- *       secret key for everyday work with KMS. Instead, use the access key ID and secret access key
- *       for an IAM user. You can also use the Amazon Web Services Security Token Service to generate temporary
- *       security credentials that you can use to sign requests.</p>
- *          <p>All KMS operations require <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
+ *          <p>Requests must be signed using an access key ID and a secret access key. We strongly
+ *       recommend that you do not use your Amazon Web Services account root access key ID and secret access key for
+ *       everyday work. You can use the access key ID and secret access key for an IAM user or you
+ *       can use the Security Token Service (STS) to generate temporary security credentials and use those to sign
+ *       requests. </p>
+ *          <p>All KMS requests must be signed with <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
  *          <p>
  *             <b>Logging API Requests</b>
  *          </p>
@@ -505,20 +546,23 @@ export class KMSClient extends __Client<
    */
   readonly config: KMSClientResolvedConfig;
 
-  constructor(configuration: KMSClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<KMSClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

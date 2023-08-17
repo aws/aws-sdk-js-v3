@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "outDir": "dist-cjs",
+    "pretty": true,
+    "rootDir": "src",
+    "strict": false
+  },
+  "extends": "../../tsconfig.cjs.json",
+  "include": ["src/"]
+}

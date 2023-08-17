@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateTagsRequest } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1CreateTagsCommand,
-  serializeAws_restJson1CreateTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateTagsCommand, se_CreateTagsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateTagsCommand}.
+ */
 export interface CreateTagsCommandInput extends CreateTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTagsCommand}.
+ */
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add a tag to a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,38 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * import { MqClient, CreateTagsCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, CreateTagsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = { // CreateTagsRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Tags: { // __mapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateTagsCommandInput - {@link CreateTagsCommandInput}
+ * @returns {@link CreateTagsCommandOutput}
  * @see {@link CreateTagsCommandInput} for command's `input` shape.
  * @see {@link CreateTagsCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class CreateTagsCommand extends $Command<
@@ -46,6 +85,18 @@ export class CreateTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +112,7 @@ export class CreateTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateTagsCommandInput, CreateTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +123,8 @@ export class CreateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +134,18 @@ export class CreateTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTagsCommand(input, context);
+    return se_CreateTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTagsCommandOutput> {
-    return deserializeAws_restJson1CreateTagsCommand(output, context);
+    return de_CreateTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

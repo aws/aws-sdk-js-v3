@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { GetRevisionRequest, GetRevisionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetRevisionCommand,
-  serializeAws_restJson1GetRevisionCommand,
-} from "../protocols/Aws_restJson1";
+  GetRevisionRequest,
+  GetRevisionRequestFilterSensitiveLog,
+  GetRevisionResponse,
+  GetRevisionResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_GetRevisionCommand, se_GetRevisionCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetRevisionCommand}.
+ */
 export interface GetRevisionCommandInput extends GetRevisionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRevisionCommand}.
+ */
 export interface GetRevisionCommandOutput extends GetRevisionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a revision data object for a specified document ID and block address. Also
  *          returns a proof of the specified revision for verification if <code>DigestTipAddress</code>
  *          is provided.</p>
@@ -31,13 +50,46 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * import { QLDBClient, GetRevisionCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, GetRevisionCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // GetRevisionRequest
+ *   Name: "STRING_VALUE", // required
+ *   BlockAddress: { // ValueHolder
+ *     IonText: "STRING_VALUE",
+ *   },
+ *   DocumentId: "STRING_VALUE", // required
+ *   DigestTipAddress: {
+ *     IonText: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetRevisionCommand(input);
  * const response = await client.send(command);
+ * // { // GetRevisionResponse
+ * //   Proof: { // ValueHolder
+ * //     IonText: "STRING_VALUE",
+ * //   },
+ * //   Revision: {
+ * //     IonText: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetRevisionCommandInput - {@link GetRevisionCommandInput}
+ * @returns {@link GetRevisionCommandOutput}
  * @see {@link GetRevisionCommandInput} for command's `input` shape.
  * @see {@link GetRevisionCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ResourcePreconditionNotMetException} (client fault)
+ *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
+ *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class GetRevisionCommand extends $Command<
@@ -48,6 +100,18 @@ export class GetRevisionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +127,7 @@ export class GetRevisionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRevisionCommandInput, GetRevisionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetRevisionCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +138,8 @@ export class GetRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRevisionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRevisionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRevisionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRevisionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +149,18 @@ export class GetRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRevisionCommand(input, context);
+    return se_GetRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRevisionCommandOutput> {
-    return deserializeAws_restJson1GetRevisionCommand(output, context);
+    return de_GetRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

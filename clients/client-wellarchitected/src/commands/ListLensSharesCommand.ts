@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListLensSharesInput, ListLensSharesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLensSharesCommand,
-  serializeAws_restJson1ListLensSharesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLensSharesCommand, se_ListLensSharesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListLensSharesCommand}.
+ */
 export interface ListLensSharesCommandInput extends ListLensSharesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListLensSharesCommand}.
+ */
 export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the lens shares associated with the lens.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,52 @@ export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __Met
  * import { WellArchitectedClient, ListLensSharesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListLensSharesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListLensSharesInput
+ *   LensAlias: "STRING_VALUE", // required
+ *   SharedWithPrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * };
  * const command = new ListLensSharesCommand(input);
  * const response = await client.send(command);
+ * // { // ListLensSharesOutput
+ * //   LensShareSummaries: [ // LensShareSummaries
+ * //     { // LensShareSummary
+ * //       ShareId: "STRING_VALUE",
+ * //       SharedWith: "STRING_VALUE",
+ * //       Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListLensSharesCommandInput - {@link ListLensSharesCommandInput}
+ * @returns {@link ListLensSharesCommandOutput}
  * @see {@link ListLensSharesCommandInput} for command's `input` shape.
  * @see {@link ListLensSharesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListLensSharesCommand extends $Command<
@@ -46,6 +99,18 @@ export class ListLensSharesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListLensSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +126,9 @@ export class ListLensSharesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListLensSharesCommandInput, ListLensSharesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListLensSharesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +139,8 @@ export class ListLensSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLensSharesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListLensSharesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +150,18 @@ export class ListLensSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLensSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLensSharesCommand(input, context);
+    return se_ListLensSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLensSharesCommandOutput> {
-    return deserializeAws_restJson1ListLensSharesCommand(output, context);
+    return de_ListLensSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

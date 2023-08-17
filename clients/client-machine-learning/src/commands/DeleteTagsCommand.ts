@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { DeleteTagsInput, DeleteTagsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTagsCommand,
-  serializeAws_json1_1DeleteTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandInput extends DeleteTagsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.</p>
  * 		       <p>If you specify a tag that doesn't exist, Amazon ML ignores it.</p>
  * @example
@@ -30,13 +44,41 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * import { MachineLearningClient, DeleteTagsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteTagsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // DeleteTagsInput
+ *   TagKeys: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteTagsOutput
+ * //   ResourceId: "STRING_VALUE",
+ * //   ResourceType: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
+ * @returns {@link DeleteTagsCommandOutput}
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link InvalidTagException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource cannot be located.</p>
+ *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteTagsCommand extends $Command<
@@ -47,6 +89,18 @@ export class DeleteTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +116,7 @@ export class DeleteTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteTagsCommandInput, DeleteTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +127,8 @@ export class DeleteTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTagsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTagsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +138,18 @@ export class DeleteTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTagsCommand(input, context);
+    return se_DeleteTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagsCommandOutput> {
-    return deserializeAws_json1_1DeleteTagsCommand(output, context);
+    return de_DeleteTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { BatchEnableAlarmRequest, BatchEnableAlarmResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchEnableAlarmCommand,
-  serializeAws_restJson1BatchEnableAlarmCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchEnableAlarmCommand, se_BatchEnableAlarmCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link BatchEnableAlarmCommand}.
+ */
 export interface BatchEnableAlarmCommandInput extends BatchEnableAlarmRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchEnableAlarmCommand}.
+ */
 export interface BatchEnableAlarmCommandOutput extends BatchEnableAlarmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables one or more alarms. The alarms change to the <code>NORMAL</code> state after you
  *       enable them.</p>
  * @example
@@ -30,13 +44,50 @@ export interface BatchEnableAlarmCommandOutput extends BatchEnableAlarmResponse,
  * import { IoTEventsDataClient, BatchEnableAlarmCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchEnableAlarmCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = { // BatchEnableAlarmRequest
+ *   enableActionRequests: [ // EnableAlarmActionRequests // required
+ *     { // EnableAlarmActionRequest
+ *       requestId: "STRING_VALUE", // required
+ *       alarmModelName: "STRING_VALUE", // required
+ *       keyValue: "STRING_VALUE",
+ *       note: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchEnableAlarmCommand(input);
  * const response = await client.send(command);
+ * // { // BatchEnableAlarmResponse
+ * //   errorEntries: [ // BatchAlarmActionErrorEntries
+ * //     { // BatchAlarmActionErrorEntry
+ * //       requestId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param BatchEnableAlarmCommandInput - {@link BatchEnableAlarmCommandInput}
+ * @returns {@link BatchEnableAlarmCommandOutput}
  * @see {@link BatchEnableAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchEnableAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchEnableAlarmCommand extends $Command<
@@ -47,6 +98,18 @@ export class BatchEnableAlarmCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: BatchEnableAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +125,9 @@ export class BatchEnableAlarmCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchEnableAlarmCommandInput, BatchEnableAlarmCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchEnableAlarmCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +138,8 @@ export class BatchEnableAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchEnableAlarmRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchEnableAlarmResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +149,18 @@ export class BatchEnableAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchEnableAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchEnableAlarmCommand(input, context);
+    return se_BatchEnableAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchEnableAlarmCommandOutput> {
-    return deserializeAws_restJson1BatchEnableAlarmCommand(output, context);
+    return de_BatchEnableAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

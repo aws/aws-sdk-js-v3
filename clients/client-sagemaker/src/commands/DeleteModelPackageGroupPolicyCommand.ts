@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { DeleteModelPackageGroupPolicyInput } from "../models/models_1";
+import { DeleteModelPackageGroupPolicyInput } from "../models/models_2";
 import {
-  deserializeAws_json1_1DeleteModelPackageGroupPolicyCommand,
-  serializeAws_json1_1DeleteModelPackageGroupPolicyCommand,
+  de_DeleteModelPackageGroupPolicyCommand,
+  se_DeleteModelPackageGroupPolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteModelPackageGroupPolicyCommand}.
+ */
 export interface DeleteModelPackageGroupPolicyCommandInput extends DeleteModelPackageGroupPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteModelPackageGroupPolicyCommand}.
+ */
 export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a model group resource policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +46,23 @@ export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBe
  * import { SageMakerClient, DeleteModelPackageGroupPolicyCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteModelPackageGroupPolicyCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteModelPackageGroupPolicyInput
+ *   ModelPackageGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteModelPackageGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteModelPackageGroupPolicyCommandInput - {@link DeleteModelPackageGroupPolicyCommandInput}
+ * @returns {@link DeleteModelPackageGroupPolicyCommandOutput}
  * @see {@link DeleteModelPackageGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteModelPackageGroupPolicyCommand extends $Command<
@@ -46,6 +73,18 @@ export class DeleteModelPackageGroupPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelPackageGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +100,9 @@ export class DeleteModelPackageGroupPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteModelPackageGroupPolicyCommandInput, DeleteModelPackageGroupPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteModelPackageGroupPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +113,8 @@ export class DeleteModelPackageGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelPackageGroupPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +124,21 @@ export class DeleteModelPackageGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelPackageGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelPackageGroupPolicyCommand(input, context);
+    return se_DeleteModelPackageGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteModelPackageGroupPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteModelPackageGroupPolicyCommand(output, context);
+    return de_DeleteModelPackageGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

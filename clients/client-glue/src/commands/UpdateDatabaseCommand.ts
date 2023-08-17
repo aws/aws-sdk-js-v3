@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateDatabaseRequest, UpdateDatabaseResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateDatabaseCommand,
-  serializeAws_json1_1UpdateDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDatabaseRequest, UpdateDatabaseResponse } from "../models/models_2";
+import { de_UpdateDatabaseCommand, se_UpdateDatabaseCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateDatabaseCommand}.
+ */
 export interface UpdateDatabaseCommandInput extends UpdateDatabaseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDatabaseCommand}.
+ */
 export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing database definition in a Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,69 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * import { GlueClient, UpdateDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateDatabaseRequest
+ *   CatalogId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   DatabaseInput: { // DatabaseInput
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     LocationUri: "STRING_VALUE",
+ *     Parameters: { // ParametersMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     CreateTableDefaultPermissions: [ // PrincipalPermissionsList
+ *       { // PrincipalPermissions
+ *         Principal: { // DataLakePrincipal
+ *           DataLakePrincipalIdentifier: "STRING_VALUE",
+ *         },
+ *         Permissions: [ // PermissionList
+ *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS",
+ *         ],
+ *       },
+ *     ],
+ *     TargetDatabase: { // DatabaseIdentifier
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *     },
+ *     FederatedDatabase: { // FederatedDatabase
+ *       Identifier: "STRING_VALUE",
+ *       ConnectionName: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateDatabaseCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateDatabaseCommandInput - {@link UpdateDatabaseCommandInput}
+ * @returns {@link UpdateDatabaseCommandOutput}
  * @see {@link UpdateDatabaseCommandInput} for command's `input` shape.
  * @see {@link UpdateDatabaseCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateDatabaseCommand extends $Command<
@@ -46,6 +116,18 @@ export class UpdateDatabaseCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +143,9 @@ export class UpdateDatabaseCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateDatabaseCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +156,8 @@ export class UpdateDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatabaseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatabaseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +167,18 @@ export class UpdateDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDatabaseCommand(input, context);
+    return se_UpdateDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatabaseCommandOutput> {
-    return deserializeAws_json1_1UpdateDatabaseCommand(output, context);
+    return de_UpdateDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListCoreNetworkPolicyVersionsCommand,
   ListCoreNetworkPolicyVersionsCommandInput,
   ListCoreNetworkPolicyVersionsCommandOutput,
 } from "../commands/ListCoreNetworkPolicyVersionsCommand";
-import { NetworkManager } from "../NetworkManager";
 import { NetworkManagerClient } from "../NetworkManagerClient";
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NetworkManagerClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListCoreNetworkPolicyVersionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: NetworkManager,
-  input: ListCoreNetworkPolicyVersionsCommandInput,
-  ...args: any
-): Promise<ListCoreNetworkPolicyVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listCoreNetworkPolicyVersions(input, ...args);
-};
 export async function* paginateListCoreNetworkPolicyVersions(
   config: NetworkManagerPaginationConfiguration,
   input: ListCoreNetworkPolicyVersionsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListCoreNetworkPolicyVersions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof NetworkManager) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NetworkManagerClient) {
+    if (config.client instanceof NetworkManagerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

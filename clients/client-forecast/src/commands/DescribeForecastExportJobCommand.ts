@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DescribeForecastExportJobRequest, DescribeForecastExportJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeForecastExportJobCommand,
-  serializeAws_json1_1DescribeForecastExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeForecastExportJobCommand, se_DescribeForecastExportJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeForecastExportJobCommand}.
+ */
 export interface DescribeForecastExportJobCommandInput extends DescribeForecastExportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeForecastExportJobCommand}.
+ */
 export interface DescribeForecastExportJobCommandOutput extends DescribeForecastExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a forecast export job created using the <a>CreateForecastExportJob</a> operation.</p>
  *          <p>In addition to listing the properties provided by the user in the
  *         <code>CreateForecastExportJob</code> request, this operation lists the following
@@ -53,13 +67,47 @@ export interface DescribeForecastExportJobCommandOutput extends DescribeForecast
  * import { ForecastClient, DescribeForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DescribeForecastExportJobRequest
+ *   ForecastExportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeForecastExportJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeForecastExportJobResponse
+ * //   ForecastExportJobArn: "STRING_VALUE",
+ * //   ForecastExportJobName: "STRING_VALUE",
+ * //   ForecastArn: "STRING_VALUE",
+ * //   Destination: { // DataDestination
+ * //     S3Config: { // S3Config
+ * //       Path: "STRING_VALUE", // required
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       KMSKeyArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Message: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   Format: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeForecastExportJobCommandInput - {@link DescribeForecastExportJobCommandInput}
+ * @returns {@link DescribeForecastExportJobCommandOutput}
  * @see {@link DescribeForecastExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeForecastExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DescribeForecastExportJobCommand extends $Command<
@@ -70,6 +118,18 @@ export class DescribeForecastExportJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeForecastExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +145,9 @@ export class DescribeForecastExportJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeForecastExportJobCommandInput, DescribeForecastExportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeForecastExportJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -95,8 +158,8 @@ export class DescribeForecastExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeForecastExportJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeForecastExportJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +169,21 @@ export class DescribeForecastExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeForecastExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeForecastExportJobCommand(input, context);
+    return se_DescribeForecastExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeForecastExportJobCommand(output, context);
+    return de_DescribeForecastExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

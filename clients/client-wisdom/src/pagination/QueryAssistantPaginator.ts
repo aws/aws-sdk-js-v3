@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   QueryAssistantCommand,
   QueryAssistantCommandInput,
   QueryAssistantCommandOutput,
 } from "../commands/QueryAssistantCommand";
-import { Wisdom } from "../Wisdom";
 import { WisdomClient } from "../WisdomClient";
 import { WisdomPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WisdomClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new QueryAssistantCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Wisdom,
-  input: QueryAssistantCommandInput,
-  ...args: any
-): Promise<QueryAssistantCommandOutput> => {
-  // @ts-ignore
-  return await client.queryAssistant(input, ...args);
-};
 export async function* paginateQueryAssistant(
   config: WisdomPaginationConfiguration,
   input: QueryAssistantCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateQueryAssistant(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Wisdom) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WisdomClient) {
+    if (config.client instanceof WisdomClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Wisdom | WisdomClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

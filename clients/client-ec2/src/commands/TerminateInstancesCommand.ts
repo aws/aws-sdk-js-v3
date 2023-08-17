@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,73 +11,82 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_6";
-import {
-  deserializeAws_ec2TerminateInstancesCommand,
-  serializeAws_ec2TerminateInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_7";
+import { de_TerminateInstancesCommand, se_TerminateInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link TerminateInstancesCommand}.
+ */
 export interface TerminateInstancesCommandInput extends TerminateInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TerminateInstancesCommand}.
+ */
 export interface TerminateInstancesCommandOutput extends TerminateInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shuts down the specified instances. This operation is idempotent; if you terminate an
  *             instance more than once, each call succeeds. </p>
- *
- *         <p>If you specify multiple instances and the request fails (for example, because of a
+ *          <p>If you specify multiple instances and the request fails (for example, because of a
  *             single incorrect instance ID), none of the instances are terminated.</p>
- *
- *         <p>If you terminate multiple instances across multiple Availability Zones, and one or more
- *             of the specified instances are enabled for termination protection, the request fails with
- *             the following results:</p>
- *         <ul>
+ *          <p>If you terminate multiple instances across multiple Availability Zones, and one or
+ *             more of the specified instances are enabled for termination protection, the request
+ *             fails with the following results:</p>
+ *          <ul>
  *             <li>
- *                 <p>The specified instances that are in the same Availability Zone as the protected
- *                     instance are not terminated.</p>
+ *                <p>The specified instances that are in the same Availability Zone as the
+ *                     protected instance are not terminated.</p>
  *             </li>
  *             <li>
- *                 <p>The specified instances that are in different Availability Zones, where no other
- *                     specified instances are protected, are successfully terminated.</p>
- *             </li>
- *          </ul>
- *
- *         <p>For example, say you have the following instances:</p>
- *         <ul>
- *             <li>
- *                 <p>Instance A: <code>us-east-1a</code>; Not protected</p>
- *             </li>
- *             <li>
- *                 <p>Instance B: <code>us-east-1a</code>; Not protected</p>
- *             </li>
- *             <li>
- *                 <p>Instance C: <code>us-east-1b</code>; Protected</p>
- *             </li>
- *             <li>
- *                 <p>Instance D: <code>us-east-1b</code>; not protected</p>
+ *                <p>The specified instances that are in different Availability Zones, where no
+ *                     other specified instances are protected, are successfully terminated.</p>
  *             </li>
  *          </ul>
- *         <p>If you attempt to terminate all of these instances in the same request, the request reports
- *             failure with the following results:</p>
- *         <ul>
+ *          <p>For example, say you have the following instances:</p>
+ *          <ul>
  *             <li>
- *                 <p>Instance A and Instance B are successfully terminated because none of the specified
- *                     instances in <code>us-east-1a</code> are enabled for termination protection.</p>
+ *                <p>Instance A: <code>us-east-1a</code>; Not protected</p>
  *             </li>
  *             <li>
- *                 <p>Instance C and Instance D fail to terminate because at least one of the specified
- *                     instances in <code>us-east-1b</code> (Instance C) is enabled for termination protection.</p>
+ *                <p>Instance B: <code>us-east-1a</code>; Not protected</p>
+ *             </li>
+ *             <li>
+ *                <p>Instance C: <code>us-east-1b</code>; Protected</p>
+ *             </li>
+ *             <li>
+ *                <p>Instance D: <code>us-east-1b</code>; not protected</p>
  *             </li>
  *          </ul>
- *
- *
- *         <p>Terminated instances remain visible after termination (for approximately one
+ *          <p>If you attempt to terminate all of these instances in the same request, the request
+ *             reports failure with the following results:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Instance A and Instance B are successfully terminated because none of the
+ *                     specified instances in <code>us-east-1a</code> are enabled for termination
+ *                     protection.</p>
+ *             </li>
+ *             <li>
+ *                <p>Instance C and Instance D fail to terminate because at least one of the
+ *                     specified instances in <code>us-east-1b</code> (Instance C) is enabled for
+ *                     termination protection.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Terminated instances remain visible after termination (for approximately one
  *             hour).</p>
- *         <p>By default, Amazon EC2 deletes all EBS volumes that were attached when the instance
+ *          <p>By default, Amazon EC2 deletes all EBS volumes that were attached when the instance
  *             launched. Volumes attached after instance launch continue running.</p>
- *         <p>You can stop, start, and terminate EBS-backed instances. You can only terminate
+ *          <p>You can stop, start, and terminate EBS-backed instances. You can only terminate
  *             instance store-backed instances. What happens to an instance differs if you stop it or
  *             terminate it. For example, when you stop an instance, the root device and any other
  *             devices attached to the instance persist. When you terminate an instance, any attached
@@ -83,20 +94,78 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *             to <code>true</code> are automatically deleted. For more information about the
  *             differences between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
  *             in the <i>Amazon EC2 User Guide</i>.</p>
- *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, TerminateInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, TerminateInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // TerminateInstancesRequest
+ *   InstanceIds: [ // InstanceIdStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new TerminateInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // TerminateInstancesResult
+ * //   TerminatingInstances: [ // InstanceStateChangeList
+ * //     { // InstanceStateChange
+ * //       CurrentState: { // InstanceState
+ * //         Code: Number("int"),
+ * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
+ * //       },
+ * //       InstanceId: "STRING_VALUE",
+ * //       PreviousState: {
+ * //         Code: Number("int"),
+ * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param TerminateInstancesCommandInput - {@link TerminateInstancesCommandInput}
+ * @returns {@link TerminateInstancesCommandOutput}
  * @see {@link TerminateInstancesCommandInput} for command's `input` shape.
  * @see {@link TerminateInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
+ *
+ * @example To terminate an EC2 instance
+ * ```javascript
+ * // This example terminates the specified EC2 instance.
+ * const input = {
+ *   "InstanceIds": [
+ *     "i-1234567890abcdef0"
+ *   ]
+ * };
+ * const command = new TerminateInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TerminatingInstances": [
+ *     {
+ *       "CurrentState": {
+ *         "Code": 32,
+ *         "Name": "shutting-down"
+ *       },
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "PreviousState": {
+ *         "Code": 16,
+ *         "Name": "running"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-terminate-an-ec2-instance-1529359350660
+ * ```
  *
  */
 export class TerminateInstancesCommand extends $Command<
@@ -107,6 +176,18 @@ export class TerminateInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +203,9 @@ export class TerminateInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TerminateInstancesCommandInput, TerminateInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, TerminateInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -132,8 +216,8 @@ export class TerminateInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TerminateInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +227,18 @@ export class TerminateInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2TerminateInstancesCommand(input, context);
+    return se_TerminateInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateInstancesCommandOutput> {
-    return deserializeAws_ec2TerminateInstancesCommand(output, context);
+    return de_TerminateInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

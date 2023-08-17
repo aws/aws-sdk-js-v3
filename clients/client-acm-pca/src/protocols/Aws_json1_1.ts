@@ -1,19 +1,22 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   CreateCertificateAuthorityAuditReportCommandInput,
@@ -89,12 +92,12 @@ import {
   CertificateMismatchException,
   ConcurrentModificationException,
   CreateCertificateAuthorityAuditReportRequest,
-  CreateCertificateAuthorityAuditReportResponse,
   CreateCertificateAuthorityRequest,
-  CreateCertificateAuthorityResponse,
   CreatePermissionRequest,
   CrlConfiguration,
   CsrExtensions,
+  CustomAttribute,
+  CustomExtension,
   DeleteCertificateAuthorityRequest,
   DeletePermissionRequest,
   DeletePolicyRequest,
@@ -107,13 +110,9 @@ import {
   Extensions,
   GeneralName,
   GetCertificateAuthorityCertificateRequest,
-  GetCertificateAuthorityCertificateResponse,
   GetCertificateAuthorityCsrRequest,
-  GetCertificateAuthorityCsrResponse,
   GetCertificateRequest,
-  GetCertificateResponse,
   GetPolicyRequest,
-  GetPolicyResponse,
   ImportCertificateAuthorityCertificateRequest,
   InvalidArgsException,
   InvalidArnException,
@@ -123,7 +122,6 @@ import {
   InvalidStateException,
   InvalidTagException,
   IssueCertificateRequest,
-  IssueCertificateResponse,
   KeyUsage,
   LimitExceededException,
   ListCertificateAuthoritiesRequest,
@@ -131,7 +129,6 @@ import {
   ListPermissionsRequest,
   ListPermissionsResponse,
   ListTagsRequest,
-  ListTagsResponse,
   LockoutPreventedException,
   MalformedCertificateException,
   MalformedCSRException,
@@ -158,1528 +155,1600 @@ import {
   Validity,
 } from "../models/models_0";
 
-export const serializeAws_json1_1CreateCertificateAuthorityCommand = async (
+/**
+ * serializeAws_json1_1CreateCertificateAuthorityCommand
+ */
+export const se_CreateCertificateAuthorityCommand = async (
   input: CreateCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.CreateCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCertificateAuthority");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateCertificateAuthorityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateCertificateAuthorityAuditReportCommand = async (
+/**
+ * serializeAws_json1_1CreateCertificateAuthorityAuditReportCommand
+ */
+export const se_CreateCertificateAuthorityAuditReportCommand = async (
   input: CreateCertificateAuthorityAuditReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.CreateCertificateAuthorityAuditReport",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCertificateAuthorityAuditReport");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateCertificateAuthorityAuditReportRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreatePermissionCommand = async (
+/**
+ * serializeAws_json1_1CreatePermissionCommand
+ */
+export const se_CreatePermissionCommand = async (
   input: CreatePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.CreatePermission",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePermission");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreatePermissionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteCertificateAuthorityCommand = async (
+/**
+ * serializeAws_json1_1DeleteCertificateAuthorityCommand
+ */
+export const se_DeleteCertificateAuthorityCommand = async (
   input: DeleteCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.DeleteCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCertificateAuthority");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteCertificateAuthorityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeletePermissionCommand = async (
+/**
+ * serializeAws_json1_1DeletePermissionCommand
+ */
+export const se_DeletePermissionCommand = async (
   input: DeletePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.DeletePermission",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePermission");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeletePermissionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeletePolicyCommand = async (
+/**
+ * serializeAws_json1_1DeletePolicyCommand
+ */
+export const se_DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.DeletePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeletePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCertificateAuthorityCommand = async (
+/**
+ * serializeAws_json1_1DescribeCertificateAuthorityCommand
+ */
+export const se_DescribeCertificateAuthorityCommand = async (
   input: DescribeCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.DescribeCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCertificateAuthority");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCertificateAuthorityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand = async (
+/**
+ * serializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand
+ */
+export const se_DescribeCertificateAuthorityAuditReportCommand = async (
   input: DescribeCertificateAuthorityAuditReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.DescribeCertificateAuthorityAuditReport",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCertificateAuthorityAuditReport");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCertificateAuthorityAuditReportRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCertificateCommand = async (
+/**
+ * serializeAws_json1_1GetCertificateCommand
+ */
+export const se_GetCertificateCommand = async (
   input: GetCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.GetCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCertificateAuthorityCertificateCommand = async (
+/**
+ * serializeAws_json1_1GetCertificateAuthorityCertificateCommand
+ */
+export const se_GetCertificateAuthorityCertificateCommand = async (
   input: GetCertificateAuthorityCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.GetCertificateAuthorityCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCertificateAuthorityCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCertificateAuthorityCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCertificateAuthorityCsrCommand = async (
+/**
+ * serializeAws_json1_1GetCertificateAuthorityCsrCommand
+ */
+export const se_GetCertificateAuthorityCsrCommand = async (
   input: GetCertificateAuthorityCsrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.GetCertificateAuthorityCsr",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCertificateAuthorityCsr");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCertificateAuthorityCsrRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetPolicyCommand = async (
+/**
+ * serializeAws_json1_1GetPolicyCommand
+ */
+export const se_GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.GetPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ImportCertificateAuthorityCertificateCommand = async (
+/**
+ * serializeAws_json1_1ImportCertificateAuthorityCertificateCommand
+ */
+export const se_ImportCertificateAuthorityCertificateCommand = async (
   input: ImportCertificateAuthorityCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.ImportCertificateAuthorityCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportCertificateAuthorityCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ImportCertificateAuthorityCertificateRequest(input, context));
+  body = JSON.stringify(se_ImportCertificateAuthorityCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1IssueCertificateCommand = async (
+/**
+ * serializeAws_json1_1IssueCertificateCommand
+ */
+export const se_IssueCertificateCommand = async (
   input: IssueCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.IssueCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("IssueCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1IssueCertificateRequest(input, context));
+  body = JSON.stringify(se_IssueCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListCertificateAuthoritiesCommand = async (
+/**
+ * serializeAws_json1_1ListCertificateAuthoritiesCommand
+ */
+export const se_ListCertificateAuthoritiesCommand = async (
   input: ListCertificateAuthoritiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.ListCertificateAuthorities",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCertificateAuthorities");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListCertificateAuthoritiesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPermissionsCommand = async (
+/**
+ * serializeAws_json1_1ListPermissionsCommand
+ */
+export const se_ListPermissionsCommand = async (
   input: ListPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.ListPermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPermissions");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPermissionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsCommand = async (
+/**
+ * serializeAws_json1_1ListTagsCommand
+ */
+export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.ListTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTags");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutPolicyCommand
+ */
+export const se_PutPolicyCommand = async (
   input: PutPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.PutPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RestoreCertificateAuthorityCommand = async (
+/**
+ * serializeAws_json1_1RestoreCertificateAuthorityCommand
+ */
+export const se_RestoreCertificateAuthorityCommand = async (
   input: RestoreCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.RestoreCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreCertificateAuthority");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RestoreCertificateAuthorityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RevokeCertificateCommand = async (
+/**
+ * serializeAws_json1_1RevokeCertificateCommand
+ */
+export const se_RevokeCertificateCommand = async (
   input: RevokeCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.RevokeCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("RevokeCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RevokeCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagCertificateAuthorityCommand = async (
+/**
+ * serializeAws_json1_1TagCertificateAuthorityCommand
+ */
+export const se_TagCertificateAuthorityCommand = async (
   input: TagCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.TagCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagCertificateAuthority");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagCertificateAuthorityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagCertificateAuthorityCommand = async (
+/**
+ * serializeAws_json1_1UntagCertificateAuthorityCommand
+ */
+export const se_UntagCertificateAuthorityCommand = async (
   input: UntagCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.UntagCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagCertificateAuthority");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagCertificateAuthorityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateCertificateAuthorityCommand = async (
+/**
+ * serializeAws_json1_1UpdateCertificateAuthorityCommand
+ */
+export const se_UpdateCertificateAuthorityCommand = async (
   input: UpdateCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.UpdateCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCertificateAuthority");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateCertificateAuthorityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateCertificateAuthorityCommand = async (
+/**
+ * deserializeAws_json1_1CreateCertificateAuthorityCommand
+ */
+export const de_CreateCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCertificateAuthorityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateCertificateAuthorityCommandError(output, context);
+    return de_CreateCertificateAuthorityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCertificateAuthorityResponse(data, context);
+  contents = _json(data);
   const response: CreateCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateCertificateAuthorityCommandError = async (
+/**
+ * deserializeAws_json1_1CreateCertificateAuthorityCommandError
+ */
+const de_CreateCertificateAuthorityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCertificateAuthorityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgsException":
     case "com.amazonaws.acmpca#InvalidArgsException":
-      throw await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgsExceptionRes(parsedOutput, context);
     case "InvalidPolicyException":
     case "com.amazonaws.acmpca#InvalidPolicyException":
-      throw await deserializeAws_json1_1InvalidPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPolicyExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.acmpca#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.acmpca#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommand = async (
+/**
+ * deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommand
+ */
+export const de_CreateCertificateAuthorityAuditReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCertificateAuthorityAuditReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommandError(output, context);
+    return de_CreateCertificateAuthorityAuditReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCertificateAuthorityAuditReportResponse(data, context);
+  contents = _json(data);
   const response: CreateCertificateAuthorityAuditReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommandError = async (
+/**
+ * deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommandError
+ */
+const de_CreateCertificateAuthorityAuditReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCertificateAuthorityAuditReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgsException":
     case "com.amazonaws.acmpca#InvalidArgsException":
-      throw await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgsExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "RequestFailedException":
     case "com.amazonaws.acmpca#RequestFailedException":
-      throw await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context);
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     case "RequestInProgressException":
     case "com.amazonaws.acmpca#RequestInProgressException":
-      throw await deserializeAws_json1_1RequestInProgressExceptionResponse(parsedOutput, context);
+      throw await de_RequestInProgressExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1CreatePermissionCommand = async (
+/**
+ * deserializeAws_json1_1CreatePermissionCommand
+ */
+export const de_CreatePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePermissionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreatePermissionCommandError(output, context);
+    return de_CreatePermissionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreatePermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreatePermissionCommandError = async (
+/**
+ * deserializeAws_json1_1CreatePermissionCommandError
+ */
+const de_CreatePermissionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.acmpca#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "PermissionAlreadyExistsException":
     case "com.amazonaws.acmpca#PermissionAlreadyExistsException":
-      throw await deserializeAws_json1_1PermissionAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_PermissionAlreadyExistsExceptionRes(parsedOutput, context);
     case "RequestFailedException":
     case "com.amazonaws.acmpca#RequestFailedException":
-      throw await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context);
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DeleteCertificateAuthorityCommand = async (
+/**
+ * deserializeAws_json1_1DeleteCertificateAuthorityCommand
+ */
+export const de_DeleteCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCertificateAuthorityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteCertificateAuthorityCommandError(output, context);
+    return de_DeleteCertificateAuthorityCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteCertificateAuthorityCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteCertificateAuthorityCommandError
+ */
+const de_DeleteCertificateAuthorityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCertificateAuthorityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.acmpca#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DeletePermissionCommand = async (
+/**
+ * deserializeAws_json1_1DeletePermissionCommand
+ */
+export const de_DeletePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePermissionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeletePermissionCommandError(output, context);
+    return de_DeletePermissionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeletePermissionCommandError = async (
+/**
+ * deserializeAws_json1_1DeletePermissionCommandError
+ */
+const de_DeletePermissionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "RequestFailedException":
     case "com.amazonaws.acmpca#RequestFailedException":
-      throw await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context);
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DeletePolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeletePolicyCommand
+ */
+export const de_DeletePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeletePolicyCommandError(output, context);
+    return de_DeletePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeletePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeletePolicyCommandError
+ */
+const de_DeletePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.acmpca#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "LockoutPreventedException":
     case "com.amazonaws.acmpca#LockoutPreventedException":
-      throw await deserializeAws_json1_1LockoutPreventedExceptionResponse(parsedOutput, context);
+      throw await de_LockoutPreventedExceptionRes(parsedOutput, context);
     case "RequestFailedException":
     case "com.amazonaws.acmpca#RequestFailedException":
-      throw await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context);
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeCertificateAuthorityCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCertificateAuthorityCommand
+ */
+export const de_DescribeCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateAuthorityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCertificateAuthorityCommandError(output, context);
+    return de_DescribeCertificateAuthorityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCertificateAuthorityResponse(data, context);
+  contents = de_DescribeCertificateAuthorityResponse(data, context);
   const response: DescribeCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeCertificateAuthorityCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCertificateAuthorityCommandError
+ */
+const de_DescribeCertificateAuthorityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateAuthorityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand
+ */
+export const de_DescribeCertificateAuthorityAuditReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateAuthorityAuditReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCertificateAuthorityAuditReportCommandError(output, context);
+    return de_DescribeCertificateAuthorityAuditReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCertificateAuthorityAuditReportResponse(data, context);
+  contents = de_DescribeCertificateAuthorityAuditReportResponse(data, context);
   const response: DescribeCertificateAuthorityAuditReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeCertificateAuthorityAuditReportCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCertificateAuthorityAuditReportCommandError
+ */
+const de_DescribeCertificateAuthorityAuditReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateAuthorityAuditReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgsException":
     case "com.amazonaws.acmpca#InvalidArgsException":
-      throw await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgsExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1GetCertificateCommand = async (
+/**
+ * deserializeAws_json1_1GetCertificateCommand
+ */
+export const de_GetCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCertificateCommandError(output, context);
+    return de_GetCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCertificateResponse(data, context);
+  contents = _json(data);
   const response: GetCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1GetCertificateCommandError
+ */
+const de_GetCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "RequestFailedException":
     case "com.amazonaws.acmpca#RequestFailedException":
-      throw await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context);
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     case "RequestInProgressException":
     case "com.amazonaws.acmpca#RequestInProgressException":
-      throw await deserializeAws_json1_1RequestInProgressExceptionResponse(parsedOutput, context);
+      throw await de_RequestInProgressExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1GetCertificateAuthorityCertificateCommand = async (
+/**
+ * deserializeAws_json1_1GetCertificateAuthorityCertificateCommand
+ */
+export const de_GetCertificateAuthorityCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCertificateAuthorityCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCertificateAuthorityCertificateCommandError(output, context);
+    return de_GetCertificateAuthorityCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCertificateAuthorityCertificateResponse(data, context);
+  contents = _json(data);
   const response: GetCertificateAuthorityCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetCertificateAuthorityCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1GetCertificateAuthorityCertificateCommandError
+ */
+const de_GetCertificateAuthorityCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCertificateAuthorityCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1GetCertificateAuthorityCsrCommand = async (
+/**
+ * deserializeAws_json1_1GetCertificateAuthorityCsrCommand
+ */
+export const de_GetCertificateAuthorityCsrCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCertificateAuthorityCsrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCertificateAuthorityCsrCommandError(output, context);
+    return de_GetCertificateAuthorityCsrCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCertificateAuthorityCsrResponse(data, context);
+  contents = _json(data);
   const response: GetCertificateAuthorityCsrCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetCertificateAuthorityCsrCommandError = async (
+/**
+ * deserializeAws_json1_1GetCertificateAuthorityCsrCommandError
+ */
+const de_GetCertificateAuthorityCsrCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCertificateAuthorityCsrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "RequestFailedException":
     case "com.amazonaws.acmpca#RequestFailedException":
-      throw await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context);
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     case "RequestInProgressException":
     case "com.amazonaws.acmpca#RequestInProgressException":
-      throw await deserializeAws_json1_1RequestInProgressExceptionResponse(parsedOutput, context);
+      throw await de_RequestInProgressExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1GetPolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetPolicyCommand
+ */
+export const de_GetPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetPolicyCommandError(output, context);
+    return de_GetPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPolicyResponse(data, context);
+  contents = _json(data);
   const response: GetPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetPolicyCommandError
+ */
+const de_GetPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "RequestFailedException":
     case "com.amazonaws.acmpca#RequestFailedException":
-      throw await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context);
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ImportCertificateAuthorityCertificateCommand = async (
+/**
+ * deserializeAws_json1_1ImportCertificateAuthorityCertificateCommand
+ */
+export const de_ImportCertificateAuthorityCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportCertificateAuthorityCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ImportCertificateAuthorityCertificateCommandError(output, context);
+    return de_ImportCertificateAuthorityCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ImportCertificateAuthorityCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ImportCertificateAuthorityCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1ImportCertificateAuthorityCertificateCommandError
+ */
+const de_ImportCertificateAuthorityCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportCertificateAuthorityCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateMismatchException":
     case "com.amazonaws.acmpca#CertificateMismatchException":
-      throw await deserializeAws_json1_1CertificateMismatchExceptionResponse(parsedOutput, context);
+      throw await de_CertificateMismatchExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.acmpca#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.acmpca#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "MalformedCertificateException":
     case "com.amazonaws.acmpca#MalformedCertificateException":
-      throw await deserializeAws_json1_1MalformedCertificateExceptionResponse(parsedOutput, context);
+      throw await de_MalformedCertificateExceptionRes(parsedOutput, context);
     case "RequestFailedException":
     case "com.amazonaws.acmpca#RequestFailedException":
-      throw await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context);
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     case "RequestInProgressException":
     case "com.amazonaws.acmpca#RequestInProgressException":
-      throw await deserializeAws_json1_1RequestInProgressExceptionResponse(parsedOutput, context);
+      throw await de_RequestInProgressExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1IssueCertificateCommand = async (
+/**
+ * deserializeAws_json1_1IssueCertificateCommand
+ */
+export const de_IssueCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IssueCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1IssueCertificateCommandError(output, context);
+    return de_IssueCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1IssueCertificateResponse(data, context);
+  contents = _json(data);
   const response: IssueCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1IssueCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1IssueCertificateCommandError
+ */
+const de_IssueCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IssueCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgsException":
     case "com.amazonaws.acmpca#InvalidArgsException":
-      throw await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgsExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.acmpca#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedCSRException":
     case "com.amazonaws.acmpca#MalformedCSRException":
-      throw await deserializeAws_json1_1MalformedCSRExceptionResponse(parsedOutput, context);
+      throw await de_MalformedCSRExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListCertificateAuthoritiesCommand = async (
+/**
+ * deserializeAws_json1_1ListCertificateAuthoritiesCommand
+ */
+export const de_ListCertificateAuthoritiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCertificateAuthoritiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListCertificateAuthoritiesCommandError(output, context);
+    return de_ListCertificateAuthoritiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCertificateAuthoritiesResponse(data, context);
+  contents = de_ListCertificateAuthoritiesResponse(data, context);
   const response: ListCertificateAuthoritiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListCertificateAuthoritiesCommandError = async (
+/**
+ * deserializeAws_json1_1ListCertificateAuthoritiesCommandError
+ */
+const de_ListCertificateAuthoritiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCertificateAuthoritiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.acmpca#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListPermissionsCommand = async (
+/**
+ * deserializeAws_json1_1ListPermissionsCommand
+ */
+export const de_ListPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPermissionsCommandError(output, context);
+    return de_ListPermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPermissionsResponse(data, context);
+  contents = de_ListPermissionsResponse(data, context);
   const response: ListPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListPermissionsCommandError = async (
+/**
+ * deserializeAws_json1_1ListPermissionsCommandError
+ */
+const de_ListPermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.acmpca#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "RequestFailedException":
     case "com.amazonaws.acmpca#RequestFailedException":
-      throw await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context);
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListTagsCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsCommand
+ */
+export const de_ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsCommandError(output, context);
+    return de_ListTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsResponse(data, context);
+  contents = _json(data);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsCommandError
+ */
+const de_ListTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1PutPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutPolicyCommand
+ */
+export const de_PutPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutPolicyCommandError(output, context);
+    return de_PutPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutPolicyCommandError
+ */
+const de_PutPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.acmpca#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidPolicyException":
     case "com.amazonaws.acmpca#InvalidPolicyException":
-      throw await deserializeAws_json1_1InvalidPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPolicyExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "LockoutPreventedException":
     case "com.amazonaws.acmpca#LockoutPreventedException":
-      throw await deserializeAws_json1_1LockoutPreventedExceptionResponse(parsedOutput, context);
+      throw await de_LockoutPreventedExceptionRes(parsedOutput, context);
     case "RequestFailedException":
     case "com.amazonaws.acmpca#RequestFailedException":
-      throw await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context);
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1RestoreCertificateAuthorityCommand = async (
+/**
+ * deserializeAws_json1_1RestoreCertificateAuthorityCommand
+ */
+export const de_RestoreCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreCertificateAuthorityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RestoreCertificateAuthorityCommandError(output, context);
+    return de_RestoreCertificateAuthorityCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RestoreCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RestoreCertificateAuthorityCommandError = async (
+/**
+ * deserializeAws_json1_1RestoreCertificateAuthorityCommandError
+ */
+const de_RestoreCertificateAuthorityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreCertificateAuthorityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1RevokeCertificateCommand = async (
+/**
+ * deserializeAws_json1_1RevokeCertificateCommand
+ */
+export const de_RevokeCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RevokeCertificateCommandError(output, context);
+    return de_RevokeCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RevokeCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RevokeCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1RevokeCertificateCommandError
+ */
+const de_RevokeCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.acmpca#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.acmpca#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.acmpca#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RequestAlreadyProcessedException":
     case "com.amazonaws.acmpca#RequestAlreadyProcessedException":
-      throw await deserializeAws_json1_1RequestAlreadyProcessedExceptionResponse(parsedOutput, context);
+      throw await de_RequestAlreadyProcessedExceptionRes(parsedOutput, context);
     case "RequestFailedException":
     case "com.amazonaws.acmpca#RequestFailedException":
-      throw await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context);
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     case "RequestInProgressException":
     case "com.amazonaws.acmpca#RequestInProgressException":
-      throw await deserializeAws_json1_1RequestInProgressExceptionResponse(parsedOutput, context);
+      throw await de_RequestInProgressExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1TagCertificateAuthorityCommand = async (
+/**
+ * deserializeAws_json1_1TagCertificateAuthorityCommand
+ */
+export const de_TagCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagCertificateAuthorityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagCertificateAuthorityCommandError(output, context);
+    return de_TagCertificateAuthorityCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagCertificateAuthorityCommandError = async (
+/**
+ * deserializeAws_json1_1TagCertificateAuthorityCommandError
+ */
+const de_TagCertificateAuthorityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagCertificateAuthorityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.acmpca#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.acmpca#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1UntagCertificateAuthorityCommand = async (
+/**
+ * deserializeAws_json1_1UntagCertificateAuthorityCommand
+ */
+export const de_UntagCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagCertificateAuthorityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagCertificateAuthorityCommandError(output, context);
+    return de_UntagCertificateAuthorityCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagCertificateAuthorityCommandError = async (
+/**
+ * deserializeAws_json1_1UntagCertificateAuthorityCommandError
+ */
+const de_UntagCertificateAuthorityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagCertificateAuthorityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.acmpca#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1UpdateCertificateAuthorityCommand = async (
+/**
+ * deserializeAws_json1_1UpdateCertificateAuthorityCommand
+ */
+export const de_UpdateCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCertificateAuthorityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateCertificateAuthorityCommandError(output, context);
+    return de_UpdateCertificateAuthorityCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateCertificateAuthorityCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateCertificateAuthorityCommandError
+ */
+const de_UpdateCertificateAuthorityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCertificateAuthorityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.acmpca#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidArgsException":
     case "com.amazonaws.acmpca#InvalidArgsException":
-      throw await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgsExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acmpca#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidPolicyException":
     case "com.amazonaws.acmpca#InvalidPolicyException":
-      throw await deserializeAws_json1_1InvalidPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPolicyExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acmpca#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acmpca#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_json1_1CertificateMismatchExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CertificateMismatchExceptionRes
+ */
+const de_CertificateMismatchExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CertificateMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CertificateMismatchException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CertificateMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1687,12 +1756,15 @@ const deserializeAws_json1_1CertificateMismatchExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1700,12 +1772,15 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidArgsExceptionRes
+ */
+const de_InvalidArgsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidArgsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArgsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1713,12 +1788,12 @@ const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidArnExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidArnException> => {
+/**
+ * deserializeAws_json1_1InvalidArnExceptionRes
+ */
+const de_InvalidArnExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidArnException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1726,12 +1801,15 @@ const deserializeAws_json1_1InvalidArnExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidNextTokenExceptionRes
+ */
+const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1739,12 +1817,15 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidPolicyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidPolicyExceptionRes
+ */
+const de_InvalidPolicyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1752,12 +1833,15 @@ const deserializeAws_json1_1InvalidPolicyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1765,12 +1849,15 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidStateExceptionRes
+ */
+const de_InvalidStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1778,12 +1865,12 @@ const deserializeAws_json1_1InvalidStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTagExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidTagException> => {
+/**
+ * deserializeAws_json1_1InvalidTagExceptionRes
+ */
+const de_InvalidTagExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTagException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1791,12 +1878,15 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1804,12 +1894,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LockoutPreventedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LockoutPreventedExceptionRes
+ */
+const de_LockoutPreventedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LockoutPreventedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LockoutPreventedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LockoutPreventedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1817,12 +1910,15 @@ const deserializeAws_json1_1LockoutPreventedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MalformedCertificateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MalformedCertificateExceptionRes
+ */
+const de_MalformedCertificateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MalformedCertificateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MalformedCertificateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MalformedCertificateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1830,12 +1926,15 @@ const deserializeAws_json1_1MalformedCertificateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MalformedCSRExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MalformedCSRExceptionRes
+ */
+const de_MalformedCSRExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MalformedCSRException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MalformedCSRException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MalformedCSRException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1843,12 +1942,15 @@ const deserializeAws_json1_1MalformedCSRExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PermissionAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PermissionAlreadyExistsExceptionRes
+ */
+const de_PermissionAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PermissionAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PermissionAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PermissionAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1856,12 +1958,15 @@ const deserializeAws_json1_1PermissionAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RequestAlreadyProcessedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RequestAlreadyProcessedExceptionRes
+ */
+const de_RequestAlreadyProcessedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestAlreadyProcessedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RequestAlreadyProcessedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestAlreadyProcessedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1869,12 +1974,15 @@ const deserializeAws_json1_1RequestAlreadyProcessedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RequestFailedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RequestFailedExceptionRes
+ */
+const de_RequestFailedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestFailedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RequestFailedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1882,12 +1990,15 @@ const deserializeAws_json1_1RequestFailedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RequestInProgressExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RequestInProgressExceptionRes
+ */
+const de_RequestInProgressExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RequestInProgressException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1895,12 +2006,15 @@ const deserializeAws_json1_1RequestInProgressExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1908,12 +2022,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1921,1142 +2038,354 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AccessDescription = (input: AccessDescription, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessLocation !== undefined &&
-      input.AccessLocation !== null && {
-        AccessLocation: serializeAws_json1_1GeneralName(input.AccessLocation, context),
-      }),
-    ...(input.AccessMethod !== undefined &&
-      input.AccessMethod !== null && { AccessMethod: serializeAws_json1_1AccessMethod(input.AccessMethod, context) }),
-  };
-};
+// se_AccessDescription omitted.
 
-const serializeAws_json1_1AccessDescriptionList = (input: AccessDescription[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1AccessDescription(entry, context);
-    });
-};
+// se_AccessDescriptionList omitted.
 
-const serializeAws_json1_1AccessMethod = (input: AccessMethod, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessMethodType !== undefined &&
-      input.AccessMethodType !== null && { AccessMethodType: input.AccessMethodType }),
-    ...(input.CustomObjectIdentifier !== undefined &&
-      input.CustomObjectIdentifier !== null && { CustomObjectIdentifier: input.CustomObjectIdentifier }),
-  };
-};
+// se_AccessMethod omitted.
 
-const serializeAws_json1_1ActionList = (input: (ActionType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// se_ActionList omitted.
 
-const serializeAws_json1_1ApiPassthrough = (input: ApiPassthrough, context: __SerdeContext): any => {
-  return {
-    ...(input.Extensions !== undefined &&
-      input.Extensions !== null && { Extensions: serializeAws_json1_1Extensions(input.Extensions, context) }),
-    ...(input.Subject !== undefined &&
-      input.Subject !== null && { Subject: serializeAws_json1_1ASN1Subject(input.Subject, context) }),
-  };
-};
+// se_ApiPassthrough omitted.
 
-const serializeAws_json1_1ASN1Subject = (input: ASN1Subject, context: __SerdeContext): any => {
-  return {
-    ...(input.CommonName !== undefined && input.CommonName !== null && { CommonName: input.CommonName }),
-    ...(input.Country !== undefined && input.Country !== null && { Country: input.Country }),
-    ...(input.DistinguishedNameQualifier !== undefined &&
-      input.DistinguishedNameQualifier !== null && { DistinguishedNameQualifier: input.DistinguishedNameQualifier }),
-    ...(input.GenerationQualifier !== undefined &&
-      input.GenerationQualifier !== null && { GenerationQualifier: input.GenerationQualifier }),
-    ...(input.GivenName !== undefined && input.GivenName !== null && { GivenName: input.GivenName }),
-    ...(input.Initials !== undefined && input.Initials !== null && { Initials: input.Initials }),
-    ...(input.Locality !== undefined && input.Locality !== null && { Locality: input.Locality }),
-    ...(input.Organization !== undefined && input.Organization !== null && { Organization: input.Organization }),
-    ...(input.OrganizationalUnit !== undefined &&
-      input.OrganizationalUnit !== null && { OrganizationalUnit: input.OrganizationalUnit }),
-    ...(input.Pseudonym !== undefined && input.Pseudonym !== null && { Pseudonym: input.Pseudonym }),
-    ...(input.SerialNumber !== undefined && input.SerialNumber !== null && { SerialNumber: input.SerialNumber }),
-    ...(input.State !== undefined && input.State !== null && { State: input.State }),
-    ...(input.Surname !== undefined && input.Surname !== null && { Surname: input.Surname }),
-    ...(input.Title !== undefined && input.Title !== null && { Title: input.Title }),
-  };
-};
+// se_ASN1Subject omitted.
 
-const serializeAws_json1_1CertificateAuthorityConfiguration = (
-  input: CertificateAuthorityConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CsrExtensions !== undefined &&
-      input.CsrExtensions !== null && {
-        CsrExtensions: serializeAws_json1_1CsrExtensions(input.CsrExtensions, context),
-      }),
-    ...(input.KeyAlgorithm !== undefined && input.KeyAlgorithm !== null && { KeyAlgorithm: input.KeyAlgorithm }),
-    ...(input.SigningAlgorithm !== undefined &&
-      input.SigningAlgorithm !== null && { SigningAlgorithm: input.SigningAlgorithm }),
-    ...(input.Subject !== undefined &&
-      input.Subject !== null && { Subject: serializeAws_json1_1ASN1Subject(input.Subject, context) }),
-  };
-};
+// se_CertificateAuthorityConfiguration omitted.
 
-const serializeAws_json1_1CertificatePolicyList = (input: PolicyInformation[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1PolicyInformation(entry, context);
-    });
-};
+// se_CertificatePolicyList omitted.
 
-const serializeAws_json1_1CreateCertificateAuthorityAuditReportRequest = (
-  input: CreateCertificateAuthorityAuditReportRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AuditReportResponseFormat !== undefined &&
-      input.AuditReportResponseFormat !== null && { AuditReportResponseFormat: input.AuditReportResponseFormat }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.S3BucketName !== undefined && input.S3BucketName !== null && { S3BucketName: input.S3BucketName }),
-  };
-};
+// se_CreateCertificateAuthorityAuditReportRequest omitted.
 
-const serializeAws_json1_1CreateCertificateAuthorityRequest = (
-  input: CreateCertificateAuthorityRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityConfiguration !== undefined &&
-      input.CertificateAuthorityConfiguration !== null && {
-        CertificateAuthorityConfiguration: serializeAws_json1_1CertificateAuthorityConfiguration(
-          input.CertificateAuthorityConfiguration,
-          context
-        ),
-      }),
-    ...(input.CertificateAuthorityType !== undefined &&
-      input.CertificateAuthorityType !== null && { CertificateAuthorityType: input.CertificateAuthorityType }),
-    ...(input.IdempotencyToken !== undefined &&
-      input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.KeyStorageSecurityStandard !== undefined &&
-      input.KeyStorageSecurityStandard !== null && { KeyStorageSecurityStandard: input.KeyStorageSecurityStandard }),
-    ...(input.RevocationConfiguration !== undefined &&
-      input.RevocationConfiguration !== null && {
-        RevocationConfiguration: serializeAws_json1_1RevocationConfiguration(input.RevocationConfiguration, context),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
+// se_CreateCertificateAuthorityRequest omitted.
 
-const serializeAws_json1_1CreatePermissionRequest = (input: CreatePermissionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Actions !== undefined &&
-      input.Actions !== null && { Actions: serializeAws_json1_1ActionList(input.Actions, context) }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.Principal !== undefined && input.Principal !== null && { Principal: input.Principal }),
-    ...(input.SourceAccount !== undefined && input.SourceAccount !== null && { SourceAccount: input.SourceAccount }),
-  };
-};
+// se_CreatePermissionRequest omitted.
 
-const serializeAws_json1_1CrlConfiguration = (input: CrlConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomCname !== undefined && input.CustomCname !== null && { CustomCname: input.CustomCname }),
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
-    ...(input.ExpirationInDays !== undefined &&
-      input.ExpirationInDays !== null && { ExpirationInDays: input.ExpirationInDays }),
-    ...(input.S3BucketName !== undefined && input.S3BucketName !== null && { S3BucketName: input.S3BucketName }),
-    ...(input.S3ObjectAcl !== undefined && input.S3ObjectAcl !== null && { S3ObjectAcl: input.S3ObjectAcl }),
-  };
-};
+// se_CrlConfiguration omitted.
 
-const serializeAws_json1_1CsrExtensions = (input: CsrExtensions, context: __SerdeContext): any => {
-  return {
-    ...(input.KeyUsage !== undefined &&
-      input.KeyUsage !== null && { KeyUsage: serializeAws_json1_1KeyUsage(input.KeyUsage, context) }),
-    ...(input.SubjectInformationAccess !== undefined &&
-      input.SubjectInformationAccess !== null && {
-        SubjectInformationAccess: serializeAws_json1_1AccessDescriptionList(input.SubjectInformationAccess, context),
-      }),
-  };
-};
+// se_CsrExtensions omitted.
 
-const serializeAws_json1_1DeleteCertificateAuthorityRequest = (
-  input: DeleteCertificateAuthorityRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.PermanentDeletionTimeInDays !== undefined &&
-      input.PermanentDeletionTimeInDays !== null && { PermanentDeletionTimeInDays: input.PermanentDeletionTimeInDays }),
-  };
-};
+// se_CustomAttribute omitted.
 
-const serializeAws_json1_1DeletePermissionRequest = (input: DeletePermissionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.Principal !== undefined && input.Principal !== null && { Principal: input.Principal }),
-    ...(input.SourceAccount !== undefined && input.SourceAccount !== null && { SourceAccount: input.SourceAccount }),
-  };
-};
+// se_CustomAttributeList omitted.
 
-const serializeAws_json1_1DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_CustomExtension omitted.
 
-const serializeAws_json1_1DescribeCertificateAuthorityAuditReportRequest = (
-  input: DescribeCertificateAuthorityAuditReportRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AuditReportId !== undefined && input.AuditReportId !== null && { AuditReportId: input.AuditReportId }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-  };
-};
+// se_CustomExtensionList omitted.
 
-const serializeAws_json1_1DescribeCertificateAuthorityRequest = (
-  input: DescribeCertificateAuthorityRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-  };
-};
+// se_DeleteCertificateAuthorityRequest omitted.
 
-const serializeAws_json1_1EdiPartyName = (input: EdiPartyName, context: __SerdeContext): any => {
-  return {
-    ...(input.NameAssigner !== undefined && input.NameAssigner !== null && { NameAssigner: input.NameAssigner }),
-    ...(input.PartyName !== undefined && input.PartyName !== null && { PartyName: input.PartyName }),
-  };
-};
+// se_DeletePermissionRequest omitted.
 
-const serializeAws_json1_1ExtendedKeyUsage = (input: ExtendedKeyUsage, context: __SerdeContext): any => {
-  return {
-    ...(input.ExtendedKeyUsageObjectIdentifier !== undefined &&
-      input.ExtendedKeyUsageObjectIdentifier !== null && {
-        ExtendedKeyUsageObjectIdentifier: input.ExtendedKeyUsageObjectIdentifier,
-      }),
-    ...(input.ExtendedKeyUsageType !== undefined &&
-      input.ExtendedKeyUsageType !== null && { ExtendedKeyUsageType: input.ExtendedKeyUsageType }),
-  };
-};
+// se_DeletePolicyRequest omitted.
 
-const serializeAws_json1_1ExtendedKeyUsageList = (input: ExtendedKeyUsage[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1ExtendedKeyUsage(entry, context);
-    });
-};
+// se_DescribeCertificateAuthorityAuditReportRequest omitted.
 
-const serializeAws_json1_1Extensions = (input: Extensions, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificatePolicies !== undefined &&
-      input.CertificatePolicies !== null && {
-        CertificatePolicies: serializeAws_json1_1CertificatePolicyList(input.CertificatePolicies, context),
-      }),
-    ...(input.ExtendedKeyUsage !== undefined &&
-      input.ExtendedKeyUsage !== null && {
-        ExtendedKeyUsage: serializeAws_json1_1ExtendedKeyUsageList(input.ExtendedKeyUsage, context),
-      }),
-    ...(input.KeyUsage !== undefined &&
-      input.KeyUsage !== null && { KeyUsage: serializeAws_json1_1KeyUsage(input.KeyUsage, context) }),
-    ...(input.SubjectAlternativeNames !== undefined &&
-      input.SubjectAlternativeNames !== null && {
-        SubjectAlternativeNames: serializeAws_json1_1GeneralNameList(input.SubjectAlternativeNames, context),
-      }),
-  };
-};
+// se_DescribeCertificateAuthorityRequest omitted.
 
-const serializeAws_json1_1GeneralName = (input: GeneralName, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryName !== undefined &&
-      input.DirectoryName !== null && { DirectoryName: serializeAws_json1_1ASN1Subject(input.DirectoryName, context) }),
-    ...(input.DnsName !== undefined && input.DnsName !== null && { DnsName: input.DnsName }),
-    ...(input.EdiPartyName !== undefined &&
-      input.EdiPartyName !== null && { EdiPartyName: serializeAws_json1_1EdiPartyName(input.EdiPartyName, context) }),
-    ...(input.IpAddress !== undefined && input.IpAddress !== null && { IpAddress: input.IpAddress }),
-    ...(input.OtherName !== undefined &&
-      input.OtherName !== null && { OtherName: serializeAws_json1_1OtherName(input.OtherName, context) }),
-    ...(input.RegisteredId !== undefined && input.RegisteredId !== null && { RegisteredId: input.RegisteredId }),
-    ...(input.Rfc822Name !== undefined && input.Rfc822Name !== null && { Rfc822Name: input.Rfc822Name }),
-    ...(input.UniformResourceIdentifier !== undefined &&
-      input.UniformResourceIdentifier !== null && { UniformResourceIdentifier: input.UniformResourceIdentifier }),
-  };
-};
+// se_EdiPartyName omitted.
 
-const serializeAws_json1_1GeneralNameList = (input: GeneralName[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1GeneralName(entry, context);
-    });
-};
+// se_ExtendedKeyUsage omitted.
 
-const serializeAws_json1_1GetCertificateAuthorityCertificateRequest = (
-  input: GetCertificateAuthorityCertificateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-  };
-};
+// se_ExtendedKeyUsageList omitted.
 
-const serializeAws_json1_1GetCertificateAuthorityCsrRequest = (
-  input: GetCertificateAuthorityCsrRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-  };
-};
+// se_Extensions omitted.
 
-const serializeAws_json1_1GetCertificateRequest = (input: GetCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn !== undefined &&
-      input.CertificateArn !== null && { CertificateArn: input.CertificateArn }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-  };
-};
+// se_GeneralName omitted.
 
-const serializeAws_json1_1GetPolicyRequest = (input: GetPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_GeneralNameList omitted.
 
-const serializeAws_json1_1ImportCertificateAuthorityCertificateRequest = (
+// se_GetCertificateAuthorityCertificateRequest omitted.
+
+// se_GetCertificateAuthorityCsrRequest omitted.
+
+// se_GetCertificateRequest omitted.
+
+// se_GetPolicyRequest omitted.
+
+/**
+ * serializeAws_json1_1ImportCertificateAuthorityCertificateRequest
+ */
+const se_ImportCertificateAuthorityCertificateRequest = (
   input: ImportCertificateAuthorityCertificateRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Certificate !== undefined &&
-      input.Certificate !== null && { Certificate: context.base64Encoder(input.Certificate) }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.CertificateChain !== undefined &&
-      input.CertificateChain !== null && { CertificateChain: context.base64Encoder(input.CertificateChain) }),
-  };
+  return take(input, {
+    Certificate: context.base64Encoder,
+    CertificateAuthorityArn: [],
+    CertificateChain: context.base64Encoder,
+  });
 };
 
-const serializeAws_json1_1IssueCertificateRequest = (input: IssueCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ApiPassthrough !== undefined &&
-      input.ApiPassthrough !== null && {
-        ApiPassthrough: serializeAws_json1_1ApiPassthrough(input.ApiPassthrough, context),
-      }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.Csr !== undefined && input.Csr !== null && { Csr: context.base64Encoder(input.Csr) }),
-    ...(input.IdempotencyToken !== undefined &&
-      input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.SigningAlgorithm !== undefined &&
-      input.SigningAlgorithm !== null && { SigningAlgorithm: input.SigningAlgorithm }),
-    ...(input.TemplateArn !== undefined && input.TemplateArn !== null && { TemplateArn: input.TemplateArn }),
-    ...(input.Validity !== undefined &&
-      input.Validity !== null && { Validity: serializeAws_json1_1Validity(input.Validity, context) }),
-    ...(input.ValidityNotBefore !== undefined &&
-      input.ValidityNotBefore !== null && {
-        ValidityNotBefore: serializeAws_json1_1Validity(input.ValidityNotBefore, context),
-      }),
-  };
+/**
+ * serializeAws_json1_1IssueCertificateRequest
+ */
+const se_IssueCertificateRequest = (input: IssueCertificateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ApiPassthrough: _json,
+    CertificateAuthorityArn: [],
+    Csr: context.base64Encoder,
+    IdempotencyToken: [],
+    SigningAlgorithm: [],
+    TemplateArn: [],
+    Validity: _json,
+    ValidityNotBefore: _json,
+  });
 };
 
-const serializeAws_json1_1KeyUsage = (input: KeyUsage, context: __SerdeContext): any => {
-  return {
-    ...(input.CRLSign !== undefined && input.CRLSign !== null && { CRLSign: input.CRLSign }),
-    ...(input.DataEncipherment !== undefined &&
-      input.DataEncipherment !== null && { DataEncipherment: input.DataEncipherment }),
-    ...(input.DecipherOnly !== undefined && input.DecipherOnly !== null && { DecipherOnly: input.DecipherOnly }),
-    ...(input.DigitalSignature !== undefined &&
-      input.DigitalSignature !== null && { DigitalSignature: input.DigitalSignature }),
-    ...(input.EncipherOnly !== undefined && input.EncipherOnly !== null && { EncipherOnly: input.EncipherOnly }),
-    ...(input.KeyAgreement !== undefined && input.KeyAgreement !== null && { KeyAgreement: input.KeyAgreement }),
-    ...(input.KeyCertSign !== undefined && input.KeyCertSign !== null && { KeyCertSign: input.KeyCertSign }),
-    ...(input.KeyEncipherment !== undefined &&
-      input.KeyEncipherment !== null && { KeyEncipherment: input.KeyEncipherment }),
-    ...(input.NonRepudiation !== undefined &&
-      input.NonRepudiation !== null && { NonRepudiation: input.NonRepudiation }),
-  };
-};
+// se_KeyUsage omitted.
 
-const serializeAws_json1_1ListCertificateAuthoritiesRequest = (
-  input: ListCertificateAuthoritiesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ResourceOwner !== undefined && input.ResourceOwner !== null && { ResourceOwner: input.ResourceOwner }),
-  };
-};
+// se_ListCertificateAuthoritiesRequest omitted.
 
-const serializeAws_json1_1ListPermissionsRequest = (input: ListPermissionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListPermissionsRequest omitted.
 
-const serializeAws_json1_1ListTagsRequest = (input: ListTagsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListTagsRequest omitted.
 
-const serializeAws_json1_1OcspConfiguration = (input: OcspConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
-    ...(input.OcspCustomCname !== undefined &&
-      input.OcspCustomCname !== null && { OcspCustomCname: input.OcspCustomCname }),
-  };
-};
+// se_OcspConfiguration omitted.
 
-const serializeAws_json1_1OtherName = (input: OtherName, context: __SerdeContext): any => {
-  return {
-    ...(input.TypeId !== undefined && input.TypeId !== null && { TypeId: input.TypeId }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
-};
+// se_OtherName omitted.
 
-const serializeAws_json1_1PolicyInformation = (input: PolicyInformation, context: __SerdeContext): any => {
-  return {
-    ...(input.CertPolicyId !== undefined && input.CertPolicyId !== null && { CertPolicyId: input.CertPolicyId }),
-    ...(input.PolicyQualifiers !== undefined &&
-      input.PolicyQualifiers !== null && {
-        PolicyQualifiers: serializeAws_json1_1PolicyQualifierInfoList(input.PolicyQualifiers, context),
-      }),
-  };
-};
+// se_PolicyInformation omitted.
 
-const serializeAws_json1_1PolicyQualifierInfo = (input: PolicyQualifierInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.PolicyQualifierId !== undefined &&
-      input.PolicyQualifierId !== null && { PolicyQualifierId: input.PolicyQualifierId }),
-    ...(input.Qualifier !== undefined &&
-      input.Qualifier !== null && { Qualifier: serializeAws_json1_1Qualifier(input.Qualifier, context) }),
-  };
-};
+// se_PolicyQualifierInfo omitted.
 
-const serializeAws_json1_1PolicyQualifierInfoList = (input: PolicyQualifierInfo[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1PolicyQualifierInfo(entry, context);
-    });
-};
+// se_PolicyQualifierInfoList omitted.
 
-const serializeAws_json1_1PutPolicyRequest = (input: PutPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_PutPolicyRequest omitted.
 
-const serializeAws_json1_1Qualifier = (input: Qualifier, context: __SerdeContext): any => {
-  return {
-    ...(input.CpsUri !== undefined && input.CpsUri !== null && { CpsUri: input.CpsUri }),
-  };
-};
+// se_Qualifier omitted.
 
-const serializeAws_json1_1RestoreCertificateAuthorityRequest = (
-  input: RestoreCertificateAuthorityRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-  };
-};
+// se_RestoreCertificateAuthorityRequest omitted.
 
-const serializeAws_json1_1RevocationConfiguration = (input: RevocationConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.CrlConfiguration !== undefined &&
-      input.CrlConfiguration !== null && {
-        CrlConfiguration: serializeAws_json1_1CrlConfiguration(input.CrlConfiguration, context),
-      }),
-    ...(input.OcspConfiguration !== undefined &&
-      input.OcspConfiguration !== null && {
-        OcspConfiguration: serializeAws_json1_1OcspConfiguration(input.OcspConfiguration, context),
-      }),
-  };
-};
+// se_RevocationConfiguration omitted.
 
-const serializeAws_json1_1RevokeCertificateRequest = (
-  input: RevokeCertificateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.CertificateSerial !== undefined &&
-      input.CertificateSerial !== null && { CertificateSerial: input.CertificateSerial }),
-    ...(input.RevocationReason !== undefined &&
-      input.RevocationReason !== null && { RevocationReason: input.RevocationReason }),
-  };
-};
+// se_RevokeCertificateRequest omitted.
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-const serializeAws_json1_1TagCertificateAuthorityRequest = (
-  input: TagCertificateAuthorityRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
+// se_TagCertificateAuthorityRequest omitted.
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-const serializeAws_json1_1UntagCertificateAuthorityRequest = (
-  input: UntagCertificateAuthorityRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
+// se_UntagCertificateAuthorityRequest omitted.
 
-const serializeAws_json1_1UpdateCertificateAuthorityRequest = (
-  input: UpdateCertificateAuthorityRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.RevocationConfiguration !== undefined &&
-      input.RevocationConfiguration !== null && {
-        RevocationConfiguration: serializeAws_json1_1RevocationConfiguration(input.RevocationConfiguration, context),
-      }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
-  };
-};
+// se_UpdateCertificateAuthorityRequest omitted.
 
-const serializeAws_json1_1Validity = (input: Validity, context: __SerdeContext): any => {
-  return {
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
-};
+// se_Validity omitted.
 
-const deserializeAws_json1_1AccessDescription = (output: any, context: __SerdeContext): AccessDescription => {
-  return {
-    AccessLocation:
-      output.AccessLocation !== undefined && output.AccessLocation !== null
-        ? deserializeAws_json1_1GeneralName(output.AccessLocation, context)
-        : undefined,
-    AccessMethod:
-      output.AccessMethod !== undefined && output.AccessMethod !== null
-        ? deserializeAws_json1_1AccessMethod(output.AccessMethod, context)
-        : undefined,
-  } as any;
-};
+// de_AccessDescription omitted.
 
-const deserializeAws_json1_1AccessDescriptionList = (output: any, context: __SerdeContext): AccessDescription[] => {
+// de_AccessDescriptionList omitted.
+
+// de_AccessMethod omitted.
+
+// de_ActionList omitted.
+
+// de_ASN1Subject omitted.
+
+/**
+ * deserializeAws_json1_1CertificateAuthorities
+ */
+const de_CertificateAuthorities = (output: any, context: __SerdeContext): CertificateAuthority[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1AccessDescription(entry, context);
+      return de_CertificateAuthority(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AccessMethod = (output: any, context: __SerdeContext): AccessMethod => {
-  return {
-    AccessMethodType: __expectString(output.AccessMethodType),
-    CustomObjectIdentifier: __expectString(output.CustomObjectIdentifier),
-  } as any;
+/**
+ * deserializeAws_json1_1CertificateAuthority
+ */
+const de_CertificateAuthority = (output: any, context: __SerdeContext): CertificateAuthority => {
+  return take(output, {
+    Arn: __expectString,
+    CertificateAuthorityConfiguration: _json,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    KeyStorageSecurityStandard: __expectString,
+    LastStateChangeAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NotAfter: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NotBefore: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OwnerAccount: __expectString,
+    RestorableUntil: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RevocationConfiguration: _json,
+    Serial: __expectString,
+    Status: __expectString,
+    Type: __expectString,
+    UsageMode: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ActionList = (output: any, context: __SerdeContext): (ActionType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_CertificateAuthorityConfiguration omitted.
 
-const deserializeAws_json1_1ASN1Subject = (output: any, context: __SerdeContext): ASN1Subject => {
-  return {
-    CommonName: __expectString(output.CommonName),
-    Country: __expectString(output.Country),
-    DistinguishedNameQualifier: __expectString(output.DistinguishedNameQualifier),
-    GenerationQualifier: __expectString(output.GenerationQualifier),
-    GivenName: __expectString(output.GivenName),
-    Initials: __expectString(output.Initials),
-    Locality: __expectString(output.Locality),
-    Organization: __expectString(output.Organization),
-    OrganizationalUnit: __expectString(output.OrganizationalUnit),
-    Pseudonym: __expectString(output.Pseudonym),
-    SerialNumber: __expectString(output.SerialNumber),
-    State: __expectString(output.State),
-    Surname: __expectString(output.Surname),
-    Title: __expectString(output.Title),
-  } as any;
-};
+// de_CertificateMismatchException omitted.
 
-const deserializeAws_json1_1CertificateAuthorities = (output: any, context: __SerdeContext): CertificateAuthority[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CertificateAuthority(entry, context);
-    });
-  return retVal;
-};
+// de_ConcurrentModificationException omitted.
 
-const deserializeAws_json1_1CertificateAuthority = (output: any, context: __SerdeContext): CertificateAuthority => {
-  return {
-    Arn: __expectString(output.Arn),
-    CertificateAuthorityConfiguration:
-      output.CertificateAuthorityConfiguration !== undefined && output.CertificateAuthorityConfiguration !== null
-        ? deserializeAws_json1_1CertificateAuthorityConfiguration(output.CertificateAuthorityConfiguration, context)
-        : undefined,
-    CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    KeyStorageSecurityStandard: __expectString(output.KeyStorageSecurityStandard),
-    LastStateChangeAt:
-      output.LastStateChangeAt !== undefined && output.LastStateChangeAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastStateChangeAt)))
-        : undefined,
-    NotAfter:
-      output.NotAfter !== undefined && output.NotAfter !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfter)))
-        : undefined,
-    NotBefore:
-      output.NotBefore !== undefined && output.NotBefore !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBefore)))
-        : undefined,
-    OwnerAccount: __expectString(output.OwnerAccount),
-    RestorableUntil:
-      output.RestorableUntil !== undefined && output.RestorableUntil !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RestorableUntil)))
-        : undefined,
-    RevocationConfiguration:
-      output.RevocationConfiguration !== undefined && output.RevocationConfiguration !== null
-        ? deserializeAws_json1_1RevocationConfiguration(output.RevocationConfiguration, context)
-        : undefined,
-    Serial: __expectString(output.Serial),
-    Status: __expectString(output.Status),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_CreateCertificateAuthorityAuditReportResponse omitted.
 
-const deserializeAws_json1_1CertificateAuthorityConfiguration = (
-  output: any,
-  context: __SerdeContext
-): CertificateAuthorityConfiguration => {
-  return {
-    CsrExtensions:
-      output.CsrExtensions !== undefined && output.CsrExtensions !== null
-        ? deserializeAws_json1_1CsrExtensions(output.CsrExtensions, context)
-        : undefined,
-    KeyAlgorithm: __expectString(output.KeyAlgorithm),
-    SigningAlgorithm: __expectString(output.SigningAlgorithm),
-    Subject:
-      output.Subject !== undefined && output.Subject !== null
-        ? deserializeAws_json1_1ASN1Subject(output.Subject, context)
-        : undefined,
-  } as any;
-};
+// de_CreateCertificateAuthorityResponse omitted.
 
-const deserializeAws_json1_1CertificateMismatchException = (
-  output: any,
-  context: __SerdeContext
-): CertificateMismatchException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CrlConfiguration omitted.
 
-const deserializeAws_json1_1ConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CsrExtensions omitted.
 
-const deserializeAws_json1_1CreateCertificateAuthorityAuditReportResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateCertificateAuthorityAuditReportResponse => {
-  return {
-    AuditReportId: __expectString(output.AuditReportId),
-    S3Key: __expectString(output.S3Key),
-  } as any;
-};
+// de_CustomAttribute omitted.
 
-const deserializeAws_json1_1CreateCertificateAuthorityResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateCertificateAuthorityResponse => {
-  return {
-    CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
-  } as any;
-};
+// de_CustomAttributeList omitted.
 
-const deserializeAws_json1_1CrlConfiguration = (output: any, context: __SerdeContext): CrlConfiguration => {
-  return {
-    CustomCname: __expectString(output.CustomCname),
-    Enabled: __expectBoolean(output.Enabled),
-    ExpirationInDays: __expectInt32(output.ExpirationInDays),
-    S3BucketName: __expectString(output.S3BucketName),
-    S3ObjectAcl: __expectString(output.S3ObjectAcl),
-  } as any;
-};
-
-const deserializeAws_json1_1CsrExtensions = (output: any, context: __SerdeContext): CsrExtensions => {
-  return {
-    KeyUsage:
-      output.KeyUsage !== undefined && output.KeyUsage !== null
-        ? deserializeAws_json1_1KeyUsage(output.KeyUsage, context)
-        : undefined,
-    SubjectInformationAccess:
-      output.SubjectInformationAccess !== undefined && output.SubjectInformationAccess !== null
-        ? deserializeAws_json1_1AccessDescriptionList(output.SubjectInformationAccess, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeCertificateAuthorityAuditReportResponse = (
+/**
+ * deserializeAws_json1_1DescribeCertificateAuthorityAuditReportResponse
+ */
+const de_DescribeCertificateAuthorityAuditReportResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCertificateAuthorityAuditReportResponse => {
-  return {
-    AuditReportStatus: __expectString(output.AuditReportStatus),
-    CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
-    S3BucketName: __expectString(output.S3BucketName),
-    S3Key: __expectString(output.S3Key),
-  } as any;
+  return take(output, {
+    AuditReportStatus: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    S3BucketName: __expectString,
+    S3Key: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeCertificateAuthorityResponse = (
+/**
+ * deserializeAws_json1_1DescribeCertificateAuthorityResponse
+ */
+const de_DescribeCertificateAuthorityResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCertificateAuthorityResponse => {
-  return {
-    CertificateAuthority:
-      output.CertificateAuthority !== undefined && output.CertificateAuthority !== null
-        ? deserializeAws_json1_1CertificateAuthority(output.CertificateAuthority, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CertificateAuthority: (_: any) => de_CertificateAuthority(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1EdiPartyName = (output: any, context: __SerdeContext): EdiPartyName => {
-  return {
-    NameAssigner: __expectString(output.NameAssigner),
-    PartyName: __expectString(output.PartyName),
-  } as any;
-};
+// de_EdiPartyName omitted.
 
-const deserializeAws_json1_1GeneralName = (output: any, context: __SerdeContext): GeneralName => {
-  return {
-    DirectoryName:
-      output.DirectoryName !== undefined && output.DirectoryName !== null
-        ? deserializeAws_json1_1ASN1Subject(output.DirectoryName, context)
-        : undefined,
-    DnsName: __expectString(output.DnsName),
-    EdiPartyName:
-      output.EdiPartyName !== undefined && output.EdiPartyName !== null
-        ? deserializeAws_json1_1EdiPartyName(output.EdiPartyName, context)
-        : undefined,
-    IpAddress: __expectString(output.IpAddress),
-    OtherName:
-      output.OtherName !== undefined && output.OtherName !== null
-        ? deserializeAws_json1_1OtherName(output.OtherName, context)
-        : undefined,
-    RegisteredId: __expectString(output.RegisteredId),
-    Rfc822Name: __expectString(output.Rfc822Name),
-    UniformResourceIdentifier: __expectString(output.UniformResourceIdentifier),
-  } as any;
-};
+// de_GeneralName omitted.
 
-const deserializeAws_json1_1GetCertificateAuthorityCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): GetCertificateAuthorityCertificateResponse => {
-  return {
-    Certificate: __expectString(output.Certificate),
-    CertificateChain: __expectString(output.CertificateChain),
-  } as any;
-};
+// de_GetCertificateAuthorityCertificateResponse omitted.
 
-const deserializeAws_json1_1GetCertificateAuthorityCsrResponse = (
-  output: any,
-  context: __SerdeContext
-): GetCertificateAuthorityCsrResponse => {
-  return {
-    Csr: __expectString(output.Csr),
-  } as any;
-};
+// de_GetCertificateAuthorityCsrResponse omitted.
 
-const deserializeAws_json1_1GetCertificateResponse = (output: any, context: __SerdeContext): GetCertificateResponse => {
-  return {
-    Certificate: __expectString(output.Certificate),
-    CertificateChain: __expectString(output.CertificateChain),
-  } as any;
-};
+// de_GetCertificateResponse omitted.
 
-const deserializeAws_json1_1GetPolicyResponse = (output: any, context: __SerdeContext): GetPolicyResponse => {
-  return {
-    Policy: __expectString(output.Policy),
-  } as any;
-};
+// de_GetPolicyResponse omitted.
 
-const deserializeAws_json1_1InvalidArgsException = (output: any, context: __SerdeContext): InvalidArgsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidArgsException omitted.
 
-const deserializeAws_json1_1InvalidArnException = (output: any, context: __SerdeContext): InvalidArnException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidArnException omitted.
 
-const deserializeAws_json1_1InvalidNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNextTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidNextTokenException omitted.
 
-const deserializeAws_json1_1InvalidPolicyException = (output: any, context: __SerdeContext): InvalidPolicyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidPolicyException omitted.
 
-const deserializeAws_json1_1InvalidRequestException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRequestException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidRequestException omitted.
 
-const deserializeAws_json1_1InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidStateException omitted.
 
-const deserializeAws_json1_1InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_InvalidTagException omitted.
 
-const deserializeAws_json1_1IssueCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): IssueCertificateResponse => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-  } as any;
-};
+// de_IssueCertificateResponse omitted.
 
-const deserializeAws_json1_1KeyUsage = (output: any, context: __SerdeContext): KeyUsage => {
-  return {
-    CRLSign: __expectBoolean(output.CRLSign),
-    DataEncipherment: __expectBoolean(output.DataEncipherment),
-    DecipherOnly: __expectBoolean(output.DecipherOnly),
-    DigitalSignature: __expectBoolean(output.DigitalSignature),
-    EncipherOnly: __expectBoolean(output.EncipherOnly),
-    KeyAgreement: __expectBoolean(output.KeyAgreement),
-    KeyCertSign: __expectBoolean(output.KeyCertSign),
-    KeyEncipherment: __expectBoolean(output.KeyEncipherment),
-    NonRepudiation: __expectBoolean(output.NonRepudiation),
-  } as any;
-};
+// de_KeyUsage omitted.
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-const deserializeAws_json1_1ListCertificateAuthoritiesResponse = (
+/**
+ * deserializeAws_json1_1ListCertificateAuthoritiesResponse
+ */
+const de_ListCertificateAuthoritiesResponse = (
   output: any,
   context: __SerdeContext
 ): ListCertificateAuthoritiesResponse => {
-  return {
-    CertificateAuthorities:
-      output.CertificateAuthorities !== undefined && output.CertificateAuthorities !== null
-        ? deserializeAws_json1_1CertificateAuthorities(output.CertificateAuthorities, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    CertificateAuthorities: (_: any) => de_CertificateAuthorities(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListPermissionsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListPermissionsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Permissions:
-      output.Permissions !== undefined && output.Permissions !== null
-        ? deserializeAws_json1_1PermissionList(output.Permissions, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1ListPermissionsResponse
+ */
+const de_ListPermissionsResponse = (output: any, context: __SerdeContext): ListPermissionsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    Permissions: (_: any) => de_PermissionList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeContext): ListTagsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
-  } as any;
+// de_ListTagsResponse omitted.
+
+// de_LockoutPreventedException omitted.
+
+// de_MalformedCertificateException omitted.
+
+// de_MalformedCSRException omitted.
+
+// de_OcspConfiguration omitted.
+
+// de_OtherName omitted.
+
+/**
+ * deserializeAws_json1_1Permission
+ */
+const de_Permission = (output: any, context: __SerdeContext): Permission => {
+  return take(output, {
+    Actions: _json,
+    CertificateAuthorityArn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Policy: __expectString,
+    Principal: __expectString,
+    SourceAccount: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1LockoutPreventedException = (
-  output: any,
-  context: __SerdeContext
-): LockoutPreventedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_PermissionAlreadyExistsException omitted.
 
-const deserializeAws_json1_1MalformedCertificateException = (
-  output: any,
-  context: __SerdeContext
-): MalformedCertificateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1MalformedCSRException = (output: any, context: __SerdeContext): MalformedCSRException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1OcspConfiguration = (output: any, context: __SerdeContext): OcspConfiguration => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    OcspCustomCname: __expectString(output.OcspCustomCname),
-  } as any;
-};
-
-const deserializeAws_json1_1OtherName = (output: any, context: __SerdeContext): OtherName => {
-  return {
-    TypeId: __expectString(output.TypeId),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1Permission = (output: any, context: __SerdeContext): Permission => {
-  return {
-    Actions:
-      output.Actions !== undefined && output.Actions !== null
-        ? deserializeAws_json1_1ActionList(output.Actions, context)
-        : undefined,
-    CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
-    CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
-    Policy: __expectString(output.Policy),
-    Principal: __expectString(output.Principal),
-    SourceAccount: __expectString(output.SourceAccount),
-  } as any;
-};
-
-const deserializeAws_json1_1PermissionAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): PermissionAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1PermissionList = (output: any, context: __SerdeContext): Permission[] => {
+/**
+ * deserializeAws_json1_1PermissionList
+ */
+const de_PermissionList = (output: any, context: __SerdeContext): Permission[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Permission(entry, context);
+      return de_Permission(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RequestAlreadyProcessedException = (
-  output: any,
-  context: __SerdeContext
-): RequestAlreadyProcessedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RequestAlreadyProcessedException omitted.
 
-const deserializeAws_json1_1RequestFailedException = (output: any, context: __SerdeContext): RequestFailedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RequestFailedException omitted.
 
-const deserializeAws_json1_1RequestInProgressException = (
-  output: any,
-  context: __SerdeContext
-): RequestInProgressException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_RequestInProgressException omitted.
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-const deserializeAws_json1_1RevocationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): RevocationConfiguration => {
-  return {
-    CrlConfiguration:
-      output.CrlConfiguration !== undefined && output.CrlConfiguration !== null
-        ? deserializeAws_json1_1CrlConfiguration(output.CrlConfiguration, context)
-        : undefined,
-    OcspConfiguration:
-      output.OcspConfiguration !== undefined && output.OcspConfiguration !== null
-        ? deserializeAws_json1_1OcspConfiguration(output.OcspConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_RevocationConfiguration omitted.
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -3081,6 +2410,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `ACMPrivateCA.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
@@ -3090,14 +2425,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -3119,6 +2466,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

@@ -17,6 +17,8 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.model.knowledge.HttpBinding.Location.DOCUMENT;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
@@ -36,11 +38,13 @@ import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.protocoltests.traits.HttpMalformedRequestTestCase;
 import software.amazon.smithy.protocoltests.traits.HttpMessageTestCase;
 import software.amazon.smithy.typescript.codegen.HttpProtocolTestGenerator;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpProtocolGeneratorUtils;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -55,18 +59,20 @@ final class AwsProtocolUtils {
      * Writes an {@code 'x-amz-content-sha256' = 'UNSIGNED-PAYLOAD'} header for an
      * {@code @aws.api#unsignedPayload} trait that specifies the {@code "aws.v4"} auth scheme.
      *
-     * @see <a href=https://awslabs.github.io/smithy/spec/aws-core.html#aws-api-unsignedpayload-trait>@aws.api#unsignedPayload trait</a>
+     * @see <a href=https://smithy.io/2.0/aws/aws-auth.html#aws-auth-unsignedpayload-trait>@aws.api#unsignedPayload trait</a>
      *
      * @param context The generation context.
      * @param operation The operation being generated.
      */
     static void generateUnsignedPayloadSigV4Header(GenerationContext context, OperationShape operation) {
         TypeScriptWriter writer = context.getWriter();
+        if (includeUnsignedPayloadSigV4Header(operation)) {
+            writer.write("'x-amz-content-sha256': 'UNSIGNED-PAYLOAD',");
+        }
+    }
 
-        operation.getTrait(UnsignedPayloadTrait.class)
-                .ifPresent(trait -> {
-                    writer.write("'x-amz-content-sha256': 'UNSIGNED-PAYLOAD',");
-                });
+    static boolean includeUnsignedPayloadSigV4Header(OperationShape operation) {
+        return operation.hasTrait(UnsignedPayloadTrait.ID);
     }
 
     /**
@@ -103,7 +109,7 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
 
         // Include a JSON body parser used to deserialize documents from HTTP responses.
-        writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
+        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
@@ -111,6 +117,34 @@ final class AwsProtocolUtils {
                     });
                     writer.write("return {};");
                 });
+
+        writer.write("");
+    }
+
+    static void generateJsonParseBodyWithQueryHeader(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+        writer.addImport("HeaderBag", "__HeaderBag", TypeScriptDependency.SMITHY_TYPES);
+        writer.write(IoUtils.readUtf8Resource(
+                AwsProtocolUtils.class, "populate-body-with-query-compatibility-code-stub.ts"));
+    }
+
+    /**
+     * Writes a response body parser function for JSON errors. This
+     * will populate message field in parsed object, if it's not present.
+     *
+     * @param context The generation context.
+     */
+    static void generateJsonParseErrorBody(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+
+        // Include a JSON body parser used to deserialize documents from HTTP responses.
+        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
+        writer.openBlock("const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {",
+            "}", () -> {
+                writer.write("const value = await parseBody(errorBody, context);");
+                writer.write("value.message = value.message ?? value.Message;");
+                writer.write("return value;");
+            });
 
         writer.write("");
     }
@@ -125,19 +159,22 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
 
         // Include an XML body parser used to deserialize documents from HTTP responses.
-        writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
-        writer.addImport("getValueFromTextNode", "__getValueFromTextNode", "@aws-sdk/smithy-client");
-        writer.addDependency(AwsDependency.XML_PARSER);
-        writer.addDependency(AwsDependency.HTML_ENTITIES);
-        writer.addImport("parse", "xmlParse", "fast-xml-parser");
-        writer.addImport("decodeHTML", "decodeHTML", "entities");
+        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
+        writer.addImport("getValueFromTextNode", "__getValueFromTextNode", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        writer.addDependency(TypeScriptDependency.XML_PARSER);
+        writer.addImport("XMLParser", null, TypeScriptDependency.XML_PARSER);
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
-                        writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
-                                + "ignoreAttributes: false, parseNodeValue: false, trimValues: false, "
-                                + "tagValueProcessor: (val) => (val.trim() === '' && val.includes('\\n'))"
-                                + " ? '': decodeHTML(val) });");
+                        // Temporararily creating parser inside the function.
+                        // Parser would be moved to runtime config in https://github.com/aws/aws-sdk-js-v3/issues/3979
+                        writer.write("const parser = new XMLParser({ attributeNamePrefix: '', htmlEntities: true, "
+                            + "ignoreAttributes: false, ignoreDeclaration: true, parseTagValue: false, "
+                            + "trimValues: false, tagValueProcessor: (_: any, val: any) => "
+                            + "(val.trim() === '' && val.includes('\\n')) ? '': undefined });");
+                        writer.write("parser.addEntity('#xD', '\\r');");
+                        writer.write("parser.addEntity('#10', '\\n');");
+                        writer.write("const parsedObj = parser.parse(encoded);");
                         writer.write("const textNodeName = '#text';");
                         writer.write("const key = Object.keys(parsedObj)[0];");
                         writer.write("const parsedObjToReturn = parsedObj[key];");
@@ -153,6 +190,29 @@ final class AwsProtocolUtils {
     }
 
     /**
+     * Writes a response body parser function for XML errors. This
+     * will populate message field in parsed object, if it's not present.
+     *
+     * @param context The generation context.
+     */
+    static void generateXmlParseErrorBody(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+
+        // Include a JSON body parser used to deserialize documents from HTTP responses.
+        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
+        writer.openBlock("const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {",
+            "}", () -> {
+                writer.write("const value = await parseBody(errorBody, context);");
+                writer.openBlock("if (value.Error) {", "}", () -> {
+                    writer.write("value.Error.message = value.Error.message ?? value.Error.Message;");
+                });
+                writer.write("return value;");
+            });
+
+        writer.write("");
+    }
+
+    /**
      * Writes a form urlencoded string builder function for query based protocols.
      * This will escape the keys and values, combine those with an '=', and combine
      * those strings with an '&'.
@@ -163,8 +223,9 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
 
         // Write a single function to handle combining a map in to a valid query string.
-        writer.addImport("extendedEncodeURIComponent", "__extendedEncodeURIComponent", "@aws-sdk/smithy-client");
-        writer.openBlock("const buildFormUrlencodedString = (formEntries: { [key: string]: string }): "
+        writer.addImport("extendedEncodeURIComponent", "__extendedEncodeURIComponent",
+            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        writer.openBlock("const buildFormUrlencodedString = (formEntries: Record<string, string>): "
                 + "string => Object.entries(formEntries).map(", ").join(\"&\");",
                 () -> writer.write("([key, value]) => __extendedEncodeURIComponent(key) + '=' + "
                     + "__extendedEncodeURIComponent(value)"));
@@ -237,9 +298,9 @@ final class AwsProtocolUtils {
                     TypeScriptWriter writer = context.getWriter();
 
                     // Include the uuid package and import the v4 function as our more clearly named alias.
-                    writer.addDependency(AwsDependency.UUID_GENERATOR);
+                    writer.addDependency(TypeScriptDependency.UUID);
                     writer.addDependency(AwsDependency.UUID_GENERATOR_TYPES);
-                    writer.addImport("v4", "generateIdempotencyToken", "uuid");
+                    writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
                 });
     }
 
@@ -294,11 +355,6 @@ final class AwsProtocolUtils {
             HttpMessageTestCase testCase,
             TypeScriptSettings settings
     ) {
-        // TODO: Consume AWSQueryError trait as a follow-up.
-        if (testCase.getId().equals("QueryCustomizedError")) {
-            return true;
-        }
-
         // TODO: Remove when server protocol tests are fixed in
         // https://github.com/aws/aws-sdk-js-v3/issues/3058
         // TODO: Move to filter specific to server protocol tests if added in
@@ -308,15 +364,16 @@ final class AwsProtocolUtils {
             return true;
         }
 
-        // TODO: remove when there's a decision on separator to use
-        // https://github.com/awslabs/smithy/issues/1014
-        if (testCase.getId().equals("RestJsonInputAndOutputWithQuotedStringHeaders")) {
+        // TODO: Remove when requestCompression has been implemented.
+        if (testCase.getId().startsWith("SDKAppliedContentEncoding_")
+            || testCase.getId().startsWith("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_")
+            || testCase.getId().startsWith("SDKAppendedGzipAfterProvidedEncoding_")) {
             return true;
         }
 
-        // TODO remove after 1.17.1 or later
-        // https://github.com/awslabs/smithy/pull/1084
-        if (testCase.getId().equals("RestJsonOutputUnionWithUnitMember")) {
+        // TODO: remove when there's a decision on separator to use
+        // https://github.com/awslabs/smithy/issues/1014
+        if (testCase.getId().equals("RestJsonInputAndOutputWithQuotedStringHeaders")) {
             return true;
         }
 
@@ -348,6 +405,27 @@ final class AwsProtocolUtils {
 
         //TODO: reenable when the SSDK uses RE2 and not built-in regex for pattern constraints
         if (testCase.getId().equals("RestJsonMalformedPatternReDOSString")) {
+            return true;
+        }
+
+        // skipped to allow unambiguous type conversions to unblock minor type inconsistencies
+        List<String> typeCoercionCases = Arrays.asList(
+            "RestJsonBodyTimestampDefaultRejectsStringifiedEpochSeconds_case1",
+            "RestJsonBodyTimestampDefaultRejectsStringifiedEpochSeconds_case0",
+            "RestJsonBodyTimestampDefaultRejectsDateTime_case2",
+            "RestJsonBodyTimestampDefaultRejectsDateTime_case1",
+            "RestJsonBodyTimestampDefaultRejectsDateTime_case0",
+            "RestJsonBodyBooleanBadLiteral_case18",
+            "RestJsonBodyBooleanBadLiteral_case7",
+            "RestJsonBodyBooleanStringCoercion_case14",
+            "RestJsonBodyBooleanStringCoercion_case13",
+            "RestJsonBodyBooleanStringCoercion_case12",
+            "RestJsonBodyBooleanStringCoercion_case2",
+            "RestJsonBodyBooleanStringCoercion_case1",
+            "RestJsonBodyBooleanStringCoercion_case0"
+        );
+
+        if (typeCoercionCases.contains(testCase.getId())) {
             return true;
         }
 

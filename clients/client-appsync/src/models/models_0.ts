@@ -1,9 +1,10 @@
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AppSyncServiceException as __BaseException } from "./AppSyncServiceException";
 
 /**
+ * @public
  * <p>You don't have access to perform this operation on this resource.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,29 +23,42 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum AuthenticationType {
-  AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS",
-  API_KEY = "API_KEY",
-  AWS_IAM = "AWS_IAM",
-  AWS_LAMBDA = "AWS_LAMBDA",
-  OPENID_CONNECT = "OPENID_CONNECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationType = {
+  AMAZON_COGNITO_USER_POOLS: "AMAZON_COGNITO_USER_POOLS",
+  API_KEY: "API_KEY",
+  AWS_IAM: "AWS_IAM",
+  AWS_LAMBDA: "AWS_LAMBDA",
+  OPENID_CONNECT: "OPENID_CONNECT",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+/**
+ * @public
  * <p>A <code>LambdaAuthorizerConfig</code> specifies how to authorize AppSync
  *          API access when using the <code>AWS_LAMBDA</code> authorizer mode. Be aware that an AppSync API can have only one Lambda authorizer configured at a
  *          time.</p>
  */
 export interface LambdaAuthorizerConfig {
   /**
-   * <p>The number of seconds a response should be cached for. The default is 5 minutes (300
-   *          seconds). The Lambda function can override this by returning a
-   *             <code>ttlOverride</code> key in its response. A value of 0 disables caching of
-   *          responses.</p>
+   * @public
+   * <p>The number of seconds a response should be cached for. The default is 0 seconds, which
+   *          disables caching. If you don't specify a value for
+   *             <code>authorizerResultTtlInSeconds</code>, the default value is used. The maximum value
+   *          is one hour (3600 seconds). The Lambda function can override this by returning
+   *          a <code>ttlOverride</code> key in its response.</p>
    */
   authorizerResultTtlInSeconds?: number;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Lambda function to be called for
    *          authorization. This can be a standard Lambda ARN, a version ARN
    *             (<code>.../v3</code>), or an alias ARN. </p>
@@ -62,32 +76,27 @@ export interface LambdaAuthorizerConfig {
   authorizerUri: string | undefined;
 
   /**
+   * @public
    * <p>A regular expression for validation of tokens before the Lambda function is
    *          called.</p>
    */
   identityValidationExpression?: string;
 }
 
-export namespace LambdaAuthorizerConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaAuthorizerConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes an OpenID Connect (OIDC) configuration.</p>
  */
 export interface OpenIDConnectConfig {
   /**
+   * @public
    * <p>The issuer for the OIDC configuration. The issuer returned by discovery must exactly
    *          match the value of <code>iss</code> in the ID token.</p>
    */
   issuer: string | undefined;
 
   /**
+   * @public
    * <p>The client identifier of the relying party at the OpenID identity provider. This
    *          identifier is typically obtained when the relying party is registered with the OpenID
    *          identity provider. You can specify a regular expression so that AppSync can
@@ -96,111 +105,108 @@ export interface OpenIDConnectConfig {
   clientId?: string;
 
   /**
+   * @public
    * <p>The number of milliseconds that a token is valid after it's issued to a user.</p>
    */
   iatTTL?: number;
 
   /**
+   * @public
    * <p>The number of milliseconds that a token is valid after being authenticated.</p>
    */
   authTTL?: number;
 }
 
-export namespace OpenIDConnectConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenIDConnectConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes an Amazon Cognito user pool configuration.</p>
  */
 export interface CognitoUserPoolConfig {
   /**
+   * @public
    * <p>The user pool ID.</p>
    */
   userPoolId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region in which the user pool was created.</p>
    */
   awsRegion: string | undefined;
 
   /**
+   * @public
    * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
-   *          ID.</p>
+   *          ID. If this value isn't set, no filtering is applied.</p>
    */
   appIdClientRegex?: string;
 }
 
-export namespace CognitoUserPoolConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CognitoUserPoolConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes an additional authentication provider.</p>
  */
 export interface AdditionalAuthenticationProvider {
   /**
+   * @public
    * <p>The authentication type: API key, Identity and Access Management (IAM), OpenID
    *          Connect (OIDC), Amazon Cognito user pools, or Lambda.</p>
    */
   authenticationType?: AuthenticationType | string;
 
   /**
+   * @public
    * <p>The OIDC configuration.</p>
    */
   openIDConnectConfig?: OpenIDConnectConfig;
 
   /**
+   * @public
    * <p>The Amazon Cognito user pool configuration.</p>
    */
   userPoolConfig?: CognitoUserPoolConfig;
 
   /**
+   * @public
    * <p>Configuration for Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
 
-export namespace AdditionalAuthenticationProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdditionalAuthenticationProvider): any => ({
-    ...obj,
-  });
-}
-
-export enum AssociationStatus {
-  Failed = "FAILED",
-  Processing = "PROCESSING",
-  Success = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssociationStatus = {
+  Failed: "FAILED",
+  Processing: "PROCESSING",
+  Success: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type AssociationStatus = (typeof AssociationStatus)[keyof typeof AssociationStatus];
+
+/**
+ * @public
  * <p>Describes an <code>ApiAssociation</code> object.</p>
  */
 export interface ApiAssociation {
   /**
+   * @public
    * <p>The domain name.</p>
    */
   domainName?: string;
 
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId?: string;
 
   /**
+   * @public
    * <p>Identifies the status of an association.</p>
    *          <ul>
    *             <li>
@@ -223,62 +229,84 @@ export interface ApiAssociation {
   associationStatus?: AssociationStatus | string;
 
   /**
+   * @public
    * <p>Details about the last deployment status.</p>
    */
   deploymentDetail?: string;
 }
 
-export namespace ApiAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiAssociation): any => ({
-    ...obj,
-  });
-}
-
-export enum ApiCachingBehavior {
-  FULL_REQUEST_CACHING = "FULL_REQUEST_CACHING",
-  PER_RESOLVER_CACHING = "PER_RESOLVER_CACHING",
-}
-
-export enum ApiCacheStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MODIFYING = "MODIFYING",
-}
-
-export enum ApiCacheType {
-  LARGE = "LARGE",
-  LARGE_12X = "LARGE_12X",
-  LARGE_2X = "LARGE_2X",
-  LARGE_4X = "LARGE_4X",
-  LARGE_8X = "LARGE_8X",
-  MEDIUM = "MEDIUM",
-  R4_2XLARGE = "R4_2XLARGE",
-  R4_4XLARGE = "R4_4XLARGE",
-  R4_8XLARGE = "R4_8XLARGE",
-  R4_LARGE = "R4_LARGE",
-  R4_XLARGE = "R4_XLARGE",
-  SMALL = "SMALL",
-  T2_MEDIUM = "T2_MEDIUM",
-  T2_SMALL = "T2_SMALL",
-  XLARGE = "XLARGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApiCachingBehavior = {
+  FULL_REQUEST_CACHING: "FULL_REQUEST_CACHING",
+  PER_RESOLVER_CACHING: "PER_RESOLVER_CACHING",
+} as const;
 
 /**
+ * @public
+ */
+export type ApiCachingBehavior = (typeof ApiCachingBehavior)[keyof typeof ApiCachingBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApiCacheStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MODIFYING: "MODIFYING",
+} as const;
+
+/**
+ * @public
+ */
+export type ApiCacheStatus = (typeof ApiCacheStatus)[keyof typeof ApiCacheStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApiCacheType = {
+  LARGE: "LARGE",
+  LARGE_12X: "LARGE_12X",
+  LARGE_2X: "LARGE_2X",
+  LARGE_4X: "LARGE_4X",
+  LARGE_8X: "LARGE_8X",
+  MEDIUM: "MEDIUM",
+  R4_2XLARGE: "R4_2XLARGE",
+  R4_4XLARGE: "R4_4XLARGE",
+  R4_8XLARGE: "R4_8XLARGE",
+  R4_LARGE: "R4_LARGE",
+  R4_XLARGE: "R4_XLARGE",
+  SMALL: "SMALL",
+  T2_MEDIUM: "T2_MEDIUM",
+  T2_SMALL: "T2_SMALL",
+  XLARGE: "XLARGE",
+} as const;
+
+/**
+ * @public
+ */
+export type ApiCacheType = (typeof ApiCacheType)[keyof typeof ApiCacheType];
+
+/**
+ * @public
  * <p>The <code>ApiCache</code> object.</p>
  */
 export interface ApiCache {
   /**
+   * @public
    * <p>TTL in seconds for cache entries.</p>
    *          <p>Valid values are 1–3,600 seconds.</p>
    */
   ttl?: number;
 
   /**
+   * @public
    * <p>Caching behavior.</p>
    *          <ul>
    *             <li>
@@ -296,17 +324,20 @@ export interface ApiCache {
   apiCachingBehavior?: ApiCachingBehavior | string;
 
   /**
+   * @public
    * <p>Transit encryption flag when connecting to cache. You cannot update this setting after
    *          creation.</p>
    */
   transitEncryptionEnabled?: boolean;
 
   /**
+   * @public
    * <p>At-rest encryption flag for cache. You cannot update this setting after creation.</p>
    */
   atRestEncryptionEnabled?: boolean;
 
   /**
+   * @public
    * <p>The cache instance type. Valid values are </p>
    *          <ul>
    *             <li>
@@ -385,6 +416,7 @@ export interface ApiCache {
   type?: ApiCacheType | string;
 
   /**
+   * @public
    * <p>The cache instance status.</p>
    *          <ul>
    *             <li>
@@ -417,16 +449,8 @@ export interface ApiCache {
   status?: ApiCacheStatus | string;
 }
 
-export namespace ApiCache {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiCache): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes an API key.</p>
  *          <p>Customers invoke AppSync GraphQL API operations with API keys as an
  *          identity mechanism. There are two key versions:</p>
@@ -498,38 +522,34 @@ export namespace ApiCache {
  */
 export interface ApiKey {
   /**
+   * @public
    * <p>The API key ID.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>A description of the purpose of the API key.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The time after which the API key expires. The date is represented as seconds since the
    *          epoch, rounded down to the nearest hour.</p>
    */
   expires?: number;
 
   /**
+   * @public
    * <p>The time after which the API key is deleted. The date is represented as seconds since
    *          the epoch, rounded down to the nearest hour.</p>
    */
   deletes?: number;
 }
 
-export namespace ApiKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiKey): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The API key exceeded a limit. Try your request again.</p>
  */
 export class ApiKeyLimitExceededException extends __BaseException {
@@ -549,6 +569,7 @@ export class ApiKeyLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The API key expiration must be set to a value between 1 and 365 days from creation (for
  *             <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).</p>
  */
@@ -569,6 +590,7 @@ export class ApiKeyValidityOutOfBoundsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The GraphQL API exceeded a limit. Try your request again.</p>
  */
 export class ApiLimitExceededException extends __BaseException {
@@ -587,50 +609,168 @@ export class ApiLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ * @enum
+ */
+export const RuntimeName = {
+  APPSYNC_JS: "APPSYNC_JS",
+} as const;
+
+/**
+ * @public
+ */
+export type RuntimeName = (typeof RuntimeName)[keyof typeof RuntimeName];
+
+/**
+ * @public
+ * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
+ *          that if a runtime is specified, code must also be specified.</p>
+ */
+export interface AppSyncRuntime {
+  /**
+   * @public
+   * <p>The <code>name</code> of the runtime to use. Currently, the only allowed value is
+   *             <code>APPSYNC_JS</code>.</p>
+   */
+  name: RuntimeName | string | undefined;
+
+  /**
+   * @public
+   * <p>The <code>version</code> of the runtime to use. Currently, the only allowed version is
+   *             <code>1.0.0</code>.</p>
+   */
+  runtimeVersion: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface AssociateApiRequest {
   /**
+   * @public
    * <p>The domain name.</p>
    */
   domainName: string | undefined;
 
   /**
-   * <p>The API ID.</p>
+   * @public
+   * <p>The API ID. Private APIs can not be associated with custom domains.</p>
    */
   apiId: string | undefined;
 }
 
-export namespace AssociateApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateApiRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateApiResponse {
   /**
+   * @public
    * <p>The <code>ApiAssociation</code> object.</p>
    */
   apiAssociation?: ApiAssociation;
 }
 
-export namespace AssociateApiResponse {
+/**
+ * @public
+ * <p>Describes the location of the error in a code sample.</p>
+ */
+export interface CodeErrorLocation {
   /**
-   * @internal
+   * @public
+   * <p>The line number in the code. Defaults to <code>0</code> if unknown.</p>
    */
-  export const filterSensitiveLog = (obj: AssociateApiResponse): any => ({
-    ...obj,
-  });
+  line?: number;
+
+  /**
+   * @public
+   * <p>The column number in the code. Defaults to <code>0</code> if unknown.</p>
+   */
+  column?: number;
+
+  /**
+   * @public
+   * <p>The span/length of the error. Defaults to <code>-1</code> if unknown.</p>
+   */
+  span?: number;
 }
 
 /**
+ * @public
+ * <p>Describes an AppSync error.</p>
+ */
+export interface CodeError {
+  /**
+   * @public
+   * <p>The type of code error. </p>
+   *          <p>Examples include, but aren't limited to: <code>LINT_ERROR</code>,
+   *             <code>PARSER_ERROR</code>.</p>
+   */
+  errorType?: string;
+
+  /**
+   * @public
+   * <p>A user presentable error.</p>
+   *          <p>Examples include, but aren't limited to: <code>Parsing error: Unterminated string
+   *             literal</code>.</p>
+   */
+  value?: string;
+
+  /**
+   * @public
+   * <p>The line, column, and span location of the error in the code.</p>
+   */
+  location?: CodeErrorLocation;
+}
+
+/**
+ * @public
+ * <p>Provides further details for the reason behind the bad request. For reason type
+ *             <code>CODE_ERROR</code>, the detail will contain a list of code errors.</p>
+ */
+export interface BadRequestDetail {
+  /**
+   * @public
+   * <p>Contains the list of errors in the request.</p>
+   */
+  codeErrors?: CodeError[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BadRequestReason = {
+  CODE_ERROR: "CODE_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type BadRequestReason = (typeof BadRequestReason)[keyof typeof BadRequestReason];
+
+/**
+ * @public
  * <p>The request is not well formed. For example, a value is invalid or a required field is
  *          missing. Check the field values, and then try again.</p>
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>Provides context for the cause of the bad request. The only supported value is
+   *             <code>CODE_ERROR</code>.</p>
+   */
+  reason?: BadRequestReason | string;
+
+  /**
+   * @public
+   * <p>Provides further details for the reason behind the bad request. For reason type
+   *             <code>CODE_ERROR</code>, the detail will contain a list of code errors.</p>
+   */
+  detail?: BadRequestDetail;
+
   /**
    * @internal
    */
@@ -641,10 +781,13 @@ export class BadRequestException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.reason = opts.reason;
+    this.detail = opts.detail;
   }
 }
 
 /**
+ * @public
  * <p>An internal AppSync error occurred. Try your request again.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -664,6 +807,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource specified in the request was not found. Check the resource, and then try
  *          again.</p>
  */
@@ -683,66 +827,180 @@ export class NotFoundException extends __BaseException {
   }
 }
 
-export enum AuthorizationType {
-  AWS_IAM = "AWS_IAM",
-}
-
 /**
- * <p>The Identity and Access Management (IAM) configuration.</p>
+ * @public
+ * @enum
  */
-export interface AwsIamConfig {
-  /**
-   * <p>The signing Amazon Web Services Region for IAM authorization.</p>
-   */
-  signingRegion?: string;
-
-  /**
-   * <p>The signing service name for IAM authorization.</p>
-   */
-  signingServiceName?: string;
-}
-
-export namespace AwsIamConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamConfig): any => ({
-    ...obj,
-  });
-}
+export const MergeType = {
+  AUTO_MERGE: "AUTO_MERGE",
+  MANUAL_MERGE: "MANUAL_MERGE",
+} as const;
 
 /**
- * <p>The authorization configuration in case the HTTP endpoint requires authorization.</p>
+ * @public
  */
-export interface AuthorizationConfig {
-  /**
-   * <p>The authorization type that the HTTP endpoint requires.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>AWS_IAM</b>: The authorization type is Signature
-   *                Version 4 (SigV4).</p>
-   *             </li>
-   *          </ul>
-   */
-  authorizationType: AuthorizationType | string | undefined;
+export type MergeType = (typeof MergeType)[keyof typeof MergeType];
 
+/**
+ * @public
+ * <p>Describes properties used to specify configurations related to a source API.</p>
+ */
+export interface SourceApiAssociationConfig {
   /**
-   * <p>The Identity and Access Management (IAM) settings.</p>
+   * @public
+   * <p>The property that indicates which merging option is enabled in the source API association.</p>
+   *          <p>Valid merge types are <code>MANUAL_MERGE</code> (default) and <code>AUTO_MERGE</code>. Manual merges are the
+   *          default behavior and require the user to trigger any changes from the source APIs to the merged API manually.
+   *          Auto merges subscribe the merged API to the changes performed on the source APIs so that any change in the
+   *          source APIs are also made to the merged API. Auto merges use <code>MergedApiExecutionRoleArn</code> to perform
+   *          merge operations.</p>
    */
-  awsIamConfig?: AwsIamConfig;
-}
-
-export namespace AuthorizationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationConfig): any => ({
-    ...obj,
-  });
+  mergeType?: MergeType | string;
 }
 
 /**
+ * @public
+ */
+export interface AssociateMergedGraphqlApiRequest {
+  /**
+   * @public
+   * <p>The identifier of the AppSync Source API. This is generated by the AppSync service. In most cases, source
+   *          APIs (especially in your account) only require the API ID value or ARN of the source API. However, source APIs
+   *          from other accounts (cross-account use cases) strictly require the full resource ARN of the source API.</p>
+   */
+  sourceApiIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.</p>
+   */
+  mergedApiIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The description field.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The <code>SourceApiAssociationConfig</code> object data.</p>
+   */
+  sourceApiAssociationConfig?: SourceApiAssociationConfig;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceApiAssociationStatus = {
+  AUTO_MERGE_SCHEDULE_FAILED: "AUTO_MERGE_SCHEDULE_FAILED",
+  DELETION_FAILED: "DELETION_FAILED",
+  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
+  DELETION_SCHEDULED: "DELETION_SCHEDULED",
+  MERGE_FAILED: "MERGE_FAILED",
+  MERGE_IN_PROGRESS: "MERGE_IN_PROGRESS",
+  MERGE_SCHEDULED: "MERGE_SCHEDULED",
+  MERGE_SUCCESS: "MERGE_SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceApiAssociationStatus = (typeof SourceApiAssociationStatus)[keyof typeof SourceApiAssociationStatus];
+
+/**
+ * @public
+ * <p>Describes the configuration of a source API. A source API is a GraphQL API that is linked to a merged API.
+ *          There can be multiple source APIs attached to each merged API.
+ *          When linked to a merged API, the source API's schema, data sources, and resolvers will be combined with other linked source API data to form a new, singular API.
+ *          </p>
+ *          <p>Source APIs can originate from your account or from other accounts via Amazon Web Services Resource Access Manager. For more
+ *          information about sharing resources from other accounts, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/what-is.html">What is Amazon Web Services Resource Access
+ *             Manager?</a> in the <i>Amazon Web Services Resource Access Manager</i> guide.</p>
+ */
+export interface SourceApiAssociation {
+  /**
+   * @public
+   * <p>The ID generated by the AppSync service for the source API association.</p>
+   */
+  associationId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the source API association.</p>
+   */
+  associationArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the AppSync source API.</p>
+   */
+  sourceApiId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the AppSync source API.</p>
+   */
+  sourceApiArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the AppSync Merged API.</p>
+   */
+  mergedApiArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the AppSync Merged API.</p>
+   */
+  mergedApiId?: string;
+
+  /**
+   * @public
+   * <p>The description field.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The <code>SourceApiAssociationConfig</code> object data.</p>
+   */
+  sourceApiAssociationConfig?: SourceApiAssociationConfig;
+
+  /**
+   * @public
+   * <p>The state of the source API association.</p>
+   */
+  sourceApiAssociationStatus?: SourceApiAssociationStatus | string;
+
+  /**
+   * @public
+   * <p>The detailed message related to the current state of the source API association.</p>
+   */
+  sourceApiAssociationStatusDetail?: string;
+
+  /**
+   * @public
+   * <p>The datetime value of the last successful merge of the source API association. The result will be in UTC
+   *          format and your local time zone.</p>
+   */
+  lastSuccessfulMergeDate?: Date;
+}
+
+/**
+ * @public
+ */
+export interface AssociateMergedGraphqlApiResponse {
+  /**
+   * @public
+   * <p>The <code>SourceApiAssociation</code> object data.</p>
+   */
+  sourceApiAssociation?: SourceApiAssociation;
+}
+
+/**
+ * @public
  * <p>Another modification is in progress at this time and it must complete before you can
  *          make your change.</p>
  */
@@ -763,32 +1021,176 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
+ * <p>The request exceeded a limit. Try your request again.</p>
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>You aren't authorized to perform this operation.</p>
+ */
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface AssociateSourceGraphqlApiRequest {
+  /**
+   * @public
+   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.</p>
+   */
+  mergedApiIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the AppSync Source API. This is generated by the AppSync service. In most cases, source
+   *          APIs (especially in your account) only require the API ID value or ARN of the source API. However, source APIs
+   *          from other accounts (cross-account use cases) strictly require the full resource ARN of the source API.</p>
+   */
+  sourceApiIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The description field.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The <code>SourceApiAssociationConfig</code> object data.</p>
+   */
+  sourceApiAssociationConfig?: SourceApiAssociationConfig;
+}
+
+/**
+ * @public
+ */
+export interface AssociateSourceGraphqlApiResponse {
+  /**
+   * @public
+   * <p>The <code>SourceApiAssociation</code> object data.</p>
+   */
+  sourceApiAssociation?: SourceApiAssociation;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthorizationType = {
+  AWS_IAM: "AWS_IAM",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorizationType = (typeof AuthorizationType)[keyof typeof AuthorizationType];
+
+/**
+ * @public
+ * <p>The Identity and Access Management (IAM) configuration.</p>
+ */
+export interface AwsIamConfig {
+  /**
+   * @public
+   * <p>The signing Amazon Web Services Region for IAM authorization.</p>
+   */
+  signingRegion?: string;
+
+  /**
+   * @public
+   * <p>The signing service name for IAM authorization.</p>
+   */
+  signingServiceName?: string;
+}
+
+/**
+ * @public
+ * <p>The authorization configuration in case the HTTP endpoint requires authorization.</p>
+ */
+export interface AuthorizationConfig {
+  /**
+   * @public
+   * <p>The authorization type that the HTTP endpoint requires.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>AWS_IAM</b>: The authorization type is Signature
+   *                Version 4 (SigV4).</p>
+   *             </li>
+   *          </ul>
+   */
+  authorizationType: AuthorizationType | string | undefined;
+
+  /**
+   * @public
+   * <p>The Identity and Access Management (IAM) settings.</p>
+   */
+  awsIamConfig?: AwsIamConfig;
+}
+
+/**
+ * @public
  * <p>Represents the input of a <code>CreateApiCache</code> operation.</p>
  */
 export interface CreateApiCacheRequest {
   /**
+   * @public
    * <p>The GraphQL API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>TTL in seconds for cache entries.</p>
    *          <p>Valid values are 1–3,600 seconds.</p>
    */
   ttl: number | undefined;
 
   /**
+   * @public
    * <p>Transit encryption flag when connecting to cache. You cannot update this setting after
    *          creation.</p>
    */
   transitEncryptionEnabled?: boolean;
 
   /**
+   * @public
    * <p>At-rest encryption flag for cache. You cannot update this setting after creation.</p>
    */
   atRestEncryptionEnabled?: boolean;
 
   /**
+   * @public
    * <p>Caching behavior.</p>
    *          <ul>
    *             <li>
@@ -806,6 +1208,7 @@ export interface CreateApiCacheRequest {
   apiCachingBehavior: ApiCachingBehavior | string | undefined;
 
   /**
+   * @public
    * <p>The cache instance type. Valid values are </p>
    *          <ul>
    *             <li>
@@ -884,65 +1287,36 @@ export interface CreateApiCacheRequest {
   type: ApiCacheType | string | undefined;
 }
 
-export namespace CreateApiCacheRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApiCacheRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a <code>CreateApiCache</code> operation.</p>
  */
 export interface CreateApiCacheResponse {
   /**
+   * @public
    * <p>The <code>ApiCache</code> object.</p>
    */
   apiCache?: ApiCache;
 }
 
-export namespace CreateApiCacheResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApiCacheResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>You aren't authorized to perform this operation.</p>
+ * @public
  */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-  }
-}
-
 export interface CreateApiKeyRequest {
   /**
+   * @public
    * <p>The ID for your GraphQL API.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>A description of the purpose of the API key.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>From the creation time, the time after which the API key expires. The date is
    *          represented as seconds since the epoch, rounded down to the nearest hour. The default value
    *          for this parameter is 7 days from creation time. For more information, see .</p>
@@ -950,120 +1324,80 @@ export interface CreateApiKeyRequest {
   expires?: number;
 }
 
-export namespace CreateApiKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApiKeyRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateApiKeyResponse {
   /**
+   * @public
    * <p>The API key.</p>
    */
   apiKey?: ApiKey;
 }
 
-export namespace CreateApiKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApiKeyResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>The request exceeded a limit. Try your request again.</p>
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
+ * @public
  * <p>Describes a Delta Sync configuration.</p>
  */
 export interface DeltaSyncConfig {
   /**
+   * @public
    * <p>The number of minutes that an Item is stored in the data source.</p>
    */
   baseTableTTL?: number;
 
   /**
+   * @public
    * <p>The Delta Sync table name.</p>
    */
   deltaSyncTableName?: string;
 
   /**
+   * @public
    * <p>The number of minutes that a Delta Sync log entry is stored in the Delta Sync
    *          table.</p>
    */
   deltaSyncTableTTL?: number;
 }
 
-export namespace DeltaSyncConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeltaSyncConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes an Amazon DynamoDB data source configuration.</p>
  */
 export interface DynamodbDataSourceConfig {
   /**
+   * @public
    * <p>The table name.</p>
    */
   tableName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region.</p>
    */
   awsRegion: string | undefined;
 
   /**
+   * @public
    * <p>Set to TRUE to use Amazon Cognito credentials with this data source.</p>
    */
   useCallerCredentials?: boolean;
 
   /**
+   * @public
    * <p>The <code>DeltaSyncConfig</code> for a versioned data source.</p>
    */
   deltaSyncConfig?: DeltaSyncConfig;
 
   /**
+   * @public
    * <p>Set to TRUE to use Conflict Detection and Resolution with this data source.</p>
    */
   versioned?: boolean;
 }
 
-export namespace DynamodbDataSourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynamodbDataSourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes an OpenSearch data source configuration.</p>
  *          <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This
  *          configuration is deprecated. For new data sources, use <a>OpenSearchServiceDataSourceConfig</a> to specify an OpenSearch data
@@ -1071,30 +1405,38 @@ export namespace DynamodbDataSourceConfig {
  */
 export interface ElasticsearchDataSourceConfig {
   /**
+   * @public
    * <p>The endpoint.</p>
    */
   endpoint: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region.</p>
    */
   awsRegion: string | undefined;
 }
 
-export namespace ElasticsearchDataSourceConfig {
+/**
+ * @public
+ * <p>Describes an Amazon EventBridge bus data source configuration.</p>
+ */
+export interface EventBridgeDataSourceConfig {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the event bus. For more information about event buses, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html">Amazon
+   *             EventBridge event buses</a>.</p>
    */
-  export const filterSensitiveLog = (obj: ElasticsearchDataSourceConfig): any => ({
-    ...obj,
-  });
+  eventBusArn: string | undefined;
 }
 
 /**
+ * @public
  * <p>Describes an HTTP data source configuration.</p>
  */
 export interface HttpDataSourceConfig {
   /**
+   * @public
    * <p>The HTTP URL endpoint. You can specify either the domain name or IP, and port
    *          combination, and the URL scheme must be HTTP or HTTPS. If you don't specify the port,
    *             AppSync uses the default port 80 for the HTTP endpoint and port 443 for
@@ -1103,112 +1445,100 @@ export interface HttpDataSourceConfig {
   endpoint?: string;
 
   /**
+   * @public
    * <p>The authorization configuration in case the HTTP endpoint requires authorization.</p>
    */
   authorizationConfig?: AuthorizationConfig;
 }
 
-export namespace HttpDataSourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpDataSourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes an Lambda data source configuration.</p>
  */
 export interface LambdaDataSourceConfig {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the Lambda function.</p>
    */
   lambdaFunctionArn: string | undefined;
 }
 
-export namespace LambdaDataSourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaDataSourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes an OpenSearch data source configuration.</p>
  */
 export interface OpenSearchServiceDataSourceConfig {
   /**
+   * @public
    * <p>The endpoint.</p>
    */
   endpoint: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region.</p>
    */
   awsRegion: string | undefined;
 }
 
-export namespace OpenSearchServiceDataSourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenSearchServiceDataSourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The Amazon Relational Database Service (Amazon RDS) HTTP endpoint configuration.</p>
  */
 export interface RdsHttpEndpointConfig {
   /**
+   * @public
    * <p>Amazon Web Services Region for Amazon RDS HTTP endpoint.</p>
    */
   awsRegion?: string;
 
   /**
+   * @public
    * <p>Amazon RDS cluster Amazon Resource Name (ARN).</p>
    */
   dbClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>Logical database name.</p>
    */
   databaseName?: string;
 
   /**
+   * @public
    * <p>Logical schema name.</p>
    */
   schema?: string;
 
   /**
+   * @public
    * <p>Amazon Web Services secret store Amazon Resource Name (ARN) for database
    *          credentials.</p>
    */
   awsSecretStoreArn?: string;
 }
 
-export namespace RdsHttpEndpointConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RdsHttpEndpointConfig): any => ({
-    ...obj,
-  });
-}
-
-export enum RelationalDatabaseSourceType {
-  RDS_HTTP_ENDPOINT = "RDS_HTTP_ENDPOINT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RelationalDatabaseSourceType = {
+  RDS_HTTP_ENDPOINT: "RDS_HTTP_ENDPOINT",
+} as const;
 
 /**
+ * @public
+ */
+export type RelationalDatabaseSourceType =
+  (typeof RelationalDatabaseSourceType)[keyof typeof RelationalDatabaseSourceType];
+
+/**
+ * @public
  * <p>Describes a relational database data source configuration.</p>
  */
 export interface RelationalDatabaseDataSourceConfig {
   /**
+   * @public
    * <p>Source type for the relational database.</p>
    *          <ul>
    *             <li>
@@ -1222,68 +1552,81 @@ export interface RelationalDatabaseDataSourceConfig {
   relationalDatabaseSourceType?: RelationalDatabaseSourceType | string;
 
   /**
+   * @public
    * <p>Amazon RDS HTTP endpoint settings.</p>
    */
   rdsHttpEndpointConfig?: RdsHttpEndpointConfig;
 }
 
-export namespace RelationalDatabaseDataSourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalDatabaseDataSourceConfig): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceType = {
+  AMAZON_DYNAMODB: "AMAZON_DYNAMODB",
+  AMAZON_ELASTICSEARCH: "AMAZON_ELASTICSEARCH",
+  AMAZON_EVENTBRIDGE: "AMAZON_EVENTBRIDGE",
+  AMAZON_OPENSEARCH_SERVICE: "AMAZON_OPENSEARCH_SERVICE",
+  AWS_LAMBDA: "AWS_LAMBDA",
+  HTTP: "HTTP",
+  NONE: "NONE",
+  RELATIONAL_DATABASE: "RELATIONAL_DATABASE",
+} as const;
 
-export enum DataSourceType {
-  AMAZON_DYNAMODB = "AMAZON_DYNAMODB",
-  AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
-  AMAZON_OPENSEARCH_SERVICE = "AMAZON_OPENSEARCH_SERVICE",
-  AWS_LAMBDA = "AWS_LAMBDA",
-  HTTP = "HTTP",
-  NONE = "NONE",
-  RELATIONAL_DATABASE = "RELATIONAL_DATABASE",
-}
+/**
+ * @public
+ */
+export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
+/**
+ * @public
+ */
 export interface CreateDataSourceRequest {
   /**
+   * @public
    * <p>The API ID for the GraphQL API for the <code>DataSource</code>.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>A user-supplied name for the <code>DataSource</code>.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A description of the <code>DataSource</code>.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The type of the <code>DataSource</code>.</p>
    */
   type: DataSourceType | string | undefined;
 
   /**
+   * @public
    * <p>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN)
    *          for the data source. The system assumes this role when accessing the data source.</p>
    */
   serviceRoleArn?: string;
 
   /**
+   * @public
    * <p>Amazon DynamoDB settings.</p>
    */
   dynamodbConfig?: DynamodbDataSourceConfig;
 
   /**
+   * @public
    * <p>Lambda settings.</p>
    */
   lambdaConfig?: LambdaDataSourceConfig;
 
   /**
+   * @public
    * <p>Amazon OpenSearch Service settings.</p>
    *          <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This
    *          configuration is deprecated. For new data sources, use <a>CreateDataSourceRequest$openSearchServiceConfig</a> to create an OpenSearch data source.</p>
@@ -1291,50 +1634,55 @@ export interface CreateDataSourceRequest {
   elasticsearchConfig?: ElasticsearchDataSourceConfig;
 
   /**
+   * @public
    * <p>Amazon OpenSearch Service settings.</p>
    */
   openSearchServiceConfig?: OpenSearchServiceDataSourceConfig;
 
   /**
+   * @public
    * <p>HTTP endpoint settings.</p>
    */
   httpConfig?: HttpDataSourceConfig;
 
   /**
+   * @public
    * <p>Relational database settings.</p>
    */
   relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig;
-}
 
-export namespace CreateDataSourceRequest {
   /**
-   * @internal
+   * @public
+   * <p>Amazon EventBridge settings.</p>
    */
-  export const filterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
-    ...obj,
-  });
+  eventBridgeConfig?: EventBridgeDataSourceConfig;
 }
 
 /**
+ * @public
  * <p>Describes a data source.</p>
  */
 export interface DataSource {
   /**
+   * @public
    * <p>The data source Amazon Resource Name (ARN).</p>
    */
   dataSourceArn?: string;
 
   /**
+   * @public
    * <p>The name of the data source.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the data source.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The type of the data source.</p>
    *          <ul>
    *             <li>
@@ -1354,6 +1702,11 @@ export interface DataSource {
    *                <p>
    *                   <b>AMAZON_OPENSEARCH_SERVICE</b>: The data source is
    *                an Amazon OpenSearch Service domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>AMAZON_EVENTBRIDGE</b>: The data source is an
+   *                   Amazon EventBridge configuration.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1377,74 +1730,78 @@ export interface DataSource {
   type?: DataSourceType | string;
 
   /**
+   * @public
    * <p>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN)
    *          for the data source. The system assumes this role when accessing the data source.</p>
    */
   serviceRoleArn?: string;
 
   /**
+   * @public
    * <p>DynamoDB settings.</p>
    */
   dynamodbConfig?: DynamodbDataSourceConfig;
 
   /**
+   * @public
    * <p>Lambda settings.</p>
    */
   lambdaConfig?: LambdaDataSourceConfig;
 
   /**
+   * @public
    * <p>Amazon OpenSearch Service settings.</p>
    */
   elasticsearchConfig?: ElasticsearchDataSourceConfig;
 
   /**
+   * @public
    * <p>Amazon OpenSearch Service settings.</p>
    */
   openSearchServiceConfig?: OpenSearchServiceDataSourceConfig;
 
   /**
+   * @public
    * <p>HTTP endpoint settings.</p>
    */
   httpConfig?: HttpDataSourceConfig;
 
   /**
+   * @public
    * <p>Relational database settings.</p>
    */
   relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig;
-}
 
-export namespace DataSource {
   /**
-   * @internal
+   * @public
+   * <p>Amazon EventBridge settings.</p>
    */
-  export const filterSensitiveLog = (obj: DataSource): any => ({
-    ...obj,
-  });
+  eventBridgeConfig?: EventBridgeDataSourceConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSourceResponse {
   /**
+   * @public
    * <p>The <code>DataSource</code> object.</p>
    */
   dataSource?: DataSource;
 }
 
-export namespace CreateDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateDomainNameRequest {
   /**
+   * @public
    * <p>The domain name.</p>
    */
   domainName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager
    *             (ACM) certificate or an Identity and Access Management (IAM)
    *          server certificate.</p>
@@ -1452,35 +1809,31 @@ export interface CreateDomainNameRequest {
   certificateArn: string | undefined;
 
   /**
+   * @public
    * <p>A description of the <code>DomainName</code>.</p>
    */
   description?: string;
 }
 
-export namespace CreateDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainNameRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes a configuration for a custom domain.</p>
  */
 export interface DomainNameConfig {
   /**
+   * @public
    * <p>The domain name.</p>
    */
   domainName?: string;
 
   /**
+   * @public
    * <p>A description of the <code>DomainName</code> configuration.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager
    *             (ACM) certificate or an Identity and Access Management (IAM)
    *          server certificate.</p>
@@ -1488,81 +1841,82 @@ export interface DomainNameConfig {
   certificateArn?: string;
 
   /**
+   * @public
    * <p>The domain name that AppSync provides.</p>
    */
   appsyncDomainName?: string;
 
   /**
+   * @public
    * <p>The ID of your Amazon Route 53 hosted zone.</p>
    */
   hostedZoneId?: string;
 }
 
-export namespace DomainNameConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainNameConfig): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateDomainNameResponse {
   /**
+   * @public
    * <p>The configuration for the <code>DomainName</code>.</p>
    */
   domainNameConfig?: DomainNameConfig;
 }
 
-export namespace CreateDomainNameResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainNameResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum ConflictDetectionType {
-  NONE = "NONE",
-  VERSION = "VERSION",
-}
-
-export enum ConflictHandlerType {
-  AUTOMERGE = "AUTOMERGE",
-  LAMBDA = "LAMBDA",
-  NONE = "NONE",
-  OPTIMISTIC_CONCURRENCY = "OPTIMISTIC_CONCURRENCY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConflictDetectionType = {
+  NONE: "NONE",
+  VERSION: "VERSION",
+} as const;
 
 /**
+ * @public
+ */
+export type ConflictDetectionType = (typeof ConflictDetectionType)[keyof typeof ConflictDetectionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConflictHandlerType = {
+  AUTOMERGE: "AUTOMERGE",
+  LAMBDA: "LAMBDA",
+  NONE: "NONE",
+  OPTIMISTIC_CONCURRENCY: "OPTIMISTIC_CONCURRENCY",
+} as const;
+
+/**
+ * @public
+ */
+export type ConflictHandlerType = (typeof ConflictHandlerType)[keyof typeof ConflictHandlerType];
+
+/**
+ * @public
  * <p>The <code>LambdaConflictHandlerConfig</code> object when configuring <code>LAMBDA</code>
  *          as the Conflict Handler.</p>
  */
 export interface LambdaConflictHandlerConfig {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the Lambda function to use as the
    *          Conflict Handler.</p>
    */
   lambdaConflictHandlerArn?: string;
 }
 
-export namespace LambdaConflictHandlerConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaConflictHandlerConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes a Sync configuration for a resolver.</p>
  *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
  *          resolver is invoked.</p>
  */
 export interface SyncConfig {
   /**
+   * @public
    * <p>The Conflict Resolution strategy to perform in the event of a conflict.</p>
    *          <ul>
    *             <li>
@@ -1586,6 +1940,7 @@ export interface SyncConfig {
   conflictHandler?: ConflictHandlerType | string;
 
   /**
+   * @public
    * <p>The Conflict Detection strategy to use.</p>
    *          <ul>
    *             <li>
@@ -1603,61 +1958,65 @@ export interface SyncConfig {
   conflictDetection?: ConflictDetectionType | string;
 
   /**
+   * @public
    * <p>The <code>LambdaConflictHandlerConfig</code> when configuring <code>LAMBDA</code> as the
    *          Conflict Handler.</p>
    */
   lambdaConflictHandlerConfig?: LambdaConflictHandlerConfig;
 }
 
-export namespace SyncConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SyncConfig): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateFunctionRequest {
   /**
+   * @public
    * <p>The GraphQL API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The <code>Function</code> name. The function name does not have to be unique.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The <code>Function</code> description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The <code>Function</code>
    *             <code>DataSource</code> name.</p>
    */
   dataSourceName: string | undefined;
 
   /**
+   * @public
    * <p>The <code>Function</code> request mapping template. Functions support only the
    *          2018-05-29 version of the request mapping template.</p>
    */
   requestMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The <code>Function</code> response mapping template.</p>
    */
   responseMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The <code>version</code> of the request mapping template. Currently, the supported value
-   *          is 2018-05-29.</p>
+   *          is 2018-05-29. Note that when using VTL and mapping templates, the
+   *             <code>functionVersion</code> is required.</p>
    */
-  functionVersion: string | undefined;
+  functionVersion?: string;
 
   /**
+   * @public
    * <p>Describes a Sync configuration for a resolver.</p>
    *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
    *          resolver is invoked.</p>
@@ -1665,68 +2024,85 @@ export interface CreateFunctionRequest {
   syncConfig?: SyncConfig;
 
   /**
+   * @public
    * <p>The maximum batching size for a resolver.</p>
    */
   maxBatchSize?: number;
-}
 
-export namespace CreateFunctionRequest {
   /**
-   * @internal
+   * @public
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
+   *          that if a runtime is specified, code must also be specified.</p>
    */
-  export const filterSensitiveLog = (obj: CreateFunctionRequest): any => ({
-    ...obj,
-  });
+  runtime?: AppSyncRuntime;
+
+  /**
+   * @public
+   * <p>The <code>function</code> code that contains the request and response functions. When
+   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
+   *             <code>APPSYNC_JS</code>.</p>
+   */
+  code?: string;
 }
 
 /**
+ * @public
  * <p>A function is a reusable entity. You can use multiple functions to compose the resolver
  *          logic.</p>
  */
 export interface FunctionConfiguration {
   /**
+   * @public
    * <p>A unique ID representing the <code>Function</code> object.</p>
    */
   functionId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <code>Function</code> object.</p>
    */
   functionArn?: string;
 
   /**
+   * @public
    * <p>The name of the <code>Function</code> object.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The <code>Function</code> description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The name of the <code>DataSource</code>.</p>
    */
   dataSourceName?: string;
 
   /**
+   * @public
    * <p>The <code>Function</code> request mapping template. Functions support only the
    *          2018-05-29 version of the request mapping template.</p>
    */
   requestMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The <code>Function</code> response mapping template.</p>
    */
   responseMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The version of the request mapping template. Currently, only the 2018-05-29 version of
    *          the template is supported.</p>
    */
   functionVersion?: string;
 
   /**
+   * @public
    * <p>Describes a Sync configuration for a resolver.</p>
    *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
    *          resolver is invoked.</p>
@@ -1734,47 +2110,74 @@ export interface FunctionConfiguration {
   syncConfig?: SyncConfig;
 
   /**
+   * @public
    * <p>The maximum batching size for a resolver.</p>
    */
   maxBatchSize?: number;
-}
 
-export namespace FunctionConfiguration {
   /**
-   * @internal
+   * @public
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
+   *          that if a runtime is specified, code must also be specified.</p>
    */
-  export const filterSensitiveLog = (obj: FunctionConfiguration): any => ({
-    ...obj,
-  });
+  runtime?: AppSyncRuntime;
+
+  /**
+   * @public
+   * <p>The <code>function</code> code that contains the request and response functions. When
+   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
+   *             <code>APPSYNC_JS</code>.</p>
+   */
+  code?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFunctionResponse {
   /**
+   * @public
    * <p>The <code>Function</code> object.</p>
    */
   functionConfiguration?: FunctionConfiguration;
 }
 
-export namespace CreateFunctionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFunctionResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum FieldLogLevel {
-  ALL = "ALL",
-  ERROR = "ERROR",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GraphQLApiType = {
+  GRAPHQL: "GRAPHQL",
+  MERGED: "MERGED",
+} as const;
 
 /**
+ * @public
+ */
+export type GraphQLApiType = (typeof GraphQLApiType)[keyof typeof GraphQLApiType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldLogLevel = {
+  ALL: "ALL",
+  ERROR: "ERROR",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldLogLevel = (typeof FieldLogLevel)[keyof typeof FieldLogLevel];
+
+/**
+ * @public
  * <p>The Amazon CloudWatch Logs configuration.</p>
  */
 export interface LogConfig {
   /**
+   * @public
    * <p>The field logging level. Values can be NONE, ERROR, or ALL.</p>
    *          <ul>
    *             <li>
@@ -1818,236 +2221,328 @@ export interface LogConfig {
   fieldLogLevel: FieldLogLevel | string | undefined;
 
   /**
+   * @public
    * <p>The service role that AppSync assumes to publish to CloudWatch
    *          logs in your account.</p>
    */
   cloudWatchLogsRoleArn: string | undefined;
 
   /**
+   * @public
    * <p>Set to TRUE to exclude sections that contain information such as headers, context, and
    *          evaluated mapping templates, regardless of logging level.</p>
    */
   excludeVerboseContent?: boolean;
 }
 
-export namespace LogConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogConfig): any => ({
-    ...obj,
-  });
-}
-
-export enum DefaultAction {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DefaultAction = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
 
 /**
+ * @public
+ */
+export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
+
+/**
+ * @public
  * <p>Describes an Amazon Cognito user pool configuration.</p>
  */
 export interface UserPoolConfig {
   /**
+   * @public
    * <p>The user pool ID.</p>
    */
   userPoolId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region in which the user pool was created.</p>
    */
   awsRegion: string | undefined;
 
   /**
+   * @public
    * <p>The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool
    *          configuration.</p>
    */
   defaultAction: DefaultAction | string | undefined;
 
   /**
+   * @public
    * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
-   *          ID.</p>
+   *          ID. If this value isn't set, no filtering is applied.</p>
    */
   appIdClientRegex?: string;
 }
 
-export namespace UserPoolConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserPoolConfig): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const GraphQLApiVisibility = {
+  GLOBAL: "GLOBAL",
+  PRIVATE: "PRIVATE",
+} as const;
 
+/**
+ * @public
+ */
+export type GraphQLApiVisibility = (typeof GraphQLApiVisibility)[keyof typeof GraphQLApiVisibility];
+
+/**
+ * @public
+ */
 export interface CreateGraphqlApiRequest {
   /**
+   * @public
    * <p>A user-supplied name for the <code>GraphqlApi</code>.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon CloudWatch Logs configuration.</p>
    */
   logConfig?: LogConfig;
 
   /**
+   * @public
    * <p>The authentication type: API key, Identity and Access Management (IAM), OpenID
    *          Connect (OIDC), Amazon Cognito user pools, or Lambda.</p>
    */
   authenticationType: AuthenticationType | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Cognito user pool configuration.</p>
    */
   userPoolConfig?: UserPoolConfig;
 
   /**
+   * @public
    * <p>The OIDC configuration.</p>
    */
   openIDConnectConfig?: OpenIDConnectConfig;
 
   /**
+   * @public
    * <p>A <code>TagMap</code> object.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
    *          API.</p>
    */
   additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
 
   /**
+   * @public
    * <p>A flag indicating whether to use X-Ray tracing for the
    *             <code>GraphqlApi</code>.</p>
    */
   xrayEnabled?: boolean;
 
   /**
+   * @public
    * <p>Configuration for Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
-}
 
-export namespace CreateGraphqlApiRequest {
   /**
-   * @internal
+   * @public
+   * <p>Sets the value of the GraphQL API to public (<code>GLOBAL</code>) or private (<code>PRIVATE</code>). If no
+   *          value is provided, the visibility will be set to <code>GLOBAL</code> by default. This value cannot be changed
+   *          once the API has been created.</p>
    */
-  export const filterSensitiveLog = (obj: CreateGraphqlApiRequest): any => ({
-    ...obj,
-  });
+  visibility?: GraphQLApiVisibility | string;
+
+  /**
+   * @public
+   * <p>The value that indicates whether the GraphQL API is a standard API (<code>GRAPHQL</code>) or merged API
+   *          (<code>MERGED</code>).</p>
+   */
+  apiType?: GraphQLApiType | string;
+
+  /**
+   * @public
+   * <p>The Identity and Access Management service role ARN for a merged API. The AppSync
+   *          service assumes this role on behalf of the Merged API to validate access to source APIs at runtime and to
+   *          prompt the <code>AUTO_MERGE</code> to update the merged API endpoint with the source API changes
+   *          automatically.</p>
+   */
+  mergedApiExecutionRoleArn?: string;
+
+  /**
+   * @public
+   * <p>The owner contact information for an API resource.</p>
+   *          <p>This field accepts any string input with a length of 0 - 256 characters.</p>
+   */
+  ownerContact?: string;
 }
 
 /**
+ * @public
  * <p>Describes a GraphQL API.</p>
  */
 export interface GraphqlApi {
   /**
+   * @public
    * <p>The API name.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId?: string;
 
   /**
+   * @public
    * <p>The authentication type.</p>
    */
   authenticationType?: AuthenticationType | string;
 
   /**
+   * @public
    * <p>The Amazon CloudWatch Logs configuration.</p>
    */
   logConfig?: LogConfig;
 
   /**
+   * @public
    * <p>The Amazon Cognito user pool configuration.</p>
    */
   userPoolConfig?: UserPoolConfig;
 
   /**
+   * @public
    * <p>The OpenID Connect configuration.</p>
    */
   openIDConnectConfig?: OpenIDConnectConfig;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN).</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The URIs.</p>
    */
-  uris?: { [key: string]: string };
+  uris?: Record<string, string>;
 
   /**
+   * @public
    * <p>The tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
    *          API.</p>
    */
   additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
 
   /**
+   * @public
    * <p>A flag indicating whether to use X-Ray tracing for this
    *             <code>GraphqlApi</code>.</p>
    */
   xrayEnabled?: boolean;
 
   /**
+   * @public
    * <p>The ARN of the WAF access control list (ACL) associated with this
    *             <code>GraphqlApi</code>, if one exists.</p>
    */
   wafWebAclArn?: string;
 
   /**
+   * @public
    * <p>Configuration for Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
-}
 
-export namespace GraphqlApi {
   /**
-   * @internal
+   * @public
+   * <p>The DNS records for the API.</p>
    */
-  export const filterSensitiveLog = (obj: GraphqlApi): any => ({
-    ...obj,
-  });
+  dns?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Sets the value of the GraphQL API to public (<code>GLOBAL</code>) or private (<code>PRIVATE</code>). If no
+   *          value is provided, the visibility will be set to <code>GLOBAL</code> by default. This value cannot be changed
+   *          once the API has been created.</p>
+   */
+  visibility?: GraphQLApiVisibility | string;
+
+  /**
+   * @public
+   * <p>The value that indicates whether the GraphQL API is a standard API (<code>GRAPHQL</code>) or merged API
+   *          (<code>MERGED</code>).</p>
+   */
+  apiType?: GraphQLApiType | string;
+
+  /**
+   * @public
+   * <p>The Identity and Access Management service role ARN for a merged API. The AppSync
+   *          service assumes this role on behalf of the Merged API to validate access to source APIs at runtime and to
+   *          prompt the <code>AUTO_MERGE</code> to update the merged API endpoint with the source API changes
+   *          automatically.</p>
+   */
+  mergedApiExecutionRoleArn?: string;
+
+  /**
+   * @public
+   * <p>The account owner of the GraphQL API.</p>
+   */
+  owner?: string;
+
+  /**
+   * @public
+   * <p>The owner contact information for an API resource.</p>
+   *          <p>This field accepts any string input with a length of 0 - 256 characters.</p>
+   */
+  ownerContact?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGraphqlApiResponse {
   /**
+   * @public
    * <p>The <code>GraphqlApi</code>.</p>
    */
   graphqlApi?: GraphqlApi;
 }
 
-export namespace CreateGraphqlApiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGraphqlApiResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The caching configuration for a resolver that has caching activated.</p>
  */
 export interface CachingConfig {
   /**
+   * @public
    * <p>The TTL in seconds for a resolver that has caching activated.</p>
    *          <p>Valid values are 1–3,600 seconds.</p>
    */
-  ttl?: number;
+  ttl: number | undefined;
 
   /**
+   * @public
    * <p>The caching keys for a resolver that has caching activated.</p>
    *          <p>Valid values are entries from the <code>$context.arguments</code>,
    *             <code>$context.source</code>, and <code>$context.identity</code> maps.</p>
@@ -2055,61 +2550,62 @@ export interface CachingConfig {
   cachingKeys?: string[];
 }
 
-export namespace CachingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachingConfig): any => ({
-    ...obj,
-  });
-}
-
-export enum ResolverKind {
-  PIPELINE = "PIPELINE",
-  UNIT = "UNIT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResolverKind = {
+  PIPELINE: "PIPELINE",
+  UNIT: "UNIT",
+} as const;
 
 /**
+ * @public
+ */
+export type ResolverKind = (typeof ResolverKind)[keyof typeof ResolverKind];
+
+/**
+ * @public
  * <p>The pipeline configuration for a resolver of kind <code>PIPELINE</code>.</p>
  */
 export interface PipelineConfig {
   /**
+   * @public
    * <p>A list of <code>Function</code> objects.</p>
    */
   functions?: string[];
 }
 
-export namespace PipelineConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineConfig): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateResolverRequest {
   /**
+   * @public
    * <p>The ID for the GraphQL API for which the resolver is being created.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the <code>Type</code>.</p>
    */
   typeName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the field to attach the resolver to.</p>
    */
   fieldName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the data source for which the resolver is being created.</p>
    */
   dataSourceName?: string;
 
   /**
+   * @public
    * <p>The mapping template to use for requests.</p>
    *          <p>A resolver uses a request mapping template to convert a GraphQL expression into a format
    *          that a data source can understand. Mapping templates are written in Apache Velocity
@@ -2121,11 +2617,13 @@ export interface CreateResolverRequest {
   requestMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The mapping template to use for responses from the data source.</p>
    */
   responseMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The resolver type.</p>
    *          <ul>
    *             <li>
@@ -2146,70 +2644,88 @@ export interface CreateResolverRequest {
   kind?: ResolverKind | string;
 
   /**
+   * @public
    * <p>The <code>PipelineConfig</code>.</p>
    */
   pipelineConfig?: PipelineConfig;
 
   /**
+   * @public
    * <p>The <code>SyncConfig</code> for a resolver attached to a versioned data source.</p>
    */
   syncConfig?: SyncConfig;
 
   /**
+   * @public
    * <p>The caching configuration for the resolver.</p>
    */
   cachingConfig?: CachingConfig;
 
   /**
+   * @public
    * <p>The maximum batching size for a resolver.</p>
    */
   maxBatchSize?: number;
-}
 
-export namespace CreateResolverRequest {
   /**
-   * @internal
+   * @public
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
+   *          that if a runtime is specified, code must also be specified.</p>
    */
-  export const filterSensitiveLog = (obj: CreateResolverRequest): any => ({
-    ...obj,
-  });
+  runtime?: AppSyncRuntime;
+
+  /**
+   * @public
+   * <p>The <code>resolver</code> code that contains the request and response functions. When
+   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
+   *             <code>APPSYNC_JS</code>.</p>
+   */
+  code?: string;
 }
 
 /**
+ * @public
  * <p>Describes a resolver.</p>
  */
 export interface Resolver {
   /**
+   * @public
    * <p>The resolver type name.</p>
    */
   typeName?: string;
 
   /**
+   * @public
    * <p>The resolver field name.</p>
    */
   fieldName?: string;
 
   /**
+   * @public
    * <p>The resolver data source name.</p>
    */
   dataSourceName?: string;
 
   /**
+   * @public
    * <p>The resolver Amazon Resource Name (ARN).</p>
    */
   resolverArn?: string;
 
   /**
+   * @public
    * <p>The request mapping template.</p>
    */
   requestMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The response mapping template.</p>
    */
   responseMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The resolver type.</p>
    *          <ul>
    *             <li>
@@ -2230,63 +2746,82 @@ export interface Resolver {
   kind?: ResolverKind | string;
 
   /**
+   * @public
    * <p>The <code>PipelineConfig</code>.</p>
    */
   pipelineConfig?: PipelineConfig;
 
   /**
+   * @public
    * <p>The <code>SyncConfig</code> for a resolver attached to a versioned data source.</p>
    */
   syncConfig?: SyncConfig;
 
   /**
+   * @public
    * <p>The caching configuration for the resolver.</p>
    */
   cachingConfig?: CachingConfig;
 
   /**
+   * @public
    * <p>The maximum batching size for a resolver.</p>
    */
   maxBatchSize?: number;
-}
 
-export namespace Resolver {
   /**
-   * @internal
+   * @public
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
+   *          that if a runtime is specified, code must also be specified.</p>
    */
-  export const filterSensitiveLog = (obj: Resolver): any => ({
-    ...obj,
-  });
+  runtime?: AppSyncRuntime;
+
+  /**
+   * @public
+   * <p>The <code>resolver</code> code that contains the request and response functions. When
+   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
+   *             <code>APPSYNC_JS</code>.</p>
+   */
+  code?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResolverResponse {
   /**
+   * @public
    * <p>The <code>Resolver</code> object.</p>
    */
   resolver?: Resolver;
 }
 
-export namespace CreateResolverResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResolverResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const TypeDefinitionFormat = {
+  JSON: "JSON",
+  SDL: "SDL",
+} as const;
 
-export enum TypeDefinitionFormat {
-  JSON = "JSON",
-  SDL = "SDL",
-}
+/**
+ * @public
+ */
+export type TypeDefinitionFormat = (typeof TypeDefinitionFormat)[keyof typeof TypeDefinitionFormat];
 
+/**
+ * @public
+ */
 export interface CreateTypeRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The type definition, in GraphQL Schema Definition Language (SDL) format.</p>
    *          <p>For more information, see the <a href="http://graphql.org/learn/schema/">GraphQL SDL
    *             documentation</a>.</p>
@@ -2294,628 +2829,638 @@ export interface CreateTypeRequest {
   definition: string | undefined;
 
   /**
+   * @public
    * <p>The type format: SDL or JSON.</p>
    */
   format: TypeDefinitionFormat | string | undefined;
 }
 
-export namespace CreateTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes a type.</p>
  */
 export interface Type {
   /**
+   * @public
    * <p>The type name.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The type description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The type Amazon Resource Name (ARN).</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The type definition.</p>
    */
   definition?: string;
 
   /**
+   * @public
    * <p>The type format: SDL or JSON.</p>
    */
   format?: TypeDefinitionFormat | string;
 }
 
-export namespace Type {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Type): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateTypeResponse {
   /**
+   * @public
    * <p>The <code>Type</code> object.</p>
    */
   type?: Type;
 }
 
-export namespace CreateTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTypeResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteApiCache</code> operation.</p>
  */
 export interface DeleteApiCacheRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 }
 
-export namespace DeleteApiCacheRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApiCacheRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a <code>DeleteApiCache</code> operation.</p>
  */
 export interface DeleteApiCacheResponse {}
 
-export namespace DeleteApiCacheResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApiCacheResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteApiKeyRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The ID for the API key.</p>
    */
   id: string | undefined;
 }
 
-export namespace DeleteApiKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApiKeyRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteApiKeyResponse {}
 
-export namespace DeleteApiKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApiKeyResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteDataSourceRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the data source.</p>
    */
   name: string | undefined;
 }
 
-export namespace DeleteDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataSourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteDataSourceResponse {}
 
-export namespace DeleteDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataSourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteDomainNameRequest {
   /**
+   * @public
    * <p>The domain name.</p>
    */
   domainName: string | undefined;
 }
 
-export namespace DeleteDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainNameRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteDomainNameResponse {}
 
-export namespace DeleteDomainNameResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainNameResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteFunctionRequest {
   /**
+   * @public
    * <p>The GraphQL API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The <code>Function</code> ID.</p>
    */
   functionId: string | undefined;
 }
 
-export namespace DeleteFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteFunctionResponse {}
 
-export namespace DeleteFunctionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFunctionResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteGraphqlApiRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 }
 
-export namespace DeleteGraphqlApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGraphqlApiRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteGraphqlApiResponse {}
 
-export namespace DeleteGraphqlApiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGraphqlApiResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteResolverRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the resolver type.</p>
    */
   typeName: string | undefined;
 
   /**
+   * @public
    * <p>The resolver field name.</p>
    */
   fieldName: string | undefined;
 }
 
-export namespace DeleteResolverRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResolverRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteResolverResponse {}
 
-export namespace DeleteResolverResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResolverResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteTypeRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The type name.</p>
    */
   typeName: string | undefined;
 }
 
-export namespace DeleteTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTypeRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteTypeResponse {}
 
-export namespace DeleteTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTypeResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateApiRequest {
   /**
+   * @public
    * <p>The domain name.</p>
    */
   domainName: string | undefined;
 }
 
-export namespace DisassociateApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateApiRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateApiResponse {}
 
-export namespace DisassociateApiResponse {
+/**
+ * @public
+ */
+export interface DisassociateMergedGraphqlApiRequest {
   /**
-   * @internal
+   * @public
+   * <p>The identifier of the AppSync Source API. This is generated by the AppSync service. In most cases, source
+   *          APIs (especially in your account) only require the API ID value or ARN of the source API. However, source APIs
+   *          from other accounts (cross-account use cases) strictly require the full resource ARN of the source API.</p>
    */
-  export const filterSensitiveLog = (obj: DisassociateApiResponse): any => ({
-    ...obj,
-  });
+  sourceApiIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID generated by the AppSync service for the source API association.</p>
+   */
+  associationId: string | undefined;
 }
 
 /**
+ * @public
+ */
+export interface DisassociateMergedGraphqlApiResponse {
+  /**
+   * @public
+   * <p>The state of the source API association.</p>
+   */
+  sourceApiAssociationStatus?: SourceApiAssociationStatus | string;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSourceGraphqlApiRequest {
+  /**
+   * @public
+   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.</p>
+   */
+  mergedApiIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID generated by the AppSync service for the source API association.</p>
+   */
+  associationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSourceGraphqlApiResponse {
+  /**
+   * @public
+   * <p>The state of the source API association.</p>
+   */
+  sourceApiAssociationStatus?: SourceApiAssociationStatus | string;
+}
+
+/**
+ * @public
+ */
+export interface EvaluateCodeRequest {
+  /**
+   * @public
+   * <p>The runtime to be used when evaluating the code. Currently, only the
+   *             <code>APPSYNC_JS</code> runtime is supported.</p>
+   */
+  runtime: AppSyncRuntime | undefined;
+
+  /**
+   * @public
+   * <p>The code definition to be evaluated. Note that <code>code</code> and
+   *             <code>runtime</code> are both required for this action. The <code>runtime</code> value
+   *          must be <code>APPSYNC_JS</code>.</p>
+   */
+  code: string | undefined;
+
+  /**
+   * @public
+   * <p>The map that holds all of the contextual information for your resolver invocation. A
+   *             <code>context</code> is required for this action.</p>
+   */
+  context: string | undefined;
+
+  /**
+   * @public
+   * <p>The function within the code to be evaluated. If provided, the valid values are
+   *             <code>request</code> and <code>response</code>.</p>
+   */
+  function?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the list of errors from a code evaluation response.</p>
+ */
+export interface EvaluateCodeErrorDetail {
+  /**
+   * @public
+   * <p>The error payload.</p>
+   */
+  message?: string;
+
+  /**
+   * @public
+   * <p>Contains the list of <code>CodeError</code> objects.</p>
+   */
+  codeErrors?: CodeError[];
+}
+
+/**
+ * @public
+ */
+export interface EvaluateCodeResponse {
+  /**
+   * @public
+   * <p>The result of the evaluation operation.</p>
+   */
+  evaluationResult?: string;
+
+  /**
+   * @public
+   * <p>Contains the payload of the response error.</p>
+   */
+  error?: EvaluateCodeErrorDetail;
+
+  /**
+   * @public
+   * <p>A list of logs that were generated by calls to <code>util.log.info</code> and
+   *             <code>util.log.error</code> in the evaluated code.</p>
+   */
+  logs?: string[];
+}
+
+/**
+ * @public
+ */
+export interface EvaluateMappingTemplateRequest {
+  /**
+   * @public
+   * <p>The mapping template; this can be a request or response template. A
+   *             <code>template</code> is required for this action.</p>
+   */
+  template: string | undefined;
+
+  /**
+   * @public
+   * <p>The map that holds all of the contextual information for your resolver invocation. A
+   *             <code>context</code> is required for this action.</p>
+   */
+  context: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the list of errors generated. When using JavaScript, this will apply to the
+ *          request or response function evaluation.</p>
+ */
+export interface ErrorDetail {
+  /**
+   * @public
+   * <p>The error payload.</p>
+   */
+  message?: string;
+}
+
+/**
+ * @public
+ */
+export interface EvaluateMappingTemplateResponse {
+  /**
+   * @public
+   * <p>The mapping template; this can be a request or response template.</p>
+   */
+  evaluationResult?: string;
+
+  /**
+   * @public
+   * <p>The <code>ErrorDetail</code> object.</p>
+   */
+  error?: ErrorDetail;
+
+  /**
+   * @public
+   * <p>A list of logs that were generated by calls to <code>util.log.info</code> and
+   *             <code>util.log.error</code> in the evaluated code.</p>
+   */
+  logs?: string[];
+}
+
+/**
+ * @public
  * <p>Represents the input of a <code>FlushApiCache</code> operation.</p>
  */
 export interface FlushApiCacheRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 }
 
-export namespace FlushApiCacheRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FlushApiCacheRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a <code>FlushApiCache</code> operation.</p>
  */
 export interface FlushApiCacheResponse {}
 
-export namespace FlushApiCacheResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FlushApiCacheResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetApiAssociationRequest {
   /**
+   * @public
    * <p>The domain name.</p>
    */
   domainName: string | undefined;
 }
 
-export namespace GetApiAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetApiAssociationResponse {
   /**
+   * @public
    * <p>The <code>ApiAssociation</code> object.</p>
    */
   apiAssociation?: ApiAssociation;
 }
 
-export namespace GetApiAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiAssociationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the input of a <code>GetApiCache</code> operation.</p>
  */
 export interface GetApiCacheRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 }
 
-export namespace GetApiCacheRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiCacheRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a <code>GetApiCache</code> operation.</p>
  */
 export interface GetApiCacheResponse {
   /**
+   * @public
    * <p>The <code>ApiCache</code> object.</p>
    */
   apiCache?: ApiCache;
 }
 
-export namespace GetApiCacheResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiCacheResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetDataSourceRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the data source.</p>
    */
   name: string | undefined;
 }
 
-export namespace GetDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataSourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetDataSourceResponse {
   /**
+   * @public
    * <p>The <code>DataSource</code> object.</p>
    */
   dataSource?: DataSource;
 }
 
-export namespace GetDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataSourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetDomainNameRequest {
   /**
+   * @public
    * <p>The domain name.</p>
    */
   domainName: string | undefined;
 }
 
-export namespace GetDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainNameRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetDomainNameResponse {
   /**
+   * @public
    * <p>The configuration for the <code>DomainName</code>.</p>
    */
   domainNameConfig?: DomainNameConfig;
 }
 
-export namespace GetDomainNameResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainNameResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetFunctionRequest {
   /**
+   * @public
    * <p>The GraphQL API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The <code>Function</code> ID.</p>
    */
   functionId: string | undefined;
 }
 
-export namespace GetFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetFunctionResponse {
   /**
+   * @public
    * <p>The <code>Function</code> object.</p>
    */
   functionConfiguration?: FunctionConfiguration;
 }
 
-export namespace GetFunctionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetGraphqlApiRequest {
   /**
+   * @public
    * <p>The API ID for the GraphQL API.</p>
    */
   apiId: string | undefined;
 }
 
-export namespace GetGraphqlApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGraphqlApiRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetGraphqlApiResponse {
   /**
+   * @public
    * <p>The <code>GraphqlApi</code> object.</p>
    */
   graphqlApi?: GraphqlApi;
 }
 
-export namespace GetGraphqlApiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGraphqlApiResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const OutputType = {
+  JSON: "JSON",
+  SDL: "SDL",
+} as const;
 
-export enum OutputType {
-  JSON = "JSON",
-  SDL = "SDL",
-}
+/**
+ * @public
+ */
+export type OutputType = (typeof OutputType)[keyof typeof OutputType];
 
+/**
+ * @public
+ */
 export interface GetIntrospectionSchemaRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The schema format: SDL or JSON.</p>
    */
   format: OutputType | string | undefined;
 
   /**
+   * @public
    * <p>A flag that specifies whether the schema introspection should contain directives.</p>
    */
   includeDirectives?: boolean;
 }
 
-export namespace GetIntrospectionSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntrospectionSchemaRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetIntrospectionSchemaResponse {
   /**
+   * @public
    * <p>The schema, in GraphQL Schema Definition Language (SDL) format.</p>
    *          <p>For more information, see the <a href="http://graphql.org/learn/schema/">GraphQL SDL
    *             documentation</a>.</p>
@@ -2923,16 +3468,8 @@ export interface GetIntrospectionSchemaResponse {
   schema?: Uint8Array;
 }
 
-export namespace GetIntrospectionSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntrospectionSchemaResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The GraphQL schema is not valid.</p>
  */
 export class GraphQLSchemaException extends __BaseException {
@@ -2951,681 +3488,804 @@ export class GraphQLSchemaException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetResolverRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The resolver type name.</p>
    */
   typeName: string | undefined;
 
   /**
+   * @public
    * <p>The resolver field name.</p>
    */
   fieldName: string | undefined;
 }
 
-export namespace GetResolverRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetResolverResponse {
   /**
+   * @public
    * <p>The <code>Resolver</code> object.</p>
    */
   resolver?: Resolver;
 }
 
-export namespace GetResolverResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetSchemaCreationStatusRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 }
 
-export namespace GetSchemaCreationStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSchemaCreationStatusRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const SchemaStatus = {
+  Active: "ACTIVE",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  NotApplicable: "NOT_APPLICABLE",
+  Processing: "PROCESSING",
+  Success: "SUCCESS",
+} as const;
 
-export enum SchemaStatus {
-  Active = "ACTIVE",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  NotApplicable = "NOT_APPLICABLE",
-  Processing = "PROCESSING",
-  Success = "SUCCESS",
-}
+/**
+ * @public
+ */
+export type SchemaStatus = (typeof SchemaStatus)[keyof typeof SchemaStatus];
 
+/**
+ * @public
+ */
 export interface GetSchemaCreationStatusResponse {
   /**
+   * @public
    * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When
    *          the schema is in the ACTIVE state, you can add data.</p>
    */
   status?: SchemaStatus | string;
 
   /**
+   * @public
    * <p>Detailed information about the status of the schema creation operation.</p>
    */
   details?: string;
 }
 
-export namespace GetSchemaCreationStatusResponse {
+/**
+ * @public
+ */
+export interface GetSourceApiAssociationRequest {
   /**
-   * @internal
+   * @public
+   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.</p>
    */
-  export const filterSensitiveLog = (obj: GetSchemaCreationStatusResponse): any => ({
-    ...obj,
-  });
+  mergedApiIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID generated by the AppSync service for the source API association.</p>
+   */
+  associationId: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface GetSourceApiAssociationResponse {
+  /**
+   * @public
+   * <p>The <code>SourceApiAssociation</code> object data.</p>
+   */
+  sourceApiAssociation?: SourceApiAssociation;
+}
+
+/**
+ * @public
+ */
 export interface GetTypeRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The type name.</p>
    */
   typeName: string | undefined;
 
   /**
+   * @public
    * <p>The type format: SDL or JSON.</p>
    */
   format: TypeDefinitionFormat | string | undefined;
 }
 
-export namespace GetTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTypeRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetTypeResponse {
   /**
+   * @public
    * <p>The <code>Type</code> object.</p>
    */
   type?: Type;
 }
 
-export namespace GetTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTypeResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListApiKeysRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>An identifier that was returned from the previous call to this operation, which you can
    *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListApiKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApiKeysRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListApiKeysResponse {
   /**
+   * @public
    * <p>The <code>ApiKey</code> objects.</p>
    */
   apiKeys?: ApiKey[];
 
   /**
+   * @public
    * <p>An identifier to pass in the next request to this operation to return the next set of
    *          items in the list.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListApiKeysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApiKeysResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDataSourcesRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>An identifier that was returned from the previous call to this operation, which you can
    *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListDataSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDataSourcesResponse {
   /**
+   * @public
    * <p>The <code>DataSource</code> objects.</p>
    */
   dataSources?: DataSource[];
 
   /**
+   * @public
    * <p>An identifier to pass in the next request to this operation to return the next set of
    *          items in the list.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListDataSourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDomainNamesRequest {
   /**
-   * <p>The API token.</p>
+   * @public
+   * <p>An identifier that was returned from the previous call to this operation, which you can use to return the
+   *          next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListDomainNamesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainNamesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDomainNamesResponse {
   /**
+   * @public
    * <p>Lists configurations for multiple domain names.</p>
    */
   domainNameConfigs?: DomainNameConfig[];
 
   /**
-   * <p>The API token.</p>
+   * @public
+   * <p>An identifier that was returned from the previous call to this operation, which you can use to return the
+   *          next set of items in the list.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListDomainNamesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainNamesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListFunctionsRequest {
   /**
+   * @public
    * <p>The GraphQL API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>An identifier that was returned from the previous call to this operation, which you can
    *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListFunctionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListFunctionsResponse {
   /**
+   * @public
    * <p>A list of <code>Function</code> objects.</p>
    */
   functions?: FunctionConfiguration[];
 
   /**
+   * @public
    * <p>An identifier that was returned from the previous call to this operation, which you can
    *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListFunctionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const Ownership = {
+  CURRENT_ACCOUNT: "CURRENT_ACCOUNT",
+  OTHER_ACCOUNTS: "OTHER_ACCOUNTS",
+} as const;
 
+/**
+ * @public
+ */
+export type Ownership = (typeof Ownership)[keyof typeof Ownership];
+
+/**
+ * @public
+ */
 export interface ListGraphqlApisRequest {
   /**
+   * @public
    * <p>An identifier that was returned from the previous call to this operation, which you can
    *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
-}
 
-export namespace ListGraphqlApisRequest {
   /**
-   * @internal
+   * @public
+   * <p>The value that indicates whether the GraphQL API is a standard API (<code>GRAPHQL</code>) or merged API
+   *          (<code>MERGED</code>).</p>
    */
-  export const filterSensitiveLog = (obj: ListGraphqlApisRequest): any => ({
-    ...obj,
-  });
+  apiType?: GraphQLApiType | string;
+
+  /**
+   * @public
+   * <p>The account owner of the GraphQL API.</p>
+   */
+  owner?: Ownership | string;
 }
 
+/**
+ * @public
+ */
 export interface ListGraphqlApisResponse {
   /**
+   * @public
    * <p>The <code>GraphqlApi</code> objects.</p>
    */
   graphqlApis?: GraphqlApi[];
 
   /**
+   * @public
    * <p>An identifier to pass in the next request to this operation to return the next set of
    *          items in the list.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListGraphqlApisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGraphqlApisResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListResolversRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The type name.</p>
    */
   typeName: string | undefined;
 
   /**
+   * @public
    * <p>An identifier that was returned from the previous call to this operation, which you can
    *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListResolversRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolversRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListResolversResponse {
   /**
+   * @public
    * <p>The <code>Resolver</code> objects.</p>
    */
   resolvers?: Resolver[];
 
   /**
+   * @public
    * <p>An identifier to pass in the next request to this operation to return the next set of
    *          items in the list.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListResolversResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolversResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListResolversByFunctionRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The function ID.</p>
    */
   functionId: string | undefined;
 
   /**
+   * @public
    * <p>An identifier that was returned from the previous call to this operation, which you can
    *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListResolversByFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolversByFunctionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListResolversByFunctionResponse {
   /**
+   * @public
    * <p>The list of resolvers.</p>
    */
   resolvers?: Resolver[];
 
   /**
+   * @public
    * <p>An identifier that you can use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListResolversByFunctionResponse {
+/**
+ * @public
+ */
+export interface ListSourceApiAssociationsRequest {
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolversByFunctionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
-   */
-  resourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>A <code>TagMap</code> object.</p>
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTypesRequest {
-  /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
+   * <p>An identifier that was returned from the previous call to this operation, which you can use to return the
+   *          next set of items in the list.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results that you want the request to return.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Describes the ARNs and IDs of associations, Merged APIs, and source APIs.</p>
+ */
+export interface SourceApiAssociationSummary {
+  /**
+   * @public
+   * <p>The ID generated by the AppSync service for the source API association.</p>
+   */
+  associationId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the source API association.</p>
+   */
+  associationArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the AppSync source API.</p>
+   */
+  sourceApiId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the AppSync Source API.</p>
+   */
+  sourceApiArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the AppSync Merged API.</p>
+   */
+  mergedApiId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the AppSync Merged API.</p>
+   */
+  mergedApiArn?: string;
+
+  /**
+   * @public
+   * <p>The description field.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSourceApiAssociationsResponse {
+  /**
+   * @public
+   * <p>The <code>SourceApiAssociationSummary</code> object data.</p>
+   */
+  sourceApiAssociationSummaries?: SourceApiAssociationSummary[];
+
+  /**
+   * @public
+   * <p>An identifier that was returned from the previous call to this operation, which you can use to return the
+   *          next set of items in the list.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * @public
+   * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * <p>A <code>TagMap</code> object.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListTypesRequest {
+  /**
+   * @public
+   * <p>The API ID.</p>
+   */
+  apiId: string | undefined;
+
+  /**
+   * @public
    * <p>The type format: SDL or JSON.</p>
    */
   format: TypeDefinitionFormat | string | undefined;
 
   /**
+   * @public
    * <p>An identifier that was returned from the previous call to this operation, which you can
    *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTypesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTypesResponse {
   /**
+   * @public
    * <p>The <code>Type</code> objects.</p>
    */
   types?: Type[];
 
   /**
+   * @public
    * <p>An identifier to pass in the next request to this operation to return the next set of
    *          items in the list.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListTypesResponse {
+/**
+ * @public
+ */
+export interface ListTypesByAssociationRequest {
   /**
-   * @internal
+   * @public
+   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.</p>
    */
-  export const filterSensitiveLog = (obj: ListTypesResponse): any => ({
-    ...obj,
-  });
+  mergedApiIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID generated by the AppSync service for the source API association.</p>
+   */
+  associationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The format type.</p>
+   */
+  format: TypeDefinitionFormat | string | undefined;
+
+  /**
+   * @public
+   * <p>An identifier that was returned from the previous call to this operation, which you can use to return the
+   *          next set of items in the list.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results that you want the request to return.</p>
+   */
+  maxResults?: number;
 }
 
+/**
+ * @public
+ */
+export interface ListTypesByAssociationResponse {
+  /**
+   * @public
+   * <p>The <code>Type</code> objects.</p>
+   */
+  types?: Type[];
+
+  /**
+   * @public
+   * <p>An identifier that was returned from the previous call to this operation, which you can use to return the
+   *          next set of items in the list.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface StartSchemaCreationRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The schema definition, in GraphQL schema language format.</p>
    */
   definition: Uint8Array | undefined;
 }
 
-export namespace StartSchemaCreationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSchemaCreationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface StartSchemaCreationResponse {
   /**
+   * @public
    * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When
    *          the schema is in the ACTIVE state, you can add data.</p>
    */
   status?: SchemaStatus | string;
 }
 
-export namespace StartSchemaCreationResponse {
+/**
+ * @public
+ */
+export interface StartSchemaMergeRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ID generated by the AppSync service for the source API association.</p>
    */
-  export const filterSensitiveLog = (obj: StartSchemaCreationResponse): any => ({
-    ...obj,
-  });
+  associationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.</p>
+   */
+  mergedApiIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface StartSchemaMergeResponse {
+  /**
+   * @public
+   * <p>The state of the source API association.</p>
+   */
+  sourceApiAssociationStatus?: SourceApiAssociationStatus | string;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A <code>TagMap</code> object.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of <code>TagKey</code> objects.</p>
    */
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the input of a <code>UpdateApiCache</code> operation.</p>
  */
 export interface UpdateApiCacheRequest {
   /**
+   * @public
    * <p>The GraphQL API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>TTL in seconds for cache entries.</p>
    *          <p>Valid values are 1–3,600 seconds.</p>
    */
   ttl: number | undefined;
 
   /**
+   * @public
    * <p>Caching behavior.</p>
    *          <ul>
    *             <li>
@@ -3643,6 +4303,7 @@ export interface UpdateApiCacheRequest {
   apiCachingBehavior: ApiCachingBehavior | string | undefined;
 
   /**
+   * @public
    * <p>The cache instance type. Valid values are </p>
    *          <ul>
    *             <li>
@@ -3721,119 +4382,107 @@ export interface UpdateApiCacheRequest {
   type: ApiCacheType | string | undefined;
 }
 
-export namespace UpdateApiCacheRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApiCacheRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a <code>UpdateApiCache</code> operation.</p>
  */
 export interface UpdateApiCacheResponse {
   /**
+   * @public
    * <p>The <code>ApiCache</code> object.</p>
    */
   apiCache?: ApiCache;
 }
 
-export namespace UpdateApiCacheResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApiCacheResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateApiKeyRequest {
   /**
+   * @public
    * <p>The ID for the GraphQL API.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The API key ID.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>A description of the purpose of the API key.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>From the update time, the time after which the API key expires. The date is represented
    *          as seconds since the epoch. For more information, see .</p>
    */
   expires?: number;
 }
 
-export namespace UpdateApiKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApiKeyRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateApiKeyResponse {
   /**
+   * @public
    * <p>The API key.</p>
    */
   apiKey?: ApiKey;
 }
 
-export namespace UpdateApiKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApiKeyResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateDataSourceRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The new name for the data source.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The new description for the data source.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The new data source type.</p>
    */
   type: DataSourceType | string | undefined;
 
   /**
+   * @public
    * <p>The new service role Amazon Resource Name (ARN) for the data source.</p>
    */
   serviceRoleArn?: string;
 
   /**
+   * @public
    * <p>The new Amazon DynamoDB configuration.</p>
    */
   dynamodbConfig?: DynamodbDataSourceConfig;
 
   /**
+   * @public
    * <p>The new Lambda configuration.</p>
    */
   lambdaConfig?: LambdaDataSourceConfig;
 
   /**
+   * @public
    * <p>The new OpenSearch configuration.</p>
    *          <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This
    *          configuration is deprecated. Instead, use <a>UpdateDataSourceRequest$openSearchServiceConfig</a> to update an OpenSearch data source.</p>
@@ -3841,128 +4490,127 @@ export interface UpdateDataSourceRequest {
   elasticsearchConfig?: ElasticsearchDataSourceConfig;
 
   /**
+   * @public
    * <p>The new OpenSearch configuration.</p>
    */
   openSearchServiceConfig?: OpenSearchServiceDataSourceConfig;
 
   /**
+   * @public
    * <p>The new HTTP endpoint configuration.</p>
    */
   httpConfig?: HttpDataSourceConfig;
 
   /**
+   * @public
    * <p>The new relational database configuration.</p>
    */
   relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig;
-}
 
-export namespace UpdateDataSourceRequest {
   /**
-   * @internal
+   * @public
+   * <p>The new Amazon EventBridge settings.</p>
    */
-  export const filterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
-    ...obj,
-  });
+  eventBridgeConfig?: EventBridgeDataSourceConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSourceResponse {
   /**
+   * @public
    * <p>The updated <code>DataSource</code> object.</p>
    */
   dataSource?: DataSource;
 }
 
-export namespace UpdateDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateDomainNameRequest {
   /**
+   * @public
    * <p>The domain name.</p>
    */
   domainName: string | undefined;
 
   /**
+   * @public
    * <p>A description of the <code>DomainName</code>.</p>
    */
   description?: string;
 }
 
-export namespace UpdateDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainNameRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateDomainNameResponse {
   /**
+   * @public
    * <p>The configuration for the <code>DomainName</code>.</p>
    */
   domainNameConfig?: DomainNameConfig;
 }
 
-export namespace UpdateDomainNameResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainNameResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateFunctionRequest {
   /**
+   * @public
    * <p>The GraphQL API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The <code>Function</code> name.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The <code>Function</code> description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The function ID.</p>
    */
   functionId: string | undefined;
 
   /**
+   * @public
    * <p>The <code>Function</code>
    *             <code>DataSource</code> name.</p>
    */
   dataSourceName: string | undefined;
 
   /**
+   * @public
    * <p>The <code>Function</code> request mapping template. Functions support only the
    *          2018-05-29 version of the request mapping template.</p>
    */
   requestMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The <code>Function</code> request mapping template.</p>
    */
   responseMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The <code>version</code> of the request mapping template. Currently, the supported value
-   *          is 2018-05-29.</p>
+   *          is 2018-05-29. Note that when using VTL and mapping templates, the
+   *             <code>functionVersion</code> is required.</p>
    */
-  functionVersion: string | undefined;
+  functionVersion?: string;
 
   /**
+   * @public
    * <p>Describes a Sync configuration for a resolver.</p>
    *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
    *          resolver is invoked.</p>
@@ -3970,133 +4618,157 @@ export interface UpdateFunctionRequest {
   syncConfig?: SyncConfig;
 
   /**
+   * @public
    * <p>The maximum batching size for a resolver.</p>
    */
   maxBatchSize?: number;
-}
 
-export namespace UpdateFunctionRequest {
   /**
-   * @internal
+   * @public
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
+   *          that if a runtime is specified, code must also be specified.</p>
    */
-  export const filterSensitiveLog = (obj: UpdateFunctionRequest): any => ({
-    ...obj,
-  });
+  runtime?: AppSyncRuntime;
+
+  /**
+   * @public
+   * <p>The <code>function</code> code that contains the request and response functions. When
+   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
+   *             <code>APPSYNC_JS</code>.</p>
+   */
+  code?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionResponse {
   /**
+   * @public
    * <p>The <code>Function</code> object.</p>
    */
   functionConfiguration?: FunctionConfiguration;
 }
 
-export namespace UpdateFunctionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFunctionResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateGraphqlApiRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The new name for the <code>GraphqlApi</code> object.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon CloudWatch Logs configuration for the <code>GraphqlApi</code> object.</p>
    */
   logConfig?: LogConfig;
 
   /**
+   * @public
    * <p>The new authentication type for the <code>GraphqlApi</code> object.</p>
    */
   authenticationType?: AuthenticationType | string;
 
   /**
+   * @public
    * <p>The new Amazon Cognito user pool configuration for the <code>~GraphqlApi</code>
    *          object.</p>
    */
   userPoolConfig?: UserPoolConfig;
 
   /**
+   * @public
    * <p>The OpenID Connect configuration for the <code>GraphqlApi</code> object.</p>
    */
   openIDConnectConfig?: OpenIDConnectConfig;
 
   /**
+   * @public
    * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
    *          API.</p>
    */
   additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
 
   /**
+   * @public
    * <p>A flag indicating whether to use X-Ray tracing for the
    *             <code>GraphqlApi</code>.</p>
    */
   xrayEnabled?: boolean;
 
   /**
+   * @public
    * <p>Configuration for Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
-}
 
-export namespace UpdateGraphqlApiRequest {
   /**
-   * @internal
+   * @public
+   * <p>The Identity and Access Management service role ARN for a merged API. The AppSync
+   *          service assumes this role on behalf of the Merged API to validate access to source APIs at runtime and to
+   *          prompt the <code>AUTO_MERGE</code> to update the merged API endpoint with the source API changes
+   *          automatically.</p>
    */
-  export const filterSensitiveLog = (obj: UpdateGraphqlApiRequest): any => ({
-    ...obj,
-  });
+  mergedApiExecutionRoleArn?: string;
+
+  /**
+   * @public
+   * <p>The owner contact information for an API resource.</p>
+   *          <p>This field accepts any string input with a length of 0 - 256 characters.</p>
+   */
+  ownerContact?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGraphqlApiResponse {
   /**
+   * @public
    * <p>The updated <code>GraphqlApi</code> object.</p>
    */
   graphqlApi?: GraphqlApi;
 }
 
-export namespace UpdateGraphqlApiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGraphqlApiResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateResolverRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The new type name.</p>
    */
   typeName: string | undefined;
 
   /**
+   * @public
    * <p>The new field name.</p>
    */
   fieldName: string | undefined;
 
   /**
+   * @public
    * <p>The new data source name.</p>
    */
   dataSourceName?: string;
 
   /**
+   * @public
    * <p>The new request mapping template.</p>
    *          <p>A resolver uses a request mapping template to convert a GraphQL expression into a format
    *          that a data source can understand. Mapping templates are written in Apache Velocity
@@ -4108,11 +4780,13 @@ export interface UpdateResolverRequest {
   requestMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The new response mapping template.</p>
    */
   responseMappingTemplate?: string;
 
   /**
+   * @public
    * <p>The resolver type.</p>
    *          <ul>
    *             <li>
@@ -4133,94 +4807,132 @@ export interface UpdateResolverRequest {
   kind?: ResolverKind | string;
 
   /**
+   * @public
    * <p>The <code>PipelineConfig</code>.</p>
    */
   pipelineConfig?: PipelineConfig;
 
   /**
+   * @public
    * <p>The <code>SyncConfig</code> for a resolver attached to a versioned data source.</p>
    */
   syncConfig?: SyncConfig;
 
   /**
+   * @public
    * <p>The caching configuration for the resolver.</p>
    */
   cachingConfig?: CachingConfig;
 
   /**
+   * @public
    * <p>The maximum batching size for a resolver.</p>
    */
   maxBatchSize?: number;
-}
 
-export namespace UpdateResolverRequest {
   /**
-   * @internal
+   * @public
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
+   *          that if a runtime is specified, code must also be specified.</p>
    */
-  export const filterSensitiveLog = (obj: UpdateResolverRequest): any => ({
-    ...obj,
-  });
+  runtime?: AppSyncRuntime;
+
+  /**
+   * @public
+   * <p>The <code>resolver</code> code that contains the request and response functions. When
+   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
+   *             <code>APPSYNC_JS</code>.</p>
+   */
+  code?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResolverResponse {
   /**
+   * @public
    * <p>The updated <code>Resolver</code> object.</p>
    */
   resolver?: Resolver;
 }
 
-export namespace UpdateResolverResponse {
+/**
+ * @public
+ */
+export interface UpdateSourceApiAssociationRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ID generated by the AppSync service for the source API association.</p>
    */
-  export const filterSensitiveLog = (obj: UpdateResolverResponse): any => ({
-    ...obj,
-  });
+  associationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.</p>
+   */
+  mergedApiIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The description field.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The <code>SourceApiAssociationConfig</code> object data.</p>
+   */
+  sourceApiAssociationConfig?: SourceApiAssociationConfig;
 }
 
+/**
+ * @public
+ */
+export interface UpdateSourceApiAssociationResponse {
+  /**
+   * @public
+   * <p>The <code>SourceApiAssociation</code> object data.</p>
+   */
+  sourceApiAssociation?: SourceApiAssociation;
+}
+
+/**
+ * @public
+ */
 export interface UpdateTypeRequest {
   /**
+   * @public
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
+   * @public
    * <p>The new type name.</p>
    */
   typeName: string | undefined;
 
   /**
+   * @public
    * <p>The new definition.</p>
    */
   definition?: string;
 
   /**
+   * @public
    * <p>The new type format: SDL or JSON.</p>
    */
   format: TypeDefinitionFormat | string | undefined;
 }
 
-export namespace UpdateTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTypeRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateTypeResponse {
   /**
+   * @public
    * <p>The updated <code>Type</code> object.</p>
    */
   type?: Type;
-}
-
-export namespace UpdateTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTypeResponse): any => ({
-    ...obj,
-  });
 }

@@ -1,7 +1,6 @@
-# @aws-sdk/client-ebs
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ebs/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ebs)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ebs.svg)](https://www.npmjs.com/package/@aws-sdk/client-ebs)
+# @aws-sdk/client-ebs
 
 ## Description
 
@@ -13,13 +12,11 @@ two snapshots. If you’re an independent software vendor (ISV) who offers backu
 Amazon EBS, the EBS direct APIs make it more efficient and cost-effective to track incremental changes on
 your Amazon EBS volumes through snapshots. This can be done without having to create new volumes
 from snapshots, and then use Amazon Elastic Compute Cloud (Amazon EC2) instances to compare the differences.</p>
-
 <p>You can create incremental snapshots directly from data on-premises into volumes and the
 cloud to use for quick disaster recovery. With the ability to write and read snapshots, you can
 write your on-premises data to an snapshot during a disaster. Then after recovery, you can
 restore it back to Amazon Web Services or on-premises from the snapshot. You no longer need to build and
 maintain complex mechanisms to copy data to and from Amazon EBS.</p>
-
 <p>This API reference provides detailed information about the actions, data types,
 parameters, and errors of the EBS direct APIs. For more information about the elements that
 make up the EBS direct APIs, and examples of how to use them effectively, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html">Accessing the Contents of an Amazon EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User
@@ -133,7 +130,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -167,7 +164,7 @@ client
 
 // callbacks.
 client.completeSnapshot(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -181,7 +178,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -219,3 +216,54 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CompleteSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/classes/completesnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/completesnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/completesnapshotcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSnapshotBlock
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/classes/getsnapshotblockcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/getsnapshotblockcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/getsnapshotblockcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListChangedBlocks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/classes/listchangedblockscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/listchangedblockscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/listchangedblockscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSnapshotBlocks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/classes/listsnapshotblockscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/listsnapshotblockscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/listsnapshotblockscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutSnapshotBlock
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/classes/putsnapshotblockcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/putsnapshotblockcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/putsnapshotblockcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/classes/startsnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/startsnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ebs/interfaces/startsnapshotcommandoutput.html)
+
+</details>

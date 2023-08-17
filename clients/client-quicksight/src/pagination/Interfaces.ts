@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { QuickSight } from "../QuickSight";
 import { QuickSightClient } from "../QuickSightClient";
 
+/**
+ * @public
+ */
 export interface QuickSightPaginationConfiguration extends PaginationConfiguration {
-  client: QuickSight | QuickSightClient;
+  client: QuickSightClient;
 }

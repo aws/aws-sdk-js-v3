@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import { DeleteMeetingRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMeetingCommand,
-  serializeAws_restJson1DeleteMeetingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMeetingCommand, se_DeleteMeetingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteMeetingCommand}.
+ */
 export interface DeleteMeetingCommandInput extends DeleteMeetingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMeetingCommand}.
+ */
 export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees, disconnects all clients, and prevents new clients from
  *            joining the meeting. For more information about the Amazon Chime SDK, see
  *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the
@@ -32,13 +46,44 @@ export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKMeetingsClient, DeleteMeetingCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, DeleteMeetingCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = { // DeleteMeetingRequest
+ *   MeetingId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMeetingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteMeetingCommandInput - {@link DeleteMeetingCommandInput}
+ * @returns {@link DeleteMeetingCommandOutput}
  * @see {@link DeleteMeetingCommandInput} for command's `input` shape.
  * @see {@link DeleteMeetingCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The user isn't authorized to request a resource.</p>
+ *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class DeleteMeetingCommand extends $Command<
@@ -49,6 +94,18 @@ export class DeleteMeetingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMeetingCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +121,7 @@ export class DeleteMeetingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteMeetingCommandInput, DeleteMeetingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteMeetingCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +132,8 @@ export class DeleteMeetingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMeetingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +143,18 @@ export class DeleteMeetingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMeetingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMeetingCommand(input, context);
+    return se_DeleteMeetingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMeetingCommandOutput> {
-    return deserializeAws_restJson1DeleteMeetingCommand(output, context);
+    return de_DeleteMeetingCommand(output, context);
   }
 
   // Start section: command_body_extra

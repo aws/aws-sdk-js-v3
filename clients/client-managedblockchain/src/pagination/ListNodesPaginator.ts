@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
-import { ManagedBlockchain } from "../ManagedBlockchain";
 import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
 import { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ManagedBlockchainClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListNodesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ManagedBlockchain,
-  input: ListNodesCommandInput,
-  ...args: any
-): Promise<ListNodesCommandOutput> => {
-  // @ts-ignore
-  return await client.listNodes(input, ...args);
-};
 export async function* paginateListNodes(
   config: ManagedBlockchainPaginationConfiguration,
   input: ListNodesCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListNodes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ManagedBlockchain) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ManagedBlockchainClient) {
+    if (config.client instanceof ManagedBlockchainClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ManagedBlockchain | ManagedBlockchainClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

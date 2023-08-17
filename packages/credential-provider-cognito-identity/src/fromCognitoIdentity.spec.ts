@@ -1,5 +1,5 @@
 import { GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identity";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { fromCognitoIdentity } from "./fromCognitoIdentity";
 

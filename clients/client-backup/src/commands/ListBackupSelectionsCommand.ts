@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { ListBackupSelectionsInput, ListBackupSelectionsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBackupSelectionsCommand,
-  serializeAws_restJson1ListBackupSelectionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBackupSelectionsCommand, se_ListBackupSelectionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListBackupSelectionsCommand}.
+ */
 export interface ListBackupSelectionsCommandInput extends ListBackupSelectionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListBackupSelectionsCommand}.
+ */
 export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array containing metadata of the resources associated with the target backup
  *          plan.</p>
  * @example
@@ -30,13 +44,50 @@ export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsO
  * import { BackupClient, ListBackupSelectionsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupSelectionsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListBackupSelectionsInput
+ *   BackupPlanId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListBackupSelectionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListBackupSelectionsOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   BackupSelectionsList: [ // BackupSelectionsList
+ * //     { // BackupSelectionsListMember
+ * //       SelectionId: "STRING_VALUE",
+ * //       SelectionName: "STRING_VALUE",
+ * //       BackupPlanId: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       CreatorRequestId: "STRING_VALUE",
+ * //       IamRoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListBackupSelectionsCommandInput - {@link ListBackupSelectionsCommandInput}
+ * @returns {@link ListBackupSelectionsCommandOutput}
  * @see {@link ListBackupSelectionsCommandInput} for command's `input` shape.
  * @see {@link ListBackupSelectionsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListBackupSelectionsCommand extends $Command<
@@ -47,6 +98,18 @@ export class ListBackupSelectionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackupSelectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +125,9 @@ export class ListBackupSelectionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListBackupSelectionsCommandInput, ListBackupSelectionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListBackupSelectionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +138,8 @@ export class ListBackupSelectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackupSelectionsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBackupSelectionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +149,18 @@ export class ListBackupSelectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackupSelectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBackupSelectionsCommand(input, context);
+    return se_ListBackupSelectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupSelectionsCommandOutput> {
-    return deserializeAws_restJson1ListBackupSelectionsCommand(output, context);
+    return de_ListBackupSelectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

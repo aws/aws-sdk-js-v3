@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AssociateUserSettingsRequest, AssociateUserSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateUserSettingsCommand,
-  serializeAws_restJson1AssociateUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateUserSettingsCommand, se_AssociateUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateUserSettingsCommand}.
+ */
 export interface AssociateUserSettingsCommandInput extends AssociateUserSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateUserSettingsCommand}.
+ */
 export interface AssociateUserSettingsCommandOutput extends AssociateUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a user settings resource with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,45 @@ export interface AssociateUserSettingsCommandOutput extends AssociateUserSetting
  * import { WorkSpacesWebClient, AssociateUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // AssociateUserSettingsRequest
+ *   portalArn: "STRING_VALUE", // required
+ *   userSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateUserSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateUserSettingsResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   userSettingsArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
+ * @param AssociateUserSettingsCommandInput - {@link AssociateUserSettingsCommandInput}
+ * @returns {@link AssociateUserSettingsCommandOutput}
  * @see {@link AssociateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class AssociateUserSettingsCommand extends $Command<
@@ -46,6 +92,18 @@ export class AssociateUserSettingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +119,9 @@ export class AssociateUserSettingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateUserSettingsCommandInput, AssociateUserSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateUserSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +132,8 @@ export class AssociateUserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateUserSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateUserSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +143,18 @@ export class AssociateUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateUserSettingsCommand(input, context);
+    return se_AssociateUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateUserSettingsCommandOutput> {
-    return deserializeAws_restJson1AssociateUserSettingsCommand(output, context);
+    return de_AssociateUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

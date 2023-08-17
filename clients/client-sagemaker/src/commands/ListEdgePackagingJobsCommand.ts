@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { ListEdgePackagingJobsRequest, ListEdgePackagingJobsResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ListEdgePackagingJobsCommand,
-  serializeAws_json1_1ListEdgePackagingJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEdgePackagingJobsRequest, ListEdgePackagingJobsResponse } from "../models/models_3";
+import { de_ListEdgePackagingJobsCommand, se_ListEdgePackagingJobsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListEdgePackagingJobsCommand}.
+ */
 export interface ListEdgePackagingJobsCommandInput extends ListEdgePackagingJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEdgePackagingJobsCommand}.
+ */
 export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of edge packaging jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,47 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
  * import { SageMakerClient, ListEdgePackagingJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListEdgePackagingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListEdgePackagingJobsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   NameContains: "STRING_VALUE",
+ *   ModelNameContains: "STRING_VALUE",
+ *   StatusEquals: "STARTING" || "INPROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED",
+ *   SortBy: "NAME" || "MODEL_NAME" || "CREATION_TIME" || "LAST_MODIFIED_TIME" || "STATUS",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListEdgePackagingJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEdgePackagingJobsResponse
+ * //   EdgePackagingJobSummaries: [ // EdgePackagingJobSummaries // required
+ * //     { // EdgePackagingJobSummary
+ * //       EdgePackagingJobArn: "STRING_VALUE", // required
+ * //       EdgePackagingJobName: "STRING_VALUE", // required
+ * //       EdgePackagingJobStatus: "STARTING" || "INPROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED", // required
+ * //       CompilationJobName: "STRING_VALUE",
+ * //       ModelName: "STRING_VALUE",
+ * //       ModelVersion: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListEdgePackagingJobsCommandInput - {@link ListEdgePackagingJobsCommandInput}
+ * @returns {@link ListEdgePackagingJobsCommandOutput}
  * @see {@link ListEdgePackagingJobsCommandInput} for command's `input` shape.
  * @see {@link ListEdgePackagingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListEdgePackagingJobsCommand extends $Command<
@@ -46,6 +94,18 @@ export class ListEdgePackagingJobsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListEdgePackagingJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +121,9 @@ export class ListEdgePackagingJobsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListEdgePackagingJobsCommandInput, ListEdgePackagingJobsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListEdgePackagingJobsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +134,8 @@ export class ListEdgePackagingJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEdgePackagingJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEdgePackagingJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +145,18 @@ export class ListEdgePackagingJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEdgePackagingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEdgePackagingJobsCommand(input, context);
+    return se_ListEdgePackagingJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEdgePackagingJobsCommandOutput> {
-    return deserializeAws_json1_1ListEdgePackagingJobsCommand(output, context);
+    return de_ListEdgePackagingJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

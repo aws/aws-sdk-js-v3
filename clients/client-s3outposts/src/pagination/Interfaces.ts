@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { S3Outposts } from "../S3Outposts";
 import { S3OutpostsClient } from "../S3OutpostsClient";
 
+/**
+ * @public
+ */
 export interface S3OutpostsPaginationConfiguration extends PaginationConfiguration {
-  client: S3Outposts | S3OutpostsClient;
+  client: S3OutpostsClient;
 }

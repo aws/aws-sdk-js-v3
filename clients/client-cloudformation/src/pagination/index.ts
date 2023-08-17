@@ -1,7 +1,11 @@
 export * from "./DescribeAccountLimitsPaginator";
+
 export * from "./DescribeStackEventsPaginator";
+
 export * from "./DescribeStackResourceDriftsPaginator";
+
 export * from "./DescribeStacksPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListChangeSetsPaginator";
 export * from "./ListExportsPaginator";

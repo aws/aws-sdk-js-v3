@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   KinesisAnalyticsV2ClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import { ListApplicationVersionsRequest, ListApplicationVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApplicationVersionsCommand,
-  serializeAws_json1_1ListApplicationVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListApplicationVersionsCommand, se_ListApplicationVersionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListApplicationVersionsCommand}.
+ */
 export interface ListApplicationVersionsCommandInput extends ListApplicationVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListApplicationVersionsCommand}.
+ */
 export interface ListApplicationVersionsCommandOutput extends ListApplicationVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the versions for the specified application, including versions that were rolled back. The response also includes a summary of the configuration
  *       associated with each version.</p>
  *
@@ -39,13 +53,43 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * import { KinesisAnalyticsV2Client, ListApplicationVersionsCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, ListApplicationVersionsCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // ListApplicationVersionsRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListApplicationVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListApplicationVersionsResponse
+ * //   ApplicationVersionSummaries: [ // ApplicationVersionSummaries
+ * //     { // ApplicationVersionSummary
+ * //       ApplicationVersionId: Number("long"), // required
+ * //       ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING" || "AUTOSCALING" || "FORCE_STOPPING" || "ROLLING_BACK" || "MAINTENANCE" || "ROLLED_BACK", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListApplicationVersionsCommandInput - {@link ListApplicationVersionsCommandInput}
+ * @returns {@link ListApplicationVersionsCommandOutput}
  * @see {@link ListApplicationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationVersionsCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter value is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
+ *       operation. </p>
+ *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class ListApplicationVersionsCommand extends $Command<
@@ -56,6 +100,18 @@ export class ListApplicationVersionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +127,9 @@ export class ListApplicationVersionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListApplicationVersionsCommandInput, ListApplicationVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListApplicationVersionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +140,8 @@ export class ListApplicationVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +151,18 @@ export class ListApplicationVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApplicationVersionsCommand(input, context);
+    return se_ListApplicationVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationVersionsCommandOutput> {
-    return deserializeAws_json1_1ListApplicationVersionsCommand(output, context);
+    return de_ListApplicationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

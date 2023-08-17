@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,35 +11,60 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisableImageDeprecationRequest, DisableImageDeprecationResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DisableImageDeprecationCommand,
-  serializeAws_ec2DisableImageDeprecationCommand,
-} from "../protocols/Aws_ec2";
+import { DisableImageDeprecationRequest, DisableImageDeprecationResult } from "../models/models_5";
+import { de_DisableImageDeprecationCommand, se_DisableImageDeprecationCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisableImageDeprecationCommand}.
+ */
 export interface DisableImageDeprecationCommandInput extends DisableImageDeprecationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableImageDeprecationCommand}.
+ */
 export interface DisableImageDeprecationCommandOutput extends DisableImageDeprecationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the deprecation of the specified AMI.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the
- *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *         <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DisableImageDeprecationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableImageDeprecationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisableImageDeprecationRequest
+ *   ImageId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisableImageDeprecationCommand(input);
  * const response = await client.send(command);
+ * // { // DisableImageDeprecationResult
+ * //   Return: true || false,
+ * // };
+ *
  * ```
  *
+ * @param DisableImageDeprecationCommandInput - {@link DisableImageDeprecationCommandInput}
+ * @returns {@link DisableImageDeprecationCommandOutput}
  * @see {@link DisableImageDeprecationCommandInput} for command's `input` shape.
  * @see {@link DisableImageDeprecationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisableImageDeprecationCommand extends $Command<
@@ -48,6 +75,18 @@ export class DisableImageDeprecationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisableImageDeprecationCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +102,9 @@ export class DisableImageDeprecationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisableImageDeprecationCommandInput, DisableImageDeprecationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisableImageDeprecationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +115,8 @@ export class DisableImageDeprecationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableImageDeprecationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableImageDeprecationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +126,18 @@ export class DisableImageDeprecationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableImageDeprecationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableImageDeprecationCommand(input, context);
+    return se_DisableImageDeprecationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableImageDeprecationCommandOutput> {
-    return deserializeAws_ec2DisableImageDeprecationCommand(output, context);
+    return de_DisableImageDeprecationCommand(output, context);
   }
 
   // Start section: command_body_extra

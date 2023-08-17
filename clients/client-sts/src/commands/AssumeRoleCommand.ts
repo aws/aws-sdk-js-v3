@@ -1,7 +1,9 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+// smithy-typescript generated code
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,22 +12,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { AssumeRoleRequest, AssumeRoleResponse } from "../models/models_0";
-import { deserializeAws_queryAssumeRoleCommand, serializeAws_queryAssumeRoleCommand } from "../protocols/Aws_query";
+import { AssumeRoleRequest, AssumeRoleResponse, AssumeRoleResponseFilterSensitiveLog } from "../models/models_0";
+import { de_AssumeRoleCommand, se_AssumeRoleCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssumeRoleCommand}.
+ */
 export interface AssumeRoleCommandInput extends AssumeRoleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssumeRoleCommand}.
+ */
 export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
- *          resources that you might not normally have access to. These temporary credentials consist
- *          of an access key ID, a secret access key, and a security token. Typically, you use
- *             <code>AssumeRole</code> within your account or for cross-account access. For a
- *          comparison of <code>AssumeRole</code> with other API operations that produce temporary
- *          credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
+ *          resources. These temporary credentials consist of an access key ID, a secret access key,
+ *          and a security token. Typically, you use <code>AssumeRole</code> within your account or for
+ *          cross-account access. For a comparison of <code>AssumeRole</code> with other API operations
+ *          that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
  *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
  *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
  *          <p>
@@ -37,9 +53,9 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          operations.</p>
  *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
  *          this operation. You can pass a single JSON policy document to use as an inline session
- *          policy. You can also specify up to 10 managed policies to use as managed session policies.
- *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
- *          characters. Passing policies to this operation returns new
+ *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+ *          managed session policies. The plaintext that you use for both inline and managed session
+ *          policies can't exceed 2,048 characters. Passing policies to this operation returns new
  *          temporary credentials. The resulting session's permissions are the intersection of the
  *          role's identity-based policy and the session policies. You can use the role's temporary
  *          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
@@ -47,17 +63,17 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          by the identity-based policy of the role that is being assumed. For more information, see
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
  *             Policies</a> in the <i>IAM User Guide</i>.</p>
- *          <p>When you create a role, you create two policies: A role trust policy that specifies
- *             <i>who</i> can assume the role and a permissions policy that specifies
+ *          <p>When you create a role, you create two policies: a role trust policy that specifies
+ *             <i>who</i> can assume the role, and a permissions policy that specifies
  *             <i>what</i> can be done with the role. You specify the trusted principal
- *          who is allowed to assume the role in the role trust policy.</p>
+ *          that is allowed to assume the role in the role trust policy.</p>
  *          <p>To assume a role from a different account, your Amazon Web Services account must be trusted by the
  *          role. The trust relationship is defined in the role's trust policy when the role is
  *          created. That trust policy states which accounts are allowed to delegate that access to
  *          users in the account. </p>
  *          <p>A user who wants to access a role in a different account must also have permissions that
- *          are delegated from the user account administrator. The administrator must attach a policy
- *          that allows the user to call <code>AssumeRole</code> for the ARN of the role in the other
+ *          are delegated from the account administrator. The administrator must attach a policy that
+ *          allows the user to call <code>AssumeRole</code> for the ARN of the role in the other
  *          account.</p>
  *          <p>To allow a user to assume a role in the same account, you can do either of the
  *          following:</p>
@@ -75,7 +91,6 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          additional identity-based policy is required. For more information about trust policies and
  *          resource-based policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a> in the
  *             <i>IAM User Guide</i>.</p>
- *
  *          <p>
  *             <b>Tags</b>
  *          </p>
@@ -101,7 +116,7 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          assume the role is denied. The condition in a trust policy that tests for MFA
  *          authentication might look like the following example.</p>
  *          <p>
- *             <code>"Condition": {"Bool": {"aws:MultiFactorAuthPresent": true}}</code>
+ *             <code>"Condition": \{"Bool": \{"aws:MultiFactorAuthPresent": true\}\}</code>
  *          </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html">Configuring MFA-Protected API Access</a>
  *          in the <i>IAM User Guide</i> guide.</p>
@@ -116,13 +131,136 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * import { STSClient, AssumeRoleCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = { // AssumeRoleRequest
+ *   RoleArn: "STRING_VALUE", // required
+ *   RoleSessionName: "STRING_VALUE", // required
+ *   PolicyArns: [ // policyDescriptorListType
+ *     { // PolicyDescriptorType
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Policy: "STRING_VALUE",
+ *   DurationSeconds: Number("int"),
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TransitiveTagKeys: [ // tagKeyListType
+ *     "STRING_VALUE",
+ *   ],
+ *   ExternalId: "STRING_VALUE",
+ *   SerialNumber: "STRING_VALUE",
+ *   TokenCode: "STRING_VALUE",
+ *   SourceIdentity: "STRING_VALUE",
+ *   ProvidedContexts: [ // ProvidedContextsListType
+ *     { // ProvidedContext
+ *       ProviderArn: "STRING_VALUE",
+ *       ContextAssertion: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AssumeRoleCommand(input);
  * const response = await client.send(command);
+ * // { // AssumeRoleResponse
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     SessionToken: "STRING_VALUE", // required
+ * //     Expiration: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   AssumedRoleUser: { // AssumedRoleUser
+ * //     AssumedRoleId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //   },
+ * //   PackedPolicySize: Number("int"),
+ * //   SourceIdentity: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param AssumeRoleCommandInput - {@link AssumeRoleCommandInput}
+ * @returns {@link AssumeRoleCommandOutput}
  * @see {@link AssumeRoleCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
+ *
+ * @throws {@link ExpiredTokenException} (client fault)
+ *  <p>The web identity token that was passed is expired or is not valid. Get a new identity
+ *             token from the identity provider and then retry the request.</p>
+ *
+ * @throws {@link MalformedPolicyDocumentException} (client fault)
+ *  <p>The request was rejected because the policy document was malformed. The error message
+ *             describes the specific error.</p>
+ *
+ * @throws {@link PackedPolicyTooLargeException} (client fault)
+ *  <p>The request was rejected because the total packed size of the session policies and
+ *             session tags combined was too large. An Amazon Web Services conversion compresses the session policy
+ *             document, session policy ARNs, and session tags into a packed binary format that has a
+ *             separate limit. The error message indicates by percentage how close the policies and
+ *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
+ *             the <i>IAM User Guide</i>.</p>
+ *          <p>You could receive this error even though you meet other defined session policy and
+ *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity
+ *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
+ *
+ * @throws {@link RegionDisabledException} (client fault)
+ *  <p>STS is not activated in the requested region for the account that is being asked to
+ *             generate credentials. The account administrator must use the IAM console to activate STS
+ *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
+ *                     Guide</i>.</p>
+ *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
+ *
+ * @example To assume a role
+ * ```javascript
+ * //
+ * const input = {
+ *   "ExternalId": "123ABC",
+ *   "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Stmt1\",\"Effect\":\"Allow\",\"Action\":\"s3:ListAllMyBuckets\",\"Resource\":\"*\"}]}",
+ *   "RoleArn": "arn:aws:iam::123456789012:role/demo",
+ *   "RoleSessionName": "testAssumeRoleSession",
+ *   "Tags": [
+ *     {
+ *       "Key": "Project",
+ *       "Value": "Unicorn"
+ *     },
+ *     {
+ *       "Key": "Team",
+ *       "Value": "Automation"
+ *     },
+ *     {
+ *       "Key": "Cost-Center",
+ *       "Value": "12345"
+ *     }
+ *   ],
+ *   "TransitiveTagKeys": [
+ *     "Project",
+ *     "Cost-Center"
+ *   ]
+ * };
+ * const command = new AssumeRoleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AssumedRoleUser": {
+ *     "Arn": "arn:aws:sts::123456789012:assumed-role/demo/Bob",
+ *     "AssumedRoleId": "ARO123EXAMPLE123:Bob"
+ *   },
+ *   "Credentials": {
+ *     "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+ *     "Expiration": "2011-07-15T23:28:33.359Z",
+ *     "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
+ *     "SessionToken": "AQoDYXdzEPT//////////wEXAMPLEtc764bNrC9SAPBSM22wDOk4x4HIZ8j4FZTwdQWLWsKWHGBuFqwAeMicRXmxfpSPfIeoIYRqTflfKD8YUuwthAx7mSEI/qkPpKPi/kMcGdQrmGdeehM4IC1NtBmUpp2wUE8phUZampKsburEDy0KPkyQDYwT7WZ0wq5VSXDvp75YU9HFvlRd8Tx6q6fE8YQcHNVXAkiY9q6d+xo0rKwT38xVqr7ZD0u0iPPkUL64lIZbqBAz+scqKmlzm8FDrypNC9Yjc8fPOLn9FX9KSYvKTr4rvx3iSIlTJabIQwj2ICCR/oLxBA=="
+ *   },
+ *   "PackedPolicySize": 8
+ * }
+ * *\/
+ * // example id: to-assume-a-role-1480532402212
+ * ```
  *
  */
 export class AssumeRoleCommand extends $Command<
@@ -133,6 +271,19 @@ export class AssumeRoleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,6 +299,7 @@ export class AssumeRoleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssumeRoleCommandInput, AssumeRoleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AssumeRoleCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -159,8 +311,8 @@ export class AssumeRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeRoleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssumeRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: AssumeRoleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,12 +322,18 @@ export class AssumeRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAssumeRoleCommand(input, context);
+    return se_AssumeRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeRoleCommandOutput> {
-    return deserializeAws_queryAssumeRoleCommand(output, context);
+    return de_AssumeRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

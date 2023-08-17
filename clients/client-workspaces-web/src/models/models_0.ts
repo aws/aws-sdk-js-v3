@@ -1,9 +1,10 @@
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { WorkSpacesWebServiceException as __BaseException } from "./WorkSpacesWebServiceException";
 
 /**
+ * @public
  * <p>Access is denied.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,60 +23,55 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateBrowserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
-}
-
-export namespace AssociateBrowserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateBrowserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface AssociateBrowserSettingsResponse {
-  /**
-   * <p>The ARN of the web portal.</p>
-   */
-  portalArn: string | undefined;
-
-  /**
-   * <p>The ARN of the browser settings.</p>
-   */
-  browserSettingsArn: string | undefined;
-}
-
-export namespace AssociateBrowserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateBrowserSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
+ * @public
+ */
+export interface AssociateBrowserSettingsResponse {
+  /**
+   * @public
+   * <p>The ARN of the web portal.</p>
+   */
+  portalArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the browser settings.</p>
+   */
+  browserSettingsArn: string | undefined;
+}
+
+/**
+ * @public
  * <p>There is a conflict.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Identifier of the resource affected.</p>
    */
   resourceId?: string;
 
   /**
+   * @public
    * <p>Type of the resource affected.</p>
    */
   resourceType?: string;
@@ -96,12 +92,14 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is an internal server error.</p>
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
+   * @public
    * <p>Advice to clients on when the call can be safely retried.</p>
    */
   retryAfterSeconds?: number;
@@ -121,17 +119,20 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource cannot be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Hypothetical identifier of the resource affected.</p>
    */
   resourceId?: string;
 
   /**
+   * @public
    * <p>Hypothetical type of the resource affected.</p>
    */
   resourceType?: string;
@@ -152,22 +153,26 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is a throttling error.</p>
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The originating service.</p>
    */
   serviceCode?: string;
 
   /**
+   * @public
    * <p>The originating quota.</p>
    */
   quotaCode?: string;
 
   /**
+   * @public
    * <p>Advice to clients on when the call can be safely retried.</p>
    */
   retryAfterSeconds?: number;
@@ -189,48 +194,54 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a field passed inside a request that resulted in an exception.</p>
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The name of the field that failed validation.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The message describing why the field failed validation.</p>
    */
   message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>There is a validation error.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Reason the request failed validation</p>
    */
   reason?: ValidationExceptionReason | string;
 
   /**
+   * @public
    * <p>The field that caused the error.</p>
    */
   fieldList?: ValidationExceptionField[];
@@ -250,179 +261,239 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export interface AssociateNetworkSettingsRequest {
+/**
+ * @public
+ */
+export interface AssociateIpAccessSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
-   * <p>The ARN of the network settings.</p>
+   * @public
+   * <p>The ARN of the IP access settings.</p>
    */
-  networkSettingsArn: string | undefined;
-}
-
-export namespace AssociateNetworkSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateNetworkSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface AssociateNetworkSettingsResponse {
-  /**
-   * <p>The ARN of the web portal.</p>
-   */
-  portalArn: string | undefined;
-
-  /**
-   * <p>The ARN of the network settings.</p>
-   */
-  networkSettingsArn: string | undefined;
-}
-
-export namespace AssociateNetworkSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateNetworkSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface AssociateTrustStoreRequest {
-  /**
-   * <p>The ARN of the web portal.</p>
-   */
-  portalArn: string | undefined;
-
-  /**
-   * <p>The ARN of the trust store.</p>
-   */
-  trustStoreArn: string | undefined;
-}
-
-export namespace AssociateTrustStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTrustStoreRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface AssociateTrustStoreResponse {
-  /**
-   * <p>The ARN of the web portal.</p>
-   */
-  portalArn: string | undefined;
-
-  /**
-   * <p>The ARN of the trust store.</p>
-   */
-  trustStoreArn: string | undefined;
-}
-
-export namespace AssociateTrustStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTrustStoreResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface AssociateUserSettingsRequest {
-  /**
-   * <p>The ARN of the web portal.</p>
-   */
-  portalArn: string | undefined;
-
-  /**
-   * <p>The ARN of the user settings.</p>
-   */
-  userSettingsArn: string | undefined;
-}
-
-export namespace AssociateUserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateUserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface AssociateUserSettingsResponse {
-  /**
-   * <p>The ARN of the web portal.</p>
-   */
-  portalArn: string | undefined;
-
-  /**
-   * <p>The ARN of the user settings.</p>
-   */
-  userSettingsArn: string | undefined;
-}
-
-export namespace AssociateUserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateUserSettingsResponse): any => ({
-    ...obj,
-  });
+  ipAccessSettingsArn: string | undefined;
 }
 
 /**
+ * @public
+ */
+export interface AssociateIpAccessSettingsResponse {
+  /**
+   * @public
+   * <p>The ARN of the web portal.</p>
+   */
+  portalArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the IP access settings resource.</p>
+   */
+  ipAccessSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateNetworkSettingsRequest {
+  /**
+   * @public
+   * <p>The ARN of the web portal.</p>
+   */
+  portalArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the network settings.</p>
+   */
+  networkSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateNetworkSettingsResponse {
+  /**
+   * @public
+   * <p>The ARN of the web portal.</p>
+   */
+  portalArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the network settings.</p>
+   */
+  networkSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateTrustStoreRequest {
+  /**
+   * @public
+   * <p>The ARN of the web portal.</p>
+   */
+  portalArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the trust store.</p>
+   */
+  trustStoreArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateTrustStoreResponse {
+  /**
+   * @public
+   * <p>The ARN of the web portal.</p>
+   */
+  portalArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the trust store.</p>
+   */
+  trustStoreArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateUserAccessLoggingSettingsRequest {
+  /**
+   * @public
+   * <p>The ARN of the web portal.</p>
+   */
+  portalArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the user access logging settings.</p>
+   */
+  userAccessLoggingSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateUserAccessLoggingSettingsResponse {
+  /**
+   * @public
+   * <p>The ARN of the web portal.</p>
+   */
+  portalArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the user access logging settings.</p>
+   */
+  userAccessLoggingSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateUserSettingsRequest {
+  /**
+   * @public
+   * <p>The ARN of the web portal.</p>
+   */
+  portalArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the user settings.</p>
+   */
+  userSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateUserSettingsResponse {
+  /**
+   * @public
+   * <p>The ARN of the web portal.</p>
+   */
+  portalArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the user settings.</p>
+   */
+  userSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationType = {
+  IAM_IDENTITY_CENTER: "IAM_Identity_Center",
+  STANDARD: "Standard",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+/**
+ * @public
  * <p>The tag.</p>
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key of the tag.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The value of the tag</p>
    */
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateBrowserSettingsRequest {
   /**
+   * @public
    * <p>The tags to add to the browser settings resource. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>The custom managed key of the browser settings.</p>
    */
   customerManagedKey?: string;
 
   /**
+   * @public
    * <p>Additional encryption context of the browser settings.</p>
    */
-  additionalEncryptionContext?: { [key: string]: string };
+  additionalEncryptionContext?: Record<string, string>;
 
   /**
+   * @public
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
    *          streaming sessions.</p>
    */
   browserPolicy: string | undefined;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -432,53 +503,44 @@ export interface CreateBrowserSettingsRequest {
   clientToken?: string;
 }
 
-export namespace CreateBrowserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBrowserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateBrowserSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
 }
 
-export namespace CreateBrowserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBrowserSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The service quota has been exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Identifier of the resource affected.</p>
    */
   resourceId?: string;
 
   /**
+   * @public
    * <p> Type of the resource affected.</p>
    */
   resourceType?: string;
 
   /**
+   * @public
    * <p>The originating service.</p>
    */
   serviceCode?: string;
 
   /**
+   * @public
    * <p>The originating quota.</p>
    */
   quotaCode?: string;
@@ -500,32 +562,48 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
-export enum IdentityProviderType {
-  Facebook = "Facebook",
-  Google = "Google",
-  LoginWithAmazon = "LoginWithAmazon",
-  OIDC = "OIDC",
-  SAML = "SAML",
-  SignInWithApple = "SignInWithApple",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IdentityProviderType = {
+  Facebook: "Facebook",
+  Google: "Google",
+  LoginWithAmazon: "LoginWithAmazon",
+  OIDC: "OIDC",
+  SAML: "SAML",
+  SignInWithApple: "SignInWithApple",
+} as const;
 
+/**
+ * @public
+ */
+export type IdentityProviderType = (typeof IdentityProviderType)[keyof typeof IdentityProviderType];
+
+/**
+ * @public
+ */
 export interface CreateIdentityProviderRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The identity provider name.</p>
    */
   identityProviderName: string | undefined;
 
   /**
+   * @public
    * <p>The identity provider type.</p>
    */
   identityProviderType: IdentityProviderType | string | undefined;
 
   /**
+   * @public
    * <p>The identity provider details. The following list describes the provider detail keys for
    *          each identity provider type. </p>
    *          <ul>
@@ -672,17 +750,18 @@ export interface CreateIdentityProviderRequest {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>IDPSignout</code>
-   *                         <i>optional</i>
+   *                         <code>IDPSignout</code> (boolean)
+   *                <i>optional</i>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
    */
-  identityProviderDetails: { [key: string]: string } | undefined;
+  identityProviderDetails: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -693,53 +772,128 @@ export interface CreateIdentityProviderRequest {
   clientToken?: string;
 }
 
-export namespace CreateIdentityProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIdentityProviderRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateIdentityProviderResponse {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn: string | undefined;
 }
 
-export namespace CreateIdentityProviderResponse {
+/**
+ * @public
+ * <p>The IP rules of the IP access settings.</p>
+ */
+export interface IpRule {
   /**
-   * @internal
+   * @public
+   * <p>The IP range of the IP rule.</p>
    */
-  export const filterSensitiveLog = (obj: CreateIdentityProviderResponse): any => ({
-    ...obj,
-  });
+  ipRange: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the IP rule.</p>
+   */
+  description?: string;
 }
 
+/**
+ * @public
+ */
+export interface CreateIpAccessSettingsRequest {
+  /**
+   * @public
+   * <p>The display name of the IP access settings.</p>
+   */
+  displayName?: string;
+
+  /**
+   * @public
+   * <p>The description of the IP access settings.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The tags to add to the browser settings resource. A tag is a key-value pair.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The custom managed key of the IP access settings.</p>
+   */
+  customerManagedKey?: string;
+
+  /**
+   * @public
+   * <p>Additional encryption context of the IP access settings.</p>
+   */
+  additionalEncryptionContext?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The IP rules of the IP access settings.</p>
+   */
+  ipRules: IpRule[] | undefined;
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          request. Idempotency ensures that an API request completes only once. With an idempotent
+   *          request, if the original request completes successfully, subsequent retries with the same
+   *          client token returns the result from the original successful request. </p>
+   *          <p>If you do not specify a client token, one is automatically generated by the AWS
+   *          SDK.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateIpAccessSettingsResponse {
+  /**
+   * @public
+   * <p>The ARN of the IP access settings resource.</p>
+   */
+  ipAccessSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateNetworkSettingsRequest {
   /**
+   * @public
    * <p>The VPC that streaming instances will connect to.</p>
    */
   vpcId: string | undefined;
 
   /**
+   * @public
    * <p>The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.</p>
    */
   subnetIds: string[] | undefined;
 
   /**
+   * @public
    * <p>One or more security groups used to control access from streaming instances to your VPC.</p>
    */
   securityGroupIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the network settings resource. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -750,53 +904,47 @@ export interface CreateNetworkSettingsRequest {
   clientToken?: string;
 }
 
-export namespace CreateNetworkSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNetworkSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateNetworkSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
 }
 
-export namespace CreateNetworkSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNetworkSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreatePortalRequest {
   /**
+   * @public
    * <p>The name of the web portal. This is not visible to users who log into the web portal.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The tags to add to the web portal. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>The customer managed key of the web portal.</p>
    */
   customerManagedKey?: string;
 
   /**
+   * @public
    * <p>The additional encryption context of the portal.</p>
    */
-  additionalEncryptionContext?: { [key: string]: string };
+  additionalEncryptionContext?: Record<string, string>;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -805,50 +953,61 @@ export interface CreatePortalRequest {
    *          SDK.</p>
    */
   clientToken?: string;
-}
 
-export namespace CreatePortalRequest {
   /**
-   * @internal
+   * @public
+   * <p>The type of authentication integration points used when signing into the web portal.
+   *          Defaults to <code>Standard</code>.</p>
+   *          <p>
+   *             <code>Standard</code> web portals are authenticated directly through your identity
+   *          provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity
+   *          provider with your web portal. User and group access to your web portal is controlled
+   *          through your identity provider.</p>
+   *          <p>
+   *             <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity
+   *          Center (successor to AWS Single Sign-On). They provide additional features, such as
+   *          IdP-initiated authentication. Identity sources (including external identity provider
+   *          integration), plus user and group access to your web portal, can be configured in the IAM
+   *          Identity Center.</p>
    */
-  export const filterSensitiveLog = (obj: CreatePortalRequest): any => ({
-    ...obj,
-  });
+  authenticationType?: AuthenticationType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortalResponse {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The endpoint URL of the web portal that users access in order to start streaming sessions.</p>
    */
   portalEndpoint: string | undefined;
 }
 
-export namespace CreatePortalResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePortalResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateTrustStoreRequest {
   /**
+   * @public
    * <p>A list of CA certificates to be added to the trust store.</p>
    */
   certificateList: Uint8Array[] | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the trust store. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -859,72 +1018,128 @@ export interface CreateTrustStoreRequest {
   clientToken?: string;
 }
 
-export namespace CreateTrustStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrustStoreRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateTrustStoreResponse {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
 }
 
-export namespace CreateTrustStoreResponse {
+/**
+ * @public
+ */
+export interface CreateUserAccessLoggingSettingsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the Kinesis stream.</p>
    */
-  export const filterSensitiveLog = (obj: CreateTrustStoreResponse): any => ({
-    ...obj,
-  });
+  kinesisStreamArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The tags to add to the user settings resource. A tag is a key-value pair.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          request. Idempotency ensures that an API request completes only once. With an idempotent
+   *          request, if the original request completes successfully, subsequent retries with the same
+   *          client token returns the result from the original successful request. </p>
+   *          <p>If you do not specify a client token, one is automatically generated by the AWS
+   *          SDK.</p>
+   */
+  clientToken?: string;
 }
 
-export enum EnabledType {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
+/**
+ * @public
+ */
+export interface CreateUserAccessLoggingSettingsResponse {
+  /**
+   * @public
+   * <p>The ARN of the user access logging settings.</p>
+   */
+  userAccessLoggingSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ * @enum
+ */
+export const EnabledType = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type EnabledType = (typeof EnabledType)[keyof typeof EnabledType];
+
+/**
+ * @public
+ */
 export interface CreateUserSettingsRequest {
   /**
+   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
   copyAllowed: EnabledType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
   pasteAllowed: EnabledType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
   downloadAllowed: EnabledType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
   uploadAllowed: EnabledType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
   printAllowed: EnabledType | string | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the user settings resource. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
+   * <p>The amount of time that a streaming session remains active after users disconnect.</p>
+   */
+  disconnectTimeoutInMinutes?: number;
+
+  /**
+   * @public
+   * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   */
+  idleDisconnectTimeoutInMinutes?: number;
+
+  /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -935,401 +1150,326 @@ export interface CreateUserSettingsRequest {
   clientToken?: string;
 }
 
-export namespace CreateUserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateUserSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
 }
 
-export namespace CreateUserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteBrowserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
 }
 
-export namespace DeleteBrowserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBrowserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteBrowserSettingsResponse {}
 
-export namespace DeleteBrowserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBrowserSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteIdentityProviderRequest {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn: string | undefined;
 }
 
-export namespace DeleteIdentityProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentityProviderRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteIdentityProviderResponse {}
 
-export namespace DeleteIdentityProviderResponse {
+/**
+ * @public
+ */
+export interface DeleteIpAccessSettingsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the IP access settings.</p>
    */
-  export const filterSensitiveLog = (obj: DeleteIdentityProviderResponse): any => ({
-    ...obj,
-  });
+  ipAccessSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DeleteIpAccessSettingsResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteNetworkSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
 }
 
-export namespace DeleteNetworkSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNetworkSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteNetworkSettingsResponse {}
 
-export namespace DeleteNetworkSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNetworkSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeletePortalRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 }
 
-export namespace DeletePortalRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePortalRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeletePortalResponse {}
 
-export namespace DeletePortalResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePortalResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteTrustStoreRequest {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
 }
 
-export namespace DeleteTrustStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrustStoreRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteTrustStoreResponse {}
 
-export namespace DeleteTrustStoreResponse {
+/**
+ * @public
+ */
+export interface DeleteUserAccessLoggingSettingsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the user access logging settings.</p>
    */
-  export const filterSensitiveLog = (obj: DeleteTrustStoreResponse): any => ({
-    ...obj,
-  });
+  userAccessLoggingSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DeleteUserAccessLoggingSettingsResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteUserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
 }
 
-export namespace DeleteUserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteUserSettingsResponse {}
 
-export namespace DeleteUserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateBrowserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 }
 
-export namespace DisassociateBrowserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateBrowserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateBrowserSettingsResponse {}
 
-export namespace DisassociateBrowserSettingsResponse {
+/**
+ * @public
+ */
+export interface DisassociateIpAccessSettingsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the web portal.</p>
    */
-  export const filterSensitiveLog = (obj: DisassociateBrowserSettingsResponse): any => ({
-    ...obj,
-  });
+  portalArn: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DisassociateIpAccessSettingsResponse {}
+
+/**
+ * @public
+ */
 export interface DisassociateNetworkSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 }
 
-export namespace DisassociateNetworkSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateNetworkSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateNetworkSettingsResponse {}
 
-export namespace DisassociateNetworkSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateNetworkSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateTrustStoreRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 }
 
-export namespace DisassociateTrustStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTrustStoreRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateTrustStoreResponse {}
 
-export namespace DisassociateTrustStoreResponse {
+/**
+ * @public
+ */
+export interface DisassociateUserAccessLoggingSettingsRequest {
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTrustStoreResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateUserSettingsRequest {
-  /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 }
 
-export namespace DisassociateUserSettingsRequest {
+/**
+ * @public
+ */
+export interface DisassociateUserAccessLoggingSettingsResponse {}
+
+/**
+ * @public
+ */
+export interface DisassociateUserSettingsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the web portal.</p>
    */
-  export const filterSensitiveLog = (obj: DisassociateUserSettingsRequest): any => ({
-    ...obj,
-  });
+  portalArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateUserSettingsResponse {}
 
-export namespace DisassociateUserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateUserSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetBrowserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
 }
 
-export namespace GetBrowserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBrowserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The browser settings resource that can be associated with a web portal. Once associated
  *          with a web portal, browser settings control how the browser will behave once a user starts
  *          a streaming session for the web portal. </p>
  */
 export interface BrowserSettings {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of web portal ARNs that this browser settings is associated with.</p>
    */
   associatedPortalArns?: string[];
 
   /**
+   * @public
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
    *          streaming sessions.</p>
    */
   browserPolicy?: string;
 }
 
-export namespace BrowserSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrowserSettings): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetBrowserSettingsResponse {
   /**
+   * @public
    * <p>The browser settings.</p>
    */
   browserSettings?: BrowserSettings;
 }
 
-export namespace GetBrowserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBrowserSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetIdentityProviderRequest {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn: string | undefined;
 }
 
-export namespace GetIdentityProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The identity provider.</p>
  */
 export interface IdentityProvider {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn: string | undefined;
 
   /**
+   * @public
    * <p>The identity provider name.</p>
    */
   identityProviderName?: string;
 
   /**
+   * @public
    * <p>The identity provider type.</p>
    */
   identityProviderType?: IdentityProviderType | string;
 
   /**
+   * @public
    * <p>The identity provider details. The following list describes the provider detail keys for
    *          each identity provider type. </p>
    *          <ul>
@@ -1484,282 +1624,357 @@ export interface IdentityProvider {
    *             </li>
    *          </ul>
    */
-  identityProviderDetails?: { [key: string]: string };
+  identityProviderDetails?: Record<string, string>;
 }
 
-export namespace IdentityProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityProvider): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetIdentityProviderResponse {
   /**
+   * @public
    * <p>The identity provider.</p>
    */
   identityProvider?: IdentityProvider;
 }
 
-export namespace GetIdentityProviderResponse {
+/**
+ * @public
+ */
+export interface GetIpAccessSettingsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the IP access settings.</p>
    */
-  export const filterSensitiveLog = (obj: GetIdentityProviderResponse): any => ({
-    ...obj,
-  });
+  ipAccessSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ * <p>The IP access settings resource that can be associated with a web portal. </p>
+ */
+export interface IpAccessSettings {
+  /**
+   * @public
+   * <p>The ARN of the IP access settings resource.</p>
+   */
+  ipAccessSettingsArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of web portal ARNs that this IP access settings resource is associated with.</p>
+   */
+  associatedPortalArns?: string[];
+
+  /**
+   * @public
+   * <p>The IP rules of the IP access settings.</p>
+   */
+  ipRules?: IpRule[];
+
+  /**
+   * @public
+   * <p> The display name of the IP access settings.</p>
+   */
+  displayName?: string;
+
+  /**
+   * @public
+   * <p>The description of the IP access settings.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The creation date timestamp of the IP access settings.</p>
+   */
+  creationDate?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetIpAccessSettingsResponse {
+  /**
+   * @public
+   * <p>The IP access settings.</p>
+   */
+  ipAccessSettings?: IpAccessSettings;
+}
+
+/**
+ * @public
+ */
 export interface GetNetworkSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
 }
 
-export namespace GetNetworkSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNetworkSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A network settings resource that can be associated with a web portal. Once associated
  *          with a web portal, network settings define how streaming instances will connect with your
  *          specified VPC. </p>
  */
 export interface NetworkSettings {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of web portal ARNs that this network settings is associated with.</p>
    */
   associatedPortalArns?: string[];
 
   /**
+   * @public
    * <p>The VPC that streaming instances will connect to.</p>
    */
   vpcId?: string;
 
   /**
+   * @public
    * <p>The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.</p>
    */
   subnetIds?: string[];
 
   /**
+   * @public
    * <p>One or more security groups used to control access from streaming instances to your VPC. </p>
    */
   securityGroupIds?: string[];
 }
 
-export namespace NetworkSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkSettings): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetNetworkSettingsResponse {
   /**
+   * @public
    * <p>The network settings.</p>
    */
   networkSettings?: NetworkSettings;
 }
 
-export namespace GetNetworkSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNetworkSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetPortalRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 }
 
-export namespace GetPortalRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPortalRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum BrowserType {
-  CHROME = "Chrome",
-}
-
-export enum PortalStatus {
-  ACTIVE = "Active",
-  INCOMPLETE = "Incomplete",
-  PENDING = "Pending",
-}
-
-export enum RendererType {
-  APPSTREAM = "AppStream",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BrowserType = {
+  CHROME: "Chrome",
+} as const;
 
 /**
+ * @public
+ */
+export type BrowserType = (typeof BrowserType)[keyof typeof BrowserType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PortalStatus = {
+  ACTIVE: "Active",
+  INCOMPLETE: "Incomplete",
+  PENDING: "Pending",
+} as const;
+
+/**
+ * @public
+ */
+export type PortalStatus = (typeof PortalStatus)[keyof typeof PortalStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RendererType = {
+  APPSTREAM: "AppStream",
+} as const;
+
+/**
+ * @public
+ */
+export type RendererType = (typeof RendererType)[keyof typeof RendererType];
+
+/**
+ * @public
  * <p>The web portal.</p>
  */
 export interface Portal {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn?: string;
 
   /**
+   * @public
    * <p>The renderer that is used in streaming sessions.</p>
    */
   rendererType?: RendererType | string;
 
   /**
+   * @public
    * <p>The browser that users see when using a streaming session.</p>
    */
   browserType?: BrowserType | string;
 
   /**
+   * @public
    * <p>The status of the web portal.</p>
    */
   portalStatus?: PortalStatus | string;
 
   /**
+   * @public
    * <p>The endpoint URL of the web portal that users access in order to start streaming
    *          sessions.</p>
    */
   portalEndpoint?: string;
 
   /**
+   * @public
    * <p>The name of the web portal.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The creation date of the web portal.</p>
    */
   creationDate?: Date;
 
   /**
+   * @public
    * <p>The ARN of the browser settings that is associated with this web portal.</p>
    */
   browserSettingsArn?: string;
 
   /**
-   * <p>The ARN of the trust store that is associated with the web portal.</p>
+   * @public
+   * <p>The ARN of the user settings that is associated with the web portal.</p>
    */
   userSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the network settings that is associated with the web portal.</p>
    */
   networkSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the trust store that is associated with the web portal.</p>
    */
   trustStoreArn?: string;
 
   /**
+   * @public
    * <p>A message that explains why the web portal is in its current status.</p>
    */
   statusReason?: string;
-}
 
-export namespace Portal {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the user access logging settings that is associated with the web portal.</p>
    */
-  export const filterSensitiveLog = (obj: Portal): any => ({
-    ...obj,
-  });
+  userAccessLoggingSettingsArn?: string;
+
+  /**
+   * @public
+   * <p>The type of authentication integration points used when signing into the web portal.
+   *          Defaults to <code>Standard</code>.</p>
+   *          <p>
+   *             <code>Standard</code> web portals are authenticated directly through your identity
+   *          provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity
+   *          provider with your web portal. User and group access to your web portal is controlled
+   *          through your identity provider.</p>
+   *          <p>
+   *             <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity
+   *          Center (successor to AWS Single Sign-On). They provide additional features, such as
+   *          IdP-initiated authentication. Identity sources (including external identity provider
+   *          integration), plus user and group access to your web portal, can be configured in the IAM
+   *          Identity Center.</p>
+   */
+  authenticationType?: AuthenticationType | string;
+
+  /**
+   * @public
+   * <p>The ARN of the IP access settings.</p>
+   */
+  ipAccessSettingsArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPortalResponse {
   /**
+   * @public
    * <p>The web portal.</p>
    */
   portal?: Portal;
 }
 
-export namespace GetPortalResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPortalResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetPortalServiceProviderMetadataRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 }
 
-export namespace GetPortalServiceProviderMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPortalServiceProviderMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetPortalServiceProviderMetadataResponse {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The service provider SAML metadata.</p>
    */
   serviceProviderSamlMetadata?: string;
 }
 
-export namespace GetPortalServiceProviderMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPortalServiceProviderMetadataResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetTrustStoreRequest {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
 }
 
-export namespace GetTrustStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrustStoreRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A trust store that can be associated with a web portal. A trust store contains
  *          certificate authority (CA) certificates. Once associated with a web portal, the browser in
  *          a streaming session will recognize certificates that have been issued using any of the CAs
@@ -1768,815 +1983,914 @@ export namespace GetTrustStoreRequest {
  */
 export interface TrustStore {
   /**
+   * @public
    * <p>A list of web portal ARNs that this trust store is associated with.</p>
    */
   associatedPortalArns?: string[];
 
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn?: string;
 }
 
-export namespace TrustStore {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustStore): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetTrustStoreResponse {
   /**
+   * @public
    * <p>The trust store.</p>
    */
   trustStore?: TrustStore;
 }
 
-export namespace GetTrustStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrustStoreResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetTrustStoreCertificateRequest {
   /**
+   * @public
    * <p>The ARN of the trust store certificate.</p>
    */
   trustStoreArn: string | undefined;
 
   /**
+   * @public
    * <p>The thumbprint of the trust store certificate.</p>
    */
   thumbprint: string | undefined;
 }
 
-export namespace GetTrustStoreCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrustStoreCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The certificate.</p>
  */
 export interface Certificate {
   /**
+   * @public
    * <p>A hexadecimal identifier for the certificate.</p>
    */
   thumbprint?: string;
 
   /**
+   * @public
    * <p>The entity the certificate belongs to.</p>
    */
   subject?: string;
 
   /**
+   * @public
    * <p>The entity that issued the certificate.</p>
    */
   issuer?: string;
 
   /**
+   * @public
    * <p>The certificate is not valid before this date.</p>
    */
   notValidBefore?: Date;
 
   /**
+   * @public
    * <p>The certificate is not valid after this date.</p>
    */
   notValidAfter?: Date;
 
   /**
+   * @public
    * <p>The body of the certificate.</p>
    */
   body?: Uint8Array;
 }
 
-export namespace Certificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Certificate): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetTrustStoreCertificateResponse {
   /**
+   * @public
    * <p>The ARN of the trust store certificate.</p>
    */
   trustStoreArn?: string;
 
   /**
+   * @public
    * <p>The certificate of the trust store certificate.</p>
    */
   certificate?: Certificate;
 }
 
-export namespace GetTrustStoreCertificateResponse {
+/**
+ * @public
+ */
+export interface GetUserAccessLoggingSettingsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the user access logging settings.</p>
    */
-  export const filterSensitiveLog = (obj: GetTrustStoreCertificateResponse): any => ({
-    ...obj,
-  });
+  userAccessLoggingSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ * <p>A user access logging settings resource that can be associated with a web portal.</p>
+ */
+export interface UserAccessLoggingSettings {
+  /**
+   * @public
+   * <p>The ARN of the user access logging settings.</p>
+   */
+  userAccessLoggingSettingsArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of web portal ARNs that this user access logging settings is associated with.</p>
+   */
+  associatedPortalArns?: string[];
+
+  /**
+   * @public
+   * <p>The ARN of the Kinesis stream.</p>
+   */
+  kinesisStreamArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetUserAccessLoggingSettingsResponse {
+  /**
+   * @public
+   * <p>The user access logging settings.</p>
+   */
+  userAccessLoggingSettings?: UserAccessLoggingSettings;
+}
+
+/**
+ * @public
+ */
 export interface GetUserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
 }
 
-export namespace GetUserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A user settings resource that can be associated with a web portal. Once associated with
  *          a web portal, user settings control how users can transfer data between a streaming session
  *          and the their local devices. </p>
  */
 export interface UserSettings {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of web portal ARNs that this user settings is associated with.</p>
    */
   associatedPortalArns?: string[];
 
   /**
+   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
   copyAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
   pasteAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
   downloadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
   uploadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
   printAllowed?: EnabledType | string;
-}
 
-export namespace UserSettings {
   /**
-   * @internal
+   * @public
+   * <p>The amount of time that a streaming session remains active after users disconnect.</p>
    */
-  export const filterSensitiveLog = (obj: UserSettings): any => ({
-    ...obj,
-  });
+  disconnectTimeoutInMinutes?: number;
+
+  /**
+   * @public
+   * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   */
+  idleDisconnectTimeoutInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetUserSettingsResponse {
   /**
+   * @public
    * <p>The user settings.</p>
    */
   userSettings?: UserSettings;
 }
 
-export namespace GetUserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListBrowserSettingsRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListBrowserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBrowserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The summary for browser settings.</p>
  */
 export interface BrowserSettingsSummary {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn?: string;
 }
 
-export namespace BrowserSettingsSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrowserSettingsSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListBrowserSettingsResponse {
   /**
+   * @public
    * <p>The browser settings.</p>
    */
   browserSettings?: BrowserSettingsSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListBrowserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBrowserSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListIdentityProvidersRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 }
 
-export namespace ListIdentityProvidersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityProvidersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The summary of the identity provider.</p>
  */
 export interface IdentityProviderSummary {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn?: string;
 
   /**
+   * @public
    * <p>The identity provider name.</p>
    */
   identityProviderName?: string;
 
   /**
+   * @public
    * <p>The identity provider type.</p>
    */
   identityProviderType?: IdentityProviderType | string;
 }
 
-export namespace IdentityProviderSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityProviderSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListIdentityProvidersResponse {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The identity providers.</p>
    */
   identityProviders?: IdentityProviderSummary[];
 }
 
-export namespace ListIdentityProvidersResponse {
+/**
+ * @public
+ */
+export interface ListIpAccessSettingsRequest {
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityProvidersResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListNetworkSettingsRequest {
-  /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListNetworkSettingsRequest {
+/**
+ * @public
+ * <p>The summary of IP access settings.</p>
+ */
+export interface IpAccessSettingsSummary {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of IP access settings.</p>
    */
-  export const filterSensitiveLog = (obj: ListNetworkSettingsRequest): any => ({
-    ...obj,
-  });
+  ipAccessSettingsArn?: string;
+
+  /**
+   * @public
+   * <p>The display name of the IP access settings.</p>
+   */
+  displayName?: string;
+
+  /**
+   * @public
+   * <p>The description of the IP access settings.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The creation date timestamp of the IP access settings.</p>
+   */
+  creationDate?: Date;
 }
 
 /**
+ * @public
+ */
+export interface ListIpAccessSettingsResponse {
+  /**
+   * @public
+   * <p>The IP access settings.</p>
+   */
+  ipAccessSettings?: IpAccessSettingsSummary[];
+
+  /**
+   * @public
+   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkSettingsRequest {
+  /**
+   * @public
+   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be included in the next page.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
  * <p>The summary of network settings.</p>
  */
 export interface NetworkSettingsSummary {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn?: string;
 
   /**
+   * @public
    * <p>The VPC ID of the network settings.</p>
    */
   vpcId?: string;
 }
 
-export namespace NetworkSettingsSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkSettingsSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListNetworkSettingsResponse {
   /**
+   * @public
    * <p>The network settings.</p>
    */
   networkSettings?: NetworkSettingsSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListNetworkSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNetworkSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPortalsRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListPortalsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortalsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The summary of the portal.</p>
  */
 export interface PortalSummary {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn?: string;
 
   /**
+   * @public
    * <p>The renderer that is used in streaming sessions.</p>
    */
   rendererType?: RendererType | string;
 
   /**
+   * @public
    * <p>The browser type of the web portal.</p>
    */
   browserType?: BrowserType | string;
 
   /**
+   * @public
    * <p>The status of the web portal.</p>
    */
   portalStatus?: PortalStatus | string;
 
   /**
+   * @public
    * <p>The endpoint URL of the web portal that users access in order to start streaming
    *          sessions.</p>
    */
   portalEndpoint?: string;
 
   /**
+   * @public
    * <p>The name of the web portal.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The creation date of the web portal.</p>
    */
   creationDate?: Date;
 
   /**
+   * @public
    * <p>The ARN of the browser settings that is associated with the web portal.</p>
    */
   browserSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the user settings that is associated with the web portal.</p>
    */
   userSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the network settings that is associated with the web portal.</p>
    */
   networkSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the trust that is associated with this web portal.</p>
    */
   trustStoreArn?: string;
-}
 
-export namespace PortalSummary {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the user access logging settings that is associated with the web portal.</p>
    */
-  export const filterSensitiveLog = (obj: PortalSummary): any => ({
-    ...obj,
-  });
+  userAccessLoggingSettingsArn?: string;
+
+  /**
+   * @public
+   * <p>The type of authentication integration points used when signing into the web portal.
+   *          Defaults to <code>Standard</code>.</p>
+   *          <p>
+   *             <code>Standard</code> web portals are authenticated directly through your identity
+   *          provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity
+   *          provider with your web portal. User and group access to your web portal is controlled
+   *          through your identity provider.</p>
+   *          <p>
+   *             <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity
+   *          Center (successor to AWS Single Sign-On). They provide additional features, such as
+   *          IdP-initiated authentication. Identity sources (including external identity provider
+   *          integration), plus user and group access to your web portal, can be configured in the IAM
+   *          Identity Center.</p>
+   */
+  authenticationType?: AuthenticationType | string;
+
+  /**
+   * @public
+   * <p>The ARN of the IP access settings.</p>
+   */
+  ipAccessSettingsArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPortalsResponse {
   /**
+   * @public
    * <p>The portals in the list.</p>
    */
   portals?: PortalSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
    */
   nextToken?: string;
 }
 
-export namespace ListPortalsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortalsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags of the resource.</p>
    */
   tags?: Tag[];
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTrustStoreCertificatesRequest {
   /**
+   * @public
    * <p>The ARN of the trust store</p>
    */
   trustStoreArn: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListTrustStoreCertificatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrustStoreCertificatesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The summary of the certificate.</p>
  */
 export interface CertificateSummary {
   /**
+   * @public
    * <p>A hexadecimal identifier for the certificate.</p>
    */
   thumbprint?: string;
 
   /**
+   * @public
    * <p>The entity the certificate belongs to.</p>
    */
   subject?: string;
 
   /**
+   * @public
    * <p>The entity that issued the certificate.</p>
    */
   issuer?: string;
 
   /**
+   * @public
    * <p>The certificate is not valid before this date.</p>
    */
   notValidBefore?: Date;
 
   /**
+   * @public
    * <p>The certificate is not valid after this date.</p>
    */
   notValidAfter?: Date;
 }
 
-export namespace CertificateSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTrustStoreCertificatesResponse {
   /**
+   * @public
    * <p>The certificate list.</p>
    */
   certificateList?: CertificateSummary[];
 
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn?: string;
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.&gt;</p>
    */
   nextToken?: string;
 }
 
-export namespace ListTrustStoreCertificatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrustStoreCertificatesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTrustStoresRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListTrustStoresRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrustStoresRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The summary of the trust store.</p>
  */
 export interface TrustStoreSummary {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn?: string;
 }
 
-export namespace TrustStoreSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustStoreSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTrustStoresResponse {
   /**
+   * @public
    * <p>The trust stores.</p>
    */
   trustStores?: TrustStoreSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListTrustStoresResponse {
+/**
+ * @public
+ */
+export interface ListUserAccessLoggingSettingsRequest {
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrustStoresResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListUserSettingsRequest {
-  /**
-   * <p>The pagination token used to retrieve the next page of results for this operation. </p>
+   * @public
+   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListUserSettingsRequest {
+/**
+ * @public
+ * <p>The summary of user access logging settings.</p>
+ */
+export interface UserAccessLoggingSettingsSummary {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the user access logging settings.</p>
    */
-  export const filterSensitiveLog = (obj: ListUserSettingsRequest): any => ({
-    ...obj,
-  });
+  userAccessLoggingSettingsArn?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the Kinesis stream.</p>
+   */
+  kinesisStreamArn?: string;
 }
 
 /**
+ * @public
+ */
+export interface ListUserAccessLoggingSettingsResponse {
+  /**
+   * @public
+   * <p>The user access logging settings.</p>
+   */
+  userAccessLoggingSettings?: UserAccessLoggingSettingsSummary[];
+
+  /**
+   * @public
+   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListUserSettingsRequest {
+  /**
+   * @public
+   * <p>The pagination token used to retrieve the next page of results for this operation. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be included in the next page.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
  * <p>The summary of user settings.</p>
  */
 export interface UserSettingsSummary {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn?: string;
 
   /**
+   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
   copyAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
   pasteAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
   downloadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
   uploadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
   printAllowed?: EnabledType | string;
-}
 
-export namespace UserSettingsSummary {
   /**
-   * @internal
+   * @public
+   * <p>The amount of time that a streaming session remains active after users disconnect.</p>
    */
-  export const filterSensitiveLog = (obj: UserSettingsSummary): any => ({
-    ...obj,
-  });
+  disconnectTimeoutInMinutes?: number;
+
+  /**
+   * @public
+   * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   */
+  idleDisconnectTimeoutInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListUserSettingsResponse {
   /**
+   * @public
    * <p>The user settings.</p>
    */
   userSettings?: UserSettingsSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
    */
   nextToken?: string;
 }
 
-export namespace ListUserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags of the resource.</p>
    */
   tags: Tag[] | undefined;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -2587,33 +2901,20 @@ export interface TagResourceRequest {
   clientToken?: string;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>There are too many tags.</p>
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Name of the resource affected.</p>
    */
   resourceName?: string;
@@ -2632,51 +2933,47 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of tag keys to remove from the resource.</p>
    */
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateBrowserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
    *          streaming sessions. </p>
    */
   browserPolicy?: string;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -2687,53 +2984,199 @@ export interface UpdateBrowserSettingsRequest {
   clientToken?: string;
 }
 
-export namespace UpdateBrowserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrowserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateBrowserSettingsResponse {
   /**
+   * @public
    * <p>The browser settings.</p>
    */
   browserSettings: BrowserSettings | undefined;
 }
 
-export namespace UpdateBrowserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrowserSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateIdentityProviderRequest {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the identity provider.</p>
    */
   identityProviderName?: string;
 
   /**
+   * @public
    * <p>The type of the identity provider.</p>
    */
   identityProviderType?: IdentityProviderType | string;
 
   /**
-   * <p>The details of the identity provider.</p>
+   * @public
+   * <p>The details of the identity provider. The following list describes the provider detail keys for
+   *          each identity provider type. </p>
+   *          <ul>
+   *             <li>
+   *                <p>For Google and Login with Amazon:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_secret</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>authorize_scopes</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For Facebook:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_secret</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>authorize_scopes</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>api_version</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For Sign in with Apple:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>team_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>key_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>private_key</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>authorize_scopes</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For OIDC providers:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_secret</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>attributes_request_method</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>oidc_issuer</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>authorize_scopes</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>authorize_url</code>
+   *                         <i>if not available from discovery URL specified by
+   *                   <code>oidc_issuer</code> key</i>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>token_url</code>
+   *                         <i>if not available from discovery URL specified by
+   *                   <code>oidc_issuer</code> key</i>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>attributes_url</code>
+   *                         <i>if not available from discovery URL specified by
+   *                   <code>oidc_issuer</code> key</i>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>jwks_uri</code>
+   *                         <i>if not available from discovery URL specified by
+   *                   <code>oidc_issuer</code> key</i>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For SAML providers:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>MetadataFile</code> OR <code>MetadataURL</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>IDPSignout</code> (boolean)
+   *                <i>optional</i>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    */
-  identityProviderDetails?: { [key: string]: string };
+  identityProviderDetails?: Record<string, string>;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -2744,53 +3187,98 @@ export interface UpdateIdentityProviderRequest {
   clientToken?: string;
 }
 
-export namespace UpdateIdentityProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIdentityProviderRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateIdentityProviderResponse {
   /**
+   * @public
    * <p>The identity provider.</p>
    */
   identityProvider: IdentityProvider | undefined;
 }
 
-export namespace UpdateIdentityProviderResponse {
+/**
+ * @public
+ */
+export interface UpdateIpAccessSettingsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the IP access settings.</p>
    */
-  export const filterSensitiveLog = (obj: UpdateIdentityProviderResponse): any => ({
-    ...obj,
-  });
+  ipAccessSettingsArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The display name of the IP access settings.</p>
+   */
+  displayName?: string;
+
+  /**
+   * @public
+   * <p>The description of the IP access settings.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The updated IP rules of the IP access settings.</p>
+   */
+  ipRules?: IpRule[];
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          request. Idempotency ensures that an API request completes only once. With an idempotent
+   *          request, if the original request completes successfully, subsequent retries with the same
+   *          client token return the result from the original successful request. </p>
+   *          <p>If you do not specify a client token, one is automatically generated by the AWS
+   *          SDK.</p>
+   */
+  clientToken?: string;
 }
 
+/**
+ * @public
+ */
+export interface UpdateIpAccessSettingsResponse {
+  /**
+   * @public
+   * <p>The IP access settings.</p>
+   */
+  ipAccessSettings: IpAccessSettings | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateNetworkSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>The VPC that streaming instances will connect to.</p>
    */
   vpcId?: string;
 
   /**
+   * @public
    * <p>The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.</p>
    */
   subnetIds?: string[];
 
   /**
+   * @public
    * <p>One or more security groups used to control access from streaming instances to your VPC.</p>
    */
   securityGroupIds?: string[];
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -2801,85 +3289,87 @@ export interface UpdateNetworkSettingsRequest {
   clientToken?: string;
 }
 
-export namespace UpdateNetworkSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNetworkSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateNetworkSettingsResponse {
   /**
+   * @public
    * <p>The network settings.</p>
    */
   networkSettings: NetworkSettings | undefined;
 }
 
-export namespace UpdateNetworkSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNetworkSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePortalRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the web portal. This is not visible to users who log into the web portal.</p>
    */
   displayName?: string;
-}
 
-export namespace UpdatePortalRequest {
   /**
-   * @internal
+   * @public
+   * <p>The type of authentication integration points used when signing into the web portal.
+   *          Defaults to <code>Standard</code>.</p>
+   *          <p>
+   *             <code>Standard</code> web portals are authenticated directly through your identity
+   *          provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity
+   *          provider with your web portal. User and group access to your web portal is controlled
+   *          through your identity provider.</p>
+   *          <p>
+   *             <code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity
+   *          Center (successor to AWS Single Sign-On). They provide additional features, such as
+   *          IdP-initiated authentication. Identity sources (including external identity provider
+   *          integration), plus user and group access to your web portal, can be configured in the IAM
+   *          Identity Center.</p>
    */
-  export const filterSensitiveLog = (obj: UpdatePortalRequest): any => ({
-    ...obj,
-  });
+  authenticationType?: AuthenticationType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortalResponse {
   /**
+   * @public
    * <p>The web portal.</p>
    */
   portal?: Portal;
 }
 
-export namespace UpdatePortalResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePortalResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateTrustStoreRequest {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of CA certificates to add to the trust store.</p>
    */
   certificatesToAdd?: Uint8Array[];
 
   /**
+   * @public
    * <p>A list of CA certificates to delete from a trust store.</p>
    */
   certificatesToDelete?: string[];
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -2890,67 +3380,114 @@ export interface UpdateTrustStoreRequest {
   clientToken?: string;
 }
 
-export namespace UpdateTrustStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrustStoreRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateTrustStoreResponse {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
 }
 
-export namespace UpdateTrustStoreResponse {
+/**
+ * @public
+ */
+export interface UpdateUserAccessLoggingSettingsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the user access logging settings.</p>
    */
-  export const filterSensitiveLog = (obj: UpdateTrustStoreResponse): any => ({
-    ...obj,
-  });
+  userAccessLoggingSettingsArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the Kinesis stream.</p>
+   */
+  kinesisStreamArn?: string;
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          request. Idempotency ensures that an API request completes only once. With an idempotent
+   *          request, if the original request completes successfully, subsequent retries with the same
+   *          client token return the result from the original successful request. </p>
+   *          <p>If you do not specify a client token, one is automatically generated by the AWS
+   *          SDK.</p>
+   */
+  clientToken?: string;
 }
 
+/**
+ * @public
+ */
+export interface UpdateUserAccessLoggingSettingsResponse {
+  /**
+   * @public
+   * <p>The user access logging settings.</p>
+   */
+  userAccessLoggingSettings: UserAccessLoggingSettings | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateUserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
   copyAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
   pasteAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
   downloadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
   uploadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
   printAllowed?: EnabledType | string;
 
   /**
+   * @public
+   * <p>The amount of time that a streaming session remains active after users disconnect.</p>
+   */
+  disconnectTimeoutInMinutes?: number;
+
+  /**
+   * @public
+   * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   */
+  idleDisconnectTimeoutInMinutes?: number;
+
+  /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -2961,27 +3498,314 @@ export interface UpdateUserSettingsRequest {
   clientToken?: string;
 }
 
-export namespace UpdateUserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateUserSettingsResponse {
   /**
+   * @public
    * <p>The user settings.</p>
    */
   userSettings: UserSettings | undefined;
 }
 
-export namespace UpdateUserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserSettingsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateBrowserSettingsRequestFilterSensitiveLog = (obj: CreateBrowserSettingsRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+  ...(obj.browserPolicy && { browserPolicy: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateIdentityProviderRequestFilterSensitiveLog = (obj: CreateIdentityProviderRequest): any => ({
+  ...obj,
+  ...(obj.identityProviderName && { identityProviderName: SENSITIVE_STRING }),
+  ...(obj.identityProviderDetails && { identityProviderDetails: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IpRuleFilterSensitiveLog = (obj: IpRule): any => ({
+  ...obj,
+  ...(obj.ipRange && { ipRange: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateIpAccessSettingsRequestFilterSensitiveLog = (obj: CreateIpAccessSettingsRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+  ...(obj.ipRules && { ipRules: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateNetworkSettingsRequestFilterSensitiveLog = (obj: CreateNetworkSettingsRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePortalRequestFilterSensitiveLog = (obj: CreatePortalRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateTrustStoreRequestFilterSensitiveLog = (obj: CreateTrustStoreRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserAccessLoggingSettingsRequestFilterSensitiveLog = (
+  obj: CreateUserAccessLoggingSettingsRequest
+): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserSettingsRequestFilterSensitiveLog = (obj: CreateUserSettingsRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BrowserSettingsFilterSensitiveLog = (obj: BrowserSettings): any => ({
+  ...obj,
+  ...(obj.browserPolicy && { browserPolicy: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetBrowserSettingsResponseFilterSensitiveLog = (obj: GetBrowserSettingsResponse): any => ({
+  ...obj,
+  ...(obj.browserSettings && { browserSettings: BrowserSettingsFilterSensitiveLog(obj.browserSettings) }),
+});
+
+/**
+ * @internal
+ */
+export const IdentityProviderFilterSensitiveLog = (obj: IdentityProvider): any => ({
+  ...obj,
+  ...(obj.identityProviderName && { identityProviderName: SENSITIVE_STRING }),
+  ...(obj.identityProviderDetails && { identityProviderDetails: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityProviderResponseFilterSensitiveLog = (obj: GetIdentityProviderResponse): any => ({
+  ...obj,
+  ...(obj.identityProvider && { identityProvider: IdentityProviderFilterSensitiveLog(obj.identityProvider) }),
+});
+
+/**
+ * @internal
+ */
+export const IpAccessSettingsFilterSensitiveLog = (obj: IpAccessSettings): any => ({
+  ...obj,
+  ...(obj.ipRules && { ipRules: SENSITIVE_STRING }),
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetIpAccessSettingsResponseFilterSensitiveLog = (obj: GetIpAccessSettingsResponse): any => ({
+  ...obj,
+  ...(obj.ipAccessSettings && { ipAccessSettings: IpAccessSettingsFilterSensitiveLog(obj.ipAccessSettings) }),
+});
+
+/**
+ * @internal
+ */
+export const PortalFilterSensitiveLog = (obj: Portal): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetPortalResponseFilterSensitiveLog = (obj: GetPortalResponse): any => ({
+  ...obj,
+  ...(obj.portal && { portal: PortalFilterSensitiveLog(obj.portal) }),
+});
+
+/**
+ * @internal
+ */
+export const IdentityProviderSummaryFilterSensitiveLog = (obj: IdentityProviderSummary): any => ({
+  ...obj,
+  ...(obj.identityProviderName && { identityProviderName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListIdentityProvidersResponseFilterSensitiveLog = (obj: ListIdentityProvidersResponse): any => ({
+  ...obj,
+  ...(obj.identityProviders && {
+    identityProviders: obj.identityProviders.map((item) => IdentityProviderSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const IpAccessSettingsSummaryFilterSensitiveLog = (obj: IpAccessSettingsSummary): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListIpAccessSettingsResponseFilterSensitiveLog = (obj: ListIpAccessSettingsResponse): any => ({
+  ...obj,
+  ...(obj.ipAccessSettings && {
+    ipAccessSettings: obj.ipAccessSettings.map((item) => IpAccessSettingsSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PortalSummaryFilterSensitiveLog = (obj: PortalSummary): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListPortalsResponseFilterSensitiveLog = (obj: ListPortalsResponse): any => ({
+  ...obj,
+  ...(obj.portals && { portals: obj.portals.map((item) => PortalSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateBrowserSettingsRequestFilterSensitiveLog = (obj: UpdateBrowserSettingsRequest): any => ({
+  ...obj,
+  ...(obj.browserPolicy && { browserPolicy: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateBrowserSettingsResponseFilterSensitiveLog = (obj: UpdateBrowserSettingsResponse): any => ({
+  ...obj,
+  ...(obj.browserSettings && { browserSettings: BrowserSettingsFilterSensitiveLog(obj.browserSettings) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateIdentityProviderRequestFilterSensitiveLog = (obj: UpdateIdentityProviderRequest): any => ({
+  ...obj,
+  ...(obj.identityProviderName && { identityProviderName: SENSITIVE_STRING }),
+  ...(obj.identityProviderDetails && { identityProviderDetails: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateIdentityProviderResponseFilterSensitiveLog = (obj: UpdateIdentityProviderResponse): any => ({
+  ...obj,
+  ...(obj.identityProvider && { identityProvider: IdentityProviderFilterSensitiveLog(obj.identityProvider) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateIpAccessSettingsRequestFilterSensitiveLog = (obj: UpdateIpAccessSettingsRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.ipRules && { ipRules: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateIpAccessSettingsResponseFilterSensitiveLog = (obj: UpdateIpAccessSettingsResponse): any => ({
+  ...obj,
+  ...(obj.ipAccessSettings && { ipAccessSettings: IpAccessSettingsFilterSensitiveLog(obj.ipAccessSettings) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePortalRequestFilterSensitiveLog = (obj: UpdatePortalRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePortalResponseFilterSensitiveLog = (obj: UpdatePortalResponse): any => ({
+  ...obj,
+  ...(obj.portal && { portal: PortalFilterSensitiveLog(obj.portal) }),
+});

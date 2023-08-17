@@ -29,6 +29,7 @@ import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.PaginatedTrait;
+import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -42,7 +43,16 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 public class AddDocumentClientPlugin implements TypeScriptIntegration {
 
     @Override
-    public void writeAdditionalFiles(
+    public void customize(TypeScriptCodegenContext codegenContext) {
+        TypeScriptSettings settings = codegenContext.settings();
+        Model model = codegenContext.model();
+        SymbolProvider symbolProvider = codegenContext.symbolProvider();
+        BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory = codegenContext.writerDelegator()::useFileWriter;
+
+        writeAdditionalFiles(settings, model, symbolProvider, writerFactory);
+    }
+
+    private void writeAdditionalFiles(
         TypeScriptSettings settings,
         Model model,
         SymbolProvider symbolProvider,

@@ -1,11 +1,11 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
-import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential-provider-imds";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
+import { fromContainerMetadata, fromInstanceMetadata } from "@smithy/credential-provider-imds";
+import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { resolveCredentialSource } from "./resolveCredentialSource";
 
 jest.mock("@aws-sdk/credential-provider-env");
-jest.mock("@aws-sdk/credential-provider-imds");
+jest.mock("@smithy/credential-provider-imds");
 
 describe(resolveCredentialSource.name, () => {
   const mockProfileName = "mockProfileName";

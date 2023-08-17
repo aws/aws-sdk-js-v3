@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { ChimeSDKMessaging } from "../ChimeSDKMessaging";
 import { ChimeSDKMessagingClient } from "../ChimeSDKMessagingClient";
 import {
   ListChannelMembershipsCommand,
@@ -10,7 +10,7 @@ import {
 import { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeSDKMessagingClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListChannelMembershipsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ChimeSDKMessaging,
-  input: ListChannelMembershipsCommandInput,
-  ...args: any
-): Promise<ListChannelMembershipsCommandOutput> => {
-  // @ts-ignore
-  return await client.listChannelMemberships(input, ...args);
-};
 export async function* paginateListChannelMemberships(
   config: ChimeSDKMessagingPaginationConfiguration,
   input: ListChannelMembershipsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListChannelMemberships(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ChimeSDKMessaging) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ChimeSDKMessagingClient) {
+    if (config.client instanceof ChimeSDKMessagingClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ChimeSDKMessaging | ChimeSDKMessagingClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

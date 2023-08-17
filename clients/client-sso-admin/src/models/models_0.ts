@@ -1,58 +1,48 @@
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SSOAdminServiceException as __BaseException } from "./SSOAdminServiceException";
 
 /**
- * <p>The value used for mapping a specified attribute to an identity source.</p>
+ * @public
+ * <p>The value used for mapping a specified attribute to an identity source. For more
+ *       information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/attributemappingsconcept.html">Attribute mappings</a>
+ *       in the <i>IAM Identity Center User Guide</i>.</p>
  */
 export interface AccessControlAttributeValue {
   /**
-   * <p>The identity source to use when mapping a specified attribute to Amazon Web Services SSO.</p>
+   * @public
+   * <p>The identity source to use when mapping a specified attribute to IAM Identity Center.</p>
    */
   Source: string[] | undefined;
 }
 
-export namespace AccessControlAttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessControlAttributeValue): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>These are Amazon Web Services SSO identity store attributes that you can configure for use in
+ * @public
+ * <p>These are IAM Identity Center identity store attributes that you can configure for use in
  *       attributes-based access control (ABAC). You can create permissions policies that determine who
- *       can access your Amazon Web Services resources based upon the configured attribute values. When you enable
- *       ABAC and specify <code>AccessControlAttributes</code>, Amazon Web Services SSO passes the attribute values
- *       of the authenticated user into IAM for use in policy evaluation.</p>
+ *       can access your AWS resources based upon the configured attribute values. When you enable
+ *       ABAC and specify <code>AccessControlAttributes</code>, IAM Identity Center passes the attribute values of
+ *       the authenticated user into IAM for use in policy evaluation.</p>
  */
 export interface AccessControlAttribute {
   /**
+   * @public
    * <p>The name of the attribute associated with your identities in your identity source. This is
-   *       used to map a specified attribute in your identity source with an attribute in Amazon Web Services
-   *       SSO.</p>
+   *       used to map a specified attribute in your identity source with an attribute in
+   *       IAM Identity Center.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The value used for mapping a specified attribute to an identity source.</p>
    */
   Value: AccessControlAttributeValue | undefined;
 }
 
-export namespace AccessControlAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessControlAttribute): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -73,219 +63,222 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum PrincipalType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalType = {
+  GROUP: "GROUP",
+  USER: "USER",
+} as const;
 
 /**
- * <p>The assignment that indicates a principal's limited access to a specified Amazon Web Services account
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+/**
+ * @public
+ * <p>The assignment that indicates a principal's limited access to a specified AWS account
  *       with a specified permission set.</p>
  *          <note>
  *             <p>The term <i>principal</i> here refers to a user or group that is defined
- *         in Amazon Web Services SSO.</p>
+ *         in IAM Identity Center.</p>
  *          </note>
  */
 export interface AccountAssignment {
   /**
-   * <p>The identifier of the Amazon Web Services account.</p>
+   * @public
+   * <p>The identifier of the AWS account.</p>
    */
   AccountId?: string;
 
   /**
+   * @public
    * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   PermissionSetArn?: string;
 
   /**
+   * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
   PrincipalType?: PrincipalType | string;
 
   /**
-   * <p>An identifier for an object in Amazon Web Services SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in Amazon Web Services SSO, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API Reference</a>.</p>
+   * @public
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    */
   PrincipalId?: string;
 }
 
-export namespace AccountAssignment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAssignment): any => ({
-    ...obj,
-  });
-}
-
-export enum StatusValues {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
-
-export enum TargetType {
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StatusValues = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type StatusValues = (typeof StatusValues)[keyof typeof StatusValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetType = {
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
+
+/**
+ * @public
  * <p>The status of the creation or deletion operation of an assignment that a principal needs
  *       to access an account.</p>
  */
 export interface AccountAssignmentOperationStatus {
   /**
+   * @public
    * <p>The status of the permission set provisioning process.</p>
    */
   Status?: StatusValues | string;
 
   /**
+   * @public
    * <p>The identifier for tracking the request operation that is generated by the universally
    *       unique identifier (UUID) workflow.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The message that contains an error or exception in case of an operation failure.</p>
    */
   FailureReason?: string;
 
   /**
-   * <p>TargetID is an Amazon Web Services account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
+   * @public
+   * <p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
    */
   TargetId?: string;
 
   /**
+   * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
   TargetType?: TargetType | string;
 
   /**
+   * @public
    * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   PermissionSetArn?: string;
 
   /**
+   * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
   PrincipalType?: PrincipalType | string;
 
   /**
-   * <p>An identifier for an object in Amazon Web Services SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in Amazon Web Services SSO, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API Reference</a>.</p>
+   * @public
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    */
   PrincipalId?: string;
 
   /**
+   * @public
    * <p>The date that the permission set was created.</p>
    */
   CreatedDate?: Date;
 }
 
-export namespace AccountAssignmentOperationStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAssignmentOperationStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides information about the <a>AccountAssignment</a> creation
  *       request.</p>
  */
 export interface AccountAssignmentOperationStatusMetadata {
   /**
+   * @public
    * <p>The status of the permission set provisioning process.</p>
    */
   Status?: StatusValues | string;
 
   /**
+   * @public
    * <p>The identifier for tracking the request operation that is generated by the universally
    *       unique identifier (UUID) workflow.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The date that the permission set was created.</p>
    */
   CreatedDate?: Date;
 }
 
-export namespace AccountAssignmentOperationStatusMetadata {
+/**
+ * @public
+ * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.</p>
+ */
+export interface CustomerManagedPolicyReference {
   /**
-   * @internal
+   * @public
+   * <p>The name of the IAM policy that you have configured in each account where you want to deploy your permission set.</p>
    */
-  export const filterSensitiveLog = (obj: AccountAssignmentOperationStatusMetadata): any => ({
-    ...obj,
-  });
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is <code>/</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
+   *       names and paths</a> in the <i>IAM User Guide</i>.</p>
+   */
+  Path?: string;
 }
 
 /**
- * <p>A structure that stores the details of the IAM managed policy.</p>
+ * @public
  */
-export interface AttachedManagedPolicy {
+export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
   /**
-   * <p>The name of the IAM managed policy.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The ARN of the IAM managed policy. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   */
-  Arn?: string;
-}
-
-export namespace AttachedManagedPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachedManagedPolicy): any => ({
-    ...obj,
-  });
-}
-
-export interface AttachManagedPolicyToPermissionSetRequest {
-  /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The ARN of the <a>PermissionSet</a> that the managed policy should be attached
-   *       to.</p>
+   * @public
+   * <p>The ARN of the <code>PermissionSet</code>.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>The IAM managed policy ARN to be attached to a permission set.</p>
+   * @public
+   * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.</p>
    */
-  ManagedPolicyArn: string | undefined;
-}
-
-export namespace AttachManagedPolicyToPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachManagedPolicyToPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface AttachManagedPolicyToPermissionSetResponse {}
-
-export namespace AttachManagedPolicyToPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachManagedPolicyToPermissionSetResponse): any => ({
-    ...obj,
-  });
+  CustomerManagedPolicyReference: CustomerManagedPolicyReference | undefined;
 }
 
 /**
+ * @public
+ */
+export interface AttachCustomerManagedPolicyReferenceToPermissionSetResponse {}
+
+/**
+ * @public
  * <p>Occurs when a conflict with a previous successful write is detected. This generally occurs
  *       when the previous write did not have time to propagate to the host serving the current
  *       request. A retry (with appropriate backoff logic) is the recommended response to this
@@ -310,6 +303,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception, or failure with
  *       an internal server.</p>
  */
@@ -332,6 +326,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that a requested resource is not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -353,6 +348,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the principal has crossed the permitted number of resources that can be
  *       created.</p>
  */
@@ -375,6 +371,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the principal has crossed the throttling limits of the API
  *       operations.</p>
  */
@@ -397,6 +394,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed because it contains a syntax error.</p>
  */
 export class ValidationException extends __BaseException {
@@ -417,1585 +415,1579 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export interface CreateAccountAssignmentRequest {
+/**
+ * @public
+ * <p>A structure that stores the details of the AWS managed policy.</p>
+ */
+export interface AttachedManagedPolicy {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The name of the AWS managed policy.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the AWS managed policy. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ */
+export interface AttachManagedPolicyToPermissionSetRequest {
+  /**
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>TargetID is an Amazon Web Services account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
+   * @public
+   * <p>The ARN of the <a>PermissionSet</a> that the managed policy should be attached
+   *       to.</p>
+   */
+  PermissionSetArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The AWS managed policy ARN to be attached to a permission set.</p>
+   */
+  ManagedPolicyArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AttachManagedPolicyToPermissionSetResponse {}
+
+/**
+ * @public
+ */
+export interface CreateAccountAssignmentRequest {
+  /**
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
    */
   TargetId: string | undefined;
 
   /**
+   * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
   TargetType: TargetType | string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the permission set that the admin wants to grant the principal access
    *       to.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
+   * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
   PrincipalType: PrincipalType | string | undefined;
 
   /**
-   * <p>An identifier for an object in Amazon Web Services SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in Amazon Web Services SSO, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API Reference</a>.</p>
+   * @public
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    */
   PrincipalId: string | undefined;
 }
 
-export namespace CreateAccountAssignmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountAssignmentRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateAccountAssignmentResponse {
   /**
+   * @public
    * <p>The status object for the account assignment creation operation.</p>
    */
   AccountAssignmentCreationStatus?: AccountAssignmentOperationStatus;
 }
 
-export namespace CreateAccountAssignmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountAssignmentResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies the attributes to add to your attribute-based access control (ABAC)
  *       configuration.</p>
  */
 export interface InstanceAccessControlAttributeConfiguration {
   /**
-   * <p>Lists the attributes that are configured for ABAC in the specified Amazon Web Services SSO
+   * @public
+   * <p>Lists the attributes that are configured for ABAC in the specified IAM Identity Center
    *       instance.</p>
    */
   AccessControlAttributes: AccessControlAttribute[] | undefined;
 }
 
-export namespace InstanceAccessControlAttributeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceAccessControlAttributeConfiguration): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateInstanceAccessControlAttributeConfigurationRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>Specifies the Amazon Web Services SSO identity store attributes to add to your ABAC configuration.
-   *       When using an external identity provider as an identity source, you can pass attributes
-   *       through the SAML assertion. Doing so provides an alternative to configuring attributes from
-   *       the Amazon Web Services SSO identity store. If a SAML assertion passes any of these attributes, Amazon Web Services
-   *       SSO will replace the attribute value with the value from the Amazon Web Services SSO identity
-   *       store.</p>
+   * @public
+   * <p>Specifies the IAM Identity Center identity store attributes to add to your ABAC configuration. When
+   *       using an external identity provider as an identity source, you can pass attributes through the
+   *       SAML assertion. Doing so provides an alternative to configuring attributes from the IAM Identity Center
+   *       identity store. If a SAML assertion passes any of these attributes, IAM Identity Center will replace the
+   *       attribute value with the value from the IAM Identity Center identity store.</p>
    */
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration | undefined;
 }
 
-export namespace CreateInstanceAccessControlAttributeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceAccessControlAttributeConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateInstanceAccessControlAttributeConfigurationResponse {}
 
-export namespace CreateInstanceAccessControlAttributeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceAccessControlAttributeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A set of key-value pairs that are used to manage the resource. Tags can only be applied to
- *       permission sets and cannot be applied to corresponding roles that Amazon Web Services SSO creates in Amazon Web Services
+ *       permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS
  *       accounts.</p>
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key for the tag.</p>
    */
-  Key?: string;
+  Key: string | undefined;
 
   /**
+   * @public
    * <p>The value of the tag.</p>
    */
-  Value?: string;
+  Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreatePermissionSetRequest {
   /**
+   * @public
    * <p>The name of the <a>PermissionSet</a>.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the <a>PermissionSet</a>.</p>
    */
   Description?: string;
 
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The length of time that the application user sessions are valid in the ISO-8601
    *       standard.</p>
    */
   SessionDuration?: string;
 
   /**
+   * @public
    * <p>Used to redirect users within the application during the federation authentication
    *       process.</p>
    */
   RelayState?: string;
 
   /**
+   * @public
    * <p>The tags to attach to the new <a>PermissionSet</a>.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreatePermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An entity that contains IAM policies.</p>
  */
 export interface PermissionSet {
   /**
+   * @public
    * <p>The name of the permission set.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   PermissionSetArn?: string;
 
   /**
+   * @public
    * <p>The description of the <a>PermissionSet</a>.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The date that the permission set was created.</p>
    */
   CreatedDate?: Date;
 
   /**
+   * @public
    * <p>The length of time that the application user sessions are valid for in the ISO-8601
    *       standard.</p>
    */
   SessionDuration?: string;
 
   /**
+   * @public
    * <p>Used to redirect users within the application during the federation authentication
    *       process.</p>
    */
   RelayState?: string;
 }
 
-export namespace PermissionSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionSet): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreatePermissionSetResponse {
   /**
-   * <p>Defines the level of access on an Amazon Web Services account.</p>
+   * @public
+   * <p>Defines the level of access on an AWS account.</p>
    */
   PermissionSet?: PermissionSet;
 }
 
-export namespace CreatePermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePermissionSetResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteAccountAssignmentRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>TargetID is an Amazon Web Services account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
+   * @public
+   * <p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
    */
   TargetId: string | undefined;
 
   /**
+   * @public
    * <p>The entity type for which the assignment will be deleted.</p>
    */
   TargetType: TargetType | string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the permission set that will be used to remove access.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
+   * @public
    * <p>The entity type for which the assignment will be deleted.</p>
    */
   PrincipalType: PrincipalType | string | undefined;
 
   /**
-   * <p>An identifier for an object in Amazon Web Services SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in Amazon Web Services SSO, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API Reference</a>.</p>
+   * @public
+   * <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM Identity Center Identity Store API Reference</a>.</p>
    */
   PrincipalId: string | undefined;
 }
 
-export namespace DeleteAccountAssignmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccountAssignmentRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteAccountAssignmentResponse {
   /**
+   * @public
    * <p>The status object for the account assignment deletion operation.</p>
    */
   AccountAssignmentDeletionStatus?: AccountAssignmentOperationStatus;
 }
 
-export namespace DeleteAccountAssignmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccountAssignmentResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteInlinePolicyFromPermissionSetRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the permission set that will be used to remove access.</p>
    */
   PermissionSetArn: string | undefined;
 }
 
-export namespace DeleteInlinePolicyFromPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInlinePolicyFromPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteInlinePolicyFromPermissionSetResponse {}
 
-export namespace DeleteInlinePolicyFromPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInlinePolicyFromPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteInstanceAccessControlAttributeConfigurationRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
    */
   InstanceArn: string | undefined;
 }
 
-export namespace DeleteInstanceAccessControlAttributeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInstanceAccessControlAttributeConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteInstanceAccessControlAttributeConfigurationResponse {}
 
-export namespace DeleteInstanceAccessControlAttributeConfigurationResponse {
+/**
+ * @public
+ */
+export interface DeletePermissionsBoundaryFromPermissionSetRequest {
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInstanceAccessControlAttributeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeletePermissionSetRequest {
-  /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
+   * <p>The ARN of the <code>PermissionSet</code>.</p>
+   */
+  PermissionSetArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePermissionsBoundaryFromPermissionSetResponse {}
+
+/**
+ * @public
+ */
+export interface DeletePermissionSetRequest {
+  /**
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * @public
    * <p>The ARN of the permission set that should be deleted.</p>
    */
   PermissionSetArn: string | undefined;
 }
 
-export namespace DeletePermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeletePermissionSetResponse {}
 
-export namespace DeletePermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePermissionSetResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAccountAssignmentCreationStatusRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier that is used to track the request operation progress.</p>
    */
   AccountAssignmentCreationRequestId: string | undefined;
 }
 
-export namespace DescribeAccountAssignmentCreationStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAssignmentCreationStatusRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAccountAssignmentCreationStatusResponse {
   /**
+   * @public
    * <p>The status object for the account assignment creation operation.</p>
    */
   AccountAssignmentCreationStatus?: AccountAssignmentOperationStatus;
 }
 
-export namespace DescribeAccountAssignmentCreationStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAssignmentCreationStatusResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAccountAssignmentDeletionStatusRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier that is used to track the request operation progress.</p>
    */
   AccountAssignmentDeletionRequestId: string | undefined;
 }
 
-export namespace DescribeAccountAssignmentDeletionStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAssignmentDeletionStatusRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAccountAssignmentDeletionStatusResponse {
   /**
+   * @public
    * <p>The status object for the account assignment deletion operation.</p>
    */
   AccountAssignmentDeletionStatus?: AccountAssignmentOperationStatus;
 }
 
-export namespace DescribeAccountAssignmentDeletionStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAssignmentDeletionStatusResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeInstanceAccessControlAttributeConfigurationRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
    */
   InstanceArn: string | undefined;
 }
 
-export namespace DescribeInstanceAccessControlAttributeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceAccessControlAttributeConfigurationRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceAccessControlAttributeConfigurationStatus = {
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  ENABLED: "ENABLED",
+} as const;
 
-export enum InstanceAccessControlAttributeConfigurationStatus {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ */
+export type InstanceAccessControlAttributeConfigurationStatus =
+  (typeof InstanceAccessControlAttributeConfigurationStatus)[keyof typeof InstanceAccessControlAttributeConfigurationStatus];
 
+/**
+ * @public
+ */
 export interface DescribeInstanceAccessControlAttributeConfigurationResponse {
   /**
+   * @public
    * <p>The status of the attribute configuration process.</p>
    */
   Status?: InstanceAccessControlAttributeConfigurationStatus | string;
 
   /**
+   * @public
    * <p>Provides more details about the current status of the specified attribute.</p>
    */
   StatusReason?: string;
 
   /**
-   * <p>Gets the list of Amazon Web Services SSO identity store attributes that have been added to your ABAC
+   * @public
+   * <p>Gets the list of IAM Identity Center identity store attributes that have been added to your ABAC
    *       configuration.</p>
    */
   InstanceAccessControlAttributeConfiguration?: InstanceAccessControlAttributeConfiguration;
 }
 
-export namespace DescribeInstanceAccessControlAttributeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceAccessControlAttributeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribePermissionSetRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The ARN of the permission set.</p>
+   * @public
+   * <p>The ARN of the permission set. </p>
    */
   PermissionSetArn: string | undefined;
 }
 
-export namespace DescribePermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribePermissionSetResponse {
   /**
-   * <p>Describes the level of access on an Amazon Web Services account.</p>
+   * @public
+   * <p>Describes the level of access on an AWS account.</p>
    */
   PermissionSet?: PermissionSet;
 }
 
-export namespace DescribePermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePermissionSetResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribePermissionSetProvisioningStatusRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier that is provided by the <a>ProvisionPermissionSet</a> call to
    *       retrieve the current status of the provisioning workflow.</p>
    */
   ProvisionPermissionSetRequestId: string | undefined;
 }
 
-export namespace DescribePermissionSetProvisioningStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePermissionSetProvisioningStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A structure that is used to provide the status of the provisioning operation for a
  *       specified permission set.</p>
  */
 export interface PermissionSetProvisioningStatus {
   /**
+   * @public
    * <p>The status of the permission set provisioning process.</p>
    */
   Status?: StatusValues | string;
 
   /**
+   * @public
    * <p>The identifier for tracking the request operation that is generated by the universally
    *       unique identifier (UUID) workflow.</p>
    */
   RequestId?: string;
 
   /**
-   * <p>The identifier of the Amazon Web Services account from which to list the assignments.</p>
+   * @public
+   * <p>The identifier of the AWS account from which to list the assignments.</p>
    */
   AccountId?: string;
 
   /**
+   * @public
    * <p>The ARN of the permission set that is being provisioned. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   PermissionSetArn?: string;
 
   /**
+   * @public
    * <p>The message that contains an error or exception in case of an operation failure.</p>
    */
   FailureReason?: string;
 
   /**
+   * @public
    * <p>The date that the permission set was created.</p>
    */
   CreatedDate?: Date;
 }
 
-export namespace PermissionSetProvisioningStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionSetProvisioningStatus): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribePermissionSetProvisioningStatusResponse {
   /**
+   * @public
    * <p>The status object for the permission set provisioning operation.</p>
    */
   PermissionSetProvisioningStatus?: PermissionSetProvisioningStatus;
 }
 
-export namespace DescribePermissionSetProvisioningStatusResponse {
+/**
+ * @public
+ */
+export interface DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePermissionSetProvisioningStatusResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DetachManagedPolicyFromPermissionSetRequest {
-  /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
+   * <p>The ARN of the <code>PermissionSet</code>.</p>
+   */
+  PermissionSetArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.</p>
+   */
+  CustomerManagedPolicyReference: CustomerManagedPolicyReference | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {}
+
+/**
+ * @public
+ */
+export interface DetachManagedPolicyFromPermissionSetRequest {
+  /**
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * @public
    * <p>The ARN of the <a>PermissionSet</a> from which the policy should be
    *       detached.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>The IAM managed policy ARN to be attached to a permission set.</p>
+   * @public
+   * <p>The AWS managed policy ARN to be detached from a permission set.</p>
    */
   ManagedPolicyArn: string | undefined;
 }
 
-export namespace DetachManagedPolicyFromPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachManagedPolicyFromPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DetachManagedPolicyFromPermissionSetResponse {}
 
-export namespace DetachManagedPolicyFromPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachManagedPolicyFromPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetInlinePolicyForPermissionSetRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the permission set.</p>
    */
   PermissionSetArn: string | undefined;
 }
 
-export namespace GetInlinePolicyForPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInlinePolicyForPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetInlinePolicyForPermissionSetResponse {
   /**
-   * <p>The IAM inline policy that is attached to the permission set.</p>
+   * @public
+   * <p>The inline policy that is attached to the permission set.</p>
    */
   InlinePolicy?: string;
 }
 
-export namespace GetInlinePolicyForPermissionSetResponse {
+/**
+ * @public
+ */
+export interface GetPermissionsBoundaryForPermissionSetRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
-  export const filterSensitiveLog = (obj: GetInlinePolicyForPermissionSetResponse): any => ({
-    ...obj,
-    ...(obj.InlinePolicy && { InlinePolicy: SENSITIVE_STRING }),
-  });
+  InstanceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the <code>PermissionSet</code>.</p>
+   */
+  PermissionSetArn: string | undefined;
 }
 
 /**
- * <p>Provides information about the SSO instance.</p>
+ * @public
+ * <p>Specifies the configuration of the AWS managed or customer managed policy that you want
+ *       to set as a permissions boundary. Specify either <code>CustomerManagedPolicyReference</code>
+ *       to use the name and path of a customer managed policy, or <code>ManagedPolicyArn</code> to use
+ *       the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions
+ *       that any policy can grant your role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
+ *         entities</a> in the <i>IAM User Guide</i>.</p>
+ *          <important>
+ *             <p>Policies used as permissions boundaries don't provide permissions. You must also attach
+ *         an IAM policy to the role. To learn how the effective permissions for a role are
+ *         evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON policy
+ *           evaluation logic</a> in the <i>IAM User Guide</i>.</p>
+ *          </important>
+ */
+export interface PermissionsBoundary {
+  /**
+   * @public
+   * <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.</p>
+   */
+  CustomerManagedPolicyReference?: CustomerManagedPolicyReference;
+
+  /**
+   * @public
+   * <p>The AWS managed policy ARN that you want to attach to a permission set as a permissions
+   *       boundary.</p>
+   */
+  ManagedPolicyArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetPermissionsBoundaryForPermissionSetResponse {
+  /**
+   * @public
+   * <p>The permissions boundary attached to the specified permission set.</p>
+   */
+  PermissionsBoundary?: PermissionsBoundary;
+}
+
+/**
+ * @public
+ * <p>Provides information about the IAM Identity Center instance.</p>
  */
 export interface InstanceMetadata {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn?: string;
 
   /**
-   * <p>The identifier of the identity store that is connected to the SSO instance.</p>
+   * @public
+   * <p>The identifier of the identity store that is connected to the IAM Identity Center instance.</p>
    */
   IdentityStoreId?: string;
 }
 
-export namespace InstanceMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Filters he operation status list based on the passed attribute value.</p>
  */
 export interface OperationStatusFilter {
   /**
+   * @public
    * <p>Filters the list operations result based on the status attribute.</p>
    */
   Status?: StatusValues | string;
 }
 
-export namespace OperationStatusFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationStatusFilter): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAccountAssignmentCreationStatusRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to display for the assignment.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Filters results based on the passed attribute value.</p>
    */
   Filter?: OperationStatusFilter;
 }
 
-export namespace ListAccountAssignmentCreationStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentCreationStatusRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAccountAssignmentCreationStatusResponse {
   /**
+   * @public
    * <p>The status object for the account assignment creation operation.</p>
    */
   AccountAssignmentsCreationStatus?: AccountAssignmentOperationStatusMetadata[];
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListAccountAssignmentCreationStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentCreationStatusResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAccountAssignmentDeletionStatusRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to display for the assignment.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Filters results based on the passed attribute value.</p>
    */
   Filter?: OperationStatusFilter;
 }
 
-export namespace ListAccountAssignmentDeletionStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentDeletionStatusRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAccountAssignmentDeletionStatusResponse {
   /**
+   * @public
    * <p>The status object for the account assignment deletion operation.</p>
    */
   AccountAssignmentsDeletionStatus?: AccountAssignmentOperationStatusMetadata[];
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListAccountAssignmentDeletionStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentDeletionStatusResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAccountAssignmentsRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account from which to list the assignments.</p>
+   * @public
+   * <p>The identifier of the AWS account from which to list the assignments.</p>
    */
   AccountId: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the permission set from which to list assignments.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to display for the assignment.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListAccountAssignmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAccountAssignmentsResponse {
   /**
-   * <p>The list of assignments that match the input Amazon Web Services account and permission set.</p>
+   * @public
+   * <p>The list of assignments that match the input AWS account and permission set.</p>
    */
   AccountAssignments?: AccountAssignment[];
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListAccountAssignmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisioningStatus = {
+  LATEST_PERMISSION_SET_NOT_PROVISIONED: "LATEST_PERMISSION_SET_NOT_PROVISIONED",
+  LATEST_PERMISSION_SET_PROVISIONED: "LATEST_PERMISSION_SET_PROVISIONED",
+} as const;
 
-export enum ProvisioningStatus {
-  LATEST_PERMISSION_SET_NOT_PROVISIONED = "LATEST_PERMISSION_SET_NOT_PROVISIONED",
-  LATEST_PERMISSION_SET_PROVISIONED = "LATEST_PERMISSION_SET_PROVISIONED",
-}
+/**
+ * @public
+ */
+export type ProvisioningStatus = (typeof ProvisioningStatus)[keyof typeof ProvisioningStatus];
 
+/**
+ * @public
+ */
 export interface ListAccountsForProvisionedPermissionSetRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The ARN of the <a>PermissionSet</a> from which the associated Amazon Web Services accounts
+   * @public
+   * <p>The ARN of the <a>PermissionSet</a> from which the associated AWS accounts
    *       will be listed.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>The permission set provisioning status for an Amazon Web Services account.</p>
+   * @public
+   * <p>The permission set provisioning status for an AWS account.</p>
    */
   ProvisioningStatus?: ProvisioningStatus | string;
 
   /**
+   * @public
    * <p>The maximum number of results to display for the <a>PermissionSet</a>.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListAccountsForProvisionedPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountsForProvisionedPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAccountsForProvisionedPermissionSetResponse {
   /**
-   * <p>The list of Amazon Web Services <code>AccountIds</code>.</p>
+   * @public
+   * <p>The list of AWS <code>AccountIds</code>.</p>
    */
   AccountIds?: string[];
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListAccountsForProvisionedPermissionSetResponse {
+/**
+ * @public
+ */
+export interface ListCustomerManagedPolicyReferencesInPermissionSetRequest {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
-  export const filterSensitiveLog = (obj: ListAccountsForProvisionedPermissionSetResponse): any => ({
-    ...obj,
-  });
+  InstanceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the <code>PermissionSet</code>. </p>
+   */
+  PermissionSetArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to display for the list call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The pagination token for the list API. Initially the value is null. Use the output of
+   *       previous API calls to make subsequent calls.</p>
+   */
+  NextToken?: string;
 }
 
+/**
+ * @public
+ */
+export interface ListCustomerManagedPolicyReferencesInPermissionSetResponse {
+  /**
+   * @public
+   * <p>Specifies the names and paths of the customer managed policies that you have attached to
+   *       your permission set.</p>
+   */
+  CustomerManagedPolicyReferences?: CustomerManagedPolicyReference[];
+
+  /**
+   * @public
+   * <p>The pagination token for the list API. Initially the value is null. Use the output of
+   *       previous API calls to make subsequent calls.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListInstancesRequest {
   /**
+   * @public
    * <p>The maximum number of results to display for the instance.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListInstancesResponse {
   /**
-   * <p>Lists the SSO instances that the caller has access to.</p>
+   * @public
+   * <p>Lists the IAM Identity Center instances that the caller has access to.</p>
    */
   Instances?: InstanceMetadata[];
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstancesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListManagedPoliciesInPermissionSetRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the <a>PermissionSet</a> whose managed policies will be
    *       listed.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to display for the <a>PermissionSet</a>.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListManagedPoliciesInPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedPoliciesInPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListManagedPoliciesInPermissionSetResponse {
   /**
-   * <p>The array of the <a>AttachedManagedPolicy</a> data type object.</p>
+   * @public
+   * <p>An array of the <a>AttachedManagedPolicy</a> data type object.</p>
    */
   AttachedManagedPolicies?: AttachedManagedPolicy[];
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListManagedPoliciesInPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedPoliciesInPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPermissionSetProvisioningStatusRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to display for the assignment.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Filters results based on the passed attribute value.</p>
    */
   Filter?: OperationStatusFilter;
 }
 
-export namespace ListPermissionSetProvisioningStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetProvisioningStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides information about the permission set provisioning status.</p>
  */
 export interface PermissionSetProvisioningStatusMetadata {
   /**
+   * @public
    * <p>The status of the permission set provisioning process.</p>
    */
   Status?: StatusValues | string;
 
   /**
+   * @public
    * <p>The identifier for tracking the request operation that is generated by the universally
    *       unique identifier (UUID) workflow.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The date that the permission set was created.</p>
    */
   CreatedDate?: Date;
 }
 
-export namespace PermissionSetProvisioningStatusMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionSetProvisioningStatusMetadata): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPermissionSetProvisioningStatusResponse {
   /**
+   * @public
    * <p>The status object for the permission set provisioning operation.</p>
    */
   PermissionSetsProvisioningStatus?: PermissionSetProvisioningStatusMetadata[];
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListPermissionSetProvisioningStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetProvisioningStatusResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPermissionSetsRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to display for the assignment.</p>
    */
   MaxResults?: number;
 }
 
-export namespace ListPermissionSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPermissionSetsResponse {
   /**
-   * <p>Defines the level of access on an Amazon Web Services account.</p>
+   * @public
+   * <p>Defines the level of access on an AWS account.</p>
    */
   PermissionSets?: string[];
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListPermissionSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPermissionSetsProvisionedToAccountRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account from which to list the assignments.</p>
+   * @public
+   * <p>The identifier of the AWS account from which to list the assignments.</p>
    */
   AccountId: string | undefined;
 
   /**
+   * @public
    * <p>The status object for the permission set provisioning operation.</p>
    */
   ProvisioningStatus?: ProvisioningStatus | string;
 
   /**
+   * @public
    * <p>The maximum number of results to display for the assignment.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListPermissionSetsProvisionedToAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetsProvisionedToAccountRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPermissionSetsProvisionedToAccountResponse {
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>Defines the level of access that an Amazon Web Services account has.</p>
+   * @public
+   * <p>Defines the level of access that an AWS account has.</p>
    */
   PermissionSets?: string[];
 }
 
-export namespace ListPermissionSetsProvisionedToAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetsProvisionedToAccountResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the resource with the tags to be listed.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>A set of key-value pairs that are used to manage the resource.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionTargetType = {
+  ALL_PROVISIONED_ACCOUNTS: "ALL_PROVISIONED_ACCOUNTS",
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+} as const;
 
-export enum ProvisionTargetType {
-  ALL_PROVISIONED_ACCOUNTS = "ALL_PROVISIONED_ACCOUNTS",
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-}
+/**
+ * @public
+ */
+export type ProvisionTargetType = (typeof ProvisionTargetType)[keyof typeof ProvisionTargetType];
 
+/**
+ * @public
+ */
 export interface ProvisionPermissionSetRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the permission set.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>TargetID is an Amazon Web Services account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
+   * @public
+   * <p>TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).</p>
    */
   TargetId?: string;
 
   /**
+   * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
   TargetType: ProvisionTargetType | string | undefined;
 }
 
-export namespace ProvisionPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ProvisionPermissionSetResponse {
   /**
+   * @public
    * <p>The status object for the permission set provisioning operation.</p>
    */
   PermissionSetProvisioningStatus?: PermissionSetProvisioningStatus;
 }
 
-export namespace ProvisionPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PutInlinePolicyToPermissionSetRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the permission set.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>The IAM inline policy to attach to a <a>PermissionSet</a>.</p>
+   * @public
+   * <p>The inline policy to attach to a <a>PermissionSet</a>.</p>
    */
   InlinePolicy: string | undefined;
 }
 
-export namespace PutInlinePolicyToPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInlinePolicyToPermissionSetRequest): any => ({
-    ...obj,
-    ...(obj.InlinePolicy && { InlinePolicy: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface PutInlinePolicyToPermissionSetResponse {}
 
-export namespace PutInlinePolicyToPermissionSetResponse {
+/**
+ * @public
+ */
+export interface PutPermissionsBoundaryToPermissionSetRequest {
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInlinePolicyToPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
+   * <p>The ARN of the <code>PermissionSet</code>.</p>
+   */
+  PermissionSetArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The permissions boundary that you want to attach to a <code>PermissionSet</code>.</p>
+   */
+  PermissionsBoundary: PermissionsBoundary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutPermissionsBoundaryToPermissionSetResponse {}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * @public
    * <p>The ARN of the resource with the tags to be listed.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A set of key-value pairs that are used to manage the resource.</p>
    */
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the resource with the tags to be listed.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The keys of tags that are attached to the resource.</p>
    */
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateInstanceAccessControlAttributeConfigurationRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>Updates the attributes for your ABAC configuration.</p>
    */
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration | undefined;
 }
 
-export namespace UpdateInstanceAccessControlAttributeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInstanceAccessControlAttributeConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateInstanceAccessControlAttributeConfigurationResponse {}
 
-export namespace UpdateInstanceAccessControlAttributeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInstanceAccessControlAttributeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePermissionSetRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   InstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the permission set.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
+   * @public
    * <p>The description of the <a>PermissionSet</a>.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The length of time that the application user sessions are valid for in the ISO-8601
    *       standard.</p>
    */
   SessionDuration?: string;
 
   /**
+   * @public
    * <p>Used to redirect users within the application during the federation authentication
    *       process.</p>
    */
   RelayState?: string;
 }
 
-export namespace UpdatePermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePermissionSetResponse {}
-
-export namespace UpdatePermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePermissionSetResponse): any => ({
-    ...obj,
-  });
-}

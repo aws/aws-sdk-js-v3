@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { CreateLicenseConfigurationRequest, CreateLicenseConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLicenseConfigurationCommand,
-  serializeAws_json1_1CreateLicenseConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLicenseConfigurationCommand, se_CreateLicenseConfigurationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateLicenseConfigurationCommand}.
+ */
 export interface CreateLicenseConfigurationCommandInput extends CreateLicenseConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLicenseConfigurationCommand}.
+ */
 export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a license configuration.</p>
  *          <p>A license configuration is an abstraction of a customer license agreement that can be
  *          consumed and enforced by License Manager. Components include specifications for the license
@@ -34,13 +48,72 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * import { LicenseManagerClient, CreateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // CreateLicenseConfigurationRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   LicenseCountingType: "vCPU" || "Instance" || "Core" || "Socket", // required
+ *   LicenseCount: Number("long"),
+ *   LicenseCountHardLimit: true || false,
+ *   LicenseRules: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DisassociateWhenNotFound: true || false,
+ *   ProductInformationList: [ // ProductInformationList
+ *     { // ProductInformation
+ *       ResourceType: "STRING_VALUE", // required
+ *       ProductInformationFilterList: [ // ProductInformationFilterList // required
+ *         { // ProductInformationFilter
+ *           ProductInformationFilterName: "STRING_VALUE", // required
+ *           ProductInformationFilterValue: [
+ *             "STRING_VALUE",
+ *           ],
+ *           ProductInformationFilterComparator: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateLicenseConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLicenseConfigurationResponse
+ * //   LicenseConfigurationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateLicenseConfigurationCommandInput - {@link CreateLicenseConfigurationCommandInput}
+ * @returns {@link CreateLicenseConfigurationCommandOutput}
  * @see {@link CreateLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CreateLicenseConfigurationCommand extends $Command<
@@ -51,6 +124,18 @@ export class CreateLicenseConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +151,9 @@ export class CreateLicenseConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLicenseConfigurationCommandInput, CreateLicenseConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLicenseConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +164,8 @@ export class CreateLicenseConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLicenseConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLicenseConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,15 +175,21 @@ export class CreateLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLicenseConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLicenseConfigurationCommand(input, context);
+    return se_CreateLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateLicenseConfigurationCommand(output, context);
+    return de_CreateLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

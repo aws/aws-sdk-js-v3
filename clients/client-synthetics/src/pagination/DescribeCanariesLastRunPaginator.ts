@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeCanariesLastRunCommand,
   DescribeCanariesLastRunCommandInput,
   DescribeCanariesLastRunCommandOutput,
 } from "../commands/DescribeCanariesLastRunCommand";
-import { Synthetics } from "../Synthetics";
 import { SyntheticsClient } from "../SyntheticsClient";
 import { SyntheticsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SyntheticsClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeCanariesLastRunCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Synthetics,
-  input: DescribeCanariesLastRunCommandInput,
-  ...args: any
-): Promise<DescribeCanariesLastRunCommandOutput> => {
-  // @ts-ignore
-  return await client.describeCanariesLastRun(input, ...args);
-};
 export async function* paginateDescribeCanariesLastRun(
   config: SyntheticsPaginationConfiguration,
   input: DescribeCanariesLastRunCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeCanariesLastRun(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Synthetics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SyntheticsClient) {
+    if (config.client instanceof SyntheticsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Synthetics | SyntheticsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,36 +11,69 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { VerifyEmailIdentityRequest, VerifyEmailIdentityResponse } from "../models/models_0";
-import {
-  deserializeAws_queryVerifyEmailIdentityCommand,
-  serializeAws_queryVerifyEmailIdentityCommand,
-} from "../protocols/Aws_query";
+import { de_VerifyEmailIdentityCommand, se_VerifyEmailIdentityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link VerifyEmailIdentityCommand}.
+ */
 export interface VerifyEmailIdentityCommandInput extends VerifyEmailIdentityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link VerifyEmailIdentityCommand}.
+ */
 export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an email address to the list of identities for your Amazon SES account in the current
- *             AWS region and attempts to verify it. As a result of executing this operation, a
+ *             Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
  *             verification email is sent to the specified address.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESClient, VerifyEmailIdentityCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, VerifyEmailIdentityCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // VerifyEmailIdentityRequest
+ *   EmailAddress: "STRING_VALUE", // required
+ * };
  * const command = new VerifyEmailIdentityCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param VerifyEmailIdentityCommandInput - {@link VerifyEmailIdentityCommandInput}
+ * @returns {@link VerifyEmailIdentityCommandOutput}
  * @see {@link VerifyEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link VerifyEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
+ *
+ * @example VerifyEmailIdentity
+ * ```javascript
+ * // The following example starts the email address verification process with Amazon SES:
+ * const input = {
+ *   "EmailAddress": "user@example.com"
+ * };
+ * const command = new VerifyEmailIdentityCommand(input);
+ * await client.send(command);
+ * // example id: verifyemailidentity-1469049068623
+ * ```
  *
  */
 export class VerifyEmailIdentityCommand extends $Command<
@@ -49,6 +84,18 @@ export class VerifyEmailIdentityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyEmailIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +111,9 @@ export class VerifyEmailIdentityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<VerifyEmailIdentityCommandInput, VerifyEmailIdentityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, VerifyEmailIdentityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +124,8 @@ export class VerifyEmailIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyEmailIdentityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: VerifyEmailIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +135,18 @@ export class VerifyEmailIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyEmailIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryVerifyEmailIdentityCommand(input, context);
+    return se_VerifyEmailIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyEmailIdentityCommandOutput> {
-    return deserializeAws_queryVerifyEmailIdentityCommand(output, context);
+    return de_VerifyEmailIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

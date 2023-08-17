@@ -1,4 +1,5 @@
-import { HttpRequest, SourceData } from "@aws-sdk/types";
+import { defaultEndpointResolver } from "@aws-sdk/client-s3/src/endpoint/endpointResolver";
+import { HttpRequest, SourceData } from "@smithy/types";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -10,13 +11,13 @@ import {
 
 const mockCreateScope = jest.fn().mockReturnValue("mock_credential_scope");
 const mockGetSigningKey = jest.fn().mockReturnValue(Buffer.from("mock_signing_key"));
-jest.mock("@aws-sdk/signature-v4", () => ({
+jest.mock("@smithy/signature-v4", () => ({
   createScope: mockCreateScope,
   getSigningKey: mockGetSigningKey,
 }));
 
 const mockHexEncoder = jest.fn().mockReturnValue("mock_hex_encoded");
-jest.mock("@aws-sdk/util-hex-encoding", () => ({
+jest.mock("@smithy/util-hex-encoding", () => ({
   toHex: mockHexEncoder,
 }));
 
@@ -49,6 +50,8 @@ const sha256 = function (secret: SourceData) {
 const mockS3Client = {
   config: {
     endpoint: async () => endpoint,
+    endpointProvider: defaultEndpointResolver,
+    forcePathStyle: true,
     systemClockOffset: 0,
     base64Encoder: jest.fn().mockReturnValue("mock_base64_encoded"),
     utf8Decoder: jest.fn().mockReturnValue(Buffer.from("mock_utf8_decoded")),
@@ -78,7 +81,7 @@ describe("createPresignedPost", () => {
       Bucket,
       Key,
     });
-    expect(url).toBe("https://s3.us-foo-1.amazonaws.com/bucket"),
+    expect(url).toBe("https://s3.us-foo-1.amazonaws.com/foo/bucket"),
       expect(fields).toEqual({
         bucket: Bucket,
         key: Key,

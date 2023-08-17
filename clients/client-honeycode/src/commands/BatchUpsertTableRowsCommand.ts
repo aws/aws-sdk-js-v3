@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import { BatchUpsertTableRowsRequest, BatchUpsertTableRowsResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchUpsertTableRowsCommand,
-  serializeAws_restJson1BatchUpsertTableRowsCommand,
-} from "../protocols/Aws_restJson1";
+  BatchUpsertTableRowsRequest,
+  BatchUpsertTableRowsRequestFilterSensitiveLog,
+  BatchUpsertTableRowsResult,
+} from "../models/models_0";
+import { de_BatchUpsertTableRowsCommand, se_BatchUpsertTableRowsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link BatchUpsertTableRowsCommand}.
+ */
 export interface BatchUpsertTableRowsCommandInput extends BatchUpsertTableRowsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchUpsertTableRowsCommand}.
+ */
 export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The BatchUpsertTableRows API allows you to upsert one or more rows in a table. The upsert
  *             operation takes a filter expression as input and evaluates it to find matching rows on the destination
@@ -41,13 +59,89 @@ export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsR
  * import { HoneycodeClient, BatchUpsertTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, BatchUpsertTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = { // BatchUpsertTableRowsRequest
+ *   workbookId: "STRING_VALUE", // required
+ *   tableId: "STRING_VALUE", // required
+ *   rowsToUpsert: [ // UpsertRowDataList // required
+ *     { // UpsertRowData
+ *       batchItemId: "STRING_VALUE", // required
+ *       filter: { // Filter
+ *         formula: "STRING_VALUE", // required
+ *         contextRowId: "STRING_VALUE",
+ *       },
+ *       cellsToUpdate: { // RowDataInput // required
+ *         "<keys>": { // CellInput
+ *           fact: "STRING_VALUE",
+ *           facts: [ // FactList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new BatchUpsertTableRowsCommand(input);
  * const response = await client.send(command);
+ * // { // BatchUpsertTableRowsResult
+ * //   rows: { // UpsertRowsResultMap // required
+ * //     "<keys>": { // UpsertRowsResult
+ * //       rowIds: [ // RowIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       upsertAction: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   workbookCursor: Number("long"), // required
+ * //   failedBatchItems: [ // FailedBatchItems
+ * //     { // FailedBatchItem
+ * //       id: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param BatchUpsertTableRowsCommandInput - {@link BatchUpsertTableRowsCommandInput}
+ * @returns {@link BatchUpsertTableRowsCommandOutput}
  * @see {@link BatchUpsertTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchUpsertTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *             You do not have sufficient access to perform this action. Check that the workbook is owned by you and your
+ *             IAM policy allows access to the resource in the request.
+ *         </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There were unexpected errors from the server.</p>
+ *
+ * @throws {@link RequestTimeoutException} (server fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A Workbook, Table, App, Screen or Screen Automation was not found with the given ID.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>
+ *             The request caused service quota to be breached.
+ *         </p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Remote service is unreachable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Tps(transactions per second) rate reached.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *             Request is invalid. The message in the response contains details on why the request is invalid.
+ *         </p>
+ *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class BatchUpsertTableRowsCommand extends $Command<
@@ -58,6 +152,18 @@ export class BatchUpsertTableRowsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpsertTableRowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +179,9 @@ export class BatchUpsertTableRowsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchUpsertTableRowsCommandInput, BatchUpsertTableRowsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchUpsertTableRowsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -83,8 +192,8 @@ export class BatchUpsertTableRowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpsertTableRowsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpsertTableRowsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchUpsertTableRowsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +203,18 @@ export class BatchUpsertTableRowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpsertTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpsertTableRowsCommand(input, context);
+    return se_BatchUpsertTableRowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpsertTableRowsCommandOutput> {
-    return deserializeAws_restJson1BatchUpsertTableRowsCommand(output, context);
+    return de_BatchUpsertTableRowsCommand(output, context);
   }
 
   // Start section: command_body_extra

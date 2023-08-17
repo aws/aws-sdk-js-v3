@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeBandwidthRateLimitInput, DescribeBandwidthRateLimitOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBandwidthRateLimitCommand,
-  serializeAws_json1_1DescribeBandwidthRateLimitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeBandwidthRateLimitCommand, se_DescribeBandwidthRateLimitCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeBandwidthRateLimitCommand}.
+ */
 export interface DescribeBandwidthRateLimitCommandInput extends DescribeBandwidthRateLimitInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBandwidthRateLimitCommand}.
+ */
 export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the bandwidth rate limits of a gateway. By default, these limits are not set,
  *          which means no bandwidth rate limiting is in effect. This operation is supported only for
  *          the stored volume, cached volume, and tape gateway types. To describe bandwidth rate limits
@@ -37,13 +51,53 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * import { StorageGatewayClient, DescribeBandwidthRateLimitCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeBandwidthRateLimitCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeBandwidthRateLimitInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeBandwidthRateLimitOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   AverageUploadRateLimitInBitsPerSec: Number("long"),
+ * //   AverageDownloadRateLimitInBitsPerSec: Number("long"),
+ * // };
+ *
  * ```
  *
+ * @param DescribeBandwidthRateLimitCommandInput - {@link DescribeBandwidthRateLimitCommandInput}
+ * @returns {@link DescribeBandwidthRateLimitCommandOutput}
  * @see {@link DescribeBandwidthRateLimitCommandInput} for command's `input` shape.
  * @see {@link DescribeBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
+ *
+ * @example To describe the bandwidth rate limits of a gateway
+ * ```javascript
+ * // Returns a value for a bandwidth rate limit if set. If not set, then only the gateway ARN is returned.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new DescribeBandwidthRateLimitCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AverageDownloadRateLimitInBitsPerSec": 204800,
+ *   "AverageUploadRateLimitInBitsPerSec": 102400,
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-describe-the-bandwidth-rate-limits-of-a-gateway-1471384826404
+ * ```
  *
  */
 export class DescribeBandwidthRateLimitCommand extends $Command<
@@ -54,6 +108,18 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBandwidthRateLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +135,9 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeBandwidthRateLimitCommandInput, DescribeBandwidthRateLimitCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeBandwidthRateLimitCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +148,8 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBandwidthRateLimitInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBandwidthRateLimitOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,15 +159,21 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBandwidthRateLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBandwidthRateLimitCommand(input, context);
+    return se_DescribeBandwidthRateLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBandwidthRateLimitCommandOutput> {
-    return deserializeAws_json1_1DescribeBandwidthRateLimitCommand(output, context);
+    return de_DescribeBandwidthRateLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PartnerIntegrationInputMessage, PartnerIntegrationOutputMessage } from "../models/models_0";
-import { deserializeAws_queryAddPartnerCommand, serializeAws_queryAddPartnerCommand } from "../protocols/Aws_query";
+import { de_AddPartnerCommand, se_AddPartnerCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AddPartnerCommand}.
+ */
 export interface AddPartnerCommandInput extends PartnerIntegrationInputMessage {}
+/**
+ * @public
+ *
+ * The output of {@link AddPartnerCommand}.
+ */
 export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a partner integration to a cluster.
  *             This operation authorizes a partner to push status updates for the specified database.
  *             To complete the integration, you also set up the integration on the partner website.</p>
@@ -28,13 +45,39 @@ export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage
  * import { RedshiftClient, AddPartnerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, AddPartnerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // PartnerIntegrationInputMessage
+ *   AccountId: "STRING_VALUE", // required
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   PartnerName: "STRING_VALUE", // required
+ * };
  * const command = new AddPartnerCommand(input);
  * const response = await client.send(command);
+ * // { // PartnerIntegrationOutputMessage
+ * //   DatabaseName: "STRING_VALUE",
+ * //   PartnerName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param AddPartnerCommandInput - {@link AddPartnerCommandInput}
+ * @returns {@link AddPartnerCommandOutput}
  * @see {@link AddPartnerCommandInput} for command's `input` shape.
  * @see {@link AddPartnerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link PartnerNotFoundFault} (client fault)
+ *  <p>The name of the partner was not found.</p>
+ *
+ * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
+ *  <p>The partner integration is not authorized.</p>
+ *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class AddPartnerCommand extends $Command<
@@ -45,6 +88,18 @@ export class AddPartnerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AddPartnerCommandInput) {
     // Start section: command_constructor
     super();
@@ -60,6 +115,7 @@ export class AddPartnerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddPartnerCommandInput, AddPartnerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AddPartnerCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,8 +126,8 @@ export class AddPartnerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PartnerIntegrationInputMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: PartnerIntegrationOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -81,12 +137,18 @@ export class AddPartnerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddPartnerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddPartnerCommand(input, context);
+    return se_AddPartnerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPartnerCommandOutput> {
-    return deserializeAws_queryAddPartnerCommand(output, context);
+    return de_AddPartnerCommand(output, context);
   }
 
   // Start section: command_body_extra

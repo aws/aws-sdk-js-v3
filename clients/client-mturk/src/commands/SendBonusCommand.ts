@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { SendBonusRequest, SendBonusResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { deserializeAws_json1_1SendBonusCommand, serializeAws_json1_1SendBonusCommand } from "../protocols/Aws_json1_1";
+import { de_SendBonusCommand, se_SendBonusCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SendBonusCommand}.
+ */
 export interface SendBonusCommandInput extends SendBonusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendBonusCommand}.
+ */
 export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>SendBonus</code>
@@ -39,13 +56,33 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  * import { MTurkClient, SendBonusCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, SendBonusCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // SendBonusRequest
+ *   WorkerId: "STRING_VALUE", // required
+ *   BonusAmount: "STRING_VALUE", // required
+ *   AssignmentId: "STRING_VALUE", // required
+ *   Reason: "STRING_VALUE", // required
+ *   UniqueRequestToken: "STRING_VALUE",
+ * };
  * const command = new SendBonusCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param SendBonusCommandInput - {@link SendBonusCommandInput}
+ * @returns {@link SendBonusCommandOutput}
  * @see {@link SendBonusCommandInput} for command's `input` shape.
  * @see {@link SendBonusCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class SendBonusCommand extends $Command<
@@ -56,6 +93,18 @@ export class SendBonusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SendBonusCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +120,7 @@ export class SendBonusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SendBonusCommandInput, SendBonusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, SendBonusCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +131,8 @@ export class SendBonusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendBonusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendBonusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +142,18 @@ export class SendBonusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendBonusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendBonusCommand(input, context);
+    return se_SendBonusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBonusCommandOutput> {
-    return deserializeAws_json1_1SendBonusCommand(output, context);
+    return de_SendBonusCommand(output, context);
   }
 
   // Start section: command_body_extra

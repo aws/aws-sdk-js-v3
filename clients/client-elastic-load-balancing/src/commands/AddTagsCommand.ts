@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ElasticLoadBalancingClientResolvedConfig,
@@ -17,12 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
 import { AddTagsInput, AddTagsOutput } from "../models/models_0";
-import { deserializeAws_queryAddTagsCommand, serializeAws_queryAddTagsCommand } from "../protocols/Aws_query";
+import { de_AddTagsCommand, se_AddTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AddTagsCommand}.
+ */
 export interface AddTagsCommandInput extends AddTagsInput {}
+/**
+ * @public
+ *
+ * The output of {@link AddTagsCommand}.
+ */
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags.</p>
  *
  *         <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated
@@ -36,13 +53,63 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * import { ElasticLoadBalancingClient, AddTagsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, AddTagsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // AddTagsInput
+ *   LoadBalancerNames: [ // LoadBalancerNames // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param AddTagsCommandInput - {@link AddTagsCommandInput}
+ * @returns {@link AddTagsCommandOutput}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
+ *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link DuplicateTagKeysException} (client fault)
+ *  <p>A tag key was specified more than once.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>
+ *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
+ *
+ * @example To add tags to a load balancer
+ * ```javascript
+ * // This example adds two tags to the specified load balancer.
+ * const input = {
+ *   "LoadBalancerNames": [
+ *     "my-load-balancer"
+ *   ],
+ *   "Tags": [
+ *     {
+ *       "Key": "project",
+ *       "Value": "lima"
+ *     },
+ *     {
+ *       "Key": "department",
+ *       "Value": "digital-media"
+ *     }
+ *   ]
+ * };
+ * const command = new AddTagsCommand(input);
+ * await client.send(command);
+ * // example id: elb-add-tags-1
+ * ```
  *
  */
 export class AddTagsCommand extends $Command<
@@ -53,6 +120,18 @@ export class AddTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +147,7 @@ export class AddTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddTagsCommandInput, AddTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AddTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +158,8 @@ export class AddTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +169,18 @@ export class AddTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddTagsCommand(input, context);
+    return se_AddTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
-    return deserializeAws_queryAddTagsCommand(output, context);
+    return de_AddTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

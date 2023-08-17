@@ -148,7 +148,7 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writeRegionHash() {
-        writer.addImport("RegionHash", "RegionHash", TypeScriptDependency.CONFIG_RESOLVER.packageName);
+        writer.addImport("RegionHash", "RegionHash", TypeScriptDependency.CONFIG_RESOLVER);
         writer.openBlock("const regionHash: RegionHash = {", "};", () -> {
             for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
                 writeEndpointSpecificResolver(entry.getKey(), entry.getValue());
@@ -158,7 +158,7 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writePartitionHash() {
-        writer.addImport("PartitionHash", "PartitionHash", TypeScriptDependency.CONFIG_RESOLVER.packageName);
+        writer.addImport("PartitionHash", "PartitionHash", TypeScriptDependency.CONFIG_RESOLVER);
         writer.openBlock("const partitionHash: PartitionHash = {", "};", () -> {
             partitions.values().forEach(partition -> {
                 writer.openBlock("$S: {", "},", partition.identifier, () -> {
@@ -178,10 +178,10 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writeEndpointProviderFunction() {
-        writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+        writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES);
         writer.addImport("RegionInfoProviderOptions", "RegionInfoProviderOptions",
-                TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.addImport("getRegionInfo", "getRegionInfo", TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                TypeScriptDependency.AWS_SDK_TYPES);
+        writer.addImport("getRegionInfo", "getRegionInfo", TypeScriptDependency.CONFIG_RESOLVER);
         writer.openBlock("export const defaultRegionInfoProvider: RegionInfoProvider = async (\n"
                          + "  region: string,\n"
                          + "  options?: RegionInfoProviderOptions\n"

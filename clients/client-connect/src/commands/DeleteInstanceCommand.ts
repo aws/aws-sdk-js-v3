@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DeleteInstanceRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteInstanceCommand,
-  serializeAws_restJson1DeleteInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteInstanceCommand, se_DeleteInstanceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteInstanceCommand}.
+ */
 export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteInstanceCommand}.
+ */
 export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Deletes the Amazon Connect instance.</p>
  *          <p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
@@ -33,13 +47,32 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DeleteInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DeleteInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteInstanceCommandInput - {@link DeleteInstanceCommandInput}
+ * @returns {@link DeleteInstanceCommandOutput}
  * @see {@link DeleteInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteInstanceCommand extends $Command<
@@ -50,6 +83,18 @@ export class DeleteInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +110,9 @@ export class DeleteInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteInstanceCommandInput, DeleteInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +123,8 @@ export class DeleteInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +134,18 @@ export class DeleteInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInstanceCommand(input, context);
+    return se_DeleteInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceCommandOutput> {
-    return deserializeAws_restJson1DeleteInstanceCommand(output, context);
+    return de_DeleteInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

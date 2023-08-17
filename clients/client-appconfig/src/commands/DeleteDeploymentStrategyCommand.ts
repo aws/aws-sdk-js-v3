@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { DeleteDeploymentStrategyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDeploymentStrategyCommand,
-  serializeAws_restJson1DeleteDeploymentStrategyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDeploymentStrategyCommand, se_DeleteDeploymentStrategyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteDeploymentStrategyCommand}.
+ */
 export interface DeleteDeploymentStrategyCommandInput extends DeleteDeploymentStrategyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDeploymentStrategyCommand}.
+ */
 export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a deployment strategy. Deleting a deployment strategy does not delete a
  *          configuration from a host.</p>
  * @example
@@ -30,13 +44,43 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * import { AppConfigClient, DeleteDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // DeleteDeploymentStrategyRequest
+ *   DeploymentStrategyId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeploymentStrategyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteDeploymentStrategyCommandInput - {@link DeleteDeploymentStrategyCommandInput}
+ * @returns {@link DeleteDeploymentStrategyCommandOutput}
  * @see {@link DeleteDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
+ *
+ * @example To delete a deployment strategy
+ * ```javascript
+ * // The following delete-deployment-strategy example deletes the specified deployment strategy.
+ * const input = {
+ *   "DeploymentStrategyId": "1225qzk"
+ * };
+ * const command = new DeleteDeploymentStrategyCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-deployment-strategy-1632265473708
+ * ```
  *
  */
 export class DeleteDeploymentStrategyCommand extends $Command<
@@ -47,6 +91,18 @@ export class DeleteDeploymentStrategyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeploymentStrategyCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +118,9 @@ export class DeleteDeploymentStrategyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDeploymentStrategyCommandInput, DeleteDeploymentStrategyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteDeploymentStrategyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +131,8 @@ export class DeleteDeploymentStrategyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeploymentStrategyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +142,18 @@ export class DeleteDeploymentStrategyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDeploymentStrategyCommand(input, context);
+    return se_DeleteDeploymentStrategyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1DeleteDeploymentStrategyCommand(output, context);
+    return de_DeleteDeploymentStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { WellArchitected } from "../WellArchitected";
 import { WellArchitectedClient } from "../WellArchitectedClient";
 
+/**
+ * @public
+ */
 export interface WellArchitectedPaginationConfiguration extends PaginationConfiguration {
-  client: WellArchitected | WellArchitectedClient;
+  client: WellArchitectedClient;
 }

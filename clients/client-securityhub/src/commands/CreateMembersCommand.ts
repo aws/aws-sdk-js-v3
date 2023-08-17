@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { CreateMembersRequest, CreateMembersResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateMembersCommand,
-  serializeAws_restJson1CreateMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMembersRequest, CreateMembersResponse } from "../models/models_2";
+import { de_CreateMembersCommand, se_CreateMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateMembersCommand}.
+ */
 export interface CreateMembersCommandInput extends CreateMembersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMembersCommand}.
+ */
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a member association in Security Hub between the specified accounts and the account
  *          used to make the request, which is the administrator account. If you are integrated with
  *          Organizations, then the administrator account is designated by the organization management account.</p>
@@ -63,13 +77,75 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * import { SecurityHubClient, CreateMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, CreateMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // CreateMembersRequest
+ *   AccountDetails: [ // AccountDetailsList // required
+ *     { // AccountDetails
+ *       AccountId: "STRING_VALUE", // required
+ *       Email: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
+ * // { // CreateMembersResponse
+ * //   UnprocessedAccounts: [ // ResultList
+ * //     { // Result
+ * //       AccountId: "STRING_VALUE",
+ * //       ProcessingResult: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param CreateMembersCommandInput - {@link CreateMembersCommandInput}
+ * @returns {@link CreateMembersCommandOutput}
  * @see {@link CreateMembersCommandInput} for command's `input` shape.
  * @see {@link CreateMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>The resource specified in the request conflicts with an existing resource.</p>
+ *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
+ *
+ * @example To add a member account
+ * ```javascript
+ * // The following example creates a member association between the specified accounts and the administrator account (the account that makes the request). This operation is used to add accounts that aren't part of an organization.
+ * const input = {
+ *   "AccountDetails": [
+ *     {
+ *       "AccountId": "123456789012"
+ *     },
+ *     {
+ *       "AccountId": "111122223333"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateMembersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "UnprocessedAccounts": []
+ * }
+ * *\/
+ * // example id: to-add-a-member-account-1675354709996
+ * ```
  *
  */
 export class CreateMembersCommand extends $Command<
@@ -80,6 +156,18 @@ export class CreateMembersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,6 +183,7 @@ export class CreateMembersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateMembersCommandInput, CreateMembersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateMembersCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -105,8 +194,8 @@ export class CreateMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMembersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateMembersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +205,18 @@ export class CreateMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMembersCommand(input, context);
+    return se_CreateMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMembersCommandOutput> {
-    return deserializeAws_restJson1CreateMembersCommand(output, context);
+    return de_CreateMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

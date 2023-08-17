@@ -1,41 +1,49 @@
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DynamoDBStreamsServiceException as __BaseException } from "./DynamoDBStreamsServiceException";
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeStream</code> operation.</p>
  */
 export interface DescribeStreamInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
   StreamArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of shard objects to return. The upper limit is 100.</p>
    */
   Limit?: number;
 
   /**
+   * @public
    * <p>The shard ID of the first item that this operation will evaluate. Use the value that was
    *       returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>
    */
   ExclusiveStartShardId?: string;
 }
 
-export namespace DescribeStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStreamInput): any => ({
-    ...obj,
-  });
-}
-
-export type KeyType = "HASH" | "RANGE";
+/**
+ * @public
+ * @enum
+ */
+export const KeyType = {
+  HASH: "HASH",
+  RANGE: "RANGE",
+} as const;
 
 /**
+ * @public
+ */
+export type KeyType = (typeof KeyType)[keyof typeof KeyType];
+
+/**
+ * @public
  * <p>Represents <i>a single element</i> of a key schema. A key schema specifies
  *             the attributes that make up the primary key of a table, or the key attributes of an
  *             index.</p>
@@ -50,19 +58,21 @@ export type KeyType = "HASH" | "RANGE";
  */
 export interface KeySchemaElement {
   /**
+   * @public
    * <p>The name of a key attribute.</p>
    */
   AttributeName: string | undefined;
 
   /**
+   * @public
    * <p>The role that this key attribute will assume:</p>
    *          <ul>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>HASH</code> - partition key</p>
    *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>RANGE</code> - sort key</p>
    *             </li>
    *          </ul>
@@ -80,89 +90,100 @@ export interface KeySchemaElement {
   KeyType: KeyType | string | undefined;
 }
 
-export namespace KeySchemaElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeySchemaElement): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The beginning and ending sequence numbers for the stream records contained within a shard.</p>
  */
 export interface SequenceNumberRange {
   /**
+   * @public
    * <p>The first sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
    */
   StartingSequenceNumber?: string;
 
   /**
+   * @public
    * <p>The last sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
    */
   EndingSequenceNumber?: string;
 }
 
-export namespace SequenceNumberRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SequenceNumberRange): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A uniquely identified group of stream records within a stream.</p>
  */
 export interface Shard {
   /**
+   * @public
    * <p>The system-generated identifier for this shard.</p>
    */
   ShardId?: string;
 
   /**
+   * @public
    * <p>The range of possible sequence numbers for the shard.</p>
    */
   SequenceNumberRange?: SequenceNumberRange;
 
   /**
+   * @public
    * <p>The shard ID of the current shard's parent.</p>
    */
   ParentShardId?: string;
 }
 
-export namespace Shard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Shard): any => ({
-    ...obj,
-  });
-}
-
-export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
-
-export type StreamViewType = "KEYS_ONLY" | "NEW_AND_OLD_IMAGES" | "NEW_IMAGE" | "OLD_IMAGE";
+/**
+ * @public
+ * @enum
+ */
+export const StreamStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamStatus = (typeof StreamStatus)[keyof typeof StreamStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamViewType = {
+  KEYS_ONLY: "KEYS_ONLY",
+  NEW_AND_OLD_IMAGES: "NEW_AND_OLD_IMAGES",
+  NEW_IMAGE: "NEW_IMAGE",
+  OLD_IMAGE: "OLD_IMAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamViewType = (typeof StreamViewType)[keyof typeof StreamViewType];
+
+/**
+ * @public
  * <p>Represents all of the data describing a particular stream.</p>
  */
 export interface StreamDescription {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
   StreamArn?: string;
 
   /**
+   * @public
    * <p>A timestamp, in ISO 8601 format, for this stream.</p>
    *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
    *       possible that a stream from another table might have the same timestamp. However, the
    *       combination of the following three elements is guaranteed to be unique:</p>
    *          <ul>
    *             <li>
-   *                <p>the AWS customer ID.</p>
+   *                <p>the Amazon Web Services customer ID.</p>
    *             </li>
    *             <li>
    *                <p>the table name</p>
@@ -176,6 +197,7 @@ export interface StreamDescription {
   StreamLabel?: string;
 
   /**
+   * @public
    * <p>Indicates the current status of the stream:</p>
    *          <ul>
    *             <li>
@@ -199,6 +221,7 @@ export interface StreamDescription {
   StreamStatus?: StreamStatus | string;
 
   /**
+   * @public
    * <p>Indicates the format of the records within this stream:</p>
    *          <ul>
    *             <li>
@@ -222,26 +245,31 @@ export interface StreamDescription {
   StreamViewType?: StreamViewType | string;
 
   /**
+   * @public
    * <p>The date and time when the request to create this stream was issued.</p>
    */
   CreationRequestDateTime?: Date;
 
   /**
+   * @public
    * <p>The DynamoDB table with which the stream is associated.</p>
    */
   TableName?: string;
 
   /**
+   * @public
    * <p>The key attribute(s) of the stream's DynamoDB table.</p>
    */
   KeySchema?: KeySchemaElement[];
 
   /**
+   * @public
    * <p>The shards that comprise the stream.</p>
    */
   Shards?: Shard[];
 
   /**
+   * @public
    * <p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
    *          <p>If <code>LastEvaluatedShardId</code> is empty, then the "last page" of results has been
    *       processed and there is currently no more data to be retrieved.</p>
@@ -252,35 +280,20 @@ export interface StreamDescription {
   LastEvaluatedShardId?: string;
 }
 
-export namespace StreamDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeStream</code> operation.</p>
  */
 export interface DescribeStreamOutput {
   /**
+   * @public
    * <p>A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.</p>
    */
   StreamDescription?: StreamDescription;
 }
 
-export namespace DescribeStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStreamOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An error occurred on the server side.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -300,6 +313,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation tried to access a nonexistent table or index. The resource
  *             might not be specified correctly, or its status might not be
  *             <code>ACTIVE</code>.</p>
@@ -321,6 +335,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The shard iterator has expired and can no longer be used to retrieve stream records. A shard
  *       iterator expires 15 minutes after it is retrieved using the <code>GetShardIterator</code>
  *       action.</p>
@@ -342,69 +357,73 @@ export class ExpiredIteratorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetRecords</code> operation.</p>
  */
 export interface GetRecordsInput {
   /**
+   * @public
    * <p>A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.</p>
    */
   ShardIterator: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of records to return from the shard. The upper limit is 1000.</p>
    */
   Limit?: number;
 }
 
-export namespace GetRecordsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecordsInput): any => ({
-    ...obj,
-  });
-}
-
-export type OperationType = "INSERT" | "MODIFY" | "REMOVE";
+/**
+ * @public
+ * @enum
+ */
+export const OperationType = {
+  INSERT: "INSERT",
+  MODIFY: "MODIFY",
+  REMOVE: "REMOVE",
+} as const;
 
 /**
+ * @public
+ */
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
+
+/**
+ * @public
  * <p>Contains details about the type of identity that made the request.</p>
  */
 export interface Identity {
   /**
+   * @public
    * <p>A unique identifier for the entity that made the call. For Time To Live, the
    *       principalId is "dynamodb.amazonaws.com".</p>
    */
   PrincipalId?: string;
 
   /**
+   * @public
    * <p>The type of the identity. For Time To Live, the type is "Service".</p>
    */
   Type?: string;
 }
 
-export namespace Identity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Identity): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>There is no limit to the number of daily on-demand backups that can be
- *             taken.</p>
- *          <p>Up to 50 simultaneous table operations are allowed per account. These operations
- *             include <code>CreateTable</code>, <code>UpdateTable</code>,
- *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
- *                 <code>RestoreTableFromBackup</code>, and
- *             <code>RestoreTableToPointInTime</code>.</p>
- *          <p>The only exception is when you are creating a table with one or more secondary
- *             indexes. You can have up to 25 such requests running at a time; however, if the table or
- *             index specifications are complex, DynamoDB might temporarily reduce the number of
- *             concurrent operations.</p>
- *          <p>There is a soft account quota of 256 tables.</p>
+ * @public
+ * <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
+ *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
+ *           include <code>CreateTable</code>, <code>UpdateTable</code>,
+ *           <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
+ *           <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
+ *          <p>When you are creating a table with one or more secondary
+ *           indexes, you can have up to 250 such requests running at a time. However, if the table or
+ *           index specifications are complex, then DynamoDB might temporarily reduce the number
+ *           of concurrent operations.</p>
+ *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
+ *          <p>There is a soft account quota of 2,500 tables.</p>
+ *          <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
+ *          <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding
+ *           this limit may result in request throttling.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -423,6 +442,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation attempted to read past the oldest stream record in a shard.</p>
  *          <p>In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:</p>
  *          <ul>
@@ -452,23 +472,41 @@ export class TrimmedDataAccessException extends __BaseException {
   }
 }
 
-export type ShardIteratorType = "AFTER_SEQUENCE_NUMBER" | "AT_SEQUENCE_NUMBER" | "LATEST" | "TRIM_HORIZON";
+/**
+ * @public
+ * @enum
+ */
+export const ShardIteratorType = {
+  AFTER_SEQUENCE_NUMBER: "AFTER_SEQUENCE_NUMBER",
+  AT_SEQUENCE_NUMBER: "AT_SEQUENCE_NUMBER",
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
 
 /**
+ * @public
+ */
+export type ShardIteratorType = (typeof ShardIteratorType)[keyof typeof ShardIteratorType];
+
+/**
+ * @public
  * <p>Represents the input of a <code>GetShardIterator</code> operation.</p>
  */
 export interface GetShardIteratorInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
   StreamArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the shard. The iterator will be returned for this shard ID.</p>
    */
   ShardId: string | undefined;
 
   /**
+   * @public
    * <p>Determines how the shard iterator is used to start reading stream records from the shard:</p>
    *          <ul>
    *             <li>
@@ -498,54 +536,43 @@ export interface GetShardIteratorInput {
   ShardIteratorType: ShardIteratorType | string | undefined;
 
   /**
+   * @public
    * <p>The sequence number of a stream record in the shard from which to start reading.</p>
    */
   SequenceNumber?: string;
 }
 
-export namespace GetShardIteratorInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetShardIteratorInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a <code>GetShardIterator</code> operation.</p>
  */
 export interface GetShardIteratorOutput {
   /**
+   * @public
    * <p>The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.</p>
    */
   ShardIterator?: string;
 }
 
-export namespace GetShardIteratorOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetShardIteratorOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the input of a <code>ListStreams</code> operation.</p>
  */
 export interface ListStreamsInput {
   /**
+   * @public
    * <p>If this parameter is provided, then only the streams associated with this table name are returned.</p>
    */
   TableName?: string;
 
   /**
+   * @public
    * <p>The maximum number of streams to return. The upper limit is 100.</p>
    */
   Limit?: number;
 
   /**
+   * @public
    * <p>The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the
    *       value that was returned for <code>LastEvaluatedStreamArn</code> in the previous operation.
    *     </p>
@@ -553,37 +580,32 @@ export interface ListStreamsInput {
   ExclusiveStartStreamArn?: string;
 }
 
-export namespace ListStreamsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents all of the data describing a particular stream.</p>
  */
 export interface _Stream {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
   StreamArn?: string;
 
   /**
+   * @public
    * <p>The DynamoDB table with which the stream is associated.</p>
    */
   TableName?: string;
 
   /**
+   * @public
    * <p>A timestamp, in ISO 8601 format, for this stream.</p>
    *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
    *       possible that a stream from another table might have the same timestamp. However, the
    *       combination of the following three elements is guaranteed to be unique:</p>
    *          <ul>
    *             <li>
-   *                <p>the AWS customer ID.</p>
+   *                <p>the Amazon Web Services customer ID.</p>
    *             </li>
    *             <li>
    *                <p>the table name</p>
@@ -597,25 +619,19 @@ export interface _Stream {
   StreamLabel?: string;
 }
 
-export namespace _Stream {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Stream): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a <code>ListStreams</code> operation.</p>
  */
 export interface ListStreamsOutput {
   /**
+   * @public
    * <p>A list of stream descriptors associated with the current account and endpoint.</p>
    */
   Streams?: _Stream[];
 
   /**
+   * @public
    * <p>The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
    *          <p>If <code>LastEvaluatedStreamArn</code> is empty, then the "last page" of results has been
    *       processed and there is no more data to be retrieved.</p>
@@ -626,16 +642,8 @@ export interface ListStreamsOutput {
   LastEvaluatedStreamArn?: string;
 }
 
-export namespace ListStreamsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the data for an attribute.</p>
  *          <p>Each attribute value is described as a name-value pair.  The name is the data type, and the value is the data itself.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the
@@ -654,8 +662,12 @@ export type AttributeValue =
   | AttributeValue.SSMember
   | AttributeValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AttributeValue {
   /**
+   * @public
    * <p>An attribute of type  String. For example:</p>
    *          <p>
    *             <code>"S": "Hello"</code>
@@ -676,6 +688,7 @@ export namespace AttributeValue {
   }
 
   /**
+   * @public
    * <p>An attribute of type Number. For example:</p>
    *          <p>
    *             <code>"N": "123.45"</code>
@@ -697,6 +710,7 @@ export namespace AttributeValue {
   }
 
   /**
+   * @public
    * <p>An attribute of type Binary.  For example:</p>
    *          <p>
    *             <code>"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"</code>
@@ -717,6 +731,7 @@ export namespace AttributeValue {
   }
 
   /**
+   * @public
    * <p>An attribute of type String Set.  For example:</p>
    *          <p>
    *             <code>"SS": ["Giraffe", "Hippo" ,"Zebra"]</code>
@@ -737,6 +752,7 @@ export namespace AttributeValue {
   }
 
   /**
+   * @public
    * <p>An attribute of type Number Set.  For example:</p>
    *          <p>
    *             <code>"NS": ["42.2", "-19", "7.5", "3.14"]</code>
@@ -758,6 +774,7 @@ export namespace AttributeValue {
   }
 
   /**
+   * @public
    * <p>An attribute of type Binary Set.  For example:</p>
    *          <p>
    *             <code>"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]</code>
@@ -778,9 +795,10 @@ export namespace AttributeValue {
   }
 
   /**
+   * @public
    * <p>An attribute of type Map.  For example:</p>
    *          <p>
-   *             <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code>
+   *             <code>"M": \{"Name": \{"S": "Joe"\}, "Age": \{"N": "35"\}\}</code>
    *          </p>
    */
   export interface MMember {
@@ -790,7 +808,7 @@ export namespace AttributeValue {
     SS?: never;
     NS?: never;
     BS?: never;
-    M: { [key: string]: AttributeValue };
+    M: Record<string, AttributeValue>;
     L?: never;
     NULL?: never;
     BOOL?: never;
@@ -798,9 +816,10 @@ export namespace AttributeValue {
   }
 
   /**
+   * @public
    * <p>An attribute of type List.  For example:</p>
    *          <p>
-   *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]</code>
+   *             <code>"L": [ \{"S": "Cookies"\} , \{"S": "Coffee"\}, \{"N": "3.14159"\}]</code>
    *          </p>
    */
   export interface LMember {
@@ -818,6 +837,7 @@ export namespace AttributeValue {
   }
 
   /**
+   * @public
    * <p>An attribute of type Null.  For example:</p>
    *          <p>
    *             <code>"NULL": true</code>
@@ -838,6 +858,7 @@ export namespace AttributeValue {
   }
 
   /**
+   * @public
    * <p>An attribute of type Boolean.  For example:</p>
    *          <p>
    *             <code>"BOOL": true</code>
@@ -857,6 +878,9 @@ export namespace AttributeValue {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     S?: never;
     N?: never;
@@ -878,7 +902,7 @@ export namespace AttributeValue {
     SS: (value: string[]) => T;
     NS: (value: string[]) => T;
     BS: (value: Uint8Array[]) => T;
-    M: (value: { [key: string]: AttributeValue }) => T;
+    M: (value: Record<string, AttributeValue>) => T;
     L: (value: AttributeValue[]) => T;
     NULL: (value: boolean) => T;
     BOOL: (value: boolean) => T;
@@ -898,69 +922,51 @@ export namespace AttributeValue {
     if (value.BOOL !== undefined) return visitor.BOOL(value.BOOL);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeValue): any => {
-    if (obj.S !== undefined) return { S: obj.S };
-    if (obj.N !== undefined) return { N: obj.N };
-    if (obj.B !== undefined) return { B: obj.B };
-    if (obj.SS !== undefined) return { SS: obj.SS };
-    if (obj.NS !== undefined) return { NS: obj.NS };
-    if (obj.BS !== undefined) return { BS: obj.BS };
-    if (obj.M !== undefined)
-      return {
-        M: Object.entries(obj.M).reduce(
-          (acc: any, [key, value]: [string, AttributeValue]) => ({
-            ...acc,
-            [key]: AttributeValue.filterSensitiveLog(value),
-          }),
-          {}
-        ),
-      };
-    if (obj.L !== undefined) return { L: obj.L.map((item) => AttributeValue.filterSensitiveLog(item)) };
-    if (obj.NULL !== undefined) return { NULL: obj.NULL };
-    if (obj.BOOL !== undefined) return { BOOL: obj.BOOL };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
+ * @public
  * <p>A description of a single data modification that was performed on an item in a DynamoDB table.</p>
  */
 export interface StreamRecord {
   /**
-   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format and rounded down to the closest second.</p>
    */
   ApproximateCreationDateTime?: Date;
 
   /**
+   * @public
    * <p>The primary key attribute(s) for the DynamoDB item that was modified.</p>
    */
-  Keys?: { [key: string]: AttributeValue };
+  Keys?: Record<string, AttributeValue>;
 
   /**
+   * @public
    * <p>The item in the DynamoDB table as it appeared after it was modified.</p>
    */
-  NewImage?: { [key: string]: AttributeValue };
+  NewImage?: Record<string, AttributeValue>;
 
   /**
+   * @public
    * <p>The item in the DynamoDB table as it appeared before it was modified.</p>
    */
-  OldImage?: { [key: string]: AttributeValue };
+  OldImage?: Record<string, AttributeValue>;
 
   /**
+   * @public
    * <p>The sequence number of the stream record.</p>
    */
   SequenceNumber?: string;
 
   /**
+   * @public
    * <p>The size of the stream record, in bytes.</p>
    */
   SizeBytes?: number;
 
   /**
+   * @public
    * <p>The type of data from the modified DynamoDB item that was captured in this stream record:</p>
    *          <ul>
    *             <li>
@@ -984,52 +990,19 @@ export interface StreamRecord {
   StreamViewType?: StreamViewType | string;
 }
 
-export namespace StreamRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamRecord): any => ({
-    ...obj,
-    ...(obj.Keys && {
-      Keys: Object.entries(obj.Keys).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-    ...(obj.NewImage && {
-      NewImage: Object.entries(obj.NewImage).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-    ...(obj.OldImage && {
-      OldImage: Object.entries(obj.OldImage).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
-}
-
 /**
+ * @public
  * <p>A description of a unique event within a stream.</p>
  */
 export interface _Record {
   /**
+   * @public
    * <p>A globally unique identifier for the event that was recorded in this stream record.</p>
    */
   eventID?: string;
 
   /**
+   * @public
    * <p>The type of data modification that was performed on the DynamoDB table:</p>
    *          <ul>
    *             <li>
@@ -1049,6 +1022,7 @@ export interface _Record {
   eventName?: OperationType | string;
 
   /**
+   * @public
    * <p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>
    *          <p>Client applications must not assume that <code>eventVersion</code> will remain at a particular
    *       value, as this number is subject to change at any time. In general, <code>eventVersion</code> will
@@ -1057,21 +1031,25 @@ export interface _Record {
   eventVersion?: string;
 
   /**
-   * <p>The AWS service from which the stream record originated.  For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>
+   * @public
+   * <p>The Amazon Web Services service from which the stream record originated. For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>
    */
   eventSource?: string;
 
   /**
+   * @public
    * <p>The region in which the <code>GetRecords</code> request was received.</p>
    */
   awsRegion?: string;
 
   /**
+   * @public
    * <p>The main body of the stream record, containing all of the DynamoDB-specific fields.</p>
    */
   dynamodb?: StreamRecord;
 
   /**
+   * @public
    * <p>Items that are deleted by the Time to Live process after expiration have the following fields: </p>
    *          <ul>
    *             <li>
@@ -1087,39 +1065,22 @@ export interface _Record {
   userIdentity?: Identity;
 }
 
-export namespace _Record {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj,
-    ...(obj.dynamodb && { dynamodb: StreamRecord.filterSensitiveLog(obj.dynamodb) }),
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a <code>GetRecords</code> operation.</p>
  */
 export interface GetRecordsOutput {
   /**
+   * @public
    * <p>The stream records from the shard, which were retrieved using the shard iterator.</p>
    */
   Records?: _Record[];
 
   /**
+   * @public
    * <p>The next position in the shard from which to start sequentially reading stream records. If
    *       set to <code>null</code>, the shard has been closed and the requested iterator will not return
    *       any more data.</p>
    */
   NextShardIterator?: string;
-}
-
-export namespace GetRecordsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecordsOutput): any => ({
-    ...obj,
-    ...(obj.Records && { Records: obj.Records.map((item) => _Record.filterSensitiveLog(item)) }),
-  });
 }

@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListScenesCommand, ListScenesCommandInput, ListScenesCommandOutput } from "../commands/ListScenesCommand";
-import { IoTTwinMaker } from "../IoTTwinMaker";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
 import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTTwinMakerClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListScenesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTTwinMaker,
-  input: ListScenesCommandInput,
-  ...args: any
-): Promise<ListScenesCommandOutput> => {
-  // @ts-ignore
-  return await client.listScenes(input, ...args);
-};
 export async function* paginateListScenes(
   config: IoTTwinMakerPaginationConfiguration,
   input: ListScenesCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListScenes(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTTwinMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTTwinMakerClient) {
+    if (config.client instanceof IoTTwinMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTTwinMaker | IoTTwinMakerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

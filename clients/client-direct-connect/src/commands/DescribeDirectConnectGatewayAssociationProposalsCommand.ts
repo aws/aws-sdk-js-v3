@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
@@ -17,17 +19,32 @@ import {
   DescribeDirectConnectGatewayAssociationProposalsResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand,
-  serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand,
+  de_DescribeDirectConnectGatewayAssociationProposalsCommand,
+  se_DescribeDirectConnectGatewayAssociationProposalsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeDirectConnectGatewayAssociationProposalsCommand}.
+ */
 export interface DescribeDirectConnectGatewayAssociationProposalsCommandInput
   extends DescribeDirectConnectGatewayAssociationProposalsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDirectConnectGatewayAssociationProposalsCommand}.
+ */
 export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
   extends DescribeDirectConnectGatewayAssociationProposalsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more association proposals for connection between a virtual private gateway or transit gateway and a Direct Connect gateway. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +52,59 @@ export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
  * import { DirectConnectClient, DescribeDirectConnectGatewayAssociationProposalsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeDirectConnectGatewayAssociationProposalsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeDirectConnectGatewayAssociationProposalsRequest
+ *   directConnectGatewayId: "STRING_VALUE",
+ *   proposalId: "STRING_VALUE",
+ *   associatedGatewayId: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeDirectConnectGatewayAssociationProposalsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDirectConnectGatewayAssociationProposalsResult
+ * //   directConnectGatewayAssociationProposals: [ // DirectConnectGatewayAssociationProposalList
+ * //     { // DirectConnectGatewayAssociationProposal
+ * //       proposalId: "STRING_VALUE",
+ * //       directConnectGatewayId: "STRING_VALUE",
+ * //       directConnectGatewayOwnerAccount: "STRING_VALUE",
+ * //       proposalState: "requested" || "accepted" || "deleted",
+ * //       associatedGateway: { // AssociatedGateway
+ * //         id: "STRING_VALUE",
+ * //         type: "virtualPrivateGateway" || "transitGateway",
+ * //         ownerAccount: "STRING_VALUE",
+ * //         region: "STRING_VALUE",
+ * //       },
+ * //       existingAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
+ * //         { // RouteFilterPrefix
+ * //           cidr: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       requestedAllowedPrefixesToDirectConnectGateway: [
+ * //         {
+ * //           cidr: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeDirectConnectGatewayAssociationProposalsCommandInput - {@link DescribeDirectConnectGatewayAssociationProposalsCommandInput}
+ * @returns {@link DescribeDirectConnectGatewayAssociationProposalsCommandOutput}
  * @see {@link DescribeDirectConnectGatewayAssociationProposalsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewayAssociationProposalsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Command<
@@ -52,6 +115,18 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDirectConnectGatewayAssociationProposalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +145,12 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
     DescribeDirectConnectGatewayAssociationProposalsCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DescribeDirectConnectGatewayAssociationProposalsCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +161,8 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationProposalsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationProposalsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,18 +172,24 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand(input, context);
+    return se_DescribeDirectConnectGatewayAssociationProposalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand(output, context);
+    return de_DescribeDirectConnectGatewayAssociationProposalsCommand(output, context);
   }
 
   // Start section: command_body_extra

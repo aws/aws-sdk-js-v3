@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
 import { ListTeamMembersRequest, ListTeamMembersResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTeamMembersCommand,
-  serializeAws_json1_1ListTeamMembersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTeamMembersCommand, se_ListTeamMembersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTeamMembersCommand}.
+ */
 export interface ListTeamMembersCommandInput extends ListTeamMembersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTeamMembersCommand}.
+ */
 export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all team members associated with a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,43 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
  * import { CodeStarClient, ListTeamMembersCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, ListTeamMembersCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // ListTeamMembersRequest
+ *   projectId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListTeamMembersCommand(input);
  * const response = await client.send(command);
+ * // { // ListTeamMembersResult
+ * //   teamMembers: [ // TeamMemberResult // required
+ * //     { // TeamMember
+ * //       userArn: "STRING_VALUE", // required
+ * //       projectRole: "STRING_VALUE", // required
+ * //       remoteAccessAllowed: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListTeamMembersCommandInput - {@link ListTeamMembersCommandInput}
+ * @returns {@link ListTeamMembersCommandOutput}
  * @see {@link ListTeamMembersCommandInput} for command's `input` shape.
  * @see {@link ListTeamMembersCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token is not valid.</p>
+ *
+ * @throws {@link ProjectNotFoundException} (client fault)
+ *  <p>The specified AWS CodeStar project was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class ListTeamMembersCommand extends $Command<
@@ -46,6 +90,18 @@ export class ListTeamMembersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTeamMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +117,9 @@ export class ListTeamMembersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTeamMembersCommandInput, ListTeamMembersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTeamMembersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +130,8 @@ export class ListTeamMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTeamMembersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTeamMembersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +141,18 @@ export class ListTeamMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTeamMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTeamMembersCommand(input, context);
+    return se_ListTeamMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTeamMembersCommandOutput> {
-    return deserializeAws_json1_1ListTeamMembersCommand(output, context);
+    return de_ListTeamMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

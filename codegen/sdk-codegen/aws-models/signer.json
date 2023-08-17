@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -139,6 +139,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#AddProfilePermissionResponse": {
@@ -150,6 +153,9 @@
             "smithy.api#documentation": "<p>A unique identifier for the current profile revision.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#Arn": {
@@ -177,6 +183,9 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.signer#Blob": {
+      "type": "blob"
+    },
     "com.amazonaws.signer#BucketName": {
       "type": "string"
     },
@@ -184,6 +193,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.signer#CancelSigningProfileRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -219,21 +231,30 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#Category": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AWSIoT",
-            "name": "AWSIoT"
+      "type": "enum",
+      "members": {
+        "AWSIoT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWSIoT"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.signer#CertificateArn": {
       "type": "string"
+    },
+    "com.amazonaws.signer#CertificateHashes": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.signer#String"
+      }
     },
     "com.amazonaws.signer#ClientRequestToken": {
       "type": "string"
@@ -277,7 +298,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns information about a specific code signing job. You specify the job by using\n\t\t\tthe <code>jobId</code> value that is returned by the <a>StartSigningJob</a>\n\t\t\toperation. </p>",
+        "smithy.api#documentation": "<p>Returns information about a specific code signing job. You specify the job by using the\n\t\t\t\t<code>jobId</code> value that is returned by the <a>StartSigningJob</a>\n\t\t\toperation. </p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/signing-jobs/{jobId}",
@@ -329,6 +350,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#DescribeSigningJobResponse": {
@@ -448,6 +472,9 @@
             "smithy.api#documentation": "<p>The IAM entity that initiated the signing job.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#Destination": {
@@ -468,18 +495,20 @@
       "type": "string"
     },
     "com.amazonaws.signer#EncryptionAlgorithm": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "RSA",
-            "name": "RSA"
-          },
-          {
-            "value": "ECDSA",
-            "name": "ECDSA"
+      "type": "enum",
+      "members": {
+        "RSA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RSA"
           }
-        ]
+        },
+        "ECDSA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ECDSA"
+          }
+        }
       }
     },
     "com.amazonaws.signer#EncryptionAlgorithmOptions": {
@@ -515,6 +544,102 @@
     },
     "com.amazonaws.signer#ErrorMessage": {
       "type": "string"
+    },
+    "com.amazonaws.signer#GetRevocationStatus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.signer#GetRevocationStatusRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.signer#GetRevocationStatusResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.signer#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.signer#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.signer#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the\n\t\t\trevocation status of one or more of the signing profile, signing job, and signing\n\t\t\tcertificate.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "verification."
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/revocations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.signer#GetRevocationStatusRequest": {
+      "type": "structure",
+      "members": {
+        "signatureTimestamp": {
+          "target": "com.amazonaws.signer#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of the signature that validates the profile or job.</p>",
+            "smithy.api#httpQuery": "signatureTimestamp",
+            "smithy.api#required": {}
+          }
+        },
+        "platformId": {
+          "target": "com.amazonaws.signer#PlatformId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of a signing platform. </p>",
+            "smithy.api#httpQuery": "platformId",
+            "smithy.api#required": {}
+          }
+        },
+        "profileVersionArn": {
+          "target": "com.amazonaws.signer#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of a signing profile.</p>",
+            "smithy.api#httpQuery": "profileVersionArn",
+            "smithy.api#required": {}
+          }
+        },
+        "jobArn": {
+          "target": "com.amazonaws.signer#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of a signing job.</p>",
+            "smithy.api#httpQuery": "jobArn",
+            "smithy.api#required": {}
+          }
+        },
+        "certificateHashes": {
+          "target": "com.amazonaws.signer#CertificateHashes",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of composite signed hashes that identify certificates.</p>\n\t\t       <p>A certificate identifier consists of a subject certificate TBS hash (signed by the\n\t\t\tparent CA) combined with a parent CA TBS hash (signed by the parent CA’s CA). Root\n\t\t\tcertificates are defined as their own CA.</p>",
+            "smithy.api#httpQuery": "certificateHashes",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.signer#GetRevocationStatusResponse": {
+      "type": "structure",
+      "members": {
+        "revokedEntities": {
+          "target": "com.amazonaws.signer#RevokedEntities",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of revoked entities (including one or more of the signing profile ARN, signing\n\t\t\tjob ID, and certificate hash) supplied as input to the API.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.signer#GetSigningPlatform": {
       "type": "operation",
@@ -558,6 +683,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#GetSigningPlatformResponse": {
@@ -608,15 +736,20 @@
         "maxSizeInMB": {
           "target": "com.amazonaws.signer#MaxSizeInMB",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum size (in MB) of the payload that can be signed by the target\n\t\t\tplatform.</p>"
           }
         },
         "revocationSupported": {
           "target": "com.amazonaws.signer#bool",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag indicating whether signatures generated for the signing platform can be\n\t\t\trevoked.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#GetSigningProfile": {
@@ -668,6 +801,9 @@
             "smithy.api#httpQuery": "profileOwner"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#GetSigningProfileResponse": {
@@ -751,21 +887,26 @@
             "smithy.api#documentation": "<p>A list of tags associated with the signing profile.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#HashAlgorithm": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SHA1",
-            "name": "SHA1"
-          },
-          {
-            "value": "SHA256",
-            "name": "SHA256"
+      "type": "enum",
+      "members": {
+        "SHA1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHA1"
           }
-        ]
+        },
+        "SHA256": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHA256"
+          }
+        }
       }
     },
     "com.amazonaws.signer#HashAlgorithmOptions": {
@@ -797,22 +938,26 @@
       }
     },
     "com.amazonaws.signer#ImageFormat": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "JSON",
-            "name": "JSON"
-          },
-          {
-            "value": "JSONEmbedded",
-            "name": "JSONEmbedded"
-          },
-          {
-            "value": "JSONDetached",
-            "name": "JSONDetached"
+      "type": "enum",
+      "members": {
+        "JSON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JSON"
           }
-        ]
+        },
+        "JSONEmbedded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JSONEmbedded"
+          }
+        },
+        "JSONDetached": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JSONDetached"
+          }
+        }
       }
     },
     "com.amazonaws.signer#ImageFormats": {
@@ -822,7 +967,10 @@
       }
     },
     "com.amazonaws.signer#Integer": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.signer#InternalServiceErrorException": {
       "type": "structure",
@@ -898,6 +1046,9 @@
             "smithy.api#httpQuery": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#ListProfilePermissionsResponse": {
@@ -912,6 +1063,7 @@
         "policySizeBytes": {
           "target": "com.amazonaws.signer#PolicySizeBytes",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Total size of the policy associated with the Signing Profile in bytes.</p>"
           }
         },
@@ -927,6 +1079,9 @@
             "smithy.api#documentation": "<p>String for specifying the next set of paginated results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#ListSigningJobs": {
@@ -1006,6 +1161,7 @@
         "isRevoked": {
           "target": "com.amazonaws.signer#bool",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Filters results to return only signing jobs with revoked signatures.</p>",
             "smithy.api#httpQuery": "isRevoked"
           }
@@ -1031,6 +1187,9 @@
             "smithy.api#httpQuery": "jobInvoker"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#ListSigningJobsResponse": {
@@ -1048,6 +1207,9 @@
             "smithy.api#documentation": "<p>String for specifying the next set of paginated results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#ListSigningPlatforms": {
@@ -1124,6 +1286,9 @@
             "smithy.api#httpQuery": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#ListSigningPlatformsResponse": {
@@ -1141,6 +1306,9 @@
             "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#ListSigningProfiles": {
@@ -1182,6 +1350,7 @@
         "includeCanceled": {
           "target": "com.amazonaws.signer#bool",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Designates whether to include profiles with the status of\n\t\t\t<code>CANCELED</code>.</p>",
             "smithy.api#httpQuery": "includeCanceled"
           }
@@ -1214,6 +1383,9 @@
             "smithy.api#httpQuery": "statuses"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#ListSigningProfilesResponse": {
@@ -1231,6 +1403,9 @@
             "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#ListTagsForResource": {
@@ -1275,6 +1450,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#ListTagsForResourceResponse": {
@@ -1286,12 +1464,14 @@
             "smithy.api#documentation": "<p>A list of tags associated with the signing profile.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 25
@@ -1299,7 +1479,19 @@
       }
     },
     "com.amazonaws.signer#MaxSizeInMB": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.signer#Metadata": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.signer#String"
+      },
+      "value": {
+        "target": "com.amazonaws.signer#String"
+      }
     },
     "com.amazonaws.signer#NextToken": {
       "type": "string"
@@ -1318,6 +1510,15 @@
         "smithy.api#documentation": "<p>The signing profile was not found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.signer#Payload": {
+      "type": "blob",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 4096
+        }
       }
     },
     "com.amazonaws.signer#Permission": {
@@ -1362,7 +1563,10 @@
       "type": "string"
     },
     "com.amazonaws.signer#PolicySizeBytes": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.signer#Prefix": {
       "type": "string"
@@ -1374,7 +1578,7 @@
           "min": 2,
           "max": 64
         },
-        "smithy.api#pattern": "^[a-zA-Z0-9_]{2,}"
+        "smithy.api#pattern": "^[a-zA-Z0-9_]{2,}$"
       }
     },
     "com.amazonaws.signer#ProfileVersion": {
@@ -1413,7 +1617,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a signing profile. A signing profile is a code signing template that can be used to\n\t\t\tcarry out a pre-defined signing job. For more information, see <a href=\"http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html\">http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html</a>\n         </p>",
+        "smithy.api#documentation": "<p>Creates a signing profile. A signing profile is a code signing template that can be used to\n\t\t\tcarry out a pre-defined signing job.\n\t\t\t</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/signing-profiles/{profileName}",
@@ -1469,6 +1673,9 @@
             "smithy.api#documentation": "<p>Tags to be associated with the signing profile that is being created.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#PutSigningProfileResponse": {
@@ -1492,6 +1699,9 @@
             "smithy.api#documentation": "<p>The signing profile ARN, including the profile version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#RemoveProfilePermission": {
@@ -1558,6 +1768,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#RemoveProfilePermissionResponse": {
@@ -1569,6 +1782,9 @@
             "smithy.api#documentation": "<p>An identifier for the current revision of the profile permissions.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#RequestedBy": {
@@ -1603,6 +1819,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.signer#RevokeSignatureRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -1654,12 +1873,18 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#RevokeSigningProfile": {
       "type": "operation",
       "input": {
         "target": "com.amazonaws.signer#RevokeSigningProfileRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -1719,6 +1944,15 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.signer#RevokedEntities": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.signer#String"
       }
     },
     "com.amazonaws.signer#S3Destination": {
@@ -1806,19 +2040,121 @@
         "smithy.api#httpError": 402
       }
     },
+    "com.amazonaws.signer#SignPayload": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.signer#SignPayloadRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.signer#SignPayloadResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.signer#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.signer#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.signer#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.signer#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Signs a binary\n\t\t\tpayload and returns a signature envelope.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/signing-jobs/with-payload",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.signer#SignPayloadRequest": {
+      "type": "structure",
+      "members": {
+        "profileName": {
+          "target": "com.amazonaws.signer#ProfileName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the signing profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "profileOwner": {
+          "target": "com.amazonaws.signer#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the profile owner.</p>"
+          }
+        },
+        "payload": {
+          "target": "com.amazonaws.signer#Payload",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the object digest (hash) to sign.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "payloadFormat": {
+          "target": "com.amazonaws.signer#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Payload content type</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.signer#SignPayloadResponse": {
+      "type": "structure",
+      "members": {
+        "jobId": {
+          "target": "com.amazonaws.signer#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique identifier of the signing job.</p>"
+          }
+        },
+        "jobOwner": {
+          "target": "com.amazonaws.signer#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the job owner.</p>"
+          }
+        },
+        "metadata": {
+          "target": "com.amazonaws.signer#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>Information including the signing profile ARN and the signing job ID. Clients use\n\t\t\tmetadata to signature records, for example, as annotations added to the signature\n\t\t\tmanifest inside an OCI registry.</p>"
+          }
+        },
+        "signature": {
+          "target": "com.amazonaws.signer#Blob",
+          "traits": {
+            "smithy.api#documentation": "<p>A cryptographic signature.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.signer#SignatureValidityPeriod": {
       "type": "structure",
       "members": {
         "value": {
           "target": "com.amazonaws.signer#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The numerical value of the time unit for signature validity.</p>"
           }
         },
         "type": {
           "target": "com.amazonaws.signer#ValidityType",
           "traits": {
-            "smithy.api#documentation": "<p>The time unit for signature\n\t\t\tvalidity.</p>"
+            "smithy.api#documentation": "<p>The time unit for signature validity.</p>"
           }
         }
       },
@@ -1946,6 +2282,7 @@
         "isRevoked": {
           "target": "com.amazonaws.signer#bool",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether the signing job is revoked.</p>"
           }
         },
@@ -2064,7 +2401,7 @@
         "platformId": {
           "target": "com.amazonaws.signer#String",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of a code signing; platform.</p>"
+            "smithy.api#documentation": "<p>The ID of a code signing platform.</p>"
           }
         },
         "displayName": {
@@ -2103,12 +2440,14 @@
         "maxSizeInMB": {
           "target": "com.amazonaws.signer#MaxSizeInMB",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum size (in MB) of code that can be signed by a code signing platform.</p>"
           }
         },
         "revocationSupported": {
           "target": "com.amazonaws.signer#bool",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether revocation is supported for the platform.</p>"
           }
         }
@@ -2244,22 +2583,26 @@
       }
     },
     "com.amazonaws.signer#SigningProfileStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Active",
-            "name": "Active"
-          },
-          {
-            "value": "Canceled",
-            "name": "Canceled"
-          },
-          {
-            "value": "Revoked",
-            "name": "Revoked"
+      "type": "enum",
+      "members": {
+        "Active": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Active"
           }
-        ]
+        },
+        "Canceled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Canceled"
+          }
+        },
+        "Revoked": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Revoked"
+          }
+        }
       }
     },
     "com.amazonaws.signer#SigningProfiles": {
@@ -2269,22 +2612,26 @@
       }
     },
     "com.amazonaws.signer#SigningStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "InProgress",
-            "name": "InProgress"
-          },
-          {
-            "value": "Failed",
-            "name": "Failed"
-          },
-          {
-            "value": "Succeeded",
-            "name": "Succeeded"
+      "type": "enum",
+      "members": {
+        "InProgress": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InProgress"
           }
-        ]
+        },
+        "Failed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        },
+        "Succeeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Succeeded"
+          }
+        }
       }
     },
     "com.amazonaws.signer#Source": {
@@ -2330,7 +2677,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Initiates a signing job to be performed on the code provided. Signing jobs are\n\t\t\tviewable by the <code>ListSigningJobs</code> operation for two years after they are\n\t\t\tperformed. Note the following requirements: </p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p> You must create an Amazon S3 source bucket. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html\">Create a Bucket</a> in the\n\t\t\t\t\t\t<i>Amazon S3 Getting Started Guide</i>. </p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>Your S3 source bucket must be version enabled.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You must create an S3 destination bucket. Code signing uses your S3 destination\n\t\t\t\t\tbucket to write your signed code.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You specify the name of the source and destination buckets when calling the\n\t\t\t\t\t\t<code>StartSigningJob</code> operation.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You must also specify a request token that identifies your request to\n\t\t\t\t\tcode signing.</p>\n\t\t\t         </li>\n         </ul>\n\t\t       <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call\n\t\t\t<code>StartSigningJob</code>.</p>\n\t\t       <p>For a Java example that shows how to use this action, see <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/\">http://docs.aws.amazon.com/acm/latest/userguide/</a>\n         </p>",
+        "smithy.api#documentation": "<p>Initiates a signing job to be performed on the code provided. Signing jobs are\n\t\t\tviewable by the <code>ListSigningJobs</code> operation for two years after they are\n\t\t\tperformed. Note the following requirements: </p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p> You must create an Amazon S3 source bucket. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html\">Creating a Bucket</a> in the\n\t\t\t\t\t\t<i>Amazon S3 Getting Started Guide</i>. </p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>Your S3 source bucket must be version enabled.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You must create an S3 destination bucket. Code signing uses your S3 destination\n\t\t\t\t\tbucket to write your signed code.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You specify the name of the source and destination buckets when calling the\n\t\t\t\t\t\t<code>StartSigningJob</code> operation.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You must also specify a request token that identifies your request to\n\t\t\t\t\tcode signing.</p>\n\t\t\t         </li>\n         </ul>\n\t\t       <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call\n\t\t\t<code>StartSigningJob</code>.</p>\n\t\t       <p>For a Java example that shows how to use this action, see <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html\">StartSigningJob</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/signing-jobs",
@@ -2376,6 +2723,9 @@
             "smithy.api#documentation": "<p>The AWS account ID of the signing profile owner.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#StartSigningJobResponse": {
@@ -2393,6 +2743,9 @@
             "smithy.api#documentation": "<p>The AWS account ID of the signing job owner.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.signer#StatusReason": {
@@ -2493,11 +2846,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#TagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.signer#TagValue": {
       "type": "string",
@@ -2522,7 +2881,7 @@
         "smithy.api#deprecated": {
           "message": "Instead of this error, TooManyRequestsException should be used."
         },
-        "smithy.api#documentation": "<p>The request was denied due to request throttling.</p>\n        <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>",
+        "smithy.api#documentation": "<p>The request was denied due to request throttling.</p>\n\t\t       <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -2541,7 +2900,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The allowed number of job-signing requests has been exceeded.</p> \n\t\t       <p>This error supersedes the error <code>ThrottlingException</code>.</p>",
+        "smithy.api#documentation": "<p>The allowed number of job-signing requests has been exceeded.</p>\n\t\t       <p>This error supersedes the error <code>ThrottlingException</code>.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -2596,11 +2955,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.signer#UntagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.signer#ValidationException": {
       "type": "structure",
@@ -2619,22 +2984,26 @@
       }
     },
     "com.amazonaws.signer#ValidityType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DAYS",
-            "name": "DAYS"
-          },
-          {
-            "value": "MONTHS",
-            "name": "MONTHS"
-          },
-          {
-            "value": "YEARS",
-            "name": "YEARS"
+      "type": "enum",
+      "members": {
+        "DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DAYS"
           }
-        ]
+        },
+        "MONTHS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MONTHS"
+          }
+        },
+        "YEARS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "YEARS"
+          }
+        }
       }
     },
     "com.amazonaws.signer#Version": {
@@ -2652,6 +3021,9 @@
         },
         {
           "target": "com.amazonaws.signer#DescribeSigningJob"
+        },
+        {
+          "target": "com.amazonaws.signer#GetRevocationStatus"
         },
         {
           "target": "com.amazonaws.signer#GetSigningPlatform"
@@ -2687,6 +3059,9 @@
           "target": "com.amazonaws.signer#RevokeSigningProfile"
         },
         {
+          "target": "com.amazonaws.signer#SignPayload"
+        },
+        {
           "target": "com.amazonaws.signer#StartSigningJob"
         },
         {
@@ -2708,12 +3083,679 @@
           "name": "signer"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>AWS Signer is a fully managed code signing service to help you ensure the trust and\n\t\t\tintegrity of your code. </p>\n\t\t       <p>AWS Signer supports the following applications:</p>\n\n\t\t       <p>With <i>code signing for AWS Lambda</i>, you can sign AWS Lambda\n\t\t\tdeployment packages. Integrated support is provided for Amazon S3, Amazon CloudWatch,\n\t\t\tand AWS CloudTrail. In order to sign code, you create a signing profile and then use\n\t\t\tSigner to sign Lambda zip files in S3. </p>\n\t\t\n\t\t       <p>With <i>code signing for IoT</i>, you can sign code for any IoT device that is\n\t\t\tsupported by AWS. IoT code signing is available for <a href=\"http://docs.aws.amazon.com/freertos/latest/userguide/\">Amazon FreeRTOS</a> and <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/\">AWS IoT Device Management</a>, and is\n\t\t\tintegrated with <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/\">AWS Certificate Manager (ACM)</a>. In order to sign\n\t\t\tcode, you import a third-party code signing certificate using ACM, and use that to\n\t\t\tsign updates in Amazon FreeRTOS and AWS IoT Device Management. </p>\n\t\t       <p>For more information about AWS Signer, see the <a href=\"http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html\">AWS Signer Developer Guide</a>.</p>\n\t\t\n\t\t       <p></p>",
-        "smithy.api#title": "AWS Signer"
+        "smithy.api#documentation": "<p>AWS Signer is a fully managed code signing service to help you ensure the trust and\n\t\t\tintegrity of your code. </p>\n\t\t       <p>AWS Signer supports the following applications:</p>\n\t\t       <p>With code signing for AWS Lambda, you can sign <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/\">AWS\n\t\t\t\tLambda</a> deployment packages. Integrated support is provided for <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/gsg/\">Amazon S3</a>, <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/\">Amazon\n\t\t\t\tCloudWatch</a>, and <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/\">AWS CloudTrail</a>. In order\n\t\t\tto sign code, you create a signing profile and then use Signer to sign Lambda zip files\n\t\t\tin S3. </p>\n\t\t       <p>With code signing for IoT, you can sign code for any IoT device that is supported by AWS.\n\t\t\tIoT code signing is available for <a href=\"http://docs.aws.amazon.com/freertos/latest/userguide/\">Amazon FreeRTOS</a> and <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/\">AWS IoT Device Management</a>, and is integrated with <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/\">AWS Certificate Manager (ACM)</a>. In order to sign code, you import a third-party code signing\n\t\t\tcertificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p>\n\t\t       <p>With code signing for\n\t\t\tcontainers …(TBD)</p>\n\t\t       <p>For more information about AWS Signer, see the <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html\">AWS Signer Developer\n\t\t\tGuide</a>.</p>",
+        "smithy.api#title": "AWS Signer",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://signer-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://signer-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://signer.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://signer.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://signer.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
       }
     },
     "com.amazonaws.signer#bool": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     }
   }
 }

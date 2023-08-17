@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { AssumeRoleWithWebIdentityRequest, AssumeRoleWithWebIdentityResponse } from "../models/models_0";
 import {
-  deserializeAws_queryAssumeRoleWithWebIdentityCommand,
-  serializeAws_queryAssumeRoleWithWebIdentityCommand,
-} from "../protocols/Aws_query";
+  AssumeRoleWithWebIdentityRequest,
+  AssumeRoleWithWebIdentityRequestFilterSensitiveLog,
+  AssumeRoleWithWebIdentityResponse,
+  AssumeRoleWithWebIdentityResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_AssumeRoleWithWebIdentityCommand, se_AssumeRoleWithWebIdentityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssumeRoleWithWebIdentityCommand}.
+ */
 export interface AssumeRoleWithWebIdentityCommandInput extends AssumeRoleWithWebIdentityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssumeRoleWithWebIdentityCommand}.
+ */
 export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWebIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary security credentials for users who have been authenticated in
  *          a mobile or web application with a web identity provider. Example providers include the
  *          OAuth 2.0 providers Login with Amazon and Facebook, or any OpenID Connect-compatible
@@ -31,9 +50,8 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *                <a href="http://aws.amazon.com/sdkforios/">Amazon Web Services SDK for iOS Developer Guide</a> and the <a href="http://aws.amazon.com/sdkforandroid/">Amazon Web Services SDK for Android Developer Guide</a> to uniquely
  *             identify a user. You can also supply the user with a consistent identity throughout the
  *             lifetime of an application.</p>
- *             <p>To learn more about Amazon Cognito, see <a href="https://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-auth.html#d0e840">Amazon Cognito Overview</a> in
- *                <i>Amazon Web Services SDK for Android Developer Guide</i> and <a href="https://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-auth.html#d0e664">Amazon Cognito Overview</a> in the
- *                <i>Amazon Web Services SDK for iOS Developer Guide</i>.</p>
+ *             <p>To learn more about Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html">Amazon Cognito identity
+ *                pools</a> in <i>Amazon Cognito Developer Guide</i>.</p>
  *          </note>
  *          <p>Calling <code>AssumeRoleWithWebIdentity</code> does not require the use of Amazon Web Services
  *          security credentials. Therefore, you can distribute an application (for example, on mobile
@@ -72,9 +90,9 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *          operations.</p>
  *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
  *          this operation. You can pass a single JSON policy document to use as an inline session
- *          policy. You can also specify up to 10 managed policies to use as managed session policies.
- *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
- *          characters. Passing policies to this operation returns new
+ *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+ *          managed session policies. The plaintext that you use for both inline and managed session
+ *          policies can't exceed 2,048 characters. Passing policies to this operation returns new
  *          temporary credentials. The resulting session's permissions are the intersection of the
  *          role's identity-based policy and the session policies. You can use the role's temporary
  *          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
@@ -93,16 +111,13 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *          characters and the values can’t exceed 256 characters. For these and additional limits, see
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
  *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
- *
  *          <note>
- *             <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
- *             packed binary format that has a separate limit. Your request can fail for this limit
- *             even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
- *             response element indicates by percentage how close the policies and tags for your
- *             request are to the upper size limit.
- *             </p>
+ *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+ *             and session tags into a packed binary format that has a separate limit. Your request can
+ *             fail for this limit even if your plaintext meets the other requirements. The
+ *                <code>PackedPolicySize</code> response element indicates by percentage how close the
+ *             policies and tags for your request are to the upper size limit.</p>
  *          </note>
- *
  *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
  *          you do, the session tag overrides the role tag with the same key.</p>
  *          <p>An administrator must grant you the permissions necessary to pass session tags. The
@@ -164,13 +179,126 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * import { STSClient, AssumeRoleWithWebIdentityCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleWithWebIdentityCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = { // AssumeRoleWithWebIdentityRequest
+ *   RoleArn: "STRING_VALUE", // required
+ *   RoleSessionName: "STRING_VALUE", // required
+ *   WebIdentityToken: "STRING_VALUE", // required
+ *   ProviderId: "STRING_VALUE",
+ *   PolicyArns: [ // policyDescriptorListType
+ *     { // PolicyDescriptorType
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Policy: "STRING_VALUE",
+ *   DurationSeconds: Number("int"),
+ * };
  * const command = new AssumeRoleWithWebIdentityCommand(input);
  * const response = await client.send(command);
+ * // { // AssumeRoleWithWebIdentityResponse
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     SessionToken: "STRING_VALUE", // required
+ * //     Expiration: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   SubjectFromWebIdentityToken: "STRING_VALUE",
+ * //   AssumedRoleUser: { // AssumedRoleUser
+ * //     AssumedRoleId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //   },
+ * //   PackedPolicySize: Number("int"),
+ * //   Provider: "STRING_VALUE",
+ * //   Audience: "STRING_VALUE",
+ * //   SourceIdentity: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param AssumeRoleWithWebIdentityCommandInput - {@link AssumeRoleWithWebIdentityCommandInput}
+ * @returns {@link AssumeRoleWithWebIdentityCommandOutput}
  * @see {@link AssumeRoleWithWebIdentityCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleWithWebIdentityCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
+ *
+ * @throws {@link ExpiredTokenException} (client fault)
+ *  <p>The web identity token that was passed is expired or is not valid. Get a new identity
+ *             token from the identity provider and then retry the request.</p>
+ *
+ * @throws {@link IDPCommunicationErrorException} (client fault)
+ *  <p>The request could not be fulfilled because the identity provider (IDP) that
+ *             was asked to verify the incoming identity token could not be reached. This is often a
+ *             transient error caused by network conditions. Retry the request a limited number of
+ *             times so that you don't exceed the request rate. If the error persists, the
+ *             identity provider might be down or not responding.</p>
+ *
+ * @throws {@link IDPRejectedClaimException} (client fault)
+ *  <p>The identity provider (IdP) reported that authentication failed. This might be because
+ *             the claim is invalid.</p>
+ *          <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it
+ *             can also mean that the claim has expired or has been explicitly revoked. </p>
+ *
+ * @throws {@link InvalidIdentityTokenException} (client fault)
+ *  <p>The web identity token that was passed could not be validated by Amazon Web Services. Get a new
+ *             identity token from the identity provider and then retry the request.</p>
+ *
+ * @throws {@link MalformedPolicyDocumentException} (client fault)
+ *  <p>The request was rejected because the policy document was malformed. The error message
+ *             describes the specific error.</p>
+ *
+ * @throws {@link PackedPolicyTooLargeException} (client fault)
+ *  <p>The request was rejected because the total packed size of the session policies and
+ *             session tags combined was too large. An Amazon Web Services conversion compresses the session policy
+ *             document, session policy ARNs, and session tags into a packed binary format that has a
+ *             separate limit. The error message indicates by percentage how close the policies and
+ *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
+ *             the <i>IAM User Guide</i>.</p>
+ *          <p>You could receive this error even though you meet other defined session policy and
+ *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity
+ *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
+ *
+ * @throws {@link RegionDisabledException} (client fault)
+ *  <p>STS is not activated in the requested region for the account that is being asked to
+ *             generate credentials. The account administrator must use the IAM console to activate STS
+ *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
+ *                     Guide</i>.</p>
+ *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
+ *
+ * @example To assume a role as an OpenID Connect-federated user
+ * ```javascript
+ * //
+ * const input = {
+ *   "DurationSeconds": 3600,
+ *   "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Stmt1\",\"Effect\":\"Allow\",\"Action\":\"s3:ListAllMyBuckets\",\"Resource\":\"*\"}]}",
+ *   "ProviderId": "www.amazon.com",
+ *   "RoleArn": "arn:aws:iam::123456789012:role/FederatedWebIdentityRole",
+ *   "RoleSessionName": "app1",
+ *   "WebIdentityToken": "Atza%7CIQEBLjAsAhRFiXuWpUXuRvQ9PZL3GMFcYevydwIUFAHZwXZXXXXXXXXJnrulxKDHwy87oGKPznh0D6bEQZTSCzyoCtL_8S07pLpr0zMbn6w1lfVZKNTBdDansFBmtGnIsIapjI6xKR02Yc_2bQ8LZbUXSGm6Ry6_BG7PrtLZtj_dfCTj92xNGed-CrKqjG7nPBjNIL016GGvuS5gSvPRUxWES3VYfm1wl7WTI7jn-Pcb6M-buCgHhFOzTQxod27L9CqnOLio7N3gZAGpsp6n1-AJBOCJckcyXe2c6uD0srOJeZlKUm2eTDVMf8IehDVI0r1QOnTV6KzzAI3OY87Vd_cVMQ"
+ * };
+ * const command = new AssumeRoleWithWebIdentityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AssumedRoleUser": {
+ *     "Arn": "arn:aws:sts::123456789012:assumed-role/FederatedWebIdentityRole/app1",
+ *     "AssumedRoleId": "AROACLKWSDQRAOEXAMPLE:app1"
+ *   },
+ *   "Audience": "client.5498841531868486423.1548@apps.example.com",
+ *   "Credentials": {
+ *     "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+ *     "Expiration": "2014-10-24T23:00:23Z",
+ *     "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
+ *     "SessionToken": "AQoDYXdzEE0a8ANXXXXXXXXNO1ewxE5TijQyp+IEXAMPLE"
+ *   },
+ *   "PackedPolicySize": 123,
+ *   "Provider": "www.amazon.com",
+ *   "SubjectFromWebIdentityToken": "amzn1.account.AF6RHO7KZU5XRVQJGXK6HEXAMPLE"
+ * }
+ * *\/
+ * // example id: to-assume-a-role-as-an-openid-connect-federated-user-1480533445696
+ * ```
  *
  */
 export class AssumeRoleWithWebIdentityCommand extends $Command<
@@ -181,6 +309,19 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeRoleWithWebIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -196,6 +337,9 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssumeRoleWithWebIdentityCommandInput, AssumeRoleWithWebIdentityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssumeRoleWithWebIdentityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -206,8 +350,8 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeRoleWithWebIdentityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssumeRoleWithWebIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssumeRoleWithWebIdentityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssumeRoleWithWebIdentityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -217,15 +361,21 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeRoleWithWebIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAssumeRoleWithWebIdentityCommand(input, context);
+    return se_AssumeRoleWithWebIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssumeRoleWithWebIdentityCommandOutput> {
-    return deserializeAws_queryAssumeRoleWithWebIdentityCommand(output, context);
+    return de_AssumeRoleWithWebIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

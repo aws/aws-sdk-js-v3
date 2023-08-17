@@ -1,25 +1,22 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
-import { RemoteProviderInit } from "@aws-sdk/credential-provider-imds";
-import { fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
-import { fromProcess, FromProcessInit } from "@aws-sdk/credential-provider-process";
-import { fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
-import { fromTokenFile, FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
-import { chain, CredentialsProviderError, memoize } from "@aws-sdk/property-provider";
-import { loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
-import { CredentialProvider } from "@aws-sdk/types";
-import { ENV_PROFILE } from "@aws-sdk/util-credentials";
+import { fromIni } from "@aws-sdk/credential-provider-ini";
+import { fromProcess } from "@aws-sdk/credential-provider-process";
+import { fromSSO } from "@aws-sdk/credential-provider-sso";
+import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
+import { chain, CredentialsProviderError, memoize } from "@smithy/property-provider";
+import { ENV_PROFILE, loadSharedConfigFiles } from "@smithy/shared-ini-file-loader";
 
 import { defaultProvider } from "./defaultProvider";
 import { remoteProvider } from "./remoteProvider";
 
 jest.mock("@aws-sdk/credential-provider-env");
-jest.mock("@aws-sdk/credential-provider-imds");
+jest.mock("@smithy/credential-provider-imds");
 jest.mock("@aws-sdk/credential-provider-ini");
 jest.mock("@aws-sdk/credential-provider-process");
 jest.mock("@aws-sdk/credential-provider-sso");
 jest.mock("@aws-sdk/credential-provider-web-identity");
-jest.mock("@aws-sdk/property-provider");
-jest.mock("@aws-sdk/shared-ini-file-loader");
+jest.mock("@smithy/property-provider");
+jest.mock("@smithy/shared-ini-file-loader");
 jest.mock("./remoteProvider");
 
 describe(defaultProvider.name, () => {
@@ -30,7 +27,6 @@ describe(defaultProvider.name, () => {
 
   const mockInit = {
     profile: "mockProfile",
-    loadedConfig: Promise.resolve({ configFile: {}, credentialsFile: {} }),
   };
 
   const mockEnvFn = jest.fn();
@@ -66,7 +62,7 @@ describe(defaultProvider.name, () => {
       await errorFn();
       fail(`expected ${expectedError}`);
     } catch (error) {
-      expect(error).toStrictEqual(expectedError);
+      expect(error.toString()).toStrictEqual(expectedError.toString());
     }
 
     expect(memoize).toHaveBeenCalledWith(mockChainFn, expect.any(Function), expect.any(Function));
@@ -98,7 +94,7 @@ describe(defaultProvider.name, () => {
       expect(loadSharedConfigFiles).not.toHaveBeenCalled();
     });
 
-    it(`reads profile from env['${ENV_PROFILE}'], if not provided in init`, async () => {
+    it(`if env['${ENV_PROFILE}'] is set`, async () => {
       const ORIGINAL_ENV = process.env;
       process.env = {
         ...ORIGINAL_ENV,
@@ -111,29 +107,10 @@ describe(defaultProvider.name, () => {
 
       expect(fromEnv).not.toHaveBeenCalled();
       for (const fromFn of [fromSSO, fromIni, fromProcess, fromTokenFile, remoteProvider]) {
-        expect(fromFn).toHaveBeenCalledWith({ ...mockInit, profile: process.env[ENV_PROFILE] });
+        expect(fromFn).toHaveBeenCalledWith(mockInitWithoutProfile);
       }
 
       process.env = ORIGINAL_ENV;
-    });
-
-    it(`gets loadedConfig from loadSharedConfigFiles, if not provided in init`, async () => {
-      const mockSharedConfigFiles = Promise.resolve({
-        configFile: { key: "value" },
-        credentialsFile: { key: "value" },
-      });
-      (loadSharedConfigFiles as jest.Mock).mockReturnValue(mockSharedConfigFiles);
-
-      const { loadedConfig, ...mockInitWithoutLoadedConfig } = mockInit;
-      const receivedCreds = await defaultProvider(mockInitWithoutLoadedConfig)();
-      expect(receivedCreds).toStrictEqual(mockCreds);
-
-      expect(loadSharedConfigFiles).toHaveBeenCalledWith(mockInitWithoutLoadedConfig);
-
-      expect(fromEnv).not.toHaveBeenCalled();
-      for (const fromFn of [fromSSO, fromIni, fromProcess, fromTokenFile, remoteProvider]) {
-        expect(fromFn).toHaveBeenCalledWith({ ...mockInit, loadedConfig: mockSharedConfigFiles });
-      }
     });
   });
 

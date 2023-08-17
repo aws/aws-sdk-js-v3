@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateApplicationCommand";
 export * from "./CreateEnvironmentCommand";
 export * from "./CreateRouteCommand";
@@ -21,3 +22,4 @@ export * from "./ListTagsForResourceCommand";
 export * from "./PutResourcePolicyCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateRouteCommand";

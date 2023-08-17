@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Appflow } from "../Appflow";
 import { AppflowClient } from "../AppflowClient";
 
+/**
+ * @public
+ */
 export interface AppflowPaginationConfiguration extends PaginationConfiguration {
-  client: Appflow | AppflowClient;
+  client: AppflowClient;
 }

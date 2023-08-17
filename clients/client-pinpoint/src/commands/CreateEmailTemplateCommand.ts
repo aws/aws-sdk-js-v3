@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateEmailTemplateRequest, CreateEmailTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateEmailTemplateCommand,
-  serializeAws_restJson1CreateEmailTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateEmailTemplateCommand, se_CreateEmailTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateEmailTemplateCommand}.
+ */
 export interface CreateEmailTemplateCommandInput extends CreateEmailTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEmailTemplateCommand}.
+ */
 export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a message template for messages that are sent through the email channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,55 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * import { PinpointClient, CreateEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // CreateEmailTemplateRequest
+ *   EmailTemplateRequest: { // EmailTemplateRequest
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     HtmlPart: "STRING_VALUE",
+ *     RecommenderId: "STRING_VALUE",
+ *     Subject: "STRING_VALUE",
+ *     tags: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *     TextPart: "STRING_VALUE",
+ *   },
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new CreateEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // CreateEmailTemplateResponse
+ * //   CreateTemplateMessageBody: { // CreateTemplateMessageBody
+ * //     Arn: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param CreateEmailTemplateCommandInput - {@link CreateEmailTemplateCommandInput}
+ * @returns {@link CreateEmailTemplateCommandOutput}
  * @see {@link CreateEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class CreateEmailTemplateCommand extends $Command<
@@ -46,6 +102,18 @@ export class CreateEmailTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +129,9 @@ export class CreateEmailTemplateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateEmailTemplateCommandInput, CreateEmailTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateEmailTemplateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +142,8 @@ export class CreateEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEmailTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateEmailTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +153,18 @@ export class CreateEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEmailTemplateCommand(input, context);
+    return se_CreateEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateEmailTemplateCommand(output, context);
+    return de_CreateEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

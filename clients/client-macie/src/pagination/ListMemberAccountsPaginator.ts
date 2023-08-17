@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListMemberAccountsCommand,
   ListMemberAccountsCommandInput,
   ListMemberAccountsCommandOutput,
 } from "../commands/ListMemberAccountsCommand";
-import { Macie } from "../Macie";
 import { MacieClient } from "../MacieClient";
 import { MaciePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MacieClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListMemberAccountsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Macie,
-  input: ListMemberAccountsCommandInput,
-  ...args: any
-): Promise<ListMemberAccountsCommandOutput> => {
-  // @ts-ignore
-  return await client.listMemberAccounts(input, ...args);
-};
 export async function* paginateListMemberAccounts(
   config: MaciePaginationConfiguration,
   input: ListMemberAccountsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListMemberAccounts(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Macie) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MacieClient) {
+    if (config.client instanceof MacieClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Macie | MacieClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

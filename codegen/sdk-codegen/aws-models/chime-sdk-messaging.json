@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -30,22 +30,26 @@
   },
   "shapes": {
     "com.amazonaws.chimesdkmessaging#AllowNotifications": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ALL",
-            "name": "ALL"
-          },
-          {
-            "value": "NONE",
-            "name": "NONE"
-          },
-          {
-            "value": "FILTERED",
-            "name": "FILTERED"
+      "type": "enum",
+      "members": {
+        "ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL"
           }
-        ]
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
+          }
+        },
+        "FILTERED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FILTERED"
+          }
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#AppInstanceUserMembershipSummary": {
@@ -60,7 +64,13 @@
         "ReadMarkerTimestamp": {
           "target": "com.amazonaws.chimesdkmessaging#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The time at which a message was last read.</p>"
+            "smithy.api#documentation": "<p>The time at which an <code>AppInstanceUser</code> last marked a channel as read.</p>"
+          }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel that the <code>AppInstanceUser</code> is a member of.</p>"
           }
         }
       },
@@ -72,6 +82,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.chimesdkmessaging#AssociateChannelFlowRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -100,7 +113,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the \n         <code>DisassociateChannelFlow</code> API.</p>\n      \n         <note>\n            <p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> \n         of the user that makes the API call as the value in the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the \n         <code>DisassociateChannelFlow</code> API.</p>\n         <note>\n            <p>Only administrators or channel moderators can associate a channel flow. The \n         <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the \n         <code>AppInstanceUser</code> or <code>AppInstanceBot</code>\n         that makes the API call as the value in the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/channels/{ChannelArn}/channel-flow",
@@ -134,6 +147,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#BadRequestException": {
@@ -164,7 +180,7 @@
         "Type": {
           "target": "com.amazonaws.chimesdkmessaging#ChannelMembershipType",
           "traits": {
-            "smithy.api#documentation": "<p>The membership types set for the channel users.</p>"
+            "smithy.api#documentation": "<p>The membership types set for the channel members.</p>"
           }
         },
         "Members": {
@@ -176,7 +192,13 @@
         "ChannelArn": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the channel to which you're adding users.</p>"
+            "smithy.api#documentation": "<p>The ARN of the channel to which you're adding members.</p>"
+          }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel.</p>"
           }
         }
       },
@@ -200,6 +222,12 @@
           "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
         },
         {
+          "target": "com.amazonaws.chimesdkmessaging#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException"
+        },
+        {
           "target": "com.amazonaws.chimesdkmessaging#ServiceFailureException"
         },
         {
@@ -213,7 +241,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds a specified number of users to a channel. </p>",
+        "smithy.api#documentation": "<p>Adds a specified number of users and bots to a channel. </p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}/memberships?operation=batch-create",
@@ -259,7 +287,7 @@
         "ChannelArn": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the channel to which you're adding users.</p>",
+            "smithy.api#documentation": "<p>The ARN of the channel to which you're adding users or bots.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -273,18 +301,27 @@
         "MemberArns": {
           "target": "com.amazonaws.chimesdkmessaging#MemberArns",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code>s of the members you want to add to the channel.</p>",
+            "smithy.api#documentation": "<p>The ARNs of the members you want to add to the channel. Only <code>AppInstanceUsers</code> and \n         <code>AppInstanceBots</code> can be added as a channel member.</p>",
             "smithy.api#required": {}
           }
         },
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request. </p>\n         <note>\n            <p>Only required when creating membership in a SubChannel for a moderator in an elastic channel.</p>\n         </note>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#BatchCreateChannelMembershipResponse": {
@@ -302,6 +339,9 @@
             "smithy.api#documentation": "<p>If the action fails for one or more of the memberships in the request, a list of the\n         memberships is returned, along with error codes and error messages.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CallbackIdType": {
@@ -374,6 +414,18 @@
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the channel flow.</p>"
+          }
+        },
+        "ElasticChannelConfiguration": {
+          "target": "com.amazonaws.chimesdkmessaging#ElasticChannelConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>"
+          }
+        },
+        "ExpirationSettings": {
+          "target": "com.amazonaws.chimesdkmessaging#ExpirationSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Settings that control when a channel expires.</p>"
           }
         }
       },
@@ -547,7 +599,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p>\n         <p>You can return one of the following processing responses:</p>                  \n         <ul>\n            <li>\n               <p>Update message content or metadata</p>\n            </li>\n            <li>\n               <p>Deny a message</p>\n            </li>\n            <li>\n               <p>Make no changes to the message</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Calls back Amazon Chime SDK messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p>\n         <p>You can return one of the following processing responses:</p>\n         <ul>\n            <li>\n               <p>Update message content or metadata</p>\n            </li>\n            <li>\n               <p>Deny a message</p>\n            </li>\n            <li>\n               <p>Make no changes to the message</p>\n            </li>\n         </ul>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}?operation=channel-flow-callback",
@@ -577,6 +629,7 @@
         "DeleteResource": {
           "target": "com.amazonaws.chimesdkmessaging#NonNullableBoolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When a processor determines that a message needs to be <code>DENIED</code>, pass this parameter with a value of true.</p>"
           }
         },
@@ -587,6 +640,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelFlowCallbackResponse": {
@@ -604,12 +660,14 @@
             "smithy.api#documentation": "<p>The call back ID passed in the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelFlowExecutionOrder": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 3
@@ -646,6 +704,29 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.chimesdkmessaging#ChannelFlowSummary"
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#ChannelId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[A-Za-z0-9]([A-Za-z0-9\\:\\-\\_\\.\\@]{0,62}[A-Za-z0-9])?$",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#ChannelMemberArns": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chimesdkmessaging#ChimeArn"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelMembership": {
@@ -685,6 +766,12 @@
           "target": "com.amazonaws.chimesdkmessaging#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time at which a channel membership was last updated.</p>"
+          }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel that a user belongs to.</p>"
           }
         }
       },
@@ -753,18 +840,20 @@
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelMembershipType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEFAULT",
-            "name": "DEFAULT"
-          },
-          {
-            "value": "HIDDEN",
-            "name": "HIDDEN"
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
           }
-        ]
+        },
+        "HIDDEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HIDDEN"
+          }
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelMessage": {
@@ -785,7 +874,7 @@
         "Content": {
           "target": "com.amazonaws.chimesdkmessaging#Content",
           "traits": {
-            "smithy.api#documentation": "<p>The message content.</p>"
+            "smithy.api#documentation": "<p>The content of the channel message. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html\">Processing responses from an AppInstanceBot</a> in the \n         <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>"
           }
         },
         "Metadata": {
@@ -827,6 +916,7 @@
         "Redacted": {
           "target": "com.amazonaws.chimesdkmessaging#NonNullableBoolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Hides the content of a message.</p>"
           }
         },
@@ -845,7 +935,25 @@
         "MessageAttributes": {
           "target": "com.amazonaws.chimesdkmessaging#MessageAttributeMap",
           "traits": {
-            "smithy.api#documentation": "<p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>"
+            "smithy.api#documentation": "<p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html\">Processing responses from an AppInstanceBot</a> in the \n         <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>"
+          }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel.</p>"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.chimesdkmessaging#ContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The content type of the channel message. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and \n         <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html\">Processing responses from an AppInstanceBot</a> in the \n         <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>"
+          }
+        },
+        "Target": {
+          "target": "com.amazonaws.chimesdkmessaging#TargetList",
+          "traits": {
+            "smithy.api#documentation": "<p>The target of a message, a sender, a user, or a bot.  Only the target and the sender can view targeted messages.\n         Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>"
           }
         }
       },
@@ -866,7 +974,7 @@
         "Content": {
           "target": "com.amazonaws.chimesdkmessaging#NonEmptyContent",
           "traits": {
-            "smithy.api#documentation": "<p>The message content.</p>"
+            "smithy.api#documentation": "<p>The message content. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html\">Processing responses from an AppInstanceBot</a> in the \n         <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>"
           }
         },
         "Metadata": {
@@ -884,7 +992,19 @@
         "MessageAttributes": {
           "target": "com.amazonaws.chimesdkmessaging#MessageAttributeMap",
           "traits": {
-            "smithy.api#documentation": "<p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>. </p>"
+            "smithy.api#documentation": "<p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html\">Processing responses from an AppInstanceBot</a> in the \n         <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>"
+          }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel.</p>"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.chimesdkmessaging#ContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The content type of the call-back message. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and \n         <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html\">Processing responses from an AppInstanceBot</a> in the \n         <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>"
           }
         }
       },
@@ -893,41 +1013,49 @@
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelMessagePersistenceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PERSISTENT",
-            "name": "PERSISTENT"
-          },
-          {
-            "value": "NON_PERSISTENT",
-            "name": "NON_PERSISTENT"
+      "type": "enum",
+      "members": {
+        "PERSISTENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PERSISTENT"
           }
-        ]
+        },
+        "NON_PERSISTENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NON_PERSISTENT"
+          }
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelMessageStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SENT",
-            "name": "SENT"
-          },
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "DENIED",
-            "name": "DENIED"
+      "type": "enum",
+      "members": {
+        "SENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SENT"
           }
-        ]
+        },
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "DENIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DENIED"
+          }
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelMessageStatusStructure": {
@@ -942,7 +1070,7 @@
         "Detail": {
           "target": "com.amazonaws.chimesdkmessaging#StatusDetail",
           "traits": {
-            "smithy.api#documentation": "<p>Contains more details about the messasge status.</p>"
+            "smithy.api#documentation": "<p>Contains more details about the message status.</p>"
           }
         }
       },
@@ -962,7 +1090,7 @@
         "Content": {
           "target": "com.amazonaws.chimesdkmessaging#Content",
           "traits": {
-            "smithy.api#documentation": "<p>The content of the message.</p>"
+            "smithy.api#documentation": "<p>The content of the channel message. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html\">Processing responses from an AppInstanceBot</a> in the \n         <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>"
           }
         },
         "Metadata": {
@@ -1004,6 +1132,7 @@
         "Redacted": {
           "target": "com.amazonaws.chimesdkmessaging#NonNullableBoolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether a message was redacted.</p>"
           }
         },
@@ -1016,7 +1145,19 @@
         "MessageAttributes": {
           "target": "com.amazonaws.chimesdkmessaging#MessageAttributeMap",
           "traits": {
-            "smithy.api#documentation": "<p>The message attribues listed in a the summary of a channel message.</p>"
+            "smithy.api#documentation": "<p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html\">Processing responses from an AppInstanceBot</a> in the \n         <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.chimesdkmessaging#ContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The content type of the channel message listed in the summary. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and \n         <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html\">Processing responses from an AppInstanceBot</a> in the \n         <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>"
+          }
+        },
+        "Target": {
+          "target": "com.amazonaws.chimesdkmessaging#TargetList",
+          "traits": {
+            "smithy.api#documentation": "<p>The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages.\n         Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>"
           }
         }
       },
@@ -1031,33 +1172,37 @@
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelMessageType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STANDARD",
-            "name": "STANDARD"
-          },
-          {
-            "value": "CONTROL",
-            "name": "CONTROL"
+      "type": "enum",
+      "members": {
+        "STANDARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STANDARD"
           }
-        ]
+        },
+        "CONTROL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTROL"
+          }
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UNRESTRICTED",
-            "name": "UNRESTRICTED"
-          },
-          {
-            "value": "RESTRICTED",
-            "name": "RESTRICTED"
+      "type": "enum",
+      "members": {
+        "UNRESTRICTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNRESTRICTED"
           }
-        ]
+        },
+        "RESTRICTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESTRICTED"
+          }
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelModeratedByAppInstanceUserSummary": {
@@ -1112,6 +1257,18 @@
         "smithy.api#documentation": "<p>The details of a channel moderator.</p>"
       }
     },
+    "com.amazonaws.chimesdkmessaging#ChannelModeratorArns": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chimesdkmessaging#ChimeArn"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
     "com.amazonaws.chimesdkmessaging#ChannelModeratorSummary": {
       "type": "structure",
       "members": {
@@ -1133,18 +1290,20 @@
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelPrivacy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PUBLIC",
-            "name": "PUBLIC"
-          },
-          {
-            "value": "PRIVATE",
-            "name": "PRIVATE"
+      "type": "enum",
+      "members": {
+        "PUBLIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PUBLIC"
           }
-        ]
+        },
+        "PRIVATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PRIVATE"
+          }
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelSummary": {
@@ -1183,7 +1342,7 @@
         "LastMessageTimestamp": {
           "target": "com.amazonaws.chimesdkmessaging#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The time at which the last message in a channel was sent.</p>"
+            "smithy.api#documentation": "<p>The time at which the last persistent message visible to the caller in a channel was sent.</p>"
           }
         }
       },
@@ -1209,21 +1368,6 @@
     },
     "com.amazonaws.chimesdkmessaging#ChimeMessagingService": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Chime SDK Messaging",
-          "arnNamespace": "chime",
-          "cloudFormationName": "ChimeSDKMessaging",
-          "cloudTrailEventSource": "chimesdkmessaging.amazonaws.com",
-          "endpointPrefix": "messaging-chime"
-        },
-        "aws.auth#sigv4": {
-          "name": "chime"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send\n         and receive messages in custom messaging applications. These APIs depend on the frameworks\n         provided by the Amazon Chime SDK Identity APIs. For more information about the messaging\n         APIs, see <a href=\"https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging\">Amazon Chime SDK messaging</a>\n         </p>",
-        "smithy.api#title": "Amazon Chime SDK Messaging"
-      },
       "version": "2021-05-15",
       "operations": [
         {
@@ -1269,6 +1413,9 @@
           "target": "com.amazonaws.chimesdkmessaging#DeleteChannelModerator"
         },
         {
+          "target": "com.amazonaws.chimesdkmessaging#DeleteMessagingStreamingConfigurations"
+        },
+        {
           "target": "com.amazonaws.chimesdkmessaging#DescribeChannel"
         },
         {
@@ -1305,6 +1452,9 @@
           "target": "com.amazonaws.chimesdkmessaging#GetMessagingSessionEndpoint"
         },
         {
+          "target": "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurations"
+        },
+        {
           "target": "com.amazonaws.chimesdkmessaging#ListChannelBans"
         },
         {
@@ -1332,13 +1482,25 @@
           "target": "com.amazonaws.chimesdkmessaging#ListChannelsModeratedByAppInstanceUser"
         },
         {
+          "target": "com.amazonaws.chimesdkmessaging#ListSubChannels"
+        },
+        {
           "target": "com.amazonaws.chimesdkmessaging#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#PutChannelExpirationSettings"
         },
         {
           "target": "com.amazonaws.chimesdkmessaging#PutChannelMembershipPreferences"
         },
         {
+          "target": "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurations"
+        },
+        {
           "target": "com.amazonaws.chimesdkmessaging#RedactChannelMessage"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#SearchChannels"
         },
         {
           "target": "com.amazonaws.chimesdkmessaging#SendChannelMessage"
@@ -1361,7 +1523,699 @@
         {
           "target": "com.amazonaws.chimesdkmessaging#UpdateChannelReadMarker"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Chime SDK Messaging",
+          "arnNamespace": "chime",
+          "cloudFormationName": "ChimeSDKMessaging",
+          "cloudTrailEventSource": "chimesdkmessaging.amazonaws.com",
+          "endpointPrefix": "messaging-chime"
+        },
+        "aws.auth#sigv4": {
+          "name": "chime"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>The Amazon Chime SDK messaging APIs in this section allow software developers to send\n         and receive messages in custom messaging applications. These APIs depend on the frameworks\n         provided by the Amazon Chime SDK identity APIs. For more information about the messaging\n         APIs, see <a href=\"https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html\">Amazon Chime SDK messaging</a>.</p>",
+        "smithy.api#title": "Amazon Chime SDK Messaging",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://messaging-chime-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://messaging-chime-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://messaging-chime.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://messaging-chime.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.chimesdkmessaging#ClientRequestToken": {
       "type": "string",
@@ -1396,6 +2250,17 @@
         "smithy.api#length": {
           "min": 0,
           "max": 4096
+        },
+        "smithy.api#pattern": "^[\\s\\S]*$",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#ContentType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 45
         },
         "smithy.api#pattern": "^[\\s\\S]*$",
         "smithy.api#sensitive": {}
@@ -1436,7 +2301,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a channel to which you can add users and send messages.</p>\n\n         <p>\n            <b>Restriction</b>: You can't change a channel's\n         privacy.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Creates a channel to which you can add users and send messages.</p>\n         <p>\n            <b>Restriction</b>: You can't change a channel's\n         privacy.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n              ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels",
@@ -1479,7 +2344,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Permanently bans a member from a channel. Moderators can't add banned members to a\n         channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then\n            <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or\n         channels.</p>\n         <p>If you ban a user who is already part of a channel, that user is automatically kicked\n         from the channel.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Permanently bans a member from a channel. Moderators can't add banned members to a\n         channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then\n            <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or\n         channels.</p>\n         <p>If you ban a user who is already part of a channel, that user is automatically kicked\n         from the channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}/bans",
@@ -1508,11 +2373,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelBanResponse": {
@@ -1530,6 +2398,9 @@
             "smithy.api#documentation": "<p>The <code>ChannelArn</code> and <code>BannedIdentity</code> of the member in the ban\n         response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelFlow": {
@@ -1567,7 +2438,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions\n         that perform actions on chat messages, such as stripping out profanity. You can associate\n         channel flows with channels, and the processors in the channel flow then take action on all\n         messages sent to that channel. This is a developer API.</p>\n           \n           <p>Channel flows process the following items:</p>\n         <ol>\n            <li>\n               <p>New and updated messages</p>\n            </li>\n            <li>\n               <p>Persistent and non-persistent messages</p>\n            </li>\n            <li>\n               <p>The Standard message type</p>\n            </li>\n         </ol>\n       \n         <note>\n            <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to \n           <a href=\"https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types\">Message types</a> in the <i>Amazon Chime developer guide</i>.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions\n         that perform actions on chat messages, such as stripping out profanity. You can associate\n         channel flows with channels, and the processors in the channel flow then take action on all\n         messages sent to that channel. This is a developer API.</p>\n         <p>Channel flows process the following items:</p>\n         <ol>\n            <li>\n               <p>New and updated messages</p>\n            </li>\n            <li>\n               <p>Persistent and non-persistent messages</p>\n            </li>\n            <li>\n               <p>The Standard message type</p>\n            </li>\n         </ol>\n         <note>\n            <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to \n           <a href=\"https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types\">Message types</a> in the <i>Amazon Chime developer guide</i>.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channel-flows",
@@ -1609,9 +2480,13 @@
           "target": "com.amazonaws.chimesdkmessaging#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>The client token for the request. An Idempotency token.</p>",
+            "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelFlowResponse": {
@@ -1623,6 +2498,9 @@
             "smithy.api#documentation": "<p>The ARN of the channel flow.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelMembership": {
@@ -1644,6 +2522,9 @@
           "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
         },
         {
+          "target": "com.amazonaws.chimesdkmessaging#NotFoundException"
+        },
+        {
           "target": "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException"
         },
         {
@@ -1660,7 +2541,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the\n         request header. A channel member can:</p>\n\n         <ul>\n            <li>\n               <p>List messages</p>\n            </li>\n            <li>\n               <p>Send messages</p>\n            </li>\n            <li>\n               <p>Receive messages</p>\n            </li>\n            <li>\n               <p>Edit their own messages</p>\n            </li>\n            <li>\n               <p>Leave the channel</p>\n            </li>\n         </ul>\n\n         <p>Privacy settings impact this action as follows:</p>\n\n         <ul>\n            <li>\n               <p>Public Channels: You do not need to be a member to list messages, but you must be\n               a member to send messages.</p>\n            </li>\n            <li>\n               <p>Private Channels: You must be a member to list or send messages.</p>\n            </li>\n         </ul>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Adds a member to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> \n         is derived from the request header. A channel member can:</p>\n         <ul>\n            <li>\n               <p>List messages</p>\n            </li>\n            <li>\n               <p>Send messages</p>\n            </li>\n            <li>\n               <p>Receive messages</p>\n            </li>\n            <li>\n               <p>Edit their own messages</p>\n            </li>\n            <li>\n               <p>Leave the channel</p>\n            </li>\n         </ul>\n         <p>Privacy settings impact this action as follows:</p>\n         <ul>\n            <li>\n               <p>Public Channels: You do not need to be a member to list messages, but you must be\n               a member to send messages.</p>\n            </li>\n            <li>\n               <p>Private Channels: You must be a member to list or send messages.</p>\n            </li>\n         </ul>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call \n            as the value in the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}/memberships",
@@ -1696,11 +2577,20 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>\n         <note>\n            <p>Only required when creating membership in a SubChannel for a moderator in an elastic channel.</p>\n         </note>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelMembershipResponse": {
@@ -1717,7 +2607,16 @@
           "traits": {
             "smithy.api#documentation": "<p>The ARN and metadata of the member being added.</p>"
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the response.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelModerator": {
@@ -1755,7 +2654,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>\n\n         <ul>\n            <li>\n               <p>Add and remove other members of the channel.</p>\n            </li>\n            <li>\n               <p>Add and remove other moderators of the channel.</p>\n            </li>\n            <li>\n               <p>Add and remove user bans for the channel.</p>\n            </li>\n            <li>\n               <p>Redact messages in the channel.</p>\n            </li>\n            <li>\n               <p>List messages in the channel.</p>\n            </li>\n         </ul>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>\n         <ul>\n            <li>\n               <p>Add and remove other members of the channel.</p>\n            </li>\n            <li>\n               <p>Add and remove other moderators of the channel.</p>\n            </li>\n            <li>\n               <p>Add and remove user bans for the channel.</p>\n            </li>\n            <li>\n               <p>Redact messages in the channel.</p>\n            </li>\n            <li>\n               <p>List messages in the channel.</p>\n            </li>\n         </ul>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}/moderators",
@@ -1784,11 +2683,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelModeratorResponse": {
@@ -1806,6 +2708,9 @@
             "smithy.api#documentation": "<p>The ARNs of the channel and the moderator.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelRequest": {
@@ -1860,11 +2765,44 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "ChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#ChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the channel in the request.</p>"
+          }
+        },
+        "MemberArns": {
+          "target": "com.amazonaws.chimesdkmessaging#ChannelMemberArns",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARNs of the channel members in the request.</p>"
+          }
+        },
+        "ModeratorArns": {
+          "target": "com.amazonaws.chimesdkmessaging#ChannelModeratorArns",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARNs of the channel moderators in the request.</p>"
+          }
+        },
+        "ElasticChannelConfiguration": {
+          "target": "com.amazonaws.chimesdkmessaging#ElasticChannelConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million users, excluding moderators.</p>"
+          }
+        },
+        "ExpirationSettings": {
+          "target": "com.amazonaws.chimesdkmessaging#ExpirationSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Settings that control the interval after which the channel is automatically deleted.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelResponse": {
@@ -1876,6 +2814,9 @@
             "smithy.api#documentation": "<p>The ARN of the channel.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannel": {
@@ -1883,9 +2824,15 @@
       "input": {
         "target": "com.amazonaws.chimesdkmessaging#DeleteChannelRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ConflictException"
         },
         {
           "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
@@ -1904,7 +2851,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Immediately makes a channel and its memberships inaccessible and marks them for\n         deletion. This is an irreversible process.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Immediately makes a channel and its memberships inaccessible and marks them for\n         deletion. This is an irreversible process.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/channels/{ChannelArn}",
@@ -1917,6 +2864,9 @@
       "input": {
         "target": "com.amazonaws.chimesdkmessaging#DeleteChannelBanRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
@@ -1938,7 +2888,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes a user from a channel's ban list.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Removes a member from a channel's ban list.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/channels/{ChannelArn}/bans/{MemberArn}",
@@ -1968,17 +2918,23 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the \n         API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannelFlow": {
       "type": "operation",
       "input": {
         "target": "com.amazonaws.chimesdkmessaging#DeleteChannelFlowRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -2023,12 +2979,18 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannelMembership": {
       "type": "operation",
       "input": {
         "target": "com.amazonaws.chimesdkmessaging#DeleteChannelMembershipRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -2054,7 +3016,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes a member from a channel.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Removes a member from a channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/channels/{ChannelArn}/memberships/{MemberArn}",
@@ -2084,17 +3046,30 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the \n         API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>\n         <note>\n            <p>Only for use by moderators.</p>\n         </note>",
+            "smithy.api#httpQuery": "sub-channel-id"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannelMessage": {
       "type": "operation",
       "input": {
         "target": "com.amazonaws.chimesdkmessaging#DeleteChannelMessageRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -2117,7 +3092,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a channel message. Only admins can perform this action. Deletion makes messages\n         inaccessible immediately. A background process deletes any revisions created by\n            <code>UpdateChannelMessage</code>.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Deletes a channel message. Only admins can perform this action. Deletion makes messages\n         inaccessible immediately. A background process deletes any revisions created by\n            <code>UpdateChannelMessage</code>.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/channels/{ChannelArn}/messages/{MessageId}",
@@ -2147,17 +3122,30 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the \n         API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>\n         <note>\n            <p>Only required when deleting messages in a SubChannel that the user belongs to.</p>\n         </note>",
+            "smithy.api#httpQuery": "sub-channel-id"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannelModerator": {
       "type": "operation",
       "input": {
         "target": "com.amazonaws.chimesdkmessaging#DeleteChannelModeratorRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -2180,7 +3168,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a channel moderator.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Deletes a channel moderator.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}",
@@ -2210,11 +3198,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the \n         API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannelRequest": {
@@ -2231,11 +3222,67 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#DeleteMessagingStreamingConfigurations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chimesdkmessaging#DeleteMessagingStreamingConfigurationsRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/app-instances/{AppInstanceArn}/streaming-configurations",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#DeleteMessagingStreamingConfigurationsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the streaming configurations being deleted.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannel": {
@@ -2267,7 +3314,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the full details of a channel in an Amazon Chime\n         <code>AppInstance</code>.</p>\n\n         <note>\n\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Returns the full details of a channel in an Amazon Chime\n         <code>AppInstance</code>.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}",
@@ -2307,7 +3354,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the full details of a channel ban.</p>\n\n         <note>\n\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Returns the full details of a channel ban.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/bans/{MemberArn}",
@@ -2337,11 +3384,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the \n         API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelBanResponse": {
@@ -2353,6 +3403,9 @@
             "smithy.api#documentation": "<p>The details of the ban.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelFlow": {
@@ -2403,6 +3456,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelFlowResponse": {
@@ -2414,6 +3470,9 @@
             "smithy.api#documentation": "<p>The channel flow details.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelMembership": {
@@ -2448,7 +3507,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the full details of a user's channel membership.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Returns the full details of a user's channel membership.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/memberships/{MemberArn}",
@@ -2485,7 +3544,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Returns the details of a channel based on the membership of the specified\n            <code>AppInstanceUser</code>.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p> Returns the details of a channel based on the membership of the specified\n            <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}?scope=app-instance-user-membership",
@@ -2507,7 +3566,7 @@
         "AppInstanceUserArn": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the user in a channel.</p>",
+            "smithy.api#documentation": "<p>The ARN of the user or bot in a channel.</p>",
             "smithy.api#httpQuery": "app-instance-user-arn",
             "smithy.api#required": {}
           }
@@ -2515,11 +3574,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelMembershipForAppInstanceUserResponse": {
@@ -2531,6 +3593,9 @@
             "smithy.api#documentation": "<p>The channel to which a user belongs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelMembershipRequest": {
@@ -2555,11 +3620,21 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the \n         API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request. The response contains an <code>ElasticChannelConfiguration</code> object.</p>\n         <note>\n            <p>Only required to get a user’s SubChannel membership details.</p>\n         </note>",
+            "smithy.api#httpQuery": "sub-channel-id"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelMembershipResponse": {
@@ -2571,6 +3646,9 @@
             "smithy.api#documentation": "<p>The details of the membership.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelModeratedByAppInstanceUser": {
@@ -2602,7 +3680,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the full details of a channel moderated by the specified\n            <code>AppInstanceUser</code>.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Returns the full details of a channel moderated by the specified\n            <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}?scope=app-instance-user-moderated-channel",
@@ -2624,7 +3702,7 @@
         "AppInstanceUserArn": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> in the moderated channel.</p>",
+            "smithy.api#documentation": "<p>The ARN of the user or bot in the moderated channel.</p>",
             "smithy.api#httpQuery": "app-instance-user-arn",
             "smithy.api#required": {}
           }
@@ -2632,11 +3710,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelModeratedByAppInstanceUserResponse": {
@@ -2648,6 +3729,9 @@
             "smithy.api#documentation": "<p>The moderated channel.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelModerator": {
@@ -2712,11 +3796,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelModeratorResponse": {
@@ -2728,6 +3815,9 @@
             "smithy.api#documentation": "<p>The details of the channel moderator.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelRequest": {
@@ -2744,11 +3834,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the \n         API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelResponse": {
@@ -2760,12 +3853,18 @@
             "smithy.api#documentation": "<p>The channel details.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DisassociateChannelFlow": {
       "type": "operation",
       "input": {
         "target": "com.amazonaws.chimesdkmessaging#DisassociateChannelFlowRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -2794,7 +3893,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Disassociates a channel flow from all its channels. Once disassociated, all messages to\n         that channel stop going through the channel flow processor.</p>\n         <note>\n            <p>Only administrators or channel moderators can disassociate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> \n           of the user that makes the API call as the value in the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Disassociates a channel flow from all its channels. Once disassociated, all messages to\n         that channel stop going through the channel flow processor.</p>\n         <note>\n            <p>Only administrators or channel moderators can disassociate a channel flow.</p>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n             the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/channels/{ChannelArn}/channel-flow/{ChannelFlowArn}",
@@ -2829,88 +3928,198 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#ElasticChannelConfiguration": {
+      "type": "structure",
+      "members": {
+        "MaximumSubChannels": {
+          "target": "com.amazonaws.chimesdkmessaging#MaximumSubChannels",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of SubChannels that you want to allow in the elastic channel.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TargetMembershipsPerSubChannel": {
+          "target": "com.amazonaws.chimesdkmessaging#TargetMembershipsPerSubChannel",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of members allowed in a SubChannel.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MinimumMembershipPercentage": {
+          "target": "com.amazonaws.chimesdkmessaging#MinimumMembershipPercentage",
+          "traits": {
+            "smithy.api#documentation": "<p>The minimum allowed percentage of TargetMembershipsPerSubChannel users. Ceil of the calculated value is used in balancing members among SubChannels of the elastic channel.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>"
       }
     },
     "com.amazonaws.chimesdkmessaging#ErrorCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "BadRequest",
-            "name": "BadRequest"
-          },
-          {
-            "value": "Conflict",
-            "name": "Conflict"
-          },
-          {
-            "value": "Forbidden",
-            "name": "Forbidden"
-          },
-          {
-            "value": "NotFound",
-            "name": "NotFound"
-          },
-          {
-            "value": "PreconditionFailed",
-            "name": "PreconditionFailed"
-          },
-          {
-            "value": "ResourceLimitExceeded",
-            "name": "ResourceLimitExceeded"
-          },
-          {
-            "value": "ServiceFailure",
-            "name": "ServiceFailure"
-          },
-          {
-            "value": "AccessDenied",
-            "name": "AccessDenied"
-          },
-          {
-            "value": "ServiceUnavailable",
-            "name": "ServiceUnavailable"
-          },
-          {
-            "value": "Throttled",
-            "name": "Throttled"
-          },
-          {
-            "value": "Throttling",
-            "name": "Throttling"
-          },
-          {
-            "value": "Unauthorized",
-            "name": "Unauthorized"
-          },
-          {
-            "value": "Unprocessable",
-            "name": "Unprocessable"
-          },
-          {
-            "value": "VoiceConnectorGroupAssociationsExist",
-            "name": "VoiceConnectorGroupAssociationsExist"
-          },
-          {
-            "value": "PhoneNumberAssociationsExist",
-            "name": "PhoneNumberAssociationsExist"
+      "type": "enum",
+      "members": {
+        "BadRequest": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BadRequest"
           }
-        ]
+        },
+        "Conflict": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Conflict"
+          }
+        },
+        "Forbidden": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Forbidden"
+          }
+        },
+        "NotFound": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NotFound"
+          }
+        },
+        "PreconditionFailed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PreconditionFailed"
+          }
+        },
+        "ResourceLimitExceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceLimitExceeded"
+          }
+        },
+        "ServiceFailure": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ServiceFailure"
+          }
+        },
+        "AccessDenied": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccessDenied"
+          }
+        },
+        "ServiceUnavailable": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ServiceUnavailable"
+          }
+        },
+        "Throttled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Throttled"
+          }
+        },
+        "Throttling": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Throttling"
+          }
+        },
+        "Unauthorized": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Unauthorized"
+          }
+        },
+        "Unprocessable": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Unprocessable"
+          }
+        },
+        "VoiceConnectorGroupAssociationsExist": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VoiceConnectorGroupAssociationsExist"
+          }
+        },
+        "PhoneNumberAssociationsExist": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PhoneNumberAssociationsExist"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#ExpirationCriterion": {
+      "type": "enum",
+      "members": {
+        "CREATED_TIMESTAMP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATED_TIMESTAMP"
+          }
+        },
+        "LAST_MESSAGE_TIMESTAMP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LAST_MESSAGE_TIMESTAMP"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#ExpirationDays": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 5475
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#ExpirationSettings": {
+      "type": "structure",
+      "members": {
+        "ExpirationDays": {
+          "target": "com.amazonaws.chimesdkmessaging#ExpirationDays",
+          "traits": {
+            "smithy.api#documentation": "<p>The period in days after which the system automatically deletes a channel.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ExpirationCriterion": {
+          "target": "com.amazonaws.chimesdkmessaging#ExpirationCriterion",
+          "traits": {
+            "smithy.api#documentation": "<p>The conditions that must be met for a channel to expire.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Settings that control the interval after which a channel is deleted.</p>"
       }
     },
     "com.amazonaws.chimesdkmessaging#FallbackAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CONTINUE",
-            "name": "CONTINUE"
-          },
-          {
-            "value": "ABORT",
-            "name": "ABORT"
+      "type": "enum",
+      "members": {
+        "CONTINUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTINUE"
           }
-        ]
+        },
+        "ABORT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ABORT"
+          }
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#FilterRule": {
@@ -2968,7 +4177,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. \n         Only the <code>AppInstanceUser</code> who owns the membership can retrieve preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users. \n         Banned users can't retrieve membership preferences for the channel from which they are banned.</p>",
+        "smithy.api#documentation": "<p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         for the specified channel. A user or a bot must be a member of the channel and own the membership in order to retrieve membership preferences. \n         Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't \n         retrieve preferences for other users or bots. Banned users or bots can't retrieve membership preferences for the \n         channel from which they are banned.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n         ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n         the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/memberships/{MemberArn}/preferences",
@@ -2998,11 +4207,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserARN</code> of the user making the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetChannelMembershipPreferencesResponse": {
@@ -3015,7 +4227,10 @@
           }
         },
         "Member": {
-          "target": "com.amazonaws.chimesdkmessaging#Identity"
+          "target": "com.amazonaws.chimesdkmessaging#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The details of a user.</p>"
+          }
         },
         "Preferences": {
           "target": "com.amazonaws.chimesdkmessaging#ChannelMembershipPreferences",
@@ -3023,6 +4238,9 @@
             "smithy.api#documentation": "<p>The channel membership preferences for an <code>AppInstanceUser</code> .</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetChannelMessage": {
@@ -3057,7 +4275,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets the full details of a channel message.</p>\n\n         <note>\n            <p>The x-amz-chime-bearer request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Gets the full details of a channel message.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/messages/{MessageId}",
@@ -3087,11 +4305,21 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>\n         <note>\n            <p>Only required when getting messages in a SubChannel that the user belongs to.</p>\n         </note>",
+            "smithy.api#httpQuery": "sub-channel-id"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetChannelMessageResponse": {
@@ -3103,6 +4331,9 @@
             "smithy.api#documentation": "<p>The details of and content in the message.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetChannelMessageStatus": {
@@ -3134,7 +4365,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to \n         retrieving message status if the event was not received because a client wasn't connected to a websocket. </p>\n      \n         <p>Messages can have any one of these statuses.</p>\n      \n         <dl>\n            <dt>SENT</dt>\n            <dd>\n               <p>Message processed successfully</p>\n            </dd>\n            <dt>PENDING</dt>\n            <dd>\n               <p>Ongoing processing</p>\n            </dd>\n            <dt>FAILED</dt>\n            <dd>\n               <p>Processing failed</p>\n            </dd>\n            <dt>DENIED</dt>\n            <dd>\n               <p>Messasge denied by the processor</p>\n            </dd>\n         </dl>\n      \n         <note>\n            <ul>\n               <li>\n                  <p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p>\n               </li>\n               <li>\n                  <p>Only the message sender can invoke this API.</p>\n               </li>\n               <li>\n                  <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header</p>\n               </li>\n            </ul>\n         </note>",
+        "smithy.api#documentation": "<p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to \n         retrieving message status if the event was not received because a client wasn't connected to a websocket. </p>\n         <p>Messages can have any one of these statuses.</p>\n         <dl>\n            <dt>SENT</dt>\n            <dd>\n               <p>Message processed successfully</p>\n            </dd>\n            <dt>PENDING</dt>\n            <dd>\n               <p>Ongoing processing</p>\n            </dd>\n            <dt>FAILED</dt>\n            <dd>\n               <p>Processing failed</p>\n            </dd>\n            <dt>DENIED</dt>\n            <dd>\n               <p>Message denied by the processor</p>\n            </dd>\n         </dl>\n         <note>\n            <ul>\n               <li>\n                  <p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p>\n               </li>\n               <li>\n                  <p>Only the message sender can invoke this API.</p>\n               </li>\n               <li>\n                  <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n               </li>\n            </ul>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/messages/{MessageId}?scope=message-status",
@@ -3168,7 +4399,17 @@
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>\n         <note>\n            <p>Only required when getting message status in a SubChannel that the user belongs to.</p>\n         </note>",
+            "smithy.api#httpQuery": "sub-channel-id"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetChannelMessageStatusResponse": {
@@ -3180,6 +4421,9 @@
             "smithy.api#documentation": "<p>The message status and details.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetMessagingSessionEndpoint": {
@@ -3218,7 +4462,10 @@
     },
     "com.amazonaws.chimesdkmessaging#GetMessagingSessionEndpointRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.chimesdkmessaging#GetMessagingSessionEndpointResponse": {
       "type": "structure",
@@ -3229,6 +4476,79 @@
             "smithy.api#documentation": "<p>The endpoint returned in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/app-instances/{AppInstanceArn}/streaming-configurations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurationsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the streaming configurations.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurationsResponse": {
+      "type": "structure",
+      "members": {
+        "StreamingConfigurations": {
+          "target": "com.amazonaws.chimesdkmessaging#StreamingConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The streaming settings.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#Identity": {
@@ -3248,18 +4568,18 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The details of a user.</p>"
+        "smithy.api#documentation": "<p>The details of a user or bot.</p>"
       }
     },
     "com.amazonaws.chimesdkmessaging#InvocationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ASYNC",
-            "name": "ASYNC"
+      "type": "enum",
+      "members": {
+        "ASYNC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASYNC"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#LambdaConfiguration": {
@@ -3323,7 +4643,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all the users banned from a particular channel.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Lists all the users and bots banned from a particular channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/bans",
@@ -3364,11 +4684,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelBansResponse": {
@@ -3392,6 +4715,9 @@
             "smithy.api#documentation": "<p>The information for each requested ban.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelFlows": {
@@ -3461,6 +4787,9 @@
             "smithy.api#httpQuery": "next-token"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelFlowsResponse": {
@@ -3478,6 +4807,9 @@
             "smithy.api#documentation": "<p>The token passed by previous API calls until all requested channels are returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMemberships": {
@@ -3509,7 +4841,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all channel memberships in a channel.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>\n      \n         <p>If you want to list the channels to which a specific app instance user belongs, see the \n         <a href=\"https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html\">ListChannelMembershipsForAppInstanceUser</a> API.</p>",
+        "smithy.api#documentation": "<p>Lists all channel memberships in a channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>\n         <p>If you want to list the channels to which a specific app instance user belongs, see the \n         <a href=\"https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html\">ListChannelMembershipsForAppInstanceUser</a> API.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/memberships",
@@ -3551,7 +4883,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an\n            <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p> Lists all channels that an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. \n         Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels?scope=app-instance-user-memberships",
@@ -3570,7 +4902,7 @@
         "AppInstanceUserArn": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code>s</p>",
+            "smithy.api#documentation": "<p>The ARN of the user or bot.</p>",
             "smithy.api#httpQuery": "app-instance-user-arn"
           }
         },
@@ -3591,11 +4923,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMembershipsForAppInstanceUserResponse": {
@@ -3604,7 +4939,7 @@
         "ChannelMemberships": {
           "target": "com.amazonaws.chimesdkmessaging#ChannelMembershipForAppInstanceUserSummaryList",
           "traits": {
-            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested users are returned.</p>"
+            "smithy.api#documentation": "<p>The information for the requested channel memberships.</p>"
           }
         },
         "NextToken": {
@@ -3613,6 +4948,9 @@
             "smithy.api#documentation": "<p>The token passed by previous API calls until all requested users are returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMembershipsRequest": {
@@ -3650,11 +4988,21 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>\n         <note>\n            <p>Only required when listing a user's memberships in a particular sub-channel of an elastic channel.</p>\n         </note>",
+            "smithy.api#httpQuery": "sub-channel-id"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMembershipsResponse": {
@@ -3678,6 +5026,9 @@
             "smithy.api#documentation": "<p>The token passed by previous API calls until all requested channel memberships are\n         returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMessages": {
@@ -3709,7 +5060,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>List all the messages in a channel. Returns a paginated list of\n            <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending\n         order.</p>\n         <note>\n            <p>Redacted messages appear in the results as empty, since they are only redacted, not\n            deleted. Deleted messages do not appear in the results. This action always returns the\n            latest version of an edited message.</p>\n            <p>Also, the x-amz-chime-bearer request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>List all the messages in a channel. Returns a paginated list of\n            <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending\n         order.</p>\n         <note>\n            <p>Redacted messages appear in the results as empty, since they are only redacted, not\n            deleted. Deleted messages do not appear in the results. This action always returns the\n            latest version of an edited message.</p>\n            <p>Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/messages",
@@ -3771,11 +5122,21 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>\n         <note>\n            <p>Only required when listing the messages in a SubChannel that the user belongs to.</p>\n         </note>",
+            "smithy.api#httpQuery": "sub-channel-id"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMessagesResponse": {
@@ -3798,7 +5159,16 @@
           "traits": {
             "smithy.api#documentation": "<p>The information about, and content of, each requested message.</p>"
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the response.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelModerators": {
@@ -3830,7 +5200,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all the moderators for a channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Lists all the moderators for a channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/moderators",
@@ -3871,11 +5241,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelModeratorsResponse": {
@@ -3899,6 +5272,9 @@
             "smithy.api#documentation": "<p>The information about and names of each moderator.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannels": {
@@ -3930,7 +5306,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all Channels created under a single Chime App as a paginated list. You can specify\n         filters to narrow results.</p>\n\n         <p class=\"title\">\n            <b>Functionality & restrictions</b>\n         </p>\n         <ul>\n            <li>\n               <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the\n               account.</p>\n            </li>\n            <li>\n               <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to\n               list the private channels in an account.</p>\n            </li>\n         </ul>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Lists all Channels created under a single Chime App as a paginated list. You can specify\n         filters to narrow results.</p>\n         <p class=\"title\">\n            <b>Functionality & restrictions</b>\n         </p>\n         <ul>\n            <li>\n               <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the\n               account.</p>\n            </li>\n            <li>\n               <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to\n               list the private channels in an account.</p>\n            </li>\n         </ul>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels",
@@ -4010,6 +5386,9 @@
             "smithy.api#httpQuery": "next-token"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelsAssociatedWithChannelFlowResponse": {
@@ -4027,6 +5406,9 @@
             "smithy.api#documentation": "<p>The token passed by previous API calls until all requested channels are returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelsModeratedByAppInstanceUser": {
@@ -4058,7 +5440,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels?scope=app-instance-user-moderated-channels",
@@ -4077,7 +5459,7 @@
         "AppInstanceUserArn": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the user in the moderated channel.</p>",
+            "smithy.api#documentation": "<p>The ARN of the user or bot in the moderated channel.</p>",
             "smithy.api#httpQuery": "app-instance-user-arn"
           }
         },
@@ -4098,11 +5480,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelsModeratedByAppInstanceUserResponse": {
@@ -4120,6 +5505,9 @@
             "smithy.api#documentation": "<p>The token returned from previous API requests until the number of channels moderated by\n         the user is reached.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelsRequest": {
@@ -4157,11 +5545,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelsResponse": {
@@ -4179,6 +5570,115 @@
             "smithy.api#documentation": "<p>The token returned from previous API requests until the number of channels is\n         reached.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#ListSubChannels": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chimesdkmessaging#ListSubChannelsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chimesdkmessaging#ListSubChannelsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all the SubChannels in an elastic channel when given a channel ID. Available only to the app instance admins and channel moderators of elastic channels.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}/subchannels",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#ListSubChannelsRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of elastic channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ChimeBearer": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>",
+            "smithy.api#httpHeader": "x-amz-chime-bearer",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chimesdkmessaging#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of sub-channels that you want to return.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chimesdkmessaging#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested sub-channels are returned.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#ListSubChannelsResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of elastic channel.</p>"
+          }
+        },
+        "SubChannels": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The information about each sub-channel.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chimesdkmessaging#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested sub-channels are returned.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListTagsForResource": {
@@ -4229,6 +5729,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListTagsForResourceResponse": {
@@ -4240,15 +5743,25 @@
             "smithy.api#documentation": "<p>The tag key-value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 50
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#MaximumSubChannels": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 2
         }
       }
     },
@@ -4269,6 +5782,9 @@
       "member": {
         "target": "com.amazonaws.chimesdkmessaging#Identity"
       }
+    },
+    "com.amazonaws.chimesdkmessaging#MembershipCount": {
+      "type": "integer"
     },
     "com.amazonaws.chimesdkmessaging#MessageAttributeMap": {
       "type": "map",
@@ -4331,6 +5847,23 @@
         "smithy.api#pattern": "^[-_a-zA-Z0-9]*$"
       }
     },
+    "com.amazonaws.chimesdkmessaging#MessagingDataType": {
+      "type": "enum",
+      "members": {
+        "Channel": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Channel"
+          }
+        },
+        "ChannelMessage": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ChannelMessage"
+          }
+        }
+      }
+    },
     "com.amazonaws.chimesdkmessaging#MessagingSessionEndpoint": {
       "type": "structure",
       "members": {
@@ -4354,6 +5887,15 @@
         },
         "smithy.api#pattern": ".*",
         "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#MinimumMembershipPercentage": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 40
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#NextToken": {
@@ -4389,7 +5931,10 @@
       }
     },
     "com.amazonaws.chimesdkmessaging#NonNullableBoolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.chimesdkmessaging#NotFoundException": {
       "type": "structure",
@@ -4474,7 +6019,7 @@
       "type": "string",
       "traits": {
         "smithy.api#length": {
-          "min": 0,
+          "min": 1,
           "max": 150
         },
         "smithy.api#pattern": "^[\\s\\S]*$",
@@ -4520,7 +6065,7 @@
         "FilterRule": {
           "target": "com.amazonaws.chimesdkmessaging#FilterRule",
           "traits": {
-            "smithy.api#documentation": "<p>The simple JSON object used to send a subset of a push notification to the requsted member.</p>"
+            "smithy.api#documentation": "<p>The simple JSON object used to send a subset of a push notification to the requested member.</p>"
           }
         }
       },
@@ -4532,7 +6077,7 @@
       "type": "string",
       "traits": {
         "smithy.api#length": {
-          "min": 0,
+          "min": 1,
           "max": 50
         },
         "smithy.api#pattern": ".*",
@@ -4540,18 +6085,109 @@
       }
     },
     "com.amazonaws.chimesdkmessaging#PushNotificationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEFAULT",
-            "name": "DEFAULT"
-          },
-          {
-            "value": "VOIP",
-            "name": "VOIP"
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
           }
-        ]
+        },
+        "VOIP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VOIP"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#PutChannelExpirationSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chimesdkmessaging#PutChannelExpirationSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chimesdkmessaging#PutChannelExpirationSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Sets the number of days before the channel is automatically deleted.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>A background process deletes expired channels within 6 hours of expiration. \n            Actual deletion times may vary.</p>\n               </li>\n               <li>\n                  <p>Expired channels that have not yet been deleted appear as active, and you can update \n            their expiration settings. The system honors the new settings.</p>\n               </li>\n               <li>\n                  <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n               </li>\n            </ul>\n         </note>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/channels/{ChannelArn}/expiration-settings",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#PutChannelExpirationSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ChimeBearer": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>",
+            "smithy.api#httpHeader": "x-amz-chime-bearer"
+          }
+        },
+        "ExpirationSettings": {
+          "target": "com.amazonaws.chimesdkmessaging#ExpirationSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Settings that control the interval after which a channel is deleted.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#PutChannelExpirationSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The channel ARN.</p>"
+          }
+        },
+        "ExpirationSettings": {
+          "target": "com.amazonaws.chimesdkmessaging#ExpirationSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Settings that control the interval after which a channel is deleted.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#PutChannelMembershipPreferences": {
@@ -4586,7 +6222,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Sets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. \n         Only the <code>AppInstanceUser</code> who owns the membership can set preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users. \n         Banned users can't set membership preferences for the channel from which they are banned.</p>",
+        "smithy.api#documentation": "<p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the \n         membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set \n         preferences for other users. Banned users or bots can't set membership preferences for the channel from \n         which they are banned.</p>\n         <note>\n            <p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an \n         <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the \n         header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/channels/{ChannelArn}/memberships/{MemberArn}/preferences",
@@ -4608,7 +6244,7 @@
         "MemberArn": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the member setting the preferences.</p>",
+            "smithy.api#documentation": "<p>The ARN of the member setting the preferences.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -4616,7 +6252,7 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserARN</code>  of the user making the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
@@ -4628,6 +6264,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#PutChannelMembershipPreferencesResponse": {
@@ -4640,7 +6279,10 @@
           }
         },
         "Member": {
-          "target": "com.amazonaws.chimesdkmessaging#Identity"
+          "target": "com.amazonaws.chimesdkmessaging#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The details of a user.</p>"
+          }
         },
         "Preferences": {
           "target": "com.amazonaws.chimesdkmessaging#ChannelMembershipPreferences",
@@ -4648,6 +6290,89 @@
             "smithy.api#documentation": "<p>The ARN and metadata of the member being added.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/app-instances/{AppInstanceArn}/streaming-configurations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurationsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the streaming configuration.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "StreamingConfigurations": {
+          "target": "com.amazonaws.chimesdkmessaging#StreamingConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The streaming configurations.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurationsResponse": {
+      "type": "structure",
+      "members": {
+        "StreamingConfigurations": {
+          "target": "com.amazonaws.chimesdkmessaging#StreamingConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The requested streaming configurations.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#RedactChannelMessage": {
@@ -4661,6 +6386,9 @@
       "errors": [
         {
           "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ConflictException"
         },
         {
           "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
@@ -4679,7 +6407,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Redacts message content, but not metadata. The message exists in the back end, but the\n         action returns null content, and the state shows as redacted.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Redacts message content, but not metadata. The message exists in the back end, but the\n         action returns null content, and the state shows as redacted.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}/messages/{MessageId}?operation=redact",
@@ -4709,11 +6437,20 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#RedactChannelMessageResponse": {
@@ -4730,7 +6467,16 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the message being redacted.</p>"
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the response.</p>\n         <note>\n            <p>Only required when redacting messages in a SubChannel that the user belongs to.</p>\n         </note>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException": {
@@ -4758,6 +6504,195 @@
         },
         "smithy.api#pattern": "^[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*$",
         "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#SearchChannels": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chimesdkmessaging#SearchChannelsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chimesdkmessaging#SearchChannelsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Allows the <code>ChimeBearer</code> to search channels by channel members. Users or bots can search \n         across the channels that they belong to. Users in the <code>AppInstanceAdmin</code> role can search across \n         all channels.</p>\n         <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n         ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n         the header.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/channels?operation=search",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#SearchChannelsRequest": {
+      "type": "structure",
+      "members": {
+        "ChimeBearer": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>",
+            "smithy.api#httpHeader": "x-amz-chime-bearer"
+          }
+        },
+        "Fields": {
+          "target": "com.amazonaws.chimesdkmessaging#SearchFields",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the <code>Field</code> objects in the channel being searched.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chimesdkmessaging#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of channels that you want returned.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chimesdkmessaging#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned from previous API requests until the number of channels is reached.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#SearchChannelsResponse": {
+      "type": "structure",
+      "members": {
+        "Channels": {
+          "target": "com.amazonaws.chimesdkmessaging#ChannelSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the channels in the request.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chimesdkmessaging#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned from previous API responses until the number of channels is reached.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#SearchField": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazonaws.chimesdkmessaging#SearchFieldKey",
+          "traits": {
+            "smithy.api#documentation": "<p>An <code>enum</code> value that indicates the key to search the channel on. <code>MEMBERS</code> allows you to search channels based on memberships. You can use it with the <code>EQUALS</code> \n         operator to get channels whose memberships are equal to the specified values, and with the <code>INCLUDES</code>  operator to get channels whose memberships include the specified values.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Values": {
+          "target": "com.amazonaws.chimesdkmessaging#SearchFieldValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The values that you want to search for, a list of strings. The values must be <code>AppInstanceUserArns</code> specified as a list of strings.</p>\n         <note>\n            <p>This operation isn't supported for <code>AppInstanceUsers</code> with large number of memberships.</p>\n         </note>",
+            "smithy.api#required": {}
+          }
+        },
+        "Operator": {
+          "target": "com.amazonaws.chimesdkmessaging#SearchFieldOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>The operator used to compare field values, currently <code>EQUALS</code> or <code>INCLUDES</code>.  Use the <code>EQUALS</code> operator to find channels whose memberships equal the specified values. \n         Use the <code>INCLUDES</code> operator to find channels whose memberships include the specified values.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A <code>Field</code> of the channel that you want to search.</p>"
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#SearchFieldKey": {
+      "type": "enum",
+      "members": {
+        "MEMBERS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEMBERS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#SearchFieldOperator": {
+      "type": "enum",
+      "members": {
+        "EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EQUALS"
+          }
+        },
+        "INCLUDES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INCLUDES"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#SearchFieldValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\s\\S]*$"
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#SearchFieldValues": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chimesdkmessaging#SearchFieldValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#SearchFields": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chimesdkmessaging#SearchField"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#SendChannelMessage": {
@@ -4792,7 +6727,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Sends a message to a particular channel that the member is a part of.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n\n            <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.\n               <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Sends a message to a particular channel that the member is a part of.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n            <p>Also, <code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata is arbitrary, \n            and you can use it in a variety of ways, such as containing a link to an attachment.</p>\n            <p>\n               <code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}/messages",
@@ -4814,14 +6749,14 @@
         "Content": {
           "target": "com.amazonaws.chimesdkmessaging#NonEmptyContent",
           "traits": {
-            "smithy.api#documentation": "<p>The content of the message.</p>",
+            "smithy.api#documentation": "<p>The content of the channel message.</p>",
             "smithy.api#required": {}
           }
         },
         "Type": {
           "target": "com.amazonaws.chimesdkmessaging#ChannelMessageType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</p>",
+            "smithy.api#documentation": "<p>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</p>\n         <p>\n            <code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata is arbitrary, \n         and you can use it in a variety of ways, such as containing a link to an attachment.</p>\n         <p>\n            <code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4849,7 +6784,7 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
@@ -4865,7 +6800,28 @@
           "traits": {
             "smithy.api#documentation": "<p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>"
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.chimesdkmessaging#ContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The content type of the channel message.</p>"
+          }
+        },
+        "Target": {
+          "target": "com.amazonaws.chimesdkmessaging#TargetList",
+          "traits": {
+            "smithy.api#documentation": "<p>The target of a message. Must be a member of the channel, such as another user, a bot, or the sender. Only the target and the sender can view targeted messages.\n         Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.         \n      </p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#SendChannelMessageResponse": {
@@ -4888,7 +6844,16 @@
           "traits": {
             "smithy.api#documentation": "<p>The status of the channel message.</p>"
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the response.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ServiceFailureException": {
@@ -4924,18 +6889,20 @@
       }
     },
     "com.amazonaws.chimesdkmessaging#SortOrder": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ASCENDING",
-            "name": "ASCENDING"
-          },
-          {
-            "value": "DESCENDING",
-            "name": "DESCENDING"
+      "type": "enum",
+      "members": {
+        "ASCENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASCENDING"
           }
-        ]
+        },
+        "DESCENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DESCENDING"
+          }
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#StatusDetail": {
@@ -4948,8 +6915,78 @@
         "smithy.api#pattern": "^[\\s\\S]*$"
       }
     },
+    "com.amazonaws.chimesdkmessaging#StreamingConfiguration": {
+      "type": "structure",
+      "members": {
+        "DataType": {
+          "target": "com.amazonaws.chimesdkmessaging#MessagingDataType",
+          "traits": {
+            "smithy.api#documentation": "<p>The data type of the configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the resource in the configuration. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration for connecting a messaging stream to Amazon Kinesis.</p>"
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#StreamingConfigurationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chimesdkmessaging#StreamingConfiguration"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2
+        }
+      }
+    },
     "com.amazonaws.chimesdkmessaging#String": {
       "type": "string"
+    },
+    "com.amazonaws.chimesdkmessaging#SubChannelId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[-_a-zA-Z0-9]*$"
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#SubChannelSummary": {
+      "type": "structure",
+      "members": {
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of a SubChannel.</p>"
+          }
+        },
+        "MembershipCount": {
+          "target": "com.amazonaws.chimesdkmessaging#MembershipCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of members in a SubChannel.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Summary of the sub-channels associated with the elastic channel.</p>"
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#SubChannelSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chimesdkmessaging#SubChannelSummary"
+      }
     },
     "com.amazonaws.chimesdkmessaging#Tag": {
       "type": "structure",
@@ -5012,6 +7049,9 @@
       "input": {
         "target": "com.amazonaws.chimesdkmessaging#TagResourceRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
@@ -5061,6 +7101,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#TagValue": {
@@ -5071,6 +7114,40 @@
           "max": 256
         },
         "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#Target": {
+      "type": "structure",
+      "members": {
+        "MemberArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the target channel member.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages.\n         Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>"
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#TargetList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chimesdkmessaging#Target"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#TargetMembershipsPerSubChannel": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 2
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#ThrottledClientException": {
@@ -5112,6 +7189,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.chimesdkmessaging#UntagResourceRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -5159,6 +7239,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannel": {
@@ -5193,7 +7276,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Update a channel's attributes.</p>\n         <p>\n            <b>Restriction</b>: You can't change a channel's privacy. </p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Update a channel's attributes.</p>\n         <p>\n            <b>Restriction</b>: You can't change a channel's privacy. </p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/channels/{ChannelArn}",
@@ -5266,6 +7349,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelFlowResponse": {
@@ -5277,6 +7363,9 @@
             "smithy.api#documentation": "<p>The ARN of the channel flow.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelMessage": {
@@ -5311,7 +7400,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the content of a message.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Updates the content of a message.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/channels/{ChannelArn}/messages/{MessageId}",
@@ -5339,9 +7428,10 @@
           }
         },
         "Content": {
-          "target": "com.amazonaws.chimesdkmessaging#Content",
+          "target": "com.amazonaws.chimesdkmessaging#NonEmptyContent",
           "traits": {
-            "smithy.api#documentation": "<p>The content of the message being updated.</p>"
+            "smithy.api#documentation": "<p>The content of the channel message. </p>",
+            "smithy.api#required": {}
           }
         },
         "Metadata": {
@@ -5353,11 +7443,26 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>\n         <note>\n            <p>Only required when updating messages in a SubChannel that the user belongs to.</p>\n         </note>"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.chimesdkmessaging#ContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The content type of the channel message.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelMessageResponse": {
@@ -5380,7 +7485,16 @@
           "traits": {
             "smithy.api#documentation": "<p>The status of the message update.</p>"
           }
+        },
+        "SubChannelId": {
+          "target": "com.amazonaws.chimesdkmessaging#SubChannelId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the SubChannel in the response.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelReadMarker": {
@@ -5415,7 +7529,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>The details of the time when a user last read messages in a channel.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>The details of the time when a user last read messages in a channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n            ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/channels/{ChannelArn}/readMarker",
@@ -5437,11 +7551,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelReadMarkerResponse": {
@@ -5453,6 +7570,9 @@
             "smithy.api#documentation": "<p>The ARN of the channel.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelRequest": {
@@ -5469,15 +7589,13 @@
         "Name": {
           "target": "com.amazonaws.chimesdkmessaging#NonEmptyResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the channel.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the channel.</p>"
           }
         },
         "Mode": {
           "target": "com.amazonaws.chimesdkmessaging#ChannelMode",
           "traits": {
-            "smithy.api#documentation": "<p>The mode of the update request.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The mode of the update request.</p>"
           }
         },
         "Metadata": {
@@ -5489,11 +7607,14 @@
         "ChimeBearer": {
           "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>",
+            "smithy.api#documentation": "<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> \n         that makes the API call.</p>",
             "smithy.api#httpHeader": "x-amz-chime-bearer",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelResponse": {
@@ -5505,6 +7626,9 @@
             "smithy.api#documentation": "<p>The ARN of the channel.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UrlType": {

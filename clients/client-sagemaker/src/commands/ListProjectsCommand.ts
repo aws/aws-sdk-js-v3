@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { ListProjectsInput, ListProjectsOutput } from "../models/models_2";
-import {
-  deserializeAws_json1_1ListProjectsCommand,
-  serializeAws_json1_1ListProjectsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProjectsInput, ListProjectsOutput } from "../models/models_3";
+import { de_ListProjectsCommand, se_ListProjectsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListProjectsCommand}.
+ */
 export interface ListProjectsCommandInput extends ListProjectsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListProjectsCommand}.
+ */
 export interface ListProjectsCommandOutput extends ListProjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the projects in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,41 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * import { SageMakerClient, ListProjectsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListProjectsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListProjectsInput
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * // { // ListProjectsOutput
+ * //   ProjectSummaryList: [ // ProjectSummaryList // required
+ * //     { // ProjectSummary
+ * //       ProjectName: "STRING_VALUE", // required
+ * //       ProjectDescription: "STRING_VALUE",
+ * //       ProjectArn: "STRING_VALUE", // required
+ * //       ProjectId: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       ProjectStatus: "Pending" || "CreateInProgress" || "CreateCompleted" || "CreateFailed" || "DeleteInProgress" || "DeleteFailed" || "DeleteCompleted" || "UpdateInProgress" || "UpdateCompleted" || "UpdateFailed", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
+ * @returns {@link ListProjectsCommandOutput}
  * @see {@link ListProjectsCommandInput} for command's `input` shape.
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<
@@ -46,6 +88,18 @@ export class ListProjectsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListProjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +115,7 @@ export class ListProjectsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListProjectsCommandInput, ListProjectsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListProjectsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +126,8 @@ export class ListProjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProjectsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListProjectsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +137,18 @@ export class ListProjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProjectsCommand(input, context);
+    return se_ListProjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProjectsCommandOutput> {
-    return deserializeAws_json1_1ListProjectsCommand(output, context);
+    return de_ListProjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

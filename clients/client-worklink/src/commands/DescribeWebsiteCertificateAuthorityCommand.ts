@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,24 +11,41 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   DescribeWebsiteCertificateAuthorityRequest,
   DescribeWebsiteCertificateAuthorityResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand,
-  serializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand,
+  de_DescribeWebsiteCertificateAuthorityCommand,
+  se_DescribeWebsiteCertificateAuthorityCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeWebsiteCertificateAuthorityCommand}.
+ */
 export interface DescribeWebsiteCertificateAuthorityCommandInput extends DescribeWebsiteCertificateAuthorityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeWebsiteCertificateAuthorityCommand}.
+ */
 export interface DescribeWebsiteCertificateAuthorityCommandOutput
   extends DescribeWebsiteCertificateAuthorityResponse,
     __MetadataBearer {}
 
 /**
+ * @public
+ * @deprecated
+ *
  * <p>Provides information about the certificate authority.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +53,43 @@ export interface DescribeWebsiteCertificateAuthorityCommandOutput
  * import { WorkLinkClient, DescribeWebsiteCertificateAuthorityCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeWebsiteCertificateAuthorityCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // DescribeWebsiteCertificateAuthorityRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   WebsiteCaId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWebsiteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeWebsiteCertificateAuthorityResponse
+ * //   Certificate: "STRING_VALUE",
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   DisplayName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeWebsiteCertificateAuthorityCommandInput - {@link DescribeWebsiteCertificateAuthorityCommandInput}
+ * @returns {@link DescribeWebsiteCertificateAuthorityCommandOutput}
  * @see {@link DescribeWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DescribeWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
@@ -51,6 +100,18 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWebsiteCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +127,9 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeWebsiteCertificateAuthorityCommandInput, DescribeWebsiteCertificateAuthorityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeWebsiteCertificateAuthorityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +140,8 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWebsiteCertificateAuthorityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWebsiteCertificateAuthorityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,18 +151,24 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeWebsiteCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand(input, context);
+    return se_DescribeWebsiteCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWebsiteCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand(output, context);
+    return de_DescribeWebsiteCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

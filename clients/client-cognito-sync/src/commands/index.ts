@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BulkPublishCommand";
 export * from "./DeleteDatasetCommand";
 export * from "./DescribeDatasetCommand";

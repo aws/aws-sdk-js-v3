@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { DeleteSkillAuthorizationRequest, DeleteSkillAuthorizationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSkillAuthorizationCommand,
-  serializeAws_json1_1DeleteSkillAuthorizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSkillAuthorizationCommand, se_DeleteSkillAuthorizationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteSkillAuthorizationCommand}.
+ */
 export interface DeleteSkillAuthorizationCommandInput extends DeleteSkillAuthorizationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSkillAuthorizationCommand}.
+ */
 export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthorizationResponse, __MetadataBearer {}
 
 /**
+ * @public
+ * @deprecated
+ *
  * <p>Unlinks a third-party account from a skill.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +45,30 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
  * import { AlexaForBusinessClient, DeleteSkillAuthorizationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteSkillAuthorizationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteSkillAuthorizationRequest
+ *   SkillId: "STRING_VALUE", // required
+ *   RoomArn: "STRING_VALUE",
+ * };
  * const command = new DeleteSkillAuthorizationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteSkillAuthorizationCommandInput - {@link DeleteSkillAuthorizationCommandInput}
+ * @returns {@link DeleteSkillAuthorizationCommandOutput}
  * @see {@link DeleteSkillAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteSkillAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteSkillAuthorizationCommand extends $Command<
@@ -46,6 +79,18 @@ export class DeleteSkillAuthorizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSkillAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +106,9 @@ export class DeleteSkillAuthorizationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteSkillAuthorizationCommandInput, DeleteSkillAuthorizationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteSkillAuthorizationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +119,8 @@ export class DeleteSkillAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSkillAuthorizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSkillAuthorizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +130,18 @@ export class DeleteSkillAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSkillAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSkillAuthorizationCommand(input, context);
+    return se_DeleteSkillAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSkillAuthorizationCommandOutput> {
-    return deserializeAws_json1_1DeleteSkillAuthorizationCommand(output, context);
+    return de_DeleteSkillAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

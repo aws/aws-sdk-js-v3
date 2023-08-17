@@ -1,4 +1,4 @@
-import { BuildHandlerOptions, HttpHandlerOptions, MiddlewareStack, Pluggable } from "@aws-sdk/types";
+import { BuildHandlerOptions, HttpHandlerOptions, MiddlewareStack, Pluggable } from "@smithy/types";
 
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
 import { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
@@ -14,7 +14,7 @@ export interface EndpointDiscoveryMiddlewareConfig {
   isDiscoveredEndpointRequired: boolean;
   clientStack: MiddlewareStack<any, any>;
   options?: HttpHandlerOptions;
-  identifiers?: { [key: string]: string };
+  identifiers?: Record<string, string>;
 }
 
 export const getEndpointDiscoveryPlugin = (

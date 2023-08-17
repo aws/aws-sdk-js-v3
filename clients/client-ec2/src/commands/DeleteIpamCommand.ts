@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteIpamRequest, DeleteIpamResult } from "../models/models_2";
-import { deserializeAws_ec2DeleteIpamCommand, serializeAws_ec2DeleteIpamCommand } from "../protocols/Aws_ec2";
+import { de_DeleteIpamCommand, se_DeleteIpamCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteIpamCommand}.
+ */
 export interface DeleteIpamCommandInput extends DeleteIpamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteIpamCommand}.
+ */
 export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p>
- *          <note>
- *             <p>You cannot delete an IPAM if there are CIDRs provisioned to pools or if there are allocations in the pools within the IPAM. To deprovision pool
- *                CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>.
- *             </p>
- *          </note>
- *          <p>For more information, see <a href="/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +45,51 @@ export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBea
  * import { EC2Client, DeleteIpamCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteIpamCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteIpamRequest
+ *   DryRun: true || false,
+ *   IpamId: "STRING_VALUE", // required
+ *   Cascade: true || false,
+ * };
  * const command = new DeleteIpamCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteIpamResult
+ * //   Ipam: { // Ipam
+ * //     OwnerId: "STRING_VALUE",
+ * //     IpamId: "STRING_VALUE",
+ * //     IpamArn: "STRING_VALUE",
+ * //     IpamRegion: "STRING_VALUE",
+ * //     PublicDefaultScopeId: "STRING_VALUE",
+ * //     PrivateDefaultScopeId: "STRING_VALUE",
+ * //     ScopeCount: Number("int"),
+ * //     Description: "STRING_VALUE",
+ * //     OperatingRegions: [ // IpamOperatingRegionSet
+ * //       { // IpamOperatingRegion
+ * //         RegionName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     State: "create-in-progress" || "create-complete" || "create-failed" || "modify-in-progress" || "modify-complete" || "modify-failed" || "delete-in-progress" || "delete-complete" || "delete-failed" || "isolate-in-progress" || "isolate-complete" || "restore-in-progress",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DefaultResourceDiscoveryId: "STRING_VALUE",
+ * //     DefaultResourceDiscoveryAssociationId: "STRING_VALUE",
+ * //     ResourceDiscoveryAssociationCount: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DeleteIpamCommandInput - {@link DeleteIpamCommandInput}
+ * @returns {@link DeleteIpamCommandOutput}
  * @see {@link DeleteIpamCommandInput} for command's `input` shape.
  * @see {@link DeleteIpamCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteIpamCommand extends $Command<
@@ -50,6 +100,18 @@ export class DeleteIpamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIpamCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +127,7 @@ export class DeleteIpamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteIpamCommandInput, DeleteIpamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteIpamCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +138,8 @@ export class DeleteIpamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIpamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIpamResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +149,18 @@ export class DeleteIpamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIpamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteIpamCommand(input, context);
+    return se_DeleteIpamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIpamCommandOutput> {
-    return deserializeAws_ec2DeleteIpamCommand(output, context);
+    return de_DeleteIpamCommand(output, context);
   }
 
   // Start section: command_body_extra

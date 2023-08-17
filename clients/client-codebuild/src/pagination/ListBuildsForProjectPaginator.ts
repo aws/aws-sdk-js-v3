@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CodeBuild } from "../CodeBuild";
 import { CodeBuildClient } from "../CodeBuildClient";
 import {
   ListBuildsForProjectCommand,
@@ -10,7 +10,7 @@ import {
 import { CodeBuildPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeBuildClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListBuildsForProjectCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CodeBuild,
-  input: ListBuildsForProjectCommandInput,
-  ...args: any
-): Promise<ListBuildsForProjectCommandOutput> => {
-  // @ts-ignore
-  return await client.listBuildsForProject(input, ...args);
-};
 export async function* paginateListBuildsForProject(
   config: CodeBuildPaginationConfiguration,
   input: ListBuildsForProjectCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateListBuildsForProject(
   let page: ListBuildsForProjectCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof CodeBuild) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeBuildClient) {
+    if (config.client instanceof CodeBuildClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeBuild | CodeBuildClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

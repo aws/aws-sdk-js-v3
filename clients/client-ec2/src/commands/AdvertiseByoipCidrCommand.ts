@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AdvertiseByoipCidrRequest, AdvertiseByoipCidrResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AdvertiseByoipCidrCommand,
-  serializeAws_ec2AdvertiseByoipCidrCommand,
-} from "../protocols/Aws_ec2";
+import { de_AdvertiseByoipCidrCommand, se_AdvertiseByoipCidrCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AdvertiseByoipCidrCommand}.
+ */
 export interface AdvertiseByoipCidrCommandInput extends AdvertiseByoipCidrRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AdvertiseByoipCidrCommand}.
+ */
 export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Advertises an IPv4 or IPv6 address range that is provisioned for use with your Amazon Web Services resources through
  *          bring your own IP addresses (BYOIP).</p>
  *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
@@ -39,13 +53,31 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  * import { EC2Client, AdvertiseByoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AdvertiseByoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AdvertiseByoipCidrRequest
+ *   Cidr: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new AdvertiseByoipCidrCommand(input);
  * const response = await client.send(command);
+ * // { // AdvertiseByoipCidrResult
+ * //   ByoipCidr: { // ByoipCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param AdvertiseByoipCidrCommandInput - {@link AdvertiseByoipCidrCommandInput}
+ * @returns {@link AdvertiseByoipCidrCommandOutput}
  * @see {@link AdvertiseByoipCidrCommandInput} for command's `input` shape.
  * @see {@link AdvertiseByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AdvertiseByoipCidrCommand extends $Command<
@@ -56,6 +88,18 @@ export class AdvertiseByoipCidrCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AdvertiseByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +115,9 @@ export class AdvertiseByoipCidrCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AdvertiseByoipCidrCommandInput, AdvertiseByoipCidrCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AdvertiseByoipCidrCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +128,8 @@ export class AdvertiseByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdvertiseByoipCidrRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AdvertiseByoipCidrResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +139,18 @@ export class AdvertiseByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdvertiseByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AdvertiseByoipCidrCommand(input, context);
+    return se_AdvertiseByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdvertiseByoipCidrCommandOutput> {
-    return deserializeAws_ec2AdvertiseByoipCidrCommand(output, context);
+    return de_AdvertiseByoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,24 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   CreateSignalingChannelCommandInput,
@@ -20,10 +26,34 @@ import {
 } from "../commands/CreateSignalingChannelCommand";
 import { CreateStreamCommandInput, CreateStreamCommandOutput } from "../commands/CreateStreamCommand";
 import {
+  DeleteEdgeConfigurationCommandInput,
+  DeleteEdgeConfigurationCommandOutput,
+} from "../commands/DeleteEdgeConfigurationCommand";
+import {
   DeleteSignalingChannelCommandInput,
   DeleteSignalingChannelCommandOutput,
 } from "../commands/DeleteSignalingChannelCommand";
 import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "../commands/DeleteStreamCommand";
+import {
+  DescribeEdgeConfigurationCommandInput,
+  DescribeEdgeConfigurationCommandOutput,
+} from "../commands/DescribeEdgeConfigurationCommand";
+import {
+  DescribeImageGenerationConfigurationCommandInput,
+  DescribeImageGenerationConfigurationCommandOutput,
+} from "../commands/DescribeImageGenerationConfigurationCommand";
+import {
+  DescribeMappedResourceConfigurationCommandInput,
+  DescribeMappedResourceConfigurationCommandOutput,
+} from "../commands/DescribeMappedResourceConfigurationCommand";
+import {
+  DescribeMediaStorageConfigurationCommandInput,
+  DescribeMediaStorageConfigurationCommandOutput,
+} from "../commands/DescribeMediaStorageConfigurationCommand";
+import {
+  DescribeNotificationConfigurationCommandInput,
+  DescribeNotificationConfigurationCommandOutput,
+} from "../commands/DescribeNotificationConfigurationCommand";
 import {
   DescribeSignalingChannelCommandInput,
   DescribeSignalingChannelCommandOutput,
@@ -35,6 +65,10 @@ import {
   GetSignalingChannelEndpointCommandOutput,
 } from "../commands/GetSignalingChannelEndpointCommand";
 import {
+  ListEdgeAgentConfigurationsCommandInput,
+  ListEdgeAgentConfigurationsCommandOutput,
+} from "../commands/ListEdgeAgentConfigurationsCommand";
+import {
   ListSignalingChannelsCommandInput,
   ListSignalingChannelsCommandOutput,
 } from "../commands/ListSignalingChannelsCommand";
@@ -44,6 +78,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput } from "../commands/ListTagsForStreamCommand";
+import {
+  StartEdgeConfigurationUpdateCommandInput,
+  StartEdgeConfigurationUpdateCommandOutput,
+} from "../commands/StartEdgeConfigurationUpdateCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TagStreamCommandInput, TagStreamCommandOutput } from "../commands/TagStreamCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -52,6 +90,18 @@ import {
   UpdateDataRetentionCommandInput,
   UpdateDataRetentionCommandOutput,
 } from "../commands/UpdateDataRetentionCommand";
+import {
+  UpdateImageGenerationConfigurationCommandInput,
+  UpdateImageGenerationConfigurationCommandOutput,
+} from "../commands/UpdateImageGenerationConfigurationCommand";
+import {
+  UpdateMediaStorageConfigurationCommandInput,
+  UpdateMediaStorageConfigurationCommandOutput,
+} from "../commands/UpdateMediaStorageConfigurationCommand";
+import {
+  UpdateNotificationConfigurationCommandInput,
+  UpdateNotificationConfigurationCommandOutput,
+} from "../commands/UpdateNotificationConfigurationCommand";
 import {
   UpdateSignalingChannelCommandInput,
   UpdateSignalingChannelCommandOutput,
@@ -66,24 +116,44 @@ import {
   ChannelNameCondition,
   ChannelProtocol,
   ClientLimitExceededException,
+  DeletionConfig,
   DeviceStreamLimitExceededException,
+  EdgeAgentStatus,
+  EdgeConfig,
+  ImageGenerationConfiguration,
+  ImageGenerationDestinationConfig,
   InvalidArgumentException,
   InvalidDeviceException,
   InvalidResourceFormatException,
+  LastRecorderStatus,
+  LastUploaderStatus,
+  ListEdgeAgentConfigurationsEdgeConfig,
+  LocalSizeConfig,
+  MediaSourceConfig,
+  MediaStorageConfiguration,
+  NoDataRetentionException,
   NotAuthorizedException,
-  ResourceEndpointListItem,
+  NotificationConfiguration,
+  NotificationDestinationConfig,
+  RecorderConfig,
   ResourceInUseException,
   ResourceNotFoundException,
+  ScheduleConfig,
   SingleMasterChannelEndpointConfiguration,
   SingleMasterConfiguration,
+  StreamEdgeConfigurationNotFoundException,
   StreamInfo,
   StreamNameCondition,
   Tag,
   TagsPerResourceExceededLimitException,
+  UploaderConfig,
   VersionMismatchException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateSignalingChannelCommand = async (
+/**
+ * serializeAws_restJson1CreateSignalingChannelCommand
+ */
+export const se_CreateSignalingChannelCommand = async (
   input: CreateSignalingChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -94,19 +164,14 @@ export const serializeAws_restJson1CreateSignalingChannelCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createSignalingChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelName !== undefined && input.ChannelName !== null && { ChannelName: input.ChannelName }),
-    ...(input.ChannelType !== undefined && input.ChannelType !== null && { ChannelType: input.ChannelType }),
-    ...(input.SingleMasterConfiguration !== undefined &&
-      input.SingleMasterConfiguration !== null && {
-        SingleMasterConfiguration: serializeAws_restJson1SingleMasterConfiguration(
-          input.SingleMasterConfiguration,
-          context
-        ),
-      }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagOnCreateList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelName: [],
+      ChannelType: [],
+      SingleMasterConfiguration: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -118,7 +183,10 @@ export const serializeAws_restJson1CreateSignalingChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateStreamCommand = async (
+/**
+ * serializeAws_restJson1CreateStreamCommand
+ */
+export const se_CreateStreamCommand = async (
   input: CreateStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -128,16 +196,16 @@ export const serializeAws_restJson1CreateStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DataRetentionInHours !== undefined &&
-      input.DataRetentionInHours !== null && { DataRetentionInHours: input.DataRetentionInHours }),
-    ...(input.DeviceName !== undefined && input.DeviceName !== null && { DeviceName: input.DeviceName }),
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.MediaType !== undefined && input.MediaType !== null && { MediaType: input.MediaType }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1ResourceTags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DataRetentionInHours: [],
+      DeviceName: [],
+      KmsKeyId: [],
+      MediaType: [],
+      StreamName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -149,7 +217,41 @@ export const serializeAws_restJson1CreateStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSignalingChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteEdgeConfigurationCommand
+ */
+export const se_DeleteEdgeConfigurationCommand = async (
+  input: DeleteEdgeConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteEdgeConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteSignalingChannelCommand
+ */
+export const se_DeleteSignalingChannelCommand = async (
   input: DeleteSignalingChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -160,11 +262,12 @@ export const serializeAws_restJson1DeleteSignalingChannelCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteSignalingChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
-    ...(input.CurrentVersion !== undefined &&
-      input.CurrentVersion !== null && { CurrentVersion: input.CurrentVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      CurrentVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -176,7 +279,10 @@ export const serializeAws_restJson1DeleteSignalingChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteStreamCommand = async (
+/**
+ * serializeAws_restJson1DeleteStreamCommand
+ */
+export const se_DeleteStreamCommand = async (
   input: DeleteStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -186,11 +292,12 @@ export const serializeAws_restJson1DeleteStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined &&
-      input.CurrentVersion !== null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CurrentVersion: [],
+      StreamARN: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -202,7 +309,167 @@ export const serializeAws_restJson1DeleteStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeSignalingChannelCommand = async (
+/**
+ * serializeAws_restJson1DescribeEdgeConfigurationCommand
+ */
+export const se_DescribeEdgeConfigurationCommand = async (
+  input: DescribeEdgeConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeEdgeConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeImageGenerationConfigurationCommand
+ */
+export const se_DescribeImageGenerationConfigurationCommand = async (
+  input: DescribeImageGenerationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeImageGenerationConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeMappedResourceConfigurationCommand
+ */
+export const se_DescribeMappedResourceConfigurationCommand = async (
+  input: DescribeMappedResourceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeMappedResourceConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeMediaStorageConfigurationCommand
+ */
+export const se_DescribeMediaStorageConfigurationCommand = async (
+  input: DescribeMediaStorageConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeMediaStorageConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      ChannelName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeNotificationConfigurationCommand
+ */
+export const se_DescribeNotificationConfigurationCommand = async (
+  input: DescribeNotificationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeNotificationConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeSignalingChannelCommand
+ */
+export const se_DescribeSignalingChannelCommand = async (
   input: DescribeSignalingChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -213,10 +480,12 @@ export const serializeAws_restJson1DescribeSignalingChannelCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeSignalingChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
-    ...(input.ChannelName !== undefined && input.ChannelName !== null && { ChannelName: input.ChannelName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      ChannelName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -228,7 +497,10 @@ export const serializeAws_restJson1DescribeSignalingChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeStreamCommand = async (
+/**
+ * serializeAws_restJson1DescribeStreamCommand
+ */
+export const se_DescribeStreamCommand = async (
   input: DescribeStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -238,10 +510,12 @@ export const serializeAws_restJson1DescribeStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -253,7 +527,10 @@ export const serializeAws_restJson1DescribeStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDataEndpointCommand = async (
+/**
+ * serializeAws_restJson1GetDataEndpointCommand
+ */
+export const se_GetDataEndpointCommand = async (
   input: GetDataEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -263,11 +540,13 @@ export const serializeAws_restJson1GetDataEndpointCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getDataEndpoint";
   let body: any;
-  body = JSON.stringify({
-    ...(input.APIName !== undefined && input.APIName !== null && { APIName: input.APIName }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      APIName: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -279,7 +558,10 @@ export const serializeAws_restJson1GetDataEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSignalingChannelEndpointCommand = async (
+/**
+ * serializeAws_restJson1GetSignalingChannelEndpointCommand
+ */
+export const se_GetSignalingChannelEndpointCommand = async (
   input: GetSignalingChannelEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -290,16 +572,12 @@ export const serializeAws_restJson1GetSignalingChannelEndpointCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getSignalingChannelEndpoint";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
-    ...(input.SingleMasterChannelEndpointConfiguration !== undefined &&
-      input.SingleMasterChannelEndpointConfiguration !== null && {
-        SingleMasterChannelEndpointConfiguration: serializeAws_restJson1SingleMasterChannelEndpointConfiguration(
-          input.SingleMasterChannelEndpointConfiguration,
-          context
-        ),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      SingleMasterChannelEndpointConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -311,7 +589,42 @@ export const serializeAws_restJson1GetSignalingChannelEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSignalingChannelsCommand = async (
+/**
+ * serializeAws_restJson1ListEdgeAgentConfigurationsCommand
+ */
+export const se_ListEdgeAgentConfigurationsCommand = async (
+  input: ListEdgeAgentConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listEdgeAgentConfigurations";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      HubDeviceArn: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListSignalingChannelsCommand
+ */
+export const se_ListSignalingChannelsCommand = async (
   input: ListSignalingChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -321,14 +634,13 @@ export const serializeAws_restJson1ListSignalingChannelsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listSignalingChannels";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelNameCondition !== undefined &&
-      input.ChannelNameCondition !== null && {
-        ChannelNameCondition: serializeAws_restJson1ChannelNameCondition(input.ChannelNameCondition, context),
-      }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelNameCondition: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -340,7 +652,10 @@ export const serializeAws_restJson1ListSignalingChannelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListStreamsCommand = async (
+/**
+ * serializeAws_restJson1ListStreamsCommand
+ */
+export const se_ListStreamsCommand = async (
   input: ListStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -350,14 +665,13 @@ export const serializeAws_restJson1ListStreamsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listStreams";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.StreamNameCondition !== undefined &&
-      input.StreamNameCondition !== null && {
-        StreamNameCondition: serializeAws_restJson1StreamNameCondition(input.StreamNameCondition, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      StreamNameCondition: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -369,7 +683,10 @@ export const serializeAws_restJson1ListStreamsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -379,10 +696,12 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTagsForResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      ResourceARN: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -394,7 +713,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForStreamCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForStreamCommand
+ */
+export const se_ListTagsForStreamCommand = async (
   input: ListTagsForStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -404,11 +726,13 @@ export const serializeAws_restJson1ListTagsForStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listTagsForStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -420,7 +744,42 @@ export const serializeAws_restJson1ListTagsForStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1StartEdgeConfigurationUpdateCommand
+ */
+export const se_StartEdgeConfigurationUpdateCommand = async (
+  input: StartEdgeConfigurationUpdateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/startEdgeConfigurationUpdate";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EdgeConfig: (_) => _json(_),
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -430,11 +789,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TagResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -446,7 +806,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagStreamCommand = async (
+/**
+ * serializeAws_restJson1TagStreamCommand
+ */
+export const se_TagStreamCommand = async (
   input: TagStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -456,12 +819,13 @@ export const serializeAws_restJson1TagStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tagStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1ResourceTags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -473,7 +837,10 @@ export const serializeAws_restJson1TagStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -483,11 +850,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UntagResource";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeyList !== undefined &&
-      input.TagKeyList !== null && { TagKeyList: serializeAws_restJson1TagKeyList(input.TagKeyList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeyList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -499,7 +867,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagStreamCommand = async (
+/**
+ * serializeAws_restJson1UntagStreamCommand
+ */
+export const se_UntagStreamCommand = async (
   input: UntagStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -509,12 +880,13 @@ export const serializeAws_restJson1UntagStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.TagKeyList !== undefined &&
-      input.TagKeyList !== null && { TagKeyList: serializeAws_restJson1TagKeyList(input.TagKeyList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      StreamARN: [],
+      StreamName: [],
+      TagKeyList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -526,7 +898,10 @@ export const serializeAws_restJson1UntagStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateDataRetentionCommand = async (
+/**
+ * serializeAws_restJson1UpdateDataRetentionCommand
+ */
+export const se_UpdateDataRetentionCommand = async (
   input: UpdateDataRetentionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -536,15 +911,15 @@ export const serializeAws_restJson1UpdateDataRetentionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateDataRetention";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined &&
-      input.CurrentVersion !== null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.DataRetentionChangeInHours !== undefined &&
-      input.DataRetentionChangeInHours !== null && { DataRetentionChangeInHours: input.DataRetentionChangeInHours }),
-    ...(input.Operation !== undefined && input.Operation !== null && { Operation: input.Operation }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CurrentVersion: [],
+      DataRetentionChangeInHours: [],
+      Operation: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -556,7 +931,105 @@ export const serializeAws_restJson1UpdateDataRetentionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSignalingChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateImageGenerationConfigurationCommand
+ */
+export const se_UpdateImageGenerationConfigurationCommand = async (
+  input: UpdateImageGenerationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateImageGenerationConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ImageGenerationConfiguration: (_) => _json(_),
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateMediaStorageConfigurationCommand
+ */
+export const se_UpdateMediaStorageConfigurationCommand = async (
+  input: UpdateMediaStorageConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateMediaStorageConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      MediaStorageConfiguration: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateNotificationConfigurationCommand
+ */
+export const se_UpdateNotificationConfigurationCommand = async (
+  input: UpdateNotificationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateNotificationConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      NotificationConfiguration: (_) => _json(_),
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateSignalingChannelCommand
+ */
+export const se_UpdateSignalingChannelCommand = async (
   input: UpdateSignalingChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -567,18 +1040,13 @@ export const serializeAws_restJson1UpdateSignalingChannelCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateSignalingChannel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
-    ...(input.CurrentVersion !== undefined &&
-      input.CurrentVersion !== null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.SingleMasterConfiguration !== undefined &&
-      input.SingleMasterConfiguration !== null && {
-        SingleMasterConfiguration: serializeAws_restJson1SingleMasterConfiguration(
-          input.SingleMasterConfiguration,
-          context
-        ),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChannelARN: [],
+      CurrentVersion: [],
+      SingleMasterConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -590,7 +1058,10 @@ export const serializeAws_restJson1UpdateSignalingChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateStreamCommand = async (
+/**
+ * serializeAws_restJson1UpdateStreamCommand
+ */
+export const se_UpdateStreamCommand = async (
   input: UpdateStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -600,14 +1071,15 @@ export const serializeAws_restJson1UpdateStreamCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateStream";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined &&
-      input.CurrentVersion !== null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.DeviceName !== undefined && input.DeviceName !== null && { DeviceName: input.DeviceName }),
-    ...(input.MediaType !== undefined && input.MediaType !== null && { MediaType: input.MediaType }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CurrentVersion: [],
+      DeviceName: [],
+      MediaType: [],
+      StreamARN: [],
+      StreamName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -619,1056 +1091,1748 @@ export const serializeAws_restJson1UpdateStreamCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateSignalingChannelCommand = async (
+/**
+ * deserializeAws_restJson1CreateSignalingChannelCommand
+ */
+export const de_CreateSignalingChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSignalingChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSignalingChannelCommandError(output, context);
+    return de_CreateSignalingChannelCommandError(output, context);
   }
-  const contents: CreateSignalingChannelCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ChannelARN: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelARN !== undefined && data.ChannelARN !== null) {
-    contents.ChannelARN = __expectString(data.ChannelARN);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelARN: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateSignalingChannelCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSignalingChannelCommandError
+ */
+const de_CreateSignalingChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSignalingChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountChannelLimitExceededException":
     case "com.amazonaws.kinesisvideo#AccountChannelLimitExceededException":
-      throw await deserializeAws_restJson1AccountChannelLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_AccountChannelLimitExceededExceptionRes(parsedOutput, context);
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "TagsPerResourceExceededLimitException":
     case "com.amazonaws.kinesisvideo#TagsPerResourceExceededLimitException":
-      throw await deserializeAws_restJson1TagsPerResourceExceededLimitExceptionResponse(parsedOutput, context);
+      throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateStreamCommand = async (
+/**
+ * deserializeAws_restJson1CreateStreamCommand
+ */
+export const de_CreateStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateStreamCommandError(output, context);
+    return de_CreateStreamCommandError(output, context);
   }
-  const contents: CreateStreamCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    StreamARN: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StreamARN !== undefined && data.StreamARN !== null) {
-    contents.StreamARN = __expectString(data.StreamARN);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    StreamARN: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateStreamCommandError = async (
+/**
+ * deserializeAws_restJson1CreateStreamCommandError
+ */
+const de_CreateStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountStreamLimitExceededException":
     case "com.amazonaws.kinesisvideo#AccountStreamLimitExceededException":
-      throw await deserializeAws_restJson1AccountStreamLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_AccountStreamLimitExceededExceptionRes(parsedOutput, context);
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "DeviceStreamLimitExceededException":
     case "com.amazonaws.kinesisvideo#DeviceStreamLimitExceededException":
-      throw await deserializeAws_restJson1DeviceStreamLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_DeviceStreamLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidDeviceException":
     case "com.amazonaws.kinesisvideo#InvalidDeviceException":
-      throw await deserializeAws_restJson1InvalidDeviceExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeviceExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "TagsPerResourceExceededLimitException":
     case "com.amazonaws.kinesisvideo#TagsPerResourceExceededLimitException":
-      throw await deserializeAws_restJson1TagsPerResourceExceededLimitExceptionResponse(parsedOutput, context);
+      throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteSignalingChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteEdgeConfigurationCommand
+ */
+export const de_DeleteEdgeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEdgeConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteEdgeConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteEdgeConfigurationCommandError
+ */
+const de_DeleteEdgeConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEdgeConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "StreamEdgeConfigurationNotFoundException":
+    case "com.amazonaws.kinesisvideo#StreamEdgeConfigurationNotFoundException":
+      throw await de_StreamEdgeConfigurationNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteSignalingChannelCommand
+ */
+export const de_DeleteSignalingChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSignalingChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSignalingChannelCommandError(output, context);
+    return de_DeleteSignalingChannelCommandError(output, context);
   }
-  const contents: DeleteSignalingChannelCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteSignalingChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSignalingChannelCommandError
+ */
+const de_DeleteSignalingChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSignalingChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "VersionMismatchException":
     case "com.amazonaws.kinesisvideo#VersionMismatchException":
-      throw await deserializeAws_restJson1VersionMismatchExceptionResponse(parsedOutput, context);
+      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteStreamCommand = async (
+/**
+ * deserializeAws_restJson1DeleteStreamCommand
+ */
+export const de_DeleteStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteStreamCommandError(output, context);
+    return de_DeleteStreamCommandError(output, context);
   }
-  const contents: DeleteStreamCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteStreamCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteStreamCommandError
+ */
+const de_DeleteStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "VersionMismatchException":
     case "com.amazonaws.kinesisvideo#VersionMismatchException":
-      throw await deserializeAws_restJson1VersionMismatchExceptionResponse(parsedOutput, context);
+      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DescribeSignalingChannelCommand = async (
+/**
+ * deserializeAws_restJson1DescribeEdgeConfigurationCommand
+ */
+export const de_DescribeEdgeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEdgeConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeEdgeConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EdgeAgentStatus: (_) => de_EdgeAgentStatus(_, context),
+    EdgeConfig: _json,
+    FailedStatusDetails: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamARN: __expectString,
+    StreamName: __expectString,
+    SyncStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeEdgeConfigurationCommandError
+ */
+const de_DescribeEdgeConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEdgeConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "StreamEdgeConfigurationNotFoundException":
+    case "com.amazonaws.kinesisvideo#StreamEdgeConfigurationNotFoundException":
+      throw await de_StreamEdgeConfigurationNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeImageGenerationConfigurationCommand
+ */
+export const de_DescribeImageGenerationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageGenerationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeImageGenerationConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ImageGenerationConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeImageGenerationConfigurationCommandError
+ */
+const de_DescribeImageGenerationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageGenerationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeMappedResourceConfigurationCommand
+ */
+export const de_DescribeMappedResourceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMappedResourceConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeMappedResourceConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MappedResourceConfigurationList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeMappedResourceConfigurationCommandError
+ */
+const de_DescribeMappedResourceConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMappedResourceConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeMediaStorageConfigurationCommand
+ */
+export const de_DescribeMediaStorageConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMediaStorageConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeMediaStorageConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MediaStorageConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeMediaStorageConfigurationCommandError
+ */
+const de_DescribeMediaStorageConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMediaStorageConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeNotificationConfigurationCommand
+ */
+export const de_DescribeNotificationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNotificationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeNotificationConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NotificationConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeNotificationConfigurationCommandError
+ */
+const de_DescribeNotificationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNotificationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeSignalingChannelCommand
+ */
+export const de_DescribeSignalingChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSignalingChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeSignalingChannelCommandError(output, context);
+    return de_DescribeSignalingChannelCommandError(output, context);
   }
-  const contents: DescribeSignalingChannelCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ChannelInfo: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelInfo !== undefined && data.ChannelInfo !== null) {
-    contents.ChannelInfo = deserializeAws_restJson1ChannelInfo(data.ChannelInfo, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelInfo: (_) => de_ChannelInfo(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeSignalingChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeSignalingChannelCommandError
+ */
+const de_DescribeSignalingChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSignalingChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DescribeStreamCommand = async (
+/**
+ * deserializeAws_restJson1DescribeStreamCommand
+ */
+export const de_DescribeStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeStreamCommandError(output, context);
+    return de_DescribeStreamCommandError(output, context);
   }
-  const contents: DescribeStreamCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    StreamInfo: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StreamInfo !== undefined && data.StreamInfo !== null) {
-    contents.StreamInfo = deserializeAws_restJson1StreamInfo(data.StreamInfo, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    StreamInfo: (_) => de_StreamInfo(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeStreamCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeStreamCommandError
+ */
+const de_DescribeStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetDataEndpointCommand = async (
+/**
+ * deserializeAws_restJson1GetDataEndpointCommand
+ */
+export const de_GetDataEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDataEndpointCommandError(output, context);
+    return de_GetDataEndpointCommandError(output, context);
   }
-  const contents: GetDataEndpointCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DataEndpoint: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DataEndpoint !== undefined && data.DataEndpoint !== null) {
-    contents.DataEndpoint = __expectString(data.DataEndpoint);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataEndpoint: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetDataEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1GetDataEndpointCommandError
+ */
+const de_GetDataEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetSignalingChannelEndpointCommand = async (
+/**
+ * deserializeAws_restJson1GetSignalingChannelEndpointCommand
+ */
+export const de_GetSignalingChannelEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSignalingChannelEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSignalingChannelEndpointCommandError(output, context);
+    return de_GetSignalingChannelEndpointCommandError(output, context);
   }
-  const contents: GetSignalingChannelEndpointCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ResourceEndpointList: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ResourceEndpointList !== undefined && data.ResourceEndpointList !== null) {
-    contents.ResourceEndpointList = deserializeAws_restJson1ResourceEndpointList(data.ResourceEndpointList, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ResourceEndpointList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetSignalingChannelEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1GetSignalingChannelEndpointCommandError
+ */
+const de_GetSignalingChannelEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSignalingChannelEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListSignalingChannelsCommand = async (
+/**
+ * deserializeAws_restJson1ListEdgeAgentConfigurationsCommand
+ */
+export const de_ListEdgeAgentConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEdgeAgentConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListEdgeAgentConfigurationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EdgeConfigs: (_) => de_ListEdgeAgentConfigurationsEdgeConfigList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEdgeAgentConfigurationsCommandError
+ */
+const de_ListEdgeAgentConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEdgeAgentConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NotAuthorizedException":
+    case "com.amazonaws.kinesisvideo#NotAuthorizedException":
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListSignalingChannelsCommand
+ */
+export const de_ListSignalingChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSignalingChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSignalingChannelsCommandError(output, context);
+    return de_ListSignalingChannelsCommandError(output, context);
   }
-  const contents: ListSignalingChannelsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ChannelInfoList: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChannelInfoList !== undefined && data.ChannelInfoList !== null) {
-    contents.ChannelInfoList = deserializeAws_restJson1ChannelInfoList(data.ChannelInfoList, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelInfoList: (_) => de_ChannelInfoList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListSignalingChannelsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSignalingChannelsCommandError
+ */
+const de_ListSignalingChannelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSignalingChannelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListStreamsCommand = async (
+/**
+ * deserializeAws_restJson1ListStreamsCommand
+ */
+export const de_ListStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListStreamsCommandError(output, context);
+    return de_ListStreamsCommandError(output, context);
   }
-  const contents: ListStreamsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    StreamInfoList: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.StreamInfoList !== undefined && data.StreamInfoList !== null) {
-    contents.StreamInfoList = deserializeAws_restJson1StreamInfoList(data.StreamInfoList, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    StreamInfoList: (_) => de_StreamInfoList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListStreamsCommandError = async (
+/**
+ * deserializeAws_restJson1ListStreamsCommandError
+ */
+const de_ListStreamsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
-  const contents: ListTagsForResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Tags !== undefined && data.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1ResourceTags(data.Tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListTagsForStreamCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForStreamCommand
+ */
+export const de_ListTagsForStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForStreamCommandError(output, context);
+    return de_ListTagsForStreamCommandError(output, context);
   }
-  const contents: ListTagsForStreamCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Tags !== undefined && data.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1ResourceTags(data.Tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTagsForStreamCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForStreamCommandError
+ */
+const de_ListTagsForStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidResourceFormatException":
     case "com.amazonaws.kinesisvideo#InvalidResourceFormatException":
-      throw await deserializeAws_restJson1InvalidResourceFormatExceptionResponse(parsedOutput, context);
+      throw await de_InvalidResourceFormatExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1StartEdgeConfigurationUpdateCommand
+ */
+export const de_StartEdgeConfigurationUpdateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartEdgeConfigurationUpdateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartEdgeConfigurationUpdateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EdgeConfig: _json,
+    FailedStatusDetails: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamARN: __expectString,
+    StreamName: __expectString,
+    SyncStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartEdgeConfigurationUpdateCommandError
+ */
+const de_StartEdgeConfigurationUpdateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartEdgeConfigurationUpdateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NoDataRetentionException":
+    case "com.amazonaws.kinesisvideo#NoDataRetentionException":
+      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisvideo#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagsPerResourceExceededLimitException":
     case "com.amazonaws.kinesisvideo#TagsPerResourceExceededLimitException":
-      throw await deserializeAws_restJson1TagsPerResourceExceededLimitExceptionResponse(parsedOutput, context);
+      throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1TagStreamCommand = async (
+/**
+ * deserializeAws_restJson1TagStreamCommand
+ */
+export const de_TagStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagStreamCommandError(output, context);
+    return de_TagStreamCommandError(output, context);
   }
-  const contents: TagStreamCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1TagStreamCommandError = async (
+/**
+ * deserializeAws_restJson1TagStreamCommandError
+ */
+const de_TagStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidResourceFormatException":
     case "com.amazonaws.kinesisvideo#InvalidResourceFormatException":
-      throw await deserializeAws_restJson1InvalidResourceFormatExceptionResponse(parsedOutput, context);
+      throw await de_InvalidResourceFormatExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagsPerResourceExceededLimitException":
     case "com.amazonaws.kinesisvideo#TagsPerResourceExceededLimitException":
-      throw await deserializeAws_restJson1TagsPerResourceExceededLimitExceptionResponse(parsedOutput, context);
+      throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UntagStreamCommand = async (
+/**
+ * deserializeAws_restJson1UntagStreamCommand
+ */
+export const de_UntagStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagStreamCommandError(output, context);
+    return de_UntagStreamCommandError(output, context);
   }
-  const contents: UntagStreamCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UntagStreamCommandError = async (
+/**
+ * deserializeAws_restJson1UntagStreamCommandError
+ */
+const de_UntagStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidResourceFormatException":
     case "com.amazonaws.kinesisvideo#InvalidResourceFormatException":
-      throw await deserializeAws_restJson1InvalidResourceFormatExceptionResponse(parsedOutput, context);
+      throw await de_InvalidResourceFormatExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateDataRetentionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDataRetentionCommand
+ */
+export const de_UpdateDataRetentionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataRetentionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDataRetentionCommandError(output, context);
+    return de_UpdateDataRetentionCommandError(output, context);
   }
-  const contents: UpdateDataRetentionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateDataRetentionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDataRetentionCommandError
+ */
+const de_UpdateDataRetentionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataRetentionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "VersionMismatchException":
     case "com.amazonaws.kinesisvideo#VersionMismatchException":
-      throw await deserializeAws_restJson1VersionMismatchExceptionResponse(parsedOutput, context);
+      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateSignalingChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateImageGenerationConfigurationCommand
+ */
+export const de_UpdateImageGenerationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSignalingChannelCommandOutput> => {
+): Promise<UpdateImageGenerationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSignalingChannelCommandError(output, context);
+    return de_UpdateImageGenerationConfigurationCommandError(output, context);
   }
-  const contents: UpdateSignalingChannelCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateSignalingChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateImageGenerationConfigurationCommandError
+ */
+const de_UpdateImageGenerationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSignalingChannelCommandOutput> => {
+): Promise<UpdateImageGenerationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NoDataRetentionException":
+    case "com.amazonaws.kinesisvideo#NoDataRetentionException":
+      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "VersionMismatchException":
-    case "com.amazonaws.kinesisvideo#VersionMismatchException":
-      throw await deserializeAws_restJson1VersionMismatchExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateStreamCommand = async (
+/**
+ * deserializeAws_restJson1UpdateMediaStorageConfigurationCommand
+ */
+export const de_UpdateMediaStorageConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaStorageConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateMediaStorageConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateMediaStorageConfigurationCommandError
+ */
+const de_UpdateMediaStorageConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaStorageConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NoDataRetentionException":
+    case "com.amazonaws.kinesisvideo#NoDataRetentionException":
+      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisvideo#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateNotificationConfigurationCommand
+ */
+export const de_UpdateNotificationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNotificationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateNotificationConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateNotificationConfigurationCommandError
+ */
+const de_UpdateNotificationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNotificationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NoDataRetentionException":
+    case "com.amazonaws.kinesisvideo#NoDataRetentionException":
+      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisvideo#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateSignalingChannelCommand
+ */
+export const de_UpdateSignalingChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSignalingChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateSignalingChannelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSignalingChannelCommandError
+ */
+const de_UpdateSignalingChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSignalingChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisvideo#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "VersionMismatchException":
+    case "com.amazonaws.kinesisvideo#VersionMismatchException":
+      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateStreamCommand
+ */
+export const de_UpdateStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateStreamCommandError(output, context);
+    return de_UpdateStreamCommandError(output, context);
   }
-  const contents: UpdateStreamCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateStreamCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateStreamCommandError
+ */
+const de_UpdateStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "VersionMismatchException":
     case "com.amazonaws.kinesisvideo#VersionMismatchException":
-      throw await deserializeAws_restJson1VersionMismatchExceptionResponse(parsedOutput, context);
+      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1676,15 +2840,19 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1AccountChannelLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccountChannelLimitExceededExceptionRes
+ */
+const de_AccountChannelLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccountChannelLimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccountChannelLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1692,15 +2860,19 @@ const deserializeAws_restJson1AccountChannelLimitExceededExceptionResponse = asy
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1AccountStreamLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccountStreamLimitExceededExceptionRes
+ */
+const de_AccountStreamLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccountStreamLimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccountStreamLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1708,15 +2880,19 @@ const deserializeAws_restJson1AccountStreamLimitExceededExceptionResponse = asyn
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ClientLimitExceededExceptionRes
+ */
+const de_ClientLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClientLimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ClientLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1724,15 +2900,19 @@ const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DeviceStreamLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DeviceStreamLimitExceededExceptionRes
+ */
+const de_DeviceStreamLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeviceStreamLimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DeviceStreamLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1740,15 +2920,19 @@ const deserializeAws_restJson1DeviceStreamLimitExceededExceptionResponse = async
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidArgumentExceptionRes
+ */
+const de_InvalidArgumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1756,15 +2940,19 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidDeviceExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidDeviceExceptionRes
+ */
+const de_InvalidDeviceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeviceException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidDeviceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1772,15 +2960,19 @@ const deserializeAws_restJson1InvalidDeviceExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidResourceFormatExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidResourceFormatExceptionRes
+ */
+const de_InvalidResourceFormatExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidResourceFormatException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidResourceFormatException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1788,15 +2980,39 @@ const deserializeAws_restJson1InvalidResourceFormatExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1NoDataRetentionExceptionRes
+ */
+const de_NoDataRetentionExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NoDataRetentionException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new NoDataRetentionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1NotAuthorizedExceptionRes
+ */
+const de_NotAuthorizedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotAuthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1804,15 +3020,19 @@ const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1820,15 +3040,19 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1836,15 +3060,39 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TagsPerResourceExceededLimitExceptionResponse = async (
+/**
+ * deserializeAws_restJson1StreamEdgeConfigurationNotFoundExceptionRes
+ */
+const de_StreamEdgeConfigurationNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<StreamEdgeConfigurationNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new StreamEdgeConfigurationNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1TagsPerResourceExceededLimitExceptionRes
+ */
+const de_TagsPerResourceExceededLimitExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagsPerResourceExceededLimitException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TagsPerResourceExceededLimitException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1852,15 +3100,19 @@ const deserializeAws_restJson1TagsPerResourceExceededLimitExceptionResponse = as
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1VersionMismatchExceptionResponse = async (
+/**
+ * deserializeAws_restJson1VersionMismatchExceptionRes
+ */
+const de_VersionMismatchExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<VersionMismatchException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new VersionMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1868,227 +3120,220 @@ const deserializeAws_restJson1VersionMismatchExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ChannelNameCondition = (input: ChannelNameCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.ComparisonOperator !== undefined &&
-      input.ComparisonOperator !== null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.ComparisonValue !== undefined &&
-      input.ComparisonValue !== null && { ComparisonValue: input.ComparisonValue }),
-  };
+// se_ChannelNameCondition omitted.
+
+// se_DeletionConfig omitted.
+
+// se_EdgeConfig omitted.
+
+// se_FormatConfig omitted.
+
+// se_ImageGenerationConfiguration omitted.
+
+// se_ImageGenerationDestinationConfig omitted.
+
+// se_ListOfProtocols omitted.
+
+// se_LocalSizeConfig omitted.
+
+// se_MediaSourceConfig omitted.
+
+// se_MediaStorageConfiguration omitted.
+
+// se_NotificationConfiguration omitted.
+
+// se_NotificationDestinationConfig omitted.
+
+// se_RecorderConfig omitted.
+
+// se_ResourceTags omitted.
+
+// se_ScheduleConfig omitted.
+
+// se_SingleMasterChannelEndpointConfiguration omitted.
+
+// se_SingleMasterConfiguration omitted.
+
+// se_StreamNameCondition omitted.
+
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagOnCreateList omitted.
+
+// se_UploaderConfig omitted.
+
+/**
+ * deserializeAws_restJson1ChannelInfo
+ */
+const de_ChannelInfo = (output: any, context: __SerdeContext): ChannelInfo => {
+  return take(output, {
+    ChannelARN: __expectString,
+    ChannelName: __expectString,
+    ChannelStatus: __expectString,
+    ChannelType: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SingleMasterConfiguration: _json,
+    Version: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1ListOfProtocols = (input: (ChannelProtocol | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1ResourceTags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_restJson1SingleMasterChannelEndpointConfiguration = (
-  input: SingleMasterChannelEndpointConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Protocols !== undefined &&
-      input.Protocols !== null && { Protocols: serializeAws_restJson1ListOfProtocols(input.Protocols, context) }),
-    ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
-  };
-};
-
-const serializeAws_restJson1SingleMasterConfiguration = (
-  input: SingleMasterConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MessageTtlSeconds !== undefined &&
-      input.MessageTtlSeconds !== null && { MessageTtlSeconds: input.MessageTtlSeconds }),
-  };
-};
-
-const serializeAws_restJson1StreamNameCondition = (input: StreamNameCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.ComparisonOperator !== undefined &&
-      input.ComparisonOperator !== null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.ComparisonValue !== undefined &&
-      input.ComparisonValue !== null && { ComparisonValue: input.ComparisonValue }),
-  };
-};
-
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Tag(entry, context);
-    });
-};
-
-const serializeAws_restJson1TagOnCreateList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Tag(entry, context);
-    });
-};
-
-const deserializeAws_restJson1ChannelInfo = (output: any, context: __SerdeContext): ChannelInfo => {
-  return {
-    ChannelARN: __expectString(output.ChannelARN),
-    ChannelName: __expectString(output.ChannelName),
-    ChannelStatus: __expectString(output.ChannelStatus),
-    ChannelType: __expectString(output.ChannelType),
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    SingleMasterConfiguration:
-      output.SingleMasterConfiguration !== undefined && output.SingleMasterConfiguration !== null
-        ? deserializeAws_restJson1SingleMasterConfiguration(output.SingleMasterConfiguration, context)
-        : undefined,
-    Version: __expectString(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1ChannelInfoList = (output: any, context: __SerdeContext): ChannelInfo[] => {
+/**
+ * deserializeAws_restJson1ChannelInfoList
+ */
+const de_ChannelInfoList = (output: any, context: __SerdeContext): ChannelInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ChannelInfo(entry, context);
+      return de_ChannelInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ResourceEndpointList = (
+// de_DeletionConfig omitted.
+
+/**
+ * deserializeAws_restJson1EdgeAgentStatus
+ */
+const de_EdgeAgentStatus = (output: any, context: __SerdeContext): EdgeAgentStatus => {
+  return take(output, {
+    LastRecorderStatus: (_: any) => de_LastRecorderStatus(_, context),
+    LastUploaderStatus: (_: any) => de_LastUploaderStatus(_, context),
+  }) as any;
+};
+
+// de_EdgeConfig omitted.
+
+// de_FormatConfig omitted.
+
+// de_ImageGenerationConfiguration omitted.
+
+// de_ImageGenerationDestinationConfig omitted.
+
+/**
+ * deserializeAws_restJson1LastRecorderStatus
+ */
+const de_LastRecorderStatus = (output: any, context: __SerdeContext): LastRecorderStatus => {
+  return take(output, {
+    JobStatusDetails: __expectString,
+    LastCollectedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RecorderStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LastUploaderStatus
+ */
+const de_LastUploaderStatus = (output: any, context: __SerdeContext): LastUploaderStatus => {
+  return take(output, {
+    JobStatusDetails: __expectString,
+    LastCollectedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UploaderStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ListEdgeAgentConfigurationsEdgeConfig
+ */
+const de_ListEdgeAgentConfigurationsEdgeConfig = (
   output: any,
   context: __SerdeContext
-): ResourceEndpointListItem[] => {
+): ListEdgeAgentConfigurationsEdgeConfig => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EdgeConfig: _json,
+    FailedStatusDetails: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamARN: __expectString,
+    StreamName: __expectString,
+    SyncStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ListEdgeAgentConfigurationsEdgeConfigList
+ */
+const de_ListEdgeAgentConfigurationsEdgeConfigList = (
+  output: any,
+  context: __SerdeContext
+): ListEdgeAgentConfigurationsEdgeConfig[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ResourceEndpointListItem(entry, context);
+      return de_ListEdgeAgentConfigurationsEdgeConfig(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ResourceEndpointListItem = (
-  output: any,
-  context: __SerdeContext
-): ResourceEndpointListItem => {
-  return {
-    Protocol: __expectString(output.Protocol),
-    ResourceEndpoint: __expectString(output.ResourceEndpoint),
-  } as any;
+// de_LocalSizeConfig omitted.
+
+// de_MappedResourceConfigurationList omitted.
+
+// de_MappedResourceConfigurationListItem omitted.
+
+// de_MediaSourceConfig omitted.
+
+// de_MediaStorageConfiguration omitted.
+
+// de_NotificationConfiguration omitted.
+
+// de_NotificationDestinationConfig omitted.
+
+// de_RecorderConfig omitted.
+
+// de_ResourceEndpointList omitted.
+
+// de_ResourceEndpointListItem omitted.
+
+// de_ResourceTags omitted.
+
+// de_ScheduleConfig omitted.
+
+// de_SingleMasterConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1StreamInfo
+ */
+const de_StreamInfo = (output: any, context: __SerdeContext): StreamInfo => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataRetentionInHours: __expectInt32,
+    DeviceName: __expectString,
+    KmsKeyId: __expectString,
+    MediaType: __expectString,
+    Status: __expectString,
+    StreamARN: __expectString,
+    StreamName: __expectString,
+    Version: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1ResourceTags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1SingleMasterConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SingleMasterConfiguration => {
-  return {
-    MessageTtlSeconds: __expectInt32(output.MessageTtlSeconds),
-  } as any;
-};
-
-const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext): StreamInfo => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataRetentionInHours: __expectInt32(output.DataRetentionInHours),
-    DeviceName: __expectString(output.DeviceName),
-    KmsKeyId: __expectString(output.KmsKeyId),
-    MediaType: __expectString(output.MediaType),
-    Status: __expectString(output.Status),
-    StreamARN: __expectString(output.StreamARN),
-    StreamName: __expectString(output.StreamName),
-    Version: __expectString(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1StreamInfoList = (output: any, context: __SerdeContext): StreamInfo[] => {
+/**
+ * deserializeAws_restJson1StreamInfoList
+ */
+const de_StreamInfoList = (output: any, context: __SerdeContext): StreamInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1StreamInfo(entry, context);
+      return de_StreamInfo(entry, context);
     });
   return retVal;
 };
+
+// de_UploaderConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -2109,14 +3354,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -2138,6 +3395,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptQualificationRequestCommand";
 export * from "./ApproveAssignmentCommand";
 export * from "./AssociateQualificationWithWorkerCommand";

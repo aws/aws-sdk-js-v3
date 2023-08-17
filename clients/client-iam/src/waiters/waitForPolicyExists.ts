@@ -1,4 +1,5 @@
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+// smithy-typescript generated code
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
 
 import { GetPolicyCommand, GetPolicyCommandInput } from "../commands/GetPolicyCommand";
 import { IAMClient } from "../IAMClient";

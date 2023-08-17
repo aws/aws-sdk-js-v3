@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteByteMatchSetRequest, DeleteByteMatchSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteByteMatchSetCommand,
-  serializeAws_json1_1DeleteByteMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteByteMatchSetCommand, se_DeleteByteMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteByteMatchSetCommand}.
+ */
 export interface DeleteByteMatchSetCommandInput extends DeleteByteMatchSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteByteMatchSetCommand}.
+ */
 export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -52,13 +66,84 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  * import { WAFClient, DeleteByteMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, DeleteByteMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // DeleteByteMatchSetRequest
+ *   ByteMatchSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteByteMatchSetCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteByteMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DeleteByteMatchSetCommandInput - {@link DeleteByteMatchSetCommandInput}
+ * @returns {@link DeleteByteMatchSetCommandOutput}
  * @see {@link DeleteByteMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteByteMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * @throws {@link WAFNonEmptyEntityException} (client fault)
+ *  <p>The operation failed because you tried to delete an object that isn't empty. For example:</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects
+ * 				or other predicates.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * @throws {@link WAFReferencedItemException} (client fault)
+ *  <p>The operation failed because you tried to delete an object that is still in use. For example:</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link WAFStaleDataException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+ *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
+ *
+ * @example To delete a byte match set
+ * ```javascript
+ * // The following example deletes a byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "ByteMatchSetId": "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5",
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * };
+ * const command = new DeleteByteMatchSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * // example id: deletebytematchset-1473367566229
+ * ```
  *
  */
 export class DeleteByteMatchSetCommand extends $Command<
@@ -69,6 +154,18 @@ export class DeleteByteMatchSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteByteMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +181,9 @@ export class DeleteByteMatchSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteByteMatchSetCommandInput, DeleteByteMatchSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteByteMatchSetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -94,8 +194,8 @@ export class DeleteByteMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteByteMatchSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteByteMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +205,18 @@ export class DeleteByteMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteByteMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteByteMatchSetCommand(input, context);
+    return se_DeleteByteMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteByteMatchSetCommandOutput> {
-    return deserializeAws_json1_1DeleteByteMatchSetCommand(output, context);
+    return de_DeleteByteMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

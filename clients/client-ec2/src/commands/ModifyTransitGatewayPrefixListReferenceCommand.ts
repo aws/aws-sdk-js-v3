@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,25 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyTransitGatewayPrefixListReferenceRequest,
   ModifyTransitGatewayPrefixListReferenceResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand,
-  serializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand,
+  de_ModifyTransitGatewayPrefixListReferenceCommand,
+  se_ModifyTransitGatewayPrefixListReferenceCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ModifyTransitGatewayPrefixListReferenceCommand}.
+ */
 export interface ModifyTransitGatewayPrefixListReferenceCommandInput
   extends ModifyTransitGatewayPrefixListReferenceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyTransitGatewayPrefixListReferenceCommand}.
+ */
 export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
   extends ModifyTransitGatewayPrefixListReferenceResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a reference (route) to a prefix list in a specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +52,40 @@ export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
  * import { EC2Client, ModifyTransitGatewayPrefixListReferenceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTransitGatewayPrefixListReferenceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyTransitGatewayPrefixListReferenceRequest
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   PrefixListId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE",
+ *   Blackhole: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyTransitGatewayPrefixListReferenceCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyTransitGatewayPrefixListReferenceResult
+ * //   TransitGatewayPrefixListReference: { // TransitGatewayPrefixListReference
+ * //     TransitGatewayRouteTableId: "STRING_VALUE",
+ * //     PrefixListId: "STRING_VALUE",
+ * //     PrefixListOwnerId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "modifying" || "deleting",
+ * //     Blackhole: true || false,
+ * //     TransitGatewayAttachment: { // TransitGatewayPrefixListAttachment
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
+ * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //       ResourceId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param ModifyTransitGatewayPrefixListReferenceCommandInput - {@link ModifyTransitGatewayPrefixListReferenceCommandInput}
+ * @returns {@link ModifyTransitGatewayPrefixListReferenceCommandOutput}
  * @see {@link ModifyTransitGatewayPrefixListReferenceCommandInput} for command's `input` shape.
  * @see {@link ModifyTransitGatewayPrefixListReferenceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
@@ -52,6 +96,18 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTransitGatewayPrefixListReferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +126,12 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
     ModifyTransitGatewayPrefixListReferenceCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        ModifyTransitGatewayPrefixListReferenceCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +142,8 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyTransitGatewayPrefixListReferenceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyTransitGatewayPrefixListReferenceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,18 +153,24 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyTransitGatewayPrefixListReferenceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand(input, context);
+    return se_ModifyTransitGatewayPrefixListReferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTransitGatewayPrefixListReferenceCommandOutput> {
-    return deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand(output, context);
+    return de_ModifyTransitGatewayPrefixListReferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

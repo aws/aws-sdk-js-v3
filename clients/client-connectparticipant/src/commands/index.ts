@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CompleteAttachmentUploadCommand";
 export * from "./CreateParticipantConnectionCommand";
 export * from "./DisconnectParticipantCommand";

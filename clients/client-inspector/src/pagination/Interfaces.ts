@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Inspector } from "../Inspector";
 import { InspectorClient } from "../InspectorClient";
 
+/**
+ * @public
+ */
 export interface InspectorPaginationConfiguration extends PaginationConfiguration {
-  client: Inspector | InspectorClient;
+  client: InspectorClient;
 }

@@ -1,16 +1,33 @@
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { AthenaClient } from "./AthenaClient";
+import { AthenaClient, AthenaClientConfig } from "./AthenaClient";
 import {
   BatchGetNamedQueryCommand,
   BatchGetNamedQueryCommandInput,
   BatchGetNamedQueryCommandOutput,
 } from "./commands/BatchGetNamedQueryCommand";
 import {
+  BatchGetPreparedStatementCommand,
+  BatchGetPreparedStatementCommandInput,
+  BatchGetPreparedStatementCommandOutput,
+} from "./commands/BatchGetPreparedStatementCommand";
+import {
   BatchGetQueryExecutionCommand,
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput,
 } from "./commands/BatchGetQueryExecutionCommand";
+import {
+  CancelCapacityReservationCommand,
+  CancelCapacityReservationCommandInput,
+  CancelCapacityReservationCommandOutput,
+} from "./commands/CancelCapacityReservationCommand";
+import {
+  CreateCapacityReservationCommand,
+  CreateCapacityReservationCommandInput,
+  CreateCapacityReservationCommandOutput,
+} from "./commands/CreateCapacityReservationCommand";
 import {
   CreateDataCatalogCommand,
   CreateDataCatalogCommandInput,
@@ -22,15 +39,30 @@ import {
   CreateNamedQueryCommandOutput,
 } from "./commands/CreateNamedQueryCommand";
 import {
+  CreateNotebookCommand,
+  CreateNotebookCommandInput,
+  CreateNotebookCommandOutput,
+} from "./commands/CreateNotebookCommand";
+import {
   CreatePreparedStatementCommand,
   CreatePreparedStatementCommandInput,
   CreatePreparedStatementCommandOutput,
 } from "./commands/CreatePreparedStatementCommand";
 import {
+  CreatePresignedNotebookUrlCommand,
+  CreatePresignedNotebookUrlCommandInput,
+  CreatePresignedNotebookUrlCommandOutput,
+} from "./commands/CreatePresignedNotebookUrlCommand";
+import {
   CreateWorkGroupCommand,
   CreateWorkGroupCommandInput,
   CreateWorkGroupCommandOutput,
 } from "./commands/CreateWorkGroupCommand";
+import {
+  DeleteCapacityReservationCommand,
+  DeleteCapacityReservationCommandInput,
+  DeleteCapacityReservationCommandOutput,
+} from "./commands/DeleteCapacityReservationCommand";
 import {
   DeleteDataCatalogCommand,
   DeleteDataCatalogCommandInput,
@@ -42,6 +74,11 @@ import {
   DeleteNamedQueryCommandOutput,
 } from "./commands/DeleteNamedQueryCommand";
 import {
+  DeleteNotebookCommand,
+  DeleteNotebookCommandInput,
+  DeleteNotebookCommandOutput,
+} from "./commands/DeleteNotebookCommand";
+import {
   DeletePreparedStatementCommand,
   DeletePreparedStatementCommandInput,
   DeletePreparedStatementCommandOutput,
@@ -51,6 +88,36 @@ import {
   DeleteWorkGroupCommandInput,
   DeleteWorkGroupCommandOutput,
 } from "./commands/DeleteWorkGroupCommand";
+import {
+  ExportNotebookCommand,
+  ExportNotebookCommandInput,
+  ExportNotebookCommandOutput,
+} from "./commands/ExportNotebookCommand";
+import {
+  GetCalculationExecutionCodeCommand,
+  GetCalculationExecutionCodeCommandInput,
+  GetCalculationExecutionCodeCommandOutput,
+} from "./commands/GetCalculationExecutionCodeCommand";
+import {
+  GetCalculationExecutionCommand,
+  GetCalculationExecutionCommandInput,
+  GetCalculationExecutionCommandOutput,
+} from "./commands/GetCalculationExecutionCommand";
+import {
+  GetCalculationExecutionStatusCommand,
+  GetCalculationExecutionStatusCommandInput,
+  GetCalculationExecutionStatusCommandOutput,
+} from "./commands/GetCalculationExecutionStatusCommand";
+import {
+  GetCapacityAssignmentConfigurationCommand,
+  GetCapacityAssignmentConfigurationCommandInput,
+  GetCapacityAssignmentConfigurationCommandOutput,
+} from "./commands/GetCapacityAssignmentConfigurationCommand";
+import {
+  GetCapacityReservationCommand,
+  GetCapacityReservationCommandInput,
+  GetCapacityReservationCommandOutput,
+} from "./commands/GetCapacityReservationCommand";
 import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
   GetDataCatalogCommand,
@@ -62,6 +129,11 @@ import {
   GetNamedQueryCommandInput,
   GetNamedQueryCommandOutput,
 } from "./commands/GetNamedQueryCommand";
+import {
+  GetNotebookMetadataCommand,
+  GetNotebookMetadataCommandInput,
+  GetNotebookMetadataCommandOutput,
+} from "./commands/GetNotebookMetadataCommand";
 import {
   GetPreparedStatementCommand,
   GetPreparedStatementCommandInput,
@@ -78,6 +150,17 @@ import {
   GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand";
 import {
+  GetQueryRuntimeStatisticsCommand,
+  GetQueryRuntimeStatisticsCommandInput,
+  GetQueryRuntimeStatisticsCommandOutput,
+} from "./commands/GetQueryRuntimeStatisticsCommand";
+import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import {
+  GetSessionStatusCommand,
+  GetSessionStatusCommandInput,
+  GetSessionStatusCommandOutput,
+} from "./commands/GetSessionStatusCommand";
+import {
   GetTableMetadataCommand,
   GetTableMetadataCommandInput,
   GetTableMetadataCommandOutput,
@@ -87,6 +170,26 @@ import {
   GetWorkGroupCommandInput,
   GetWorkGroupCommandOutput,
 } from "./commands/GetWorkGroupCommand";
+import {
+  ImportNotebookCommand,
+  ImportNotebookCommandInput,
+  ImportNotebookCommandOutput,
+} from "./commands/ImportNotebookCommand";
+import {
+  ListApplicationDPUSizesCommand,
+  ListApplicationDPUSizesCommandInput,
+  ListApplicationDPUSizesCommandOutput,
+} from "./commands/ListApplicationDPUSizesCommand";
+import {
+  ListCalculationExecutionsCommand,
+  ListCalculationExecutionsCommandInput,
+  ListCalculationExecutionsCommandOutput,
+} from "./commands/ListCalculationExecutionsCommand";
+import {
+  ListCapacityReservationsCommand,
+  ListCapacityReservationsCommandInput,
+  ListCapacityReservationsCommandOutput,
+} from "./commands/ListCapacityReservationsCommand";
 import {
   ListDatabasesCommand,
   ListDatabasesCommandInput,
@@ -103,10 +206,25 @@ import {
   ListEngineVersionsCommandOutput,
 } from "./commands/ListEngineVersionsCommand";
 import {
+  ListExecutorsCommand,
+  ListExecutorsCommandInput,
+  ListExecutorsCommandOutput,
+} from "./commands/ListExecutorsCommand";
+import {
   ListNamedQueriesCommand,
   ListNamedQueriesCommandInput,
   ListNamedQueriesCommandOutput,
 } from "./commands/ListNamedQueriesCommand";
+import {
+  ListNotebookMetadataCommand,
+  ListNotebookMetadataCommandInput,
+  ListNotebookMetadataCommandOutput,
+} from "./commands/ListNotebookMetadataCommand";
+import {
+  ListNotebookSessionsCommand,
+  ListNotebookSessionsCommandInput,
+  ListNotebookSessionsCommandOutput,
+} from "./commands/ListNotebookSessionsCommand";
 import {
   ListPreparedStatementsCommand,
   ListPreparedStatementsCommandInput,
@@ -117,6 +235,11 @@ import {
   ListQueryExecutionsCommandInput,
   ListQueryExecutionsCommandOutput,
 } from "./commands/ListQueryExecutionsCommand";
+import {
+  ListSessionsCommand,
+  ListSessionsCommandInput,
+  ListSessionsCommandOutput,
+} from "./commands/ListSessionsCommand";
 import {
   ListTableMetadataCommand,
   ListTableMetadataCommandInput,
@@ -133,10 +256,30 @@ import {
   ListWorkGroupsCommandOutput,
 } from "./commands/ListWorkGroupsCommand";
 import {
+  PutCapacityAssignmentConfigurationCommand,
+  PutCapacityAssignmentConfigurationCommandInput,
+  PutCapacityAssignmentConfigurationCommandOutput,
+} from "./commands/PutCapacityAssignmentConfigurationCommand";
+import {
+  StartCalculationExecutionCommand,
+  StartCalculationExecutionCommandInput,
+  StartCalculationExecutionCommandOutput,
+} from "./commands/StartCalculationExecutionCommand";
+import {
   StartQueryExecutionCommand,
   StartQueryExecutionCommandInput,
   StartQueryExecutionCommandOutput,
 } from "./commands/StartQueryExecutionCommand";
+import {
+  StartSessionCommand,
+  StartSessionCommandInput,
+  StartSessionCommandOutput,
+} from "./commands/StartSessionCommand";
+import {
+  StopCalculationExecutionCommand,
+  StopCalculationExecutionCommandInput,
+  StopCalculationExecutionCommandOutput,
+} from "./commands/StopCalculationExecutionCommand";
 import {
   StopQueryExecutionCommand,
   StopQueryExecutionCommandInput,
@@ -144,10 +287,20 @@ import {
 } from "./commands/StopQueryExecutionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  TerminateSessionCommand,
+  TerminateSessionCommandInput,
+  TerminateSessionCommandOutput,
+} from "./commands/TerminateSessionCommand";
+import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateCapacityReservationCommand,
+  UpdateCapacityReservationCommandInput,
+  UpdateCapacityReservationCommandOutput,
+} from "./commands/UpdateCapacityReservationCommand";
 import {
   UpdateDataCatalogCommand,
   UpdateDataCatalogCommandInput,
@@ -159,6 +312,16 @@ import {
   UpdateNamedQueryCommandOutput,
 } from "./commands/UpdateNamedQueryCommand";
 import {
+  UpdateNotebookCommand,
+  UpdateNotebookCommandInput,
+  UpdateNotebookCommandOutput,
+} from "./commands/UpdateNotebookCommand";
+import {
+  UpdateNotebookMetadataCommand,
+  UpdateNotebookMetadataCommandInput,
+  UpdateNotebookMetadataCommandOutput,
+} from "./commands/UpdateNotebookMetadataCommand";
+import {
   UpdatePreparedStatementCommand,
   UpdatePreparedStatementCommandInput,
   UpdatePreparedStatementCommandOutput,
@@ -169,7 +332,1144 @@ import {
   UpdateWorkGroupCommandOutput,
 } from "./commands/UpdateWorkGroupCommand";
 
+const commands = {
+  BatchGetNamedQueryCommand,
+  BatchGetPreparedStatementCommand,
+  BatchGetQueryExecutionCommand,
+  CancelCapacityReservationCommand,
+  CreateCapacityReservationCommand,
+  CreateDataCatalogCommand,
+  CreateNamedQueryCommand,
+  CreateNotebookCommand,
+  CreatePreparedStatementCommand,
+  CreatePresignedNotebookUrlCommand,
+  CreateWorkGroupCommand,
+  DeleteCapacityReservationCommand,
+  DeleteDataCatalogCommand,
+  DeleteNamedQueryCommand,
+  DeleteNotebookCommand,
+  DeletePreparedStatementCommand,
+  DeleteWorkGroupCommand,
+  ExportNotebookCommand,
+  GetCalculationExecutionCommand,
+  GetCalculationExecutionCodeCommand,
+  GetCalculationExecutionStatusCommand,
+  GetCapacityAssignmentConfigurationCommand,
+  GetCapacityReservationCommand,
+  GetDatabaseCommand,
+  GetDataCatalogCommand,
+  GetNamedQueryCommand,
+  GetNotebookMetadataCommand,
+  GetPreparedStatementCommand,
+  GetQueryExecutionCommand,
+  GetQueryResultsCommand,
+  GetQueryRuntimeStatisticsCommand,
+  GetSessionCommand,
+  GetSessionStatusCommand,
+  GetTableMetadataCommand,
+  GetWorkGroupCommand,
+  ImportNotebookCommand,
+  ListApplicationDPUSizesCommand,
+  ListCalculationExecutionsCommand,
+  ListCapacityReservationsCommand,
+  ListDatabasesCommand,
+  ListDataCatalogsCommand,
+  ListEngineVersionsCommand,
+  ListExecutorsCommand,
+  ListNamedQueriesCommand,
+  ListNotebookMetadataCommand,
+  ListNotebookSessionsCommand,
+  ListPreparedStatementsCommand,
+  ListQueryExecutionsCommand,
+  ListSessionsCommand,
+  ListTableMetadataCommand,
+  ListTagsForResourceCommand,
+  ListWorkGroupsCommand,
+  PutCapacityAssignmentConfigurationCommand,
+  StartCalculationExecutionCommand,
+  StartQueryExecutionCommand,
+  StartSessionCommand,
+  StopCalculationExecutionCommand,
+  StopQueryExecutionCommand,
+  TagResourceCommand,
+  TerminateSessionCommand,
+  UntagResourceCommand,
+  UpdateCapacityReservationCommand,
+  UpdateDataCatalogCommand,
+  UpdateNamedQueryCommand,
+  UpdateNotebookCommand,
+  UpdateNotebookMetadataCommand,
+  UpdatePreparedStatementCommand,
+  UpdateWorkGroupCommand,
+};
+
+export interface Athena {
+  /**
+   * @see {@link BatchGetNamedQueryCommand}
+   */
+  batchGetNamedQuery(
+    args: BatchGetNamedQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetNamedQueryCommandOutput>;
+  batchGetNamedQuery(
+    args: BatchGetNamedQueryCommandInput,
+    cb: (err: any, data?: BatchGetNamedQueryCommandOutput) => void
+  ): void;
+  batchGetNamedQuery(
+    args: BatchGetNamedQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetNamedQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetPreparedStatementCommand}
+   */
+  batchGetPreparedStatement(
+    args: BatchGetPreparedStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetPreparedStatementCommandOutput>;
+  batchGetPreparedStatement(
+    args: BatchGetPreparedStatementCommandInput,
+    cb: (err: any, data?: BatchGetPreparedStatementCommandOutput) => void
+  ): void;
+  batchGetPreparedStatement(
+    args: BatchGetPreparedStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetPreparedStatementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetQueryExecutionCommand}
+   */
+  batchGetQueryExecution(
+    args: BatchGetQueryExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetQueryExecutionCommandOutput>;
+  batchGetQueryExecution(
+    args: BatchGetQueryExecutionCommandInput,
+    cb: (err: any, data?: BatchGetQueryExecutionCommandOutput) => void
+  ): void;
+  batchGetQueryExecution(
+    args: BatchGetQueryExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetQueryExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelCapacityReservationCommand}
+   */
+  cancelCapacityReservation(
+    args: CancelCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelCapacityReservationCommandOutput>;
+  cancelCapacityReservation(
+    args: CancelCapacityReservationCommandInput,
+    cb: (err: any, data?: CancelCapacityReservationCommandOutput) => void
+  ): void;
+  cancelCapacityReservation(
+    args: CancelCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCapacityReservationCommand}
+   */
+  createCapacityReservation(
+    args: CreateCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCapacityReservationCommandOutput>;
+  createCapacityReservation(
+    args: CreateCapacityReservationCommandInput,
+    cb: (err: any, data?: CreateCapacityReservationCommandOutput) => void
+  ): void;
+  createCapacityReservation(
+    args: CreateCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataCatalogCommand}
+   */
+  createDataCatalog(
+    args: CreateDataCatalogCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataCatalogCommandOutput>;
+  createDataCatalog(
+    args: CreateDataCatalogCommandInput,
+    cb: (err: any, data?: CreateDataCatalogCommandOutput) => void
+  ): void;
+  createDataCatalog(
+    args: CreateDataCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataCatalogCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateNamedQueryCommand}
+   */
+  createNamedQuery(
+    args: CreateNamedQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNamedQueryCommandOutput>;
+  createNamedQuery(
+    args: CreateNamedQueryCommandInput,
+    cb: (err: any, data?: CreateNamedQueryCommandOutput) => void
+  ): void;
+  createNamedQuery(
+    args: CreateNamedQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNamedQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateNotebookCommand}
+   */
+  createNotebook(
+    args: CreateNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNotebookCommandOutput>;
+  createNotebook(args: CreateNotebookCommandInput, cb: (err: any, data?: CreateNotebookCommandOutput) => void): void;
+  createNotebook(
+    args: CreateNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNotebookCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePreparedStatementCommand}
+   */
+  createPreparedStatement(
+    args: CreatePreparedStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePreparedStatementCommandOutput>;
+  createPreparedStatement(
+    args: CreatePreparedStatementCommandInput,
+    cb: (err: any, data?: CreatePreparedStatementCommandOutput) => void
+  ): void;
+  createPreparedStatement(
+    args: CreatePreparedStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePreparedStatementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePresignedNotebookUrlCommand}
+   */
+  createPresignedNotebookUrl(
+    args: CreatePresignedNotebookUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePresignedNotebookUrlCommandOutput>;
+  createPresignedNotebookUrl(
+    args: CreatePresignedNotebookUrlCommandInput,
+    cb: (err: any, data?: CreatePresignedNotebookUrlCommandOutput) => void
+  ): void;
+  createPresignedNotebookUrl(
+    args: CreatePresignedNotebookUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePresignedNotebookUrlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWorkGroupCommand}
+   */
+  createWorkGroup(
+    args: CreateWorkGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkGroupCommandOutput>;
+  createWorkGroup(args: CreateWorkGroupCommandInput, cb: (err: any, data?: CreateWorkGroupCommandOutput) => void): void;
+  createWorkGroup(
+    args: CreateWorkGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCapacityReservationCommand}
+   */
+  deleteCapacityReservation(
+    args: DeleteCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCapacityReservationCommandOutput>;
+  deleteCapacityReservation(
+    args: DeleteCapacityReservationCommandInput,
+    cb: (err: any, data?: DeleteCapacityReservationCommandOutput) => void
+  ): void;
+  deleteCapacityReservation(
+    args: DeleteCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataCatalogCommand}
+   */
+  deleteDataCatalog(
+    args: DeleteDataCatalogCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataCatalogCommandOutput>;
+  deleteDataCatalog(
+    args: DeleteDataCatalogCommandInput,
+    cb: (err: any, data?: DeleteDataCatalogCommandOutput) => void
+  ): void;
+  deleteDataCatalog(
+    args: DeleteDataCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataCatalogCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteNamedQueryCommand}
+   */
+  deleteNamedQuery(
+    args: DeleteNamedQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNamedQueryCommandOutput>;
+  deleteNamedQuery(
+    args: DeleteNamedQueryCommandInput,
+    cb: (err: any, data?: DeleteNamedQueryCommandOutput) => void
+  ): void;
+  deleteNamedQuery(
+    args: DeleteNamedQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNamedQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteNotebookCommand}
+   */
+  deleteNotebook(
+    args: DeleteNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNotebookCommandOutput>;
+  deleteNotebook(args: DeleteNotebookCommandInput, cb: (err: any, data?: DeleteNotebookCommandOutput) => void): void;
+  deleteNotebook(
+    args: DeleteNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNotebookCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePreparedStatementCommand}
+   */
+  deletePreparedStatement(
+    args: DeletePreparedStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePreparedStatementCommandOutput>;
+  deletePreparedStatement(
+    args: DeletePreparedStatementCommandInput,
+    cb: (err: any, data?: DeletePreparedStatementCommandOutput) => void
+  ): void;
+  deletePreparedStatement(
+    args: DeletePreparedStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePreparedStatementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkGroupCommand}
+   */
+  deleteWorkGroup(
+    args: DeleteWorkGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkGroupCommandOutput>;
+  deleteWorkGroup(args: DeleteWorkGroupCommandInput, cb: (err: any, data?: DeleteWorkGroupCommandOutput) => void): void;
+  deleteWorkGroup(
+    args: DeleteWorkGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExportNotebookCommand}
+   */
+  exportNotebook(
+    args: ExportNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportNotebookCommandOutput>;
+  exportNotebook(args: ExportNotebookCommandInput, cb: (err: any, data?: ExportNotebookCommandOutput) => void): void;
+  exportNotebook(
+    args: ExportNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportNotebookCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCalculationExecutionCommand}
+   */
+  getCalculationExecution(
+    args: GetCalculationExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCalculationExecutionCommandOutput>;
+  getCalculationExecution(
+    args: GetCalculationExecutionCommandInput,
+    cb: (err: any, data?: GetCalculationExecutionCommandOutput) => void
+  ): void;
+  getCalculationExecution(
+    args: GetCalculationExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCalculationExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCalculationExecutionCodeCommand}
+   */
+  getCalculationExecutionCode(
+    args: GetCalculationExecutionCodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCalculationExecutionCodeCommandOutput>;
+  getCalculationExecutionCode(
+    args: GetCalculationExecutionCodeCommandInput,
+    cb: (err: any, data?: GetCalculationExecutionCodeCommandOutput) => void
+  ): void;
+  getCalculationExecutionCode(
+    args: GetCalculationExecutionCodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCalculationExecutionCodeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCalculationExecutionStatusCommand}
+   */
+  getCalculationExecutionStatus(
+    args: GetCalculationExecutionStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCalculationExecutionStatusCommandOutput>;
+  getCalculationExecutionStatus(
+    args: GetCalculationExecutionStatusCommandInput,
+    cb: (err: any, data?: GetCalculationExecutionStatusCommandOutput) => void
+  ): void;
+  getCalculationExecutionStatus(
+    args: GetCalculationExecutionStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCalculationExecutionStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCapacityAssignmentConfigurationCommand}
+   */
+  getCapacityAssignmentConfiguration(
+    args: GetCapacityAssignmentConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapacityAssignmentConfigurationCommandOutput>;
+  getCapacityAssignmentConfiguration(
+    args: GetCapacityAssignmentConfigurationCommandInput,
+    cb: (err: any, data?: GetCapacityAssignmentConfigurationCommandOutput) => void
+  ): void;
+  getCapacityAssignmentConfiguration(
+    args: GetCapacityAssignmentConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapacityAssignmentConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCapacityReservationCommand}
+   */
+  getCapacityReservation(
+    args: GetCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapacityReservationCommandOutput>;
+  getCapacityReservation(
+    args: GetCapacityReservationCommandInput,
+    cb: (err: any, data?: GetCapacityReservationCommandOutput) => void
+  ): void;
+  getCapacityReservation(
+    args: GetCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDatabaseCommand}
+   */
+  getDatabase(args: GetDatabaseCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabaseCommandOutput>;
+  getDatabase(args: GetDatabaseCommandInput, cb: (err: any, data?: GetDatabaseCommandOutput) => void): void;
+  getDatabase(
+    args: GetDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDatabaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataCatalogCommand}
+   */
+  getDataCatalog(
+    args: GetDataCatalogCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataCatalogCommandOutput>;
+  getDataCatalog(args: GetDataCatalogCommandInput, cb: (err: any, data?: GetDataCatalogCommandOutput) => void): void;
+  getDataCatalog(
+    args: GetDataCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataCatalogCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetNamedQueryCommand}
+   */
+  getNamedQuery(args: GetNamedQueryCommandInput, options?: __HttpHandlerOptions): Promise<GetNamedQueryCommandOutput>;
+  getNamedQuery(args: GetNamedQueryCommandInput, cb: (err: any, data?: GetNamedQueryCommandOutput) => void): void;
+  getNamedQuery(
+    args: GetNamedQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNamedQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetNotebookMetadataCommand}
+   */
+  getNotebookMetadata(
+    args: GetNotebookMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNotebookMetadataCommandOutput>;
+  getNotebookMetadata(
+    args: GetNotebookMetadataCommandInput,
+    cb: (err: any, data?: GetNotebookMetadataCommandOutput) => void
+  ): void;
+  getNotebookMetadata(
+    args: GetNotebookMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNotebookMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPreparedStatementCommand}
+   */
+  getPreparedStatement(
+    args: GetPreparedStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPreparedStatementCommandOutput>;
+  getPreparedStatement(
+    args: GetPreparedStatementCommandInput,
+    cb: (err: any, data?: GetPreparedStatementCommandOutput) => void
+  ): void;
+  getPreparedStatement(
+    args: GetPreparedStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPreparedStatementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQueryExecutionCommand}
+   */
+  getQueryExecution(
+    args: GetQueryExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryExecutionCommandOutput>;
+  getQueryExecution(
+    args: GetQueryExecutionCommandInput,
+    cb: (err: any, data?: GetQueryExecutionCommandOutput) => void
+  ): void;
+  getQueryExecution(
+    args: GetQueryExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQueryResultsCommand}
+   */
+  getQueryResults(
+    args: GetQueryResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryResultsCommandOutput>;
+  getQueryResults(args: GetQueryResultsCommandInput, cb: (err: any, data?: GetQueryResultsCommandOutput) => void): void;
+  getQueryResults(
+    args: GetQueryResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQueryRuntimeStatisticsCommand}
+   */
+  getQueryRuntimeStatistics(
+    args: GetQueryRuntimeStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryRuntimeStatisticsCommandOutput>;
+  getQueryRuntimeStatistics(
+    args: GetQueryRuntimeStatisticsCommandInput,
+    cb: (err: any, data?: GetQueryRuntimeStatisticsCommandOutput) => void
+  ): void;
+  getQueryRuntimeStatistics(
+    args: GetQueryRuntimeStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryRuntimeStatisticsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSessionCommand}
+   */
+  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
+  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSessionStatusCommand}
+   */
+  getSessionStatus(
+    args: GetSessionStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionStatusCommandOutput>;
+  getSessionStatus(
+    args: GetSessionStatusCommandInput,
+    cb: (err: any, data?: GetSessionStatusCommandOutput) => void
+  ): void;
+  getSessionStatus(
+    args: GetSessionStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTableMetadataCommand}
+   */
+  getTableMetadata(
+    args: GetTableMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableMetadataCommandOutput>;
+  getTableMetadata(
+    args: GetTableMetadataCommandInput,
+    cb: (err: any, data?: GetTableMetadataCommandOutput) => void
+  ): void;
+  getTableMetadata(
+    args: GetTableMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetWorkGroupCommand}
+   */
+  getWorkGroup(args: GetWorkGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkGroupCommandOutput>;
+  getWorkGroup(args: GetWorkGroupCommandInput, cb: (err: any, data?: GetWorkGroupCommandOutput) => void): void;
+  getWorkGroup(
+    args: GetWorkGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportNotebookCommand}
+   */
+  importNotebook(
+    args: ImportNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportNotebookCommandOutput>;
+  importNotebook(args: ImportNotebookCommandInput, cb: (err: any, data?: ImportNotebookCommandOutput) => void): void;
+  importNotebook(
+    args: ImportNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportNotebookCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationDPUSizesCommand}
+   */
+  listApplicationDPUSizes(
+    args: ListApplicationDPUSizesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationDPUSizesCommandOutput>;
+  listApplicationDPUSizes(
+    args: ListApplicationDPUSizesCommandInput,
+    cb: (err: any, data?: ListApplicationDPUSizesCommandOutput) => void
+  ): void;
+  listApplicationDPUSizes(
+    args: ListApplicationDPUSizesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationDPUSizesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCalculationExecutionsCommand}
+   */
+  listCalculationExecutions(
+    args: ListCalculationExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCalculationExecutionsCommandOutput>;
+  listCalculationExecutions(
+    args: ListCalculationExecutionsCommandInput,
+    cb: (err: any, data?: ListCalculationExecutionsCommandOutput) => void
+  ): void;
+  listCalculationExecutions(
+    args: ListCalculationExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCalculationExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCapacityReservationsCommand}
+   */
+  listCapacityReservations(
+    args: ListCapacityReservationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCapacityReservationsCommandOutput>;
+  listCapacityReservations(
+    args: ListCapacityReservationsCommandInput,
+    cb: (err: any, data?: ListCapacityReservationsCommandOutput) => void
+  ): void;
+  listCapacityReservations(
+    args: ListCapacityReservationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCapacityReservationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDatabasesCommand}
+   */
+  listDatabases(args: ListDatabasesCommandInput, options?: __HttpHandlerOptions): Promise<ListDatabasesCommandOutput>;
+  listDatabases(args: ListDatabasesCommandInput, cb: (err: any, data?: ListDatabasesCommandOutput) => void): void;
+  listDatabases(
+    args: ListDatabasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatabasesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataCatalogsCommand}
+   */
+  listDataCatalogs(
+    args: ListDataCatalogsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataCatalogsCommandOutput>;
+  listDataCatalogs(
+    args: ListDataCatalogsCommandInput,
+    cb: (err: any, data?: ListDataCatalogsCommandOutput) => void
+  ): void;
+  listDataCatalogs(
+    args: ListDataCatalogsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataCatalogsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEngineVersionsCommand}
+   */
+  listEngineVersions(
+    args: ListEngineVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEngineVersionsCommandOutput>;
+  listEngineVersions(
+    args: ListEngineVersionsCommandInput,
+    cb: (err: any, data?: ListEngineVersionsCommandOutput) => void
+  ): void;
+  listEngineVersions(
+    args: ListEngineVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEngineVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExecutorsCommand}
+   */
+  listExecutors(args: ListExecutorsCommandInput, options?: __HttpHandlerOptions): Promise<ListExecutorsCommandOutput>;
+  listExecutors(args: ListExecutorsCommandInput, cb: (err: any, data?: ListExecutorsCommandOutput) => void): void;
+  listExecutors(
+    args: ListExecutorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExecutorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNamedQueriesCommand}
+   */
+  listNamedQueries(
+    args: ListNamedQueriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNamedQueriesCommandOutput>;
+  listNamedQueries(
+    args: ListNamedQueriesCommandInput,
+    cb: (err: any, data?: ListNamedQueriesCommandOutput) => void
+  ): void;
+  listNamedQueries(
+    args: ListNamedQueriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNamedQueriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNotebookMetadataCommand}
+   */
+  listNotebookMetadata(
+    args: ListNotebookMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNotebookMetadataCommandOutput>;
+  listNotebookMetadata(
+    args: ListNotebookMetadataCommandInput,
+    cb: (err: any, data?: ListNotebookMetadataCommandOutput) => void
+  ): void;
+  listNotebookMetadata(
+    args: ListNotebookMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNotebookMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNotebookSessionsCommand}
+   */
+  listNotebookSessions(
+    args: ListNotebookSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNotebookSessionsCommandOutput>;
+  listNotebookSessions(
+    args: ListNotebookSessionsCommandInput,
+    cb: (err: any, data?: ListNotebookSessionsCommandOutput) => void
+  ): void;
+  listNotebookSessions(
+    args: ListNotebookSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNotebookSessionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPreparedStatementsCommand}
+   */
+  listPreparedStatements(
+    args: ListPreparedStatementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPreparedStatementsCommandOutput>;
+  listPreparedStatements(
+    args: ListPreparedStatementsCommandInput,
+    cb: (err: any, data?: ListPreparedStatementsCommandOutput) => void
+  ): void;
+  listPreparedStatements(
+    args: ListPreparedStatementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPreparedStatementsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListQueryExecutionsCommand}
+   */
+  listQueryExecutions(
+    args: ListQueryExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueryExecutionsCommandOutput>;
+  listQueryExecutions(
+    args: ListQueryExecutionsCommandInput,
+    cb: (err: any, data?: ListQueryExecutionsCommandOutput) => void
+  ): void;
+  listQueryExecutions(
+    args: ListQueryExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQueryExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   */
+  listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
+  listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTableMetadataCommand}
+   */
+  listTableMetadata(
+    args: ListTableMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTableMetadataCommandOutput>;
+  listTableMetadata(
+    args: ListTableMetadataCommandInput,
+    cb: (err: any, data?: ListTableMetadataCommandOutput) => void
+  ): void;
+  listTableMetadata(
+    args: ListTableMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTableMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkGroupsCommand}
+   */
+  listWorkGroups(
+    args: ListWorkGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkGroupsCommandOutput>;
+  listWorkGroups(args: ListWorkGroupsCommandInput, cb: (err: any, data?: ListWorkGroupsCommandOutput) => void): void;
+  listWorkGroups(
+    args: ListWorkGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutCapacityAssignmentConfigurationCommand}
+   */
+  putCapacityAssignmentConfiguration(
+    args: PutCapacityAssignmentConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutCapacityAssignmentConfigurationCommandOutput>;
+  putCapacityAssignmentConfiguration(
+    args: PutCapacityAssignmentConfigurationCommandInput,
+    cb: (err: any, data?: PutCapacityAssignmentConfigurationCommandOutput) => void
+  ): void;
+  putCapacityAssignmentConfiguration(
+    args: PutCapacityAssignmentConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutCapacityAssignmentConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartCalculationExecutionCommand}
+   */
+  startCalculationExecution(
+    args: StartCalculationExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCalculationExecutionCommandOutput>;
+  startCalculationExecution(
+    args: StartCalculationExecutionCommandInput,
+    cb: (err: any, data?: StartCalculationExecutionCommandOutput) => void
+  ): void;
+  startCalculationExecution(
+    args: StartCalculationExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCalculationExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartQueryExecutionCommand}
+   */
+  startQueryExecution(
+    args: StartQueryExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartQueryExecutionCommandOutput>;
+  startQueryExecution(
+    args: StartQueryExecutionCommandInput,
+    cb: (err: any, data?: StartQueryExecutionCommandOutput) => void
+  ): void;
+  startQueryExecution(
+    args: StartQueryExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartQueryExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSessionCommand}
+   */
+  startSession(args: StartSessionCommandInput, options?: __HttpHandlerOptions): Promise<StartSessionCommandOutput>;
+  startSession(args: StartSessionCommandInput, cb: (err: any, data?: StartSessionCommandOutput) => void): void;
+  startSession(
+    args: StartSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopCalculationExecutionCommand}
+   */
+  stopCalculationExecution(
+    args: StopCalculationExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopCalculationExecutionCommandOutput>;
+  stopCalculationExecution(
+    args: StopCalculationExecutionCommandInput,
+    cb: (err: any, data?: StopCalculationExecutionCommandOutput) => void
+  ): void;
+  stopCalculationExecution(
+    args: StopCalculationExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopCalculationExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopQueryExecutionCommand}
+   */
+  stopQueryExecution(
+    args: StopQueryExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopQueryExecutionCommandOutput>;
+  stopQueryExecution(
+    args: StopQueryExecutionCommandInput,
+    cb: (err: any, data?: StopQueryExecutionCommandOutput) => void
+  ): void;
+  stopQueryExecution(
+    args: StopQueryExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopQueryExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TerminateSessionCommand}
+   */
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateSessionCommandOutput>;
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    cb: (err: any, data?: TerminateSessionCommandOutput) => void
+  ): void;
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCapacityReservationCommand}
+   */
+  updateCapacityReservation(
+    args: UpdateCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCapacityReservationCommandOutput>;
+  updateCapacityReservation(
+    args: UpdateCapacityReservationCommandInput,
+    cb: (err: any, data?: UpdateCapacityReservationCommandOutput) => void
+  ): void;
+  updateCapacityReservation(
+    args: UpdateCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDataCatalogCommand}
+   */
+  updateDataCatalog(
+    args: UpdateDataCatalogCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataCatalogCommandOutput>;
+  updateDataCatalog(
+    args: UpdateDataCatalogCommandInput,
+    cb: (err: any, data?: UpdateDataCatalogCommandOutput) => void
+  ): void;
+  updateDataCatalog(
+    args: UpdateDataCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataCatalogCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateNamedQueryCommand}
+   */
+  updateNamedQuery(
+    args: UpdateNamedQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNamedQueryCommandOutput>;
+  updateNamedQuery(
+    args: UpdateNamedQueryCommandInput,
+    cb: (err: any, data?: UpdateNamedQueryCommandOutput) => void
+  ): void;
+  updateNamedQuery(
+    args: UpdateNamedQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNamedQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateNotebookCommand}
+   */
+  updateNotebook(
+    args: UpdateNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNotebookCommandOutput>;
+  updateNotebook(args: UpdateNotebookCommandInput, cb: (err: any, data?: UpdateNotebookCommandOutput) => void): void;
+  updateNotebook(
+    args: UpdateNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNotebookCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateNotebookMetadataCommand}
+   */
+  updateNotebookMetadata(
+    args: UpdateNotebookMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNotebookMetadataCommandOutput>;
+  updateNotebookMetadata(
+    args: UpdateNotebookMetadataCommandInput,
+    cb: (err: any, data?: UpdateNotebookMetadataCommandOutput) => void
+  ): void;
+  updateNotebookMetadata(
+    args: UpdateNotebookMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNotebookMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePreparedStatementCommand}
+   */
+  updatePreparedStatement(
+    args: UpdatePreparedStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePreparedStatementCommandOutput>;
+  updatePreparedStatement(
+    args: UpdatePreparedStatementCommandInput,
+    cb: (err: any, data?: UpdatePreparedStatementCommandOutput) => void
+  ): void;
+  updatePreparedStatement(
+    args: UpdatePreparedStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePreparedStatementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWorkGroupCommand}
+   */
+  updateWorkGroup(
+    args: UpdateWorkGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkGroupCommandOutput>;
+  updateWorkGroup(args: UpdateWorkGroupCommandInput, cb: (err: any, data?: UpdateWorkGroupCommandOutput) => void): void;
+  updateWorkGroup(
+    args: UpdateWorkGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkGroupCommandOutput) => void
+  ): void;
+}
+
 /**
+ * @public
  * <p>Amazon Athena is an interactive query service that lets you use standard SQL
  *             to analyze data directly in Amazon S3. You can point Athena at your
  *             data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay
@@ -177,1192 +1477,13 @@ import {
  *             in parallel—so results are fast, even with large datasets and complex queries. For more
  *             information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon Athena</a> in the <i>Amazon Athena User
  *                 Guide</i>.</p>
- *         <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the
+ *          <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the
  *             driver or later with the Amazon Athena API. Earlier version drivers do not
  *             support the API. For more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing
  *                     Amazon Athena with JDBC</a>.</p>
- *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
  *                 Code Samples</a> in the <i>Amazon Athena User
  *             Guide</i>.</p>
  */
-export class Athena extends AthenaClient {
-  /**
-   * <p>Returns the details of a single named query or a list of up to 50 queries, which you
-   *             provide as an array of query ID strings. Requires you to have access to the workgroup in
-   *             which the queries were saved. Use <a>ListNamedQueriesInput</a> to get the
-   *             list of named query IDs in the specified workgroup. If information could not be
-   *             retrieved for a submitted query ID, information about the query ID submitted is listed
-   *             under <a>UnprocessedNamedQueryId</a>. Named queries differ from executed
-   *             queries. Use <a>BatchGetQueryExecutionInput</a> to get details about each
-   *             unique query execution, and <a>ListQueryExecutionsInput</a> to get a list of
-   *             query execution IDs.</p>
-   */
-  public batchGetNamedQuery(
-    args: BatchGetNamedQueryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetNamedQueryCommandOutput>;
-  public batchGetNamedQuery(
-    args: BatchGetNamedQueryCommandInput,
-    cb: (err: any, data?: BatchGetNamedQueryCommandOutput) => void
-  ): void;
-  public batchGetNamedQuery(
-    args: BatchGetNamedQueryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetNamedQueryCommandOutput) => void
-  ): void;
-  public batchGetNamedQuery(
-    args: BatchGetNamedQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetNamedQueryCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetNamedQueryCommandOutput) => void
-  ): Promise<BatchGetNamedQueryCommandOutput> | void {
-    const command = new BatchGetNamedQueryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the details of a single query execution or a list of up to 50 query
-   *             executions, which you provide as an array of query execution ID strings. Requires you to
-   *             have access to the workgroup in which the queries ran. To get a list of query execution
-   *             IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. Query executions differ
-   *             from named (saved) queries. Use <a>BatchGetNamedQueryInput</a> to get details
-   *             about named queries.</p>
-   */
-  public batchGetQueryExecution(
-    args: BatchGetQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetQueryExecutionCommandOutput>;
-  public batchGetQueryExecution(
-    args: BatchGetQueryExecutionCommandInput,
-    cb: (err: any, data?: BatchGetQueryExecutionCommandOutput) => void
-  ): void;
-  public batchGetQueryExecution(
-    args: BatchGetQueryExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetQueryExecutionCommandOutput) => void
-  ): void;
-  public batchGetQueryExecution(
-    args: BatchGetQueryExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetQueryExecutionCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetQueryExecutionCommandOutput) => void
-  ): Promise<BatchGetQueryExecutionCommandOutput> | void {
-    const command = new BatchGetQueryExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs
-   *             created are visible to all users of the same Amazon Web Services account.</p>
-   */
-  public createDataCatalog(
-    args: CreateDataCatalogCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDataCatalogCommandOutput>;
-  public createDataCatalog(
-    args: CreateDataCatalogCommandInput,
-    cb: (err: any, data?: CreateDataCatalogCommandOutput) => void
-  ): void;
-  public createDataCatalog(
-    args: CreateDataCatalogCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDataCatalogCommandOutput) => void
-  ): void;
-  public createDataCatalog(
-    args: CreateDataCatalogCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataCatalogCommandOutput) => void),
-    cb?: (err: any, data?: CreateDataCatalogCommandOutput) => void
-  ): Promise<CreateDataCatalogCommandOutput> | void {
-    const command = new CreateDataCatalogCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a named query in the specified workgroup. Requires that you have access to the
-   *             workgroup.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User
-   *             Guide</i>.</p>
-   */
-  public createNamedQuery(
-    args: CreateNamedQueryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateNamedQueryCommandOutput>;
-  public createNamedQuery(
-    args: CreateNamedQueryCommandInput,
-    cb: (err: any, data?: CreateNamedQueryCommandOutput) => void
-  ): void;
-  public createNamedQuery(
-    args: CreateNamedQueryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateNamedQueryCommandOutput) => void
-  ): void;
-  public createNamedQuery(
-    args: CreateNamedQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNamedQueryCommandOutput) => void),
-    cb?: (err: any, data?: CreateNamedQueryCommandOutput) => void
-  ): Promise<CreateNamedQueryCommandOutput> | void {
-    const command = new CreateNamedQueryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a prepared statement for use with SQL queries in Athena.</p>
-   */
-  public createPreparedStatement(
-    args: CreatePreparedStatementCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreatePreparedStatementCommandOutput>;
-  public createPreparedStatement(
-    args: CreatePreparedStatementCommandInput,
-    cb: (err: any, data?: CreatePreparedStatementCommandOutput) => void
-  ): void;
-  public createPreparedStatement(
-    args: CreatePreparedStatementCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePreparedStatementCommandOutput) => void
-  ): void;
-  public createPreparedStatement(
-    args: CreatePreparedStatementCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePreparedStatementCommandOutput) => void),
-    cb?: (err: any, data?: CreatePreparedStatementCommandOutput) => void
-  ): Promise<CreatePreparedStatementCommandOutput> | void {
-    const command = new CreatePreparedStatementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a workgroup with the specified name.</p>
-   */
-  public createWorkGroup(
-    args: CreateWorkGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateWorkGroupCommandOutput>;
-  public createWorkGroup(
-    args: CreateWorkGroupCommandInput,
-    cb: (err: any, data?: CreateWorkGroupCommandOutput) => void
-  ): void;
-  public createWorkGroup(
-    args: CreateWorkGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateWorkGroupCommandOutput) => void
-  ): void;
-  public createWorkGroup(
-    args: CreateWorkGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateWorkGroupCommandOutput) => void
-  ): Promise<CreateWorkGroupCommandOutput> | void {
-    const command = new CreateWorkGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a data catalog.</p>
-   */
-  public deleteDataCatalog(
-    args: DeleteDataCatalogCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDataCatalogCommandOutput>;
-  public deleteDataCatalog(
-    args: DeleteDataCatalogCommandInput,
-    cb: (err: any, data?: DeleteDataCatalogCommandOutput) => void
-  ): void;
-  public deleteDataCatalog(
-    args: DeleteDataCatalogCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDataCatalogCommandOutput) => void
-  ): void;
-  public deleteDataCatalog(
-    args: DeleteDataCatalogCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataCatalogCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDataCatalogCommandOutput) => void
-  ): Promise<DeleteDataCatalogCommandOutput> | void {
-    const command = new DeleteDataCatalogCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes the named query if you have access to the workgroup in which the query was
-   *             saved.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User
-   *             Guide</i>.</p>
-   */
-  public deleteNamedQuery(
-    args: DeleteNamedQueryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteNamedQueryCommandOutput>;
-  public deleteNamedQuery(
-    args: DeleteNamedQueryCommandInput,
-    cb: (err: any, data?: DeleteNamedQueryCommandOutput) => void
-  ): void;
-  public deleteNamedQuery(
-    args: DeleteNamedQueryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteNamedQueryCommandOutput) => void
-  ): void;
-  public deleteNamedQuery(
-    args: DeleteNamedQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNamedQueryCommandOutput) => void),
-    cb?: (err: any, data?: DeleteNamedQueryCommandOutput) => void
-  ): Promise<DeleteNamedQueryCommandOutput> | void {
-    const command = new DeleteNamedQueryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes the prepared statement with the specified name from the specified
-   *             workgroup.</p>
-   */
-  public deletePreparedStatement(
-    args: DeletePreparedStatementCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeletePreparedStatementCommandOutput>;
-  public deletePreparedStatement(
-    args: DeletePreparedStatementCommandInput,
-    cb: (err: any, data?: DeletePreparedStatementCommandOutput) => void
-  ): void;
-  public deletePreparedStatement(
-    args: DeletePreparedStatementCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePreparedStatementCommandOutput) => void
-  ): void;
-  public deletePreparedStatement(
-    args: DeletePreparedStatementCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePreparedStatementCommandOutput) => void),
-    cb?: (err: any, data?: DeletePreparedStatementCommandOutput) => void
-  ): Promise<DeletePreparedStatementCommandOutput> | void {
-    const command = new DeletePreparedStatementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes the workgroup with the specified name. The primary workgroup cannot be
-   *             deleted.</p>
-   */
-  public deleteWorkGroup(
-    args: DeleteWorkGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteWorkGroupCommandOutput>;
-  public deleteWorkGroup(
-    args: DeleteWorkGroupCommandInput,
-    cb: (err: any, data?: DeleteWorkGroupCommandOutput) => void
-  ): void;
-  public deleteWorkGroup(
-    args: DeleteWorkGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteWorkGroupCommandOutput) => void
-  ): void;
-  public deleteWorkGroup(
-    args: DeleteWorkGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteWorkGroupCommandOutput) => void
-  ): Promise<DeleteWorkGroupCommandOutput> | void {
-    const command = new DeleteWorkGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns a database object for the specified database and data catalog.</p>
-   */
-  public getDatabase(args: GetDatabaseCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabaseCommandOutput>;
-  public getDatabase(args: GetDatabaseCommandInput, cb: (err: any, data?: GetDatabaseCommandOutput) => void): void;
-  public getDatabase(
-    args: GetDatabaseCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDatabaseCommandOutput) => void
-  ): void;
-  public getDatabase(
-    args: GetDatabaseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDatabaseCommandOutput) => void),
-    cb?: (err: any, data?: GetDatabaseCommandOutput) => void
-  ): Promise<GetDatabaseCommandOutput> | void {
-    const command = new GetDatabaseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the specified data catalog.</p>
-   */
-  public getDataCatalog(
-    args: GetDataCatalogCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDataCatalogCommandOutput>;
-  public getDataCatalog(
-    args: GetDataCatalogCommandInput,
-    cb: (err: any, data?: GetDataCatalogCommandOutput) => void
-  ): void;
-  public getDataCatalog(
-    args: GetDataCatalogCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDataCatalogCommandOutput) => void
-  ): void;
-  public getDataCatalog(
-    args: GetDataCatalogCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataCatalogCommandOutput) => void),
-    cb?: (err: any, data?: GetDataCatalogCommandOutput) => void
-  ): Promise<GetDataCatalogCommandOutput> | void {
-    const command = new GetDataCatalogCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about a single query. Requires that you have access to the
-   *             workgroup in which the query was saved.</p>
-   */
-  public getNamedQuery(
-    args: GetNamedQueryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetNamedQueryCommandOutput>;
-  public getNamedQuery(
-    args: GetNamedQueryCommandInput,
-    cb: (err: any, data?: GetNamedQueryCommandOutput) => void
-  ): void;
-  public getNamedQuery(
-    args: GetNamedQueryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetNamedQueryCommandOutput) => void
-  ): void;
-  public getNamedQuery(
-    args: GetNamedQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNamedQueryCommandOutput) => void),
-    cb?: (err: any, data?: GetNamedQueryCommandOutput) => void
-  ): Promise<GetNamedQueryCommandOutput> | void {
-    const command = new GetNamedQueryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves the prepared statement with the specified name from the specified
-   *             workgroup.</p>
-   */
-  public getPreparedStatement(
-    args: GetPreparedStatementCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPreparedStatementCommandOutput>;
-  public getPreparedStatement(
-    args: GetPreparedStatementCommandInput,
-    cb: (err: any, data?: GetPreparedStatementCommandOutput) => void
-  ): void;
-  public getPreparedStatement(
-    args: GetPreparedStatementCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPreparedStatementCommandOutput) => void
-  ): void;
-  public getPreparedStatement(
-    args: GetPreparedStatementCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPreparedStatementCommandOutput) => void),
-    cb?: (err: any, data?: GetPreparedStatementCommandOutput) => void
-  ): Promise<GetPreparedStatementCommandOutput> | void {
-    const command = new GetPreparedStatementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about a single execution of a query if you have access to the
-   *             workgroup in which the query ran. Each time a query executes, information about the
-   *             query execution is saved with a unique ID.</p>
-   */
-  public getQueryExecution(
-    args: GetQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetQueryExecutionCommandOutput>;
-  public getQueryExecution(
-    args: GetQueryExecutionCommandInput,
-    cb: (err: any, data?: GetQueryExecutionCommandOutput) => void
-  ): void;
-  public getQueryExecution(
-    args: GetQueryExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetQueryExecutionCommandOutput) => void
-  ): void;
-  public getQueryExecution(
-    args: GetQueryExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryExecutionCommandOutput) => void),
-    cb?: (err: any, data?: GetQueryExecutionCommandOutput) => void
-  ): Promise<GetQueryExecutionCommandOutput> | void {
-    const command = new GetQueryExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Streams the results of a single query execution specified by
-   *                 <code>QueryExecutionId</code> from the Athena query results location in
-   *                 Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> in the <i>Amazon Athena User Guide</i>. This request does not execute the query
-   *             but returns results. Use <a>StartQueryExecution</a> to run a query.</p>
-   *         <p>To stream query results successfully, the IAM principal with permission to call
-   *                 <code>GetQueryResults</code> also must have permissions to the Amazon S3
-   *             <code>GetObject</code> action for the Athena query results location.</p>
-   *         <important>
-   *             <p>IAM principals with permission to the Amazon S3
-   *                 <code>GetObject</code> action for the query results location are able to retrieve
-   *                 query results from Amazon S3 even if permission to the
-   *                     <code>GetQueryResults</code> action is denied. To restrict user or role access,
-   *                 ensure that Amazon S3 permissions to the Athena query location
-   *                 are denied.</p>
-   *         </important>
-   */
-  public getQueryResults(
-    args: GetQueryResultsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetQueryResultsCommandOutput>;
-  public getQueryResults(
-    args: GetQueryResultsCommandInput,
-    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
-  ): void;
-  public getQueryResults(
-    args: GetQueryResultsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
-  ): void;
-  public getQueryResults(
-    args: GetQueryResultsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryResultsCommandOutput) => void),
-    cb?: (err: any, data?: GetQueryResultsCommandOutput) => void
-  ): Promise<GetQueryResultsCommandOutput> | void {
-    const command = new GetQueryResultsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns table metadata for the specified catalog, database, and table.</p>
-   */
-  public getTableMetadata(
-    args: GetTableMetadataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTableMetadataCommandOutput>;
-  public getTableMetadata(
-    args: GetTableMetadataCommandInput,
-    cb: (err: any, data?: GetTableMetadataCommandOutput) => void
-  ): void;
-  public getTableMetadata(
-    args: GetTableMetadataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetTableMetadataCommandOutput) => void
-  ): void;
-  public getTableMetadata(
-    args: GetTableMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTableMetadataCommandOutput) => void),
-    cb?: (err: any, data?: GetTableMetadataCommandOutput) => void
-  ): Promise<GetTableMetadataCommandOutput> | void {
-    const command = new GetTableMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about the workgroup with the specified name.</p>
-   */
-  public getWorkGroup(
-    args: GetWorkGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetWorkGroupCommandOutput>;
-  public getWorkGroup(args: GetWorkGroupCommandInput, cb: (err: any, data?: GetWorkGroupCommandOutput) => void): void;
-  public getWorkGroup(
-    args: GetWorkGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetWorkGroupCommandOutput) => void
-  ): void;
-  public getWorkGroup(
-    args: GetWorkGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkGroupCommandOutput) => void),
-    cb?: (err: any, data?: GetWorkGroupCommandOutput) => void
-  ): Promise<GetWorkGroupCommandOutput> | void {
-    const command = new GetWorkGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the databases in the specified data catalog.</p>
-   */
-  public listDatabases(
-    args: ListDatabasesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDatabasesCommandOutput>;
-  public listDatabases(
-    args: ListDatabasesCommandInput,
-    cb: (err: any, data?: ListDatabasesCommandOutput) => void
-  ): void;
-  public listDatabases(
-    args: ListDatabasesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDatabasesCommandOutput) => void
-  ): void;
-  public listDatabases(
-    args: ListDatabasesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatabasesCommandOutput) => void),
-    cb?: (err: any, data?: ListDatabasesCommandOutput) => void
-  ): Promise<ListDatabasesCommandOutput> | void {
-    const command = new ListDatabasesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the data catalogs in the current Amazon Web Services account.</p>
-   */
-  public listDataCatalogs(
-    args: ListDataCatalogsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDataCatalogsCommandOutput>;
-  public listDataCatalogs(
-    args: ListDataCatalogsCommandInput,
-    cb: (err: any, data?: ListDataCatalogsCommandOutput) => void
-  ): void;
-  public listDataCatalogs(
-    args: ListDataCatalogsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDataCatalogsCommandOutput) => void
-  ): void;
-  public listDataCatalogs(
-    args: ListDataCatalogsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataCatalogsCommandOutput) => void),
-    cb?: (err: any, data?: ListDataCatalogsCommandOutput) => void
-  ): Promise<ListDataCatalogsCommandOutput> | void {
-    const command = new ListDataCatalogsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns a list of engine versions that are available to choose from, including the
-   *             Auto option.</p>
-   */
-  public listEngineVersions(
-    args: ListEngineVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListEngineVersionsCommandOutput>;
-  public listEngineVersions(
-    args: ListEngineVersionsCommandInput,
-    cb: (err: any, data?: ListEngineVersionsCommandOutput) => void
-  ): void;
-  public listEngineVersions(
-    args: ListEngineVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListEngineVersionsCommandOutput) => void
-  ): void;
-  public listEngineVersions(
-    args: ListEngineVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEngineVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListEngineVersionsCommandOutput) => void
-  ): Promise<ListEngineVersionsCommandOutput> | void {
-    const command = new ListEngineVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Provides a list of available query IDs only for queries saved in the specified
-   *             workgroup. Requires that you have access to the specified workgroup. If a workgroup is
-   *             not specified, lists the saved queries for the primary workgroup.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User
-   *             Guide</i>.</p>
-   */
-  public listNamedQueries(
-    args: ListNamedQueriesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListNamedQueriesCommandOutput>;
-  public listNamedQueries(
-    args: ListNamedQueriesCommandInput,
-    cb: (err: any, data?: ListNamedQueriesCommandOutput) => void
-  ): void;
-  public listNamedQueries(
-    args: ListNamedQueriesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListNamedQueriesCommandOutput) => void
-  ): void;
-  public listNamedQueries(
-    args: ListNamedQueriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNamedQueriesCommandOutput) => void),
-    cb?: (err: any, data?: ListNamedQueriesCommandOutput) => void
-  ): Promise<ListNamedQueriesCommandOutput> | void {
-    const command = new ListNamedQueriesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the prepared statements in the specfied workgroup.</p>
-   */
-  public listPreparedStatements(
-    args: ListPreparedStatementsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListPreparedStatementsCommandOutput>;
-  public listPreparedStatements(
-    args: ListPreparedStatementsCommandInput,
-    cb: (err: any, data?: ListPreparedStatementsCommandOutput) => void
-  ): void;
-  public listPreparedStatements(
-    args: ListPreparedStatementsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPreparedStatementsCommandOutput) => void
-  ): void;
-  public listPreparedStatements(
-    args: ListPreparedStatementsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPreparedStatementsCommandOutput) => void),
-    cb?: (err: any, data?: ListPreparedStatementsCommandOutput) => void
-  ): Promise<ListPreparedStatementsCommandOutput> | void {
-    const command = new ListPreparedStatementsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Provides a list of available query execution IDs for the queries in the specified
-   *             workgroup. If a workgroup is not specified, returns a list of query execution IDs for
-   *             the primary workgroup. Requires you to have access to the workgroup in which the queries
-   *             ran.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User
-   *             Guide</i>.</p>
-   */
-  public listQueryExecutions(
-    args: ListQueryExecutionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListQueryExecutionsCommandOutput>;
-  public listQueryExecutions(
-    args: ListQueryExecutionsCommandInput,
-    cb: (err: any, data?: ListQueryExecutionsCommandOutput) => void
-  ): void;
-  public listQueryExecutions(
-    args: ListQueryExecutionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListQueryExecutionsCommandOutput) => void
-  ): void;
-  public listQueryExecutions(
-    args: ListQueryExecutionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueryExecutionsCommandOutput) => void),
-    cb?: (err: any, data?: ListQueryExecutionsCommandOutput) => void
-  ): Promise<ListQueryExecutionsCommandOutput> | void {
-    const command = new ListQueryExecutionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the metadata for the tables in the specified data catalog database.</p>
-   */
-  public listTableMetadata(
-    args: ListTableMetadataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTableMetadataCommandOutput>;
-  public listTableMetadata(
-    args: ListTableMetadataCommandInput,
-    cb: (err: any, data?: ListTableMetadataCommandOutput) => void
-  ): void;
-  public listTableMetadata(
-    args: ListTableMetadataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTableMetadataCommandOutput) => void
-  ): void;
-  public listTableMetadata(
-    args: ListTableMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTableMetadataCommandOutput) => void),
-    cb?: (err: any, data?: ListTableMetadataCommandOutput) => void
-  ): Promise<ListTableMetadataCommandOutput> | void {
-    const command = new ListTableMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists the tags associated with an Athena workgroup or data catalog
-   *             resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists available workgroups for the account.</p>
-   */
-  public listWorkGroups(
-    args: ListWorkGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListWorkGroupsCommandOutput>;
-  public listWorkGroups(
-    args: ListWorkGroupsCommandInput,
-    cb: (err: any, data?: ListWorkGroupsCommandOutput) => void
-  ): void;
-  public listWorkGroups(
-    args: ListWorkGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListWorkGroupsCommandOutput) => void
-  ): void;
-  public listWorkGroups(
-    args: ListWorkGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListWorkGroupsCommandOutput) => void
-  ): Promise<ListWorkGroupsCommandOutput> | void {
-    const command = new ListWorkGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to
-   *             have access to the workgroup in which the query ran. Running queries against an external
-   *             catalog requires <a>GetDataCatalog</a> permission to the catalog. For code
-   *             samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User
-   *             Guide</i>.</p>
-   */
-  public startQueryExecution(
-    args: StartQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartQueryExecutionCommandOutput>;
-  public startQueryExecution(
-    args: StartQueryExecutionCommandInput,
-    cb: (err: any, data?: StartQueryExecutionCommandOutput) => void
-  ): void;
-  public startQueryExecution(
-    args: StartQueryExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartQueryExecutionCommandOutput) => void
-  ): void;
-  public startQueryExecution(
-    args: StartQueryExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartQueryExecutionCommandOutput) => void),
-    cb?: (err: any, data?: StartQueryExecutionCommandOutput) => void
-  ): Promise<StartQueryExecutionCommandOutput> | void {
-    const command = new StartQueryExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Stops a query execution. Requires you to have access to the workgroup in which the
-   *             query ran.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User
-   *             Guide</i>.</p>
-   */
-  public stopQueryExecution(
-    args: StopQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopQueryExecutionCommandOutput>;
-  public stopQueryExecution(
-    args: StopQueryExecutionCommandInput,
-    cb: (err: any, data?: StopQueryExecutionCommandOutput) => void
-  ): void;
-  public stopQueryExecution(
-    args: StopQueryExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopQueryExecutionCommandOutput) => void
-  ): void;
-  public stopQueryExecution(
-    args: StopQueryExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopQueryExecutionCommandOutput) => void),
-    cb?: (err: any, data?: StopQueryExecutionCommandOutput) => void
-  ): Promise<StopQueryExecutionCommandOutput> | void {
-    const command = new StopQueryExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Adds one or more tags to an Athena resource. A tag is a label that you
-   *             assign to a resource. In Athena, a resource can be a workgroup or data
-   *             catalog. Each tag consists of a key and an optional value, both of which you define. For
-   *             example, you can use tags to categorize Athena workgroups or data catalogs
-   *             by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to
-   *             search and filter workgroups or data catalogs in your account. For best practices, see
-   *                 <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
-   *             characters, and tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use
-   *             letters and numbers representable in UTF-8, and the following characters: + - = . _ : /
-   *             @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you
-   *             specify more than one tag, separate them by commas.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Removes one or more tags from a data catalog or workgroup resource.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates the data catalog that has the specified name.</p>
-   */
-  public updateDataCatalog(
-    args: UpdateDataCatalogCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDataCatalogCommandOutput>;
-  public updateDataCatalog(
-    args: UpdateDataCatalogCommandInput,
-    cb: (err: any, data?: UpdateDataCatalogCommandOutput) => void
-  ): void;
-  public updateDataCatalog(
-    args: UpdateDataCatalogCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDataCatalogCommandOutput) => void
-  ): void;
-  public updateDataCatalog(
-    args: UpdateDataCatalogCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataCatalogCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDataCatalogCommandOutput) => void
-  ): Promise<UpdateDataCatalogCommandOutput> | void {
-    const command = new UpdateDataCatalogCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a <a>NamedQuery</a> object. The database or workgroup cannot be updated.</p>
-   */
-  public updateNamedQuery(
-    args: UpdateNamedQueryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateNamedQueryCommandOutput>;
-  public updateNamedQuery(
-    args: UpdateNamedQueryCommandInput,
-    cb: (err: any, data?: UpdateNamedQueryCommandOutput) => void
-  ): void;
-  public updateNamedQuery(
-    args: UpdateNamedQueryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateNamedQueryCommandOutput) => void
-  ): void;
-  public updateNamedQuery(
-    args: UpdateNamedQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNamedQueryCommandOutput) => void),
-    cb?: (err: any, data?: UpdateNamedQueryCommandOutput) => void
-  ): Promise<UpdateNamedQueryCommandOutput> | void {
-    const command = new UpdateNamedQueryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a prepared statement.</p>
-   */
-  public updatePreparedStatement(
-    args: UpdatePreparedStatementCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdatePreparedStatementCommandOutput>;
-  public updatePreparedStatement(
-    args: UpdatePreparedStatementCommandInput,
-    cb: (err: any, data?: UpdatePreparedStatementCommandOutput) => void
-  ): void;
-  public updatePreparedStatement(
-    args: UpdatePreparedStatementCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePreparedStatementCommandOutput) => void
-  ): void;
-  public updatePreparedStatement(
-    args: UpdatePreparedStatementCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePreparedStatementCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePreparedStatementCommandOutput) => void
-  ): Promise<UpdatePreparedStatementCommandOutput> | void {
-    const command = new UpdatePreparedStatementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates the workgroup with the specified name. The workgroup's name cannot be
-   *             changed.</p>
-   */
-  public updateWorkGroup(
-    args: UpdateWorkGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateWorkGroupCommandOutput>;
-  public updateWorkGroup(
-    args: UpdateWorkGroupCommandInput,
-    cb: (err: any, data?: UpdateWorkGroupCommandOutput) => void
-  ): void;
-  public updateWorkGroup(
-    args: UpdateWorkGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateWorkGroupCommandOutput) => void
-  ): void;
-  public updateWorkGroup(
-    args: UpdateWorkGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkGroupCommandOutput) => void),
-    cb?: (err: any, data?: UpdateWorkGroupCommandOutput) => void
-  ): Promise<UpdateWorkGroupCommandOutput> | void {
-    const command = new UpdateWorkGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class Athena extends AthenaClient implements Athena {}
+createAggregatedClient(commands, Athena);

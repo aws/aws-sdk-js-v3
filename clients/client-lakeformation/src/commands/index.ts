@@ -1,4 +1,6 @@
+// smithy-typescript generated code
 export * from "./AddLFTagsToResourceCommand";
+export * from "./AssumeDecoratedRoleWithSAMLCommand";
 export * from "./BatchGrantPermissionsCommand";
 export * from "./BatchRevokePermissionsCommand";
 export * from "./CancelTransactionCommand";
@@ -12,6 +14,7 @@ export * from "./DeregisterResourceCommand";
 export * from "./DescribeResourceCommand";
 export * from "./DescribeTransactionCommand";
 export * from "./ExtendTransactionCommand";
+export * from "./GetDataCellsFilterCommand";
 export * from "./GetDataLakeSettingsCommand";
 export * from "./GetEffectivePermissionsForPathCommand";
 export * from "./GetLFTagCommand";
@@ -38,6 +41,7 @@ export * from "./SearchDatabasesByLFTagsCommand";
 export * from "./SearchTablesByLFTagsCommand";
 export * from "./StartQueryPlanningCommand";
 export * from "./StartTransactionCommand";
+export * from "./UpdateDataCellsFilterCommand";
 export * from "./UpdateLFTagCommand";
 export * from "./UpdateResourceCommand";
 export * from "./UpdateTableObjectsCommand";

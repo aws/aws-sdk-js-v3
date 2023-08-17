@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListUserProfilesRequest, ListUserProfilesResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListUserProfilesCommand,
-  serializeAws_json1_1ListUserProfilesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListUserProfilesCommand, se_ListUserProfilesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListUserProfilesCommand}.
+ */
 export interface ListUserProfilesCommandInput extends ListUserProfilesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListUserProfilesCommand}.
+ */
 export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists user profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,39 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
  * import { SageMakerClient, ListUserProfilesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListUserProfilesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListUserProfilesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortOrder: "Ascending" || "Descending",
+ *   SortBy: "CreationTime" || "LastModifiedTime",
+ *   DomainIdEquals: "STRING_VALUE",
+ *   UserProfileNameContains: "STRING_VALUE",
+ * };
  * const command = new ListUserProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // ListUserProfilesResponse
+ * //   UserProfiles: [ // UserProfileList
+ * //     { // UserProfileDetails
+ * //       DomainId: "STRING_VALUE",
+ * //       UserProfileName: "STRING_VALUE",
+ * //       Status: "Deleting" || "Failed" || "InService" || "Pending" || "Updating" || "Update_Failed" || "Delete_Failed",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListUserProfilesCommandInput - {@link ListUserProfilesCommandInput}
+ * @returns {@link ListUserProfilesCommandOutput}
  * @see {@link ListUserProfilesCommandInput} for command's `input` shape.
  * @see {@link ListUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListUserProfilesCommand extends $Command<
@@ -46,6 +86,18 @@ export class ListUserProfilesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +113,9 @@ export class ListUserProfilesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListUserProfilesCommandInput, ListUserProfilesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListUserProfilesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +126,8 @@ export class ListUserProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUserProfilesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListUserProfilesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +137,18 @@ export class ListUserProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUserProfilesCommand(input, context);
+    return se_ListUserProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserProfilesCommandOutput> {
-    return deserializeAws_json1_1ListUserProfilesCommand(output, context);
+    return de_ListUserProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

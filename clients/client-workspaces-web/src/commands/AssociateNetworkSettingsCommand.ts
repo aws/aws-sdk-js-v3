@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AssociateNetworkSettingsRequest, AssociateNetworkSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateNetworkSettingsCommand,
-  serializeAws_restJson1AssociateNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateNetworkSettingsCommand, se_AssociateNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateNetworkSettingsCommand}.
+ */
 export interface AssociateNetworkSettingsCommandInput extends AssociateNetworkSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateNetworkSettingsCommand}.
+ */
 export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a network settings resource with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,45 @@ export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkS
  * import { WorkSpacesWebClient, AssociateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // AssociateNetworkSettingsRequest
+ *   portalArn: "STRING_VALUE", // required
+ *   networkSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateNetworkSettingsResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   networkSettingsArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
+ * @param AssociateNetworkSettingsCommandInput - {@link AssociateNetworkSettingsCommandInput}
+ * @returns {@link AssociateNetworkSettingsCommandOutput}
  * @see {@link AssociateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class AssociateNetworkSettingsCommand extends $Command<
@@ -46,6 +92,18 @@ export class AssociateNetworkSettingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +119,9 @@ export class AssociateNetworkSettingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateNetworkSettingsCommandInput, AssociateNetworkSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateNetworkSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +132,8 @@ export class AssociateNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateNetworkSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateNetworkSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +143,18 @@ export class AssociateNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateNetworkSettingsCommand(input, context);
+    return se_AssociateNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1AssociateNetworkSettingsCommand(output, context);
+    return de_AssociateNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

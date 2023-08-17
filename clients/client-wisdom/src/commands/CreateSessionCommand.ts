@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,35 +11,88 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateSessionRequest, CreateSessionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSessionCommand,
-  serializeAws_restJson1CreateSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSessionCommand, se_CreateSessionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateSessionCommand}.
+ */
 export interface CreateSessionCommandInput extends CreateSessionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSessionCommand}.
+ */
 export interface CreateSessionCommandOutput extends CreateSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a session. A session is a contextual container used for generating
- *       recommendations. Amazon Connect creates a new Wisdom session for each contact on which Wisdom is
- *       enabled.</p>
+ *       recommendations. Amazon Connect creates a new Wisdom session for each contact on which
+ *       Wisdom is enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WisdomClient, CreateSessionCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateSessionCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // CreateSessionRequest
+ *   clientToken: "STRING_VALUE",
+ *   assistantId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSessionResponse
+ * //   session: { // SessionData
+ * //     sessionArn: "STRING_VALUE", // required
+ * //     sessionId: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     integrationConfiguration: { // SessionIntegrationConfiguration
+ * //       topicIntegrationArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param CreateSessionCommandInput - {@link CreateSessionCommandInput}
+ * @returns {@link CreateSessionCommandOutput}
  * @see {@link CreateSessionCommandInput} for command's `input` shape.
  * @see {@link CreateSessionCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *       resource. For example, if you're using a <code>Create</code> API (such as
+ *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
+ *       same name) is being created or mutated.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class CreateSessionCommand extends $Command<
@@ -48,6 +103,18 @@ export class CreateSessionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +130,7 @@ export class CreateSessionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateSessionCommandInput, CreateSessionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateSessionCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +141,8 @@ export class CreateSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +152,18 @@ export class CreateSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSessionCommand(input, context);
+    return se_CreateSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSessionCommandOutput> {
-    return deserializeAws_restJson1CreateSessionCommand(output, context);
+    return de_CreateSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

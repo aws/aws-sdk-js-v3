@@ -1,13 +1,23 @@
 export * from "./DescribeActivationsPaginator";
+
 export * from "./DescribeAssociationExecutionTargetsPaginator";
+
 export * from "./DescribeAssociationExecutionsPaginator";
+
 export * from "./DescribeAutomationExecutionsPaginator";
+
 export * from "./DescribeAutomationStepExecutionsPaginator";
+
 export * from "./DescribeAvailablePatchesPaginator";
+
 export * from "./DescribeEffectiveInstanceAssociationsPaginator";
+
 export * from "./DescribeEffectivePatchesForPatchBaselinePaginator";
+
 export * from "./DescribeInstanceAssociationsStatusPaginator";
+
 export * from "./DescribeInstanceInformationPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./DescribeInstancePatchStatesForPatchGroupPaginator";
 export * from "./DescribeInstancePatchStatesPaginator";
@@ -32,6 +42,7 @@ export * from "./GetInventorySchemaPaginator";
 export * from "./GetOpsSummaryPaginator";
 export * from "./GetParameterHistoryPaginator";
 export * from "./GetParametersByPathPaginator";
+export * from "./GetResourcePoliciesPaginator";
 export * from "./ListAssociationVersionsPaginator";
 export * from "./ListAssociationsPaginator";
 export * from "./ListCommandInvocationsPaginator";

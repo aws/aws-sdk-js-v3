@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { ResolveComponentCandidatesRequest, ResolveComponentCandidatesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ResolveComponentCandidatesCommand,
-  serializeAws_restJson1ResolveComponentCandidatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ResolveComponentCandidatesCommand, se_ResolveComponentCandidatesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ResolveComponentCandidatesCommand}.
+ */
 export interface ResolveComponentCandidatesCommandInput extends ResolveComponentCandidatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ResolveComponentCandidatesCommand}.
+ */
 export interface ResolveComponentCandidatesCommandOutput extends ResolveComponentCandidatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of components that meet the component, version, and platform requirements
  *       of a deployment. Greengrass core devices call this operation when they receive a deployment to
  *       identify the components to install.</p>
@@ -31,8 +45,8 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  *         <code>>2.0.0</code> and component <code>B</code> requires version <code><2.0.0</code>
  *       of a component dependency.</p>
  *          <p>When you specify the component candidates to resolve, IoT Greengrass compares each component's
- *       digest from the core device with the component's digest in the Amazon Web Services Cloud. If the digests don't
- *       match, then IoT Greengrass specifies to use the version from the Amazon Web Services Cloud.</p>
+ *       digest from the core device with the component's digest in the Amazon Web Services Cloud. If the digests
+ *       don't match, then IoT Greengrass specifies to use the version from the Amazon Web Services Cloud.</p>
  *          <important>
  *             <p>To use this operation, you must use the data plane API endpoint and authenticate with an
  *         IoT device certificate. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/greengrass.html">IoT Greengrass endpoints and quotas</a>.</p>
@@ -43,13 +57,69 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  * import { GreengrassV2Client, ResolveComponentCandidatesCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ResolveComponentCandidatesCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // ResolveComponentCandidatesRequest
+ *   platform: { // ComponentPlatform
+ *     name: "STRING_VALUE",
+ *     attributes: { // PlatformAttributesMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   componentCandidates: [ // ComponentCandidateList
+ *     { // ComponentCandidate
+ *       componentName: "STRING_VALUE",
+ *       componentVersion: "STRING_VALUE",
+ *       versionRequirements: { // ComponentVersionRequirementMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new ResolveComponentCandidatesCommand(input);
  * const response = await client.send(command);
+ * // { // ResolveComponentCandidatesResponse
+ * //   resolvedComponentVersions: [ // ResolvedComponentVersionsList
+ * //     { // ResolvedComponentVersion
+ * //       arn: "STRING_VALUE",
+ * //       componentName: "STRING_VALUE",
+ * //       componentVersion: "STRING_VALUE",
+ * //       recipe: "BLOB_VALUE",
+ * //       vendorGuidance: "ACTIVE" || "DISCONTINUED" || "DELETED",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ResolveComponentCandidatesCommandInput - {@link ResolveComponentCandidatesCommandInput}
+ * @returns {@link ResolveComponentCandidatesCommandOutput}
  * @see {@link ResolveComponentCandidatesCommandInput} for command's `input` shape.
  * @see {@link ResolveComponentCandidatesCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
+ *       than one operation on the same resource at the same time.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a request rate quota. For example, you might have exceeded the
+ *       amount of times that you can retrieve device or deployment status per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters.</p>
+ *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ResolveComponentCandidatesCommand extends $Command<
@@ -60,6 +130,18 @@ export class ResolveComponentCandidatesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveComponentCandidatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +157,9 @@ export class ResolveComponentCandidatesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ResolveComponentCandidatesCommandInput, ResolveComponentCandidatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ResolveComponentCandidatesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,8 +170,8 @@ export class ResolveComponentCandidatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResolveComponentCandidatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResolveComponentCandidatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,15 +181,21 @@ export class ResolveComponentCandidatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveComponentCandidatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResolveComponentCandidatesCommand(input, context);
+    return se_ResolveComponentCandidatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResolveComponentCandidatesCommandOutput> {
-    return deserializeAws_restJson1ResolveComponentCandidatesCommand(output, context);
+    return de_ResolveComponentCandidatesCommand(output, context);
   }
 
   // Start section: command_body_extra

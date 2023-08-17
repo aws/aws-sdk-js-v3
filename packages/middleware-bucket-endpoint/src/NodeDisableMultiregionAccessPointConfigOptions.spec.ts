@@ -1,4 +1,4 @@
-import { booleanSelector, SelectorType } from "@aws-sdk/util-config-provider";
+import { booleanSelector, SelectorType } from "@smithy/util-config-provider";
 
 import {
   NODE_DISABLE_MULTIREGION_ACCESS_POINT_CONFIG_OPTIONS,
@@ -6,14 +6,14 @@ import {
   NODE_DISABLE_MULTIREGION_ACCESS_POINT_INI_NAME,
 } from "./NodeDisableMultiregionAccessPointConfigOptions";
 
-jest.mock("@aws-sdk/util-config-provider");
+jest.mock("@smithy/util-config-provider");
 
 describe("NODE_USE_ARN_REGION_CONFIG_OPTIONS", () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  const test = (func: Function, obj: { [key: string]: string }, key: string, type: SelectorType) => {
+  const test = (func: Function, obj: Record<string, string>, key: string, type: SelectorType) => {
     it.each([true, false, undefined])("returns %s", (output) => {
       (booleanSelector as jest.Mock).mockReturnValueOnce(output);
       expect(func(obj)).toEqual(output);

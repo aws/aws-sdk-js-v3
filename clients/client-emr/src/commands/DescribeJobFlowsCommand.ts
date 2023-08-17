@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { DescribeJobFlowsInput, DescribeJobFlowsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeJobFlowsCommand,
-  serializeAws_json1_1DescribeJobFlowsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeJobFlowsCommand, se_DescribeJobFlowsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeJobFlowsCommand}.
+ */
 export interface DescribeJobFlowsCommandInput extends DescribeJobFlowsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeJobFlowsCommand}.
+ */
 export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>This API is no longer supported and will eventually be removed. We recommend you use
@@ -51,13 +65,139 @@ export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, _
  * import { EMRClient, DescribeJobFlowsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeJobFlowsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // DescribeJobFlowsInput
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   JobFlowIds: [ // XmlStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   JobFlowStates: [ // JobFlowExecutionStateList
+ *     "STARTING" || "BOOTSTRAPPING" || "RUNNING" || "WAITING" || "SHUTTING_DOWN" || "TERMINATED" || "COMPLETED" || "FAILED",
+ *   ],
+ * };
  * const command = new DescribeJobFlowsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeJobFlowsOutput
+ * //   JobFlows: [ // JobFlowDetailList
+ * //     { // JobFlowDetail
+ * //       JobFlowId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       LogUri: "STRING_VALUE",
+ * //       LogEncryptionKmsKeyId: "STRING_VALUE",
+ * //       AmiVersion: "STRING_VALUE",
+ * //       ExecutionStatusDetail: { // JobFlowExecutionStatusDetail
+ * //         State: "STARTING" || "BOOTSTRAPPING" || "RUNNING" || "WAITING" || "SHUTTING_DOWN" || "TERMINATED" || "COMPLETED" || "FAILED", // required
+ * //         CreationDateTime: new Date("TIMESTAMP"), // required
+ * //         StartDateTime: new Date("TIMESTAMP"),
+ * //         ReadyDateTime: new Date("TIMESTAMP"),
+ * //         EndDateTime: new Date("TIMESTAMP"),
+ * //         LastStateChangeReason: "STRING_VALUE",
+ * //       },
+ * //       Instances: { // JobFlowInstancesDetail
+ * //         MasterInstanceType: "STRING_VALUE", // required
+ * //         MasterPublicDnsName: "STRING_VALUE",
+ * //         MasterInstanceId: "STRING_VALUE",
+ * //         SlaveInstanceType: "STRING_VALUE", // required
+ * //         InstanceCount: Number("int"), // required
+ * //         InstanceGroups: [ // InstanceGroupDetailList
+ * //           { // InstanceGroupDetail
+ * //             InstanceGroupId: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //             Market: "ON_DEMAND" || "SPOT", // required
+ * //             InstanceRole: "MASTER" || "CORE" || "TASK", // required
+ * //             BidPrice: "STRING_VALUE",
+ * //             InstanceType: "STRING_VALUE", // required
+ * //             InstanceRequestCount: Number("int"), // required
+ * //             InstanceRunningCount: Number("int"), // required
+ * //             State: "PROVISIONING" || "BOOTSTRAPPING" || "RUNNING" || "RECONFIGURING" || "RESIZING" || "SUSPENDED" || "TERMINATING" || "TERMINATED" || "ARRESTED" || "SHUTTING_DOWN" || "ENDED", // required
+ * //             LastStateChangeReason: "STRING_VALUE",
+ * //             CreationDateTime: new Date("TIMESTAMP"), // required
+ * //             StartDateTime: new Date("TIMESTAMP"),
+ * //             ReadyDateTime: new Date("TIMESTAMP"),
+ * //             EndDateTime: new Date("TIMESTAMP"),
+ * //             CustomAmiId: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         NormalizedInstanceHours: Number("int"),
+ * //         Ec2KeyName: "STRING_VALUE",
+ * //         Ec2SubnetId: "STRING_VALUE",
+ * //         Placement: { // PlacementType
+ * //           AvailabilityZone: "STRING_VALUE",
+ * //           AvailabilityZones: [ // XmlStringMaxLen256List
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         KeepJobFlowAliveWhenNoSteps: true || false,
+ * //         TerminationProtected: true || false,
+ * //         HadoopVersion: "STRING_VALUE",
+ * //       },
+ * //       Steps: [ // StepDetailList
+ * //         { // StepDetail
+ * //           StepConfig: { // StepConfig
+ * //             Name: "STRING_VALUE", // required
+ * //             ActionOnFailure: "TERMINATE_JOB_FLOW" || "TERMINATE_CLUSTER" || "CANCEL_AND_WAIT" || "CONTINUE",
+ * //             HadoopJarStep: { // HadoopJarStepConfig
+ * //               Properties: [ // KeyValueList
+ * //                 { // KeyValue
+ * //                   Key: "STRING_VALUE",
+ * //                   Value: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               Jar: "STRING_VALUE", // required
+ * //               MainClass: "STRING_VALUE",
+ * //               Args: [ // XmlStringList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //           ExecutionStatusDetail: { // StepExecutionStatusDetail
+ * //             State: "PENDING" || "RUNNING" || "CONTINUE" || "COMPLETED" || "CANCELLED" || "FAILED" || "INTERRUPTED", // required
+ * //             CreationDateTime: new Date("TIMESTAMP"), // required
+ * //             StartDateTime: new Date("TIMESTAMP"),
+ * //             EndDateTime: new Date("TIMESTAMP"),
+ * //             LastStateChangeReason: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       BootstrapActions: [ // BootstrapActionDetailList
+ * //         { // BootstrapActionDetail
+ * //           BootstrapActionConfig: { // BootstrapActionConfig
+ * //             Name: "STRING_VALUE", // required
+ * //             ScriptBootstrapAction: { // ScriptBootstrapActionConfig
+ * //               Path: "STRING_VALUE", // required
+ * //               Args: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       SupportedProducts: [ // SupportedProductsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       VisibleToAllUsers: true || false,
+ * //       JobFlowRole: "STRING_VALUE",
+ * //       ServiceRole: "STRING_VALUE",
+ * //       AutoScalingRole: "STRING_VALUE",
+ * //       ScaleDownBehavior: "TERMINATE_AT_INSTANCE_HOUR" || "TERMINATE_AT_TASK_COMPLETION",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeJobFlowsCommandInput - {@link DescribeJobFlowsCommandInput}
+ * @returns {@link DescribeJobFlowsCommandOutput}
  * @see {@link DescribeJobFlowsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobFlowsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class DescribeJobFlowsCommand extends $Command<
@@ -68,6 +208,18 @@ export class DescribeJobFlowsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobFlowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,6 +235,9 @@ export class DescribeJobFlowsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeJobFlowsCommandInput, DescribeJobFlowsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeJobFlowsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -93,8 +248,8 @@ export class DescribeJobFlowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobFlowsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJobFlowsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +259,18 @@ export class DescribeJobFlowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeJobFlowsCommand(input, context);
+    return se_DescribeJobFlowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobFlowsCommandOutput> {
-    return deserializeAws_json1_1DescribeJobFlowsCommand(output, context);
+    return de_DescribeJobFlowsCommand(output, context);
   }
 
   // Start section: command_body_extra

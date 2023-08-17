@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,39 +11,79 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVpcClassicLinkDnsSupportRequest, DescribeVpcClassicLinkDnsSupportResult } from "../models/models_4";
+import { DescribeVpcClassicLinkDnsSupportRequest, DescribeVpcClassicLinkDnsSupportResult } from "../models/models_5";
 import {
-  deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand,
-  serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand,
+  de_DescribeVpcClassicLinkDnsSupportCommand,
+  se_DescribeVpcClassicLinkDnsSupportCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeVpcClassicLinkDnsSupportCommand}.
+ */
 export interface DescribeVpcClassicLinkDnsSupportCommandInput extends DescribeVpcClassicLinkDnsSupportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVpcClassicLinkDnsSupportCommand}.
+ */
 export interface DescribeVpcClassicLinkDnsSupportCommandOutput
   extends DescribeVpcClassicLinkDnsSupportResult,
     __MetadataBearer {}
 
 /**
- * <p>Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS
+ * @public
+ * <note>
+ *             <p>This action is deprecated.</p>
+ *          </note>
+ *          <p>Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS
  *             hostname of a linked EC2-Classic instance resolves to its private IP address when
  *             addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
  *             of an instance in a VPC resolves to its private IP address when addressed from a linked
- *             EC2-Classic instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             EC2-Classic instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeVpcClassicLinkDnsSupportCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcClassicLinkDnsSupportCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVpcClassicLinkDnsSupportRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   VpcIds: [ // VpcClassicLinkIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVpcClassicLinkDnsSupportResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Vpcs: [ // ClassicLinkDnsSupportList
+ * //     { // ClassicLinkDnsSupport
+ * //       ClassicLinkDnsSupported: true || false,
+ * //       VpcId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeVpcClassicLinkDnsSupportCommandInput - {@link DescribeVpcClassicLinkDnsSupportCommandInput}
+ * @returns {@link DescribeVpcClassicLinkDnsSupportCommandOutput}
  * @see {@link DescribeVpcClassicLinkDnsSupportCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
@@ -52,6 +94,18 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcClassicLinkDnsSupportCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +121,9 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeVpcClassicLinkDnsSupportCommandInput, DescribeVpcClassicLinkDnsSupportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeVpcClassicLinkDnsSupportCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +134,8 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcClassicLinkDnsSupportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcClassicLinkDnsSupportResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,18 +145,24 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcClassicLinkDnsSupportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(input, context);
+    return se_DescribeVpcClassicLinkDnsSupportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput> {
-    return deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(output, context);
+    return de_DescribeVpcClassicLinkDnsSupportCommand(output, context);
   }
 
   // Start section: command_body_extra

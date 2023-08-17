@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateCertificateCommand";
 export * from "./CancelJobCommand";
 export * from "./CreateJobCommand";

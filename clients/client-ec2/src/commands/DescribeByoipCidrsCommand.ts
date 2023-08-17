@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeByoipCidrsRequest, DescribeByoipCidrsResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DescribeByoipCidrsCommand,
-  serializeAws_ec2DescribeByoipCidrsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeByoipCidrsRequest, DescribeByoipCidrsResult } from "../models/models_3";
+import { de_DescribeByoipCidrsCommand, se_DescribeByoipCidrsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeByoipCidrsCommand}.
+ */
 export interface DescribeByoipCidrsCommandInput extends DescribeByoipCidrsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeByoipCidrsCommand}.
+ */
 export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>
  *          <p>To describe the address pools that were created when you provisioned the address
  *           ranges, use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.</p>
@@ -31,13 +45,35 @@ export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResul
  * import { EC2Client, DescribeByoipCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeByoipCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeByoipCidrsRequest
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"), // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeByoipCidrsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeByoipCidrsResult
+ * //   ByoipCidrs: [ // ByoipCidrSet
+ * //     { // ByoipCidr
+ * //       Cidr: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeByoipCidrsCommandInput - {@link DescribeByoipCidrsCommandInput}
+ * @returns {@link DescribeByoipCidrsCommandOutput}
  * @see {@link DescribeByoipCidrsCommandInput} for command's `input` shape.
  * @see {@link DescribeByoipCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeByoipCidrsCommand extends $Command<
@@ -48,6 +84,18 @@ export class DescribeByoipCidrsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeByoipCidrsCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +111,9 @@ export class DescribeByoipCidrsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeByoipCidrsCommandInput, DescribeByoipCidrsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeByoipCidrsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +124,8 @@ export class DescribeByoipCidrsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeByoipCidrsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeByoipCidrsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +135,18 @@ export class DescribeByoipCidrsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeByoipCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeByoipCidrsCommand(input, context);
+    return se_DescribeByoipCidrsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeByoipCidrsCommandOutput> {
-    return deserializeAws_ec2DescribeByoipCidrsCommand(output, context);
+    return de_DescribeByoipCidrsCommand(output, context);
   }
 
   // Start section: command_body_extra

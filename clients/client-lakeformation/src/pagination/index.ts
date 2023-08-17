@@ -1,6 +1,9 @@
 export * from "./GetEffectivePermissionsForPathPaginator";
+
 export * from "./GetTableObjectsPaginator";
+
 export * from "./GetWorkUnitsPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListDataCellsFilterPaginator";
 export * from "./ListLFTagsPaginator";

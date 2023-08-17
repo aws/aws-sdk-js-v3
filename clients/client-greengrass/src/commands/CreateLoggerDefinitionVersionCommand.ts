@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { CreateLoggerDefinitionVersionRequest, CreateLoggerDefinitionVersionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateLoggerDefinitionVersionCommand,
-  serializeAws_restJson1CreateLoggerDefinitionVersionCommand,
+  de_CreateLoggerDefinitionVersionCommand,
+  se_CreateLoggerDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateLoggerDefinitionVersionCommand}.
+ */
 export interface CreateLoggerDefinitionVersionCommandInput extends CreateLoggerDefinitionVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLoggerDefinitionVersionCommand}.
+ */
 export interface CreateLoggerDefinitionVersionCommandOutput
   extends CreateLoggerDefinitionVersionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a logger definition that has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,41 @@ export interface CreateLoggerDefinitionVersionCommandOutput
  * import { GreengrassClient, CreateLoggerDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateLoggerDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // CreateLoggerDefinitionVersionRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   LoggerDefinitionId: "STRING_VALUE", // required
+ *   Loggers: [ // __listOfLogger
+ *     { // Logger
+ *       Component: "GreengrassSystem" || "Lambda", // required
+ *       Id: "STRING_VALUE", // required
+ *       Level: "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL", // required
+ *       Space: Number("int"),
+ *       Type: "FileSystem" || "AWSCloudWatch", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateLoggerDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLoggerDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateLoggerDefinitionVersionCommandInput - {@link CreateLoggerDefinitionVersionCommandInput}
+ * @returns {@link CreateLoggerDefinitionVersionCommandOutput}
  * @see {@link CreateLoggerDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateLoggerDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateLoggerDefinitionVersionCommand extends $Command<
@@ -48,6 +93,18 @@ export class CreateLoggerDefinitionVersionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoggerDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +120,9 @@ export class CreateLoggerDefinitionVersionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLoggerDefinitionVersionCommandInput, CreateLoggerDefinitionVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLoggerDefinitionVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +133,8 @@ export class CreateLoggerDefinitionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLoggerDefinitionVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLoggerDefinitionVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +144,21 @@ export class CreateLoggerDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoggerDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLoggerDefinitionVersionCommand(input, context);
+    return se_CreateLoggerDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLoggerDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1CreateLoggerDefinitionVersionCommand(output, context);
+    return de_CreateLoggerDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

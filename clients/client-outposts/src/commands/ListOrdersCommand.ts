@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,34 +11,84 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListOrdersInput, ListOrdersOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1ListOrdersCommand,
-  serializeAws_restJson1ListOrdersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListOrdersCommand, se_ListOrdersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListOrdersCommand}.
+ */
 export interface ListOrdersCommandInput extends ListOrdersInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListOrdersCommand}.
+ */
 export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBearer {}
 
 /**
- * <p>Create a list of the Outpost orders for your Amazon Web Services account. You can filter your request by Outpost to
- *       return a more specific list of results. </p>
+ * @public
+ * <p>Lists the Outpost orders for your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OutpostsClient, ListOrdersCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListOrdersCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // ListOrdersInput
+ *   OutpostIdentifierFilter: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListOrdersCommand(input);
  * const response = await client.send(command);
+ * // { // ListOrdersOutput
+ * //   Orders: [ // OrderSummaryListDefinition
+ * //     { // OrderSummary
+ * //       OutpostId: "STRING_VALUE",
+ * //       OrderId: "STRING_VALUE",
+ * //       OrderType: "OUTPOST" || "REPLACEMENT",
+ * //       Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "ERROR",
+ * //       LineItemCountsByStatus: { // LineItemStatusCounts
+ * //         "<keys>": Number("int"),
+ * //       },
+ * //       OrderSubmissionDate: new Date("TIMESTAMP"),
+ * //       OrderFulfilledDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListOrdersCommandInput - {@link ListOrdersCommandInput}
+ * @returns {@link ListOrdersCommandOutput}
  * @see {@link ListOrdersCommandInput} for command's `input` shape.
  * @see {@link ListOrdersCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified request is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class ListOrdersCommand extends $Command<
@@ -47,6 +99,18 @@ export class ListOrdersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrdersCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +126,7 @@ export class ListOrdersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListOrdersCommandInput, ListOrdersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListOrdersCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +137,8 @@ export class ListOrdersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOrdersInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListOrdersOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +148,18 @@ export class ListOrdersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOrdersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOrdersCommand(input, context);
+    return se_ListOrdersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOrdersCommandOutput> {
-    return deserializeAws_restJson1ListOrdersCommand(output, context);
+    return de_ListOrdersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,11 +1,11 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOutput,
   HandlerExecutionContext,
   MetadataBearer,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { getCacheKey } from "./getCacheKey";
 import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryPlugin";

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,74 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DeleteStageRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteStageCommand,
-  serializeAws_restJson1DeleteStageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteStageCommand, se_DeleteStageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteStageCommand}.
+ */
 export interface DeleteStageCommandInput extends DeleteStageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteStageCommand}.
+ */
 export interface DeleteStageCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a <a>Stage</a> resource.</p>
+ * @public
+ * <p>Deletes a Stage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, DeleteStageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteStageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteStageRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStageCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteStageCommandInput - {@link DeleteStageCommandInput}
+ * @returns {@link DeleteStageCommandOutput}
  * @see {@link DeleteStageCommandInput} for command's `input` shape.
  * @see {@link DeleteStageCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class DeleteStageCommand extends $Command<
@@ -46,6 +89,18 @@ export class DeleteStageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +116,7 @@ export class DeleteStageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteStageCommandInput, DeleteStageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteStageCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +127,8 @@ export class DeleteStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +138,18 @@ export class DeleteStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStageCommand(input, context);
+    return se_DeleteStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStageCommandOutput> {
-    return deserializeAws_restJson1DeleteStageCommand(output, context);
+    return de_DeleteStageCommand(output, context);
   }
 
   // Start section: command_body_extra

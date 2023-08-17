@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,12 +11,12 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListAssociatedAttributeGroupsRequest, ListAssociatedAttributeGroupsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAssociatedAttributeGroupsCommand,
-  serializeAws_restJson1ListAssociatedAttributeGroupsCommand,
+  de_ListAssociatedAttributeGroupsCommand,
+  se_ListAssociatedAttributeGroupsCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
@@ -22,12 +24,27 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListAssociatedAttributeGroupsCommand}.
+ */
 export interface ListAssociatedAttributeGroupsCommandInput extends ListAssociatedAttributeGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAssociatedAttributeGroupsCommand}.
+ */
 export interface ListAssociatedAttributeGroupsCommandOutput
   extends ListAssociatedAttributeGroupsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all attribute groups that are associated with specified application.  Results are paginated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +52,39 @@ export interface ListAssociatedAttributeGroupsCommandOutput
  * import { ServiceCatalogAppRegistryClient, ListAssociatedAttributeGroupsCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, ListAssociatedAttributeGroupsCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // ListAssociatedAttributeGroupsRequest
+ *   application: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssociatedAttributeGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAssociatedAttributeGroupsResponse
+ * //   attributeGroups: [ // AttributeGroupIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListAssociatedAttributeGroupsCommandInput - {@link ListAssociatedAttributeGroupsCommandInput}
+ * @returns {@link ListAssociatedAttributeGroupsCommandOutput}
  * @see {@link ListAssociatedAttributeGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedAttributeGroupsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service is experiencing internal problems.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has invalid or missing parameters.</p>
+ *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class ListAssociatedAttributeGroupsCommand extends $Command<
@@ -52,6 +95,18 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedAttributeGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +122,9 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAssociatedAttributeGroupsCommandInput, ListAssociatedAttributeGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListAssociatedAttributeGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +135,8 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociatedAttributeGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociatedAttributeGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,15 +146,21 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociatedAttributeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssociatedAttributeGroupsCommand(input, context);
+    return se_ListAssociatedAttributeGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssociatedAttributeGroupsCommandOutput> {
-    return deserializeAws_restJson1ListAssociatedAttributeGroupsCommand(output, context);
+    return de_ListAssociatedAttributeGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

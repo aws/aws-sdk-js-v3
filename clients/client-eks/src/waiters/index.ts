@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./waitForAddonActive";
 export * from "./waitForAddonDeleted";
 export * from "./waitForClusterActive";

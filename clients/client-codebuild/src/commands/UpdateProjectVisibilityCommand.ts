@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { UpdateProjectVisibilityInput, UpdateProjectVisibilityOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProjectVisibilityCommand,
-  serializeAws_json1_1UpdateProjectVisibilityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateProjectVisibilityCommand, se_UpdateProjectVisibilityCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateProjectVisibilityCommand}.
+ */
 export interface UpdateProjectVisibilityCommandInput extends UpdateProjectVisibilityInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateProjectVisibilityCommand}.
+ */
 export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisibilityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the public visibility for a project. The project's build results, logs, and
  *       artifacts are available to the general public.  For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html">Public build
  *         projects</a> in the <i>CodeBuild User Guide</i>.</p>
@@ -66,13 +80,35 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  * import { CodeBuildClient, UpdateProjectVisibilityCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, UpdateProjectVisibilityCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // UpdateProjectVisibilityInput
+ *   projectArn: "STRING_VALUE", // required
+ *   projectVisibility: "STRING_VALUE", // required
+ *   resourceAccessRole: "STRING_VALUE",
+ * };
  * const command = new UpdateProjectVisibilityCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateProjectVisibilityOutput
+ * //   projectArn: "STRING_VALUE",
+ * //   publicProjectAlias: "STRING_VALUE",
+ * //   projectVisibility: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param UpdateProjectVisibilityCommandInput - {@link UpdateProjectVisibilityCommandInput}
+ * @returns {@link UpdateProjectVisibilityCommandOutput}
  * @see {@link UpdateProjectVisibilityCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectVisibilityCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class UpdateProjectVisibilityCommand extends $Command<
@@ -83,6 +119,18 @@ export class UpdateProjectVisibilityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProjectVisibilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,6 +146,9 @@ export class UpdateProjectVisibilityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateProjectVisibilityCommandInput, UpdateProjectVisibilityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateProjectVisibilityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -108,8 +159,8 @@ export class UpdateProjectVisibilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProjectVisibilityInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProjectVisibilityOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +170,18 @@ export class UpdateProjectVisibilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProjectVisibilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProjectVisibilityCommand(input, context);
+    return se_UpdateProjectVisibilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectVisibilityCommandOutput> {
-    return deserializeAws_json1_1UpdateProjectVisibilityCommand(output, context);
+    return de_UpdateProjectVisibilityCommand(output, context);
   }
 
   // Start section: command_body_extra

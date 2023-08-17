@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListNotificationChannelsCommand,
   ListNotificationChannelsCommandInput,
   ListNotificationChannelsCommandOutput,
 } from "../commands/ListNotificationChannelsCommand";
-import { DevOpsGuru } from "../DevOpsGuru";
 import { DevOpsGuruClient } from "../DevOpsGuruClient";
 import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DevOpsGuruClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListNotificationChannelsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DevOpsGuru,
-  input: ListNotificationChannelsCommandInput,
-  ...args: any
-): Promise<ListNotificationChannelsCommandOutput> => {
-  // @ts-ignore
-  return await client.listNotificationChannels(input, ...args);
-};
 export async function* paginateListNotificationChannels(
   config: DevOpsGuruPaginationConfiguration,
   input: ListNotificationChannelsCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateListNotificationChannels(
   let page: ListNotificationChannelsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof DevOpsGuru) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DevOpsGuruClient) {
+    if (config.client instanceof DevOpsGuruClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DevOpsGuru | DevOpsGuruClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

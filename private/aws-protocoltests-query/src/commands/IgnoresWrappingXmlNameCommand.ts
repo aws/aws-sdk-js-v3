@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +10,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IgnoresWrappingXmlNameOutput } from "../models/models_0";
-import {
-  deserializeAws_queryIgnoresWrappingXmlNameCommand,
-  serializeAws_queryIgnoresWrappingXmlNameCommand,
-} from "../protocols/Aws_query";
+import { de_IgnoresWrappingXmlNameCommand, se_IgnoresWrappingXmlNameCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link IgnoresWrappingXmlNameCommand}.
+ */
 export interface IgnoresWrappingXmlNameCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link IgnoresWrappingXmlNameCommand}.
+ */
 export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlNameOutput, __MetadataBearer {}
 
 /**
+ * @public
  * The xmlName trait on the output structure is ignored in AWS Query.
  *
  * The wrapping element is always operation name + "Response", and
@@ -32,13 +45,23 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  * import { QueryProtocolClient, IgnoresWrappingXmlNameCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, IgnoresWrappingXmlNameCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new IgnoresWrappingXmlNameCommand(input);
  * const response = await client.send(command);
+ * // { // IgnoresWrappingXmlNameOutput
+ * //   foo: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param IgnoresWrappingXmlNameCommandInput - {@link IgnoresWrappingXmlNameCommandInput}
+ * @returns {@link IgnoresWrappingXmlNameCommandOutput}
  * @see {@link IgnoresWrappingXmlNameCommandInput} for command's `input` shape.
  * @see {@link IgnoresWrappingXmlNameCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
+ *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class IgnoresWrappingXmlNameCommand extends $Command<
@@ -49,6 +72,9 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: IgnoresWrappingXmlNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,8 +100,8 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: IgnoresWrappingXmlNameOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +111,18 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IgnoresWrappingXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryIgnoresWrappingXmlNameCommand(input, context);
+    return se_IgnoresWrappingXmlNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IgnoresWrappingXmlNameCommandOutput> {
-    return deserializeAws_queryIgnoresWrappingXmlNameCommand(output, context);
+    return de_IgnoresWrappingXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

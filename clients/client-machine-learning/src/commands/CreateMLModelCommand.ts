@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { CreateMLModelInput, CreateMLModelOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateMLModelCommand,
-  serializeAws_json1_1CreateMLModelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateMLModelCommand, se_CreateMLModelCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateMLModelCommand}.
+ */
 export interface CreateMLModelCommandInput extends CreateMLModelInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMLModelCommand}.
+ */
 export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new <code>MLModel</code> using the <code>DataSource</code> and the recipe as
  *             information sources. </p>
  *         <p>An <code>MLModel</code> is nearly immutable. Users can update only the
@@ -48,13 +62,42 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * import { MachineLearningClient, CreateMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // CreateMLModelInput
+ *   MLModelId: "STRING_VALUE", // required
+ *   MLModelName: "STRING_VALUE",
+ *   MLModelType: "STRING_VALUE", // required
+ *   Parameters: { // TrainingParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TrainingDataSourceId: "STRING_VALUE", // required
+ *   Recipe: "STRING_VALUE",
+ *   RecipeUri: "STRING_VALUE",
+ * };
  * const command = new CreateMLModelCommand(input);
  * const response = await client.send(command);
+ * // { // CreateMLModelOutput
+ * //   MLModelId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateMLModelCommandInput - {@link CreateMLModelCommandInput}
+ * @returns {@link CreateMLModelCommandOutput}
  * @see {@link CreateMLModelCommandInput} for command's `input` shape.
  * @see {@link CreateMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateMLModelCommand extends $Command<
@@ -65,6 +108,18 @@ export class CreateMLModelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMLModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +135,7 @@ export class CreateMLModelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateMLModelCommandInput, CreateMLModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateMLModelCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -90,8 +146,8 @@ export class CreateMLModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMLModelInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateMLModelOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +157,18 @@ export class CreateMLModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMLModelCommand(input, context);
+    return se_CreateMLModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMLModelCommandOutput> {
-    return deserializeAws_json1_1CreateMLModelCommand(output, context);
+    return de_CreateMLModelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateFHIRDatastoreCommand";
 export * from "./DeleteFHIRDatastoreCommand";
 export * from "./DescribeFHIRDatastoreCommand";

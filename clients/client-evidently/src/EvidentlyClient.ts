@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,29 +19,36 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   BatchEvaluateFeatureCommandInput,
@@ -59,10 +58,12 @@ import { CreateExperimentCommandInput, CreateExperimentCommandOutput } from "./c
 import { CreateFeatureCommandInput, CreateFeatureCommandOutput } from "./commands/CreateFeatureCommand";
 import { CreateLaunchCommandInput, CreateLaunchCommandOutput } from "./commands/CreateLaunchCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import { CreateSegmentCommandInput, CreateSegmentCommandOutput } from "./commands/CreateSegmentCommand";
 import { DeleteExperimentCommandInput, DeleteExperimentCommandOutput } from "./commands/DeleteExperimentCommand";
 import { DeleteFeatureCommandInput, DeleteFeatureCommandOutput } from "./commands/DeleteFeatureCommand";
 import { DeleteLaunchCommandInput, DeleteLaunchCommandOutput } from "./commands/DeleteLaunchCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import { DeleteSegmentCommandInput, DeleteSegmentCommandOutput } from "./commands/DeleteSegmentCommand";
 import { EvaluateFeatureCommandInput, EvaluateFeatureCommandOutput } from "./commands/EvaluateFeatureCommand";
 import { GetExperimentCommandInput, GetExperimentCommandOutput } from "./commands/GetExperimentCommand";
 import {
@@ -72,10 +73,16 @@ import {
 import { GetFeatureCommandInput, GetFeatureCommandOutput } from "./commands/GetFeatureCommand";
 import { GetLaunchCommandInput, GetLaunchCommandOutput } from "./commands/GetLaunchCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
+import { GetSegmentCommandInput, GetSegmentCommandOutput } from "./commands/GetSegmentCommand";
 import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "./commands/ListExperimentsCommand";
 import { ListFeaturesCommandInput, ListFeaturesCommandOutput } from "./commands/ListFeaturesCommand";
 import { ListLaunchesCommandInput, ListLaunchesCommandOutput } from "./commands/ListLaunchesCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import {
+  ListSegmentReferencesCommandInput,
+  ListSegmentReferencesCommandOutput,
+} from "./commands/ListSegmentReferencesCommand";
+import { ListSegmentsCommandInput, ListSegmentsCommandOutput } from "./commands/ListSegmentsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -86,6 +93,7 @@ import { StartLaunchCommandInput, StartLaunchCommandOutput } from "./commands/St
 import { StopExperimentCommandInput, StopExperimentCommandOutput } from "./commands/StopExperimentCommand";
 import { StopLaunchCommandInput, StopLaunchCommandOutput } from "./commands/StopLaunchCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestSegmentPatternCommandInput, TestSegmentPatternCommandOutput } from "./commands/TestSegmentPatternCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateExperimentCommandInput, UpdateExperimentCommandOutput } from "./commands/UpdateExperimentCommand";
 import { UpdateFeatureCommandInput, UpdateFeatureCommandOutput } from "./commands/UpdateFeatureCommand";
@@ -95,28 +103,45 @@ import {
   UpdateProjectDataDeliveryCommandInput,
   UpdateProjectDataDeliveryCommandOutput,
 } from "./commands/UpdateProjectDataDeliveryCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchEvaluateFeatureCommandInput
   | CreateExperimentCommandInput
   | CreateFeatureCommandInput
   | CreateLaunchCommandInput
   | CreateProjectCommandInput
+  | CreateSegmentCommandInput
   | DeleteExperimentCommandInput
   | DeleteFeatureCommandInput
   | DeleteLaunchCommandInput
   | DeleteProjectCommandInput
+  | DeleteSegmentCommandInput
   | EvaluateFeatureCommandInput
   | GetExperimentCommandInput
   | GetExperimentResultsCommandInput
   | GetFeatureCommandInput
   | GetLaunchCommandInput
   | GetProjectCommandInput
+  | GetSegmentCommandInput
   | ListExperimentsCommandInput
   | ListFeaturesCommandInput
   | ListLaunchesCommandInput
   | ListProjectsCommandInput
+  | ListSegmentReferencesCommandInput
+  | ListSegmentsCommandInput
   | ListTagsForResourceCommandInput
   | PutProjectEventsCommandInput
   | StartExperimentCommandInput
@@ -124,6 +149,7 @@ export type ServiceInputTypes =
   | StopExperimentCommandInput
   | StopLaunchCommandInput
   | TagResourceCommandInput
+  | TestSegmentPatternCommandInput
   | UntagResourceCommandInput
   | UpdateExperimentCommandInput
   | UpdateFeatureCommandInput
@@ -131,26 +157,34 @@ export type ServiceInputTypes =
   | UpdateProjectCommandInput
   | UpdateProjectDataDeliveryCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchEvaluateFeatureCommandOutput
   | CreateExperimentCommandOutput
   | CreateFeatureCommandOutput
   | CreateLaunchCommandOutput
   | CreateProjectCommandOutput
+  | CreateSegmentCommandOutput
   | DeleteExperimentCommandOutput
   | DeleteFeatureCommandOutput
   | DeleteLaunchCommandOutput
   | DeleteProjectCommandOutput
+  | DeleteSegmentCommandOutput
   | EvaluateFeatureCommandOutput
   | GetExperimentCommandOutput
   | GetExperimentResultsCommandOutput
   | GetFeatureCommandOutput
   | GetLaunchCommandOutput
   | GetProjectCommandOutput
+  | GetSegmentCommandOutput
   | ListExperimentsCommandOutput
   | ListFeaturesCommandOutput
   | ListLaunchesCommandOutput
   | ListProjectsCommandOutput
+  | ListSegmentReferencesCommandOutput
+  | ListSegmentsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutProjectEventsCommandOutput
   | StartExperimentCommandOutput
@@ -158,6 +192,7 @@ export type ServiceOutputTypes =
   | StopExperimentCommandOutput
   | StopLaunchCommandOutput
   | TagResourceCommandOutput
+  | TestSegmentPatternCommandOutput
   | UntagResourceCommandOutput
   | UpdateExperimentCommandOutput
   | UpdateFeatureCommandOutput
@@ -165,6 +200,9 @@ export type ServiceOutputTypes =
   | UpdateProjectCommandOutput
   | UpdateProjectDataDeliveryCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -172,11 +210,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -227,10 +265,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -248,78 +319,59 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type EvidentlyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type EvidentlyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of EvidentlyClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of EvidentlyClient class constructor that set the region, credentials and other options.
  */
 export interface EvidentlyClientConfig extends EvidentlyClientConfigType {}
 
-type EvidentlyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type EvidentlyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of EvidentlyClient class. This is resolved and normalized from the {@link EvidentlyClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of EvidentlyClient class. This is resolved and normalized from the {@link EvidentlyClientConfig | constructor configuration interface}.
  */
 export interface EvidentlyClientResolvedConfig extends EvidentlyClientResolvedConfigType {}
 
 /**
- * <p>You can use Amazon CloudWatch Evidently to safely validate new features by serving them to a specified percentage
+ * @public
+ * <p>You can use Amazon CloudWatch Evidently to safely validate new features by serving
+ *       them to a specified percentage
  *       of your users while you roll out the feature. You can monitor the performance of the new feature
  *       to help you decide when to ramp up traffic to your users. This helps you
  *       reduce risk and identify unintended consequences before you fully launch the feature.</p>
@@ -340,20 +392,23 @@ export class EvidentlyClient extends __Client<
    */
   readonly config: EvidentlyClientResolvedConfig;
 
-  constructor(configuration: EvidentlyClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<EvidentlyClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

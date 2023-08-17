@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { GetPolicyRequest, GetPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPolicyCommand,
-  serializeAws_restJson1GetPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPolicyCommand, se_GetPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetPolicyCommand}.
+ */
 export interface GetPolicyCommandInput extends GetPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPolicyCommand}.
+ */
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Returns the JSON-formatted resource-based policy on a profiling group.
  *         </p>
@@ -31,13 +45,35 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * import { CodeGuruProfilerClient, GetPolicyCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, GetPolicyCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // GetPolicyRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetPolicyResponse
+ * //   policy: "STRING_VALUE", // required
+ * //   revisionId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
+ * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
+ * @returns {@link GetPolicyCommandOutput}
  * @see {@link GetPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class GetPolicyCommand extends $Command<
@@ -48,6 +84,18 @@ export class GetPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +111,7 @@ export class GetPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPolicyCommandInput, GetPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetPolicyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +122,8 @@ export class GetPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +133,18 @@ export class GetPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPolicyCommand(input, context);
+    return se_GetPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyCommandOutput> {
-    return deserializeAws_restJson1GetPolicyCommand(output, context);
+    return de_GetPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,17 +1,17 @@
-import { EventStreamMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { Decoder, Encoder, EventSigner, FinalizeHandler, FinalizeHandlerArguments, HttpRequest } from "@aws-sdk/types";
-import { once } from "events";
+import { EventStreamCodec } from "@smithy/eventstream-codec";
+import { Decoder, Encoder, FinalizeHandler, FinalizeHandlerArguments, HttpRequest, MessageSigner } from "@smithy/types";
 import { PassThrough, Readable } from "stream";
 
 import { EventSigningStream } from "./EventSigningStream";
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 
 jest.mock("./EventSigningStream");
-jest.mock("@aws-sdk/eventstream-marshaller");
+jest.mock("@smithy/eventstream-codec");
 
 describe(EventStreamPayloadHandler.name, () => {
-  const mockSigner: EventSigner = {
+  const mockMessageSigner: MessageSigner = {
     sign: jest.fn(),
+    signMessage: jest.fn(),
   };
   const mockUtf8Decoder: Decoder = jest.fn();
   const mockUtf8encoder: Encoder = jest.fn();
@@ -19,7 +19,7 @@ describe(EventStreamPayloadHandler.name, () => {
 
   beforeEach(() => {
     (EventSigningStream as unknown as jest.Mock).mockImplementation(() => new PassThrough());
-    (EventStreamMarshaller as jest.Mock).mockImplementation(() => {});
+    (EventStreamCodec as jest.Mock).mockImplementation(() => {});
   });
 
   afterEach(() => {
@@ -28,7 +28,7 @@ describe(EventStreamPayloadHandler.name, () => {
 
   it("should throw if request payload is not a stream", () => {
     const handler = new EventStreamPayloadHandler({
-      eventSigner: () => Promise.resolve(mockSigner),
+      messageSigner: () => Promise.resolve(mockMessageSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });
@@ -45,7 +45,7 @@ describe(EventStreamPayloadHandler.name, () => {
     (mockNextHandler as any).mockImplementationOnce(() => Promise.reject(mockError));
 
     const handler = new EventStreamPayloadHandler({
-      eventSigner: () => Promise.resolve(mockSigner),
+      messageSigner: () => Promise.resolve(mockMessageSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });
@@ -75,7 +75,7 @@ describe(EventStreamPayloadHandler.name, () => {
     } as any;
 
     const handler = new EventStreamPayloadHandler({
-      eventSigner: () => Promise.resolve(mockSigner),
+      messageSigner: () => Promise.resolve(mockMessageSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });
@@ -88,8 +88,39 @@ describe(EventStreamPayloadHandler.name, () => {
     expect(EventSigningStream).toHaveBeenCalledTimes(1);
     expect(EventSigningStream).toHaveBeenCalledWith({
       priorSignature,
-      eventMarshaller: expect.anything(),
-      eventSigner: expect.anything(),
+      eventStreamCodec: expect.anything(),
+      messageSigner: expect.anything(),
+    });
+  });
+
+  it("should call event signer with request signature from query string if no signature headers are found", async () => {
+    const priorSignature = "1234567890";
+    const authorization = `AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=`;
+
+    const mockRequest = {
+      body: new PassThrough(),
+      headers: { authorization },
+      query: {
+        "X-Amz-Signature": priorSignature,
+      },
+    } as any;
+
+    const handler = new EventStreamPayloadHandler({
+      messageSigner: () => Promise.resolve(mockMessageSigner),
+      utf8Decoder: mockUtf8Decoder,
+      utf8Encoder: mockUtf8encoder,
+    });
+
+    await handler.handle(mockNextHandler, {
+      request: mockRequest,
+      input: {},
+    });
+
+    expect(EventSigningStream).toHaveBeenCalledTimes(1);
+    expect(EventSigningStream).toHaveBeenCalledWith({
+      priorSignature,
+      eventStreamCodec: expect.anything(),
+      messageSigner: expect.anything(),
     });
   });
 
@@ -102,7 +133,7 @@ describe(EventStreamPayloadHandler.name, () => {
       headers: { authorization },
     } as any;
     const handler = new EventStreamPayloadHandler({
-      eventSigner: () => Promise.resolve(mockSigner),
+      messageSigner: () => Promise.resolve(mockMessageSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });

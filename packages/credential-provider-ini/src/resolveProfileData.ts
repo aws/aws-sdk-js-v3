@@ -1,19 +1,22 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
-import { Credentials } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
+import { isProcessProfile, resolveProcessCredentials } from "./resolveProcessCredentials";
 import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
 import { isStaticCredsProfile, resolveStaticCredentials } from "./resolveStaticCredentials";
 import { isWebIdentityProfile, resolveWebIdentityCredentials } from "./resolveWebIdentityCredentials";
 
+/**
+ * @internal
+ */
 export const resolveProfileData = async (
   profileName: string,
   profiles: ParsedIniData,
   options: FromIniInit,
-  visitedProfiles: { [profileName: string]: true } = {}
-): Promise<Credentials> => {
+  visitedProfiles: Record<string, true> = {}
+): Promise<AwsCredentialIdentity> => {
   const data = profiles[profileName];
 
   // If this is not the first profile visited, static credentials should be
@@ -39,6 +42,12 @@ export const resolveProfileData = async (
   // web identity if web_identity_token_file and role_arn is available
   if (isWebIdentityProfile(data)) {
     return resolveWebIdentityCredentials(data, options);
+  }
+
+  // If no web identity is present, attempt to assume role with
+  // process if credential_process is available
+  if (isProcessProfile(data)) {
+    return resolveProcessCredentials(options, profileName);
   }
 
   if (isSsoProfile(data)) {

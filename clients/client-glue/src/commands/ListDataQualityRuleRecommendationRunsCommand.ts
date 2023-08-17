@@ -1,0 +1,200 @@
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+} from "@smithy/types";
+
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import {
+  ListDataQualityRuleRecommendationRunsRequest,
+  ListDataQualityRuleRecommendationRunsResponse,
+} from "../models/models_2";
+import {
+  de_ListDataQualityRuleRecommendationRunsCommand,
+  se_ListDataQualityRuleRecommendationRunsCommand,
+} from "../protocols/Aws_json1_1";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListDataQualityRuleRecommendationRunsCommand}.
+ */
+export interface ListDataQualityRuleRecommendationRunsCommandInput
+  extends ListDataQualityRuleRecommendationRunsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDataQualityRuleRecommendationRunsCommand}.
+ */
+export interface ListDataQualityRuleRecommendationRunsCommandOutput
+  extends ListDataQualityRuleRecommendationRunsResponse,
+    __MetadataBearer {}
+
+/**
+ * @public
+ * <p>Lists the recommendation runs meeting the filter criteria.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, ListDataQualityRuleRecommendationRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, ListDataQualityRuleRecommendationRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const input = { // ListDataQualityRuleRecommendationRunsRequest
+ *   Filter: { // DataQualityRuleRecommendationRunFilter
+ *     DataSource: { // DataSource
+ *       GlueTable: { // GlueTable
+ *         DatabaseName: "STRING_VALUE", // required
+ *         TableName: "STRING_VALUE", // required
+ *         CatalogId: "STRING_VALUE",
+ *         ConnectionName: "STRING_VALUE",
+ *         AdditionalOptions: { // GlueTableAdditionalOptions
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     StartedBefore: new Date("TIMESTAMP"),
+ *     StartedAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
+ * const command = new ListDataQualityRuleRecommendationRunsCommand(input);
+ * const response = await client.send(command);
+ * // { // ListDataQualityRuleRecommendationRunsResponse
+ * //   Runs: [ // DataQualityRuleRecommendationRunList
+ * //     { // DataQualityRuleRecommendationRunDescription
+ * //       RunId: "STRING_VALUE",
+ * //       Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
+ * //       StartedOn: new Date("TIMESTAMP"),
+ * //       DataSource: { // DataSource
+ * //         GlueTable: { // GlueTable
+ * //           DatabaseName: "STRING_VALUE", // required
+ * //           TableName: "STRING_VALUE", // required
+ * //           CatalogId: "STRING_VALUE",
+ * //           ConnectionName: "STRING_VALUE",
+ * //           AdditionalOptions: { // GlueTableAdditionalOptions
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param ListDataQualityRuleRecommendationRunsCommandInput - {@link ListDataQualityRuleRecommendationRunsCommandInput}
+ * @returns {@link ListDataQualityRuleRecommendationRunsCommandOutput}
+ * @see {@link ListDataQualityRuleRecommendationRunsCommandInput} for command's `input` shape.
+ * @see {@link ListDataQualityRuleRecommendationRunsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
+ *
+ */
+export class ListDataQualityRuleRecommendationRunsCommand extends $Command<
+  ListDataQualityRuleRecommendationRunsCommandInput,
+  ListDataQualityRuleRecommendationRunsCommandOutput,
+  GlueClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
+  constructor(readonly input: ListDataQualityRuleRecommendationRunsCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: GlueClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<ListDataQualityRuleRecommendationRunsCommandInput, ListDataQualityRuleRecommendationRunsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDataQualityRuleRecommendationRunsCommand.getEndpointParameterInstructions())
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "ListDataQualityRuleRecommendationRunsCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  /**
+   * @internal
+   */
+  private serialize(
+    input: ListDataQualityRuleRecommendationRunsCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_ListDataQualityRuleRecommendationRunsCommand(input, context);
+  }
+
+  /**
+   * @internal
+   */
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListDataQualityRuleRecommendationRunsCommandOutput> {
+    return de_ListDataQualityRuleRecommendationRunsCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

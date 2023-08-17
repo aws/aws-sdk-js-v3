@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CognitoIdentityProvider } from "../CognitoIdentityProvider";
 import { CognitoIdentityProviderClient } from "../CognitoIdentityProviderClient";
 import {
   ListIdentityProvidersCommand,
@@ -10,7 +10,7 @@ import {
 import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CognitoIdentityProviderClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListIdentityProvidersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CognitoIdentityProvider,
-  input: ListIdentityProvidersCommandInput,
-  ...args: any
-): Promise<ListIdentityProvidersCommandOutput> => {
-  // @ts-ignore
-  return await client.listIdentityProviders(input, ...args);
-};
 export async function* paginateListIdentityProviders(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: ListIdentityProvidersCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListIdentityProviders(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CognitoIdentityProvider) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CognitoIdentityProviderClient) {
+    if (config.client instanceof CognitoIdentityProviderClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CognitoIdentityProvider | CognitoIdentityProviderClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

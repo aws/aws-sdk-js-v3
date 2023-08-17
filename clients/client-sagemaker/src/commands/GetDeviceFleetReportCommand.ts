@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { GetDeviceFleetReportRequest, GetDeviceFleetReportResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1GetDeviceFleetReportCommand,
-  serializeAws_json1_1GetDeviceFleetReportCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDeviceFleetReportRequest, GetDeviceFleetReportResponse } from "../models/models_3";
+import { de_GetDeviceFleetReportCommand, se_GetDeviceFleetReportCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetDeviceFleetReportCommand}.
+ */
 export interface GetDeviceFleetReportCommandInput extends GetDeviceFleetReportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDeviceFleetReportCommand}.
+ */
 export interface GetDeviceFleetReportCommandOutput extends GetDeviceFleetReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,54 @@ export interface GetDeviceFleetReportCommandOutput extends GetDeviceFleetReportR
  * import { SageMakerClient, GetDeviceFleetReportCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetDeviceFleetReportCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // GetDeviceFleetReportRequest
+ *   DeviceFleetName: "STRING_VALUE", // required
+ * };
  * const command = new GetDeviceFleetReportCommand(input);
  * const response = await client.send(command);
+ * // { // GetDeviceFleetReportResponse
+ * //   DeviceFleetArn: "STRING_VALUE", // required
+ * //   DeviceFleetName: "STRING_VALUE", // required
+ * //   OutputConfig: { // EdgeOutputConfig
+ * //     S3OutputLocation: "STRING_VALUE", // required
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     PresetDeploymentType: "GreengrassV2Component",
+ * //     PresetDeploymentConfig: "STRING_VALUE",
+ * //   },
+ * //   Description: "STRING_VALUE",
+ * //   ReportGenerated: new Date("TIMESTAMP"),
+ * //   DeviceStats: { // DeviceStats
+ * //     ConnectedDeviceCount: Number("long"), // required
+ * //     RegisteredDeviceCount: Number("long"), // required
+ * //   },
+ * //   AgentVersions: [ // AgentVersions
+ * //     { // AgentVersion
+ * //       Version: "STRING_VALUE", // required
+ * //       AgentCount: Number("long"), // required
+ * //     },
+ * //   ],
+ * //   ModelStats: [ // EdgeModelStats
+ * //     { // EdgeModelStat
+ * //       ModelName: "STRING_VALUE", // required
+ * //       ModelVersion: "STRING_VALUE", // required
+ * //       OfflineDeviceCount: Number("long"), // required
+ * //       ConnectedDeviceCount: Number("long"), // required
+ * //       ActiveDeviceCount: Number("long"), // required
+ * //       SamplingDeviceCount: Number("long"), // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GetDeviceFleetReportCommandInput - {@link GetDeviceFleetReportCommandInput}
+ * @returns {@link GetDeviceFleetReportCommandOutput}
  * @see {@link GetDeviceFleetReportCommandInput} for command's `input` shape.
  * @see {@link GetDeviceFleetReportCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class GetDeviceFleetReportCommand extends $Command<
@@ -46,6 +101,18 @@ export class GetDeviceFleetReportCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceFleetReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +128,9 @@ export class GetDeviceFleetReportCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetDeviceFleetReportCommandInput, GetDeviceFleetReportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetDeviceFleetReportCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +141,8 @@ export class GetDeviceFleetReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceFleetReportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDeviceFleetReportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +152,18 @@ export class GetDeviceFleetReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceFleetReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDeviceFleetReportCommand(input, context);
+    return se_GetDeviceFleetReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceFleetReportCommandOutput> {
-    return deserializeAws_json1_1GetDeviceFleetReportCommand(output, context);
+    return de_GetDeviceFleetReportCommand(output, context);
   }
 
   // Start section: command_body_extra

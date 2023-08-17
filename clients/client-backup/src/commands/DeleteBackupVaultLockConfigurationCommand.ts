@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DeleteBackupVaultLockConfigurationInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommand,
-  serializeAws_restJson1DeleteBackupVaultLockConfigurationCommand,
+  de_DeleteBackupVaultLockConfigurationCommand,
+  se_DeleteBackupVaultLockConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteBackupVaultLockConfigurationCommand}.
+ */
 export interface DeleteBackupVaultLockConfigurationCommandInput extends DeleteBackupVaultLockConfigurationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBackupVaultLockConfigurationCommand}.
+ */
 export interface DeleteBackupVaultLockConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes Backup Vault Lock from a backup vault specified by a backup vault
  *          name.</p>
  *          <p>If the Vault Lock configuration is immutable, then you cannot delete Vault Lock using
@@ -34,13 +51,40 @@ export interface DeleteBackupVaultLockConfigurationCommandOutput extends __Metad
  * import { BackupClient, DeleteBackupVaultLockConfigurationCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupVaultLockConfigurationCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DeleteBackupVaultLockConfigurationInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBackupVaultLockConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteBackupVaultLockConfigurationCommandInput - {@link DeleteBackupVaultLockConfigurationCommandInput}
+ * @returns {@link DeleteBackupVaultLockConfigurationCommandOutput}
  * @see {@link DeleteBackupVaultLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *          parameter is of the wrong type.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DeleteBackupVaultLockConfigurationCommand extends $Command<
@@ -51,6 +95,18 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupVaultLockConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +122,9 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteBackupVaultLockConfigurationCommandInput, DeleteBackupVaultLockConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteBackupVaultLockConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +135,8 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupVaultLockConfigurationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,18 +146,24 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteBackupVaultLockConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackupVaultLockConfigurationCommand(input, context);
+    return se_DeleteBackupVaultLockConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBackupVaultLockConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommand(output, context);
+    return de_DeleteBackupVaultLockConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

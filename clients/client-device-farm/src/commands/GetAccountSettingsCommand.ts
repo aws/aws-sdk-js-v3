@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { GetAccountSettingsRequest, GetAccountSettingsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAccountSettingsCommand,
-  serializeAws_json1_1GetAccountSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAccountSettingsCommand, se_GetAccountSettingsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetAccountSettingsCommand}.
+ */
 export interface GetAccountSettingsCommandInput extends GetAccountSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccountSettingsCommand}.
+ */
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the
  *             account.</p>
  * @example
@@ -30,13 +44,73 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  * import { DeviceFarmClient, GetAccountSettingsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetAccountSettingsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // GetAccountSettingsResult
+ * //   accountSettings: { // AccountSettings
+ * //     awsAccountNumber: "STRING_VALUE",
+ * //     unmeteredDevices: { // PurchasedDevicesMap
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //     unmeteredRemoteAccessDevices: {
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //     maxJobTimeoutMinutes: Number("int"),
+ * //     trialMinutes: { // TrialMinutes
+ * //       total: Number("double"),
+ * //       remaining: Number("double"),
+ * //     },
+ * //     maxSlots: { // MaxSlotMap
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //     defaultJobTimeoutMinutes: Number("int"),
+ * //     skipAppResign: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
+ * @returns {@link GetAccountSettingsCommandOutput}
  * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
+ *
+ * @example To get information about account settings
+ * ```javascript
+ * // The following example returns information about your Device Farm account settings.
+ * const input = {};
+ * const command = new GetAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "accountSettings": {
+ *     "awsAccountNumber": "123456789101",
+ *     "unmeteredDevices": {
+ *       "ANDROID": 1,
+ *       "IOS": 2
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-information-about-account-settings-1472567568189
+ * ```
  *
  */
 export class GetAccountSettingsCommand extends $Command<
@@ -47,6 +121,18 @@ export class GetAccountSettingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +148,9 @@ export class GetAccountSettingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetAccountSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +161,8 @@ export class GetAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountSettingsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +172,18 @@ export class GetAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccountSettingsCommand(input, context);
+    return se_GetAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSettingsCommandOutput> {
-    return deserializeAws_json1_1GetAccountSettingsCommand(output, context);
+    return de_GetAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

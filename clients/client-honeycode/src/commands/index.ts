@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchCreateTableRowsCommand";
 export * from "./BatchDeleteTableRowsCommand";
 export * from "./BatchUpdateTableRowsCommand";

@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,27 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { SimpleScalarPropertiesInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlSimpleScalarPropertiesCommand,
-  serializeAws_restXmlSimpleScalarPropertiesCommand,
-} from "../protocols/Aws_restXml";
+import { de_SimpleScalarPropertiesCommand, se_SimpleScalarPropertiesCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SimpleScalarPropertiesCommand}.
+ */
 export interface SimpleScalarPropertiesCommandInput extends SimpleScalarPropertiesInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link SimpleScalarPropertiesCommand}.
+ */
 export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropertiesInputOutput, __MetadataBearer {}
 
 export class SimpleScalarPropertiesCommand extends $Command<
@@ -29,6 +41,9 @@ export class SimpleScalarPropertiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: SimpleScalarPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +69,8 @@ export class SimpleScalarPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimpleScalarPropertiesInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: SimpleScalarPropertiesInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,12 +80,18 @@ export class SimpleScalarPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SimpleScalarPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlSimpleScalarPropertiesCommand(input, context);
+    return se_SimpleScalarPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimpleScalarPropertiesCommandOutput> {
-    return deserializeAws_restXmlSimpleScalarPropertiesCommand(output, context);
+    return de_SimpleScalarPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

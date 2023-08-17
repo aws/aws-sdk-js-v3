@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ElasticsearchServiceClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { ListDomainNamesRequest, ListDomainNamesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDomainNamesCommand,
-  serializeAws_restJson1ListDomainNamesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDomainNamesCommand, se_ListDomainNamesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListDomainNamesCommand}.
+ */
 export interface ListDomainNamesCommandInput extends ListDomainNamesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDomainNamesCommand}.
+ */
 export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the name of all Elasticsearch domains owned by the current user's account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,36 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * import { ElasticsearchServiceClient, ListDomainNamesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, ListDomainNamesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // ListDomainNamesRequest
+ *   EngineType: "OpenSearch" || "Elasticsearch",
+ * };
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
+ * // { // ListDomainNamesResponse
+ * //   DomainNames: [ // DomainInfoList
+ * //     { // DomainInfo
+ * //       DomainName: "STRING_VALUE",
+ * //       EngineType: "OpenSearch" || "Elasticsearch",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListDomainNamesCommandInput - {@link ListDomainNamesCommandInput}
+ * @returns {@link ListDomainNamesCommandOutput}
  * @see {@link ListDomainNamesCommandInput} for command's `input` shape.
  * @see {@link ListDomainNamesCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class ListDomainNamesCommand extends $Command<
@@ -50,6 +87,18 @@ export class ListDomainNamesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainNamesCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +114,9 @@ export class ListDomainNamesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDomainNamesCommandInput, ListDomainNamesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDomainNamesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +127,8 @@ export class ListDomainNamesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainNamesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainNamesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +138,18 @@ export class ListDomainNamesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDomainNamesCommand(input, context);
+    return se_ListDomainNamesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainNamesCommandOutput> {
-    return deserializeAws_restJson1ListDomainNamesCommand(output, context);
+    return de_ListDomainNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

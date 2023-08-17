@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeRoleAliasRequest, DescribeRoleAliasResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeRoleAliasCommand,
-  serializeAws_restJson1DescribeRoleAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeRoleAliasCommand, se_DescribeRoleAliasCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeRoleAliasCommand}.
+ */
 export interface DescribeRoleAliasCommandInput extends DescribeRoleAliasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRoleAliasCommand}.
+ */
 export interface DescribeRoleAliasCommandOutput extends DescribeRoleAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a role alias.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeRoleAlias</a> action.</p>
  * @example
@@ -30,13 +44,51 @@ export interface DescribeRoleAliasCommandOutput extends DescribeRoleAliasRespons
  * import { IoTClient, DescribeRoleAliasCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeRoleAliasCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeRoleAliasRequest
+ *   roleAlias: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRoleAliasCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRoleAliasResponse
+ * //   roleAliasDescription: { // RoleAliasDescription
+ * //     roleAlias: "STRING_VALUE",
+ * //     roleAliasArn: "STRING_VALUE",
+ * //     roleArn: "STRING_VALUE",
+ * //     owner: "STRING_VALUE",
+ * //     credentialDurationSeconds: Number("int"),
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeRoleAliasCommandInput - {@link DescribeRoleAliasCommandInput}
+ * @returns {@link DescribeRoleAliasCommandOutput}
  * @see {@link DescribeRoleAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeRoleAliasCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeRoleAliasCommand extends $Command<
@@ -47,6 +99,18 @@ export class DescribeRoleAliasCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRoleAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +126,9 @@ export class DescribeRoleAliasCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeRoleAliasCommandInput, DescribeRoleAliasCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeRoleAliasCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +139,8 @@ export class DescribeRoleAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRoleAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRoleAliasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +150,18 @@ export class DescribeRoleAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRoleAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRoleAliasCommand(input, context);
+    return se_DescribeRoleAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRoleAliasCommandOutput> {
-    return deserializeAws_restJson1DescribeRoleAliasCommand(output, context);
+    return de_DescribeRoleAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

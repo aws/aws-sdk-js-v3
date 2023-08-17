@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -29,26 +29,80 @@
     ]
   },
   "shapes": {
-    "com.amazonaws.frauddetector#AWSHawksNestServiceFacade": {
-      "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "FraudDetector",
-          "arnNamespace": "frauddetector",
-          "cloudFormationName": "FraudDetector",
-          "cloudTrailEventSource": "frauddetector.amazonaws.com",
-          "endpointPrefix": "frauddetector"
+    "com.amazonaws.frauddetector#ATIMetricDataPoint": {
+      "type": "structure",
+      "members": {
+        "cr": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n          The challenge rate. This indicates the percentage of login events that the model recommends to challenge such as  \n          one-time password, multi-factor authentication, and investigations.\n        </p>"
+          }
         },
-        "aws.auth#sigv4": {
-          "name": "frauddetector"
+        "adr": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The anomaly discovery rate. This metric quantifies the percentage of anomalies that can be detected by the model at the selected score threshold.  \n            A lower score threshold increases the percentage of anomalies captured by the model, but would also require challenging a larger percentage of \n            login events, leading to a higher customer friction.\n        </p>"
+          }
         },
-        "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need\n            detailed information about Amazon Fraud Detector API actions, data types, and errors. For\n            more information about Amazon Fraud Detector features, see the <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/\">Amazon Fraud Detector User Guide</a>.</p>",
-        "smithy.api#title": "Amazon Fraud Detector",
-        "smithy.api#xmlNamespace": {
-          "uri": "http://hawksnest.amazonaws.com/doc/2019-11-15"
+        "threshold": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The model's threshold that specifies an acceptable fraud capture rate. For example, a threshold of 500 means any model score 500 or above is \n            labeled as fraud.\n        </p>"
+          }
+        },
+        "atodr": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The account takeover discovery rate. This metric quantifies the percentage of account compromise events that can be detected by the model at the selected score threshold.\n            This metric is only available if 50 or more entities with at-least one labeled account takeover event is present in the ingested dataset.\n        </p>"
+          }
         }
       },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The Account Takeover Insights (ATI) model performance metrics data points.\n        </p>"
+      }
+    },
+    "com.amazonaws.frauddetector#ATIMetricDataPointsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.frauddetector#ATIMetricDataPoint"
+      }
+    },
+    "com.amazonaws.frauddetector#ATIModelPerformance": {
+      "type": "structure",
+      "members": {
+        "asi": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The anomaly separation index (ASI) score. This metric summarizes the overall ability of the model to separate anomalous activities from the normal behavior. Depending on the business, a \n            large fraction of these anomalous activities can be malicious and correspond to the account takeover attacks. A model with no separability power will have the lowest possible \n            ASI score of 0.5, whereas the a model with a high separability power will have the highest possible ASI score of 1.0\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The Account Takeover Insights (ATI) model performance score.\n        </p>"
+      }
+    },
+    "com.amazonaws.frauddetector#ATITrainingMetricsValue": {
+      "type": "structure",
+      "members": {
+        "metricDataPoints": {
+          "target": "com.amazonaws.frauddetector#ATIMetricDataPointsList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The model's performance metrics data points.\n        </p>"
+          }
+        },
+        "modelPerformance": {
+          "target": "com.amazonaws.frauddetector#ATIModelPerformance",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The model's overall performance scores.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The Account Takeover Insights (ATI) model training metric details. \n        </p>"
+      }
+    },
+    "com.amazonaws.frauddetector#AWSHawksNestServiceFacade": {
+      "type": "service",
       "version": "2019-11-15",
       "operations": [
         {
@@ -71,6 +125,9 @@
         },
         {
           "target": "com.amazonaws.frauddetector#CreateDetectorVersion"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#CreateList"
         },
         {
           "target": "com.amazonaws.frauddetector#CreateModel"
@@ -113,6 +170,9 @@
         },
         {
           "target": "com.amazonaws.frauddetector#DeleteLabel"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#DeleteList"
         },
         {
           "target": "com.amazonaws.frauddetector#DeleteModel"
@@ -173,6 +233,12 @@
         },
         {
           "target": "com.amazonaws.frauddetector#GetLabels"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#GetListElements"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#GetListsMetadata"
         },
         {
           "target": "com.amazonaws.frauddetector#GetModels"
@@ -238,6 +304,9 @@
           "target": "com.amazonaws.frauddetector#UpdateEventLabel"
         },
         {
+          "target": "com.amazonaws.frauddetector#UpdateList"
+        },
+        {
           "target": "com.amazonaws.frauddetector#UpdateModel"
         },
         {
@@ -255,7 +324,754 @@
         {
           "target": "com.amazonaws.frauddetector#UpdateVariable"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "FraudDetector",
+          "arnNamespace": "frauddetector",
+          "cloudFormationName": "FraudDetector",
+          "cloudTrailEventSource": "frauddetector.amazonaws.com",
+          "endpointPrefix": "frauddetector"
+        },
+        "aws.auth#sigv4": {
+          "name": "frauddetector"
+        },
+        "aws.protocols#awsJson1_1": {},
+        "smithy.api#documentation": "<p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need\n            detailed information about Amazon Fraud Detector API actions, data types, and errors. For\n            more information about Amazon Fraud Detector features, see the <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/\">Amazon Fraud Detector User Guide</a>.</p>\n         <p>We provide the Query API as well as AWS software development kits (SDK) for Amazon Fraud Detector in Java and Python programming languages.</p>\n         <p>The Amazon Fraud Detector Query API provides HTTPS requests that use the HTTP verb GET or POST and a Query parameter <code>Action</code>. AWS SDK provides libraries, \n            sample code, tutorials, and other resources for software developers who prefer to build applications using language-specific APIs instead of submitting a request over \n            HTTP or HTTPS. These libraries provide basic functions that automatically take care of tasks such as cryptographically signing your requests, retrying requests, and \n            handling error responses, so that it is easier for you to get started. For more information about the AWS SDKs, go to <a href=\"https://aws.amazon.com/developer/tools/\">Tools to build on AWS</a> page, \n            scroll down to the <b>SDK</b> section, and choose plus (+) sign to expand the section. \n            </p>",
+        "smithy.api#title": "Amazon Fraud Detector",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://hawksnest.amazonaws.com/doc/2019-11-15"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://frauddetector-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://frauddetector-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://frauddetector.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://frauddetector.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://frauddetector.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.frauddetector#AccessDeniedException": {
       "type": "structure",
@@ -273,35 +1089,158 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazonaws.frauddetector#AsyncJobStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS_INITIALIZING",
-            "name": "IN_PROGRESS_INITIALIZING"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "CANCEL_IN_PROGRESS",
-            "name": "CANCEL_IN_PROGRESS"
-          },
-          {
-            "value": "CANCELED",
-            "name": "CANCELED"
-          },
-          {
-            "value": "COMPLETE",
-            "name": "COMPLETE"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+    "com.amazonaws.frauddetector#AggregatedLogOddsMetric": {
+      "type": "structure",
+      "members": {
+        "variableNames": {
+          "target": "com.amazonaws.frauddetector#ListOfStrings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The names of all the variables.  \n        </p>",
+            "smithy.api#required": {}
           }
-        ]
+        },
+        "aggregatedVariablesImportance": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The relative importance of the variables in the list to the other event variable. \n        </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The log odds metric details.</p>\n         <p>Account Takeover Insights (ATI) model uses event variables from the login data you \n            provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address. \n            In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>"
+      }
+    },
+    "com.amazonaws.frauddetector#AggregatedVariablesImpactExplanation": {
+      "type": "structure",
+      "members": {
+        "eventVariableNames": {
+          "target": "com.amazonaws.frauddetector#ListOfStrings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The names of all the event variables that were used to derive the aggregated variables.  \n        </p>"
+          }
+        },
+        "relativeImpact": {
+          "target": "com.amazonaws.frauddetector#string",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The relative impact of the aggregated variables in terms of magnitude on the prediction scores.  \n        </p>"
+          }
+        },
+        "logOddsImpact": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The raw, uninterpreted value represented as log-odds of the fraud.  These values are usually between -10 to +10, but range from -infinity to +infinity.</p>\n         <ul>\n            <li>\n               <p>A positive value indicates that the variables drove the risk score up.</p>\n            </li>\n            <li>\n               <p>A negative value indicates that the variables drove the risk score down.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The details of the impact of aggregated variables on the prediction score. </p>\n         <p>Account Takeover Insights (ATI) model  uses the login data you \n            provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, the model might calculate the number of times an user has logged in using the same IP address. \n            In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>"
+      }
+    },
+    "com.amazonaws.frauddetector#AggregatedVariablesImportanceMetrics": {
+      "type": "structure",
+      "members": {
+        "logOddsMetrics": {
+          "target": "com.amazonaws.frauddetector#ListOfAggregatedLogOddsMetrics",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            List of variables' metrics.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The details of the relative importance of the aggregated variables.</p>\n         <p>Account Takeover Insights (ATI) model uses event variables from the login data you \n            provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address. \n            In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>"
+      }
+    },
+    "com.amazonaws.frauddetector#AllowDenyList": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.frauddetector#noDashIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The name of the list.\n        </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.frauddetector#description",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The description of the list.\n        </p>"
+          }
+        },
+        "variableType": {
+          "target": "com.amazonaws.frauddetector#variableType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The variable type of the list.\n        </p>"
+          }
+        },
+        "createdTime": {
+          "target": "com.amazonaws.frauddetector#time",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The time the list was created.\n        </p>"
+          }
+        },
+        "updatedTime": {
+          "target": "com.amazonaws.frauddetector#time",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The time the list was last updated.\n        </p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.frauddetector#fraudDetectorArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The ARN of the list.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The metadata of a list.\n        </p>"
+      }
+    },
+    "com.amazonaws.frauddetector#AllowDenyLists": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.frauddetector#AllowDenyList"
+      }
+    },
+    "com.amazonaws.frauddetector#AsyncJobStatus": {
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS_INITIALIZING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS_INITIALIZING"
+          }
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "CANCEL_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCEL_IN_PROGRESS"
+          }
+        },
+        "CANCELED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELED"
+          }
+        },
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETE"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#BatchCreateVariable": {
@@ -342,6 +1281,7 @@
         "code": {
           "target": "com.amazonaws.frauddetector#Integer2",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The error code. </p>"
           }
         },
@@ -378,6 +1318,9 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#BatchCreateVariableResult": {
@@ -389,6 +1332,9 @@
             "smithy.api#documentation": "<p>Provides the errors for the <code>BatchCreateVariable</code> request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#BatchGetVariable": {
@@ -429,6 +1375,7 @@
         "code": {
           "target": "com.amazonaws.frauddetector#Integer2",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The error code. </p>"
           }
         },
@@ -459,6 +1406,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#BatchGetVariableResult": {
@@ -476,6 +1426,9 @@
             "smithy.api#documentation": "<p>The errors from the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#BatchImport": {
@@ -675,10 +1628,7 @@
       }
     },
     "com.amazonaws.frauddetector#Boolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.frauddetector#CancelBatchImportJob": {
       "type": "operation",
@@ -719,11 +1669,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#CancelBatchImportJobResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#CancelBatchPredictionJob": {
       "type": "operation",
@@ -764,11 +1720,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#CancelBatchPredictionJobResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#ConflictException": {
       "type": "structure",
@@ -849,7 +1811,7 @@
         "iamRoleArn": {
           "target": "com.amazonaws.frauddetector#iamRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the IAM role created for Amazon S3 bucket that holds your data file. \n         The IAM role must have read and write permissions to both input and output S3 buckets.</p>",
+            "smithy.api#documentation": "<p>The ARN of the IAM role created for Amazon S3 bucket that holds your data file.</p>\n         <p>The IAM role must have read permissions to your input S3 bucket and write permissions to your output S3 bucket.\n         For more information about bucket permissions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html\">User policy examples</a> in the \n         <i>Amazon S3 User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -859,11 +1821,17 @@
             "smithy.api#documentation": "<p>A collection of key-value pairs associated with this request.  </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#CreateBatchImportJobResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#CreateBatchPredictionJob": {
       "type": "operation",
@@ -941,7 +1909,7 @@
         "iamRoleArn": {
           "target": "com.amazonaws.frauddetector#iamRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the IAM role to use for this job request.</p>",
+            "smithy.api#documentation": "<p>The ARN of the IAM role to use for this job request.</p>\n         <p>The IAM Role must have read permissions to your input S3 bucket and write permissions to your output S3 bucket.\n         For more information about bucket permissions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html\">User policy examples</a> in the \n         <i>Amazon S3 User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -951,11 +1919,17 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#CreateBatchPredictionJobResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#CreateDetectorVersion": {
       "type": "operation",
@@ -1024,7 +1998,7 @@
         "ruleExecutionMode": {
           "target": "com.amazonaws.frauddetector#RuleExecutionMode",
           "traits": {
-            "smithy.api#documentation": "<p>The rule execution mode for the rules included in the detector version.</p>\n\t        <p>You can define and edit the rule mode at the detector version level, when it is in draft status.</p>\n\t        <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>\n\t        <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p>\n         <p>The default behavior is <code>FIRST_MATCHED</code>.</p>"
+            "smithy.api#documentation": "<p>The rule execution mode for the rules included in the detector version.</p>\n         <p>You can define and edit the rule mode at the detector version level, when it is in draft status.</p>\n         <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>\n         <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p>\n         <p>The default behavior is <code>FIRST_MATCHED</code>.</p>"
           }
         },
         "tags": {
@@ -1033,6 +2007,9 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#CreateDetectorVersionResult": {
@@ -1056,6 +2033,81 @@
             "smithy.api#documentation": "<p>The status of the detector version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.frauddetector#CreateList": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.frauddetector#CreateListRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.frauddetector#CreateListResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.frauddetector#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Creates a list. \n        </p>\n         <p>List is a set of input data for a variable in your event dataset. You use the input data in a rule that's associated with your detector. \n            For more information, see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/lists.html\">Lists</a>.</p>"
+      }
+    },
+    "com.amazonaws.frauddetector#CreateListRequest": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.frauddetector#noDashIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The name of the list.\n        </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "elements": {
+          "target": "com.amazonaws.frauddetector#ElementsList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The names of the elements, if providing.  You can also create an empty list and add elements later using the <a href=\"https://docs.aws.amazon.com/frauddetector/latest/api/API_Updatelist.html\">UpdateList</a> API.\n        </p>"
+          }
+        },
+        "variableType": {
+          "target": "com.amazonaws.frauddetector#variableType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The variable type of the list. You can only assign the variable type with String data type.  For more information, see \n            <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types\">Variable types</a>.\n        </p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.frauddetector#description",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The description of the list.\n        </p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.frauddetector#tagList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            A collection of the key and value pairs.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.frauddetector#CreateListResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#CreateModel": {
@@ -1120,11 +2172,17 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#CreateModelResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#CreateModelVersion": {
       "type": "operation",
@@ -1204,6 +2262,9 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#CreateModelVersionResult": {
@@ -1233,6 +2294,9 @@
             "smithy.api#documentation": "<p>The model version status. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#CreateRule": {
@@ -1311,6 +2375,9 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#CreateRuleResult": {
@@ -1322,6 +2389,9 @@
             "smithy.api#documentation": "<p>The created rule.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#CreateVariable": {
@@ -1363,7 +2433,7 @@
         "dataType": {
           "target": "com.amazonaws.frauddetector#DataType",
           "traits": {
-            "smithy.api#documentation": "<p>The data type.</p>",
+            "smithy.api#documentation": "<p>The data type of the variable.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1399,11 +2469,17 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#CreateVariableResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#CsvIndexToVariableMap": {
       "type": "map",
@@ -1415,45 +2491,61 @@
       }
     },
     "com.amazonaws.frauddetector#DataSource": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EVENT",
-            "name": "EVENT"
-          },
-          {
-            "value": "MODEL_SCORE",
-            "name": "MODEL_SCORE"
-          },
-          {
-            "value": "EXTERNAL_MODEL_SCORE",
-            "name": "EXTERNAL_MODEL_SCORE"
+      "type": "enum",
+      "members": {
+        "EVENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EVENT"
           }
-        ]
+        },
+        "MODEL_SCORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MODEL_SCORE"
+          }
+        },
+        "EXTERNAL_MODEL_SCORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXTERNAL_MODEL_SCORE"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#DataType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STRING",
-            "name": "STRING"
-          },
-          {
-            "value": "INTEGER",
-            "name": "INTEGER"
-          },
-          {
-            "value": "FLOAT",
-            "name": "FLOAT"
-          },
-          {
-            "value": "BOOLEAN",
-            "name": "BOOLEAN"
+      "type": "enum",
+      "members": {
+        "STRING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STRING"
           }
-        ]
+        },
+        "INTEGER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTEGER"
+          }
+        },
+        "FLOAT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FLOAT"
+          }
+        },
+        "BOOLEAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BOOLEAN"
+          }
+        },
+        "DATETIME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DATETIME"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#DataValidationMetrics": {
@@ -1462,7 +2554,7 @@
         "fileLevelMessages": {
           "target": "com.amazonaws.frauddetector#fileValidationMessageList",
           "traits": {
-            "smithy.api#documentation": "<p>The file-specific model training validation messages.</p>"
+            "smithy.api#documentation": "<p>The file-specific model training data validation messages.</p>"
           }
         },
         "fieldLevelMessages": {
@@ -1473,14 +2565,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The model training validation messages.</p>"
+        "smithy.api#documentation": "<p>The model training data validation metrics.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteAuditHistory": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.frauddetector#DeleteBatchImportJob": {
       "type": "operation",
@@ -1505,7 +2594,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes data that was batch imported to Amazon Fraud Detector. </p>"
+        "smithy.api#documentation": "<p>Deletes the specified batch import job ID record. This action does not delete the data that was batch imported.  </p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteBatchImportJobRequest": {
@@ -1518,11 +2607,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteBatchImportJobResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteBatchPredictionJob": {
       "type": "operation",
@@ -1560,11 +2655,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteBatchPredictionJobResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteDetector": {
       "type": "operation",
@@ -1592,7 +2693,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.</p>\n\t        <p>When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>"
+        "smithy.api#documentation": "<p>Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.</p>\n         <p>When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteDetectorRequest": {
@@ -1605,11 +2706,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteDetectorResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteDetectorVersion": {
       "type": "operation",
@@ -1640,7 +2747,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>\n\t  \t     <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>"
+        "smithy.api#documentation": "<p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>\n         <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteDetectorVersionRequest": {
@@ -1660,11 +2767,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteDetectorVersionResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteEntityType": {
       "type": "operation",
@@ -1692,7 +2805,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes an entity type.</p>\n\t        <p>You cannot delete an entity type that is included in an event type.</p>\n\t        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>"
+        "smithy.api#documentation": "<p>Deletes an entity type.</p>\n         <p>You cannot delete an entity type that is included in an event type.</p>\n         <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteEntityTypeRequest": {
@@ -1705,11 +2818,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteEntityTypeResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteEvent": {
       "type": "operation",
@@ -1734,7 +2853,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the specified event.</p>\n\t        <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.</p>"
+        "smithy.api#documentation": "<p>Deletes the specified event.</p>\n         <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.\n\t  If <code>deleteAuditHistory</code> is <code>True</code>, event data is available through search for up to 30 seconds after the delete operation is completed.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteEventRequest": {
@@ -1757,14 +2876,20 @@
         "deleteAuditHistory": {
           "target": "com.amazonaws.frauddetector#DeleteAuditHistory",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether or not to delete any predictions associated with the event.</p>"
+            "smithy.api#documentation": "<p>Specifies whether or not to delete any predictions associated with the event. If set to <code>True</code>, </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteEventResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteEventType": {
       "type": "operation",
@@ -1792,7 +2917,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes an event type.</p>\n\t        <p>You cannot delete an event type that is used in a detector or a model.</p>\n\t        <p>When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.</p>"
+        "smithy.api#documentation": "<p>Deletes an event type.</p>\n         <p>You cannot delete an event type that is used in a detector or a model.</p>\n         <p>When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteEventTypeRequest": {
@@ -1805,11 +2930,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteEventTypeResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteEventsByEventType": {
       "type": "operation",
@@ -1853,6 +2984,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteEventsByEventTypeResult": {
@@ -1870,6 +3004,9 @@
             "smithy.api#documentation": "<p>The status of the delete request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteExternalModel": {
@@ -1898,7 +3035,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes a SageMaker model from Amazon Fraud Detector.</p>\n\t        <p>You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.</p>"
+        "smithy.api#documentation": "<p>Removes a SageMaker model from Amazon Fraud Detector.</p>\n         <p>You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteExternalModelRequest": {
@@ -1911,11 +3048,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteExternalModelResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteLabel": {
       "type": "operation",
@@ -1940,7 +3083,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a label.</p>\n\t        <p>You cannot delete labels that are included in an event type in Amazon Fraud Detector.</p>\n         <p>You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.</p>\n\n         <p>When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.</p>"
+        "smithy.api#documentation": "<p>Deletes a label.</p>\n         <p>You cannot delete labels that are included in an event type in Amazon Fraud Detector.</p>\n         <p>You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.</p>\n         <p>When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteLabelRequest": {
@@ -1953,11 +3096,68 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteLabelResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.frauddetector#DeleteList": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.frauddetector#DeleteListRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.frauddetector#DeleteListResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.frauddetector#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Deletes the list, provided it is not used in a rule.\n        </p>\n         <p> When you delete a list, Amazon Fraud Detector permanently deletes that list and the elements in the list.</p>"
+      }
+    },
+    "com.amazonaws.frauddetector#DeleteListRequest": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.frauddetector#noDashIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The name of the list to delete.\n        </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.frauddetector#DeleteListResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteModel": {
       "type": "operation",
@@ -1985,7 +3185,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a model.</p>\n\t        <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>\n\t        <p> When you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.</p>"
+        "smithy.api#documentation": "<p>Deletes a model.</p>\n         <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>\n         <p> When you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteModelRequest": {
@@ -2005,11 +3205,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteModelResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteModelVersion": {
       "type": "operation",
@@ -2037,7 +3243,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a model version.</p>\n\t        <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>\n\t        <p> When you delete a model version, Amazon Fraud Detector permanently deletes that model version and the data is no longer stored in Amazon Fraud Detector.</p>"
+        "smithy.api#documentation": "<p>Deletes a model version.</p>\n         <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>\n         <p> When you delete a model version, Amazon Fraud Detector permanently deletes that model version and the data is no longer stored in Amazon Fraud Detector.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteModelVersionRequest": {
@@ -2064,11 +3270,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteModelVersionResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteOutcome": {
       "type": "operation",
@@ -2096,7 +3308,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes an outcome.</p>\n\t        <p>You cannot delete an outcome that is used in a rule version.</p>\n\t        <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.</p>"
+        "smithy.api#documentation": "<p>Deletes an outcome.</p>\n         <p>You cannot delete an outcome that is used in a rule version.</p>\n         <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteOutcomeRequest": {
@@ -2109,11 +3321,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteOutcomeResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteRule": {
       "type": "operation",
@@ -2141,7 +3359,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p>\n\t  \t     <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.</p>"
+        "smithy.api#documentation": "<p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p>\n         <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteRuleRequest": {
@@ -2153,11 +3371,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteRuleResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DeleteVariable": {
       "type": "operation",
@@ -2185,7 +3409,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a variable.</p>\n\t        <p>You can't delete variables that are included in an event type in Amazon Fraud Detector.</p>\n\t        <p>Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.</p>\n\t        <p>When you delete a variable, Amazon Fraud Detector permanently deletes that variable and the data is no longer stored in Amazon Fraud Detector.</p>"
+        "smithy.api#documentation": "<p>Deletes a variable.</p>\n         <p>You can't delete variables that are included in an event type in Amazon Fraud Detector.</p>\n         <p>Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.</p>\n         <p>When you delete a variable, Amazon Fraud Detector permanently deletes that variable and the data is no longer stored in Amazon Fraud Detector.</p>"
       }
     },
     "com.amazonaws.frauddetector#DeleteVariableRequest": {
@@ -2198,11 +3422,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DeleteVariableResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#DescribeDetector": {
       "type": "operation",
@@ -2255,6 +3485,9 @@
             "smithy.api#documentation": "<p>The maximum number of results to return for the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DescribeDetectorResult": {
@@ -2284,6 +3517,9 @@
             "smithy.api#documentation": "<p>The detector ARN.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#DescribeModelVersions": {
@@ -2353,6 +3589,9 @@
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#DescribeModelVersionsResult": {
@@ -2370,6 +3609,9 @@
             "smithy.api#documentation": "<p>The next token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#Detector": {
@@ -2425,7 +3667,6 @@
     "com.amazonaws.frauddetector#DetectorVersionMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1000,
           "max": 2500
@@ -2433,22 +3674,26 @@
       }
     },
     "com.amazonaws.frauddetector#DetectorVersionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DRAFT",
-            "name": "DRAFT"
-          },
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "DRAFT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DRAFT"
           }
-        ]
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#DetectorVersionSummary": {
@@ -2492,10 +3737,32 @@
     "com.amazonaws.frauddetector#DetectorsMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 5,
           "max": 10
+        }
+      }
+    },
+    "com.amazonaws.frauddetector#Elements": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 320
+        },
+        "smithy.api#pattern": "^\\S+( +\\S+)*$",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.frauddetector#ElementsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.frauddetector#Elements"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 100000
         }
       }
     },
@@ -2740,18 +4007,35 @@
       }
     },
     "com.amazonaws.frauddetector#EventIngestion": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.frauddetector#EventOrchestration": {
+      "type": "structure",
+      "members": {
+        "eventBridgeEnabled": {
+          "target": "com.amazonaws.frauddetector#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies if event orchestration is enabled through Amazon EventBridge.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n         The event orchestration status. \n      </p>"
       }
     },
     "com.amazonaws.frauddetector#EventPredictionSummary": {
@@ -2801,7 +4085,6 @@
     "com.amazonaws.frauddetector#EventPredictionsMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 50,
           "max": 100
@@ -2869,6 +4152,12 @@
           "target": "com.amazonaws.frauddetector#fraudDetectorArn",
           "traits": {
             "smithy.api#documentation": "<p>The entity type ARN.</p>"
+          }
+        },
+        "eventOrchestration": {
+          "target": "com.amazonaws.frauddetector#EventOrchestration",
+          "traits": {
+            "smithy.api#documentation": "<p>The event orchestration status. </p>"
           }
         }
       },
@@ -3071,7 +4360,6 @@
     "com.amazonaws.frauddetector#ExternalModelsMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 5,
           "max": 10
@@ -3211,6 +4499,9 @@
             "smithy.api#documentation": "<p>The next token from the previous request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetBatchImportJobsResult": {
@@ -3228,6 +4519,9 @@
             "smithy.api#documentation": "<p>The next token for the subsequent resquest.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetBatchPredictionJobs": {
@@ -3285,6 +4579,9 @@
             "smithy.api#documentation": "<p>The next token from the previous request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetBatchPredictionJobsResult": {
@@ -3302,6 +4599,9 @@
             "smithy.api#documentation": "<p>The next token for the subsequent request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetDeleteEventsByEventTypeStatus": {
@@ -3343,6 +4643,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetDeleteEventsByEventTypeStatusResult": {
@@ -3360,6 +4663,9 @@
             "smithy.api#documentation": "<p>The deletion status.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetDetectorVersion": {
@@ -3408,6 +4714,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetDetectorVersionResult": {
@@ -3470,7 +4779,7 @@
         "ruleExecutionMode": {
           "target": "com.amazonaws.frauddetector#RuleExecutionMode",
           "traits": {
-            "smithy.api#documentation": "<p>The execution mode of the rule in the dectector</p>\n\t        <p>\n            <code>FIRST_MATCHED</code> indicates that Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>\n\t        <p>\n            <code>ALL_MATCHED</code> indicates that Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>"
+            "smithy.api#documentation": "<p>The execution mode of the rule in the dectector</p>\n         <p>\n            <code>FIRST_MATCHED</code> indicates that Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>\n         <p>\n            <code>ALL_MATCHED</code> indicates that Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>"
           }
         },
         "arn": {
@@ -3479,6 +4788,9 @@
             "smithy.api#documentation": "<p>The detector version ARN.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetDetectors": {
@@ -3536,6 +4848,9 @@
             "smithy.api#documentation": "<p>The maximum number of objects to return for the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetDetectorsResult": {
@@ -3553,6 +4868,9 @@
             "smithy.api#documentation": "<p>The next page token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetEntityTypes": {
@@ -3610,6 +4928,9 @@
             "smithy.api#documentation": "<p>The maximum number of objects to return for the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetEntityTypesResult": {
@@ -3627,6 +4948,9 @@
             "smithy.api#documentation": "<p>The next page token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetEvent": {
@@ -3756,10 +5080,13 @@
         "predictionTimestamp": {
           "target": "com.amazonaws.frauddetector#time",
           "traits": {
-            "smithy.api#documentation": "<p>\nThe timestamp that defines when the prediction was generated. \n</p>",
+            "smithy.api#documentation": "<p>\n    The timestamp that defines when the prediction was generated. The timestamp must be specified using ISO 8601 standard in UTC.</p>\n         <p>We recommend calling <a href=\"https://docs.aws.amazon.com/frauddetector/latest/api/API_ListEventPredictions.html\">ListEventPredictions</a>\n        first, and using the <code>predictionTimestamp</code> value in the response to provide an accurate prediction timestamp value.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetEventPredictionMetadataResult": {
@@ -3852,9 +5179,12 @@
         "predictionTimestamp": {
           "target": "com.amazonaws.frauddetector#time",
           "traits": {
-            "smithy.api#documentation": "<p>The timestamp that defines when the prediction was generated.\n</p>"
+            "smithy.api#documentation": "<p>The timestamp that defines when the prediction was generated. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetEventPredictionRequest": {
@@ -3904,7 +5234,7 @@
         "eventVariables": {
           "target": "com.amazonaws.frauddetector#EventVariableMap",
           "traits": {
-            "smithy.api#documentation": "<p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and \n         their corresponding values for the event you are sending for evaluation.</p>\n         <important>         \n            <p>You must provide at least one eventVariable</p>        \n         </important>\n      \n         <p>To ensure most accurate fraud prediction and to simplify your data preparation, Amazon Fraud Detector will replace all missing variables or values as follows:</p>\n      \n         <p>\n            <b>For Amazon Fraud Detector trained models:</b>\n         </p>\n         <p>If a null value is provided explicitly for a variable or if a variable is missing, model will replace the null value or the missing variable (no variable name in the eventVariables map) \n         with calculated default mean/medians for numeric variables and with special values for categorical variables.</p>\n      \n         <p>\n            <b>For imported SageMaker models:</b>\n         </p>\n         <p>If a null value is provided explicitly for a variable, the model and rules will use “null” as the value. If a variable is not provided (no variable name in the eventVariables map), model and rules \n         will use the default value that is provided for the variable. </p>",
+            "smithy.api#documentation": "<p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and \n         their corresponding values for the event you are sending for evaluation.</p>\n         <important>\n            <p>You must provide at least one eventVariable</p>\n         </important>\n         <p>To ensure most accurate fraud prediction and to simplify your data preparation, Amazon Fraud Detector will replace all missing variables or values as follows:</p>\n         <p>\n            <b>For Amazon Fraud Detector trained models:</b>\n         </p>\n         <p>If a null value is provided explicitly for a variable or if a variable is missing, model will replace the null value or the missing variable (no variable name in the eventVariables map) \n         with calculated default mean/medians for numeric variables and with special values for categorical variables.</p>\n         <p>\n            <b>For imported SageMaker models:</b>\n         </p>\n         <p>If a null value is provided explicitly for a variable, the model and rules will use “null” as the value. If a variable is not provided (no variable name in the eventVariables map), model and rules \n         will use the default value that is provided for the variable. </p>",
             "smithy.api#required": {}
           }
         },
@@ -3914,6 +5244,9 @@
             "smithy.api#documentation": "<p>The Amazon SageMaker model endpoint input data blobs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetEventPredictionResult": {
@@ -3937,6 +5270,9 @@
             "smithy.api#documentation": "<p>The model scores for Amazon SageMaker models.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetEventRequest": {
@@ -3956,6 +5292,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetEventResult": {
@@ -3967,6 +5306,9 @@
             "smithy.api#documentation": "<p>The details of the event.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetEventTypes": {
@@ -4024,6 +5366,9 @@
             "smithy.api#documentation": "<p>The maximum number of objects to return for the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetEventTypesResult": {
@@ -4041,6 +5386,9 @@
             "smithy.api#documentation": "<p>The next page token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetExternalModels": {
@@ -4098,6 +5446,9 @@
             "smithy.api#documentation": "<p>The maximum number of objects to return for the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetExternalModelsResult": {
@@ -4115,10 +5466,16 @@
             "smithy.api#documentation": "<p>The next page token to be used in subsequent requests.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetKMSEncryptionKey": {
       "type": "operation",
+      "input": {
+        "target": "smithy.api#Unit"
+      },
       "output": {
         "target": "com.amazonaws.frauddetector#GetKMSEncryptionKeyResult"
       },
@@ -4149,6 +5506,9 @@
             "smithy.api#documentation": "<p>The KMS encryption key.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetLabels": {
@@ -4206,6 +5566,9 @@
             "smithy.api#documentation": "<p>The maximum number of objects to return for the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetLabelsResult": {
@@ -4223,6 +5586,170 @@
             "smithy.api#documentation": "<p>The next page token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.frauddetector#GetListElements": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.frauddetector#GetListElementsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.frauddetector#GetListElementsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.frauddetector#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Gets all the elements in the specified list.\n        </p>",
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.frauddetector#GetListElementsRequest": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.frauddetector#noDashIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The name of the list.\n        </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.frauddetector#nextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The next token for the subsequent request.\n        </p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.frauddetector#ListsElementsMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The maximum number of objects to return for the request.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.frauddetector#GetListElementsResult": {
+      "type": "structure",
+      "members": {
+        "elements": {
+          "target": "com.amazonaws.frauddetector#ElementsList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The list elements.\n        </p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.frauddetector#nextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The next page token.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.frauddetector#GetListsMetadata": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.frauddetector#GetListsMetadataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.frauddetector#GetListsMetadataResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.frauddetector#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n           Gets the metadata of either all the lists under the account or the specified list. \n        </p>",
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.frauddetector#GetListsMetadataRequest": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.frauddetector#noDashIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The name of the list.\n        </p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.frauddetector#nextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The next token for the subsequent request.\n        </p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.frauddetector#ListsMetadataMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The maximum number of objects to return for the request.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.frauddetector#GetListsMetadataResult": {
+      "type": "structure",
+      "members": {
+        "lists": {
+          "target": "com.amazonaws.frauddetector#AllowDenyLists",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The metadata of the specified list or all lists under the account.\n        </p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.frauddetector#nextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The next page token.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetModelVersion": {
@@ -4278,6 +5805,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetModelVersionResult": {
@@ -4328,7 +5858,7 @@
         "status": {
           "target": "com.amazonaws.frauddetector#string",
           "traits": {
-            "smithy.api#documentation": "<p>The model version status.</p>\n\t        <p>Possible values are:</p>\n\t        <ul>\n            <li>\n               <p>\n                  <code>TRAINING_IN_PROGRESS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>TRAINING_COMPLETE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTIVATE_REQUESTED</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTIVATE_IN_PROGRESS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTIVE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>INACTIVATE_REQUESTED</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>INACTIVATE_IN_PROGRESS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>INACTIVE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ERROR</code>\n               </p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The model version status.</p>\n         <p>Possible values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>TRAINING_IN_PROGRESS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>TRAINING_COMPLETE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTIVATE_REQUESTED</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTIVATE_IN_PROGRESS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTIVE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>INACTIVATE_REQUESTED</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>INACTIVATE_IN_PROGRESS</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>INACTIVE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ERROR</code>\n               </p>\n            </li>\n         </ul>"
           }
         },
         "arn": {
@@ -4337,6 +5867,9 @@
             "smithy.api#documentation": "<p>The model version ARN.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetModels": {
@@ -4365,7 +5898,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified. </p> \n         <p>This is a paginated API. If you\n         provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records\n         per page. If you provide a <code>maxResults</code>, the value must be between 1 and 10.\n         To get the next page results, provide the pagination token from the\n            response as part of your request. A null pagination token\n         fetches the records from the beginning.</p>",
+        "smithy.api#documentation": "<p>Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified. </p>\n         <p>This is a paginated API. If you\n         provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records\n         per page. If you provide a <code>maxResults</code>, the value must be between 1 and 10.\n         To get the next page results, provide the pagination token from the\n            response as part of your request. A null pagination token\n         fetches the records from the beginning.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -4400,6 +5933,9 @@
             "smithy.api#documentation": "<p>The maximum number of objects to return for the request. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetModelsResult": {
@@ -4417,6 +5953,9 @@
             "smithy.api#documentation": "<p>The array of models.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetOutcomes": {
@@ -4474,6 +6013,9 @@
             "smithy.api#documentation": "<p>The maximum number of objects to return for the request. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetOutcomesResult": {
@@ -4491,6 +6033,9 @@
             "smithy.api#documentation": "<p>The next page token for subsequent requests.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetRules": {
@@ -4561,6 +6106,9 @@
             "smithy.api#documentation": "<p>The maximum number of rules to return for the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetRulesResult": {
@@ -4578,6 +6126,9 @@
             "smithy.api#documentation": "<p>The next page token to be used in subsequent requests.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#GetVariables": {
@@ -4635,6 +6186,9 @@
             "smithy.api#documentation": "<p>The max size per page determined for the get variable request. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#GetVariablesResult": {
@@ -4652,6 +6206,9 @@
             "smithy.api#documentation": "<p>The next page token to be used in subsequent requests. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#IngestedEventStatistics": {
@@ -4730,13 +6287,13 @@
       }
     },
     "com.amazonaws.frauddetector#Integer": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.frauddetector#Integer2": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.frauddetector#InternalServerException": {
       "type": "structure",
@@ -4831,14 +6388,13 @@
         "labelMapper": {
           "target": "com.amazonaws.frauddetector#labelMapper",
           "traits": {
-            "smithy.api#documentation": "<p>The label mapper maps the Amazon Fraud Detector supported model classification labels (<code>FRAUD</code>, <code>LEGIT</code>) to the appropriate event type labels. For example, if \"<code>FRAUD</code>\" and \"<code>LEGIT</code>\" are Amazon Fraud Detector supported labels, this mapper could be: <code>{\"FRAUD\" => [\"0\"]</code>, <code>\"LEGIT\" => [\"1\"]}</code> or <code>{\"FRAUD\" => [\"false\"]</code>, <code>\"LEGIT\" => [\"true\"]}</code> or <code>{\"FRAUD\" => [\"fraud\", \"abuse\"]</code>, <code>\"LEGIT\" => [\"legit\", \"safe\"]}</code>. The value part of the mapper is a list, because you may have multiple label variants from your event type for a single Amazon Fraud Detector label.\n        </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The label mapper maps the Amazon Fraud Detector supported model classification labels (<code>FRAUD</code>, <code>LEGIT</code>) to the appropriate event type labels. For example, if \"<code>FRAUD</code>\" and \"<code>LEGIT</code>\" are Amazon Fraud Detector supported labels, this mapper could be: <code>{\"FRAUD\" => [\"0\"]</code>, <code>\"LEGIT\" => [\"1\"]}</code> or <code>{\"FRAUD\" => [\"false\"]</code>, <code>\"LEGIT\" => [\"true\"]}</code> or <code>{\"FRAUD\" => [\"fraud\", \"abuse\"]</code>, <code>\"LEGIT\" => [\"legit\", \"safe\"]}</code>. The value part of the mapper is a list, because you may have multiple label variants from your event type for a single Amazon Fraud Detector label.\n        </p>"
           }
         },
         "unlabeledEventsTreatment": {
           "target": "com.amazonaws.frauddetector#UnlabeledEventsTreatment",
           "traits": {
-            "smithy.api#documentation": "<p>The action to take for unlabeled events.</p>"
+            "smithy.api#documentation": "<p>The action to take for unlabeled events.</p>\n         <ul>\n            <li>\n               <p>Use <code>IGNORE</code> if you want the unlabeled events to be ignored. This is recommended when the majority of the events in the dataset are labeled.</p>\n            </li>\n            <li>\n               <p>Use <code>FRAUD</code>  if you want to categorize all unlabeled events as “Fraud”.  This is recommended when most of the events in your dataset are fraudulent.</p>\n            </li>\n            <li>\n               <p>Use <code>LEGIT</code> if you want to categorize all unlabeled events as “Legit”. This is recommended when most of the events in your dataset are legitimate.</p>\n            </li>\n            <li>\n               <p>Use <code>AUTO</code> if you want Amazon Fraud Detector to decide how to use the unlabeled data.  This is recommended when there is significant unlabeled events in the dataset.</p>\n            </li>\n         </ul>\n         <p>By default, Amazon Fraud Detector ignores the unlabeled data.</p>"
           }
         }
       },
@@ -4847,14 +6403,14 @@
       }
     },
     "com.amazonaws.frauddetector#Language": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DETECTORPL",
-            "name": "DETECTORPL"
+      "type": "enum",
+      "members": {
+        "DETECTORPL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DETECTORPL"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.frauddetector#ListEventPredictions": {
@@ -4880,7 +6436,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period. \n    If filter is not specified, the most recent prediction is returned.</p>\n\n         <p>For example, the following filter lists all past predictions for <code>xyz</code> event type -\n    <code>{ \n        \"eventType\":{\n        \"value\": \"xyz\" }” \n        }  </code>\n         </p>       \n\n         <p>This is a paginated API. If you provide a null <code>maxResults</code>, this action will retrieve a maximum of 10 records per page. \n  If you provide a <code>maxResults</code>, the value must be between 50 and 100. To get the next page results, provide \n  the <code>nextToken</code> from the response as part of your request. A null <code>nextToken</code> fetches the records from the beginning.    \n</p>",
+        "smithy.api#documentation": "<p>Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period. \n    If filter is not specified, the most recent prediction is returned.</p>\n         <p>For example, the following filter lists all past predictions for <code>xyz</code> event type -\n    <code>{ \n        \"eventType\":{\n        \"value\": \"xyz\" }” \n        }  </code>\n         </p>\n         <p>This is a paginated API. If you provide a null <code>maxResults</code>, this action will retrieve a maximum of 10 records per page. \n  If you provide a <code>maxResults</code>, the value must be between 50 and 100. To get the next page results, provide \n  the <code>nextToken</code> from the response as part of your request. A null <code>nextToken</code> fetches the records from the beginning.    \n</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -4933,6 +6489,9 @@
             "smithy.api#documentation": "<p>\nThe maximum number of predictions to return for the request.\n</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#ListEventPredictionsResult": {
@@ -4950,6 +6509,21 @@
             "smithy.api#documentation": "<p>\nIdentifies the next page of results to return. Use the token to make the call again to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours.\n</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.frauddetector#ListOfAggregatedLogOddsMetrics": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.frauddetector#AggregatedLogOddsMetric"
+      }
+    },
+    "com.amazonaws.frauddetector#ListOfAggregatedVariablesImpactExplanations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.frauddetector#AggregatedVariablesImpactExplanation"
       }
     },
     "com.amazonaws.frauddetector#ListOfEvaluatedExternalModels": {
@@ -5071,6 +6645,9 @@
             "smithy.api#documentation": "<p>The maximum number of objects to return for the request. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#ListTagsForResourceResult": {
@@ -5087,6 +6664,50 @@
           "traits": {
             "smithy.api#documentation": "<p>The next token for subsequent requests. </p>"
           }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.frauddetector#ListUpdateMode": {
+      "type": "enum",
+      "members": {
+        "REPLACE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REPLACE"
+          }
+        },
+        "APPEND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "APPEND"
+          }
+        },
+        "REMOVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REMOVE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.frauddetector#ListsElementsMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 500,
+          "max": 5000
+        }
+      }
+    },
+    "com.amazonaws.frauddetector#ListsMetadataMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 5,
+          "max": 50
         }
       }
     },
@@ -5120,10 +6741,7 @@
       }
     },
     "com.amazonaws.frauddetector#Long": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.frauddetector#MapOfStrings": {
       "type": "map",
@@ -5240,18 +6858,20 @@
       }
     },
     "com.amazonaws.frauddetector#ModelEndpointStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ASSOCIATED",
-            "name": "ASSOCIATED"
-          },
-          {
-            "value": "DISSOCIATED",
-            "name": "DISSOCIATED"
+      "type": "enum",
+      "members": {
+        "ASSOCIATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSOCIATED"
           }
-        ]
+        },
+        "DISSOCIATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISSOCIATED"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#ModelInputConfiguration": {
@@ -5294,18 +6914,20 @@
       }
     },
     "com.amazonaws.frauddetector#ModelInputDataFormat": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TEXT_CSV",
-            "name": "CSV"
-          },
-          {
-            "value": "APPLICATION_JSON",
-            "name": "JSON"
+      "type": "enum",
+      "members": {
+        "CSV": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TEXT_CSV"
           }
-        ]
+        },
+        "JSON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "APPLICATION_JSON"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#ModelOutputConfiguration": {
@@ -5336,18 +6958,20 @@
       }
     },
     "com.amazonaws.frauddetector#ModelOutputDataFormat": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TEXT_CSV",
-            "name": "CSV"
-          },
-          {
-            "value": "APPLICATION_JSONLINES",
-            "name": "JSONLINES"
+      "type": "enum",
+      "members": {
+        "CSV": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TEXT_CSV"
           }
-        ]
+        },
+        "JSONLINES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "APPLICATION_JSONLINES"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#ModelPredictionMap": {
@@ -5380,29 +7004,37 @@
       }
     },
     "com.amazonaws.frauddetector#ModelSource": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SAGEMAKER",
-            "name": "SAGEMAKER"
+      "type": "enum",
+      "members": {
+        "SAGEMAKER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SAGEMAKER"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.frauddetector#ModelTypeEnum": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ONLINE_FRAUD_INSIGHTS",
-            "name": "ONLINE_FRAUD_INSIGHTS"
-          },
-          {
-            "value": "TRANSACTION_FRAUD_INSIGHTS",
-            "name": "TRANSACTION_FRAUD_INSIGHTS"
+      "type": "enum",
+      "members": {
+        "ONLINE_FRAUD_INSIGHTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ONLINE_FRAUD_INSIGHTS"
           }
-        ]
+        },
+        "TRANSACTION_FRAUD_INSIGHTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRANSACTION_FRAUD_INSIGHTS"
+          }
+        },
+        "ACCOUNT_TAKEOVER_INSIGHTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT_TAKEOVER_INSIGHTS"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#ModelVersion": {
@@ -5514,6 +7146,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The model version ARN.</p>"
           }
+        },
+        "trainingResultV2": {
+          "target": "com.amazonaws.frauddetector#TrainingResultV2",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The training result details. The details include the relative importance of the variables.\n        </p>"
+          }
         }
       },
       "traits": {
@@ -5547,22 +7185,26 @@
       }
     },
     "com.amazonaws.frauddetector#ModelVersionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
-          },
-          {
-            "value": "TRAINING_CANCELLED",
-            "name": "TRAINING_CANCELLED"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        },
+        "TRAINING_CANCELLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRAINING_CANCELLED"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#NameList": {
@@ -5586,6 +7228,84 @@
         "smithy.api#length": {
           "min": 1
         }
+      }
+    },
+    "com.amazonaws.frauddetector#OFIMetricDataPoint": {
+      "type": "structure",
+      "members": {
+        "fpr": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The false positive rate. This is the percentage of total legitimate events that are incorrectly predicted as fraud.\n        </p>"
+          }
+        },
+        "precision": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The percentage of fraud events correctly predicted as fraudulent as compared to all events predicted as fraudulent.\n        </p>"
+          }
+        },
+        "tpr": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The true positive rate. This is the percentage of total fraud the model detects. Also known as capture rate.\n        </p>"
+          }
+        },
+        "threshold": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The model threshold that specifies an acceptable fraud capture rate. For example, a threshold of 500 means any model score 500 or above is labeled as fraud.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The Online Fraud Insights (OFI) model performance metrics data points. \n        </p>"
+      }
+    },
+    "com.amazonaws.frauddetector#OFIMetricDataPointsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.frauddetector#OFIMetricDataPoint"
+      }
+    },
+    "com.amazonaws.frauddetector#OFIModelPerformance": {
+      "type": "structure",
+      "members": {
+        "auc": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The area under the curve (auc). This summarizes the total positive rate (tpr) and false positive rate (FPR) across all possible model score thresholds.\n        </p>"
+          }
+        },
+        "uncertaintyRange": {
+          "target": "com.amazonaws.frauddetector#UncertaintyRange",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Indicates the range of area under curve (auc) expected from the OFI model. A range greater than 0.1 indicates higher model uncertainity.  \n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The Online Fraud Insights (OFI) model performance score.\n        </p>"
+      }
+    },
+    "com.amazonaws.frauddetector#OFITrainingMetricsValue": {
+      "type": "structure",
+      "members": {
+        "metricDataPoints": {
+          "target": "com.amazonaws.frauddetector#OFIMetricDataPointsList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The model's performance metrics data points.\n        </p>"
+          }
+        },
+        "modelPerformance": {
+          "target": "com.amazonaws.frauddetector#OFIModelPerformance",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The model's overall performance score.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The Online Fraud Insights (OFI) model training metric details. \n        </p>"
       }
     },
     "com.amazonaws.frauddetector#Outcome": {
@@ -5635,7 +7355,6 @@
     "com.amazonaws.frauddetector#OutcomesMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 50,
           "max": 100
@@ -5649,6 +7368,12 @@
           "target": "com.amazonaws.frauddetector#listOfVariableImpactExplanations",
           "traits": {
             "smithy.api#documentation": "<p>\nThe details of the event variable's impact on the prediction score.\n</p>"
+          }
+        },
+        "aggregatedVariablesImpactExplanations": {
+          "target": "com.amazonaws.frauddetector#ListOfAggregatedVariablesImpactExplanations",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The details of the aggregated variables impact on the prediction score.  \n        </p>\n         <p>Account Takeover Insights (ATI) model uses event variables from the login data you \n            provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address. \n            In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>"
           }
         }
       },
@@ -5736,11 +7461,17 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#PutDetectorResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#PutEntityType": {
       "type": "operation",
@@ -5793,11 +7524,17 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#PutEntityTypeResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#PutEventType": {
       "type": "operation",
@@ -5867,7 +7604,7 @@
         "eventIngestion": {
           "target": "com.amazonaws.frauddetector#EventIngestion",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies if ingenstion is enabled or disabled.</p>"
+            "smithy.api#documentation": "<p>Specifies if ingestion is enabled or disabled.</p>"
           }
         },
         "tags": {
@@ -5875,12 +7612,24 @@
           "traits": {
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
+        },
+        "eventOrchestration": {
+          "target": "com.amazonaws.frauddetector#EventOrchestration",
+          "traits": {
+            "smithy.api#documentation": "<p>Enables or disables event orchestration. If enabled, you can send event predictions to select AWS services for downstream processing of the events.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#PutEventTypeResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#PutExternalModel": {
       "type": "operation",
@@ -5962,11 +7711,17 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#PutExternalModelResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#PutKMSEncryptionKey": {
       "type": "operation",
@@ -6006,15 +7761,21 @@
         "kmsEncryptionKeyArn": {
           "target": "com.amazonaws.frauddetector#KmsEncryptionKeyArn",
           "traits": {
-            "smithy.api#documentation": "<p>The KMS encryption key ARN.</p>",
+            "smithy.api#documentation": "<p>The KMS encryption key ARN.</p>\n         <p>The KMS key must be single-Region key. Amazon Fraud Detector does not support multi-Region KMS key.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#PutKMSEncryptionKeyResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#PutLabel": {
       "type": "operation",
@@ -6064,14 +7825,20 @@
         "tags": {
           "target": "com.amazonaws.frauddetector#tagList",
           "traits": {
-            "smithy.api#documentation": "<p></p>"
+            "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#PutLabelResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#PutOutcome": {
       "type": "operation",
@@ -6124,11 +7891,17 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#PutOutcomeResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#ResourceNotFoundException": {
       "type": "structure",
@@ -6263,18 +8036,20 @@
       }
     },
     "com.amazonaws.frauddetector#RuleExecutionMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ALL_MATCHED",
-            "name": "ALL_MATCHED"
-          },
-          {
-            "value": "FIRST_MATCHED",
-            "name": "FIRST_MATCHED"
+      "type": "enum",
+      "members": {
+        "ALL_MATCHED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL_MATCHED"
           }
-        ]
+        },
+        "FIRST_MATCHED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FIRST_MATCHED"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#RuleList": {
@@ -6306,7 +8081,6 @@
     "com.amazonaws.frauddetector#RulesMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 50,
           "max": 100
@@ -6395,11 +8169,95 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#SendEventResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.frauddetector#TFIMetricDataPoint": {
+      "type": "structure",
+      "members": {
+        "fpr": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The false positive rate. This is the percentage of total legitimate events that are incorrectly predicted as fraud.\n        </p>"
+          }
+        },
+        "precision": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The percentage of fraud events correctly predicted as fraudulent as compared to all events predicted as fraudulent.\n        </p>"
+          }
+        },
+        "tpr": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The true positive rate. This is the percentage of total fraud the model detects. Also known as capture rate.\n        </p>"
+          }
+        },
+        "threshold": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The model threshold that specifies an acceptable fraud capture rate. For example, a threshold of 500 means any \n            model score 500 or above is labeled as fraud.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The performance metrics data points for Transaction Fraud Insights (TFI) model. \n        </p>"
+      }
+    },
+    "com.amazonaws.frauddetector#TFIMetricDataPointsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.frauddetector#TFIMetricDataPoint"
+      }
+    },
+    "com.amazonaws.frauddetector#TFIModelPerformance": {
+      "type": "structure",
+      "members": {
+        "auc": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The area under the curve (auc). This summarizes the total positive rate (tpr) and false positive rate (FPR) across all possible model score thresholds.\n        </p>"
+          }
+        },
+        "uncertaintyRange": {
+          "target": "com.amazonaws.frauddetector#UncertaintyRange",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Indicates the range of area under curve (auc) expected from the TFI model. A range greater than 0.1 indicates higher model uncertainity. \n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The Transaction Fraud Insights (TFI) model performance score.\n        </p>"
+      }
+    },
+    "com.amazonaws.frauddetector#TFITrainingMetricsValue": {
+      "type": "structure",
+      "members": {
+        "metricDataPoints": {
+          "target": "com.amazonaws.frauddetector#TFIMetricDataPointsList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The model's performance metrics data points.\n        </p>"
+          }
+        },
+        "modelPerformance": {
+          "target": "com.amazonaws.frauddetector#TFIModelPerformance",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The model performance score.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The Transaction Fraud Insights (TFI) model training metric details. \n        </p>"
+      }
     },
     "com.amazonaws.frauddetector#Tag": {
       "type": "structure",
@@ -6466,16 +8324,21 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#TagResourceResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#TagsMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 50,
           "max": 50
@@ -6509,10 +8372,7 @@
           }
         },
         "labelSchema": {
-          "target": "com.amazonaws.frauddetector#LabelSchema",
-          "traits": {
-            "smithy.api#required": {}
-          }
+          "target": "com.amazonaws.frauddetector#LabelSchema"
         }
       },
       "traits": {
@@ -6520,18 +8380,20 @@
       }
     },
     "com.amazonaws.frauddetector#TrainingDataSourceEnum": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EXTERNAL_EVENTS",
-            "name": "EXTERNAL_EVENTS"
-          },
-          {
-            "value": "INGESTED_EVENTS",
-            "name": "INGESTED_EVENTS"
+      "type": "enum",
+      "members": {
+        "EXTERNAL_EVENTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXTERNAL_EVENTS"
           }
-        ]
+        },
+        "INGESTED_EVENTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INGESTED_EVENTS"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#TrainingMetrics": {
@@ -6552,6 +8414,32 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The training metric details.</p>"
+      }
+    },
+    "com.amazonaws.frauddetector#TrainingMetricsV2": {
+      "type": "structure",
+      "members": {
+        "ofi": {
+          "target": "com.amazonaws.frauddetector#OFITrainingMetricsValue",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The Online Fraud Insights (OFI) model training metric details.  \n        </p>"
+          }
+        },
+        "tfi": {
+          "target": "com.amazonaws.frauddetector#TFITrainingMetricsValue",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The Transaction Fraud Insights (TFI) model training metric details. \n        </p>"
+          }
+        },
+        "ati": {
+          "target": "com.amazonaws.frauddetector#ATITrainingMetricsValue",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The Account Takeover Insights (ATI) model training metric details. \n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The training metrics details.\n        </p>"
       }
     },
     "com.amazonaws.frauddetector#TrainingResult": {
@@ -6580,23 +8468,81 @@
         "smithy.api#documentation": "<p>The training result details.</p>"
       }
     },
-    "com.amazonaws.frauddetector#UnlabeledEventsTreatment": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IGNORE",
-            "name": "IGNORE"
-          },
-          {
-            "value": "FRAUD",
-            "name": "FRAUD"
-          },
-          {
-            "value": "LEGIT",
-            "name": "LEGIT"
+    "com.amazonaws.frauddetector#TrainingResultV2": {
+      "type": "structure",
+      "members": {
+        "dataValidationMetrics": {
+          "target": "com.amazonaws.frauddetector#DataValidationMetrics"
+        },
+        "trainingMetricsV2": {
+          "target": "com.amazonaws.frauddetector#TrainingMetricsV2",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The training metric details.\n        </p>"
           }
-        ]
+        },
+        "variableImportanceMetrics": {
+          "target": "com.amazonaws.frauddetector#VariableImportanceMetrics"
+        },
+        "aggregatedVariablesImportanceMetrics": {
+          "target": "com.amazonaws.frauddetector#AggregatedVariablesImportanceMetrics",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The variable importance metrics of the aggregated variables.\n        </p>\n         <p>Account Takeover Insights (ATI) model uses event variables from the login data you \n            provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address. \n            In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The training result details.\n        </p>"
+      }
+    },
+    "com.amazonaws.frauddetector#UncertaintyRange": {
+      "type": "structure",
+      "members": {
+        "lowerBoundValue": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The lower bound value of the area under curve (auc). \n        </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "upperBoundValue": {
+          "target": "com.amazonaws.frauddetector#float",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The upper bound value of the area under curve (auc). \n        </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Range of area under curve (auc) expected from the model. A range greater than 0.1 indicates higher model uncertainity. \n            A range is the difference between upper and lower bound of auc. \n        </p>"
+      }
+    },
+    "com.amazonaws.frauddetector#UnlabeledEventsTreatment": {
+      "type": "enum",
+      "members": {
+        "IGNORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IGNORE"
+          }
+        },
+        "FRAUD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FRAUD"
+          }
+        },
+        "LEGIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LEGIT"
+          }
+        },
+        "AUTO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AUTO"
+          }
+        }
       }
     },
     "com.amazonaws.frauddetector#UntagResource": {
@@ -6642,11 +8588,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#UntagResourceResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#UpdateDetectorVersion": {
       "type": "operation",
@@ -6733,11 +8685,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateDetectorVersionMetadataResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#UpdateDetectorVersionRequest": {
       "type": "structure",
@@ -6785,14 +8743,20 @@
         "ruleExecutionMode": {
           "target": "com.amazonaws.frauddetector#RuleExecutionMode",
           "traits": {
-            "smithy.api#documentation": "<p>The rule execution mode to add to the detector.</p>\n\t        <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>\n\t        <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>\n         <p>The default behavior is <code>FIRST_MATCHED</code>.</p>"
+            "smithy.api#documentation": "<p>The rule execution mode to add to the detector.</p>\n         <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>\n         <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>\n         <p>The default behavior is <code>FIRST_MATCHED</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateDetectorVersionResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#UpdateDetectorVersionStatus": {
       "type": "operation",
@@ -6846,15 +8810,21 @@
         "status": {
           "target": "com.amazonaws.frauddetector#DetectorVersionStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The new status.</p>",
+            "smithy.api#documentation": "<p>The new status.</p>\n         <p>The only supported values are <code>ACTIVE</code> and <code>INACTIVE</code>\n         </p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateDetectorVersionStatusResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#UpdateEventLabel": {
       "type": "operation",
@@ -6919,11 +8889,95 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateEventLabelResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.frauddetector#UpdateList": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.frauddetector#UpdateListRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.frauddetector#UpdateListResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.frauddetector#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.frauddetector#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Updates a list.\n        </p>"
+      }
+    },
+    "com.amazonaws.frauddetector#UpdateListRequest": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.frauddetector#noDashIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The name of the list to update.\n        </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "elements": {
+          "target": "com.amazonaws.frauddetector#ElementsList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            One or more list elements to add or replace. If you are providing the elements, make sure to specify the <code>updateMode</code> to use.\n        </p>\n         <p>If you are deleting all elements from the list, use <code>REPLACE</code> for the <code>updateMode</code> and provide an empty list (0 elements).</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.frauddetector#description",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The new description.\n        </p>"
+          }
+        },
+        "updateMode": {
+          "target": "com.amazonaws.frauddetector#ListUpdateMode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The update mode (type).\n        </p>\n         <ul>\n            <li>\n               <p>Use <code>APPEND</code> if you are adding elements to the list.</p>\n            </li>\n            <li>\n               <p>Use <code>REPLACE</code> if you replacing existing elements in the list.</p>\n            </li>\n            <li>\n               <p>Use <code>REMOVE</code> if you are removing elements from the list.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "variableType": {
+          "target": "com.amazonaws.frauddetector#variableType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The variable type you want to assign to the list.\n        </p>\n         <note>\n            <p>You cannot update a variable type of a list that already has a variable type assigned to it. You can assign a variable type to a list only if the list does not already have a variable type.</p>\n         </note>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.frauddetector#UpdateListResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#UpdateModel": {
       "type": "operation",
@@ -6980,11 +9034,17 @@
             "smithy.api#documentation": "<p>The new model description.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateModelResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#UpdateModelVersion": {
       "type": "operation",
@@ -7060,6 +9120,9 @@
             "smithy.api#documentation": "<p>A collection of key and value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateModelVersionResult": {
@@ -7089,6 +9152,9 @@
             "smithy.api#documentation": "<p>The status of the updated model version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateModelVersionStatus": {
@@ -7120,7 +9186,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the status of a model version.</p>\n         <p>You can perform the following status updates:</p> \n         <ol>\n            <li>\n               <p>Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>.</p>\n            </li>\n            <li>\n               <p>Change <code>ACTIVE</code> to <code>INACTIVE</code>.</p>\n            </li>\n         </ol>"
+        "smithy.api#documentation": "<p>Updates the status of a model version.</p>\n         <p>You can perform the following status updates:</p>\n         <ol>\n            <li>\n               <p>Change the <code>TRAINING_IN_PROGRESS</code> status to <code>TRAINING_CANCELLED</code>.</p>\n            </li>\n            <li>\n               <p>Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>.</p>\n            </li>\n            <li>\n               <p>Change <code>ACTIVE</code> to <code>INACTIVE</code>.</p>\n            </li>\n         </ol>"
       }
     },
     "com.amazonaws.frauddetector#UpdateModelVersionStatusRequest": {
@@ -7154,11 +9220,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateModelVersionStatusResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#UpdateRuleMetadata": {
       "type": "operation",
@@ -7209,11 +9281,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateRuleMetadataResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#UpdateRuleVersion": {
       "type": "operation",
@@ -7290,6 +9368,9 @@
             "smithy.api#documentation": "<p>The tags to assign to the rule version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateRuleVersionResult": {
@@ -7301,6 +9382,9 @@
             "smithy.api#documentation": "<p>The new rule version that was created.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateVariable": {
@@ -7363,17 +9447,20 @@
             "smithy.api#documentation": "<p>The variable type. For more information see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types\">Variable types</a>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.frauddetector#UpdateVariableResult": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.frauddetector#UseEventVariables": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.frauddetector#ValidationException": {
       "type": "structure",
@@ -7558,7 +9645,6 @@
     "com.amazonaws.frauddetector#VariablesMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 50,
           "max": 100
@@ -7587,7 +9673,6 @@
     "com.amazonaws.frauddetector#batchImportsMaxPageSize": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 50
@@ -7597,7 +9682,6 @@
     "com.amazonaws.frauddetector#batchPredictionsMaxPageSize": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 50
@@ -7644,7 +9728,6 @@
     "com.amazonaws.frauddetector#entityTypesMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 5,
           "max": 10
@@ -7660,7 +9743,6 @@
     "com.amazonaws.frauddetector#eventTypesMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 5,
           "max": 10
@@ -7690,10 +9772,7 @@
       }
     },
     "com.amazonaws.frauddetector#float": {
-      "type": "float",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "float"
     },
     "com.amazonaws.frauddetector#floatVersionString": {
       "type": "string",
@@ -7747,13 +9826,12 @@
         "target": "com.amazonaws.frauddetector#string"
       },
       "value": {
-        "target": "com.amazonaws.frauddetector#NonEmptyListOfStrings"
+        "target": "com.amazonaws.frauddetector#ListOfStrings"
       }
     },
     "com.amazonaws.frauddetector#labelsMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 10,
           "max": 50
@@ -7812,11 +9890,30 @@
     "com.amazonaws.frauddetector#modelsMaxPageSize": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10
         }
+      }
+    },
+    "com.amazonaws.frauddetector#nextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 8192
+        },
+        "smithy.api#pattern": ".*"
+      }
+    },
+    "com.amazonaws.frauddetector#noDashIdentifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[0-9a-z_]+$"
       }
     },
     "com.amazonaws.frauddetector#ruleExpression": {
@@ -7928,12 +10025,22 @@
         }
       }
     },
+    "com.amazonaws.frauddetector#variableType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[A-Z_]{1,64}$"
+      }
+    },
     "com.amazonaws.frauddetector#variableValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 1024
+          "max": 8192
         },
         "smithy.api#sensitive": {}
       }

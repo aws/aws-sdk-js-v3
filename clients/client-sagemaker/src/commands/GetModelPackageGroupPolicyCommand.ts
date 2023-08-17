@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { GetModelPackageGroupPolicyInput, GetModelPackageGroupPolicyOutput } from "../models/models_2";
-import {
-  deserializeAws_json1_1GetModelPackageGroupPolicyCommand,
-  serializeAws_json1_1GetModelPackageGroupPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetModelPackageGroupPolicyInput, GetModelPackageGroupPolicyOutput } from "../models/models_3";
+import { de_GetModelPackageGroupPolicyCommand, se_GetModelPackageGroupPolicyCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetModelPackageGroupPolicyCommand}.
+ */
 export interface GetModelPackageGroupPolicyCommandInput extends GetModelPackageGroupPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetModelPackageGroupPolicyCommand}.
+ */
 export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackageGroupPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a resource policy that manages access for a model group. For information about
  *             resource policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
  *                 policies and resource-based policies</a> in the <i>Amazon Web Services Identity and
@@ -32,13 +46,25 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  * import { SageMakerClient, GetModelPackageGroupPolicyCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetModelPackageGroupPolicyCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // GetModelPackageGroupPolicyInput
+ *   ModelPackageGroupName: "STRING_VALUE", // required
+ * };
  * const command = new GetModelPackageGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetModelPackageGroupPolicyOutput
+ * //   ResourcePolicy: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
+ * @param GetModelPackageGroupPolicyCommandInput - {@link GetModelPackageGroupPolicyCommandInput}
+ * @returns {@link GetModelPackageGroupPolicyCommandOutput}
  * @see {@link GetModelPackageGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class GetModelPackageGroupPolicyCommand extends $Command<
@@ -49,6 +75,18 @@ export class GetModelPackageGroupPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelPackageGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +102,9 @@ export class GetModelPackageGroupPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetModelPackageGroupPolicyCommandInput, GetModelPackageGroupPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetModelPackageGroupPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +115,8 @@ export class GetModelPackageGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetModelPackageGroupPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetModelPackageGroupPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,15 +126,21 @@ export class GetModelPackageGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelPackageGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetModelPackageGroupPolicyCommand(input, context);
+    return se_GetModelPackageGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetModelPackageGroupPolicyCommandOutput> {
-    return deserializeAws_json1_1GetModelPackageGroupPolicyCommand(output, context);
+    return de_GetModelPackageGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

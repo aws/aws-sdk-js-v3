@@ -20,23 +20,29 @@ description = "Generates TypeScript code for AWS protocols from Smithy models"
 extra["displayName"] = "Smithy :: AWS :: Typescript :: Codegen"
 extra["moduleName"] = "software.amazon.smithy.aws.typescript.codegen"
 
+val smithyVersion: String by project
+
 buildscript {
+    val smithyVersion: String by project
+
     repositories {
+        mavenLocal()
         mavenCentral()
     }
     dependencies {
-        classpath("software.amazon.smithy:smithy-model:${rootProject.extra["smithyVersion"]}")
+        classpath("software.amazon.smithy:smithy-model:$smithyVersion")
     }
 }
 
 dependencies {
-    api("software.amazon.smithy:smithy-aws-cloudformation-traits:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy:smithy-aws-traits:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy:smithy-waiters:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy:smithy-aws-iam-traits:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy:smithy-protocol-test-traits:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy:smithy-model:${rootProject.extra["smithyVersion"]}")
-    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.10.0")
+    api("software.amazon.smithy:smithy-aws-cloudformation-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-waiters:$smithyVersion")
+    api("software.amazon.smithy:smithy-aws-iam-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-protocol-test-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-model:$smithyVersion")
+    api("software.amazon.smithy:smithy-rules-engine:$smithyVersion")
+    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.17.1")
 }
 
 tasks.register("set-aws-sdk-versions") {
@@ -51,7 +57,10 @@ tasks.register("set-aws-sdk-versions") {
                 var packageJson = Node.parse(packageJsonFile.readText()).expectObjectNode()
                 var packageName = packageJson.expectStringMember("name").getValue()
                 var packageVersion = packageJson.expectStringMember("version").getValue()
-                versionsFile.appendText("$packageName=$packageVersion\n")
+                var isPrivate = packageJson.getBooleanMemberOrDefault("private", false)
+                if (!isPrivate) {
+                    versionsFile.appendText("$packageName=$packageVersion\n")
+                }
             }
         }
     }

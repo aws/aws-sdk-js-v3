@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -30,45 +30,36 @@
   },
   "shapes": {
     "com.amazonaws.amplifybackend#AdditionalConstraintsElement": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "REQUIRE_DIGIT",
-            "name": "REQUIRE_DIGIT"
-          },
-          {
-            "value": "REQUIRE_LOWERCASE",
-            "name": "REQUIRE_LOWERCASE"
-          },
-          {
-            "value": "REQUIRE_SYMBOL",
-            "name": "REQUIRE_SYMBOL"
-          },
-          {
-            "value": "REQUIRE_UPPERCASE",
-            "name": "REQUIRE_UPPERCASE"
+      "type": "enum",
+      "members": {
+        "REQUIRE_DIGIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REQUIRE_DIGIT"
           }
-        ]
+        },
+        "REQUIRE_LOWERCASE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REQUIRE_LOWERCASE"
+          }
+        },
+        "REQUIRE_SYMBOL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REQUIRE_SYMBOL"
+          }
+        },
+        "REQUIRE_UPPERCASE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REQUIRE_UPPERCASE"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#AmplifyBackend": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "AmplifyBackend",
-          "arnNamespace": "amplifybackend",
-          "cloudFormationName": "AmplifyBackend",
-          "cloudTrailEventSource": "amplifybackend.amazonaws.com",
-          "endpointPrefix": "amplifybackend"
-        },
-        "aws.auth#sigv4": {
-          "name": "amplifybackend"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>AWS Amplify Admin API</p>",
-        "smithy.api#title": "AmplifyBackend"
-      },
       "version": "2020-08-11",
       "operations": [
         {
@@ -164,40 +155,897 @@
         {
           "target": "com.amazonaws.amplifybackend#UpdateBackendStorage"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "AmplifyBackend",
+          "arnNamespace": "amplifybackend",
+          "cloudFormationName": "AmplifyBackend",
+          "cloudTrailEventSource": "amplifybackend.amazonaws.com",
+          "endpointPrefix": "amplifybackend"
+        },
+        "aws.auth#sigv4": {
+          "name": "amplifybackend"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>AWS Amplify Admin API</p>",
+        "smithy.api#title": "AmplifyBackend",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://amplifybackend-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://amplifybackend-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://amplifybackend.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://amplifybackend.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://amplifybackend.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.amplifybackend#AuthResources": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "USER_POOL_ONLY",
-            "name": "USER_POOL_ONLY"
-          },
-          {
-            "value": "IDENTITY_POOL_AND_USER_POOL",
-            "name": "IDENTITY_POOL_AND_USER_POOL"
+      "type": "enum",
+      "members": {
+        "USER_POOL_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "USER_POOL_ONLY"
           }
-        ]
+        },
+        "IDENTITY_POOL_AND_USER_POOL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IDENTITY_POOL_AND_USER_POOL"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#AuthenticatedElement": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "READ",
-            "name": "READ"
-          },
-          {
-            "value": "CREATE_AND_UPDATE",
-            "name": "CREATE_AND_UPDATE"
-          },
-          {
-            "value": "DELETE",
-            "name": "DELETE"
+      "type": "enum",
+      "members": {
+        "READ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "READ"
           }
-        ]
+        },
+        "CREATE_AND_UPDATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_AND_UPDATE"
+          }
+        },
+        "DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#BackendAPIAppSyncAuthSettings": {
@@ -384,7 +1232,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes Apple social federation configurations for allowing your app users to sign in using OAuth.</p>"
+        "smithy.api#documentation": "<p>Describes Apple social federation configurations for allowing your app users to sign in using OAuth.</p>",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.amplifybackend#BackendAuthSocialProviderConfig": {
@@ -406,7 +1255,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes third-party social federation configurations for allowing your app users to sign in using OAuth.</p>"
+        "smithy.api#documentation": "<p>Describes third-party social federation configurations for allowing your app users to sign in using OAuth.</p>",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.amplifybackend#BackendJobRespObj": {
@@ -575,7 +1425,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for CloneBackend.</p>"
+        "smithy.api#documentation": "<p>The request body for CloneBackend.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#CloneBackendResponse": {
@@ -623,6 +1474,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateBackend": {
@@ -724,7 +1578,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for CreateBackendAPI.</p>"
+        "smithy.api#documentation": "<p>The request body for CreateBackendAPI.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendAPIResponse": {
@@ -772,6 +1627,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendAuth": {
@@ -811,7 +1669,7 @@
         "DeliveryMethod": {
           "target": "com.amazonaws.amplifybackend#DeliveryMethod",
           "traits": {
-            "smithy.api#documentation": "<p>Describes which mode to use (either SMS or email) to deliver messages to app users who want to recover their password.</p>",
+            "smithy.api#documentation": "<p><b>(DEPRECATED)</b> Describes which mode to use (either SMS or email) to deliver messages to app users who want to recover their password.</p>",
             "smithy.api#jsonName": "deliveryMethod",
             "smithy.api#required": {}
           }
@@ -819,20 +1677,20 @@
         "EmailSettings": {
           "target": "com.amazonaws.amplifybackend#EmailSettings",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration for the email sent when an app user forgets their password.</p>",
+            "smithy.api#documentation": "<p><b>(DEPRECATED)</b> The configuration for the email sent when an app user forgets their password.</p>",
             "smithy.api#jsonName": "emailSettings"
           }
         },
         "SmsSettings": {
           "target": "com.amazonaws.amplifybackend#SmsSettings",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration for the SMS message sent when an app user forgets their password.</p>",
+            "smithy.api#documentation": "<p><b>(DEPRECATED)</b> The configuration for the SMS message sent when an app user forgets their password.</p>",
             "smithy.api#jsonName": "smsSettings"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the forgot password policy for authenticating into the Amplify app.</p>"
+        "smithy.api#documentation": "<p><b>(DEPRECATED)</b> Describes the forgot password policy for authenticating into the Amplify app.</p>"
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendAuthIdentityPoolConfig": {
@@ -995,7 +1853,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for CreateBackendAuth.</p>"
+        "smithy.api#documentation": "<p>The request body for CreateBackendAuth.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendAuthResourceConfig": {
@@ -1082,6 +1941,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendAuthUserPoolConfig": {
@@ -1090,7 +1952,7 @@
         "ForgotPassword": {
           "target": "com.amazonaws.amplifybackend#CreateBackendAuthForgotPasswordConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the forgotten password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>",
+            "smithy.api#documentation": "<p><b>(DEPRECATED)</b> Describes the forgotten password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>",
             "smithy.api#jsonName": "forgotPassword"
           }
         },
@@ -1138,10 +2000,47 @@
             "smithy.api#jsonName": "userPoolName",
             "smithy.api#required": {}
           }
+        },
+        "VerificationMessage": {
+          "target": "com.amazonaws.amplifybackend#CreateBackendAuthVerificationMessageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the email or SMS verification message for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>",
+            "smithy.api#jsonName": "verificationMessage"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes the Amazon Cognito user pool configuration for the auth resource to be configured for your Amplify project.</p>"
+      }
+    },
+    "com.amazonaws.amplifybackend#CreateBackendAuthVerificationMessageConfig": {
+      "type": "structure",
+      "members": {
+        "DeliveryMethod": {
+          "target": "com.amazonaws.amplifybackend#DeliveryMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of verification message to send.</p>",
+            "smithy.api#jsonName": "deliveryMethod",
+            "smithy.api#required": {}
+          }
+        },
+        "EmailSettings": {
+          "target": "com.amazonaws.amplifybackend#EmailSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The settings for the email message.</p>",
+            "smithy.api#jsonName": "emailSettings"
+          }
+        },
+        "SmsSettings": {
+          "target": "com.amazonaws.amplifybackend#SmsSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The settings for the SMS message.</p>",
+            "smithy.api#jsonName": "smsSettings"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Creates an email or SMS verification message for the auth resource configured for your Amplify project.</p>"
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendConfig": {
@@ -1195,7 +2094,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for CreateBackendConfig.</p>"
+        "smithy.api#documentation": "<p>The request body for CreateBackendConfig.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendConfigResponse": {
@@ -1229,6 +2129,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendRequest": {
@@ -1261,7 +2164,7 @@
         "ResourceConfig": {
           "target": "com.amazonaws.amplifybackend#ResourceConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The resource configuration for creating backend storage.</p>",
+            "smithy.api#documentation": "<p>The resource configuration for creating a backend.</p>",
             "smithy.api#jsonName": "resourceConfig"
           }
         },
@@ -1274,7 +2177,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for CreateBackend.</p>"
+        "smithy.api#documentation": "<p>The request body for CreateBackend.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendResponse": {
@@ -1322,6 +2226,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendStorage": {
@@ -1392,7 +2299,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for CreateBackendStorage.</p>"
+        "smithy.api#documentation": "<p>The request body for CreateBackendStorage.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateBackendStorageResourceConfig": {
@@ -1457,6 +2365,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateToken": {
@@ -1501,6 +2412,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#CreateTokenResponse": {
@@ -1534,6 +2448,9 @@
             "smithy.api#jsonName": "ttl"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#DeleteBackend": {
@@ -1634,7 +2551,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for DeleteBackendAPI.</p>"
+        "smithy.api#documentation": "<p>The request body for DeleteBackendAPI.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#DeleteBackendAPIResponse": {
@@ -1682,6 +2600,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#DeleteBackendAuth": {
@@ -1744,7 +2665,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for DeleteBackendAuth.</p>"
+        "smithy.api#documentation": "<p>The request body for DeleteBackendAuth.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#DeleteBackendAuthResponse": {
@@ -1792,6 +2714,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#DeleteBackendRequest": {
@@ -1813,6 +2738,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#DeleteBackendResponse": {
@@ -1860,6 +2788,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#DeleteBackendStorage": {
@@ -1930,7 +2861,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for DeleteBackendStorage.</p>"
+        "smithy.api#documentation": "<p>The request body for DeleteBackendStorage.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#DeleteBackendStorageResponse": {
@@ -1964,6 +2896,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#DeleteToken": {
@@ -2016,6 +2951,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#DeleteTokenResponse": {
@@ -2028,21 +2966,29 @@
             "smithy.api#jsonName": "isSuccess"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#DeliveryMethod": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EMAIL",
-            "name": "EMAIL"
-          },
-          {
-            "value": "SMS",
-            "name": "SMS"
+      "type": "enum",
+      "members": {
+        "EMAIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL"
           }
-        ]
+        },
+        "SMS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SMS"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The type of verification message to send.</p>"
       }
     },
     "com.amazonaws.amplifybackend#EmailSettings": {
@@ -2051,20 +2997,21 @@
         "EmailMessage": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The body of the email.</p>",
+            "smithy.api#documentation": "<p>The contents of the email message.</p>",
             "smithy.api#jsonName": "emailMessage"
           }
         },
         "EmailSubject": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The subject of the email.</p>",
+            "smithy.api#documentation": "<p>The contents of the subject line of the email message.</p>",
             "smithy.api#jsonName": "emailSubject"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The configuration for the email sent when an app user forgets their password.</p>"
+        "smithy.api#documentation": "<p>The configuration for the email sent when an app user forgets their password.</p>",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.amplifybackend#GatewayTimeoutException": {
@@ -2144,7 +3091,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for GenerateBackendAPIModels.</p>"
+        "smithy.api#documentation": "<p>The request body for GenerateBackendAPIModels.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#GenerateBackendAPIModelsResponse": {
@@ -2192,6 +3140,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackend": {
@@ -2279,7 +3230,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Generates a model schema for existing backend API resource.</p>",
+        "smithy.api#documentation": "<p>Gets a model introspection schema for an existing backend API resource.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/backend/{AppId}/api/{BackendEnvironmentName}/getModels",
@@ -2316,7 +3267,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for GetBackendAPIModels.</p>"
+        "smithy.api#documentation": "<p>The request body for GetBackendAPIModels.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackendAPIModelsResponse": {
@@ -2335,7 +3287,17 @@
             "smithy.api#documentation": "<p>The current status of the request.</p>",
             "smithy.api#jsonName": "status"
           }
+        },
+        "ModelIntrospectionSchema": {
+          "target": "com.amazonaws.amplifybackend#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>Stringified JSON of the model introspection schema for an existing backend API resource.</p>",
+            "smithy.api#jsonName": "modelIntrospectionSchema"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackendAPIRequest": {
@@ -2374,7 +3336,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for GetBackendAPI.</p>"
+        "smithy.api#documentation": "<p>The request body for GetBackendAPI.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackendAPIResponse": {
@@ -2415,6 +3378,9 @@
             "smithy.api#jsonName": "resourceName"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackendAuth": {
@@ -2477,7 +3443,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for GetBackendAuth.</p>"
+        "smithy.api#documentation": "<p>The request body for GetBackendAuth.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackendAuthResponse": {
@@ -2518,6 +3485,9 @@
             "smithy.api#jsonName": "resourceName"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackendJob": {
@@ -2578,6 +3548,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackendJobResponse": {
@@ -2639,6 +3612,9 @@
             "smithy.api#jsonName": "updateTime"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackendRequest": {
@@ -2661,7 +3637,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for GetBackend.</p>"
+        "smithy.api#documentation": "<p>The request body for GetBackend.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackendResponse": {
@@ -2716,6 +3693,9 @@
             "smithy.api#jsonName": "error"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackendStorage": {
@@ -2778,7 +3758,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for GetBackendStorage.</p>"
+        "smithy.api#documentation": "<p>The request body for GetBackendStorage.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#GetBackendStorageResourceConfig": {
@@ -2850,6 +3831,9 @@
             "smithy.api#jsonName": "resourceName"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#GetToken": {
@@ -2902,6 +3886,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#GetTokenResponse": {
@@ -2935,6 +3922,9 @@
             "smithy.api#jsonName": "ttl"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#ImportBackendAuth": {
@@ -3020,7 +4010,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for ImportBackendAuth.</p>"
+        "smithy.api#documentation": "<p>The request body for ImportBackendAuth.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#ImportBackendAuthResponse": {
@@ -3068,6 +4059,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#ImportBackendStorage": {
@@ -3137,7 +4131,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for ImportBackendStorage.</p>"
+        "smithy.api#documentation": "<p>The request body for ImportBackendStorage.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#ImportBackendStorageResponse": {
@@ -3171,6 +4166,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#ListBackendJobs": {
@@ -3260,7 +4258,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for ListBackendJobs.</p>"
+        "smithy.api#documentation": "<p>The request body for ListBackendJobs.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#ListBackendJobsResponse": {
@@ -3280,6 +4279,9 @@
             "smithy.api#jsonName": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#ListOfAdditionalConstraintsElement": {
@@ -3385,7 +4387,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for S3Buckets.</p>"
+        "smithy.api#documentation": "<p>The request body for S3Buckets.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#ListS3BucketsResponse": {
@@ -3405,6 +4408,9 @@
             "smithy.api#jsonName": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#LoginAuthConfigReqObj": {
@@ -3444,60 +4450,72 @@
       }
     },
     "com.amazonaws.amplifybackend#MFAMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ON",
-            "name": "ON"
-          },
-          {
-            "value": "OFF",
-            "name": "OFF"
-          },
-          {
-            "value": "OPTIONAL",
-            "name": "OPTIONAL"
+      "type": "enum",
+      "members": {
+        "ON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ON"
           }
-        ]
+        },
+        "OFF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OFF"
+          }
+        },
+        "OPTIONAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIONAL"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#MfaTypesElement": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SMS",
-            "name": "SMS"
-          },
-          {
-            "value": "TOTP",
-            "name": "TOTP"
+      "type": "enum",
+      "members": {
+        "SMS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SMS"
           }
-        ]
+        },
+        "TOTP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TOTP"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#Mode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "API_KEY",
-            "name": "API_KEY"
-          },
-          {
-            "value": "AWS_IAM",
-            "name": "AWS_IAM"
-          },
-          {
-            "value": "AMAZON_COGNITO_USER_POOLS",
-            "name": "AMAZON_COGNITO_USER_POOLS"
-          },
-          {
-            "value": "OPENID_CONNECT",
-            "name": "OPENID_CONNECT"
+      "type": "enum",
+      "members": {
+        "API_KEY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "API_KEY"
           }
-        ]
+        },
+        "AWS_IAM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_IAM"
+          }
+        },
+        "AMAZON_COGNITO_USER_POOLS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AMAZON_COGNITO_USER_POOLS"
+          }
+        },
+        "OPENID_CONNECT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPENID_CONNECT"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#NotFoundException": {
@@ -3525,45 +4543,55 @@
       }
     },
     "com.amazonaws.amplifybackend#OAuthGrantType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CODE",
-            "name": "CODE"
-          },
-          {
-            "value": "IMPLICIT",
-            "name": "IMPLICIT"
+      "type": "enum",
+      "members": {
+        "CODE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CODE"
           }
-        ]
+        },
+        "IMPLICIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPLICIT"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#OAuthScopesElement": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PHONE",
-            "name": "PHONE"
-          },
-          {
-            "value": "EMAIL",
-            "name": "EMAIL"
-          },
-          {
-            "value": "OPENID",
-            "name": "OPENID"
-          },
-          {
-            "value": "PROFILE",
-            "name": "PROFILE"
-          },
-          {
-            "value": "AWS_COGNITO_SIGNIN_USER_ADMIN",
-            "name": "AWS_COGNITO_SIGNIN_USER_ADMIN"
+      "type": "enum",
+      "members": {
+        "PHONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PHONE"
           }
-        ]
+        },
+        "EMAIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL"
+          }
+        },
+        "OPENID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPENID"
+          }
+        },
+        "PROFILE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROFILE"
+          }
+        },
+        "AWS_COGNITO_SIGNIN_USER_ADMIN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_COGNITO_SIGNIN_USER_ADMIN"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#RemoveAllBackends": {
@@ -3617,7 +4645,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for RemoveAllBackends.</p>"
+        "smithy.api#documentation": "<p>The request body for RemoveAllBackends.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#RemoveAllBackendsResponse": {
@@ -3658,6 +4687,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#RemoveBackendConfig": {
@@ -3702,6 +4734,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#RemoveBackendConfigResponse": {
@@ -3714,104 +4749,145 @@
             "smithy.api#jsonName": "error"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#RequiredSignUpAttributesElement": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ADDRESS",
-            "name": "ADDRESS"
-          },
-          {
-            "value": "BIRTHDATE",
-            "name": "BIRTHDATE"
-          },
-          {
-            "value": "EMAIL",
-            "name": "EMAIL"
-          },
-          {
-            "value": "FAMILY_NAME",
-            "name": "FAMILY_NAME"
-          },
-          {
-            "value": "GENDER",
-            "name": "GENDER"
-          },
-          {
-            "value": "GIVEN_NAME",
-            "name": "GIVEN_NAME"
-          },
-          {
-            "value": "LOCALE",
-            "name": "LOCALE"
-          },
-          {
-            "value": "MIDDLE_NAME",
-            "name": "MIDDLE_NAME"
-          },
-          {
-            "value": "NAME",
-            "name": "NAME"
-          },
-          {
-            "value": "NICKNAME",
-            "name": "NICKNAME"
-          },
-          {
-            "value": "PHONE_NUMBER",
-            "name": "PHONE_NUMBER"
-          },
-          {
-            "value": "PICTURE",
-            "name": "PICTURE"
-          },
-          {
-            "value": "PREFERRED_USERNAME",
-            "name": "PREFERRED_USERNAME"
-          },
-          {
-            "value": "PROFILE",
-            "name": "PROFILE"
-          },
-          {
-            "value": "UPDATED_AT",
-            "name": "UPDATED_AT"
-          },
-          {
-            "value": "WEBSITE",
-            "name": "WEBSITE"
-          },
-          {
-            "value": "ZONE_INFO",
-            "name": "ZONE_INFO"
+      "type": "enum",
+      "members": {
+        "ADDRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADDRESS"
           }
-        ]
+        },
+        "BIRTHDATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BIRTHDATE"
+          }
+        },
+        "EMAIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL"
+          }
+        },
+        "FAMILY_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAMILY_NAME"
+          }
+        },
+        "GENDER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GENDER"
+          }
+        },
+        "GIVEN_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GIVEN_NAME"
+          }
+        },
+        "LOCALE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LOCALE"
+          }
+        },
+        "MIDDLE_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MIDDLE_NAME"
+          }
+        },
+        "NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NAME"
+          }
+        },
+        "NICKNAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NICKNAME"
+          }
+        },
+        "PHONE_NUMBER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PHONE_NUMBER"
+          }
+        },
+        "PICTURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PICTURE"
+          }
+        },
+        "PREFERRED_USERNAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PREFERRED_USERNAME"
+          }
+        },
+        "PROFILE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROFILE"
+          }
+        },
+        "UPDATED_AT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATED_AT"
+          }
+        },
+        "WEBSITE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WEBSITE"
+          }
+        },
+        "ZONE_INFO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ZONE_INFO"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#ResolutionStrategy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OPTIMISTIC_CONCURRENCY",
-            "name": "OPTIMISTIC_CONCURRENCY"
-          },
-          {
-            "value": "LAMBDA",
-            "name": "LAMBDA"
-          },
-          {
-            "value": "AUTOMERGE",
-            "name": "AUTOMERGE"
-          },
-          {
-            "value": "NONE",
-            "name": "NONE"
+      "type": "enum",
+      "members": {
+        "OPTIMISTIC_CONCURRENCY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIMISTIC_CONCURRENCY"
           }
-        ]
+        },
+        "LAMBDA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LAMBDA"
+          }
+        },
+        "AUTOMERGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AUTOMERGE"
+          }
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#ResourceConfig": {
@@ -3844,25 +4920,25 @@
       }
     },
     "com.amazonaws.amplifybackend#Service": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "COGNITO",
-            "name": "COGNITO"
+      "type": "enum",
+      "members": {
+        "COGNITO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COGNITO"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.amplifybackend#ServiceName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "S3",
-            "name": "S3"
+      "type": "enum",
+      "members": {
+        "S3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "S3"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.amplifybackend#Settings": {
@@ -3888,26 +4964,32 @@
       }
     },
     "com.amazonaws.amplifybackend#SignInMethod": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EMAIL",
-            "name": "EMAIL"
-          },
-          {
-            "value": "EMAIL_AND_PHONE_NUMBER",
-            "name": "EMAIL_AND_PHONE_NUMBER"
-          },
-          {
-            "value": "PHONE_NUMBER",
-            "name": "PHONE_NUMBER"
-          },
-          {
-            "value": "USERNAME",
-            "name": "USERNAME"
+      "type": "enum",
+      "members": {
+        "EMAIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL"
           }
-        ]
+        },
+        "EMAIL_AND_PHONE_NUMBER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL_AND_PHONE_NUMBER"
+          }
+        },
+        "PHONE_NUMBER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PHONE_NUMBER"
+          }
+        },
+        "USERNAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "USERNAME"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#SmsSettings": {
@@ -3916,13 +4998,14 @@
         "SmsMessage": {
           "target": "com.amazonaws.amplifybackend#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The body of the SMS message.</p>",
+            "smithy.api#documentation": "<p>The contents of the SMS message.</p>",
             "smithy.api#jsonName": "smsMessage"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>SMS settings for authentication.</p>"
+        "smithy.api#documentation": "<p>SMS settings for authentication.</p>",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.amplifybackend#SocialProviderSettings": {
@@ -3946,18 +5029,20 @@
       }
     },
     "com.amazonaws.amplifybackend#Status": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "LATEST",
-            "name": "LATEST"
-          },
-          {
-            "value": "STALE",
-            "name": "STALE"
+      "type": "enum",
+      "members": {
+        "LATEST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LATEST"
           }
-        ]
+        },
+        "STALE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STALE"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#TooManyRequestsException": {
@@ -3985,22 +5070,26 @@
       }
     },
     "com.amazonaws.amplifybackend#UnAuthenticatedElement": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "READ",
-            "name": "READ"
-          },
-          {
-            "value": "CREATE_AND_UPDATE",
-            "name": "CREATE_AND_UPDATE"
-          },
-          {
-            "value": "DELETE",
-            "name": "DELETE"
+      "type": "enum",
+      "members": {
+        "READ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "READ"
           }
-        ]
+        },
+        "CREATE_AND_UPDATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_AND_UPDATE"
+          }
+        },
+        "DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE"
+          }
+        }
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendAPI": {
@@ -4070,7 +5159,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for UpdateBackendAPI.</p>"
+        "smithy.api#documentation": "<p>The request body for UpdateBackendAPI.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendAPIResponse": {
@@ -4118,6 +5208,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendAuth": {
@@ -4157,27 +5250,27 @@
         "DeliveryMethod": {
           "target": "com.amazonaws.amplifybackend#DeliveryMethod",
           "traits": {
-            "smithy.api#documentation": "<p>Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>",
+            "smithy.api#documentation": "<p><b>(DEPRECATED)</b> Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>",
             "smithy.api#jsonName": "deliveryMethod"
           }
         },
         "EmailSettings": {
           "target": "com.amazonaws.amplifybackend#EmailSettings",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration for the email sent when an app user forgets their password.</p>",
+            "smithy.api#documentation": "<p><b>(DEPRECATED)</b> The configuration for the email sent when an app user forgets their password.</p>",
             "smithy.api#jsonName": "emailSettings"
           }
         },
         "SmsSettings": {
           "target": "com.amazonaws.amplifybackend#SmsSettings",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration for the SMS message sent when an Amplify app user forgets their password.</p>",
+            "smithy.api#documentation": "<p><b>(DEPRECATED)</b> The configuration for the SMS message sent when an Amplify app user forgets their password.</p>",
             "smithy.api#jsonName": "smsSettings"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the forgot password policy for authenticating into the Amplify app.</p>"
+        "smithy.api#documentation": "<p><b>(DEPRECATED)</b> Describes the forgot password policy for authenticating into the Amplify app.</p>"
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendAuthIdentityPoolConfig": {
@@ -4325,7 +5418,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for UpdateBackendAuth.</p>"
+        "smithy.api#documentation": "<p>The request body for UpdateBackendAuth.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendAuthResourceConfig": {
@@ -4412,6 +5506,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendAuthUserPoolConfig": {
@@ -4420,7 +5517,7 @@
         "ForgotPassword": {
           "target": "com.amazonaws.amplifybackend#UpdateBackendAuthForgotPasswordConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the forgot password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>",
+            "smithy.api#documentation": "<p><b>(DEPRECATED)</b> Describes the forgot password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>",
             "smithy.api#jsonName": "forgotPassword"
           }
         },
@@ -4444,10 +5541,47 @@
             "smithy.api#documentation": "<p>Describes the password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>",
             "smithy.api#jsonName": "passwordPolicy"
           }
+        },
+        "VerificationMessage": {
+          "target": "com.amazonaws.amplifybackend#UpdateBackendAuthVerificationMessageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the email or SMS verification message for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>",
+            "smithy.api#jsonName": "verificationMessage"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes the Amazon Cognito user pool configuration for the authorization resource to be configured for your Amplify project on an update.</p>"
+      }
+    },
+    "com.amazonaws.amplifybackend#UpdateBackendAuthVerificationMessageConfig": {
+      "type": "structure",
+      "members": {
+        "DeliveryMethod": {
+          "target": "com.amazonaws.amplifybackend#DeliveryMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of verification message to send.</p>",
+            "smithy.api#jsonName": "deliveryMethod",
+            "smithy.api#required": {}
+          }
+        },
+        "EmailSettings": {
+          "target": "com.amazonaws.amplifybackend#EmailSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The settings for the email message.</p>",
+            "smithy.api#jsonName": "emailSettings"
+          }
+        },
+        "SmsSettings": {
+          "target": "com.amazonaws.amplifybackend#SmsSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The settings for the SMS message.</p>",
+            "smithy.api#jsonName": "smsSettings"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the configuration of the email or SMS message for the auth resource configured for your Amplify project.</p>"
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendConfig": {
@@ -4501,7 +5635,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for UpdateBackendConfig.</p>"
+        "smithy.api#documentation": "<p>The request body for UpdateBackendConfig.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendConfigResponse": {
@@ -4535,6 +5670,9 @@
             "smithy.api#jsonName": "loginAuthConfig"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendJob": {
@@ -4611,7 +5749,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for GetBackendJob.</p>"
+        "smithy.api#documentation": "<p>The request body for GetBackendJob.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendJobResponse": {
@@ -4673,6 +5812,9 @@
             "smithy.api#jsonName": "updateTime"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendStorage": {
@@ -4743,7 +5885,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request body for UpdateBackendStorage.</p>"
+        "smithy.api#documentation": "<p>The request body for UpdateBackendStorage.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.amplifybackend#UpdateBackendStorageResourceConfig": {
@@ -4801,6 +5944,9 @@
             "smithy.api#jsonName": "status"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.amplifybackend#__boolean": {

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeIdFormatRequest, DescribeIdFormatResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeIdFormatCommand,
-  serializeAws_ec2DescribeIdFormatCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeIdFormatCommand, se_DescribeIdFormatCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeIdFormatCommand}.
+ */
 export interface DescribeIdFormatCommandInput extends DescribeIdFormatRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeIdFormatCommand}.
+ */
 export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the ID format settings for your resources on a per-Region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.</p>
  *          <p>The following resource types support longer IDs: <code>bundle</code> |
  *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
@@ -48,13 +62,31 @@ export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, _
  * import { EC2Client, DescribeIdFormatCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeIdFormatRequest
+ *   Resource: "STRING_VALUE",
+ * };
  * const command = new DescribeIdFormatCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeIdFormatResult
+ * //   Statuses: [ // IdFormatList
+ * //     { // IdFormat
+ * //       Deadline: new Date("TIMESTAMP"),
+ * //       Resource: "STRING_VALUE",
+ * //       UseLongIds: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeIdFormatCommandInput - {@link DescribeIdFormatCommandInput}
+ * @returns {@link DescribeIdFormatCommandOutput}
  * @see {@link DescribeIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribeIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeIdFormatCommand extends $Command<
@@ -65,6 +97,18 @@ export class DescribeIdFormatCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdFormatCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +124,9 @@ export class DescribeIdFormatCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeIdFormatCommandInput, DescribeIdFormatCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeIdFormatCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -90,8 +137,8 @@ export class DescribeIdFormatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIdFormatRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIdFormatResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +148,18 @@ export class DescribeIdFormatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIdFormatCommand(input, context);
+    return se_DescribeIdFormatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdFormatCommandOutput> {
-    return deserializeAws_ec2DescribeIdFormatCommand(output, context);
+    return de_DescribeIdFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { JoinDomainInput, JoinDomainOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1JoinDomainCommand,
-  serializeAws_json1_1JoinDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { JoinDomainInput, JoinDomainInputFilterSensitiveLog, JoinDomainOutput } from "../models/models_0";
+import { de_JoinDomainCommand, se_JoinDomainCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link JoinDomainCommand}.
+ */
 export interface JoinDomainCommandInput extends JoinDomainInput {}
+/**
+ * @public
+ *
+ * The output of {@link JoinDomainCommand}.
+ */
 export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a file gateway to an Active Directory domain. This operation is only supported for
  *          file gateways that support the SMB file protocol.</p>
  * @example
@@ -30,13 +44,42 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * import { StorageGatewayClient, JoinDomainCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, JoinDomainCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // JoinDomainInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ *   OrganizationalUnit: "STRING_VALUE",
+ *   DomainControllers: [ // Hosts
+ *     "STRING_VALUE",
+ *   ],
+ *   TimeoutInSeconds: Number("int"),
+ *   UserName: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ * };
  * const command = new JoinDomainCommand(input);
  * const response = await client.send(command);
+ * // { // JoinDomainOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   ActiveDirectoryStatus: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param JoinDomainCommandInput - {@link JoinDomainCommandInput}
+ * @returns {@link JoinDomainCommandOutput}
  * @see {@link JoinDomainCommandInput} for command's `input` shape.
  * @see {@link JoinDomainCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class JoinDomainCommand extends $Command<
@@ -47,6 +90,18 @@ export class JoinDomainCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: JoinDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +117,7 @@ export class JoinDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<JoinDomainCommandInput, JoinDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, JoinDomainCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +128,8 @@ export class JoinDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JoinDomainInput.filterSensitiveLog,
-      outputFilterSensitiveLog: JoinDomainOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JoinDomainInputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +139,18 @@ export class JoinDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JoinDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1JoinDomainCommand(input, context);
+    return se_JoinDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JoinDomainCommandOutput> {
-    return deserializeAws_json1_1JoinDomainCommand(output, context);
+    return de_JoinDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

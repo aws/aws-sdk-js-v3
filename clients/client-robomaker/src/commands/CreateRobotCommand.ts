@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateRobotRequest, CreateRobotResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRobotCommand,
-  serializeAws_restJson1CreateRobotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRobotCommand, se_CreateRobotCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateRobotCommand}.
+ */
 export interface CreateRobotCommandInput extends CreateRobotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRobotCommand}.
+ */
 export interface CreateRobotCommandOutput extends CreateRobotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Creates a robot.</p>
@@ -34,13 +48,54 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  * import { RoboMakerClient, CreateRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // CreateRobotRequest
+ *   name: "STRING_VALUE", // required
+ *   architecture: "STRING_VALUE", // required
+ *   greengrassGroupId: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateRobotCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRobotResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   greengrassGroupId: "STRING_VALUE",
+ * //   architecture: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param CreateRobotCommandInput - {@link CreateRobotCommandInput}
+ * @returns {@link CreateRobotCommandOutput}
  * @see {@link CreateRobotCommandInput} for command's `input` shape.
  * @see {@link CreateRobotCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *          stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CreateRobotCommand extends $Command<
@@ -51,6 +106,18 @@ export class CreateRobotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRobotCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +133,7 @@ export class CreateRobotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateRobotCommandInput, CreateRobotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateRobotCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +144,8 @@ export class CreateRobotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRobotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRobotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +155,18 @@ export class CreateRobotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRobotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRobotCommand(input, context);
+    return se_CreateRobotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRobotCommandOutput> {
-    return deserializeAws_restJson1CreateRobotCommand(output, context);
+    return de_CreateRobotCommand(output, context);
   }
 
   // Start section: command_body_extra

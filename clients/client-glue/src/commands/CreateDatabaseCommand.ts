@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateDatabaseRequest, CreateDatabaseResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDatabaseCommand,
-  serializeAws_json1_1CreateDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDatabaseCommand, se_CreateDatabaseCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateDatabaseCommand}.
+ */
 export interface CreateDatabaseCommandInput extends CreateDatabaseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDatabaseCommand}.
+ */
 export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new database in a Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,77 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * import { GlueClient, CreateDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateDatabaseRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseInput: { // DatabaseInput
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     LocationUri: "STRING_VALUE",
+ *     Parameters: { // ParametersMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     CreateTableDefaultPermissions: [ // PrincipalPermissionsList
+ *       { // PrincipalPermissions
+ *         Principal: { // DataLakePrincipal
+ *           DataLakePrincipalIdentifier: "STRING_VALUE",
+ *         },
+ *         Permissions: [ // PermissionList
+ *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS",
+ *         ],
+ *       },
+ *     ],
+ *     TargetDatabase: { // DatabaseIdentifier
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *     },
+ *     FederatedDatabase: { // FederatedDatabase
+ *       Identifier: "STRING_VALUE",
+ *       ConnectionName: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDatabaseCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateDatabaseCommandInput - {@link CreateDatabaseCommandInput}
+ * @returns {@link CreateDatabaseCommandOutput}
  * @see {@link CreateDatabaseCommandInput} for command's `input` shape.
  * @see {@link CreateDatabaseCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>A resource to be created or added already exists.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link FederatedResourceAlreadyExistsException} (client fault)
+ *  <p>A federated resource already exists.</p>
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateDatabaseCommand extends $Command<
@@ -46,6 +124,18 @@ export class CreateDatabaseCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +151,9 @@ export class CreateDatabaseCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDatabaseCommandInput, CreateDatabaseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDatabaseCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +164,8 @@ export class CreateDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatabaseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatabaseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +175,18 @@ export class CreateDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDatabaseCommand(input, context);
+    return se_CreateDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatabaseCommandOutput> {
-    return deserializeAws_json1_1CreateDatabaseCommand(output, context);
+    return de_CreateDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

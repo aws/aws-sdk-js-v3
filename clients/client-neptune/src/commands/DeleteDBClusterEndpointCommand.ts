@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteDBClusterEndpointMessage, DeleteDBClusterEndpointOutput } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDeleteDBClusterEndpointCommand,
-  serializeAws_queryDeleteDBClusterEndpointCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBClusterEndpointCommand, se_DeleteDBClusterEndpointCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteDBClusterEndpointCommand}.
+ */
 export interface DeleteDBClusterEndpointCommandInput extends DeleteDBClusterEndpointMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDBClusterEndpointCommand}.
+ */
 export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom endpoint and removes it from an Amazon Neptune DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,47 @@ export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEnd
  * import { NeptuneClient, DeleteDBClusterEndpointCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBClusterEndpointCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DeleteDBClusterEndpointMessage
+ *   DBClusterEndpointIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBClusterEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDBClusterEndpointOutput
+ * //   DBClusterEndpointIdentifier: "STRING_VALUE",
+ * //   DBClusterIdentifier: "STRING_VALUE",
+ * //   DBClusterEndpointResourceIdentifier: "STRING_VALUE",
+ * //   Endpoint: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   EndpointType: "STRING_VALUE",
+ * //   CustomEndpointType: "STRING_VALUE",
+ * //   StaticMembers: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ExcludedMembers: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   DBClusterEndpointArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DeleteDBClusterEndpointCommandInput - {@link DeleteDBClusterEndpointCommandInput}
+ * @returns {@link DeleteDBClusterEndpointCommandOutput}
  * @see {@link DeleteDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link DBClusterEndpointNotFoundFault} (client fault)
+ *  <p>The specified custom endpoint doesn't exist.</p>
+ *
+ * @throws {@link InvalidDBClusterEndpointStateFault} (client fault)
+ *  <p>The requested operation cannot be performed on the endpoint while the endpoint is in this state.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DeleteDBClusterEndpointCommand extends $Command<
@@ -46,6 +94,18 @@ export class DeleteDBClusterEndpointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBClusterEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +121,9 @@ export class DeleteDBClusterEndpointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDBClusterEndpointCommandInput, DeleteDBClusterEndpointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteDBClusterEndpointCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +134,8 @@ export class DeleteDBClusterEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBClusterEndpointMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBClusterEndpointOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +145,18 @@ export class DeleteDBClusterEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterEndpointCommand(input, context);
+    return se_DeleteDBClusterEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterEndpointCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterEndpointCommand(output, context);
+    return de_DeleteDBClusterEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -27,9 +27,9 @@ If invalid configuration is encountered (such as a profile in
 that does not exist), then the chained provider will be rejected with an error
 and will not invoke the next provider in the list.
 
-_IMPORTANT_: if you intend for your code to run using EKS roles at some point
-(for example in a production environment, but not when working locally) then
-you must explicitly specify a value for `roleAssumerWithWebIdentity`. There is a
+_IMPORTANT_: if you intend to acquire credentials using EKS 
+[IAM Roles for Service Accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) 
+then you must explicitly specify a value for `roleAssumerWithWebIdentity`. There is a
 default function available in `@aws-sdk/client-sts` package. An example of using
 this:
 
@@ -46,6 +46,18 @@ const provider = defaultProvider({
 });
 
 const client = new S3Client({ credentialDefaultProvider: provider });
+```
+
+_IMPORTANT_: We provide a wrapper of this provider in `@aws-sdk/credential-providers`
+package to save you from importing `getDefaultRoleAssumerWithWebIdentity()` or
+`getDefaultRoleAssume()` from STS package. Similarly, you can do:
+
+```js
+const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
+
+const credentials = fromNodeProviderChain();
+
+const client = new S3Client({ credentials });
 ```
 
 ## Supported configuration

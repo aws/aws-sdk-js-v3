@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListEulasCommand, ListEulasCommandInput, ListEulasCommandOutput } from "../commands/ListEulasCommand";
-import { Nimble } from "../Nimble";
 import { NimbleClient } from "../NimbleClient";
 import { NimblePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NimbleClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEulasCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Nimble,
-  input: ListEulasCommandInput,
-  ...args: any
-): Promise<ListEulasCommandOutput> => {
-  // @ts-ignore
-  return await client.listEulas(input, ...args);
-};
 export async function* paginateListEulas(
   config: NimblePaginationConfiguration,
   input: ListEulasCommandInput,
@@ -38,16 +30,15 @@ export async function* paginateListEulas(
   let page: ListEulasCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof Nimble) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NimbleClient) {
+    if (config.client instanceof NimbleClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Nimble | NimbleClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

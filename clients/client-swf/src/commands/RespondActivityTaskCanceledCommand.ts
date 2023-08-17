@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,38 +11,46 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { RespondActivityTaskCanceledInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0RespondActivityTaskCanceledCommand,
-  serializeAws_json1_0RespondActivityTaskCanceledCommand,
-} from "../protocols/Aws_json1_0";
+import { de_RespondActivityTaskCanceledCommand, se_RespondActivityTaskCanceledCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RespondActivityTaskCanceledCommand}.
+ */
 export interface RespondActivityTaskCanceledCommandInput extends RespondActivityTaskCanceledInput {}
+/**
+ * @public
+ *
+ * The output of {@link RespondActivityTaskCanceledCommand}.
+ */
 export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
  *       by the <code>taskToken</code> was successfully canceled. Additional <code>details</code> can
  *       be provided using the <code>details</code> argument.</p>
- *
  *          <p>These <code>details</code> (if provided) appear in the
  *         <code>ActivityTaskCanceled</code> event added to the workflow history.</p>
- *
  *          <important>
  *             <p>Only use this operation if the <code>canceled</code> flag of a <a>RecordActivityTaskHeartbeat</a> request returns <code>true</code> and if the
  *         activity can be safely undone or abandoned.</p>
  *          </important>
- *
  *          <p>A task is considered open from the time that it is scheduled until it is closed.
  *       Therefore a task is reported as open while a worker is processing it. A task is closed after
  *       it has been specified in a call to <a>RespondActivityTaskCompleted</a>,
  *       RespondActivityTaskCanceled, <a>RespondActivityTaskFailed</a>, or the task has
  *         <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types">timed
  *         out</a>.</p>
- *
  *          <p>
  *             <b>Access Control</b>
  *          </p>
@@ -70,13 +80,30 @@ export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBear
  * import { SWFClient, RespondActivityTaskCanceledCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RespondActivityTaskCanceledCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // RespondActivityTaskCanceledInput
+ *   taskToken: "STRING_VALUE", // required
+ *   details: "STRING_VALUE",
+ * };
  * const command = new RespondActivityTaskCanceledCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param RespondActivityTaskCanceledCommandInput - {@link RespondActivityTaskCanceledCommandInput}
+ * @returns {@link RespondActivityTaskCanceledCommandOutput}
  * @see {@link RespondActivityTaskCanceledCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskCanceledCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class RespondActivityTaskCanceledCommand extends $Command<
@@ -87,6 +114,18 @@ export class RespondActivityTaskCanceledCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RespondActivityTaskCanceledCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,6 +141,9 @@ export class RespondActivityTaskCanceledCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RespondActivityTaskCanceledCommandInput, RespondActivityTaskCanceledCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RespondActivityTaskCanceledCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -112,8 +154,8 @@ export class RespondActivityTaskCanceledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RespondActivityTaskCanceledInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +165,21 @@ export class RespondActivityTaskCanceledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RespondActivityTaskCanceledCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RespondActivityTaskCanceledCommand(input, context);
+    return se_RespondActivityTaskCanceledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RespondActivityTaskCanceledCommandOutput> {
-    return deserializeAws_json1_0RespondActivityTaskCanceledCommand(output, context);
+    return de_RespondActivityTaskCanceledCommand(output, context);
   }
 
   // Start section: command_body_extra

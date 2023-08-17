@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ModifyClientPropertiesRequest, ModifyClientPropertiesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyClientPropertiesCommand,
-  serializeAws_json1_1ModifyClientPropertiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyClientPropertiesCommand, se_ModifyClientPropertiesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ModifyClientPropertiesCommand}.
+ */
 export interface ModifyClientPropertiesCommandInput extends ModifyClientPropertiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyClientPropertiesCommand}.
+ */
 export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropertiesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,36 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * import { WorkSpacesClient, ModifyClientPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyClientPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // ModifyClientPropertiesRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   ClientProperties: { // ClientProperties
+ *     ReconnectEnabled: "ENABLED" || "DISABLED",
+ *     LogUploadEnabled: "ENABLED" || "DISABLED",
+ *   },
+ * };
  * const command = new ModifyClientPropertiesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param ModifyClientPropertiesCommandInput - {@link ModifyClientPropertiesCommandInput}
+ * @returns {@link ModifyClientPropertiesCommandOutput}
  * @see {@link ModifyClientPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyClientPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyClientPropertiesCommand extends $Command<
@@ -46,6 +83,18 @@ export class ModifyClientPropertiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClientPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +110,9 @@ export class ModifyClientPropertiesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyClientPropertiesCommandInput, ModifyClientPropertiesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyClientPropertiesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +123,8 @@ export class ModifyClientPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClientPropertiesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClientPropertiesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +134,18 @@ export class ModifyClientPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClientPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyClientPropertiesCommand(input, context);
+    return se_ModifyClientPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClientPropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyClientPropertiesCommand(output, context);
+    return de_ModifyClientPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

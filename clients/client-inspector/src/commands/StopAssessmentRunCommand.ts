@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { StopAssessmentRunRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopAssessmentRunCommand,
-  serializeAws_json1_1StopAssessmentRunCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopAssessmentRunCommand, se_StopAssessmentRunCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StopAssessmentRunCommand}.
+ */
 export interface StopAssessmentRunCommandInput extends StopAssessmentRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopAssessmentRunCommand}.
+ */
 export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the assessment run that is specified by the ARN of the assessment
  *          run.</p>
  * @example
@@ -30,13 +44,52 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, StopAssessmentRunCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, StopAssessmentRunCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // StopAssessmentRunRequest
+ *   assessmentRunArn: "STRING_VALUE", // required
+ *   stopAction: "STRING_VALUE",
+ * };
  * const command = new StopAssessmentRunCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StopAssessmentRunCommandInput - {@link StopAssessmentRunCommandInput}
+ * @returns {@link StopAssessmentRunCommandOutput}
  * @see {@link StopAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link StopAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced an entity that does not exist. The
+ *          error code describes the entity.</p>
+ *
+ * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
+ *  <p>The serice is temporary unavailable.</p>
+ *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
+ *
+ * @example Stop assessment run
+ * ```javascript
+ * // Stops the assessment run that is specified by the ARN of the assessment run.
+ * const input = {
+ *   "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-11LMTAVe"
+ * };
+ * const command = new StopAssessmentRunCommand(input);
+ * await client.send(command);
+ * // example id: stop-assessment-run-1481067502857
+ * ```
  *
  */
 export class StopAssessmentRunCommand extends $Command<
@@ -47,6 +100,18 @@ export class StopAssessmentRunCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StopAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +127,9 @@ export class StopAssessmentRunCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopAssessmentRunCommandInput, StopAssessmentRunCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopAssessmentRunCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +140,8 @@ export class StopAssessmentRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopAssessmentRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +151,18 @@ export class StopAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopAssessmentRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopAssessmentRunCommand(input, context);
+    return se_StopAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAssessmentRunCommandOutput> {
-    return deserializeAws_json1_1StopAssessmentRunCommand(output, context);
+    return de_StopAssessmentRunCommand(output, context);
   }
 
   // Start section: command_body_extra

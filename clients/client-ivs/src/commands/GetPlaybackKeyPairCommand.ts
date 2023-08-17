@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { GetPlaybackKeyPairRequest, GetPlaybackKeyPairResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPlaybackKeyPairCommand,
-  serializeAws_restJson1GetPlaybackKeyPairCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPlaybackKeyPairCommand, se_GetPlaybackKeyPairCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetPlaybackKeyPairCommand}.
+ */
 export interface GetPlaybackKeyPairCommandInput extends GetPlaybackKeyPairRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPlaybackKeyPairCommand}.
+ */
 export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a specified playback authorization key pair and returns the <code>arn</code> and
  *         <code>fingerprint</code>. The <code>privateKey</code> held by the caller can be used to
  *       generate viewer authorization tokens, to grant viewers access to private channels. For more
@@ -33,13 +47,41 @@ export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairRespo
  * import { IvsClient, GetPlaybackKeyPairCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetPlaybackKeyPairCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // GetPlaybackKeyPairRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetPlaybackKeyPairCommand(input);
  * const response = await client.send(command);
+ * // { // GetPlaybackKeyPairResponse
+ * //   keyPair: { // PlaybackKeyPair
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     fingerprint: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetPlaybackKeyPairCommandInput - {@link GetPlaybackKeyPairCommandInput}
+ * @returns {@link GetPlaybackKeyPairCommandOutput}
  * @see {@link GetPlaybackKeyPairCommandInput} for command's `input` shape.
  * @see {@link GetPlaybackKeyPairCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class GetPlaybackKeyPairCommand extends $Command<
@@ -50,6 +92,18 @@ export class GetPlaybackKeyPairCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetPlaybackKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +119,9 @@ export class GetPlaybackKeyPairCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetPlaybackKeyPairCommandInput, GetPlaybackKeyPairCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetPlaybackKeyPairCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +132,8 @@ export class GetPlaybackKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPlaybackKeyPairRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPlaybackKeyPairResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +143,18 @@ export class GetPlaybackKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPlaybackKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPlaybackKeyPairCommand(input, context);
+    return se_GetPlaybackKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlaybackKeyPairCommandOutput> {
-    return deserializeAws_restJson1GetPlaybackKeyPairCommand(output, context);
+    return de_GetPlaybackKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

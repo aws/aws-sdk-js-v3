@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListMailboxExportJobsRequest, ListMailboxExportJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMailboxExportJobsCommand,
-  serializeAws_json1_1ListMailboxExportJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListMailboxExportJobsCommand, se_ListMailboxExportJobsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListMailboxExportJobsCommand}.
+ */
 export interface ListMailboxExportJobsCommandInput extends ListMailboxExportJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMailboxExportJobsCommand}.
+ */
 export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the mailbox export jobs started for the specified organization within the last
  *          seven days.</p>
  * @example
@@ -30,13 +44,51 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
  * import { WorkMailClient, ListMailboxExportJobsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListMailboxExportJobsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListMailboxExportJobsRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMailboxExportJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMailboxExportJobsResponse
+ * //   Jobs: [ // Jobs
+ * //     { // MailboxExportJob
+ * //       JobId: "STRING_VALUE",
+ * //       EntityId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       S3BucketName: "STRING_VALUE",
+ * //       S3Path: "STRING_VALUE",
+ * //       EstimatedProgress: Number("int"),
+ * //       State: "RUNNING" || "COMPLETED" || "FAILED" || "CANCELLED",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListMailboxExportJobsCommandInput - {@link ListMailboxExportJobsCommandInput}
+ * @returns {@link ListMailboxExportJobsCommandOutput}
  * @see {@link ListMailboxExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListMailboxExportJobsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListMailboxExportJobsCommand extends $Command<
@@ -47,6 +99,18 @@ export class ListMailboxExportJobsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListMailboxExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +126,9 @@ export class ListMailboxExportJobsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListMailboxExportJobsCommandInput, ListMailboxExportJobsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListMailboxExportJobsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +139,8 @@ export class ListMailboxExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMailboxExportJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMailboxExportJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +150,18 @@ export class ListMailboxExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMailboxExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMailboxExportJobsCommand(input, context);
+    return se_ListMailboxExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMailboxExportJobsCommandOutput> {
-    return deserializeAws_json1_1ListMailboxExportJobsCommand(output, context);
+    return de_ListMailboxExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

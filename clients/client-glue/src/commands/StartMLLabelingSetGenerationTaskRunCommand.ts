@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,34 +11,46 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   StartMLLabelingSetGenerationTaskRunRequest,
   StartMLLabelingSetGenerationTaskRunResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
-  deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand,
-  serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand,
+  de_StartMLLabelingSetGenerationTaskRunCommand,
+  se_StartMLLabelingSetGenerationTaskRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StartMLLabelingSetGenerationTaskRunCommand}.
+ */
 export interface StartMLLabelingSetGenerationTaskRunCommandInput extends StartMLLabelingSetGenerationTaskRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartMLLabelingSetGenerationTaskRunCommand}.
+ */
 export interface StartMLLabelingSetGenerationTaskRunCommandOutput
   extends StartMLLabelingSetGenerationTaskRunResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the active learning workflow for your machine learning transform to improve the
  *       transform's quality by generating label sets and adding labels.</p>
- *
- * 	        <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
+ *          <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
  *       generated a "labeling set" or a set of questions for humans to answer.</p>
- *
  *          <p>In the case of the <code>FindMatches</code> transform, these questions are of the form,
  *       “What is the correct way to group these rows together into groups composed entirely of
  *       matching records?” </p>
- *
  *          <p>After the labeling process is finished, you can upload your labels with a call to
  *         <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes,
  *       all future runs of the machine learning transform will use the new and improved labels and
@@ -47,13 +61,41 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  * import { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StartMLLabelingSetGenerationTaskRunRequest
+ *   TransformId: "STRING_VALUE", // required
+ *   OutputS3Path: "STRING_VALUE", // required
+ * };
  * const command = new StartMLLabelingSetGenerationTaskRunCommand(input);
  * const response = await client.send(command);
+ * // { // StartMLLabelingSetGenerationTaskRunResponse
+ * //   TaskRunId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param StartMLLabelingSetGenerationTaskRunCommandInput - {@link StartMLLabelingSetGenerationTaskRunCommandInput}
+ * @returns {@link StartMLLabelingSetGenerationTaskRunCommandOutput}
  * @see {@link StartMLLabelingSetGenerationTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartMLLabelingSetGenerationTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link ConcurrentRunsExceededException} (client fault)
+ *  <p>Too many jobs are being run concurrently.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
@@ -64,6 +106,18 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StartMLLabelingSetGenerationTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +133,9 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartMLLabelingSetGenerationTaskRunCommandInput, StartMLLabelingSetGenerationTaskRunCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartMLLabelingSetGenerationTaskRunCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -89,8 +146,8 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMLLabelingSetGenerationTaskRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartMLLabelingSetGenerationTaskRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,18 +157,24 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartMLLabelingSetGenerationTaskRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand(input, context);
+    return se_StartMLLabelingSetGenerationTaskRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMLLabelingSetGenerationTaskRunCommandOutput> {
-    return deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand(output, context);
+    return de_StartMLLabelingSetGenerationTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

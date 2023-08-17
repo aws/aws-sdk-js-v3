@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListEnvironmentsCommand,
   ListEnvironmentsCommandInput,
   ListEnvironmentsCommandOutput,
 } from "../commands/ListEnvironmentsCommand";
-import { Proton } from "../Proton";
 import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ProtonClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEnvironmentsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Proton,
-  input: ListEnvironmentsCommandInput,
-  ...args: any
-): Promise<ListEnvironmentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEnvironments(input, ...args);
-};
 export async function* paginateListEnvironments(
   config: ProtonPaginationConfiguration,
   input: ListEnvironmentsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListEnvironments(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Proton) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ProtonClient) {
+    if (config.client instanceof ProtonClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Proton | ProtonClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteSshPublicKeyRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSshPublicKeyCommand,
-  serializeAws_json1_1DeleteSshPublicKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSshPublicKeyCommand, se_DeleteSshPublicKeyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteSshPublicKeyCommand}.
+ */
 export interface DeleteSshPublicKeyCommandInput extends DeleteSshPublicKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSshPublicKeyCommand}.
+ */
 export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a user's Secure Shell (SSH) public key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,41 @@ export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteSshPublicKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteSshPublicKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DeleteSshPublicKeyRequest
+ *   ServerId: "STRING_VALUE", // required
+ *   SshPublicKeyId: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSshPublicKeyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteSshPublicKeyCommandInput - {@link DeleteSshPublicKeyCommandInput}
+ * @returns {@link DeleteSshPublicKeyCommandOutput}
  * @see {@link DeleteSshPublicKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteSshPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DeleteSshPublicKeyCommand extends $Command<
@@ -46,6 +88,18 @@ export class DeleteSshPublicKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSshPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +115,9 @@ export class DeleteSshPublicKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteSshPublicKeyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +128,8 @@ export class DeleteSshPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSshPublicKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +139,18 @@ export class DeleteSshPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSshPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSshPublicKeyCommand(input, context);
+    return se_DeleteSshPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSshPublicKeyCommandOutput> {
-    return deserializeAws_json1_1DeleteSshPublicKeyCommand(output, context);
+    return de_DeleteSshPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

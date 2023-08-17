@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListJobRunsCommand, ListJobRunsCommandInput, ListJobRunsCommandOutput } from "../commands/ListJobRunsCommand";
-import { EMRContainers } from "../EMRContainers";
 import { EMRContainersClient } from "../EMRContainersClient";
 import { EMRContainersPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EMRContainersClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListJobRunsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EMRContainers,
-  input: ListJobRunsCommandInput,
-  ...args: any
-): Promise<ListJobRunsCommandOutput> => {
-  // @ts-ignore
-  return await client.listJobRuns(input, ...args);
-};
 export async function* paginateListJobRuns(
   config: EMRContainersPaginationConfiguration,
   input: ListJobRunsCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListJobRuns(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof EMRContainers) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EMRContainersClient) {
+    if (config.client instanceof EMRContainersClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EMRContainers | EMRContainersClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

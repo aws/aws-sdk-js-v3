@@ -1,26 +1,28 @@
-# @aws-sdk/client-sso
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sso/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sso)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sso.svg)](https://www.npmjs.com/package/@aws-sdk/client-sso)
+# @aws-sdk/client-sso
 
 ## Description
 
 AWS SDK for JavaScript SSO Client for Node.js, Browser and React Native.
 
-<p>AWS Single Sign-On Portal is a web service that makes it easy for you to assign user
-access to AWS SSO resources such as the user portal. Users can get AWS account applications
-and roles assigned to them and get federated into the application.</p>
+<p>AWS IAM Identity Center (successor to AWS Single Sign-On) Portal is a web service that makes it easy for you to assign user access to
+IAM Identity Center resources such as the AWS access portal. Users can get AWS account applications and roles
+assigned to them and get federated into the application.</p>
 
-<p>For general information about AWS SSO, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">What is AWS
-Single Sign-On?</a> in the <i>AWS SSO User Guide</i>.</p>
+<note>
+<p>Although AWS Single Sign-On was renamed, the <code>sso</code> and
+<code>identitystore</code> API namespaces will continue to retain their original name for
+backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">IAM Identity Center rename</a>.</p>
+</note>
 
-<p>This API reference guide describes the AWS SSO Portal operations that you can call
+<p>This reference guide describes the IAM Identity Center Portal operations that you can call
 programatically and includes detailed information on data types and errors.</p>
 
 <note>
 <p>AWS provides SDKs that consist of libraries and sample code for various programming
 languages and platforms, such as Java, Ruby, .Net, iOS, or Android. The SDKs provide a
-convenient way to create programmatic access to AWS SSO and other AWS services. For more
+convenient way to create programmatic access to IAM Identity Center and other AWS services. For more
 information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
 </note>
 
@@ -130,7 +132,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -164,7 +166,7 @@ client
 
 // callbacks.
 client.getRoleCredentials(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -178,7 +180,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -216,3 +218,38 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+GetRoleCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/classes/getrolecredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/getrolecredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/getrolecredentialscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAccountRoles
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/classes/listaccountrolescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/listaccountrolescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/listaccountrolescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAccounts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/classes/listaccountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/listaccountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/listaccountscommandoutput.html)
+
+</details>
+<details>
+<summary>
+Logout
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/classes/logoutcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/logoutcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/logoutcommandoutput.html)
+
+</details>

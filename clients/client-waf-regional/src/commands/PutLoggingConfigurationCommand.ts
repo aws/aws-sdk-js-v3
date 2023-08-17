@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PutLoggingConfigurationRequest, PutLoggingConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutLoggingConfigurationCommand,
-  serializeAws_json1_1PutLoggingConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutLoggingConfigurationCommand, se_PutLoggingConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutLoggingConfigurationCommand}.
+ */
 export interface PutLoggingConfigurationCommandInput extends PutLoggingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutLoggingConfigurationCommand}.
+ */
 export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,13 +68,59 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * import { WAFRegionalClient, PutLoggingConfigurationCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, PutLoggingConfigurationCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // PutLoggingConfigurationRequest
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     ResourceArn: "STRING_VALUE", // required
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *       "STRING_VALUE",
+ *     ],
+ *     RedactedFields: [ // RedactedFields
+ *       { // FieldToMatch
+ *         Type: "STRING_VALUE", // required
+ *         Data: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // PutLoggingConfigurationResponse
+ * //   LoggingConfiguration: { // LoggingConfiguration
+ * //     ResourceArn: "STRING_VALUE", // required
+ * //     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RedactedFields: [ // RedactedFields
+ * //       { // FieldToMatch
+ * //         Type: "STRING_VALUE", // required
+ * //         Data: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param PutLoggingConfigurationCommandInput - {@link PutLoggingConfigurationCommandInput}
+ * @returns {@link PutLoggingConfigurationCommandOutput}
  * @see {@link PutLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * @throws {@link WAFServiceLinkedRoleErrorException} (client fault)
+ *  <p>AWS WAF is not able to access the service linked role. This can be caused by a previous <code>PutLoggingConfiguration</code> request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the role for 15 minutes or more. If you recently made a <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.</p>
+ *
+ * @throws {@link WAFStaleDataException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+ *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class PutLoggingConfigurationCommand extends $Command<
@@ -71,6 +131,18 @@ export class PutLoggingConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +158,9 @@ export class PutLoggingConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutLoggingConfigurationCommandInput, PutLoggingConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutLoggingConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -96,8 +171,8 @@ export class PutLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLoggingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutLoggingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +182,18 @@ export class PutLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLoggingConfigurationCommand(input, context);
+    return se_PutLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutLoggingConfigurationCommand(output, context);
+    return de_PutLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

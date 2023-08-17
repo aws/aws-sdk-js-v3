@@ -1,37 +1,37 @@
-import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { EventSigner, MessageHeaders } from "@aws-sdk/types";
+import { EventStreamCodec } from "@smithy/eventstream-codec";
+import { MessageHeaders, MessageSigner } from "@smithy/types";
 import { Transform, TransformCallback, TransformOptions } from "stream";
 
+/**
+ * @internal
+ */
 export interface EventSigningStreamOptions extends TransformOptions {
   priorSignature: string;
-  eventSigner: EventSigner;
-  eventMarshaller: EventMarshaller;
+  messageSigner: MessageSigner;
+  eventStreamCodec: EventStreamCodec;
 }
 
 /**
+ * @internal
+ *
  * A transform stream that signs the eventstream
  */
 export class EventSigningStream extends Transform {
   private priorSignature: string;
-  private eventSigner: EventSigner;
-  private eventMarshaller: EventMarshaller;
+  private messageSigner: MessageSigner;
+  private eventStreamCodec: EventStreamCodec;
+
   constructor(options: EventSigningStreamOptions) {
     super({
+      autoDestroy: true,
       readableObjectMode: true,
       writableObjectMode: true,
       ...options,
     });
+
     this.priorSignature = options.priorSignature;
-    this.eventSigner = options.eventSigner;
-    this.eventMarshaller = options.eventMarshaller;
-    //TODO: use 'autoDestroy' when targeting Node 11
-    //reference: https://nodejs.org/dist/latest-v13.x/docs/api/stream.html#stream_new_stream_readable_options
-    this.on("error", () => {
-      this.destroy();
-    });
-    this.on("end", () => {
-      this.destroy();
-    });
+    this.eventStreamCodec = options.eventStreamCodec;
+    this.messageSigner = options.messageSigner;
   }
 
   async _transform(chunk: Uint8Array, encoding: string, callback: TransformCallback): Promise<void> {
@@ -40,23 +40,25 @@ export class EventSigningStream extends Transform {
       const dateHeader: MessageHeaders = {
         ":date": { type: "timestamp", value: now },
       };
-      const signature = await this.eventSigner.sign(
+      const signedMessage = await this.messageSigner.sign(
         {
-          payload: chunk,
-          headers: this.eventMarshaller.formatHeaders(dateHeader),
+          message: {
+            body: chunk,
+            headers: dateHeader,
+          },
+          priorSignature: this.priorSignature,
         },
         {
-          priorSignature: this.priorSignature,
           signingDate: now,
         }
       );
-      this.priorSignature = signature;
-      const serializedSigned = this.eventMarshaller.marshall({
+      this.priorSignature = signedMessage.signature;
+      const serializedSigned = this.eventStreamCodec.encode({
         headers: {
           ...dateHeader,
           ":chunk-signature": {
             type: "binary",
-            value: getSignatureBinary(signature),
+            value: getSignatureBinary(signedMessage.signature),
           },
         },
         body: chunk,

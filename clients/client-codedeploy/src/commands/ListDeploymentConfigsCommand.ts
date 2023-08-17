@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,63 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { ListDeploymentConfigsInput, ListDeploymentConfigsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeploymentConfigsCommand,
-  serializeAws_json1_1ListDeploymentConfigsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDeploymentConfigsCommand, se_ListDeploymentConfigsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListDeploymentConfigsCommand}.
+ */
 export interface ListDeploymentConfigsCommandInput extends ListDeploymentConfigsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListDeploymentConfigsCommand}.
+ */
 export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfigsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the deployment configurations with the IAM user or AWS account.</p>
+ * @public
+ * <p>Lists the deployment configurations with the IAM user or Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, ListDeploymentConfigsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentConfigsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // ListDeploymentConfigsInput
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeploymentConfigsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeploymentConfigsOutput
+ * //   deploymentConfigsList: [ // DeploymentConfigsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListDeploymentConfigsCommandInput - {@link ListDeploymentConfigsCommandInput}
+ * @returns {@link ListDeploymentConfigsCommandOutput}
  * @see {@link ListDeploymentConfigsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentConfigsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListDeploymentConfigsCommand extends $Command<
@@ -46,6 +78,18 @@ export class ListDeploymentConfigsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +105,9 @@ export class ListDeploymentConfigsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDeploymentConfigsCommandInput, ListDeploymentConfigsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDeploymentConfigsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +118,8 @@ export class ListDeploymentConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeploymentConfigsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDeploymentConfigsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +129,18 @@ export class ListDeploymentConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeploymentConfigsCommand(input, context);
+    return se_ListDeploymentConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentConfigsCommandOutput> {
-    return deserializeAws_json1_1ListDeploymentConfigsCommand(output, context);
+    return de_ListDeploymentConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

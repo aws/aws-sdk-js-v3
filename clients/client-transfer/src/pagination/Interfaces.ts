@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Transfer } from "../Transfer";
 import { TransferClient } from "../TransferClient";
 
+/**
+ * @public
+ */
 export interface TransferPaginationConfiguration extends PaginationConfiguration {
-  client: Transfer | TransferClient;
+  client: TransferClient;
 }

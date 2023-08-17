@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
@@ -17,17 +19,32 @@ import {
   DeleteDirectConnectGatewayAssociationProposalResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand,
-  serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand,
+  de_DeleteDirectConnectGatewayAssociationProposalCommand,
+  se_DeleteDirectConnectGatewayAssociationProposalCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteDirectConnectGatewayAssociationProposalCommand}.
+ */
 export interface DeleteDirectConnectGatewayAssociationProposalCommandInput
   extends DeleteDirectConnectGatewayAssociationProposalRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDirectConnectGatewayAssociationProposalCommand}.
+ */
 export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
   extends DeleteDirectConnectGatewayAssociationProposalResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the association proposal request between the specified Direct Connect gateway and virtual private gateway or transit gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +52,52 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
  * import { DirectConnectClient, DeleteDirectConnectGatewayAssociationProposalCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteDirectConnectGatewayAssociationProposalCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DeleteDirectConnectGatewayAssociationProposalRequest
+ *   proposalId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDirectConnectGatewayAssociationProposalCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDirectConnectGatewayAssociationProposalResult
+ * //   directConnectGatewayAssociationProposal: { // DirectConnectGatewayAssociationProposal
+ * //     proposalId: "STRING_VALUE",
+ * //     directConnectGatewayId: "STRING_VALUE",
+ * //     directConnectGatewayOwnerAccount: "STRING_VALUE",
+ * //     proposalState: "requested" || "accepted" || "deleted",
+ * //     associatedGateway: { // AssociatedGateway
+ * //       id: "STRING_VALUE",
+ * //       type: "virtualPrivateGateway" || "transitGateway",
+ * //       ownerAccount: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //     },
+ * //     existingAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
+ * //       { // RouteFilterPrefix
+ * //         cidr: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     requestedAllowedPrefixesToDirectConnectGateway: [
+ * //       {
+ * //         cidr: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DeleteDirectConnectGatewayAssociationProposalCommandInput - {@link DeleteDirectConnectGatewayAssociationProposalCommandInput}
+ * @returns {@link DeleteDirectConnectGatewayAssociationProposalCommandOutput}
  * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Command<
@@ -52,6 +108,18 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectConnectGatewayAssociationProposalCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +138,12 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
     DeleteDirectConnectGatewayAssociationProposalCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DeleteDirectConnectGatewayAssociationProposalCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +154,8 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDirectConnectGatewayAssociationProposalRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDirectConnectGatewayAssociationProposalResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,18 +165,24 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDirectConnectGatewayAssociationProposalCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand(input, context);
+    return se_DeleteDirectConnectGatewayAssociationProposalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> {
-    return deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand(output, context);
+    return de_DeleteDirectConnectGatewayAssociationProposalCommand(output, context);
   }
 
   // Start section: command_body_extra

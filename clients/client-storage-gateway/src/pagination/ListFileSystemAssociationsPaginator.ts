@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListFileSystemAssociationsCommand,
   ListFileSystemAssociationsCommandInput,
   ListFileSystemAssociationsCommandOutput,
 } from "../commands/ListFileSystemAssociationsCommand";
-import { StorageGateway } from "../StorageGateway";
 import { StorageGatewayClient } from "../StorageGatewayClient";
 import { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: StorageGatewayClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFileSystemAssociationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: StorageGateway,
-  input: ListFileSystemAssociationsCommandInput,
-  ...args: any
-): Promise<ListFileSystemAssociationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listFileSystemAssociations(input, ...args);
-};
 export async function* paginateListFileSystemAssociations(
   config: StorageGatewayPaginationConfiguration,
   input: ListFileSystemAssociationsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListFileSystemAssociations(
   while (hasNext) {
     input.Marker = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof StorageGateway) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof StorageGatewayClient) {
+    if (config.client instanceof StorageGatewayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected StorageGateway | StorageGatewayClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,30 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GreetingStruct } from "../models/models_0";
 import {
-  deserializeAws_restJson1MalformedContentTypeWithBodyCommand,
-  serializeAws_restJson1MalformedContentTypeWithBodyCommand,
+  de_MalformedContentTypeWithBodyCommand,
+  se_MalformedContentTypeWithBodyCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link MalformedContentTypeWithBodyCommand}.
+ */
 export interface MalformedContentTypeWithBodyCommandInput extends GreetingStruct {}
+/**
+ * @public
+ *
+ * The output of {@link MalformedContentTypeWithBodyCommand}.
+ */
 export interface MalformedContentTypeWithBodyCommandOutput extends __MetadataBearer {}
 
 export class MalformedContentTypeWithBodyCommand extends $Command<
@@ -29,6 +44,9 @@ export class MalformedContentTypeWithBodyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedContentTypeWithBodyCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +72,8 @@ export class MalformedContentTypeWithBodyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GreetingStruct.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,15 +83,21 @@ export class MalformedContentTypeWithBodyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedContentTypeWithBodyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedContentTypeWithBodyCommand(input, context);
+    return se_MalformedContentTypeWithBodyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MalformedContentTypeWithBodyCommandOutput> {
-    return deserializeAws_restJson1MalformedContentTypeWithBodyCommand(output, context);
+    return de_MalformedContentTypeWithBodyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeWorkspaceBundlesRequest, DescribeWorkspaceBundlesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkspaceBundlesCommand,
-  serializeAws_json1_1DescribeWorkspaceBundlesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeWorkspaceBundlesCommand, se_DescribeWorkspaceBundlesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeWorkspaceBundlesCommand}.
+ */
 export interface DescribeWorkspaceBundlesCommandInput extends DescribeWorkspaceBundlesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeWorkspaceBundlesCommand}.
+ */
 export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspaceBundlesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the available WorkSpace bundles.</p>
  *          <p>You can filter the results using either bundle ID or owner, but not both.</p>
  * @example
@@ -30,13 +44,54 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * import { WorkSpacesClient, DescribeWorkspaceBundlesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceBundlesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeWorkspaceBundlesRequest
+ *   BundleIds: [ // BundleIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Owner: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeWorkspaceBundlesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeWorkspaceBundlesResult
+ * //   Bundles: [ // BundleList
+ * //     { // WorkspaceBundle
+ * //       BundleId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ImageId: "STRING_VALUE",
+ * //       RootStorage: { // RootStorage
+ * //         Capacity: "STRING_VALUE",
+ * //       },
+ * //       UserStorage: { // UserStorage
+ * //         Capacity: "STRING_VALUE",
+ * //       },
+ * //       ComputeType: { // ComputeType
+ * //         Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //       },
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       State: "AVAILABLE" || "PENDING" || "ERROR",
+ * //       BundleType: "REGULAR" || "STANDBY",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeWorkspaceBundlesCommandInput - {@link DescribeWorkspaceBundlesCommandInput}
+ * @returns {@link DescribeWorkspaceBundlesCommandOutput}
  * @see {@link DescribeWorkspaceBundlesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceBundlesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeWorkspaceBundlesCommand extends $Command<
@@ -47,6 +102,18 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +129,9 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeWorkspaceBundlesCommandInput, DescribeWorkspaceBundlesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeWorkspaceBundlesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +142,8 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceBundlesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspaceBundlesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +153,18 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspaceBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspaceBundlesCommand(input, context);
+    return se_DescribeWorkspaceBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspaceBundlesCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceBundlesCommand(output, context);
+    return de_DescribeWorkspaceBundlesCommand(output, context);
   }
 
   // Start section: command_body_extra

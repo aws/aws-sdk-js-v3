@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,36 +11,88 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { CreateLocationObjectStorageRequest, CreateLocationObjectStorageResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateLocationObjectStorageCommand,
-  serializeAws_json1_1CreateLocationObjectStorageCommand,
-} from "../protocols/Aws_json1_1";
+  CreateLocationObjectStorageRequest,
+  CreateLocationObjectStorageRequestFilterSensitiveLog,
+  CreateLocationObjectStorageResponse,
+} from "../models/models_0";
+import { de_CreateLocationObjectStorageCommand, se_CreateLocationObjectStorageCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateLocationObjectStorageCommand}.
+ */
 export interface CreateLocationObjectStorageCommandInput extends CreateLocationObjectStorageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLocationObjectStorageCommand}.
+ */
 export interface CreateLocationObjectStorageCommandOutput
   extends CreateLocationObjectStorageResponse,
     __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint for a self-managed object storage bucket. For more information
- *       about self-managed object storage locations, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
+ * @public
+ * <p>Creates an endpoint for an object storage system that DataSync can access
+ *       for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object
+ *         storage</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, CreateLocationObjectStorageCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationObjectStorageCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateLocationObjectStorageRequest
+ *   ServerHostname: "STRING_VALUE", // required
+ *   ServerPort: Number("int"),
+ *   ServerProtocol: "HTTPS" || "HTTP",
+ *   Subdirectory: "STRING_VALUE",
+ *   BucketName: "STRING_VALUE", // required
+ *   AccessKey: "STRING_VALUE",
+ *   SecretKey: "STRING_VALUE",
+ *   AgentArns: [ // AgentArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ServerCertificate: "BLOB_VALUE",
+ * };
  * const command = new CreateLocationObjectStorageCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLocationObjectStorageResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateLocationObjectStorageCommandInput - {@link CreateLocationObjectStorageCommandInput}
+ * @returns {@link CreateLocationObjectStorageCommandOutput}
  * @see {@link CreateLocationObjectStorageCommandInput} for command's `input` shape.
  * @see {@link CreateLocationObjectStorageCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationObjectStorageCommand extends $Command<
@@ -49,6 +103,18 @@ export class CreateLocationObjectStorageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationObjectStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +130,9 @@ export class CreateLocationObjectStorageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLocationObjectStorageCommandInput, CreateLocationObjectStorageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLocationObjectStorageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +143,8 @@ export class CreateLocationObjectStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationObjectStorageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationObjectStorageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocationObjectStorageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,15 +154,21 @@ export class CreateLocationObjectStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationObjectStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationObjectStorageCommand(input, context);
+    return se_CreateLocationObjectStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLocationObjectStorageCommandOutput> {
-    return deserializeAws_json1_1CreateLocationObjectStorageCommand(output, context);
+    return de_CreateLocationObjectStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

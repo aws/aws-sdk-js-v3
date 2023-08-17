@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   ExpectedAttributeValue,
   ItemCollectionMetrics,
@@ -5,40 +6,60 @@ import {
   PutItemCommandInput as __PutItemCommandInput,
   PutItemCommandOutput as __PutItemCommandOutput,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
-import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { Command as $Command } from "@smithy/smithy-client";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
+/**
+ * @public
+ */
+export { DynamoDBDocumentClientCommand, $Command };
+
+/**
+ * @public
+ */
 export type PutCommandInput = Omit<__PutItemCommandInput, "Item" | "Expected" | "ExpressionAttributeValues"> & {
-  Item: { [key: string]: NativeAttributeValue } | undefined;
-  Expected?: {
-    [key: string]: Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
+  Item: Record<string, NativeAttributeValue> | undefined;
+  Expected?: Record<
+    string,
+    Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
       Value?: NativeAttributeValue;
       AttributeValueList?: NativeAttributeValue[];
-    };
-  };
-  ExpressionAttributeValues?: { [key: string]: NativeAttributeValue };
+    }
+  >;
+  ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
 };
 
+/**
+ * @public
+ */
 export type PutCommandOutput = Omit<__PutItemCommandOutput, "Attributes" | "ItemCollectionMetrics"> & {
-  Attributes?: { [key: string]: NativeAttributeValue };
+  Attributes?: Record<string, NativeAttributeValue>;
   ItemCollectionMetrics?: Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-    ItemCollectionKey?: { [key: string]: NativeAttributeValue };
+    ItemCollectionKey?: Record<string, NativeAttributeValue>;
   };
 };
 
 /**
  * Accepts native JavaScript types instead of `AttributeValue`s, and calls
- * PutItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ * PutItemCommand operation from {@link @aws-sdk/client-dynamodb#PutItemCommand}.
  *
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ *
+ * @public
  */
-export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, DynamoDBDocumentClientResolvedConfig> {
-  private readonly inputKeyNodes = [
+export class PutCommand extends DynamoDBDocumentClientCommand<
+  PutCommandInput,
+  PutCommandOutput,
+  __PutItemCommandInput,
+  __PutItemCommandOutput,
+  DynamoDBDocumentClientResolvedConfig
+> {
+  protected readonly inputKeyNodes = [
     { key: "Item" },
     {
       key: "Expected",
@@ -48,13 +69,21 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
     },
     { key: "ExpressionAttributeValues" },
   ];
-  private readonly outputKeyNodes = [
+  protected readonly outputKeyNodes = [
     { key: "Attributes" },
     { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
   ];
 
+  protected readonly clientCommand: __PutItemCommand;
+  public readonly middlewareStack: MiddlewareStack<
+    PutCommandInput | __PutItemCommandInput,
+    PutCommandOutput | __PutItemCommandOutput
+  >;
+
   constructor(readonly input: PutCommandInput) {
     super();
+    this.clientCommand = new __PutItemCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**
@@ -65,16 +94,10 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutCommandInput, PutCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __PutItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    this.addMarshallingMiddleware(configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(this.clientCommand);
   }
 }

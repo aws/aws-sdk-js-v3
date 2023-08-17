@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,13 +10,27 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { XmlNamespacesOutput } from "../models/models_0";
-import { deserializeAws_ec2XmlNamespacesCommand, serializeAws_ec2XmlNamespacesCommand } from "../protocols/Aws_ec2";
+import { de_XmlNamespacesCommand, se_XmlNamespacesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link XmlNamespacesCommand}.
+ */
 export interface XmlNamespacesCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link XmlNamespacesCommand}.
+ */
 export interface XmlNamespacesCommandOutput extends XmlNamespacesOutput, __MetadataBearer {}
 
 export class XmlNamespacesCommand extends $Command<
@@ -26,6 +41,9 @@ export class XmlNamespacesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlNamespacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -51,8 +69,8 @@ export class XmlNamespacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlNamespacesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -62,12 +80,18 @@ export class XmlNamespacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlNamespacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2XmlNamespacesCommand(input, context);
+    return se_XmlNamespacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlNamespacesCommandOutput> {
-    return deserializeAws_ec2XmlNamespacesCommand(output, context);
+    return de_XmlNamespacesCommand(output, context);
   }
 
   // Start section: command_body_extra

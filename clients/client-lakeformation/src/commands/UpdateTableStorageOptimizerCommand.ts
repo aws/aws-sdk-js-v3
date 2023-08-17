@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { UpdateTableStorageOptimizerRequest, UpdateTableStorageOptimizerResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateTableStorageOptimizerCommand,
-  serializeAws_restJson1UpdateTableStorageOptimizerCommand,
+  de_UpdateTableStorageOptimizerCommand,
+  se_UpdateTableStorageOptimizerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateTableStorageOptimizerCommand}.
+ */
 export interface UpdateTableStorageOptimizerCommandInput extends UpdateTableStorageOptimizerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTableStorageOptimizerCommand}.
+ */
 export interface UpdateTableStorageOptimizerCommandOutput
   extends UpdateTableStorageOptimizerResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of the storage optimizers for a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,44 @@ export interface UpdateTableStorageOptimizerCommandOutput
  * import { LakeFormationClient, UpdateTableStorageOptimizerCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, UpdateTableStorageOptimizerCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // UpdateTableStorageOptimizerRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   StorageOptimizerConfig: { // StorageOptimizerConfigMap // required
+ *     "<keys>": { // StorageOptimizerConfig
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateTableStorageOptimizerCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTableStorageOptimizerResponse
+ * //   Result: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param UpdateTableStorageOptimizerCommandInput - {@link UpdateTableStorageOptimizerCommandInput}
+ * @returns {@link UpdateTableStorageOptimizerCommandOutput}
  * @see {@link UpdateTableStorageOptimizerCommandInput} for command's `input` shape.
  * @see {@link UpdateTableStorageOptimizerCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class UpdateTableStorageOptimizerCommand extends $Command<
@@ -48,6 +96,18 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTableStorageOptimizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +123,9 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateTableStorageOptimizerCommandInput, UpdateTableStorageOptimizerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateTableStorageOptimizerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +136,8 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTableStorageOptimizerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTableStorageOptimizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +147,21 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTableStorageOptimizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTableStorageOptimizerCommand(input, context);
+    return se_UpdateTableStorageOptimizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTableStorageOptimizerCommandOutput> {
-    return deserializeAws_restJson1UpdateTableStorageOptimizerCommand(output, context);
+    return de_UpdateTableStorageOptimizerCommand(output, context);
   }
 
   // Start section: command_body_extra

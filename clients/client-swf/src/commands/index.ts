@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CountClosedWorkflowExecutionsCommand";
 export * from "./CountOpenWorkflowExecutionsCommand";
 export * from "./CountPendingActivityTasksCommand";

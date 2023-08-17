@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateRoleToGroupCommand";
 export * from "./AssociateServiceRoleToAccountCommand";
 export * from "./CreateConnectorDefinitionCommand";

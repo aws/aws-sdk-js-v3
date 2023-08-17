@@ -1,13 +1,12 @@
-# @aws-sdk/client-lex-runtime-v2
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lex-runtime-v2/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-lex-runtime-v2)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-lex-runtime-v2.svg)](https://www.npmjs.com/package/@aws-sdk/client-lex-runtime-v2)
+# @aws-sdk/client-lex-runtime-v2
 
 ## Description
 
 AWS SDK for JavaScript LexRuntimeV2 Client for Node.js, Browser and React Native.
 
-<p></p>
+<p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>
 
 ## Installing
 
@@ -115,7 +114,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -149,7 +148,7 @@ client
 
 // callbacks.
 client.deleteSession(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -163,7 +162,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -201,3 +200,54 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+DeleteSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/classes/deletesessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/deletesessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/deletesessioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/classes/getsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/getsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/getsessioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/classes/putsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/putsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/putsessioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+RecognizeText
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/classes/recognizetextcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/recognizetextcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/recognizetextcommandoutput.html)
+
+</details>
+<details>
+<summary>
+RecognizeUtterance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/classes/recognizeutterancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/recognizeutterancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/recognizeutterancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartConversation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/classes/startconversationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/startconversationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-v2/interfaces/startconversationcommandoutput.html)
+
+</details>

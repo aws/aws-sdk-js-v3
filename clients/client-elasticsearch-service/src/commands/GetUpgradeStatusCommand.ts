@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ElasticsearchServiceClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { GetUpgradeStatusRequest, GetUpgradeStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUpgradeStatusCommand,
-  serializeAws_restJson1GetUpgradeStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUpgradeStatusCommand, se_GetUpgradeStatusCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetUpgradeStatusCommand}.
+ */
 export interface GetUpgradeStatusCommandInput extends GetUpgradeStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUpgradeStatusCommand}.
+ */
 export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,42 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * import { ElasticsearchServiceClient, GetUpgradeStatusCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, GetUpgradeStatusCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // GetUpgradeStatusRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new GetUpgradeStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetUpgradeStatusResponse
+ * //   UpgradeStep: "PRE_UPGRADE_CHECK" || "SNAPSHOT" || "UPGRADE",
+ * //   StepStatus: "IN_PROGRESS" || "SUCCEEDED" || "SUCCEEDED_WITH_ISSUES" || "FAILED",
+ * //   UpgradeName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetUpgradeStatusCommandInput - {@link GetUpgradeStatusCommandInput}
+ * @returns {@link GetUpgradeStatusCommandOutput}
  * @see {@link GetUpgradeStatusCommandInput} for command's `input` shape.
  * @see {@link GetUpgradeStatusCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class GetUpgradeStatusCommand extends $Command<
@@ -50,6 +93,18 @@ export class GetUpgradeStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetUpgradeStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +120,9 @@ export class GetUpgradeStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetUpgradeStatusCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +133,8 @@ export class GetUpgradeStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUpgradeStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetUpgradeStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +144,18 @@ export class GetUpgradeStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUpgradeStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUpgradeStatusCommand(input, context);
+    return se_GetUpgradeStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUpgradeStatusCommandOutput> {
-    return deserializeAws_restJson1GetUpgradeStatusCommand(output, context);
+    return de_GetUpgradeStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

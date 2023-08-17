@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,39 +11,75 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteKeyGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteKeyGroupCommand,
-  serializeAws_restXmlDeleteKeyGroupCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteKeyGroupRequest } from "../models/models_1";
+import { de_DeleteKeyGroupCommand, se_DeleteKeyGroupCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteKeyGroupCommand}.
+ */
 export interface DeleteKeyGroupCommandInput extends DeleteKeyGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteKeyGroupCommand}.
+ */
 export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a key group.</p>
- * 		       <p>You cannot delete a key group that is referenced in a cache behavior. First update
+ *          <p>You cannot delete a key group that is referenced in a cache behavior. First update
  * 			your distributions to remove the key group from all cache behaviors, then delete the key
  * 			group.</p>
- * 		       <p>To delete a key group, you must provide the key group’s identifier and version. To get
+ *          <p>To delete a key group, you must provide the key group's identifier and version. To get
  * 			these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or
- * 			<code>GetKeyGroupConfig</code>.</p>
+ * 				<code>GetKeyGroupConfig</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFrontClient, DeleteKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteKeyGroupRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteKeyGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteKeyGroupCommandInput - {@link DeleteKeyGroupCommandInput}
+ * @returns {@link DeleteKeyGroupCommandOutput}
  * @see {@link DeleteKeyGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchResource} (client fault)
+ *  <p>A resource that was specified is not valid.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Cannot delete this resource because it is in use.</p>
+ *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteKeyGroupCommand extends $Command<
@@ -52,6 +90,18 @@ export class DeleteKeyGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKeyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +117,9 @@ export class DeleteKeyGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteKeyGroupCommandInput, DeleteKeyGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteKeyGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +130,8 @@ export class DeleteKeyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteKeyGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +141,18 @@ export class DeleteKeyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKeyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteKeyGroupCommand(input, context);
+    return se_DeleteKeyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyGroupCommandOutput> {
-    return deserializeAws_restXmlDeleteKeyGroupCommand(output, context);
+    return de_DeleteKeyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

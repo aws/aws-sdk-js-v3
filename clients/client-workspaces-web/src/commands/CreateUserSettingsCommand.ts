@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { CreateUserSettingsRequest, CreateUserSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateUserSettingsCommand,
-  serializeAws_restJson1CreateUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+  CreateUserSettingsRequest,
+  CreateUserSettingsRequestFilterSensitiveLog,
+  CreateUserSettingsResponse,
+} from "../models/models_0";
+import { de_CreateUserSettingsCommand, se_CreateUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateUserSettingsCommand}.
+ */
 export interface CreateUserSettingsCommandInput extends CreateUserSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateUserSettingsCommand}.
+ */
 export interface CreateUserSettingsCommandOutput extends CreateUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a user settings resource that can be associated with a web portal. Once
  *          associated with a web portal, user settings control how users can transfer data between a
  *          streaming session and the their local devices. </p>
@@ -31,13 +49,56 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * import { WorkSpacesWebClient, CreateUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // CreateUserSettingsRequest
+ *   copyAllowed: "STRING_VALUE", // required
+ *   pasteAllowed: "STRING_VALUE", // required
+ *   downloadAllowed: "STRING_VALUE", // required
+ *   uploadAllowed: "STRING_VALUE", // required
+ *   printAllowed: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   disconnectTimeoutInMinutes: Number("int"),
+ *   idleDisconnectTimeoutInMinutes: Number("int"),
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateUserSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // CreateUserSettingsResponse
+ * //   userSettingsArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
+ * @param CreateUserSettingsCommandInput - {@link CreateUserSettingsCommandInput}
+ * @returns {@link CreateUserSettingsCommandOutput}
  * @see {@link CreateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreateUserSettingsCommand extends $Command<
@@ -48,6 +109,18 @@ export class CreateUserSettingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +136,9 @@ export class CreateUserSettingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateUserSettingsCommandInput, CreateUserSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateUserSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +149,8 @@ export class CreateUserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateUserSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +160,18 @@ export class CreateUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUserSettingsCommand(input, context);
+    return se_CreateUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserSettingsCommandOutput> {
-    return deserializeAws_restJson1CreateUserSettingsCommand(output, context);
+    return de_CreateUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

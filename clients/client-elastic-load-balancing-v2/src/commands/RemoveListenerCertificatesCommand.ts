@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ElasticLoadBalancingV2ClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { RemoveListenerCertificatesInput, RemoveListenerCertificatesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryRemoveListenerCertificatesCommand,
-  serializeAws_queryRemoveListenerCertificatesCommand,
-} from "../protocols/Aws_query";
+import { de_RemoveListenerCertificatesCommand, se_RemoveListenerCertificatesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RemoveListenerCertificatesCommand}.
+ */
 export interface RemoveListenerCertificatesCommandInput extends RemoveListenerCertificatesInput {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveListenerCertificatesCommand}.
+ */
 export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerCertificatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS
  *       listener.</p>
  * @example
@@ -34,13 +48,35 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  * import { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // RemoveListenerCertificatesInput
+ *   ListenerArn: "STRING_VALUE", // required
+ *   Certificates: [ // CertificateList // required
+ *     { // Certificate
+ *       CertificateArn: "STRING_VALUE",
+ *       IsDefault: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new RemoveListenerCertificatesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param RemoveListenerCertificatesCommandInput - {@link RemoveListenerCertificatesCommandInput}
+ * @returns {@link RemoveListenerCertificatesCommandOutput}
  * @see {@link RemoveListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link RemoveListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The specified listener does not exist.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  */
 export class RemoveListenerCertificatesCommand extends $Command<
@@ -51,6 +87,18 @@ export class RemoveListenerCertificatesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveListenerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +114,9 @@ export class RemoveListenerCertificatesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RemoveListenerCertificatesCommandInput, RemoveListenerCertificatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RemoveListenerCertificatesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +127,8 @@ export class RemoveListenerCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveListenerCertificatesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveListenerCertificatesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,15 +138,21 @@ export class RemoveListenerCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveListenerCertificatesCommand(input, context);
+    return se_RemoveListenerCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveListenerCertificatesCommandOutput> {
-    return deserializeAws_queryRemoveListenerCertificatesCommand(output, context);
+    return de_RemoveListenerCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

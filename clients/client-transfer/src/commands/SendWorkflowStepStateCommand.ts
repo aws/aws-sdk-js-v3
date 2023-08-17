@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { SendWorkflowStepStateRequest, SendWorkflowStepStateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SendWorkflowStepStateCommand,
-  serializeAws_json1_1SendWorkflowStepStateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SendWorkflowStepStateCommand, se_SendWorkflowStepStateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SendWorkflowStepStateCommand}.
+ */
 export interface SendWorkflowStepStateCommandInput extends SendWorkflowStepStateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendWorkflowStepStateCommand}.
+ */
 export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a callback for asynchronous custom steps.</p>
  *          <p>
  *       The <code>ExecutionId</code>, <code>WorkflowId</code>, and <code>Token</code> are passed to the target resource during execution of a custom step of a workflow.
@@ -33,13 +47,45 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  * import { TransferClient, SendWorkflowStepStateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, SendWorkflowStepStateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // SendWorkflowStepStateRequest
+ *   WorkflowId: "STRING_VALUE", // required
+ *   ExecutionId: "STRING_VALUE", // required
+ *   Token: "STRING_VALUE", // required
+ *   Status: "SUCCESS" || "FAILURE", // required
+ * };
  * const command = new SendWorkflowStepStateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param SendWorkflowStepStateCommandInput - {@link SendWorkflowStepStateCommandInput}
+ * @returns {@link SendWorkflowStepStateCommandOutput}
  * @see {@link SendWorkflowStepStateCommandInput} for command's `input` shape.
  * @see {@link SendWorkflowStepStateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class SendWorkflowStepStateCommand extends $Command<
@@ -50,6 +96,18 @@ export class SendWorkflowStepStateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SendWorkflowStepStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +123,9 @@ export class SendWorkflowStepStateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SendWorkflowStepStateCommandInput, SendWorkflowStepStateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SendWorkflowStepStateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +136,8 @@ export class SendWorkflowStepStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendWorkflowStepStateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendWorkflowStepStateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +147,18 @@ export class SendWorkflowStepStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendWorkflowStepStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendWorkflowStepStateCommand(input, context);
+    return se_SendWorkflowStepStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendWorkflowStepStateCommandOutput> {
-    return deserializeAws_json1_1SendWorkflowStepStateCommand(output, context);
+    return de_SendWorkflowStepStateCommand(output, context);
   }
 
   // Start section: command_body_extra

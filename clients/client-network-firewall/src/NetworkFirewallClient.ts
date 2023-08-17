@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,29 +19,36 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   AssociateFirewallPolicyCommandInput,
@@ -62,6 +61,10 @@ import {
   CreateFirewallPolicyCommandOutput,
 } from "./commands/CreateFirewallPolicyCommand";
 import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand";
+import {
+  CreateTLSInspectionConfigurationCommandInput,
+  CreateTLSInspectionConfigurationCommandOutput,
+} from "./commands/CreateTLSInspectionConfigurationCommand";
 import { DeleteFirewallCommandInput, DeleteFirewallCommandOutput } from "./commands/DeleteFirewallCommand";
 import {
   DeleteFirewallPolicyCommandInput,
@@ -72,6 +75,10 @@ import {
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "./commands/DeleteRuleGroupCommand";
+import {
+  DeleteTLSInspectionConfigurationCommandInput,
+  DeleteTLSInspectionConfigurationCommandOutput,
+} from "./commands/DeleteTLSInspectionConfigurationCommand";
 import { DescribeFirewallCommandInput, DescribeFirewallCommandOutput } from "./commands/DescribeFirewallCommand";
 import {
   DescribeFirewallPolicyCommandInput,
@@ -91,6 +98,10 @@ import {
   DescribeRuleGroupMetadataCommandOutput,
 } from "./commands/DescribeRuleGroupMetadataCommand";
 import {
+  DescribeTLSInspectionConfigurationCommandInput,
+  DescribeTLSInspectionConfigurationCommandOutput,
+} from "./commands/DescribeTLSInspectionConfigurationCommand";
+import {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
@@ -104,6 +115,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTLSInspectionConfigurationsCommandInput,
+  ListTLSInspectionConfigurationsCommandOutput,
+} from "./commands/ListTLSInspectionConfigurationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -115,6 +130,10 @@ import {
   UpdateFirewallDescriptionCommandInput,
   UpdateFirewallDescriptionCommandOutput,
 } from "./commands/UpdateFirewallDescriptionCommand";
+import {
+  UpdateFirewallEncryptionConfigurationCommandInput,
+  UpdateFirewallEncryptionConfigurationCommandOutput,
+} from "./commands/UpdateFirewallEncryptionConfigurationCommand";
 import {
   UpdateFirewallPolicyChangeProtectionCommandInput,
   UpdateFirewallPolicyChangeProtectionCommandOutput,
@@ -132,72 +151,106 @@ import {
   UpdateSubnetChangeProtectionCommandInput,
   UpdateSubnetChangeProtectionCommandOutput,
 } from "./commands/UpdateSubnetChangeProtectionCommand";
+import {
+  UpdateTLSInspectionConfigurationCommandInput,
+  UpdateTLSInspectionConfigurationCommandOutput,
+} from "./commands/UpdateTLSInspectionConfigurationCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateFirewallPolicyCommandInput
   | AssociateSubnetsCommandInput
   | CreateFirewallCommandInput
   | CreateFirewallPolicyCommandInput
   | CreateRuleGroupCommandInput
+  | CreateTLSInspectionConfigurationCommandInput
   | DeleteFirewallCommandInput
   | DeleteFirewallPolicyCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteRuleGroupCommandInput
+  | DeleteTLSInspectionConfigurationCommandInput
   | DescribeFirewallCommandInput
   | DescribeFirewallPolicyCommandInput
   | DescribeLoggingConfigurationCommandInput
   | DescribeResourcePolicyCommandInput
   | DescribeRuleGroupCommandInput
   | DescribeRuleGroupMetadataCommandInput
+  | DescribeTLSInspectionConfigurationCommandInput
   | DisassociateSubnetsCommandInput
   | ListFirewallPoliciesCommandInput
   | ListFirewallsCommandInput
   | ListRuleGroupsCommandInput
+  | ListTLSInspectionConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | PutResourcePolicyCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateFirewallDeleteProtectionCommandInput
   | UpdateFirewallDescriptionCommandInput
+  | UpdateFirewallEncryptionConfigurationCommandInput
   | UpdateFirewallPolicyChangeProtectionCommandInput
   | UpdateFirewallPolicyCommandInput
   | UpdateLoggingConfigurationCommandInput
   | UpdateRuleGroupCommandInput
-  | UpdateSubnetChangeProtectionCommandInput;
+  | UpdateSubnetChangeProtectionCommandInput
+  | UpdateTLSInspectionConfigurationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateFirewallPolicyCommandOutput
   | AssociateSubnetsCommandOutput
   | CreateFirewallCommandOutput
   | CreateFirewallPolicyCommandOutput
   | CreateRuleGroupCommandOutput
+  | CreateTLSInspectionConfigurationCommandOutput
   | DeleteFirewallCommandOutput
   | DeleteFirewallPolicyCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteRuleGroupCommandOutput
+  | DeleteTLSInspectionConfigurationCommandOutput
   | DescribeFirewallCommandOutput
   | DescribeFirewallPolicyCommandOutput
   | DescribeLoggingConfigurationCommandOutput
   | DescribeResourcePolicyCommandOutput
   | DescribeRuleGroupCommandOutput
   | DescribeRuleGroupMetadataCommandOutput
+  | DescribeTLSInspectionConfigurationCommandOutput
   | DisassociateSubnetsCommandOutput
   | ListFirewallPoliciesCommandOutput
   | ListFirewallsCommandOutput
   | ListRuleGroupsCommandOutput
+  | ListTLSInspectionConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutResourcePolicyCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateFirewallDeleteProtectionCommandOutput
   | UpdateFirewallDescriptionCommandOutput
+  | UpdateFirewallEncryptionConfigurationCommandOutput
   | UpdateFirewallPolicyChangeProtectionCommandOutput
   | UpdateFirewallPolicyCommandOutput
   | UpdateLoggingConfigurationCommandOutput
   | UpdateRuleGroupCommandOutput
-  | UpdateSubnetChangeProtectionCommandOutput;
+  | UpdateSubnetChangeProtectionCommandOutput
+  | UpdateTLSInspectionConfigurationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -205,11 +258,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -260,10 +313,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -281,92 +367,72 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type NetworkFirewallClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type NetworkFirewallClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of NetworkFirewallClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of NetworkFirewallClient class constructor that set the region, credentials and other options.
  */
 export interface NetworkFirewallClientConfig extends NetworkFirewallClientConfigType {}
 
-type NetworkFirewallClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type NetworkFirewallClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of NetworkFirewallClient class. This is resolved and normalized from the {@link NetworkFirewallClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of NetworkFirewallClient class. This is resolved and normalized from the {@link NetworkFirewallClientConfig | constructor configuration interface}.
  */
 export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClientResolvedConfigType {}
 
 /**
- * <p>This is the API Reference for AWS Network Firewall. This guide is for developers who need
+ * @public
+ * <p>This is the API Reference for Network Firewall. This guide is for developers who need
  *          detailed information about the Network Firewall API actions, data types, and errors. </p>
  *          <ul>
  *             <li>
  *                <p>The REST API requires you to handle connection details, such as calculating
  *                signatures, handling request retries, and error handling. For general information
- *                about using the AWS REST APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-apis.html">AWS APIs</a>. </p>
+ *                about using the Amazon Web Services REST APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-apis.html">Amazon Web Services APIs</a>. </p>
  *                <p>To access Network Firewall using the REST API endpoint:
  *                   <code>https://network-firewall.<region>.amazonaws.com </code>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Alternatively, you can use one of the AWS SDKs to access an API that's tailored to
+ *                <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to
  *                the programming language or platform that you're using. For more information, see
- *                   <a href="http://aws.amazon.com/tools/#SDKs">AWS SDKs</a>.</p>
+ *                <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
  *             </li>
  *             <li>
  *                <p>For descriptions of Network Firewall features, including and step-by-step
@@ -377,15 +443,15 @@ export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClie
  *          <p>Network Firewall is a stateful, managed, network firewall and intrusion detection and
  *          prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the
  *          perimeter of your VPC. This includes filtering traffic going to and coming from an internet
- *          gateway, NAT gateway, or over VPN or AWS Direct Connect. Network Firewall uses rules that are compatible
- *       with Suricata, a free, open source intrusion detection system (IDS) engine.
- *       AWS Network Firewall supports Suricata version 5.0.2. For information about Suricata,
- *           see the <a href="https://suricata-ids.org/">Suricata website</a>.</p>
+ *          gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
+ *       with Suricata, a free, open source network analysis and threat detection engine.
+ *       Network Firewall supports Suricata version 6.0.9. For information about Suricata,
+ *           see the <a href="https://suricata.io/">Suricata website</a>.</p>
  *          <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
  *          The following are just a few examples: </p>
  *          <ul>
  *             <li>
- *                <p>Allow domains or IP addresses for known AWS service endpoints, such as Amazon S3, and
+ *                <p>Allow domains or IP addresses for known Amazon Web Services service endpoints, such as Amazon S3, and
  *                block all other forms of traffic.</p>
  *             </li>
  *             <li>
@@ -442,20 +508,23 @@ export class NetworkFirewallClient extends __Client<
    */
   readonly config: NetworkFirewallClientResolvedConfig;
 
-  constructor(configuration: NetworkFirewallClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<NetworkFirewallClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

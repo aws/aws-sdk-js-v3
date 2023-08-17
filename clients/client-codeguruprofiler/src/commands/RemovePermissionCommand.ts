@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { RemovePermissionRequest, RemovePermissionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemovePermissionCommand,
-  serializeAws_restJson1RemovePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemovePermissionCommand, se_RemovePermissionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RemovePermissionCommand}.
+ */
 export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RemovePermissionCommand}.
+ */
 export interface RemovePermissionCommandOutput extends RemovePermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Removes permissions from a profiling group's resource-based policy that are provided
  *             using an action group. The one supported action group that can be removed is
  *                 <code>agentPermission</code> which grants <code>ConfigureAgent</code> and
@@ -37,13 +51,46 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  * import { CodeGuruProfilerClient, RemovePermissionCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, RemovePermissionCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // RemovePermissionRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   actionGroup: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE", // required
+ * };
  * const command = new RemovePermissionCommand(input);
  * const response = await client.send(command);
+ * // { // RemovePermissionResponse
+ * //   policy: "STRING_VALUE", // required
+ * //   revisionId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
+ * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
+ * @returns {@link RemovePermissionCommandOutput}
  * @see {@link RemovePermissionCommandInput} for command's `input` shape.
  * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state
+ *         of a service resource associated with the request. Resolve the conflict
+ *         before retrying this request.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class RemovePermissionCommand extends $Command<
@@ -54,6 +101,18 @@ export class RemovePermissionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RemovePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +128,9 @@ export class RemovePermissionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RemovePermissionCommandInput, RemovePermissionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RemovePermissionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +141,8 @@ export class RemovePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemovePermissionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemovePermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +152,18 @@ export class RemovePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemovePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemovePermissionCommand(input, context);
+    return se_RemovePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemovePermissionCommandOutput> {
-    return deserializeAws_restJson1RemovePermissionCommand(output, context);
+    return de_RemovePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

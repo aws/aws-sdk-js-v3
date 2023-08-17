@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,24 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteLensInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLensCommand,
-  serializeAws_restJson1DeleteLensCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLensCommand, se_DeleteLensCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteLensCommand}.
+ */
 export interface DeleteLensCommandInput extends DeleteLensInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLensCommand}.
+ */
 export interface DeleteLensCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an existing lens.</p>
- *         <p>Only the owner of a lens can delete it.  After the lens is deleted,  Amazon Web Services accounts and IAM users
+ *          <p>Only the owner of a lens can delete it.  After the lens is deleted,  Amazon Web Services accounts and users
  *               that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.
  *         </p>
- *         <note>
+ *          <note>
  *             <p>
  *                <b>Disclaimer</b>
  *             </p>
@@ -43,13 +57,43 @@ export interface DeleteLensCommandOutput extends __MetadataBearer {}
  * import { WellArchitectedClient, DeleteLensCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, DeleteLensCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // DeleteLensInput
+ *   LensAlias: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   LensStatus: "ALL" || "DRAFT" || "PUBLISHED", // required
+ * };
  * const command = new DeleteLensCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteLensCommandInput - {@link DeleteLensCommandInput}
+ * @returns {@link DeleteLensCommandOutput}
  * @see {@link DeleteLensCommandInput} for command's `input` shape.
  * @see {@link DeleteLensCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class DeleteLensCommand extends $Command<
@@ -60,6 +104,18 @@ export class DeleteLensCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLensCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +131,7 @@ export class DeleteLensCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteLensCommandInput, DeleteLensCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteLensCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,8 +142,8 @@ export class DeleteLensCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLensInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +153,18 @@ export class DeleteLensCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLensCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLensCommand(input, context);
+    return se_DeleteLensCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLensCommandOutput> {
-    return deserializeAws_restJson1DeleteLensCommand(output, context);
+    return de_DeleteLensCommand(output, context);
   }
 
   // Start section: command_body_extra

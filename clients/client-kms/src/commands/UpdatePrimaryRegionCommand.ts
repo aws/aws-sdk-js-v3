@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { UpdatePrimaryRegionRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePrimaryRegionCommand,
-  serializeAws_json1_1UpdatePrimaryRegionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePrimaryRegionCommand, se_UpdatePrimaryRegionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdatePrimaryRegionCommand}.
+ */
 export interface UpdatePrimaryRegionCommandInput extends UpdatePrimaryRegionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdatePrimaryRegionCommand}.
+ */
 export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the primary key of a multi-Region key. </p>
  *          <p>This operation changes the replica key in the specified Region to a primary key and
  *       changes the former primary key to a replica key. For example, suppose you have a primary key
@@ -32,7 +46,7 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  *          <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple
  *       interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key
  *       material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt
- *       it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>The <i>primary key</i> of a multi-Region key is the source for properties
  *       that are always shared by primary and replica keys, including the key material, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">key ID</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-spec">key spec</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-usage">key usage</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-origin">key material
  *       origin</a>, and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
@@ -52,8 +66,7 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  *       update is complete. While the key state is <code>Updating</code>, you can use the keys in
  *       cryptographic operations, but you cannot replicate the new primary key or perform certain
  *       management operations, such as enabling or disabling these keys. For details about the
- *         <code>Updating</code> key state, see <a href="kms/latest/developerguide/key-state.html">Key state:
- *         Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *         <code>Updating</code> key state, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>This operation does not return any output. To verify that primary key is changed, use the
  *         <a>DescribeKey</a> operation.</p>
  *          <p>
@@ -94,13 +107,79 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  * import { KMSClient, UpdatePrimaryRegionCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, UpdatePrimaryRegionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // UpdatePrimaryRegionRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   PrimaryRegion: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePrimaryRegionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdatePrimaryRegionCommandInput - {@link UpdatePrimaryRegionCommandInput}
+ * @returns {@link UpdatePrimaryRegionCommandOutput}
  * @see {@link UpdatePrimaryRegionCommandInput} for command's `input` shape.
  * @see {@link UpdatePrimaryRegionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DisabledException} (client fault)
+ *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
+ *       valid.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified
+ *       resource is not valid for this operation.</p>
+ *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
+ *
+ * @example To update the primary Region of a multi-Region KMS key
+ * ```javascript
+ * // The following UpdatePrimaryRegion example changes the multi-Region replica key in the eu-central-1 Region to the primary key. The current primary key in the us-west-1 Region becomes a replica key.
+ * //
+ * // The KeyId parameter identifies the current primary key in the us-west-1 Region. The PrimaryRegion parameter indicates the Region of the replica key that will become the new primary key.
+ * //
+ * // This operation does not return any output. To verify that primary key is changed, use the DescribeKey operation.
+ * const input = {
+ *   "KeyId": "arn:aws:kms:us-west-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *   "PrimaryRegion": "eu-central-1"
+ * };
+ * const command = new UpdatePrimaryRegionCommand(input);
+ * await client.send(command);
+ * // example id: to-update-the-primary-region-of-a-multi-region-kms-key-1660249555577
+ * ```
  *
  */
 export class UpdatePrimaryRegionCommand extends $Command<
@@ -111,6 +190,18 @@ export class UpdatePrimaryRegionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePrimaryRegionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +217,9 @@ export class UpdatePrimaryRegionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdatePrimaryRegionCommandInput, UpdatePrimaryRegionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdatePrimaryRegionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -136,8 +230,8 @@ export class UpdatePrimaryRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePrimaryRegionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +241,18 @@ export class UpdatePrimaryRegionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePrimaryRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePrimaryRegionCommand(input, context);
+    return se_UpdatePrimaryRegionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePrimaryRegionCommandOutput> {
-    return deserializeAws_json1_1UpdatePrimaryRegionCommand(output, context);
+    return de_UpdatePrimaryRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

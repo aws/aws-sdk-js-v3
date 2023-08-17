@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { IoTTwinMaker } from "../IoTTwinMaker";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
 
+/**
+ * @public
+ */
 export interface IoTTwinMakerPaginationConfiguration extends PaginationConfiguration {
-  client: IoTTwinMaker | IoTTwinMakerClient;
+  client: IoTTwinMakerClient;
 }

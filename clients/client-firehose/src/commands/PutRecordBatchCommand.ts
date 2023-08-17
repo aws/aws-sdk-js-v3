@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { PutRecordBatchInput, PutRecordBatchOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutRecordBatchCommand,
-  serializeAws_json1_1PutRecordBatchCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutRecordBatchCommand, se_PutRecordBatchCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutRecordBatchCommand}.
+ */
 export interface PutRecordBatchCommandInput extends PutRecordBatchInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutRecordBatchCommand}.
+ */
 export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Writes multiple data records into a delivery stream in a single call, which can
  *          achieve higher throughput per producer than when writing single records. To write single
  *          data records into a delivery stream, use <a>PutRecord</a>. Applications using
@@ -79,13 +93,57 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  * import { FirehoseClient, PutRecordBatchCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, PutRecordBatchCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // PutRecordBatchInput
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   Records: [ // PutRecordBatchRequestEntryList // required
+ *     { // Record
+ *       Data: "BLOB_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutRecordBatchCommand(input);
  * const response = await client.send(command);
+ * // { // PutRecordBatchOutput
+ * //   FailedPutCount: Number("int"), // required
+ * //   Encrypted: true || false,
+ * //   RequestResponses: [ // PutRecordBatchResponseEntryList // required
+ * //     { // PutRecordBatchResponseEntry
+ * //       RecordId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param PutRecordBatchCommandInput - {@link PutRecordBatchCommandInput}
+ * @returns {@link PutRecordBatchCommandOutput}
  * @see {@link PutRecordBatchCommandInput} for command's `input` shape.
  * @see {@link PutRecordBatchCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter has a value that is not valid.</p>
+ *
+ * @throws {@link InvalidKMSResourceException} (client fault)
+ *  <p>Kinesis Data Firehose throws this exception when an attempt to put records or to start
+ *          or stop delivery stream encryption fails. This happens when the KMS service throws one of
+ *          the following exception types: <code>AccessDeniedException</code>,
+ *             <code>InvalidStateException</code>, <code>DisabledException</code>, or
+ *             <code>NotFoundException</code>.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation. If you continue to see
+ *          the exception, throughput limits for the delivery stream may have been exceeded. For more
+ *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Data Firehose
+ *          Limits</a>.</p>
+ *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class PutRecordBatchCommand extends $Command<
@@ -96,6 +154,18 @@ export class PutRecordBatchCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecordBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +181,9 @@ export class PutRecordBatchCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutRecordBatchCommandInput, PutRecordBatchCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutRecordBatchCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -121,8 +194,8 @@ export class PutRecordBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecordBatchInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutRecordBatchOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +205,18 @@ export class PutRecordBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecordBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRecordBatchCommand(input, context);
+    return se_PutRecordBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordBatchCommandOutput> {
-    return deserializeAws_json1_1PutRecordBatchCommand(output, context);
+    return de_PutRecordBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

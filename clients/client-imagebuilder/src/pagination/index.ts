@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListComponentBuildVersionsPaginator";
 export * from "./ListComponentsPaginator";
@@ -8,5 +9,9 @@ export * from "./ListImagePackagesPaginator";
 export * from "./ListImagePipelineImagesPaginator";
 export * from "./ListImagePipelinesPaginator";
 export * from "./ListImageRecipesPaginator";
+export * from "./ListImageScanFindingAggregationsPaginator";
+export * from "./ListImageScanFindingsPaginator";
 export * from "./ListImagesPaginator";
 export * from "./ListInfrastructureConfigurationsPaginator";
+export * from "./ListWorkflowExecutionsPaginator";
+export * from "./ListWorkflowStepExecutionsPaginator";

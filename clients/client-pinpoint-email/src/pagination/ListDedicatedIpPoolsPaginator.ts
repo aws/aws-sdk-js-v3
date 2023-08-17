@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListDedicatedIpPoolsCommand,
   ListDedicatedIpPoolsCommandInput,
   ListDedicatedIpPoolsCommandOutput,
 } from "../commands/ListDedicatedIpPoolsCommand";
-import { PinpointEmail } from "../PinpointEmail";
 import { PinpointEmailClient } from "../PinpointEmailClient";
 import { PinpointEmailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PinpointEmailClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDedicatedIpPoolsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: PinpointEmail,
-  input: ListDedicatedIpPoolsCommandInput,
-  ...args: any
-): Promise<ListDedicatedIpPoolsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDedicatedIpPools(input, ...args);
-};
 export async function* paginateListDedicatedIpPools(
   config: PinpointEmailPaginationConfiguration,
   input: ListDedicatedIpPoolsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListDedicatedIpPools(
   while (hasNext) {
     input.NextToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof PinpointEmail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PinpointEmailClient) {
+    if (config.client instanceof PinpointEmailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PinpointEmail | PinpointEmailClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchDeleteWorldsCommand";
 export * from "./BatchDescribeSimulationJobCommand";
 export * from "./CancelDeploymentJobCommand";

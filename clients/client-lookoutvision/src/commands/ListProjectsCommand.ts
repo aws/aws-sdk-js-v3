@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,20 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
 import { ListProjectsRequest, ListProjectsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProjectsCommand,
-  serializeAws_restJson1ListProjectsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListProjectsCommand, se_ListProjectsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListProjectsCommand}.
+ */
 export interface ListProjectsCommandInput extends ListProjectsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListProjectsCommand}.
+ */
 export interface ListProjectsCommandOutput extends ListProjectsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon Lookout for Vision projects in your AWS account.</p>
+ * @public
+ * <p>Lists the Amazon Lookout for Vision projects in your AWS account that are in the AWS Region in
+ *       which you call <code>ListProjects</code>.</p>
  *          <p>The <code>ListProjects</code> operation is eventually consistent.
  *          Recent calls to <code>CreateProject</code> and <code>DeleteProject</code> might
  *          take a while to appear in the response from <code>ListProjects</code>.</p>
@@ -34,13 +49,52 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * import { LookoutVisionClient, ListProjectsCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, ListProjectsCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = { // ListProjectsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * // { // ListProjectsResponse
+ * //   Projects: [ // ProjectMetadataList
+ * //     { // ProjectMetadata
+ * //       ProjectArn: "STRING_VALUE",
+ * //       ProjectName: "STRING_VALUE",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
+ * @returns {@link ListProjectsCommandOutput}
  * @see {@link ListProjectsCommandInput} for command's `input` shape.
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The update or deletion of a resource caused an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Amazon Lookout for Vision experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Amazon Lookout for Vision is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An input validation error occured. For example, invalid characters in a project name,
+ *       or if a pagination token is invalid.</p>
+ *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<
@@ -51,6 +105,18 @@ export class ListProjectsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListProjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +132,7 @@ export class ListProjectsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListProjectsCommandInput, ListProjectsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListProjectsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +143,8 @@ export class ListProjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProjectsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListProjectsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +154,18 @@ export class ListProjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProjectsCommand(input, context);
+    return se_ListProjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProjectsCommandOutput> {
-    return deserializeAws_restJson1ListProjectsCommand(output, context);
+    return de_ListProjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

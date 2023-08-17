@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,25 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   GetSagemakerServicecatalogPortfolioStatusInput,
   GetSagemakerServicecatalogPortfolioStatusOutput,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
-  deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand,
-  serializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand,
+  de_GetSagemakerServicecatalogPortfolioStatusCommand,
+  se_GetSagemakerServicecatalogPortfolioStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
+ */
 export interface GetSagemakerServicecatalogPortfolioStatusCommandInput
   extends GetSagemakerServicecatalogPortfolioStatusInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
+ */
 export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
   extends GetSagemakerServicecatalogPortfolioStatusOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of Service Catalog in SageMaker. Service Catalog is used to create
  *             SageMaker projects.</p>
  * @example
@@ -36,13 +53,23 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
  * import { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {};
  * const command = new GetSagemakerServicecatalogPortfolioStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetSagemakerServicecatalogPortfolioStatusOutput
+ * //   Status: "Enabled" || "Disabled",
+ * // };
+ *
  * ```
  *
+ * @param GetSagemakerServicecatalogPortfolioStatusCommandInput - {@link GetSagemakerServicecatalogPortfolioStatusCommandInput}
+ * @returns {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput}
  * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandInput} for command's `input` shape.
  * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
@@ -53,6 +80,18 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetSagemakerServicecatalogPortfolioStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +110,12 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
     GetSagemakerServicecatalogPortfolioStatusCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        GetSagemakerServicecatalogPortfolioStatusCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +126,8 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSagemakerServicecatalogPortfolioStatusInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSagemakerServicecatalogPortfolioStatusOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,18 +137,24 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSagemakerServicecatalogPortfolioStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand(input, context);
+    return se_GetSagemakerServicecatalogPortfolioStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput> {
-    return deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand(output, context);
+    return de_GetSagemakerServicecatalogPortfolioStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

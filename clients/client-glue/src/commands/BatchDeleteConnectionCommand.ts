@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchDeleteConnectionRequest, BatchDeleteConnectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteConnectionCommand,
-  serializeAws_json1_1BatchDeleteConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDeleteConnectionCommand, se_BatchDeleteConnectionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link BatchDeleteConnectionCommand}.
+ */
 export interface BatchDeleteConnectionCommandInput extends BatchDeleteConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDeleteConnectionCommand}.
+ */
 export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a list of connection definitions from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,42 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * import { GlueClient, BatchDeleteConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchDeleteConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchDeleteConnectionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   ConnectionNameList: [ // DeleteConnectionNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDeleteConnectionResponse
+ * //   Succeeded: [ // NameStringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Errors: { // ErrorByName
+ * //     "<keys>": { // ErrorDetail
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param BatchDeleteConnectionCommandInput - {@link BatchDeleteConnectionCommandInput}
+ * @returns {@link BatchDeleteConnectionCommandOutput}
  * @see {@link BatchDeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchDeleteConnectionCommand extends $Command<
@@ -46,6 +89,18 @@ export class BatchDeleteConnectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +116,9 @@ export class BatchDeleteConnectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteConnectionCommandInput, BatchDeleteConnectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchDeleteConnectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +129,8 @@ export class BatchDeleteConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +140,18 @@ export class BatchDeleteConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteConnectionCommand(input, context);
+    return se_BatchDeleteConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteConnectionCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteConnectionCommand(output, context);
+    return de_BatchDeleteConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

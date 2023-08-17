@@ -1,4 +1,5 @@
 export * from "./GetDedicatedIpsPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListConfigurationSetsPaginator";
 export * from "./ListContactListsPaginator";
@@ -10,4 +11,5 @@ export * from "./ListDomainDeliverabilityCampaignsPaginator";
 export * from "./ListEmailIdentitiesPaginator";
 export * from "./ListEmailTemplatesPaginator";
 export * from "./ListImportJobsPaginator";
+export * from "./ListRecommendationsPaginator";
 export * from "./ListSuppressedDestinationsPaginator";

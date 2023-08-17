@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListTagsRequest, ListTagsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { deserializeAws_json1_1ListTagsCommand, serializeAws_json1_1ListTagsCommand } from "../protocols/Aws_json1_1";
+import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTagsCommand}.
+ */
 export interface ListTagsCommandInput extends ListTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTagsCommand}.
+ */
 export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tags that are applied to the specified stack or layer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -26,13 +43,36 @@ export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer 
  * import { OpsWorksClient, ListTagsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, ListTagsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // ListTagsRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsResult
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListTagsCommandInput - {@link ListTagsCommandInput}
+ * @returns {@link ListTagsCommandOutput}
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class ListTagsCommand extends $Command<
@@ -43,6 +83,18 @@ export class ListTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -58,6 +110,7 @@ export class ListTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTagsCommandInput, ListTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -68,8 +121,8 @@ export class ListTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -79,12 +132,18 @@ export class ListTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsCommand(input, context);
+    return se_ListTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsCommandOutput> {
-    return deserializeAws_json1_1ListTagsCommand(output, context);
+    return de_ListTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

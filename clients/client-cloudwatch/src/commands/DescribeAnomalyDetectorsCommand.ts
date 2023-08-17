@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { DescribeAnomalyDetectorsInput, DescribeAnomalyDetectorsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAnomalyDetectorsCommand,
-  serializeAws_queryDescribeAnomalyDetectorsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeAnomalyDetectorsCommand, se_DescribeAnomalyDetectorsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeAnomalyDetectorsCommand}.
+ */
 export interface DescribeAnomalyDetectorsCommandInput extends DescribeAnomalyDetectorsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAnomalyDetectorsCommand}.
+ */
 export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDetectorsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the anomaly detection models that you have created in your account.
  * 			For single metric anomaly detectors,
  * 			you can list all of the models in your account or filter the results
@@ -35,13 +49,105 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * import { CloudWatchClient, DescribeAnomalyDetectorsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAnomalyDetectorsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DescribeAnomalyDetectorsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Namespace: "STRING_VALUE",
+ *   MetricName: "STRING_VALUE",
+ *   Dimensions: [ // Dimensions
+ *     { // Dimension
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AnomalyDetectorTypes: [ // AnomalyDetectorTypes
+ *     "SINGLE_METRIC" || "METRIC_MATH",
+ *   ],
+ * };
  * const command = new DescribeAnomalyDetectorsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAnomalyDetectorsOutput
+ * //   AnomalyDetectors: [ // AnomalyDetectors
+ * //     { // AnomalyDetector
+ * //       Namespace: "STRING_VALUE",
+ * //       MetricName: "STRING_VALUE",
+ * //       Dimensions: [ // Dimensions
+ * //         { // Dimension
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Stat: "STRING_VALUE",
+ * //       Configuration: { // AnomalyDetectorConfiguration
+ * //         ExcludedTimeRanges: [ // AnomalyDetectorExcludedTimeRanges
+ * //           { // Range
+ * //             StartTime: new Date("TIMESTAMP"), // required
+ * //             EndTime: new Date("TIMESTAMP"), // required
+ * //           },
+ * //         ],
+ * //         MetricTimezone: "STRING_VALUE",
+ * //       },
+ * //       StateValue: "PENDING_TRAINING" || "TRAINED_INSUFFICIENT_DATA" || "TRAINED",
+ * //       SingleMetricAnomalyDetector: { // SingleMetricAnomalyDetector
+ * //         Namespace: "STRING_VALUE",
+ * //         MetricName: "STRING_VALUE",
+ * //         Dimensions: [
+ * //           {
+ * //             Name: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         Stat: "STRING_VALUE",
+ * //       },
+ * //       MetricMathAnomalyDetector: { // MetricMathAnomalyDetector
+ * //         MetricDataQueries: [ // MetricDataQueries
+ * //           { // MetricDataQuery
+ * //             Id: "STRING_VALUE", // required
+ * //             MetricStat: { // MetricStat
+ * //               Metric: { // Metric
+ * //                 Namespace: "STRING_VALUE",
+ * //                 MetricName: "STRING_VALUE",
+ * //                 Dimensions: "<Dimensions>",
+ * //               },
+ * //               Period: Number("int"), // required
+ * //               Stat: "STRING_VALUE", // required
+ * //               Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * //             },
+ * //             Expression: "STRING_VALUE",
+ * //             Label: "STRING_VALUE",
+ * //             ReturnData: true || false,
+ * //             Period: Number("int"),
+ * //             AccountId: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeAnomalyDetectorsCommandInput - {@link DescribeAnomalyDetectorsCommandInput}
+ * @returns {@link DescribeAnomalyDetectorsCommandOutput}
  * @see {@link DescribeAnomalyDetectorsCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyDetectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The next token specified is invalid.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Parameters were used together that cannot be used together.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DescribeAnomalyDetectorsCommand extends $Command<
@@ -52,6 +158,18 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnomalyDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +185,9 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAnomalyDetectorsCommandInput, DescribeAnomalyDetectorsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAnomalyDetectorsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +198,8 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAnomalyDetectorsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAnomalyDetectorsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +209,18 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAnomalyDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAnomalyDetectorsCommand(input, context);
+    return se_DescribeAnomalyDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnomalyDetectorsCommandOutput> {
-    return deserializeAws_queryDescribeAnomalyDetectorsCommand(output, context);
+    return de_DescribeAnomalyDetectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

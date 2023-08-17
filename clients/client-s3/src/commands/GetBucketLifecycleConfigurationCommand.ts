@@ -1,7 +1,8 @@
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetBucketLifecycleConfigurationOutput, GetBucketLifecycleConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetBucketLifecycleConfigurationCommand,
-  serializeAws_restXmlGetBucketLifecycleConfigurationCommand,
+  de_GetBucketLifecycleConfigurationCommand,
+  se_GetBucketLifecycleConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetBucketLifecycleConfigurationCommand}.
+ */
 export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLifecycleConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBucketLifecycleConfigurationCommand}.
+ */
 export interface GetBucketLifecycleConfigurationCommandOutput
   extends GetBucketLifecycleConfigurationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an
  *             object key name prefix, one or more object tags, or a combination of both. Accordingly,
@@ -34,15 +50,13 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  *             works. For the earlier action, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html">GetBucketLifecycle</a>.</p>
  *          </note>
  *          <p>Returns the lifecycle configuration information set on the bucket. For information about
- *          lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object
- *             Lifecycle Management</a>.</p>
- *
+ *          lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle
+ *          Management</a>.</p>
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:GetLifecycleConfiguration</code> action. The bucket owner has this permission,
  *          by default. The bucket owner can grant this permission to others. For more information
- *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a>.</p>
- *
+ *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+ *             Access Permissions to Your Amazon S3 Resources</a>.</p>
  *          <p>
  *             <code>GetBucketLifecycleConfiguration</code> has the following special error:</p>
  *          <ul>
@@ -87,13 +101,106 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * import { S3Client, GetBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketLifecycleConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // GetBucketLifecycleConfigurationOutput
+ * //   Rules: [ // LifecycleRules
+ * //     { // LifecycleRule
+ * //       Expiration: { // LifecycleExpiration
+ * //         Date: new Date("TIMESTAMP"),
+ * //         Days: Number("int"),
+ * //         ExpiredObjectDeleteMarker: true || false,
+ * //       },
+ * //       ID: "STRING_VALUE",
+ * //       Prefix: "STRING_VALUE",
+ * //       Filter: { // LifecycleRuleFilter Union: only one key present
+ * //         Prefix: "STRING_VALUE",
+ * //         Tag: { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //         ObjectSizeGreaterThan: Number("long"),
+ * //         ObjectSizeLessThan: Number("long"),
+ * //         And: { // LifecycleRuleAndOperator
+ * //           Prefix: "STRING_VALUE",
+ * //           Tags: [ // TagSet
+ * //             {
+ * //               Key: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           ObjectSizeGreaterThan: Number("long"),
+ * //           ObjectSizeLessThan: Number("long"),
+ * //         },
+ * //       },
+ * //       Status: "Enabled" || "Disabled", // required
+ * //       Transitions: [ // TransitionList
+ * //         { // Transition
+ * //           Date: new Date("TIMESTAMP"),
+ * //           Days: Number("int"),
+ * //           StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ * //         },
+ * //       ],
+ * //       NoncurrentVersionTransitions: [ // NoncurrentVersionTransitionList
+ * //         { // NoncurrentVersionTransition
+ * //           NoncurrentDays: Number("int"),
+ * //           StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ * //           NewerNoncurrentVersions: Number("int"),
+ * //         },
+ * //       ],
+ * //       NoncurrentVersionExpiration: { // NoncurrentVersionExpiration
+ * //         NoncurrentDays: Number("int"),
+ * //         NewerNoncurrentVersions: Number("int"),
+ * //       },
+ * //       AbortIncompleteMultipartUpload: { // AbortIncompleteMultipartUpload
+ * //         DaysAfterInitiation: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GetBucketLifecycleConfigurationCommandInput - {@link GetBucketLifecycleConfigurationCommandInput}
+ * @returns {@link GetBucketLifecycleConfigurationCommandOutput}
  * @see {@link GetBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
+ *
+ * @example To get lifecycle configuration on a bucket
+ * ```javascript
+ * // The following example retrieves lifecycle configuration on set on a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new GetBucketLifecycleConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Rules": [
+ *     {
+ *       "ID": "Rule for TaxDocs/",
+ *       "Prefix": "TaxDocs",
+ *       "Status": "Enabled",
+ *       "Transitions": [
+ *         {
+ *           "Days": 365,
+ *           "StorageClass": "STANDARD_IA"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-lifecycle-configuration-on-a-bucket-1481666063200
+ * ```
  *
  */
 export class GetBucketLifecycleConfigurationCommand extends $Command<
@@ -104,6 +211,24 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,7 +244,9 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetBucketLifecycleConfigurationCommandInput, GetBucketLifecycleConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetBucketLifecycleConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -130,8 +257,8 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketLifecycleConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketLifecycleConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,18 +268,24 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketLifecycleConfigurationCommand(input, context);
+    return se_GetBucketLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketLifecycleConfigurationCommand(output, context);
+    return de_GetBucketLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

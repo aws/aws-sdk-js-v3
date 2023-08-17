@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import { DescribeTableDataImportJobRequest, DescribeTableDataImportJobResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeTableDataImportJobCommand,
-  serializeAws_restJson1DescribeTableDataImportJobCommand,
-} from "../protocols/Aws_restJson1";
+  DescribeTableDataImportJobRequest,
+  DescribeTableDataImportJobResult,
+  DescribeTableDataImportJobResultFilterSensitiveLog,
+} from "../models/models_0";
+import { de_DescribeTableDataImportJobCommand, se_DescribeTableDataImportJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeTableDataImportJobCommand}.
+ */
 export interface DescribeTableDataImportJobCommandInput extends DescribeTableDataImportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTableDataImportJobCommand}.
+ */
 export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDataImportJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The DescribeTableDataImportJob API allows you to retrieve the status and details of a table data import job.
  *         </p>
@@ -31,13 +49,82 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  * import { HoneycodeClient, DescribeTableDataImportJobCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, DescribeTableDataImportJobCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = { // DescribeTableDataImportJobRequest
+ *   workbookId: "STRING_VALUE", // required
+ *   tableId: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTableDataImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTableDataImportJobResult
+ * //   jobStatus: "STRING_VALUE", // required
+ * //   message: "STRING_VALUE", // required
+ * //   jobMetadata: { // TableDataImportJobMetadata
+ * //     submitter: { // ImportJobSubmitter
+ * //       email: "STRING_VALUE",
+ * //       userArn: "STRING_VALUE",
+ * //     },
+ * //     submitTime: new Date("TIMESTAMP"), // required
+ * //     importOptions: { // ImportOptions
+ * //       destinationOptions: { // DestinationOptions
+ * //         columnMap: { // ImportColumnMap
+ * //           "<keys>": { // SourceDataColumnProperties
+ * //             columnIndex: Number("int"),
+ * //           },
+ * //         },
+ * //       },
+ * //       delimitedTextOptions: { // DelimitedTextImportOptions
+ * //         delimiter: "STRING_VALUE", // required
+ * //         hasHeaderRow: true || false,
+ * //         ignoreEmptyRows: true || false,
+ * //         dataCharacterEncoding: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     dataSource: { // ImportDataSource
+ * //       dataSourceConfig: { // ImportDataSourceConfig
+ * //         dataSourceUrl: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   errorCode: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeTableDataImportJobCommandInput - {@link DescribeTableDataImportJobCommandInput}
+ * @returns {@link DescribeTableDataImportJobCommandOutput}
  * @see {@link DescribeTableDataImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTableDataImportJobCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *             You do not have sufficient access to perform this action. Check that the workbook is owned by you and your
+ *             IAM policy allows access to the resource in the request.
+ *         </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There were unexpected errors from the server.</p>
+ *
+ * @throws {@link RequestTimeoutException} (server fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A Workbook, Table, App, Screen or Screen Automation was not found with the given ID.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Remote service is unreachable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Tps(transactions per second) rate reached.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *             Request is invalid. The message in the response contains details on why the request is invalid.
+ *         </p>
+ *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class DescribeTableDataImportJobCommand extends $Command<
@@ -48,6 +135,18 @@ export class DescribeTableDataImportJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTableDataImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +162,9 @@ export class DescribeTableDataImportJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeTableDataImportJobCommandInput, DescribeTableDataImportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeTableDataImportJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +175,8 @@ export class DescribeTableDataImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTableDataImportJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTableDataImportJobResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeTableDataImportJobResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +186,21 @@ export class DescribeTableDataImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTableDataImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTableDataImportJobCommand(input, context);
+    return se_DescribeTableDataImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTableDataImportJobCommandOutput> {
-    return deserializeAws_restJson1DescribeTableDataImportJobCommand(output, context);
+    return de_DescribeTableDataImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

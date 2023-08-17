@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteServiceSpecificCredentialRequest } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteServiceSpecificCredentialCommand,
-  serializeAws_queryDeleteServiceSpecificCredentialCommand,
+  de_DeleteServiceSpecificCredentialCommand,
+  se_DeleteServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteServiceSpecificCredentialCommand}.
+ */
 export interface DeleteServiceSpecificCredentialCommandInput extends DeleteServiceSpecificCredentialRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteServiceSpecificCredentialCommand}.
+ */
 export interface DeleteServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified service-specific credential.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +46,28 @@ export interface DeleteServiceSpecificCredentialCommandOutput extends __Metadata
  * import { IAMClient, DeleteServiceSpecificCredentialCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteServiceSpecificCredentialCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteServiceSpecificCredentialRequest
+ *   UserName: "STRING_VALUE",
+ *   ServiceSpecificCredentialId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteServiceSpecificCredentialCommandInput - {@link DeleteServiceSpecificCredentialCommandInput}
+ * @returns {@link DeleteServiceSpecificCredentialCommandOutput}
  * @see {@link DeleteServiceSpecificCredentialCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceSpecificCredentialCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeleteServiceSpecificCredentialCommand extends $Command<
@@ -46,6 +78,18 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceSpecificCredentialCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +105,9 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteServiceSpecificCredentialCommandInput, DeleteServiceSpecificCredentialCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteServiceSpecificCredentialCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +118,8 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceSpecificCredentialRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,18 +129,24 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteServiceSpecificCredentialCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteServiceSpecificCredentialCommand(input, context);
+    return se_DeleteServiceSpecificCredentialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteServiceSpecificCredentialCommandOutput> {
-    return deserializeAws_queryDeleteServiceSpecificCredentialCommand(output, context);
+    return de_DeleteServiceSpecificCredentialCommand(output, context);
   }
 
   // Start section: command_body_extra

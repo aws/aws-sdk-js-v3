@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -354,6 +354,92 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains error messages associated with one of the following requests:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchAcknowledgeAlarm.html\">BatchAcknowledgeAlarm</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDisableAlarm.html\">BatchDisableAlarm</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchEnableAlarm.html\">BatchEnableAlarm</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchResetAlarm.html\">BatchResetAlarm</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchSnoozeAlarm.html\">BatchSnoozeAlarm</a>\n               </p>\n            </li>\n         </ul>"
+      }
+    },
+    "com.amazonaws.ioteventsdata#BatchDeleteDetector": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ioteventsdata#BatchDeleteDetectorRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ioteventsdata#BatchDeleteDetectorResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ioteventsdata#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.ioteventsdata#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.ioteventsdata#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.ioteventsdata#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes one or more detectors that were created. When a detector is deleted, its state will be cleared and the detector will be removed from the list of detectors. The deleted detector will no longer appear if referenced in the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html\">ListDetectors</a> API call.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/detectors/delete",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.ioteventsdata#BatchDeleteDetectorErrorEntries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ioteventsdata#BatchDeleteDetectorErrorEntry"
+      }
+    },
+    "com.amazonaws.ioteventsdata#BatchDeleteDetectorErrorEntry": {
+      "type": "structure",
+      "members": {
+        "messageId": {
+          "target": "com.amazonaws.ioteventsdata#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the message that caused the error. (See the value of the <code>\"messageId\"</code> in the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.html#iotevents-iotevents-data_BatchDeleteDetector-request-detectors\">detectors</a> object of the <code>DeleteDetectorRequest</code>.)</p>"
+          }
+        },
+        "errorCode": {
+          "target": "com.amazonaws.ioteventsdata#ErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>"
+          }
+        },
+        "errorMessage": {
+          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>A message that describes the error.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains error messages associated with the deletion request.</p>"
+      }
+    },
+    "com.amazonaws.ioteventsdata#BatchDeleteDetectorRequest": {
+      "type": "structure",
+      "members": {
+        "detectors": {
+          "target": "com.amazonaws.ioteventsdata#DeleteDetectorRequests",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of one or more detectors to be deleted.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ioteventsdata#BatchDeleteDetectorResponse": {
+      "type": "structure",
+      "members": {
+        "batchDeleteDetectorErrorEntries": {
+          "target": "com.amazonaws.ioteventsdata#BatchDeleteDetectorErrorEntries",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of errors associated with the request, or an empty array (<code>[]</code>) if there are no errors. Each error entry contains a <code>messageId</code> that helps you identify the entry that failed.</p>"
+          }
+        }
       }
     },
     "com.amazonaws.ioteventsdata#BatchDisableAlarm": {
@@ -846,6 +932,45 @@
         ]
       }
     },
+    "com.amazonaws.ioteventsdata#DeleteDetectorRequest": {
+      "type": "structure",
+      "members": {
+        "messageId": {
+          "target": "com.amazonaws.ioteventsdata#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID to assign to the <code>DeleteDetectorRequest</code>. Each <code>\"messageId\"</code> must be unique within each batch sent.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "detectorModelName": {
+          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the detector model that was used to create the detector instance.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "keyValue": {
+          "target": "com.amazonaws.ioteventsdata#KeyValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateDetectorModel.html#iotevents-CreateDetectorModel-request-key\">key</a> used to identify the detector. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information used to delete the detector model.</p>"
+      }
+    },
+    "com.amazonaws.ioteventsdata#DeleteDetectorRequests": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ioteventsdata#DeleteDetectorRequest"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
     "com.amazonaws.ioteventsdata#DescribeAlarm": {
       "type": "operation",
       "input": {
@@ -1292,10 +1417,9 @@
     "com.amazonaws.ioteventsdata#EpochMilliTimestamp": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
-          "max": 9223372036854775807
+          "max": 9223372036854776000
         }
       }
     },
@@ -1377,25 +1501,13 @@
     },
     "com.amazonaws.ioteventsdata#IotColumboDataService": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "IoT Events Data",
-          "arnNamespace": "ioteventsdata",
-          "cloudFormationName": "IoTEventsData",
-          "cloudTrailEventSource": "ioteventsdata.amazonaws.com",
-          "endpointPrefix": "data.iotevents"
-        },
-        "aws.auth#sigv4": {
-          "name": "ioteventsdata"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>IoT Events monitors your equipment or device fleets for failures or changes in operation, and\n      triggers actions when such events occur. You can use IoT Events Data API commands to send inputs to\n      detectors, list detectors, and view or update a detector's status.</p>\n         <p> For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/what-is-iotevents.html\">What is IoT Events?</a> in the\n        <i>IoT Events Developer Guide</i>.</p>",
-        "smithy.api#title": "AWS IoT Events Data"
-      },
       "version": "2018-10-23",
       "operations": [
         {
           "target": "com.amazonaws.ioteventsdata#BatchAcknowledgeAlarm"
+        },
+        {
+          "target": "com.amazonaws.ioteventsdata#BatchDeleteDetector"
         },
         {
           "target": "com.amazonaws.ioteventsdata#BatchDisableAlarm"
@@ -1427,7 +1539,374 @@
         {
           "target": "com.amazonaws.ioteventsdata#ListDetectors"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "IoT Events Data",
+          "arnNamespace": "ioteventsdata",
+          "cloudFormationName": "IoTEventsData",
+          "cloudTrailEventSource": "ioteventsdata.amazonaws.com",
+          "endpointPrefix": "data.iotevents"
+        },
+        "aws.auth#sigv4": {
+          "name": "ioteventsdata"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>IoT Events monitors your equipment or device fleets for failures or changes in operation, and\n      triggers actions when such events occur. You can use IoT Events Data API commands to send inputs to\n      detectors, list detectors, and view or update a detector's status.</p>\n         <p> For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/what-is-iotevents.html\">What is IoT Events?</a> in the\n        <i>IoT Events Developer Guide</i>.</p>",
+        "smithy.api#title": "AWS IoT Events Data",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://data.iotevents-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://data.iotevents-fips.{Region}.{PartitionResult#dnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://data.iotevents.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://data.iotevents.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.ioteventsdata#KeyValue": {
       "type": "string",
@@ -1605,7 +2084,6 @@
     "com.amazonaws.ioteventsdata#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 250
@@ -1783,10 +2261,7 @@
       }
     },
     "com.amazonaws.ioteventsdata#Seconds": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.ioteventsdata#ServiceUnavailableException": {
       "type": "structure",
@@ -1807,7 +2282,6 @@
     "com.amazonaws.ioteventsdata#Severity": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 2147483647
@@ -1913,10 +2387,7 @@
       }
     },
     "com.amazonaws.ioteventsdata#SnoozeDuration": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.ioteventsdata#StateChangeConfiguration": {
       "type": "structure",

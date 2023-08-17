@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { DeleteDeploymentConfigInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDeploymentConfigCommand,
-  serializeAws_json1_1DeleteDeploymentConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDeploymentConfigCommand, se_DeleteDeploymentConfigCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteDeploymentConfigCommand}.
+ */
 export interface DeleteDeploymentConfigCommandInput extends DeleteDeploymentConfigInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDeploymentConfigCommand}.
+ */
 export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a deployment configuration.</p>
  *         <note>
  *             <p>A deployment configuration cannot be deleted if it is currently in use. Predefined
@@ -33,13 +47,35 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * import { CodeDeployClient, DeleteDeploymentConfigCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeleteDeploymentConfigCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // DeleteDeploymentConfigInput
+ *   deploymentConfigName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeploymentConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteDeploymentConfigCommandInput - {@link DeleteDeploymentConfigCommandInput}
+ * @returns {@link DeleteDeploymentConfigCommandOutput}
  * @see {@link DeleteDeploymentConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link DeploymentConfigInUseException} (client fault)
+ *  <p>The deployment configuration is still in use.</p>
+ *
+ * @throws {@link DeploymentConfigNameRequiredException} (client fault)
+ *  <p>The deployment configuration name was not specified.</p>
+ *
+ * @throws {@link InvalidDeploymentConfigNameException} (client fault)
+ *  <p>The deployment configuration name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>An invalid operation was detected.</p>
+ *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeleteDeploymentConfigCommand extends $Command<
@@ -50,6 +86,18 @@ export class DeleteDeploymentConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeploymentConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +113,9 @@ export class DeleteDeploymentConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDeploymentConfigCommandInput, DeleteDeploymentConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteDeploymentConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +126,8 @@ export class DeleteDeploymentConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeploymentConfigInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +137,18 @@ export class DeleteDeploymentConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeploymentConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeploymentConfigCommand(input, context);
+    return se_DeleteDeploymentConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeploymentConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteDeploymentConfigCommand(output, context);
+    return de_DeleteDeploymentConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

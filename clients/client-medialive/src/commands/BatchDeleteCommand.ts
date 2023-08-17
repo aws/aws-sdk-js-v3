@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { BatchDeleteRequest, BatchDeleteResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchDeleteCommand,
-  serializeAws_restJson1BatchDeleteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchDeleteCommand, se_BatchDeleteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link BatchDeleteCommand}.
+ */
 export interface BatchDeleteCommandInput extends BatchDeleteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDeleteCommand}.
+ */
 export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Starts delete of resources.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,74 @@ export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __Metadat
  * import { MediaLiveClient, BatchDeleteCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, BatchDeleteCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // BatchDeleteRequest
+ *   ChannelIds: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   InputIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   InputSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MultiplexIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDeleteCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDeleteResponse
+ * //   Failed: [ // __listOfBatchFailedResultModel
+ * //     { // BatchFailedResultModel
+ * //       Arn: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Successful: [ // __listOfBatchSuccessfulResultModel
+ * //     { // BatchSuccessfulResultModel
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param BatchDeleteCommandInput - {@link BatchDeleteCommandInput}
+ * @returns {@link BatchDeleteCommandOutput}
  * @see {@link BatchDeleteCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Placeholder documentation for ConflictException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class BatchDeleteCommand extends $Command<
@@ -46,6 +121,18 @@ export class BatchDeleteCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +148,7 @@ export class BatchDeleteCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteCommandInput, BatchDeleteCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, BatchDeleteCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +159,8 @@ export class BatchDeleteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +170,18 @@ export class BatchDeleteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteCommand(input, context);
+    return se_BatchDeleteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteCommand(output, context);
+    return de_BatchDeleteCommand(output, context);
   }
 
   // Start section: command_body_extra

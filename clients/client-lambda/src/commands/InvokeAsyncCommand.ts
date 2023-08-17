@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,28 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+  StreamingBlobPayloadInputTypes,
+} from "@smithy/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { InvokeAsyncRequest, InvokeAsyncResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1InvokeAsyncCommand,
-  serializeAws_restJson1InvokeAsyncCommand,
-} from "../protocols/Aws_restJson1";
+import { InvokeAsyncRequest, InvokeAsyncRequestFilterSensitiveLog, InvokeAsyncResponse } from "../models/models_0";
+import { de_InvokeAsyncCommand, se_InvokeAsyncCommand } from "../protocols/Aws_restJson1";
 
-type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
-  /**
-   * For *`InvokeAsyncRequest["InvokeArgs"]`*, see {@link InvokeAsyncRequest.InvokeArgs}.
-   */
-  InvokeArgs: InvokeAsyncRequest["InvokeArgs"] | string | Uint8Array | Buffer;
-};
 /**
- * This interface extends from `InvokeAsyncRequest` interface. There are more parameters than `InvokeArgs` defined in {@link InvokeAsyncRequest}
+ * @public
  */
-export interface InvokeAsyncCommandInput extends InvokeAsyncCommandInputType {}
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link InvokeAsyncCommand}.
+ */
+export interface InvokeAsyncCommandInput extends Omit<InvokeAsyncRequest, "InvokeArgs"> {
+  InvokeArgs: StreamingBlobPayloadInputTypes;
+}
+
+/**
+ * @public
+ *
+ * The output of {@link InvokeAsyncCommand}.
+ */
 export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <important>
@@ -43,13 +52,41 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * import { LambdaClient, InvokeAsyncCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, InvokeAsyncCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // InvokeAsyncRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   InvokeArgs: "STREAMING_BLOB_VALUE", // required
+ * };
  * const command = new InvokeAsyncCommand(input);
  * const response = await client.send(command);
+ * // { // InvokeAsyncResponse
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
+ * @param InvokeAsyncCommandInput - {@link InvokeAsyncCommandInput}
+ * @returns {@link InvokeAsyncCommandOutput}
  * @see {@link InvokeAsyncCommandInput} for command's `input` shape.
  * @see {@link InvokeAsyncCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidRequestContentException} (client fault)
+ *  <p>The request body could not be parsed as JSON.</p>
+ *
+ * @throws {@link InvalidRuntimeException} (server fault)
+ *  <p>The runtime or runtime version specified is not supported.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>The resource already exists, or another operation is in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class InvokeAsyncCommand extends $Command<
@@ -60,6 +97,18 @@ export class InvokeAsyncCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: InvokeAsyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +124,7 @@ export class InvokeAsyncCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<InvokeAsyncCommandInput, InvokeAsyncCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, InvokeAsyncCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,8 +135,8 @@ export class InvokeAsyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InvokeAsyncRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: InvokeAsyncResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InvokeAsyncRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +146,18 @@ export class InvokeAsyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvokeAsyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InvokeAsyncCommand(input, context);
+    return se_InvokeAsyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeAsyncCommandOutput> {
-    return deserializeAws_restJson1InvokeAsyncCommand(output, context);
+    return de_InvokeAsyncCommand(output, context);
   }
 
   // Start section: command_body_extra

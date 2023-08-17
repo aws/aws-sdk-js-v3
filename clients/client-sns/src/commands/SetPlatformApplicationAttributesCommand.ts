@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { SetPlatformApplicationAttributesInput } from "../models/models_0";
 import {
-  deserializeAws_querySetPlatformApplicationAttributesCommand,
-  serializeAws_querySetPlatformApplicationAttributesCommand,
+  de_SetPlatformApplicationAttributesCommand,
+  se_SetPlatformApplicationAttributesCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SetPlatformApplicationAttributesCommand}.
+ */
 export interface SetPlatformApplicationAttributesCommandInput extends SetPlatformApplicationAttributesInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetPlatformApplicationAttributesCommand}.
+ */
 export interface SetPlatformApplicationAttributesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the attributes of the platform application object for the supported push
  *             notification services, such as APNS and GCM (Firebase Cloud Messaging). For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring
@@ -33,13 +50,39 @@ export interface SetPlatformApplicationAttributesCommandOutput extends __Metadat
  * import { SNSClient, SetPlatformApplicationAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SetPlatformApplicationAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // SetPlatformApplicationAttributesInput
+ *   PlatformApplicationArn: "STRING_VALUE", // required
+ *   Attributes: { // MapStringToString // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SetPlatformApplicationAttributesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param SetPlatformApplicationAttributesCommandInput - {@link SetPlatformApplicationAttributesCommandInput}
+ * @returns {@link SetPlatformApplicationAttributesCommandOutput}
  * @see {@link SetPlatformApplicationAttributesCommandInput} for command's `input` shape.
  * @see {@link SetPlatformApplicationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class SetPlatformApplicationAttributesCommand extends $Command<
@@ -50,6 +93,18 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SetPlatformApplicationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +120,9 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SetPlatformApplicationAttributesCommandInput, SetPlatformApplicationAttributesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SetPlatformApplicationAttributesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +133,8 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetPlatformApplicationAttributesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,18 +144,24 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetPlatformApplicationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetPlatformApplicationAttributesCommand(input, context);
+    return se_SetPlatformApplicationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetPlatformApplicationAttributesCommandOutput> {
-    return deserializeAws_querySetPlatformApplicationAttributesCommand(output, context);
+    return de_SetPlatformApplicationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateProvisioningClaimRequest, CreateProvisioningClaimResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateProvisioningClaimCommand,
-  serializeAws_restJson1CreateProvisioningClaimCommand,
-} from "../protocols/Aws_restJson1";
+  CreateProvisioningClaimRequest,
+  CreateProvisioningClaimResponse,
+  CreateProvisioningClaimResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_CreateProvisioningClaimCommand, se_CreateProvisioningClaimCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateProvisioningClaimCommand}.
+ */
 export interface CreateProvisioningClaimCommandInput extends CreateProvisioningClaimRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateProvisioningClaimCommand}.
+ */
 export interface CreateProvisioningClaimCommandOutput extends CreateProvisioningClaimResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a provisioning claim.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningClaim</a> action.</p>
  * @example
@@ -30,13 +48,49 @@ export interface CreateProvisioningClaimCommandOutput extends CreateProvisioning
  * import { IoTClient, CreateProvisioningClaimCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateProvisioningClaimCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateProvisioningClaimRequest
+ *   templateName: "STRING_VALUE", // required
+ * };
  * const command = new CreateProvisioningClaimCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProvisioningClaimResponse
+ * //   certificateId: "STRING_VALUE",
+ * //   certificatePem: "STRING_VALUE",
+ * //   keyPair: { // KeyPair
+ * //     PublicKey: "STRING_VALUE",
+ * //     PrivateKey: "STRING_VALUE",
+ * //   },
+ * //   expiration: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
+ * @param CreateProvisioningClaimCommandInput - {@link CreateProvisioningClaimCommandInput}
+ * @returns {@link CreateProvisioningClaimCommandOutput}
  * @see {@link CreateProvisioningClaimCommandInput} for command's `input` shape.
  * @see {@link CreateProvisioningClaimCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateProvisioningClaimCommand extends $Command<
@@ -47,6 +101,18 @@ export class CreateProvisioningClaimCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProvisioningClaimCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +128,9 @@ export class CreateProvisioningClaimCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateProvisioningClaimCommandInput, CreateProvisioningClaimCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateProvisioningClaimCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +141,8 @@ export class CreateProvisioningClaimCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProvisioningClaimRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateProvisioningClaimResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: CreateProvisioningClaimResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +152,18 @@ export class CreateProvisioningClaimCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProvisioningClaimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProvisioningClaimCommand(input, context);
+    return se_CreateProvisioningClaimCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProvisioningClaimCommandOutput> {
-    return deserializeAws_restJson1CreateProvisioningClaimCommand(output, context);
+    return de_CreateProvisioningClaimCommand(output, context);
   }
 
   // Start section: command_body_extra

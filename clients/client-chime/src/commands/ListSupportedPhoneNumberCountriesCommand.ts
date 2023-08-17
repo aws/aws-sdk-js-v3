@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
@@ -17,16 +19,31 @@ import {
   ListSupportedPhoneNumberCountriesResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommand,
-  serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand,
+  de_ListSupportedPhoneNumberCountriesCommand,
+  se_ListSupportedPhoneNumberCountriesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListSupportedPhoneNumberCountriesCommand}.
+ */
 export interface ListSupportedPhoneNumberCountriesCommandInput extends ListSupportedPhoneNumberCountriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSupportedPhoneNumberCountriesCommand}.
+ */
 export interface ListSupportedPhoneNumberCountriesCommandOutput
   extends ListSupportedPhoneNumberCountriesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists supported phone number countries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +51,53 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
  * import { ChimeClient, ListSupportedPhoneNumberCountriesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListSupportedPhoneNumberCountriesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListSupportedPhoneNumberCountriesRequest
+ *   ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn", // required
+ * };
  * const command = new ListSupportedPhoneNumberCountriesCommand(input);
  * const response = await client.send(command);
+ * // { // ListSupportedPhoneNumberCountriesResponse
+ * //   PhoneNumberCountries: [ // PhoneNumberCountriesList
+ * //     { // PhoneNumberCountry
+ * //       CountryCode: "STRING_VALUE",
+ * //       SupportedPhoneNumberTypes: [ // PhoneNumberTypeList
+ * //         "Local" || "TollFree",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListSupportedPhoneNumberCountriesCommandInput - {@link ListSupportedPhoneNumberCountriesCommandInput}
+ * @returns {@link ListSupportedPhoneNumberCountriesCommandOutput}
  * @see {@link ListSupportedPhoneNumberCountriesCommandInput} for command's `input` shape.
  * @see {@link ListSupportedPhoneNumberCountriesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListSupportedPhoneNumberCountriesCommand extends $Command<
@@ -51,6 +108,18 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListSupportedPhoneNumberCountriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +135,9 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListSupportedPhoneNumberCountriesCommandInput, ListSupportedPhoneNumberCountriesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListSupportedPhoneNumberCountriesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +148,8 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSupportedPhoneNumberCountriesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSupportedPhoneNumberCountriesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,18 +159,24 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSupportedPhoneNumberCountriesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand(input, context);
+    return se_ListSupportedPhoneNumberCountriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSupportedPhoneNumberCountriesCommandOutput> {
-    return deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommand(output, context);
+    return de_ListSupportedPhoneNumberCountriesCommand(output, context);
   }
 
   // Start section: command_body_extra

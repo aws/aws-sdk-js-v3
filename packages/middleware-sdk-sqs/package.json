@@ -1,14 +1,16 @@
 {
   "name": "@aws-sdk/middleware-sdk-sqs",
-  "version": "3.54.0",
+  "version": "3.391.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "jest",
+    "test:integration": "jest -c jest.config.integ.js"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -20,11 +22,13 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-hex-encoding": "*",
-    "tslib": "^2.3.0"
+    "@smithy/types": "^2.2.0",
+    "@smithy/util-hex-encoding": "^2.0.0",
+    "@smithy/util-utf8": "^2.0.0",
+    "tslib": "^2.5.0"
   },
   "engines": {
-    "node": ">= 12.0.0"
+    "node": ">=14.0.0"
   },
   "typesVersions": {
     "<4.0": {
@@ -34,7 +38,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-sdk-sqs",
   "repository": {
@@ -45,9 +49,12 @@
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
-    "downlevel-dts": "0.7.0",
+    "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
-    "typescript": "~4.3.5"
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5"
+  },
+  "typedoc": {
+    "entryPoint": "src/index.ts"
   }
 }

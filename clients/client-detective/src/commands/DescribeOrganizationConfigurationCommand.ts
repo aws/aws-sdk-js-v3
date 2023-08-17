@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import {
@@ -17,16 +19,31 @@ import {
   DescribeOrganizationConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeOrganizationConfigurationCommand,
-  serializeAws_restJson1DescribeOrganizationConfigurationCommand,
+  de_DescribeOrganizationConfigurationCommand,
+  se_DescribeOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeOrganizationConfigurationCommand}.
+ */
 export interface DescribeOrganizationConfigurationCommandInput extends DescribeOrganizationConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeOrganizationConfigurationCommand}.
+ */
 export interface DescribeOrganizationConfigurationCommandOutput
   extends DescribeOrganizationConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the configuration for the organization behavior graph.
  *          Currently indicates whether to automatically enable new organization accounts as member
  *          accounts.</p>
@@ -37,13 +54,39 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * import { DetectiveClient, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // DescribeOrganizationConfigurationRequest
+ *   GraphArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeOrganizationConfigurationResponse
+ * //   AutoEnable: true || false,
+ * // };
+ *
  * ```
  *
+ * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
+ * @returns {@link DescribeOrganizationConfigurationCommandOutput}
  * @see {@link DescribeOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request issuer does not have permission to access this resource or perform this
+ *          operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request cannot be completed because too many other requests are occurring at the
+ *          same time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request parameters are invalid.</p>
+ *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class DescribeOrganizationConfigurationCommand extends $Command<
@@ -54,6 +97,18 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +124,9 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeOrganizationConfigurationCommandInput, DescribeOrganizationConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeOrganizationConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +137,8 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,18 +148,24 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOrganizationConfigurationCommand(input, context);
+    return se_DescribeOrganizationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeOrganizationConfigurationCommand(output, context);
+    return de_DescribeOrganizationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

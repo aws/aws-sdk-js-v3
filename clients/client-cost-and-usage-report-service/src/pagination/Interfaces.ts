@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { CostAndUsageReportService } from "../CostAndUsageReportService";
 import { CostAndUsageReportServiceClient } from "../CostAndUsageReportServiceClient";
 
+/**
+ * @public
+ */
 export interface CostAndUsageReportServicePaginationConfiguration extends PaginationConfiguration {
-  client: CostAndUsageReportService | CostAndUsageReportServiceClient;
+  client: CostAndUsageReportServiceClient;
 }

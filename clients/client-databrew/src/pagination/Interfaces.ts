@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { DataBrew } from "../DataBrew";
 import { DataBrewClient } from "../DataBrewClient";
 
+/**
+ * @public
+ */
 export interface DataBrewPaginationConfiguration extends PaginationConfiguration {
-  client: DataBrew | DataBrewClient;
+  client: DataBrewClient;
 }

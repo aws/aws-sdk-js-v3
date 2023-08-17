@@ -1,54 +1,34 @@
-import { Endpoint } from "./http";
-import { RequestHandler } from "./transfer";
-import { Decoder, Encoder, Provider } from "./util";
+export {
+  EndpointBearer,
+  StreamCollector,
+  SerdeContext,
+  ResponseDeserializer,
+  RequestSerializer,
+  SdkStreamMixin,
+  SdkStream,
+  WithSdkStreamMixin,
+  SdkStreamMixinInjector,
+  SdkStreamSerdeContext,
+} from "@smithy/types";
 
 /**
- * Interface for object requires an Endpoint set.
+ * @public
+ *
+ * Declare DOM interfaces in case dom.d.ts is not added to the tsconfig lib, causing
+ * interfaces to not be defined. For developers with dom.d.ts added, the interfaces will
+ * be merged correctly.
+ *
+ * This is also required for any clients with streaming interfaces where the corresponding
+ * types are also referred. The type is only declared here once since this `@aws-sdk/types`
+ * is depended by all `@aws-sdk` packages.
  */
-export interface EndpointBearer {
-  endpoint: Provider<Endpoint>;
-}
-
-export interface StreamCollector {
+declare global {
   /**
-   * A function that converts a stream into an array of bytes.
-   *
-   * @param stream  The low-level native stream from browser or Nodejs runtime
+   * @public
    */
-  (stream: any): Promise<Uint8Array>;
-}
-
-/**
- * Request and Response serde util functions and settings for AWS services
- */
-export interface SerdeContext extends EndpointBearer {
-  base64Encoder: Encoder;
-  base64Decoder: Decoder;
-  utf8Encoder: Encoder;
-  utf8Decoder: Decoder;
-  streamCollector: StreamCollector;
-  requestHandler: RequestHandler<any, any>;
-  disableHostPrefix: boolean;
-}
-
-export interface RequestSerializer<Request, Context extends EndpointBearer = any> {
+  export interface ReadableStream {}
   /**
-   * Converts the provided `input` into a request object
-   *
-   * @param input     The user input to serialize.
-   *
-   * @param context    Context containing runtime-specific util functions.
+   * @public
    */
-  (input: any, context: Context): Promise<Request>;
-}
-
-export interface ResponseDeserializer<OutputType, ResponseType = any, Context = any> {
-  /**
-   * Converts the output of an operation into JavaScript types.
-   *
-   * @param output     The HTTP response received from the service
-   *
-   * @param context    context containing runtime-specific util functions.
-   */
-  (output: ResponseType, context: Context): Promise<OutputType>;
+  export interface Blob {}
 }

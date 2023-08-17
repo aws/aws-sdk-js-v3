@@ -1,10 +1,11 @@
 import {
   BodyLengthCalculator,
+  ChecksumConstructor,
   Encoder,
   GetAwsChunkedEncodingStream,
   HashConstructor,
   StreamHasher,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 export interface PreviouslyResolved {
   /**
@@ -27,19 +28,19 @@ export interface PreviouslyResolved {
    * A constructor for a class implementing the {@link Hash} interface that computes MD5 hashes.
    * @internal
    */
-  md5: HashConstructor;
+  md5: ChecksumConstructor | HashConstructor;
 
   /**
    * A constructor for a class implementing the {@link Hash} interface that computes SHA1 hashes.
    * @internal
    */
-  sha1: HashConstructor;
+  sha1: ChecksumConstructor | HashConstructor;
 
   /**
    * A constructor for a class implementing the {@link Hash} interface that computes SHA256 hashes.
    * @internal
    */
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor | HashConstructor;
 
   /**
    * A function that, given a hash constructor and a stream, calculates the hash of the streamed value.

@@ -1,5 +1,6 @@
-import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
+// smithy-typescript generated code
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
+import { getRegionInfo, PartitionHash, RegionHash } from "@smithy/config-resolver";
 
 const regionHash: RegionHash = {};
 
@@ -12,16 +13,22 @@ const partitionHash: PartitionHash = {
       "ap-northeast-2",
       "ap-northeast-3",
       "ap-south-1",
+      "ap-south-2",
       "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
+      "ap-southeast-4",
       "ca-central-1",
       "eu-central-1",
+      "eu-central-2",
       "eu-north-1",
       "eu-south-1",
+      "eu-south-2",
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "il-central-1",
+      "me-central-1",
       "me-south-1",
       "sa-east-1",
       "us-east-1",
@@ -29,7 +36,7 @@ const partitionHash: PartitionHash = {
       "us-west-1",
       "us-west-2",
     ],
-    regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
+    regionRegex: "^(us|eu|ap|sa|ca|me|af|il)\\-\\w+\\-\\d+$",
     variants: [
       {
         hostname: "awsquery.{region}.amazonaws.com",
@@ -95,6 +102,34 @@ const partitionHash: PartitionHash = {
       },
       {
         hostname: "awsquery-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "aws-iso-e": {
+    regions: [],
+    regionRegex: "^eu\\-isoe\\-\\w+\\-\\d+$",
+    variants: [
+      {
+        hostname: "awsquery.{region}.cloud.adc-e.uk",
+        tags: [],
+      },
+      {
+        hostname: "awsquery-fips.{region}.cloud.adc-e.uk",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "aws-iso-f": {
+    regions: [],
+    regionRegex: "^us\\-isof\\-\\w+\\-\\d+$",
+    variants: [
+      {
+        hostname: "awsquery.{region}.csp.hci.ic.gov",
+        tags: [],
+      },
+      {
+        hostname: "awsquery-fips.{region}.csp.hci.ic.gov",
         tags: ["fips"],
       },
     ],

@@ -1,7 +1,6 @@
-# @aws-sdk/client-kinesis-video-signaling
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kinesis-video-signaling/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-video-signaling)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kinesis-video-signaling.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-video-signaling)
+# @aws-sdk/client-kinesis-video-signaling
 
 ## Description
 
@@ -117,7 +116,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -151,7 +150,7 @@ client
 
 // callbacks.
 client.getIceServerConfig(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -165,7 +164,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -203,3 +202,22 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+GetIceServerConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis-video-signaling/classes/geticeserverconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis-video-signaling/interfaces/geticeserverconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis-video-signaling/interfaces/geticeserverconfigcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SendAlexaOfferToMaster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis-video-signaling/classes/sendalexaoffertomastercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis-video-signaling/interfaces/sendalexaoffertomastercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis-video-signaling/interfaces/sendalexaoffertomastercommandoutput.html)
+
+</details>

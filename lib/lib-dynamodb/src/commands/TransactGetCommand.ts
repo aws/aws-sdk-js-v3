@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   Get,
   ItemResponse,
@@ -6,48 +7,71 @@ import {
   TransactGetItemsCommandInput as __TransactGetItemsCommandInput,
   TransactGetItemsCommandOutput as __TransactGetItemsCommandOutput,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
-import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { Command as $Command } from "@smithy/smithy-client";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
+/**
+ * @public
+ */
+export { DynamoDBDocumentClientCommand, $Command };
+
+/**
+ * @public
+ */
 export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "TransactItems"> & {
   TransactItems:
     | (Omit<TransactGetItem, "Get"> & {
         Get:
           | (Omit<Get, "Key"> & {
-              Key: { [key: string]: NativeAttributeValue } | undefined;
+              Key: Record<string, NativeAttributeValue> | undefined;
             })
           | undefined;
       })[]
     | undefined;
 };
 
+/**
+ * @public
+ */
 export type TransactGetCommandOutput = Omit<__TransactGetItemsCommandOutput, "Responses"> & {
   Responses?: (Omit<ItemResponse, "Item"> & {
-    Item?: { [key: string]: NativeAttributeValue };
+    Item?: Record<string, NativeAttributeValue>;
   })[];
 };
 
 /**
  * Accepts native JavaScript types instead of `AttributeValue`s, and calls
- * TransactGetItemsCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ * TransactGetItemsCommand operation from {@link @aws-sdk/client-dynamodb#TransactGetItemsCommand}.
  *
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ *
+ * @public
  */
-export class TransactGetCommand extends $Command<
+export class TransactGetCommand extends DynamoDBDocumentClientCommand<
   TransactGetCommandInput,
   TransactGetCommandOutput,
+  __TransactGetItemsCommandInput,
+  __TransactGetItemsCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  private readonly inputKeyNodes = [{ key: "TransactItems", children: [{ key: "Get", children: [{ key: "Key" }] }] }];
-  private readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
+  protected readonly inputKeyNodes = [{ key: "TransactItems", children: [{ key: "Get", children: [{ key: "Key" }] }] }];
+  protected readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
+
+  protected readonly clientCommand: __TransactGetItemsCommand;
+  public readonly middlewareStack: MiddlewareStack<
+    TransactGetCommandInput | __TransactGetItemsCommandInput,
+    TransactGetCommandOutput | __TransactGetItemsCommandOutput
+  >;
 
   constructor(readonly input: TransactGetCommandInput) {
     super();
+    this.clientCommand = new __TransactGetItemsCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**
@@ -58,16 +82,10 @@ export class TransactGetCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TransactGetCommandInput, TransactGetCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __TransactGetItemsCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    this.addMarshallingMiddleware(configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(this.clientCommand);
   }
 }

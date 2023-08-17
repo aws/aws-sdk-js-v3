@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,25 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   EnableSagemakerServicecatalogPortfolioInput,
   EnableSagemakerServicecatalogPortfolioOutput,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1EnableSagemakerServicecatalogPortfolioCommand,
-  serializeAws_json1_1EnableSagemakerServicecatalogPortfolioCommand,
+  de_EnableSagemakerServicecatalogPortfolioCommand,
+  se_EnableSagemakerServicecatalogPortfolioCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ */
 export interface EnableSagemakerServicecatalogPortfolioCommandInput
   extends EnableSagemakerServicecatalogPortfolioInput {}
+/**
+ * @public
+ *
+ * The output of {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ */
 export interface EnableSagemakerServicecatalogPortfolioCommandOutput
   extends EnableSagemakerServicecatalogPortfolioOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create
  *             SageMaker projects.</p>
  * @example
@@ -36,13 +53,21 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
  * import { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {};
  * const command = new EnableSagemakerServicecatalogPortfolioCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param EnableSagemakerServicecatalogPortfolioCommandInput - {@link EnableSagemakerServicecatalogPortfolioCommandInput}
+ * @returns {@link EnableSagemakerServicecatalogPortfolioCommandOutput}
  * @see {@link EnableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
  * @see {@link EnableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
@@ -53,6 +78,18 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: EnableSagemakerServicecatalogPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +105,9 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableSagemakerServicecatalogPortfolioCommandInput, EnableSagemakerServicecatalogPortfolioCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EnableSagemakerServicecatalogPortfolioCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +118,8 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableSagemakerServicecatalogPortfolioInput.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableSagemakerServicecatalogPortfolioOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,18 +129,24 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableSagemakerServicecatalogPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableSagemakerServicecatalogPortfolioCommand(input, context);
+    return se_EnableSagemakerServicecatalogPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput> {
-    return deserializeAws_json1_1EnableSagemakerServicecatalogPortfolioCommand(output, context);
+    return de_EnableSagemakerServicecatalogPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

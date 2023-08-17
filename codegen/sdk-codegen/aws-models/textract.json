@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -85,7 +85,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Analyzes an input document for relationships between detected items.  </p>\n         <p>The types of information returned are as follows: </p>\n         <ul>\n            <li>\n               <p>Form data (key-value pairs). The related information is returned in two <a>Block</a> objects, each of type <code>KEY_VALUE_SET</code>: a KEY\n                  <code>Block</code> object and a VALUE <code>Block</code> object. For example,\n                  <i>Name: Ana Silva Carolina</i> contains a key and value.\n                  <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is\n               the value.</p>\n            </li>\n            <li>\n               <p>Table and table cell data. A TABLE <code>Block</code> object contains information about a detected table. A CELL\n               <code>Block</code> object is returned for each cell in a table.</p>\n            </li>\n            <li>\n               <p>Lines and words of text. A LINE <code>Block</code> object contains one or more WORD <code>Block</code> objects.\n        All lines and words that are detected in the document are returned (including text that doesn't have a\n               relationship with the value of <code>FeatureTypes</code>). </p>\n            </li>\n         </ul>\n      \n         <p>Selection elements such as check boxes and option buttons (radio buttons) can be detected in form data and in tables.\n         A SELECTION_ELEMENT <code>Block</code> object contains information about a selection element,\n         including the selection status.</p>\n         <p>You can choose which type of analysis to perform by specifying the <code>FeatureTypes</code> list. \n      </p>\n         <p>The output is returned in a list of <code>Block</code> objects.</p>\n         <p>\n            <code>AnalyzeDocument</code> is a synchronous operation. To analyze documents \n      asynchronously, use <a>StartDocumentAnalysis</a>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html\">Document Text Analysis</a>.</p>"
+        "smithy.api#documentation": "<p>Analyzes an input document for relationships between detected items. </p>\n         <p>The types of information returned are as follows: </p>\n         <ul>\n            <li>\n               <p>Form data (key-value pairs). The related information is returned in two <a>Block</a> objects, each of type <code>KEY_VALUE_SET</code>: a KEY\n                  <code>Block</code> object and a VALUE <code>Block</code> object. For example,\n                  <i>Name: Ana Silva Carolina</i> contains a key and value.\n                  <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is\n               the value.</p>\n            </li>\n            <li>\n               <p>Table and table cell data. A TABLE <code>Block</code> object contains information\n               about a detected table. A CELL <code>Block</code> object is returned for each cell in\n               a table.</p>\n            </li>\n            <li>\n               <p>Lines and words of text. A LINE <code>Block</code> object contains one or more\n               WORD <code>Block</code> objects. All lines and words that are detected in the\n               document are returned (including text that doesn't have a relationship with the value\n               of <code>FeatureTypes</code>). </p>\n            </li>\n            <li>\n               <p>Signatures. A SIGNATURE <code>Block</code> object contains the location information\n               of a signature in a document. If used in conjunction with forms or tables, a signature\n               can be given a Key-Value pairing or be detected in the cell of a table.</p>\n            </li>\n            <li>\n               <p>Query. A QUERY Block object contains the query text, alias and link to the\n               associated Query results block object.</p>\n            </li>\n            <li>\n               <p>Query Result. A QUERY_RESULT Block object contains the answer to the query and an\n               ID that connects it to the query asked. This Block also contains a confidence\n               score.</p>\n            </li>\n         </ul>\n         <p>Selection elements such as check boxes and option buttons (radio buttons) can be\n         detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains\n         information about a selection element, including the selection status.</p>\n         <p>You can choose which type of analysis to perform by specifying the\n            <code>FeatureTypes</code> list. </p>\n         <p>The output is returned in a list of <code>Block</code> objects.</p>\n         <p>\n            <code>AnalyzeDocument</code> is a synchronous operation. To analyze documents\n         asynchronously, use <a>StartDocumentAnalysis</a>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html\">Document Text\n         Analysis</a>.</p>"
       }
     },
     "com.amazonaws.textract#AnalyzeDocumentRequest": {
@@ -94,23 +94,32 @@
         "Document": {
           "target": "com.amazonaws.textract#Document",
           "traits": {
-            "smithy.api#documentation": "<p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI\n         to call Amazon Textract operations, you can't pass image bytes. The document must be an image \n         in JPEG or PNG format.</p>\n         <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode\n         image bytes that are passed using the <code>Bytes</code> field. </p>",
+            "smithy.api#documentation": "<p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS\n         CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an\n         image in JPEG, PNG, PDF, or TIFF format.</p>\n         <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode\n         image bytes that are passed using the <code>Bytes</code> field. </p>",
             "smithy.api#required": {}
           }
         },
         "FeatureTypes": {
           "target": "com.amazonaws.textract#FeatureTypes",
           "traits": {
-            "smithy.api#documentation": "<p>A list of the types of analysis to perform. Add TABLES to the list to return information\n         about the tables that are detected in the input document. Add FORMS to return detected form data. \n         To perform both types of analysis, add TABLES and FORMS to\n            <code>FeatureTypes</code>. All lines and words detected in the document are included in\n         the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>",
+            "smithy.api#documentation": "<p>A list of the types of analysis to perform. Add TABLES to the list to return information\n         about the tables that are detected in the input document. Add FORMS to return detected form\n         data. Add SIGNATURES to return the locations of detected signatures. To perform both forms \n         and table analysis, add TABLES and FORMS to <code>FeatureTypes</code>. To detect signatures within\n         form data and table data, add SIGNATURES to either TABLES or FORMS.\n         All lines and words detected in the document are included in the response (including text\n         that isn't related to the value of <code>FeatureTypes</code>). </p>",
             "smithy.api#required": {}
           }
         },
         "HumanLoopConfig": {
           "target": "com.amazonaws.textract#HumanLoopConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Sets the configuration for the human in the loop workflow for analyzing documents.</p>"
+            "smithy.api#documentation": "<p>Sets the configuration for the human in the loop workflow for analyzing\n         documents.</p>"
+          }
+        },
+        "QueriesConfig": {
+          "target": "com.amazonaws.textract#QueriesConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains Queries and the alias for those Queries, as determined by the input. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.textract#AnalyzeDocumentResponse": {
@@ -140,6 +149,9 @@
             "smithy.api#documentation": "<p>The version of the model used to analyze the document.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.textract#AnalyzeExpense": {
@@ -180,7 +192,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>\n            <code>AnalyzeExpense</code> synchronously analyzes an input document for financially related relationships between text.</p>\n         <p>Information is returned as <code>ExpenseDocuments</code> and seperated as follows.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>LineItemGroups</code>- A data set containing <code>LineItems</code> which\n         store information about the lines of text, such as an item purchased and its price on a receipt.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SummaryFields</code>- Contains all other information a receipt, such as header information\n         or the vendors name.</p>\n            </li>\n         </ul>"
+        "smithy.api#documentation": "<p>\n            <code>AnalyzeExpense</code> synchronously analyzes an input document for financially\n         related relationships between text.</p>\n         <p>Information is returned as <code>ExpenseDocuments</code> and seperated as\n         follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>LineItemGroups</code>- A data set containing <code>LineItems</code> which\n               store information about the lines of text, such as an item purchased and its price on\n               a receipt.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SummaryFields</code>- Contains all other information a receipt, such as\n               header information or the vendors name.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.textract#AnalyzeExpenseRequest": {
@@ -192,6 +204,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.textract#AnalyzeExpenseResponse": {
@@ -206,6 +221,9 @@
             "smithy.api#documentation": "<p>The expenses detected by Amazon Textract.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.textract#AnalyzeID": {
@@ -246,7 +264,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Analyzes identity documents for relevant information. This information is extracted\n         and returned as <code>IdentityDocumentFields</code>, which records both the normalized\n         field and value of the extracted text.</p>"
+        "smithy.api#documentation": "<p>Analyzes identity documents for relevant information. This information is extracted and\n         returned as <code>IdentityDocumentFields</code>, which records both the normalized field\n         and value of the extracted text. Unlike other Amazon Textract operations,\n            <code>AnalyzeID</code> doesn't return any Geometry data.</p>"
       }
     },
     "com.amazonaws.textract#AnalyzeIDDetections": {
@@ -286,6 +304,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.textract#AnalyzeIDResponse": {
@@ -294,7 +315,7 @@
         "IdentityDocuments": {
           "target": "com.amazonaws.textract#IdentityDocumentList",
           "traits": {
-            "smithy.api#documentation": "<p>The list of documents processed by AnalyzeID. Includes a number denoting their\n         place in the list and the response structure for the document.</p>"
+            "smithy.api#documentation": "<p>The list of documents processed by AnalyzeID. Includes a number denoting their place in\n         the list and the response structure for the document.</p>"
           }
         },
         "DocumentMetadata": {
@@ -306,6 +327,9 @@
             "smithy.api#documentation": "<p>The version of the AnalyzeIdentity API being used to process documents.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.textract#BadDocumentException": {
@@ -329,7 +353,7 @@
         "BlockType": {
           "target": "com.amazonaws.textract#BlockType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of text item that's recognized. In operations for text detection, the following\n         types are returned:</p>\n         <ul>\n            <li>\n               <p>\n                  <i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects\n               that are detected on a document page.</p>\n            </li>\n            <li>\n               <p>\n                  <i>WORD</i> - A word detected on a document page. A word is one or\n               more ISO basic Latin script characters that aren't separated by spaces.</p>\n            </li>\n            <li>\n               <p>\n                  <i>LINE</i> - A string of tab-delimited, contiguous words that are\n               detected on a document page.</p>\n            </li>\n         </ul>\n         <p>In text analysis operations, the following types are returned:</p>\n         <ul>\n            <li>\n               <p>\n                  <i>PAGE</i> - Contains a list of child <code>Block</code> objects\n               that are detected on a document page.</p>\n            </li>\n            <li>\n               <p>\n                  <i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code>\n               objects for linked text that's detected on a document page. Use the\n                  <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY\n                  <code>Block</code> object or a VALUE <code>Block</code> object. </p>\n            </li>\n            <li>\n               <p>\n                  <i>WORD</i> - A word that's detected on a document page. A word is\n               one or more ISO basic Latin script characters that aren't separated by spaces.</p>\n            </li>\n            <li>\n               <p>\n                  <i>LINE</i> - A string of tab-delimited, contiguous words that are\n               detected on a document page.</p>\n            </li>\n            <li>\n               <p>\n                  <i>TABLE</i> - A table that's detected on a document page. A table\n               is grid-based information with two or more rows or columns, with a cell span of one\n               row and one column each. </p>\n            </li>\n            <li>\n               <p>\n                  <i>CELL</i> - A cell within a detected table. The cell is the parent\n               of the block that contains the text in the cell.</p>\n            </li>\n            <li>\n               <p>\n                  <i>SELECTION_ELEMENT</i> - A selection element such as an option\n               button (radio button) or a check box that's detected on a document page. Use the\n               value of <code>SelectionStatus</code> to determine the status of the selection\n               element.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The type of text item that's recognized. In operations for text detection, the following\n         types are returned:</p>\n         <ul>\n            <li>\n               <p>\n                  <i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects\n               that are detected on a document page.</p>\n            </li>\n            <li>\n               <p>\n                  <i>WORD</i> - A word detected on a document page. A word is one or\n               more ISO basic Latin script characters that aren't separated by spaces.</p>\n            </li>\n            <li>\n               <p>\n                  <i>LINE</i> - A string of tab-delimited, contiguous words that are\n               detected on a document page.</p>\n            </li>\n         </ul>\n         <p>In text analysis operations, the following types are returned:</p>\n         <ul>\n            <li>\n               <p>\n                  <i>PAGE</i> - Contains a list of child <code>Block</code> objects\n               that are detected on a document page.</p>\n            </li>\n            <li>\n               <p>\n                  <i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code>\n               objects for linked text that's detected on a document page. Use the\n                  <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY\n                  <code>Block</code> object or a VALUE <code>Block</code> object. </p>\n            </li>\n            <li>\n               <p>\n                  <i>WORD</i> - A word that's detected on a document page. A word is\n               one or more ISO basic Latin script characters that aren't separated by spaces.</p>\n            </li>\n            <li>\n               <p>\n                  <i>LINE</i> - A string of tab-delimited, contiguous words that are\n               detected on a document page.</p>\n            </li>\n            <li>\n               <p>\n                  <i>TABLE</i> - A table that's detected on a document page. A table\n               is grid-based information with two or more rows or columns, with a cell span of one\n               row and one column each. </p>\n            </li>\n            <li>\n               <p>\n                  <i>TABLE_TITLE</i> - The title of a table. A title is typically a\n               line of text above or below a table, or embedded as the first row of a table. </p>\n            </li>\n            <li>\n               <p>\n                  <i>TABLE_FOOTER</i> - The footer associated with a table. A footer\n               is typically a line or lines of text below a table or embedded as the last row of a\n               table. </p>\n            </li>\n            <li>\n               <p>\n                  <i>CELL</i> - A cell within a detected table. The cell is the parent\n               of the block that contains the text in the cell.</p>\n            </li>\n            <li>\n               <p>\n                  <i>MERGED_CELL</i>  - A cell in a table whose content spans more than\n               one row or column. The <code>Relationships</code> array for this cell contain data\n               from individual cells.</p>\n            </li>\n            <li>\n               <p>\n                  <i>SELECTION_ELEMENT</i> - A selection element such as an option\n               button (radio button) or a check box that's detected on a document page. Use the\n               value of <code>SelectionStatus</code> to determine the status of the selection\n               element.</p>\n            </li>\n            <li>\n               <p>\n                  <i>SIGNATURE</i> - The location and confidene score of a signature detected on a\n               document page. Can be returned as part of a Key-Value pair or a detected cell.</p>\n            </li>\n            <li>\n               <p>\n                  <i>QUERY</i> - A question asked during the call of AnalyzeDocument. Contains an\n               alias and an ID that attaches it to its answer.</p>\n            </li>\n            <li>\n               <p>\n                  <i>QUERY_RESULT</i> - A response to a question asked during the call\n               of analyze document. Comes with an alias and ID for ease of locating in a \n               response. Also contains location and confidence score.</p>\n            </li>\n         </ul>"
           }
         },
         "Confidence": {
@@ -365,13 +389,13 @@
         "RowSpan": {
           "target": "com.amazonaws.textract#UInteger",
           "traits": {
-            "smithy.api#documentation": "<p>The number of rows that a table cell spans. Currently this value is always 1, even if\n         the number of rows spanned is greater than 1. <code>RowSpan</code> isn't returned by\n            <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>"
+            "smithy.api#documentation": "<p>The number of rows that a table cell spans. <code>RowSpan</code> isn't returned by\n            <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>"
           }
         },
         "ColumnSpan": {
           "target": "com.amazonaws.textract#UInteger",
           "traits": {
-            "smithy.api#documentation": "<p>The number of columns that a table cell spans. Currently this value is always 1, even if\n         the number of columns spanned is greater than 1. <code>ColumnSpan</code> isn't returned by\n            <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>"
+            "smithy.api#documentation": "<p>The number of columns that a table cell spans. <code>ColumnSpan</code> isn't returned by\n            <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>"
           }
         },
         "Geometry": {
@@ -389,13 +413,13 @@
         "Relationships": {
           "target": "com.amazonaws.textract#RelationshipList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of child blocks of the current block. For example, a LINE object has child blocks\n         for each WORD block that's part of the line of text. There aren't Relationship objects in\n         the list for relationships that don't exist, such as when the current block has no child\n         blocks. The list size can be the following:</p>\n         <ul>\n            <li>\n               <p>0 - The block has no child blocks.</p>\n            </li>\n            <li>\n               <p>1 - The block has child blocks.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>A list of relationship objects that describe how blocks are related to each other. For\n         example, a LINE block object contains a CHILD relationship type with the WORD blocks that\n         make up the line of text. There aren't Relationship objects in the list for relationships\n         that don't exist, such as when the current block has no child blocks.</p>"
           }
         },
         "EntityTypes": {
           "target": "com.amazonaws.textract#EntityTypes",
           "traits": {
-            "smithy.api#documentation": "<p>The type of entity. The following can be returned:</p>\n         <ul>\n            <li>\n               <p>\n                  <i>KEY</i> - An identifier for a field on the document.</p>\n            </li>\n            <li>\n               <p>\n                  <i>VALUE</i> - The field text.</p>\n            </li>\n         </ul>\n         <p>\n            <code>EntityTypes</code> isn't returned by <code>DetectDocumentText</code> and\n            <code>GetDocumentTextDetection</code>.</p>"
+            "smithy.api#documentation": "<p>The type of entity. </p>\n         <p>The following entity types can be returned by FORMS analysis:</p>\n         <ul>\n            <li>\n               <p>\n                  <i>KEY</i> - An identifier for a field on the document.</p>\n            </li>\n            <li>\n               <p>\n                  <i>VALUE</i> - The field text.</p>\n            </li>\n         </ul>\n         <p>The following entity types can be returned by TABLES analysis:</p>\n         <ul>\n            <li>\n               <p>\n                  <i>COLUMN_HEADER</i> - Identifies a cell that is a header of a column. </p>\n            </li>\n            <li>\n               <p>\n                  <i>TABLE_TITLE</i> - Identifies a cell that is a title within the\n               table. </p>\n            </li>\n            <li>\n               <p>\n                  <i>TABLE_SECTION_TITLE</i> - Identifies a cell that is a title of a\n               section within a table. A section title is a cell that typically spans an entire row\n               above a section. </p>\n            </li>\n            <li>\n               <p>\n                  <i>TABLE_FOOTER</i> - Identifies a cell that is a footer of a table. </p>\n            </li>\n            <li>\n               <p>\n                  <i>TABLE_SUMMARY</i> - Identifies a summary cell of a table. A\n               summary cell can be a row of a table or an additional, smaller table that contains\n               summary information for another table. </p>\n            </li>\n            <li>\n               <p>\n                  <i>STRUCTURED_TABLE </i> - Identifies a table with column headers\n               where the content of each row corresponds to the headers. </p>\n            </li>\n            <li>\n               <p>\n                  <i>SEMI_STRUCTURED_TABLE</i> - Identifies a non-structured table. </p>\n            </li>\n         </ul>\n         <p>\n            <code>EntityTypes</code> isn't returned by <code>DetectDocumentText</code> and\n            <code>GetDocumentTextDetection</code>.</p>"
           }
         },
         "SelectionStatus": {
@@ -407,7 +431,13 @@
         "Page": {
           "target": "com.amazonaws.textract#UInteger",
           "traits": {
-            "smithy.api#documentation": "<p>The page on which a block was detected. <code>Page</code> is returned by asynchronous\n         operations. Page values greater than 1 are only returned for multipage documents that are\n         in PDF or TIFF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is\n         considered to be a single-page document. The value of <code>Page</code> is always 1.\n         Synchronous operations don't return <code>Page</code> because every input document is\n         considered to be a single-page document.</p>"
+            "smithy.api#documentation": "<p>The page on which a block was detected. <code>Page</code> is returned by synchronous and\n         asynchronous operations. Page values greater than 1 are only returned for multipage\n         documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an\n         asynchronous operation, even if it contains multiple document pages, is considered a\n         single-page document. This means that for scanned images the value of <code>Page</code> is\n         always 1. Synchronous operations will also return a <code>Page</code> value of 1\n         because every input document is considered to be a single-page document.</p>"
+          }
+        },
+        "Query": {
+          "target": "com.amazonaws.textract#Query",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
           }
         }
       },
@@ -422,46 +452,92 @@
       }
     },
     "com.amazonaws.textract#BlockType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "KEY_VALUE_SET",
-            "name": "KEY_VALUE_SET"
-          },
-          {
-            "value": "PAGE",
-            "name": "PAGE"
-          },
-          {
-            "value": "LINE",
-            "name": "LINE"
-          },
-          {
-            "value": "WORD",
-            "name": "WORD"
-          },
-          {
-            "value": "TABLE",
-            "name": "TABLE"
-          },
-          {
-            "value": "CELL",
-            "name": "CELL"
-          },
-          {
-            "value": "SELECTION_ELEMENT",
-            "name": "SELECTION_ELEMENT"
-          },
-          {
-            "value": "MERGED_CELL",
-            "name": "MERGED_CELL"
-          },
-          {
-            "value": "TITLE",
-            "name": "TITLE"
+      "type": "enum",
+      "members": {
+        "KEY_VALUE_SET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KEY_VALUE_SET"
           }
-        ]
+        },
+        "PAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PAGE"
+          }
+        },
+        "LINE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LINE"
+          }
+        },
+        "WORD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORD"
+          }
+        },
+        "TABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TABLE"
+          }
+        },
+        "CELL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CELL"
+          }
+        },
+        "SELECTION_ELEMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SELECTION_ELEMENT"
+          }
+        },
+        "MERGED_CELL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MERGED_CELL"
+          }
+        },
+        "TITLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TITLE"
+          }
+        },
+        "QUERY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "QUERY"
+          }
+        },
+        "QUERY_RESULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "QUERY_RESULT"
+          }
+        },
+        "SIGNATURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SIGNATURE"
+          }
+        },
+        "TABLE_TITLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TABLE_TITLE"
+          }
+        },
+        "TABLE_FOOTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TABLE_FOOTER"
+          }
+        }
       }
     },
     "com.amazonaws.textract#BoundingBox": {
@@ -470,24 +546,28 @@
         "Width": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The width of the bounding box as a ratio of the overall document page\n         width.</p>"
           }
         },
         "Height": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The height of the bounding box as a ratio of the overall document page\n         height.</p>"
           }
         },
         "Left": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The left coordinate of the bounding box as a ratio of overall document page\n         width.</p>"
           }
         },
         "Top": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The top coordinate of the bounding box as a ratio of overall document page\n         height.</p>"
           }
         }
@@ -507,18 +587,20 @@
       }
     },
     "com.amazonaws.textract#ContentClassifier": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FreeOfPersonallyIdentifiableInformation",
-            "name": "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION"
-          },
-          {
-            "value": "FreeOfAdultContent",
-            "name": "FREE_OF_ADULT_CONTENT"
+      "type": "enum",
+      "members": {
+        "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FreeOfPersonallyIdentifiableInformation"
           }
-        ]
+        },
+        "FREE_OF_ADULT_CONTENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FreeOfAdultContent"
+          }
+        }
       }
     },
     "com.amazonaws.textract#ContentClassifiers": {
@@ -571,7 +653,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Detects text in the input document. Amazon Textract can detect lines of text and the\n         words that make up a line of text. The input document must be an image in JPEG or PNG\n         format. <code>DetectDocumentText</code> returns the detected text in an array of <a>Block</a> objects. </p>\n         <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object\n         is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is\n         a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p>\n      \n         <p>\n            <code>DetectDocumentText</code> is a synchronous operation. To analyze documents \n         asynchronously, use <a>StartDocumentTextDetection</a>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html\">Document Text Detection</a>.</p>"
+        "smithy.api#documentation": "<p>Detects text in the input document. Amazon Textract can detect lines of text and the\n         words that make up a line of text. The input document must be in one of the following image\n         formats:  JPEG, PNG, PDF, or TIFF. <code>DetectDocumentText</code> returns the detected\n         text in an array of <a>Block</a> objects. </p>\n         <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object\n         is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is\n         a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p>\n         <p>\n            <code>DetectDocumentText</code> is a synchronous operation. To analyze documents \n         asynchronously, use <a>StartDocumentTextDetection</a>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html\">Document Text Detection</a>.</p>"
       }
     },
     "com.amazonaws.textract#DetectDocumentTextRequest": {
@@ -584,6 +666,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.textract#DetectDocumentTextResponse": {
@@ -607,6 +692,29 @@
             "smithy.api#documentation": "<p></p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.textract#DetectedSignature": {
+      "type": "structure",
+      "members": {
+        "Page": {
+          "target": "com.amazonaws.textract#UInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The page a detected signature was found on.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A structure that holds information regarding a detected signature on a page.</p>"
+      }
+    },
+    "com.amazonaws.textract#DetectedSignatureList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#DetectedSignature"
       }
     },
     "com.amazonaws.textract#Document": {
@@ -626,7 +734,45 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input document, either as bytes or as an S3 object.</p>\n         <p>You pass image bytes to an Amazon Textract API operation by using the <code>Bytes</code>\n         property. For example, you would use the <code>Bytes</code> property to pass a document\n         loaded from a local file system. Image bytes passed by using the <code>Bytes</code>\n         property must be base64 encoded. Your code might not need to encode document file bytes if\n         you're using an AWS SDK to call Amazon Textract API operations. </p>\n         <p>You pass images stored in an S3 bucket to an Amazon Textract API operation by using the\n            <code>S3Object</code> property. Documents stored in an S3 bucket don't need to be base64\n         encoded.</p>\n         <p>The AWS Region for the S3 bucket that contains the S3 object must match the AWS\n         Region that you use for Amazon Textract operations.</p>\n         <p>If you use the AWS CLI to call Amazon Textract operations, passing image bytes using\n         the Bytes property isn't supported. You must first upload the document to an Amazon S3\n         bucket, and then call the operation using the S3Object property.</p>\n      \n         <p>For Amazon Textract to process an S3 object, the user must have permission\n         to access the S3 object. </p>"
+        "smithy.api#documentation": "<p>The input document, either as bytes or as an S3 object.</p>\n         <p>You pass image bytes to an Amazon Textract API operation by using the <code>Bytes</code>\n         property. For example, you would use the <code>Bytes</code> property to pass a document\n         loaded from a local file system. Image bytes passed by using the <code>Bytes</code>\n         property must be base64 encoded. Your code might not need to encode document file bytes if\n         you're using an AWS SDK to call Amazon Textract API operations. </p>\n         <p>You pass images stored in an S3 bucket to an Amazon Textract API operation by using the\n            <code>S3Object</code> property. Documents stored in an S3 bucket don't need to be base64\n         encoded.</p>\n         <p>The AWS Region for the S3 bucket that contains the S3 object must match the AWS\n         Region that you use for Amazon Textract operations.</p>\n         <p>If you use the AWS CLI to call Amazon Textract operations, passing image bytes using\n         the Bytes property isn't supported. You must first upload the document to an Amazon S3\n         bucket, and then call the operation using the S3Object property.</p>\n         <p>For Amazon Textract to process an S3 object, the user must have permission\n         to access the S3 object. </p>"
+      }
+    },
+    "com.amazonaws.textract#DocumentGroup": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.textract#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of document that Amazon Textract has detected. See <a href=\"https://docs.aws.amazon.com/textract/latest/dg/lending-response-objects.html\">Analyze Lending Response Objects</a> for a list of all types returned by Textract.</p>"
+          }
+        },
+        "SplitDocuments": {
+          "target": "com.amazonaws.textract#SplitDocumentList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array that contains information about the pages of a document, defined by logical boundary.</p>"
+          }
+        },
+        "DetectedSignatures": {
+          "target": "com.amazonaws.textract#DetectedSignatureList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the detected signatures found in a document group.</p>"
+          }
+        },
+        "UndetectedSignatures": {
+          "target": "com.amazonaws.textract#UndetectedSignatureList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of any expected signatures not found in a document group.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Summary information about documents grouped by the same document type.</p>"
+      }
+    },
+    "com.amazonaws.textract#DocumentGroupList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#DocumentGroup"
       }
     },
     "com.amazonaws.textract#DocumentLocation": {
@@ -640,7 +786,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous\n         operations such as <a>StartDocumentTextDetection</a>.</p>\n         <p>The input document can be an image file in JPEG or PNG format. It can also be a file in\n         PDF format.</p>"
+        "smithy.api#documentation": "<p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous\n         operations.</p>\n         <p>The input document can be an image file in JPEG or PNG format. It can also be a file in\n         PDF format.</p>"
       }
     },
     "com.amazonaws.textract#DocumentMetadata": {
@@ -685,22 +831,62 @@
       }
     },
     "com.amazonaws.textract#EntityType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "KEY",
-            "name": "KEY"
-          },
-          {
-            "value": "VALUE",
-            "name": "VALUE"
-          },
-          {
-            "value": "COLUMN_HEADER",
-            "name": "COLUMN_HEADER"
+      "type": "enum",
+      "members": {
+        "KEY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KEY"
           }
-        ]
+        },
+        "VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALUE"
+          }
+        },
+        "COLUMN_HEADER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COLUMN_HEADER"
+          }
+        },
+        "TABLE_TITLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TABLE_TITLE"
+          }
+        },
+        "TABLE_FOOTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TABLE_FOOTER"
+          }
+        },
+        "TABLE_SECTION_TITLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TABLE_SECTION_TITLE"
+          }
+        },
+        "TABLE_SUMMARY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TABLE_SUMMARY"
+          }
+        },
+        "STRUCTURED_TABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STRUCTURED_TABLE"
+          }
+        },
+        "SEMI_STRUCTURED_TABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SEMI_STRUCTURED_TABLE"
+          }
+        }
       }
     },
     "com.amazonaws.textract#EntityTypes": {
@@ -711,6 +897,26 @@
     },
     "com.amazonaws.textract#ErrorCode": {
       "type": "string"
+    },
+    "com.amazonaws.textract#ExpenseCurrency": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.textract#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Currency code for detected currency. the current supported codes are:</p>\n         <ul>\n            <li>\n               <p>USD</p>\n            </li>\n            <li>\n               <p>EUR</p>\n            </li>\n            <li>\n               <p>GBP</p>\n            </li>\n            <li>\n               <p>CAD</p>\n            </li>\n            <li>\n               <p>INR</p>\n            </li>\n            <li>\n               <p>JPY</p>\n            </li>\n            <li>\n               <p>CHF</p>\n            </li>\n            <li>\n               <p>AUD</p>\n            </li>\n            <li>\n               <p>CNY</p>\n            </li>\n            <li>\n               <p>BZR</p>\n            </li>\n            <li>\n               <p>SEK</p>\n            </li>\n            <li>\n               <p>HKD</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.textract#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Percentage confideence in the detected currency.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the kind of currency detected.</p>"
+      }
     },
     "com.amazonaws.textract#ExpenseDetection": {
       "type": "structure",
@@ -755,6 +961,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Information detected on each table of a document, seperated into <code>LineItems</code>.</p>"
           }
+        },
+        "Blocks": {
+          "target": "com.amazonaws.textract#BlockList",
+          "traits": {
+            "smithy.api#documentation": "<p>This is a block object, the same as reported when DetectDocumentText is run on a document.\n      It provides word level recognition of text.</p>"
+          }
         }
       },
       "traits": {
@@ -793,6 +1005,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The page number the value was detected on.</p>"
           }
+        },
+        "Currency": {
+          "target": "com.amazonaws.textract#ExpenseCurrency",
+          "traits": {
+            "smithy.api#documentation": "<p>Shows the kind of currency, both the code and confidence associated with any monatary value\n         detected.</p>"
+          }
+        },
+        "GroupProperties": {
+          "target": "com.amazonaws.textract#ExpenseGroupPropertyList",
+          "traits": {
+            "smithy.api#documentation": "<p>Shows which group a response object belongs to, such as whether an address line\n         belongs to the vendor's address or the recipent's address.</p>"
+          }
         }
       },
       "traits": {
@@ -803,6 +1027,32 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.textract#ExpenseField"
+      }
+    },
+    "com.amazonaws.textract#ExpenseGroupProperty": {
+      "type": "structure",
+      "members": {
+        "Types": {
+          "target": "com.amazonaws.textract#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>Informs you on whether the expense group is a name or an address.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.textract#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides a group Id number, which will be the same for each in the group.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Shows the group that a certain key belongs to. This helps differentiate between\n         names and addresses for different organizations, that can be hard to determine\n         via JSON response.</p>"
+      }
+    },
+    "com.amazonaws.textract#ExpenseGroupPropertyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#ExpenseGroupProperty"
       }
     },
     "com.amazonaws.textract#ExpenseType": {
@@ -825,19 +1075,59 @@
         "smithy.api#documentation": "<p>An object used to store information about the Type detected by Amazon Textract.</p>"
       }
     },
-    "com.amazonaws.textract#FeatureType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TABLES",
-            "name": "TABLES"
-          },
-          {
-            "value": "FORMS",
-            "name": "FORMS"
+    "com.amazonaws.textract#Extraction": {
+      "type": "structure",
+      "members": {
+        "LendingDocument": {
+          "target": "com.amazonaws.textract#LendingDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>Holds the structured data returned by AnalyzeDocument for lending documents.</p>"
           }
-        ]
+        },
+        "ExpenseDocument": {
+          "target": "com.amazonaws.textract#ExpenseDocument"
+        },
+        "IdentityDocument": {
+          "target": "com.amazonaws.textract#IdentityDocument"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information extracted by an analysis operation after using StartLendingAnalysis.</p>"
+      }
+    },
+    "com.amazonaws.textract#ExtractionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#Extraction"
+      }
+    },
+    "com.amazonaws.textract#FeatureType": {
+      "type": "enum",
+      "members": {
+        "TABLES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TABLES"
+          }
+        },
+        "FORMS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FORMS"
+          }
+        },
+        "QUERIES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "QUERIES"
+          }
+        },
+        "SIGNATURES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SIGNATURES"
+          }
+        }
       }
     },
     "com.amazonaws.textract#FeatureTypes": {
@@ -847,7 +1137,10 @@
       }
     },
     "com.amazonaws.textract#Float": {
-      "type": "float"
+      "type": "float",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.textract#FlowDefinitionArn": {
       "type": "string",
@@ -913,7 +1206,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a document.</p>\n         <p>You start asynchronous text analysis by calling <a>StartDocumentAnalysis</a>, which returns a job identifier\n            (<code>JobId</code>). When the text analysis operation finishes, Amazon Textract publishes a\n         completion status to the Amazon Simple Notification Service (Amazon SNS) topic that's registered in the initial call to\n            <code>StartDocumentAnalysis</code>. To get the results of the text-detection operation,\n         first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>.\n         If so, call <code>GetDocumentAnalysis</code>, and pass the job identifier\n            (<code>JobId</code>) from the initial call to <code>StartDocumentAnalysis</code>.</p>\n         <p>\n            <code>GetDocumentAnalysis</code> returns an array of <a>Block</a> objects. The following\n         types of information are returned: </p>\n         <ul>\n            <li>\n               <p>Form data (key-value pairs). The related information is returned in two <a>Block</a> objects, each of type <code>KEY_VALUE_SET</code>: a KEY\n            <code>Block</code> object and a VALUE <code>Block</code> object. For example,\n            <i>Name: Ana Silva Carolina</i> contains a key and value.\n            <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is\n            the value.</p>\n            </li>\n            <li>\n               <p>Table and table cell data. A TABLE <code>Block</code> object contains information about a detected table. A CELL\n            <code>Block</code> object is returned for each cell in a table.</p>\n            </li>\n            <li>\n               <p>Lines and words of text. A LINE <code>Block</code> object contains one or more WORD <code>Block</code> objects.\n            All lines and words that are detected in the document are returned (including text that doesn't have a\n            relationship with the value of the <code>StartDocumentAnalysis</code> \n                  <code>FeatureTypes</code> input parameter). </p>\n            </li>\n         </ul>\n      \n         <p>Selection elements such as check boxes and option buttons (radio buttons) can be detected in form data and in tables.\n         A SELECTION_ELEMENT <code>Block</code> object contains information about a selection element,\n         including the selection status.</p>\n      \n      \n      \n         <p>Use the <code>MaxResults</code> parameter to limit the number of blocks that are\n         returned. If there are more results than specified in <code>MaxResults</code>, the value of\n            <code>NextToken</code> in the operation response contains a pagination token for getting\n         the next set of results. To get the next page of results, call\n            <code>GetDocumentAnalysis</code>, and populate the <code>NextToken</code> request\n         parameter with the token value that's returned from the previous call to\n            <code>GetDocumentAnalysis</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html\">Document Text Analysis</a>.</p>"
+        "smithy.api#documentation": "<p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a\n         document.</p>\n         <p>You start asynchronous text analysis by calling <a>StartDocumentAnalysis</a>,\n         which returns a job identifier (<code>JobId</code>). When the text analysis operation\n         finishes, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic\n         that's registered in the initial call to <code>StartDocumentAnalysis</code>. To get the\n         results of the text-detection operation, first check that the status value published to the\n         Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetDocumentAnalysis</code>, and\n         pass the job identifier (<code>JobId</code>) from the initial call to\n            <code>StartDocumentAnalysis</code>.</p>\n         <p>\n            <code>GetDocumentAnalysis</code> returns an array of <a>Block</a> objects.\n         The following types of information are returned: </p>\n         <ul>\n            <li>\n               <p>Form data (key-value pairs). The related information is returned in two <a>Block</a> objects, each of type <code>KEY_VALUE_SET</code>: a KEY\n                  <code>Block</code> object and a VALUE <code>Block</code> object. For example,\n                  <i>Name: Ana Silva Carolina</i> contains a key and value.\n                  <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is\n               the value.</p>\n            </li>\n            <li>\n               <p>Table and table cell data. A TABLE <code>Block</code> object contains information\n               about a detected table. A CELL <code>Block</code> object is returned for each cell in\n               a table.</p>\n            </li>\n            <li>\n               <p>Lines and words of text. A LINE <code>Block</code> object contains one or more\n               WORD <code>Block</code> objects. All lines and words that are detected in the\n               document are returned (including text that doesn't have a relationship with the value\n               of the <code>StartDocumentAnalysis</code>\n                  <code>FeatureTypes</code> input parameter). </p>\n            </li>\n            <li>\n               <p>Query. A QUERY Block object contains the query text, alias and link to the\n               associated Query results block object.</p>\n            </li>\n            <li>\n               <p>Query Results. A QUERY_RESULT Block object contains the answer to the query and an\n               ID that connects it to the query asked. This Block also contains a confidence\n               score.</p>\n            </li>\n         </ul>\n         <note>\n            <p>While processing a document with queries, look out for\n               <code>INVALID_REQUEST_PARAMETERS</code> output. This indicates that either the per\n            page query limit has been exceeded or that the operation is trying to query a page in\n            the document which doesn’t exist. </p>\n         </note>\n         <p>Selection elements such as check boxes and option buttons (radio buttons) can be\n         detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains\n         information about a selection element, including the selection status.</p>\n         <p>Use the <code>MaxResults</code> parameter to limit the number of blocks that are\n         returned. If there are more results than specified in <code>MaxResults</code>, the value of\n            <code>NextToken</code> in the operation response contains a pagination token for getting\n         the next set of results. To get the next page of results, call\n            <code>GetDocumentAnalysis</code>, and populate the <code>NextToken</code> request\n         parameter with the token value that's returned from the previous call to\n            <code>GetDocumentAnalysis</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html\">Document Text\n         Analysis</a>.</p>"
       }
     },
     "com.amazonaws.textract#GetDocumentAnalysisRequest": {
@@ -922,7 +1215,7 @@
         "JobId": {
           "target": "com.amazonaws.textract#JobId",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from\n         <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>",
+            "smithy.api#documentation": "<p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from\n            <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7\n         days.</p>",
             "smithy.api#required": {}
           }
         },
@@ -935,9 +1228,12 @@
         "NextToken": {
           "target": "com.amazonaws.textract#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination\n         token in the response. You can use this pagination token to retrieve the next set of blocks.</p>"
+            "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more blocks to retrieve),\n         Amazon Textract returns a pagination token in the response. You can use this pagination\n         token to retrieve the next set of blocks.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.textract#GetDocumentAnalysisResponse": {
@@ -946,7 +1242,7 @@
         "DocumentMetadata": {
           "target": "com.amazonaws.textract#DocumentMetadata",
           "traits": {
-            "smithy.api#documentation": "<p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is\n         returned in every page of paginated responses from an Amazon Textract video operation.</p>"
+            "smithy.api#documentation": "<p>Information about a document that Amazon Textract processed.\n            <code>DocumentMetadata</code> is returned in every page of paginated responses from an\n         Amazon Textract video operation.</p>"
           }
         },
         "JobStatus": {
@@ -958,7 +1254,7 @@
         "NextToken": {
           "target": "com.amazonaws.textract#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>If the response is truncated, Amazon Textract returns this token. You can use this token in\n         the subsequent request to retrieve the next set of text detection results.</p>"
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon Textract returns this token. You can use this token\n         in the subsequent request to retrieve the next set of text detection results.</p>"
           }
         },
         "Blocks": {
@@ -976,7 +1272,7 @@
         "StatusMessage": {
           "target": "com.amazonaws.textract#StatusMessage",
           "traits": {
-            "smithy.api#documentation": "<p>Returns if the detection job could not be completed. Contains explanation for what error occured.</p>"
+            "smithy.api#documentation": "<p>Returns if the detection job could not be completed. Contains explanation for what error\n         occured.</p>"
           }
         },
         "AnalyzeDocumentModelVersion": {
@@ -985,6 +1281,9 @@
             "smithy.api#documentation": "<p></p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.textract#GetDocumentTextDetection": {
@@ -1022,7 +1321,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets the results for an Amazon Textract asynchronous operation that detects text in a document. \n     Amazon Textract can detect lines of text and the words that make up a line of text.</p>\n         <p>You start asynchronous text detection by calling <a>StartDocumentTextDetection</a>, which returns a job identifier\n            (<code>JobId</code>). When the text detection operation finishes, Amazon Textract publishes a\n         completion status to the Amazon Simple Notification Service (Amazon SNS) topic that's registered in the initial call to\n            <code>StartDocumentTextDetection</code>. To get the results of the text-detection\n         operation, first check that the status value published to the Amazon SNS topic is\n            <code>SUCCEEDED</code>. If so, call <code>GetDocumentTextDetection</code>, and pass the\n         job identifier (<code>JobId</code>) from the initial call to\n            <code>StartDocumentTextDetection</code>.</p>\n         <p>\n            <code>GetDocumentTextDetection</code> returns an array of <a>Block</a>\n         objects. </p>\n         <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object\n        is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is\n        a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p>\n     \n         <p>Use the MaxResults parameter to limit the number of blocks that are returned. If there\n         are more results than specified in <code>MaxResults</code>, the value of\n            <code>NextToken</code> in the operation response contains a pagination token for getting\n         the next set of results. To get the next page of results, call\n            <code>GetDocumentTextDetection</code>, and populate the <code>NextToken</code> request\n         parameter with the token value that's returned from the previous call to\n            <code>GetDocumentTextDetection</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html\">Document Text Detection</a>.</p>"
+        "smithy.api#documentation": "<p>Gets the results for an Amazon Textract asynchronous operation that detects text in a document. \n     Amazon Textract can detect lines of text and the words that make up a line of text.</p>\n         <p>You start asynchronous text detection by calling <a>StartDocumentTextDetection</a>, which returns a job identifier\n            (<code>JobId</code>). When the text detection operation finishes, Amazon Textract publishes a\n         completion status to the Amazon Simple Notification Service (Amazon SNS) topic that's registered in the initial call to\n            <code>StartDocumentTextDetection</code>. To get the results of the text-detection\n         operation, first check that the status value published to the Amazon SNS topic is\n            <code>SUCCEEDED</code>. If so, call <code>GetDocumentTextDetection</code>, and pass the\n         job identifier (<code>JobId</code>) from the initial call to\n            <code>StartDocumentTextDetection</code>.</p>\n         <p>\n            <code>GetDocumentTextDetection</code> returns an array of <a>Block</a>\n         objects. </p>\n         <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object\n        is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is\n        a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p>\n         <p>Use the MaxResults parameter to limit the number of blocks that are returned. If there\n         are more results than specified in <code>MaxResults</code>, the value of\n            <code>NextToken</code> in the operation response contains a pagination token for getting\n         the next set of results. To get the next page of results, call\n            <code>GetDocumentTextDetection</code>, and populate the <code>NextToken</code> request\n         parameter with the token value that's returned from the previous call to\n            <code>GetDocumentTextDetection</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html\">Document Text Detection</a>.</p>"
       }
     },
     "com.amazonaws.textract#GetDocumentTextDetectionRequest": {
@@ -1047,6 +1346,9 @@
             "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination\n         token in the response. You can use this pagination token to retrieve the next set of blocks.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.textract#GetDocumentTextDetectionResponse": {
@@ -1094,6 +1396,9 @@
             "smithy.api#documentation": "<p></p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.textract#GetExpenseAnalysis": {
@@ -1156,6 +1461,9 @@
             "smithy.api#documentation": "<p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination\n   token in the response. You can use this pagination token to retrieve the next set of blocks.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.textract#GetExpenseAnalysisResponse": {
@@ -1203,6 +1511,215 @@
             "smithy.api#documentation": "<p>The current model version of AnalyzeExpense.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.textract#GetLendingAnalysis": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.textract#GetLendingAnalysisRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.textract#GetLendingAnalysisResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.textract#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.textract#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.textract#InvalidJobIdException"
+        },
+        {
+          "target": "com.amazonaws.textract#InvalidKMSKeyException"
+        },
+        {
+          "target": "com.amazonaws.textract#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.textract#InvalidS3ObjectException"
+        },
+        {
+          "target": "com.amazonaws.textract#ProvisionedThroughputExceededException"
+        },
+        {
+          "target": "com.amazonaws.textract#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a\n            lending document. </p>\n         <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,\n            which returns a job identifier (<code>JobId</code>). When the text analysis operation\n            finishes, Amazon Textract publishes a completion status to the Amazon Simple\n            Notification Service (Amazon SNS) topic that's registered in the initial call to\n                <code>StartLendingAnalysis</code>. </p>\n         <p>To get the results of the text analysis operation, first check that the status value\n            published to the Amazon SNS topic is SUCCEEDED. If so, call GetLendingAnalysis, and pass\n            the job identifier (<code>JobId</code>) from the initial call to\n                <code>StartLendingAnalysis</code>.</p>"
+      }
+    },
+    "com.amazonaws.textract#GetLendingAnalysisRequest": {
+      "type": "structure",
+      "members": {
+        "JobId": {
+          "target": "com.amazonaws.textract#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is\n            returned from <code>StartLendingAnalysis</code>. A <code>JobId</code> value is only\n            valid for 7 days.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.textract#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return per paginated call. The largest value that you\n            can specify is 30. If you specify a value greater than 30, a maximum of 30 results is\n            returned. The default value is 30.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.textract#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the previous response was incomplete, Amazon Textract returns a pagination token in\n            the response. You can use this pagination token to retrieve the next set of lending\n            results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.textract#GetLendingAnalysisResponse": {
+      "type": "structure",
+      "members": {
+        "DocumentMetadata": {
+          "target": "com.amazonaws.textract#DocumentMetadata"
+        },
+        "JobStatus": {
+          "target": "com.amazonaws.textract#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p> The current status of the lending analysis job.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.textract#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon Textract returns this token. \n            You can use this token in the subsequent request to retrieve the next set of lending results.</p>"
+          }
+        },
+        "Results": {
+          "target": "com.amazonaws.textract#LendingResultList",
+          "traits": {
+            "smithy.api#documentation": "<p> Holds the information returned by one of AmazonTextract's document analysis\n            operations for the pinstripe.</p>"
+          }
+        },
+        "Warnings": {
+          "target": "com.amazonaws.textract#Warnings",
+          "traits": {
+            "smithy.api#documentation": "<p> A list of warnings that occurred during the lending analysis operation. </p>"
+          }
+        },
+        "StatusMessage": {
+          "target": "com.amazonaws.textract#StatusMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>  Returns if the lending analysis job could not be completed. Contains explanation for\n            what error occurred. </p>"
+          }
+        },
+        "AnalyzeLendingModelVersion": {
+          "target": "com.amazonaws.textract#String",
+          "traits": {
+            "smithy.api#documentation": "<p> The current model version of the Analyze Lending API.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.textract#GetLendingAnalysisSummary": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.textract#GetLendingAnalysisSummaryRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.textract#GetLendingAnalysisSummaryResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.textract#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.textract#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.textract#InvalidJobIdException"
+        },
+        {
+          "target": "com.amazonaws.textract#InvalidKMSKeyException"
+        },
+        {
+          "target": "com.amazonaws.textract#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.textract#InvalidS3ObjectException"
+        },
+        {
+          "target": "com.amazonaws.textract#ProvisionedThroughputExceededException"
+        },
+        {
+          "target": "com.amazonaws.textract#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets summarized results for the <code>StartLendingAnalysis</code> operation, which analyzes\n   text in a lending document. The returned summary consists of information about documents grouped\n   together by a common document type. Information like detected signatures, page numbers, and split\n   documents is returned with respect to the type of grouped document. </p>\n         <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>, which\n   returns a job identifier (<code>JobId</code>). When the text analysis operation finishes, Amazon\n   Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS)\n   topic that's registered in the initial call to <code>StartLendingAnalysis</code>. </p>\n         <p>To get the results of the text analysis operation, first check that the status value\n   published to the Amazon SNS topic is SUCCEEDED. If so, call\n    <code>GetLendingAnalysisSummary</code>, and pass the job identifier (<code>JobId</code>) from\n   the initial call to <code>StartLendingAnalysis</code>.</p>"
+      }
+    },
+    "com.amazonaws.textract#GetLendingAnalysisSummaryRequest": {
+      "type": "structure",
+      "members": {
+        "JobId": {
+          "target": "com.amazonaws.textract#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p> A unique identifier for the lending or text-detection job. The <code>JobId</code> is\n   returned from StartLendingAnalysis. A <code>JobId</code> value is only valid for 7 days.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.textract#GetLendingAnalysisSummaryResponse": {
+      "type": "structure",
+      "members": {
+        "DocumentMetadata": {
+          "target": "com.amazonaws.textract#DocumentMetadata"
+        },
+        "JobStatus": {
+          "target": "com.amazonaws.textract#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p> The current status of the lending analysis job. </p>"
+          }
+        },
+        "Summary": {
+          "target": "com.amazonaws.textract#LendingSummary",
+          "traits": {
+            "smithy.api#documentation": "<p> Contains summary information for documents grouped by type.</p>"
+          }
+        },
+        "Warnings": {
+          "target": "com.amazonaws.textract#Warnings",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of warnings that occurred during the lending analysis operation.</p>"
+          }
+        },
+        "StatusMessage": {
+          "target": "com.amazonaws.textract#StatusMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns if the lending analysis could not be completed. Contains explanation for what error\n   occurred.</p>"
+          }
+        },
+        "AnalyzeLendingModelVersion": {
+          "target": "com.amazonaws.textract#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The current model version of the Analyze Lending API.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.textract#HumanLoopActivationOutput": {
@@ -1375,6 +1892,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The structure used to record information extracted from identity documents.\n         Contains both normalized field and value of the extracted text.</p>"
           }
+        },
+        "Blocks": {
+          "target": "com.amazonaws.textract#BlockList",
+          "traits": {
+            "smithy.api#documentation": "<p>Individual word recognition, as returned by document detection.</p>"
+          }
         }
       },
       "traits": {
@@ -1442,7 +1965,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An invalid job identifier was passed to <a>GetDocumentAnalysis</a> or to\n      <a>GetDocumentAnalysis</a>.</p>",
+        "smithy.api#documentation": "<p>An invalid job identifier was passed to an asynchronous analysis operation.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1502,26 +2025,32 @@
       }
     },
     "com.amazonaws.textract#JobStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "PARTIAL_SUCCESS",
-            "name": "PARTIAL_SUCCESS"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "PARTIAL_SUCCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PARTIAL_SUCCESS"
+          }
+        }
       }
     },
     "com.amazonaws.textract#JobTag": {
@@ -1542,6 +2071,142 @@
           "max": 2048
         },
         "smithy.api#pattern": "^[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,2048}$"
+      }
+    },
+    "com.amazonaws.textract#LendingDetection": {
+      "type": "structure",
+      "members": {
+        "Text": {
+          "target": "com.amazonaws.textract#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The text extracted for a detected value in a lending document.</p>"
+          }
+        },
+        "SelectionStatus": {
+          "target": "com.amazonaws.textract#SelectionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The selection status of a selection element, such as an option button or check box.</p>"
+          }
+        },
+        "Geometry": {
+          "target": "com.amazonaws.textract#Geometry"
+        },
+        "Confidence": {
+          "target": "com.amazonaws.textract#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>The confidence level for the text of a detected value in a lending document.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The results extracted for a lending document.</p>"
+      }
+    },
+    "com.amazonaws.textract#LendingDetectionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#LendingDetection"
+      }
+    },
+    "com.amazonaws.textract#LendingDocument": {
+      "type": "structure",
+      "members": {
+        "LendingFields": {
+          "target": "com.amazonaws.textract#LendingFieldList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of LendingField objects.</p>"
+          }
+        },
+        "SignatureDetections": {
+          "target": "com.amazonaws.textract#SignatureDetectionList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of signatures detected in a lending document.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Holds the structured data returned by AnalyzeDocument for lending documents.</p>"
+      }
+    },
+    "com.amazonaws.textract#LendingField": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.textract#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the lending document.</p>"
+          }
+        },
+        "KeyDetection": {
+          "target": "com.amazonaws.textract#LendingDetection"
+        },
+        "ValueDetections": {
+          "target": "com.amazonaws.textract#LendingDetectionList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of LendingDetection objects.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Holds the normalized key-value pairs returned by AnalyzeDocument, including the document type, detected text, and geometry.</p>"
+      }
+    },
+    "com.amazonaws.textract#LendingFieldList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#LendingField"
+      }
+    },
+    "com.amazonaws.textract#LendingResult": {
+      "type": "structure",
+      "members": {
+        "Page": {
+          "target": "com.amazonaws.textract#UInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The page number for a page, with regard to whole submission.</p>"
+          }
+        },
+        "PageClassification": {
+          "target": "com.amazonaws.textract#PageClassification",
+          "traits": {
+            "smithy.api#documentation": "<p>The classifier result for a given page.</p>"
+          }
+        },
+        "Extractions": {
+          "target": "com.amazonaws.textract#ExtractionList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of Extraction to hold structured data. e.g. normalized key value pairs instead of raw OCR detections .</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains the detections for each page analyzed through the Analyze Lending API.</p>"
+      }
+    },
+    "com.amazonaws.textract#LendingResultList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#LendingResult"
+      }
+    },
+    "com.amazonaws.textract#LendingSummary": {
+      "type": "structure",
+      "members": {
+        "DocumentGroups": {
+          "target": "com.amazonaws.textract#DocumentGroupList",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains an array of all DocumentGroup objects.</p>"
+          }
+        },
+        "UndetectedDocumentTypes": {
+          "target": "com.amazonaws.textract#UndetectedDocumentTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>UndetectedDocumentTypes.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information regarding DocumentGroups and UndetectedDocumentTypes.</p>"
       }
     },
     "com.amazonaws.textract#LimitExceededException": {
@@ -1608,7 +2273,6 @@
     "com.amazonaws.textract#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -1659,7 +2323,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of\n         an asynchronous document operation, such as <a>StartDocumentTextDetection</a>. </p>"
+        "smithy.api#documentation": "<p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of\n         an asynchronous document operation. </p>"
       }
     },
     "com.amazonaws.textract#OutputConfig": {
@@ -1680,7 +2344,35 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Sets whether or not your output will go to a user created bucket. Used to set the name\n         of the bucket, and the prefix on the output file.</p>\n         <p>\n            <code>OutputConfig</code> is an optional parameter which lets you adjust where your output will be placed. \n         By default, Amazon Textract will store the results internally and can only be accessed by the Get \n         API operations. With OutputConfig enabled, you can set the name of the bucket the output will be \n         sent to and the file prefix of the results where you can download your results. Additionally, you \n         can set the <code>KMSKeyID</code> parameter to a customer master key (CMK) to encrypt your output. Without this\n         parameter set Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p>\n         <p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account \n         is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after \n         the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html\"> Managing AI services opt-out policy. </a>\n         </p>\n         <p>For more information on data privacy,\n         see the <a href=\"https://aws.amazon.com/compliance/data-privacy-faq/\">Data Privacy\n            FAQ</a>.</p>"
+        "smithy.api#documentation": "<p>Sets whether or not your output will go to a user created bucket. Used to set the name\n         of the bucket, and the prefix on the output file.</p>\n         <p>\n            <code>OutputConfig</code> is an optional parameter which lets you adjust where your\n         output will be placed. By default, Amazon Textract will store the results internally and can\n         only be accessed by the Get API operations. With <code>OutputConfig</code> enabled, you can\n         set the name of the bucket the output will be sent to the file prefix of the results where\n         you can download your results. Additionally, you can set the <code>KMSKeyID</code>\n         parameter to a customer master key (CMK) to encrypt your output. Without this parameter set\n         Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p>\n         <p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account \n         is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after \n         the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html\"> Managing AI services opt-out policy. </a>\n         </p>\n         <p>For more information on data privacy,\n         see the <a href=\"https://aws.amazon.com/compliance/data-privacy-faq/\">Data Privacy\n            FAQ</a>.</p>"
+      }
+    },
+    "com.amazonaws.textract#PageClassification": {
+      "type": "structure",
+      "members": {
+        "PageType": {
+          "target": "com.amazonaws.textract#PredictionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The class, or document type, assigned to a detected Page object. The class, or document type, \n         assigned to a detected Page object.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PageNumber": {
+          "target": "com.amazonaws.textract#PredictionList",
+          "traits": {
+            "smithy.api#documentation": "<p> The page number the value was detected on, relative to Amazon Textract's starting position.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The class assigned to a Page object detected in an input document. \n         Contains information regarding the predicted type/class of a document's page and the \n         page number that the Page object was detected on.</p>"
+      }
+    },
+    "com.amazonaws.textract#PageList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#UInteger"
       }
     },
     "com.amazonaws.textract#Pages": {
@@ -1702,7 +2394,6 @@
     "com.amazonaws.textract#Percent": {
       "type": "float",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 100
@@ -1715,24 +2406,52 @@
         "X": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>"
           }
         },
         "Y": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value of the Y coordinate for a point on a <code>Polygon</code>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The X and Y coordinates of a point on a document page. The X and Y\n         values that are returned are ratios of the overall document page size. For example, if the\n         input document is 700 x 200 and the operation returns X=0.5 and Y=0.25, then the point is\n         at the (350,50) pixel coordinate on the document page.</p>\n      \n         <p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned\n         by <a>DetectDocumentText</a>. <code>Polygon</code> represents a fine-grained\n         polygon around detected text. For more information, see Geometry in the Amazon Textract\n         Developer Guide. </p>"
+        "smithy.api#documentation": "<p>The X and Y coordinates of a point on a document page. The X and Y\n         values that are returned are ratios of the overall document page size. For example, if the\n         input document is 700 x 200 and the operation returns X=0.5 and Y=0.25, then the point is\n         at the (350,50) pixel coordinate on the document page.</p>\n         <p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned\n         by <a>DetectDocumentText</a>. <code>Polygon</code> represents a fine-grained\n         polygon around detected text. For more information, see Geometry in the Amazon Textract\n         Developer Guide. </p>"
       }
     },
     "com.amazonaws.textract#Polygon": {
       "type": "list",
       "member": {
         "target": "com.amazonaws.textract#Point"
+      }
+    },
+    "com.amazonaws.textract#Prediction": {
+      "type": "structure",
+      "members": {
+        "Value": {
+          "target": "com.amazonaws.textract#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The predicted value of a detected object.</p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.textract#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Textract's confidence in its predicted value.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information regarding predicted values returned by Amazon Textract operations, including the \n         predicted value and the confidence in the predicted value.</p>"
+      }
+    },
+    "com.amazonaws.textract#PredictionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#Prediction"
       }
     },
     "com.amazonaws.textract#ProvisionedThroughputExceededException": {
@@ -1750,13 +2469,97 @@
         "smithy.api#error": "client"
       }
     },
+    "com.amazonaws.textract#Queries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#Query"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.textract#QueriesConfig": {
+      "type": "structure",
+      "members": {
+        "Queries": {
+          "target": "com.amazonaws.textract#Queries",
+          "traits": {
+            "smithy.api#documentation": "<p></p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p></p>"
+      }
+    },
+    "com.amazonaws.textract#Query": {
+      "type": "structure",
+      "members": {
+        "Text": {
+          "target": "com.amazonaws.textract#QueryInput",
+          "traits": {
+            "smithy.api#documentation": "<p>Question that Amazon Textract will apply to the document. An example would be \"What is the customer's SSN?\"</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Alias": {
+          "target": "com.amazonaws.textract#QueryInput",
+          "traits": {
+            "smithy.api#documentation": "<p>Alias attached to the query, for ease of location.</p>"
+          }
+        },
+        "Pages": {
+          "target": "com.amazonaws.textract#QueryPages",
+          "traits": {
+            "smithy.api#documentation": "<p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a \n         list of rules for using this parameter.</p>\n         <ul>\n            <li>\n               <p>If a page is not specified, it is set to <code>[\"1\"]</code> by default.</p>\n            </li>\n            <li>\n               <p>The following characters are allowed in the parameter's string: \n               <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p>\n            </li>\n            <li>\n               <p>When using * to indicate all pages, it must be the only element in the list.</p>\n            </li>\n            <li>\n               <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of \n               document.</p>\n            </li>\n            <li>\n               <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Each query contains the question you want to ask in the Text and the alias you want to associate.</p>"
+      }
+    },
+    "com.amazonaws.textract#QueryInput": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 200
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\s!\"\\#\\$%'&\\(\\)\\*\\+\\,\\-\\./:;=\\?@\\[\\\\\\]\\^_`\\{\\|\\}~><]+$"
+      }
+    },
+    "com.amazonaws.textract#QueryPage": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 9
+        },
+        "smithy.api#pattern": "^[0-9\\*\\-]+$"
+      }
+    },
+    "com.amazonaws.textract#QueryPages": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#QueryPage"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
     "com.amazonaws.textract#Relationship": {
       "type": "structure",
       "members": {
         "Type": {
           "target": "com.amazonaws.textract#RelationshipType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of relationship that the blocks in the IDs array have with the current block.\n         The relationship can be <code>VALUE</code> or <code>CHILD</code>. A relationship of type\n         VALUE is a list that contains the ID of the VALUE block that's associated with the KEY of a\n         key-value pair. A relationship of type CHILD is a list of IDs that identify WORD blocks in\n         the case of lines Cell blocks in the case of Tables, and WORD blocks in the case of\n         Selection Elements.</p>"
+            "smithy.api#documentation": "<p>The type of relationship between the blocks in the IDs array and the current block. The\n         following list describes the relationship types that can be returned. </p>\n         <ul>\n            <li>\n               <p>\n                  <i>VALUE</i> - A list that contains the ID of the VALUE block that's associated with the\n               KEY of a key-value pair.</p>\n            </li>\n            <li>\n               <p>\n                  <i>CHILD</i> - A list of IDs that identify blocks found within the\n               current block object. For example, WORD blocks have a CHILD relationship to the LINE\n               block type.</p>\n            </li>\n            <li>\n               <p>\n                  <i>MERGED_CELL</i> - A list of IDs that identify each of the\n               MERGED_CELL block types in a table.</p>\n            </li>\n            <li>\n               <p>\n                  <i>ANSWER</i> - A list that contains the ID of the QUERY_RESULT\n               block that’s associated with the corresponding QUERY block. </p>\n            </li>\n            <li>\n               <p>\n                  <i>TABLE</i> - A list of IDs that identify associated TABLE block\n               types. </p>\n            </li>\n            <li>\n               <p>\n                  <i>TABLE_TITLE</i> - A list that contains the ID for the TABLE_TITLE\n               block type in a table. </p>\n            </li>\n            <li>\n               <p>\n                  <i>TABLE_FOOTER</i> - A list of IDs that identify the TABLE_FOOTER\n               block types in a table. </p>\n            </li>\n         </ul>"
           }
         },
         "Ids": {
@@ -1777,30 +2580,62 @@
       }
     },
     "com.amazonaws.textract#RelationshipType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "VALUE",
-            "name": "VALUE"
-          },
-          {
-            "value": "CHILD",
-            "name": "CHILD"
-          },
-          {
-            "value": "COMPLEX_FEATURES",
-            "name": "COMPLEX_FEATURES"
-          },
-          {
-            "value": "MERGED_CELL",
-            "name": "MERGED_CELL"
-          },
-          {
-            "value": "TITLE",
-            "name": "TITLE"
+      "type": "enum",
+      "members": {
+        "VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALUE"
           }
-        ]
+        },
+        "CHILD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHILD"
+          }
+        },
+        "COMPLEX_FEATURES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLEX_FEATURES"
+          }
+        },
+        "MERGED_CELL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MERGED_CELL"
+          }
+        },
+        "TITLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TITLE"
+          }
+        },
+        "ANSWER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ANSWER"
+          }
+        },
+        "TABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TABLE"
+          }
+        },
+        "TABLE_TITLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TABLE_TITLE"
+          }
+        },
+        "TABLE_FOOTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TABLE_FOOTER"
+          }
+        }
       }
     },
     "com.amazonaws.textract#RoleArn": {
@@ -1846,7 +2681,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The S3 bucket name and file name that identifies the document.</p>\n         <p>The AWS Region for the S3 bucket that contains the document must match the Region that\n         you use for Amazon Textract operations.</p>\n      \n         <p>For Amazon Textract to process a file in an S3 bucket, the user must have\n         permission to access the S3 bucket and file.\n         \n      </p>"
+        "smithy.api#documentation": "<p>The S3 bucket name and file name that identifies the document.</p>\n         <p>The AWS Region for the S3 bucket that contains the document must match the Region that\n         you use for Amazon Textract operations.</p>\n         <p>For Amazon Textract to process a file in an S3 bucket, the user must have\n         permission to access the S3 bucket and file.\n         \n      </p>"
       }
     },
     "com.amazonaws.textract#S3ObjectName": {
@@ -1880,18 +2715,69 @@
       }
     },
     "com.amazonaws.textract#SelectionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SELECTED",
-            "name": "SELECTED"
-          },
-          {
-            "value": "NOT_SELECTED",
-            "name": "NOT_SELECTED"
+      "type": "enum",
+      "members": {
+        "SELECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SELECTED"
           }
-        ]
+        },
+        "NOT_SELECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_SELECTED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.textract#SignatureDetection": {
+      "type": "structure",
+      "members": {
+        "Confidence": {
+          "target": "com.amazonaws.textract#Percent",
+          "traits": {
+            "smithy.api#documentation": "<p>The confidence, from 0 to 100, in the predicted values for a detected signature.</p>"
+          }
+        },
+        "Geometry": {
+          "target": "com.amazonaws.textract#Geometry"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information regarding a detected signature on a page.</p>"
+      }
+    },
+    "com.amazonaws.textract#SignatureDetectionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#SignatureDetection"
+      }
+    },
+    "com.amazonaws.textract#SplitDocument": {
+      "type": "structure",
+      "members": {
+        "Index": {
+          "target": "com.amazonaws.textract#UInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The index for a given document in a DocumentGroup of a specific Type.</p>"
+          }
+        },
+        "Pages": {
+          "target": "com.amazonaws.textract#PageList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of page numbers for a for a given document, ordered by logical boundary.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information about the pages of a document, defined by logical boundary.</p>"
+      }
+    },
+    "com.amazonaws.textract#SplitDocumentList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#SplitDocument"
       }
     },
     "com.amazonaws.textract#StartDocumentAnalysis": {
@@ -1941,7 +2827,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts the asynchronous analysis of an input document for relationships between detected\n         items such as key-value pairs, tables, and selection elements.</p>\n\n         <p>\n            <code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The\n         documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name\n         of the document.\n         </p>\n         <p>\n            <code>StartDocumentAnalysis</code> returns a job identifier\n            (<code>JobId</code>) that you use to get the results of the operation. When text\n         analysis is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS)\n         topic that you specify in <code>NotificationChannel</code>. To get the results of the text\n         analysis operation, first check that the status value published to the Amazon SNS topic is\n            <code>SUCCEEDED</code>. If so, call <a>GetDocumentAnalysis</a>, and pass\n         the job identifier (<code>JobId</code>) from the initial call to\n            <code>StartDocumentAnalysis</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html\">Document Text Analysis</a>.</p>"
+        "smithy.api#documentation": "<p>Starts the asynchronous analysis of an input document for relationships between detected\n         items such as key-value pairs, tables, and selection elements.</p>\n         <p>\n            <code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The\n         documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name\n         of the document.\n         </p>\n         <p>\n            <code>StartDocumentAnalysis</code> returns a job identifier\n            (<code>JobId</code>) that you use to get the results of the operation. When text\n         analysis is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS)\n         topic that you specify in <code>NotificationChannel</code>. To get the results of the text\n         analysis operation, first check that the status value published to the Amazon SNS topic is\n            <code>SUCCEEDED</code>. If so, call <a>GetDocumentAnalysis</a>, and pass\n         the job identifier (<code>JobId</code>) from the initial call to\n            <code>StartDocumentAnalysis</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html\">Document Text Analysis</a>.</p>"
       }
     },
     "com.amazonaws.textract#StartDocumentAnalysisRequest": {
@@ -1990,7 +2876,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The KMS key used to encrypt the inference results. This can be \n         in either Key ID or Key Alias format. When a KMS key is provided, the \n         KMS key will be used for server-side encryption of the objects in the \n         customer bucket. When this parameter is not enabled, the result will \n         be encrypted server side,using SSE-S3.</p>"
           }
+        },
+        "QueriesConfig": {
+          "target": "com.amazonaws.textract#QueriesConfig"
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.textract#StartDocumentAnalysisResponse": {
@@ -2002,6 +2894,9 @@
             "smithy.api#documentation": "<p>The identifier for the document text detection job. Use <code>JobId</code> to identify\n         the job in a subsequent call to <code>GetDocumentAnalysis</code>. A <code>JobId</code> value \n         is only valid for 7 days.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.textract#StartDocumentTextDetection": {
@@ -2094,6 +2989,9 @@
             "smithy.api#documentation": "<p>The KMS key used to encrypt the inference results. This can be \n         in either Key ID or Key Alias format. When a KMS key is provided, the \n         KMS key will be used for server-side encryption of the objects in the \n         customer bucket. When this parameter is not enabled, the result will \n         be encrypted server side,using SSE-S3.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.textract#StartDocumentTextDetectionResponse": {
@@ -2105,6 +3003,9 @@
             "smithy.api#documentation": "<p>The identifier of the text detection job for the document. Use <code>JobId</code> to\n         identify the job in a subsequent call to <code>GetDocumentTextDetection</code>.\n         A <code>JobId</code> value is only valid for 7 days.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.textract#StartExpenseAnalysis": {
@@ -2154,7 +3055,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts the asynchronous analysis of invoices or receipts for data like contact information,\n   items purchased, and vendor names.</p>\n  \n         <p>\n            <code>StartExpenseAnalysis</code> can analyze text in documents that are in JPEG, PNG, and\n   PDF format. The documents must be stored in an Amazon S3 bucket. Use the <a>DocumentLocation</a> parameter to specify the name of your S3 bucket and the name of the\n   document in that bucket. </p>\n         <p>\n            <code>StartExpenseAnalysis</code> returns a job identifier (<code>JobId</code>) that you\n   will provide to <code>GetExpenseAnalysis</code> to retrieve the results of the operation. When\n   the analysis of the input invoices/receipts is finished, Amazon Textract publishes a completion\n   status to the Amazon Simple Notification Service (Amazon SNS) topic that you provide to the <code>NotificationChannel</code>.\n   To obtain the results of the invoice and receipt analysis operation, ensure that the status value\n   published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetExpenseAnalysis</a>, and pass the job identifier (<code>JobId</code>) that was\n   returned by your call to <code>StartExpenseAnalysis</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/invoice-receipts.html\">Analyzing Invoices and Receipts</a>.</p>"
+        "smithy.api#documentation": "<p>Starts the asynchronous analysis of invoices or receipts for data like contact information,\n   items purchased, and vendor names.</p>\n         <p>\n            <code>StartExpenseAnalysis</code> can analyze text in documents that are in JPEG, PNG, and\n   PDF format. The documents must be stored in an Amazon S3 bucket. Use the <a>DocumentLocation</a> parameter to specify the name of your S3 bucket and the name of the\n   document in that bucket. </p>\n         <p>\n            <code>StartExpenseAnalysis</code> returns a job identifier (<code>JobId</code>) that you\n   will provide to <code>GetExpenseAnalysis</code> to retrieve the results of the operation. When\n   the analysis of the input invoices/receipts is finished, Amazon Textract publishes a completion\n   status to the Amazon Simple Notification Service (Amazon SNS) topic that you provide to the <code>NotificationChannel</code>.\n   To obtain the results of the invoice and receipt analysis operation, ensure that the status value\n   published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetExpenseAnalysis</a>, and pass the job identifier (<code>JobId</code>) that was\n   returned by your call to <code>StartExpenseAnalysis</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/invoice-receipts.html\">Analyzing Invoices and Receipts</a>.</p>"
       }
     },
     "com.amazonaws.textract#StartExpenseAnalysisRequest": {
@@ -2197,6 +3098,9 @@
             "smithy.api#documentation": "<p>The KMS key used to encrypt the inference results. This can be \n   in either Key ID or Key Alias format. When a KMS key is provided, the \n   KMS key will be used for server-side encryption of the objects in the \n   customer bucket. When this parameter is not enabled, the result will \n   be encrypted server side,using SSE-S3.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.textract#StartExpenseAnalysisResponse": {
@@ -2208,6 +3112,111 @@
             "smithy.api#documentation": "<p>A unique identifier for the text detection job. The <code>JobId</code> is returned from\n    <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.textract#StartLendingAnalysis": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.textract#StartLendingAnalysisRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.textract#StartLendingAnalysisResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.textract#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.textract#BadDocumentException"
+        },
+        {
+          "target": "com.amazonaws.textract#DocumentTooLargeException"
+        },
+        {
+          "target": "com.amazonaws.textract#IdempotentParameterMismatchException"
+        },
+        {
+          "target": "com.amazonaws.textract#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.textract#InvalidKMSKeyException"
+        },
+        {
+          "target": "com.amazonaws.textract#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.textract#InvalidS3ObjectException"
+        },
+        {
+          "target": "com.amazonaws.textract#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.textract#ProvisionedThroughputExceededException"
+        },
+        {
+          "target": "com.amazonaws.textract#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.textract#UnsupportedDocumentException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts the classification and analysis of an input document.\n    <code>StartLendingAnalysis</code> initiates the classification and analysis of a packet of\n   lending documents. <code>StartLendingAnalysis</code> operates on a document file located in an\n   Amazon S3 bucket.</p>\n         <p>\n            <code>StartLendingAnalysis</code> can analyze text in documents that are in one of the\n   following formats: JPEG, PNG, TIFF, PDF. Use <code>DocumentLocation</code> to specify the bucket\n   name and the file name of the document. </p>\n         <p>\n            <code>StartLendingAnalysis</code> returns a job identifier (<code>JobId</code>) that you use\n   to get the results of the operation. When the text analysis is finished, Amazon Textract\n   publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that\n   you specify in <code>NotificationChannel</code>. To get the results of the text analysis\n   operation, first check that the status value published to the Amazon SNS topic is SUCCEEDED. If\n   the status is SUCCEEDED you can call either <code>GetLendingAnalysis</code> or\n    <code>GetLendingAnalysisSummary</code> and provide the <code>JobId</code> to obtain the results\n   of the analysis.</p>\n         <p>If using <code>OutputConfig</code> to specify an Amazon S3 bucket, the output will be contained\n   within the specified prefix in a directory labeled with the job-id. In the directory there are 3\n   sub-directories: </p>\n         <ul>\n            <li>\n               <p>detailedResponse (contains the GetLendingAnalysis response)</p>\n            </li>\n            <li>\n               <p>summaryResponse (for the GetLendingAnalysisSummary response)</p>\n            </li>\n            <li>\n               <p>splitDocuments (documents split across logical boundaries)</p>\n            </li>\n         </ul>"
+      }
+    },
+    "com.amazonaws.textract#StartLendingAnalysisRequest": {
+      "type": "structure",
+      "members": {
+        "DocumentLocation": {
+          "target": "com.amazonaws.textract#DocumentLocation",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.textract#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The idempotent token that you use to identify the start request. If you use the same token\n   with multiple <code>StartLendingAnalysis</code> requests, the same <code>JobId</code> is\n   returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally\n   started more than once. For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/api-sync.html\">Calling Amazon Textract Asynchronous Operations</a>.</p>"
+          }
+        },
+        "JobTag": {
+          "target": "com.amazonaws.textract#JobTag",
+          "traits": {
+            "smithy.api#documentation": "<p>An identifier that you specify to be included in the completion notification published to\n   the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of\n   document that the completion notification corresponds to (such as a tax form or a\n   receipt).</p>"
+          }
+        },
+        "NotificationChannel": {
+          "target": "com.amazonaws.textract#NotificationChannel"
+        },
+        "OutputConfig": {
+          "target": "com.amazonaws.textract#OutputConfig"
+        },
+        "KMSKeyId": {
+          "target": "com.amazonaws.textract#KMSKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key\n   Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of\n   the objects in the customer bucket. When this parameter is not enabled, the result will be\n   encrypted server side, using SSE-S3. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.textract#StartLendingAnalysisResponse": {
+      "type": "structure",
+      "members": {
+        "JobId": {
+          "target": "com.amazonaws.textract#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is\n   returned from <code>StartLendingAnalysis</code>. A <code>JobId</code> value is only valid for 7\n   days.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.textract#StatusMessage": {
@@ -2215,6 +3224,12 @@
     },
     "com.amazonaws.textract#String": {
       "type": "string"
+    },
+    "com.amazonaws.textract#StringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#String"
+      }
     },
     "com.amazonaws.textract#SynthesizedJsonHumanLoopActivationConditionsEvaluationResults": {
       "type": "string",
@@ -2227,37 +3242,24 @@
       }
     },
     "com.amazonaws.textract#TextType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "HANDWRITING",
-            "name": "HANDWRITING"
-          },
-          {
-            "value": "PRINTED",
-            "name": "PRINTED"
+      "type": "enum",
+      "members": {
+        "HANDWRITING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HANDWRITING"
           }
-        ]
+        },
+        "PRINTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PRINTED"
+          }
+        }
       }
     },
     "com.amazonaws.textract#Textract": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Textract",
-          "arnNamespace": "textract",
-          "cloudFormationName": "Textract",
-          "cloudTrailEventSource": "textract.amazonaws.com",
-          "endpointPrefix": "textract"
-        },
-        "aws.auth#sigv4": {
-          "name": "textract"
-        },
-        "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<p>Amazon Textract detects and analyzes text in documents and converts it\n         into machine-readable text. This is the API reference documentation for\n         Amazon Textract.</p>",
-        "smithy.api#title": "Amazon Textract"
-      },
       "version": "2018-06-27",
       "operations": [
         {
@@ -2282,6 +3284,12 @@
           "target": "com.amazonaws.textract#GetExpenseAnalysis"
         },
         {
+          "target": "com.amazonaws.textract#GetLendingAnalysis"
+        },
+        {
+          "target": "com.amazonaws.textract#GetLendingAnalysisSummary"
+        },
+        {
           "target": "com.amazonaws.textract#StartDocumentAnalysis"
         },
         {
@@ -2289,8 +3297,874 @@
         },
         {
           "target": "com.amazonaws.textract#StartExpenseAnalysis"
+        },
+        {
+          "target": "com.amazonaws.textract#StartLendingAnalysis"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Textract",
+          "arnNamespace": "textract",
+          "cloudFormationName": "Textract",
+          "cloudTrailEventSource": "textract.amazonaws.com",
+          "endpointPrefix": "textract"
+        },
+        "aws.auth#sigv4": {
+          "name": "textract"
+        },
+        "aws.protocols#awsJson1_1": {},
+        "smithy.api#documentation": "<p>Amazon Textract detects and analyzes text in documents and converts it\n         into machine-readable text. This is the API reference documentation for\n         Amazon Textract.</p>",
+        "smithy.api#title": "Amazon Textract",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://textract-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://textract-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://textract.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://textract.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.textract#ThrottlingException": {
       "type": "structure",
@@ -2310,10 +4184,35 @@
     "com.amazonaws.textract#UInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0
         }
+      }
+    },
+    "com.amazonaws.textract#UndetectedDocumentTypeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#NonEmptyString"
+      }
+    },
+    "com.amazonaws.textract#UndetectedSignature": {
+      "type": "structure",
+      "members": {
+        "Page": {
+          "target": "com.amazonaws.textract#UInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The page where a signature was expected but not found.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A structure containing information about an undetected signature on a page where it was expected but not found.</p>"
+      }
+    },
+    "com.amazonaws.textract#UndetectedSignatureList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.textract#UndetectedSignature"
       }
     },
     "com.amazonaws.textract#UnsupportedDocumentException": {
@@ -2327,19 +4226,19 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The format of the input document isn't supported. Documents for synchronous operations can be in\n         PNG or JPEG format only. Documents for asynchronous operations can be in PDF format.</p>",
+        "smithy.api#documentation": "<p>The format of the input document isn't supported. Documents for operations can be in\n         PNG, JPEG, PDF, or TIFF format.</p>",
         "smithy.api#error": "client"
       }
     },
     "com.amazonaws.textract#ValueType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DATE",
-            "name": "DATE"
+      "type": "enum",
+      "members": {
+        "DATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DATE"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.textract#Warning": {

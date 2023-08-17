@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetUpgradeHistoryCommand,
   GetUpgradeHistoryCommandInput,
   GetUpgradeHistoryCommandOutput,
 } from "../commands/GetUpgradeHistoryCommand";
-import { ElasticsearchService } from "../ElasticsearchService";
 import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticsearchServiceClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetUpgradeHistoryCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ElasticsearchService,
-  input: GetUpgradeHistoryCommandInput,
-  ...args: any
-): Promise<GetUpgradeHistoryCommandOutput> => {
-  // @ts-ignore
-  return await client.getUpgradeHistory(input, ...args);
-};
 export async function* paginateGetUpgradeHistory(
   config: ElasticsearchServicePaginationConfiguration,
   input: GetUpgradeHistoryCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateGetUpgradeHistory(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ElasticsearchService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElasticsearchServiceClient) {
+    if (config.client instanceof ElasticsearchServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElasticsearchService | ElasticsearchServiceClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

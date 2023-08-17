@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +10,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { BodyWithXmlNameInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlBodyWithXmlNameCommand,
-  serializeAws_restXmlBodyWithXmlNameCommand,
-} from "../protocols/Aws_restXml";
+import { de_BodyWithXmlNameCommand, se_BodyWithXmlNameCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link BodyWithXmlNameCommand}.
+ */
 export interface BodyWithXmlNameCommandInput extends BodyWithXmlNameInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link BodyWithXmlNameCommand}.
+ */
 export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * The following example serializes a body that uses an XML name,
  * changing the wrapper name.
  * @example
@@ -30,13 +43,29 @@ export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput
  * import { RestXmlProtocolClient, BodyWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, BodyWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = { // BodyWithXmlNameInputOutput
+ *   nested: { // PayloadWithXmlName
+ *     name: "STRING_VALUE",
+ *   },
+ * };
  * const command = new BodyWithXmlNameCommand(input);
  * const response = await client.send(command);
+ * // { // BodyWithXmlNameInputOutput
+ * //   nested: { // PayloadWithXmlName
+ * //     name: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param BodyWithXmlNameCommandInput - {@link BodyWithXmlNameCommandInput}
+ * @returns {@link BodyWithXmlNameCommandOutput}
  * @see {@link BodyWithXmlNameCommandInput} for command's `input` shape.
  * @see {@link BodyWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
+ *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class BodyWithXmlNameCommand extends $Command<
@@ -47,6 +76,9 @@ export class BodyWithXmlNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: BodyWithXmlNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,8 +104,8 @@ export class BodyWithXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BodyWithXmlNameInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: BodyWithXmlNameInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +115,18 @@ export class BodyWithXmlNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BodyWithXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlBodyWithXmlNameCommand(input, context);
+    return se_BodyWithXmlNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BodyWithXmlNameCommandOutput> {
-    return deserializeAws_restXmlBodyWithXmlNameCommand(output, context);
+    return de_BodyWithXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

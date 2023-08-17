@@ -2,6 +2,9 @@ import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
 
 import { Logins } from "./Logins";
 
+/**
+ * @internal
+ */
 export interface CognitoProviderParameters {
   /**
    * The SDK client with which the credential provider will contact the Amazon

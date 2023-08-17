@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListDomainConfigurationsCommand,
   ListDomainConfigurationsCommandInput,
   ListDomainConfigurationsCommandOutput,
 } from "../commands/ListDomainConfigurationsCommand";
-import { IoT } from "../IoT";
 import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDomainConfigurationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoT,
-  input: ListDomainConfigurationsCommandInput,
-  ...args: any
-): Promise<ListDomainConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDomainConfigurations(input, ...args);
-};
 export async function* paginateListDomainConfigurations(
   config: IoTPaginationConfiguration,
   input: ListDomainConfigurationsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListDomainConfigurations(
   while (hasNext) {
     input.marker = token;
     input["pageSize"] = config.pageSize;
-    if (config.client instanceof IoT) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTClient) {
+    if (config.client instanceof IoTClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoT | IoTClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

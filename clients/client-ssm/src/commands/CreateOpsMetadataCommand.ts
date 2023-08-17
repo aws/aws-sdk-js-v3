@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateOpsMetadataRequest, CreateOpsMetadataResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateOpsMetadataCommand,
-  serializeAws_json1_1CreateOpsMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateOpsMetadataCommand, se_CreateOpsMetadataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateOpsMetadataCommand}.
+ */
 export interface CreateOpsMetadataCommandInput extends CreateOpsMetadataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateOpsMetadataCommand}.
+ */
 export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If you create a new application in Application Manager, Amazon Web Services Systems Manager calls this API operation to specify
  *    information about the new application, including the application type.</p>
  * @example
@@ -30,13 +44,53 @@ export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult,
  * import { SSMClient, CreateOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // CreateOpsMetadataRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   Metadata: { // MetadataMap
+ *     "<keys>": { // MetadataValue
+ *       Value: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateOpsMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // CreateOpsMetadataResult
+ * //   OpsMetadataArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateOpsMetadataCommandInput - {@link CreateOpsMetadataCommandInput}
+ * @returns {@link CreateOpsMetadataCommandOutput}
  * @see {@link CreateOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link CreateOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsMetadataAlreadyExistsException} (client fault)
+ *  <p>An OpsMetadata object already exists for the selected resource.</p>
+ *
+ * @throws {@link OpsMetadataInvalidArgumentException} (client fault)
+ *  <p>One of the arguments passed is invalid. </p>
+ *
+ * @throws {@link OpsMetadataLimitExceededException} (client fault)
+ *  <p>Your account reached the maximum number of OpsMetadata objects allowed by Application Manager. The
+ *    maximum is 200 OpsMetadata objects. Delete one or more OpsMetadata object and try again.</p>
+ *
+ * @throws {@link OpsMetadataTooManyUpdatesException} (client fault)
+ *  <p>The system is processing too many concurrent updates. Wait a few moments and try
+ *    again.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateOpsMetadataCommand extends $Command<
@@ -47,6 +101,18 @@ export class CreateOpsMetadataCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOpsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +128,9 @@ export class CreateOpsMetadataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateOpsMetadataCommandInput, CreateOpsMetadataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateOpsMetadataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +141,8 @@ export class CreateOpsMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOpsMetadataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateOpsMetadataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +152,18 @@ export class CreateOpsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateOpsMetadataCommand(input, context);
+    return se_CreateOpsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOpsMetadataCommandOutput> {
-    return deserializeAws_json1_1CreateOpsMetadataCommand(output, context);
+    return de_CreateOpsMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

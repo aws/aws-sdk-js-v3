@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { DescribeApiDestinationRequest, DescribeApiDestinationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeApiDestinationCommand,
-  serializeAws_json1_1DescribeApiDestinationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeApiDestinationCommand, se_DescribeApiDestinationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeApiDestinationCommand}.
+ */
 export interface DescribeApiDestinationCommandInput extends DescribeApiDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeApiDestinationCommand}.
+ */
 export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about an API destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,40 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  * import { CloudWatchEventsClient, DescribeApiDestinationCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DescribeApiDestinationCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // DescribeApiDestinationRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeApiDestinationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeApiDestinationResponse
+ * //   ApiDestinationArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   ApiDestinationState: "STRING_VALUE",
+ * //   ConnectionArn: "STRING_VALUE",
+ * //   InvocationEndpoint: "STRING_VALUE",
+ * //   HttpMethod: "STRING_VALUE",
+ * //   InvocationRateLimitPerSecond: Number("int"),
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
+ * @param DescribeApiDestinationCommandInput - {@link DescribeApiDestinationCommandInput}
+ * @returns {@link DescribeApiDestinationCommandOutput}
  * @see {@link DescribeApiDestinationCommandInput} for command's `input` shape.
  * @see {@link DescribeApiDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DescribeApiDestinationCommand extends $Command<
@@ -46,6 +87,18 @@ export class DescribeApiDestinationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApiDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +114,9 @@ export class DescribeApiDestinationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeApiDestinationCommandInput, DescribeApiDestinationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeApiDestinationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +127,8 @@ export class DescribeApiDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApiDestinationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApiDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +138,18 @@ export class DescribeApiDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApiDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApiDestinationCommand(input, context);
+    return se_DescribeApiDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApiDestinationCommandOutput> {
-    return deserializeAws_json1_1DescribeApiDestinationCommand(output, context);
+    return de_DescribeApiDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

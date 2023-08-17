@@ -1,7 +1,6 @@
-# @aws-sdk/client-textract
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-textract/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-textract)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-textract.svg)](https://www.npmjs.com/package/@aws-sdk/client-textract)
+# @aws-sdk/client-textract
 
 ## Description
 
@@ -117,7 +116,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -151,7 +150,7 @@ client
 
 // callbacks.
 client.analyzeDocument(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -165,7 +164,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -203,3 +202,110 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+AnalyzeDocument
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/analyzedocumentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/analyzedocumentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/analyzedocumentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+AnalyzeExpense
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/analyzeexpensecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/analyzeexpensecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/analyzeexpensecommandoutput.html)
+
+</details>
+<details>
+<summary>
+AnalyzeID
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/analyzeidcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/analyzeidcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/analyzeidcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DetectDocumentText
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/detectdocumenttextcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/detectdocumenttextcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/detectdocumenttextcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDocumentAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/getdocumentanalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getdocumentanalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getdocumentanalysiscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDocumentTextDetection
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/getdocumenttextdetectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getdocumenttextdetectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getdocumenttextdetectioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetExpenseAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/getexpenseanalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getexpenseanalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getexpenseanalysiscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetLendingAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/getlendinganalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getlendinganalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getlendinganalysiscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetLendingAnalysisSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/getlendinganalysissummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getlendinganalysissummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getlendinganalysissummarycommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartDocumentAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/startdocumentanalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/startdocumentanalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/startdocumentanalysiscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartDocumentTextDetection
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/startdocumenttextdetectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/startdocumenttextdetectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/startdocumenttextdetectioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartExpenseAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/startexpenseanalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/startexpenseanalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/startexpenseanalysiscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartLendingAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/startlendinganalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/startlendinganalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/startlendinganalysiscommandoutput.html)
+
+</details>

@@ -1,42 +1,33 @@
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
-import { Readable } from "stream";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { WorkMailMessageFlowServiceException as __BaseException } from "./WorkMailMessageFlowServiceException";
 
+/**
+ * @public
+ */
 export interface GetRawMessageContentRequest {
   /**
+   * @public
    * <p>The identifier of the email message to retrieve.</p>
    */
   messageId: string | undefined;
 }
 
-export namespace GetRawMessageContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRawMessageContentRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetRawMessageContentResponse {
   /**
+   * @public
    * <p>The raw content of the email message, in MIME format.</p>
    */
-  messageContent: Readable | ReadableStream | Blob | undefined;
-}
-
-export namespace GetRawMessageContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRawMessageContentResponse): any => ({
-    ...obj,
-  });
+  messageContent: StreamingBlobTypes | undefined;
 }
 
 /**
+ * @public
  * <p>The requested email message is not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -56,6 +47,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>WorkMail could not access the updated email content. Possible reasons:</p>
  *          <ul>
  *             <li>
@@ -91,6 +83,7 @@ export class InvalidContentLocation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested email is not eligible for update. This is usually the case for a redirected email.</p>
  */
 export class MessageFrozen extends __BaseException {
@@ -110,6 +103,7 @@ export class MessageFrozen extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested email could not be updated due to an error in the MIME content. Check the error message for more information about
  *       what caused the error.</p>
  */
@@ -130,6 +124,7 @@ export class MessageRejected extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon S3 object representing the updated message content, in MIME format.</p>
  *          <note>
  *             <p>The region for the S3 bucket containing the S3 object must match the region used for WorkMail operations. Also, for WorkMail to process
@@ -140,31 +135,26 @@ export class MessageRejected extends __BaseException {
  */
 export interface S3Reference {
   /**
+   * @public
    * <p>The S3 bucket name.</p>
    */
   bucket: string | undefined;
 
   /**
+   * @public
    * <p>The S3 key object name.</p>
    */
   key: string | undefined;
 
   /**
+   * @public
    * <p>If you enable versioning for the bucket, you can specify the object version.</p>
    */
   objectVersion?: string;
 }
 
-export namespace S3Reference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Reference): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides the MIME content of the updated email message as an S3 object. All MIME content must meet the following criteria:</p>
  *          <ul>
  *             <li>
@@ -195,48 +185,37 @@ export namespace S3Reference {
  */
 export interface RawMessageContent {
   /**
+   * @public
    * <p>The S3 reference of an email message.</p>
    */
   s3Reference: S3Reference | undefined;
 }
 
-export namespace RawMessageContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RawMessageContent): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PutRawMessageContentRequest {
   /**
+   * @public
    * <p>The identifier of the email message being updated.</p>
    */
   messageId: string | undefined;
 
   /**
+   * @public
    * <p>Describes the raw message content of the updated email message.</p>
    */
   content: RawMessageContent | undefined;
 }
 
-export namespace PutRawMessageContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRawMessageContentRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PutRawMessageContentResponse {}
 
-export namespace PutRawMessageContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRawMessageContentResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GetRawMessageContentResponseFilterSensitiveLog = (obj: GetRawMessageContentResponse): any => ({
+  ...obj,
+});

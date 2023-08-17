@@ -1,18 +1,22 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   CreateHomeRegionControlCommandInput,
@@ -32,7 +36,6 @@ import {
   DescribeHomeRegionControlsResult,
   DryRunOperation,
   GetHomeRegionRequest,
-  GetHomeRegionResult,
   HomeRegionControl,
   InternalServerError,
   InvalidInputException,
@@ -41,219 +44,231 @@ import {
   ThrottlingException,
 } from "../models/models_0";
 
-export const serializeAws_json1_1CreateHomeRegionControlCommand = async (
+/**
+ * serializeAws_json1_1CreateHomeRegionControlCommand
+ */
+export const se_CreateHomeRegionControlCommand = async (
   input: CreateHomeRegionControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHubMultiAccountService.CreateHomeRegionControl",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHomeRegionControl");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateHomeRegionControlRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeHomeRegionControlsCommand = async (
+/**
+ * serializeAws_json1_1DescribeHomeRegionControlsCommand
+ */
+export const se_DescribeHomeRegionControlsCommand = async (
   input: DescribeHomeRegionControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeHomeRegionControls");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeHomeRegionControlsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetHomeRegionCommand = async (
+/**
+ * serializeAws_json1_1GetHomeRegionCommand
+ */
+export const se_GetHomeRegionCommand = async (
   input: GetHomeRegionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHubMultiAccountService.GetHomeRegion",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetHomeRegion");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetHomeRegionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateHomeRegionControlCommand = async (
+/**
+ * deserializeAws_json1_1CreateHomeRegionControlCommand
+ */
+export const de_CreateHomeRegionControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHomeRegionControlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateHomeRegionControlCommandError(output, context);
+    return de_CreateHomeRegionControlCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHomeRegionControlResult(data, context);
+  contents = de_CreateHomeRegionControlResult(data, context);
   const response: CreateHomeRegionControlCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateHomeRegionControlCommandError = async (
+/**
+ * deserializeAws_json1_1CreateHomeRegionControlCommandError
+ */
+const de_CreateHomeRegionControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHomeRegionControlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhubconfig#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DryRunOperation":
     case "com.amazonaws.migrationhubconfig#DryRunOperation":
-      throw await deserializeAws_json1_1DryRunOperationResponse(parsedOutput, context);
+      throw await de_DryRunOperationRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.migrationhubconfig#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.migrationhubconfig#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.migrationhubconfig#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhubconfig#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DescribeHomeRegionControlsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeHomeRegionControlsCommand
+ */
+export const de_DescribeHomeRegionControlsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHomeRegionControlsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeHomeRegionControlsCommandError(output, context);
+    return de_DescribeHomeRegionControlsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeHomeRegionControlsResult(data, context);
+  contents = de_DescribeHomeRegionControlsResult(data, context);
   const response: DescribeHomeRegionControlsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeHomeRegionControlsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeHomeRegionControlsCommandError
+ */
+const de_DescribeHomeRegionControlsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHomeRegionControlsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhubconfig#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.migrationhubconfig#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.migrationhubconfig#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.migrationhubconfig#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhubconfig#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1GetHomeRegionCommand = async (
+/**
+ * deserializeAws_json1_1GetHomeRegionCommand
+ */
+export const de_GetHomeRegionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHomeRegionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetHomeRegionCommandError(output, context);
+    return de_GetHomeRegionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetHomeRegionResult(data, context);
+  contents = _json(data);
   const response: GetHomeRegionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetHomeRegionCommandError = async (
+/**
+ * deserializeAws_json1_1GetHomeRegionCommandError
+ */
+const de_GetHomeRegionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHomeRegionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.migrationhubconfig#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.migrationhubconfig#InternalServerError":
-      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.migrationhubconfig#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.migrationhubconfig#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhubconfig#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -261,12 +276,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DryRunOperationResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<DryRunOperation> => {
+/**
+ * deserializeAws_json1_1DryRunOperationRes
+ */
+const de_DryRunOperationRes = async (parsedOutput: any, context: __SerdeContext): Promise<DryRunOperation> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DryRunOperation(body, context);
+  const deserialized: any = _json(body);
   const exception = new DryRunOperation({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -274,12 +289,12 @@ const deserializeAws_json1_1DryRunOperationResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServerErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalServerError> => {
+/**
+ * deserializeAws_json1_1InternalServerErrorRes
+ */
+const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -287,12 +302,15 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -300,12 +318,15 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -313,12 +334,12 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -326,167 +347,89 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1CreateHomeRegionControlRequest = (
-  input: CreateHomeRegionControlRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
-    ...(input.HomeRegion !== undefined && input.HomeRegion !== null && { HomeRegion: input.HomeRegion }),
-    ...(input.Target !== undefined &&
-      input.Target !== null && { Target: serializeAws_json1_1Target(input.Target, context) }),
-  };
+// se_CreateHomeRegionControlRequest omitted.
+
+// se_DescribeHomeRegionControlsRequest omitted.
+
+// se_GetHomeRegionRequest omitted.
+
+// se_Target omitted.
+
+// de_AccessDeniedException omitted.
+
+/**
+ * deserializeAws_json1_1CreateHomeRegionControlResult
+ */
+const de_CreateHomeRegionControlResult = (output: any, context: __SerdeContext): CreateHomeRegionControlResult => {
+  return take(output, {
+    HomeRegionControl: (_: any) => de_HomeRegionControl(_, context),
+  }) as any;
 };
 
-const serializeAws_json1_1DescribeHomeRegionControlsRequest = (
-  input: DescribeHomeRegionControlsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ControlId !== undefined && input.ControlId !== null && { ControlId: input.ControlId }),
-    ...(input.HomeRegion !== undefined && input.HomeRegion !== null && { HomeRegion: input.HomeRegion }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Target !== undefined &&
-      input.Target !== null && { Target: serializeAws_json1_1Target(input.Target, context) }),
-  };
-};
-
-const serializeAws_json1_1GetHomeRegionRequest = (input: GetHomeRegionRequest, context: __SerdeContext): any => {
-  return {};
-};
-
-const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any => {
-  return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-  };
-};
-
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateHomeRegionControlResult = (
-  output: any,
-  context: __SerdeContext
-): CreateHomeRegionControlResult => {
-  return {
-    HomeRegionControl:
-      output.HomeRegionControl !== undefined && output.HomeRegionControl !== null
-        ? deserializeAws_json1_1HomeRegionControl(output.HomeRegionControl, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeHomeRegionControlsResult = (
+/**
+ * deserializeAws_json1_1DescribeHomeRegionControlsResult
+ */
+const de_DescribeHomeRegionControlsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeHomeRegionControlsResult => {
-  return {
-    HomeRegionControls:
-      output.HomeRegionControls !== undefined && output.HomeRegionControls !== null
-        ? deserializeAws_json1_1HomeRegionControls(output.HomeRegionControls, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    HomeRegionControls: (_: any) => de_HomeRegionControls(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DryRunOperation = (output: any, context: __SerdeContext): DryRunOperation => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
+// de_DryRunOperation omitted.
+
+// de_GetHomeRegionResult omitted.
+
+/**
+ * deserializeAws_json1_1HomeRegionControl
+ */
+const de_HomeRegionControl = (output: any, context: __SerdeContext): HomeRegionControl => {
+  return take(output, {
+    ControlId: __expectString,
+    HomeRegion: __expectString,
+    RequestedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Target: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetHomeRegionResult = (output: any, context: __SerdeContext): GetHomeRegionResult => {
-  return {
-    HomeRegion: __expectString(output.HomeRegion),
-  } as any;
-};
-
-const deserializeAws_json1_1HomeRegionControl = (output: any, context: __SerdeContext): HomeRegionControl => {
-  return {
-    ControlId: __expectString(output.ControlId),
-    HomeRegion: __expectString(output.HomeRegion),
-    RequestedTime:
-      output.RequestedTime !== undefined && output.RequestedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestedTime)))
-        : undefined,
-    Target:
-      output.Target !== undefined && output.Target !== null
-        ? deserializeAws_json1_1Target(output.Target, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1HomeRegionControls = (output: any, context: __SerdeContext): HomeRegionControl[] => {
+/**
+ * deserializeAws_json1_1HomeRegionControls
+ */
+const de_HomeRegionControls = (output: any, context: __SerdeContext): HomeRegionControl[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1HomeRegionControl(entry, context);
+      return de_HomeRegionControl(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InternalServerError omitted.
 
-const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidInputException omitted.
 
-const deserializeAws_json1_1ServiceUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): ServiceUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ServiceUnavailableException omitted.
 
-const deserializeAws_json1_1Target = (output: any, context: __SerdeContext): Target => {
-  return {
-    Id: __expectString(output.Id),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_Target omitted.
 
-const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-    RetryAfterSeconds: __expectInt32(output.RetryAfterSeconds),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -511,6 +454,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSMigrationHubMultiAccountService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
@@ -520,14 +469,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -549,6 +510,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

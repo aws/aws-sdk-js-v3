@@ -18,20 +18,27 @@ import software.amazon.smithy.model.shapes.ServiceShape
 import software.amazon.smithy.model.node.Node
 import software.amazon.smithy.gradle.tasks.SmithyBuild
 import software.amazon.smithy.aws.traits.ServiceTrait
+import java.util.stream.Stream
 import kotlin.streams.toList
 
+val smithyVersion: String by project
+
 buildscript {
+    val smithyVersion: String by project
+
     repositories {
+        mavenLocal()
         mavenCentral()
     }
     dependencies {
-        "classpath"("software.amazon.smithy:smithy-cli:${rootProject.extra["smithyVersion"]}")
-        "classpath"("software.amazon.smithy:smithy-aws-traits:${rootProject.extra["smithyVersion"]}")
+        "classpath"("software.amazon.smithy:smithy-cli:$smithyVersion")
+        "classpath"("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
     }
 }
 
 plugins {
-    id("software.amazon.smithy") version "0.6.0"
+    val smithyGradleVersion: String by project
+    id("software.amazon.smithy").version(smithyGradleVersion)
 }
 
 dependencies {
@@ -49,6 +56,14 @@ tasks.create<SmithyBuild>("buildSdk") {
     addRuntimeClasspath = true
 }
 
+configure<software.amazon.smithy.gradle.SmithyExtension> {
+    val clientNameProp: String? by project
+    if (!(clientNameProp?.isEmpty() ?: true)) {
+        smithyBuildConfigs = files("smithy-build-" + clientNameProp + ".json")
+        outputDirectory = file("build-single/" + clientNameProp)
+    }
+}
+
 // Generates a smithy-build.json file by creating a new projection for every
 // JSON file found in aws-models/. The generated smithy-build.json file is
 // not committed to git since it's rebuilt each time codegen is performed.
@@ -56,13 +71,17 @@ tasks.register("generate-smithy-build") {
     doLast {
         val projectionsBuilder = Node.objectNodeBuilder()
         val modelsDirProp: String by project
+        val clientNameProp: String? by project
         val models = project.file(modelsDirProp);
 
         fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
             val model = Model.assembler()
                     .addImport(file.absolutePath)
                     .assemble().result.get();
-            val services = model.shapes(ServiceShape::class.javaObjectType).sorted().toList();
+            val servicesStream: Stream<ServiceShape> = model.shapes(ServiceShape::class.javaObjectType)
+            val servicesStreamSorted: Stream<ServiceShape> = servicesStream.sorted()
+            val services: List<ServiceShape> = servicesStreamSorted.toList()
+
             if (services.size != 1) {
                 throw Exception("There must be exactly one service in each aws model file, but found " +
                         "${services.size} in ${file.name}: ${services.map { it.id }}");
@@ -98,7 +117,11 @@ tasks.register("generate-smithy-build") {
             projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
         }
 
-        file("smithy-build.json").writeText(Node.prettyPrintJson(Node.objectNodeBuilder()
+        val buildFile = if (!(clientNameProp?.isEmpty() ?: true))
+            "smithy-build-" + clientNameProp + ".json"
+            else "smithy-build.json"
+
+        file(buildFile).writeText(Node.prettyPrintJson(Node.objectNodeBuilder()
                 .withMember("version", "1.0")
                 .withMember("projections", projectionsBuilder.build())
                 .build()))

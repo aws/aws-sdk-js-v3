@@ -1,14 +1,26 @@
+export * from "./DescribeAddressTransfersPaginator";
+
 export * from "./DescribeAddressesAttributePaginator";
+
+export * from "./DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator";
+
 export * from "./DescribeByoipCidrsPaginator";
+
 export * from "./DescribeCapacityReservationFleetsPaginator";
+
 export * from "./DescribeCapacityReservationsPaginator";
+
 export * from "./DescribeCarrierGatewaysPaginator";
+
 export * from "./DescribeClassicLinkInstancesPaginator";
+
 export * from "./DescribeClientVpnAuthorizationRulesPaginator";
+
 export * from "./DescribeClientVpnConnectionsPaginator";
+// smithy-typescript generated code
+export * from "./Interfaces";
 export * from "./DescribeClientVpnEndpointsPaginator";
 export * from "./DescribeClientVpnRoutesPaginator";
-export * from "./Interfaces";
 export * from "./DescribeClientVpnTargetNetworksPaginator";
 export * from "./DescribeCoipPoolsPaginator";
 export * from "./DescribeDhcpOptionsPaginator";
@@ -23,8 +35,10 @@ export * from "./DescribeHostReservationOfferingsPaginator";
 export * from "./DescribeHostReservationsPaginator";
 export * from "./DescribeHostsPaginator";
 export * from "./DescribeIamInstanceProfileAssociationsPaginator";
+export * from "./DescribeImagesPaginator";
 export * from "./DescribeImportImageTasksPaginator";
 export * from "./DescribeImportSnapshotTasksPaginator";
+export * from "./DescribeInstanceConnectEndpointsPaginator";
 export * from "./DescribeInstanceCreditSpecificationsPaginator";
 export * from "./DescribeInstanceEventWindowsPaginator";
 export * from "./DescribeInstanceStatusPaginator";
@@ -33,6 +47,8 @@ export * from "./DescribeInstanceTypesPaginator";
 export * from "./DescribeInstancesPaginator";
 export * from "./DescribeInternetGatewaysPaginator";
 export * from "./DescribeIpamPoolsPaginator";
+export * from "./DescribeIpamResourceDiscoveriesPaginator";
+export * from "./DescribeIpamResourceDiscoveryAssociationsPaginator";
 export * from "./DescribeIpamScopesPaginator";
 export * from "./DescribeIpamsPaginator";
 export * from "./DescribeIpv6PoolsPaginator";
@@ -82,10 +98,17 @@ export * from "./DescribeTransitGatewayConnectPeersPaginator";
 export * from "./DescribeTransitGatewayConnectsPaginator";
 export * from "./DescribeTransitGatewayMulticastDomainsPaginator";
 export * from "./DescribeTransitGatewayPeeringAttachmentsPaginator";
+export * from "./DescribeTransitGatewayPolicyTablesPaginator";
+export * from "./DescribeTransitGatewayRouteTableAnnouncementsPaginator";
 export * from "./DescribeTransitGatewayRouteTablesPaginator";
 export * from "./DescribeTransitGatewayVpcAttachmentsPaginator";
 export * from "./DescribeTransitGatewaysPaginator";
 export * from "./DescribeTrunkInterfaceAssociationsPaginator";
+export * from "./DescribeVerifiedAccessEndpointsPaginator";
+export * from "./DescribeVerifiedAccessGroupsPaginator";
+export * from "./DescribeVerifiedAccessInstanceLoggingConfigurationsPaginator";
+export * from "./DescribeVerifiedAccessInstancesPaginator";
+export * from "./DescribeVerifiedAccessTrustProvidersPaginator";
 export * from "./DescribeVolumeStatusPaginator";
 export * from "./DescribeVolumesModificationsPaginator";
 export * from "./DescribeVolumesPaginator";
@@ -98,17 +121,22 @@ export * from "./DescribeVpcEndpointsPaginator";
 export * from "./DescribeVpcPeeringConnectionsPaginator";
 export * from "./DescribeVpcsPaginator";
 export * from "./GetAssociatedIpv6PoolCidrsPaginator";
+export * from "./GetAwsNetworkPerformanceDataPaginator";
 export * from "./GetGroupsForCapacityReservationPaginator";
 export * from "./GetInstanceTypesFromInstanceRequirementsPaginator";
 export * from "./GetIpamAddressHistoryPaginator";
+export * from "./GetIpamDiscoveredAccountsPaginator";
+export * from "./GetIpamDiscoveredResourceCidrsPaginator";
 export * from "./GetIpamPoolAllocationsPaginator";
 export * from "./GetIpamPoolCidrsPaginator";
 export * from "./GetIpamResourceCidrsPaginator";
 export * from "./GetManagedPrefixListAssociationsPaginator";
 export * from "./GetManagedPrefixListEntriesPaginator";
+export * from "./GetNetworkInsightsAccessScopeAnalysisFindingsPaginator";
 export * from "./GetSpotPlacementScoresPaginator";
 export * from "./GetTransitGatewayAttachmentPropagationsPaginator";
 export * from "./GetTransitGatewayMulticastDomainAssociationsPaginator";
+export * from "./GetTransitGatewayPolicyTableAssociationsPaginator";
 export * from "./GetTransitGatewayPrefixListReferencesPaginator";
 export * from "./GetTransitGatewayRouteTableAssociationsPaginator";
 export * from "./GetTransitGatewayRouteTablePropagationsPaginator";

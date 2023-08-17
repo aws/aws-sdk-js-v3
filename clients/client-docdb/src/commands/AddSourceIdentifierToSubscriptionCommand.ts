@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult } from "../models/models_0";
 import {
-  deserializeAws_queryAddSourceIdentifierToSubscriptionCommand,
-  serializeAws_queryAddSourceIdentifierToSubscriptionCommand,
+  de_AddSourceIdentifierToSubscriptionCommand,
+  se_AddSourceIdentifierToSubscriptionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AddSourceIdentifierToSubscriptionCommand}.
+ */
 export interface AddSourceIdentifierToSubscriptionCommandInput extends AddSourceIdentifierToSubscriptionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link AddSourceIdentifierToSubscriptionCommand}.
+ */
 export interface AddSourceIdentifierToSubscriptionCommandOutput
   extends AddSourceIdentifierToSubscriptionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a source identifier to an existing event notification
  *             subscription.</p>
  * @example
@@ -32,13 +49,47 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * import { DocDBClient, AddSourceIdentifierToSubscriptionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, AddSourceIdentifierToSubscriptionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // AddSourceIdentifierToSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SourceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new AddSourceIdentifierToSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // { // AddSourceIdentifierToSubscriptionResult
+ * //   EventSubscription: { // EventSubscription
+ * //     CustomerAwsId: "STRING_VALUE",
+ * //     CustSubscriptionId: "STRING_VALUE",
+ * //     SnsTopicArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     SubscriptionCreationTime: "STRING_VALUE",
+ * //     SourceType: "STRING_VALUE",
+ * //     SourceIdsList: [ // SourceIdsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     EventCategoriesList: [ // EventCategoriesList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Enabled: true || false,
+ * //     EventSubscriptionArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param AddSourceIdentifierToSubscriptionCommandInput - {@link AddSourceIdentifierToSubscriptionCommandInput}
+ * @returns {@link AddSourceIdentifierToSubscriptionCommandOutput}
  * @see {@link AddSourceIdentifierToSubscriptionCommandInput} for command's `input` shape.
  * @see {@link AddSourceIdentifierToSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The requested source could not be found. </p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The subscription name does not exist. </p>
+ *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class AddSourceIdentifierToSubscriptionCommand extends $Command<
@@ -49,6 +100,18 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AddSourceIdentifierToSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +127,9 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddSourceIdentifierToSubscriptionCommandInput, AddSourceIdentifierToSubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AddSourceIdentifierToSubscriptionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +140,8 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddSourceIdentifierToSubscriptionMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: AddSourceIdentifierToSubscriptionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,18 +151,24 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddSourceIdentifierToSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAddSourceIdentifierToSubscriptionCommand(input, context);
+    return se_AddSourceIdentifierToSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> {
-    return deserializeAws_queryAddSourceIdentifierToSubscriptionCommand(output, context);
+    return de_AddSourceIdentifierToSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,9 +1,12 @@
+// smithy-typescript generated code
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
-} from "@aws-sdk/protocol-http";
+} from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -16,14 +19,18 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   BatchEvaluateFeatureCommandInput,
@@ -33,10 +40,12 @@ import { CreateExperimentCommandInput, CreateExperimentCommandOutput } from "../
 import { CreateFeatureCommandInput, CreateFeatureCommandOutput } from "../commands/CreateFeatureCommand";
 import { CreateLaunchCommandInput, CreateLaunchCommandOutput } from "../commands/CreateLaunchCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
+import { CreateSegmentCommandInput, CreateSegmentCommandOutput } from "../commands/CreateSegmentCommand";
 import { DeleteExperimentCommandInput, DeleteExperimentCommandOutput } from "../commands/DeleteExperimentCommand";
 import { DeleteFeatureCommandInput, DeleteFeatureCommandOutput } from "../commands/DeleteFeatureCommand";
 import { DeleteLaunchCommandInput, DeleteLaunchCommandOutput } from "../commands/DeleteLaunchCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
+import { DeleteSegmentCommandInput, DeleteSegmentCommandOutput } from "../commands/DeleteSegmentCommand";
 import { EvaluateFeatureCommandInput, EvaluateFeatureCommandOutput } from "../commands/EvaluateFeatureCommand";
 import { GetExperimentCommandInput, GetExperimentCommandOutput } from "../commands/GetExperimentCommand";
 import {
@@ -46,10 +55,16 @@ import {
 import { GetFeatureCommandInput, GetFeatureCommandOutput } from "../commands/GetFeatureCommand";
 import { GetLaunchCommandInput, GetLaunchCommandOutput } from "../commands/GetLaunchCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "../commands/GetProjectCommand";
+import { GetSegmentCommandInput, GetSegmentCommandOutput } from "../commands/GetSegmentCommand";
 import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "../commands/ListExperimentsCommand";
 import { ListFeaturesCommandInput, ListFeaturesCommandOutput } from "../commands/ListFeaturesCommand";
 import { ListLaunchesCommandInput, ListLaunchesCommandOutput } from "../commands/ListLaunchesCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
+import {
+  ListSegmentReferencesCommandInput,
+  ListSegmentReferencesCommandOutput,
+} from "../commands/ListSegmentReferencesCommand";
+import { ListSegmentsCommandInput, ListSegmentsCommandOutput } from "../commands/ListSegmentsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -60,6 +75,7 @@ import { StartLaunchCommandInput, StartLaunchCommandOutput } from "../commands/S
 import { StopExperimentCommandInput, StopExperimentCommandOutput } from "../commands/StopExperimentCommand";
 import { StopLaunchCommandInput, StopLaunchCommandOutput } from "../commands/StopLaunchCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { TestSegmentPatternCommandInput, TestSegmentPatternCommandOutput } from "../commands/TestSegmentPatternCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateExperimentCommandInput, UpdateExperimentCommandOutput } from "../commands/UpdateExperimentCommand";
 import { UpdateFeatureCommandInput, UpdateFeatureCommandOutput } from "../commands/UpdateFeatureCommand";
@@ -72,12 +88,10 @@ import {
 import { EvidentlyServiceException as __BaseException } from "../models/EvidentlyServiceException";
 import {
   AccessDeniedException,
-  CloudWatchLogsDestination,
   CloudWatchLogsDestinationConfig,
   ConflictException,
   EvaluationRequest,
   EvaluationResult,
-  EvaluationRule,
   Event,
   Experiment,
   ExperimentExecution,
@@ -91,7 +105,6 @@ import {
   InternalServerException,
   Launch,
   LaunchExecution,
-  LaunchGroup,
   LaunchGroupConfig,
   MetricDefinition,
   MetricDefinitionConfig,
@@ -100,32 +113,32 @@ import {
   MetricMonitor,
   MetricMonitorConfig,
   OnlineAbConfig,
-  OnlineAbDefinition,
   Project,
-  ProjectDataDelivery,
+  ProjectAppConfigResourceConfig,
   ProjectDataDeliveryConfig,
   ProjectSummary,
-  PutProjectEventsResultEntry,
   ResourceNotFoundException,
-  S3Destination,
   S3DestinationConfig,
   ScheduledSplit,
   ScheduledSplitConfig,
   ScheduledSplitsLaunchConfig,
   ScheduledSplitsLaunchDefinition,
+  Segment,
+  SegmentOverride,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
   ThrottlingException,
-  Treatment,
   TreatmentConfig,
   ValidationException,
-  ValidationExceptionField,
   VariableValue,
   Variation,
   VariationConfig,
 } from "../models/models_0";
 
-export const serializeAws_restJson1BatchEvaluateFeatureCommand = async (
+/**
+ * serializeAws_restJson1BatchEvaluateFeatureCommand
+ */
+export const se_BatchEvaluateFeatureCommand = async (
   input: BatchEvaluateFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -135,20 +148,13 @@ export const serializeAws_restJson1BatchEvaluateFeatureCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/evaluations";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.requests !== undefined &&
-      input.requests !== null && { requests: serializeAws_restJson1EvaluationRequestsList(input.requests, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      requests: (_) => se_EvaluationRequestsList(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "dataplane." + resolvedHostname;
@@ -167,7 +173,10 @@ export const serializeAws_restJson1BatchEvaluateFeatureCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateExperimentCommand = async (
+/**
+ * serializeAws_restJson1CreateExperimentCommand
+ */
+export const se_CreateExperimentCommand = async (
   input: CreateExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -177,36 +186,21 @@ export const serializeAws_restJson1CreateExperimentCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/experiments";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.metricGoals !== undefined &&
-      input.metricGoals !== null && {
-        metricGoals: serializeAws_restJson1MetricGoalConfigList(input.metricGoals, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.onlineAbConfig !== undefined &&
-      input.onlineAbConfig !== null && {
-        onlineAbConfig: serializeAws_restJson1OnlineAbConfig(input.onlineAbConfig, context),
-      }),
-    ...(input.randomizationSalt !== undefined &&
-      input.randomizationSalt !== null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.samplingRate !== undefined && input.samplingRate !== null && { samplingRate: input.samplingRate }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.treatments !== undefined &&
-      input.treatments !== null && {
-        treatments: serializeAws_restJson1TreatmentConfigList(input.treatments, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      metricGoals: (_) => se_MetricGoalConfigList(_, context),
+      name: [],
+      onlineAbConfig: (_) => _json(_),
+      randomizationSalt: [],
+      samplingRate: [],
+      segment: [],
+      tags: (_) => _json(_),
+      treatments: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -218,7 +212,10 @@ export const serializeAws_restJson1CreateExperimentCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateFeatureCommand = async (
+/**
+ * serializeAws_restJson1CreateFeatureCommand
+ */
+export const se_CreateFeatureCommand = async (
   input: CreateFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -228,33 +225,19 @@ export const serializeAws_restJson1CreateFeatureCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/features";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.defaultVariation !== undefined &&
-      input.defaultVariation !== null && { defaultVariation: input.defaultVariation }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.entityOverrides !== undefined &&
-      input.entityOverrides !== null && {
-        entityOverrides: serializeAws_restJson1EntityOverrideMap(input.entityOverrides, context),
-      }),
-    ...(input.evaluationStrategy !== undefined &&
-      input.evaluationStrategy !== null && { evaluationStrategy: input.evaluationStrategy }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.variations !== undefined &&
-      input.variations !== null && {
-        variations: serializeAws_restJson1VariationConfigsList(input.variations, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      defaultVariation: [],
+      description: [],
+      entityOverrides: (_) => _json(_),
+      evaluationStrategy: [],
+      name: [],
+      tags: (_) => _json(_),
+      variations: (_) => se_VariationConfigsList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -266,7 +249,10 @@ export const serializeAws_restJson1CreateFeatureCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateLaunchCommand = async (
+/**
+ * serializeAws_restJson1CreateLaunchCommand
+ */
+export const se_CreateLaunchCommand = async (
   input: CreateLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -276,33 +262,19 @@ export const serializeAws_restJson1CreateLaunchCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/launches";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.groups !== undefined &&
-      input.groups !== null && { groups: serializeAws_restJson1LaunchGroupConfigList(input.groups, context) }),
-    ...(input.metricMonitors !== undefined &&
-      input.metricMonitors !== null && {
-        metricMonitors: serializeAws_restJson1MetricMonitorConfigList(input.metricMonitors, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.randomizationSalt !== undefined &&
-      input.randomizationSalt !== null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.scheduledSplitsConfig !== undefined &&
-      input.scheduledSplitsConfig !== null && {
-        scheduledSplitsConfig: serializeAws_restJson1ScheduledSplitsLaunchConfig(input.scheduledSplitsConfig, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      groups: (_) => _json(_),
+      metricMonitors: (_) => se_MetricMonitorConfigList(_, context),
+      name: [],
+      randomizationSalt: [],
+      scheduledSplitsConfig: (_) => se_ScheduledSplitsLaunchConfig(_, context),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -314,7 +286,10 @@ export const serializeAws_restJson1CreateLaunchCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateProjectCommand = async (
+/**
+ * serializeAws_restJson1CreateProjectCommand
+ */
+export const se_CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -324,15 +299,15 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   let body: any;
-  body = JSON.stringify({
-    ...(input.dataDelivery !== undefined &&
-      input.dataDelivery !== null && {
-        dataDelivery: serializeAws_restJson1ProjectDataDeliveryConfig(input.dataDelivery, context),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appConfigResource: (_) => _json(_),
+      dataDelivery: (_) => _json(_),
+      description: [],
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -344,7 +319,42 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteExperimentCommand = async (
+/**
+ * serializeAws_restJson1CreateSegmentCommand
+ */
+export const se_CreateSegmentCommand = async (
+  input: CreateSegmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      pattern: (_) => __LazyJsonString.fromObject(_),
+      tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteExperimentCommand
+ */
+export const se_DeleteExperimentCommand = async (
   input: DeleteExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -353,24 +363,8 @@ export const serializeAws_restJson1DeleteExperimentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/projects/{project}/experiments/{experiment}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.experiment !== undefined) {
-    const labelValue: string = input.experiment;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: experiment.");
-    }
-    resolvedPath = resolvedPath.replace("{experiment}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: experiment.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -383,7 +377,10 @@ export const serializeAws_restJson1DeleteExperimentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteFeatureCommand = async (
+/**
+ * serializeAws_restJson1DeleteFeatureCommand
+ */
+export const se_DeleteFeatureCommand = async (
   input: DeleteFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -391,24 +388,8 @@ export const serializeAws_restJson1DeleteFeatureCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/features/{feature}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.feature !== undefined) {
-    const labelValue: string = input.feature;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: feature.");
-    }
-    resolvedPath = resolvedPath.replace("{feature}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: feature.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "feature", () => input.feature!, "{feature}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -421,7 +402,10 @@ export const serializeAws_restJson1DeleteFeatureCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteLaunchCommand = async (
+/**
+ * serializeAws_restJson1DeleteLaunchCommand
+ */
+export const se_DeleteLaunchCommand = async (
   input: DeleteLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -429,24 +413,8 @@ export const serializeAws_restJson1DeleteLaunchCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/launches/{launch}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.launch !== undefined) {
-    const labelValue: string = input.launch;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: launch.");
-    }
-    resolvedPath = resolvedPath.replace("{launch}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: launch.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -459,22 +427,17 @@ export const serializeAws_restJson1DeleteLaunchCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteProjectCommand = async (
+/**
+ * serializeAws_restJson1DeleteProjectCommand
+ */
+export const se_DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -487,7 +450,33 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1EvaluateFeatureCommand = async (
+/**
+ * serializeAws_restJson1DeleteSegmentCommand
+ */
+export const se_DeleteSegmentCommand = async (
+  input: DeleteSegmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments/{segment}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "segment", () => input.segment!, "{segment}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1EvaluateFeatureCommand
+ */
+export const se_EvaluateFeatureCommand = async (
   input: EvaluateFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -497,30 +486,15 @@ export const serializeAws_restJson1EvaluateFeatureCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/evaluations/{feature}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.feature !== undefined) {
-    const labelValue: string = input.feature;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: feature.");
-    }
-    resolvedPath = resolvedPath.replace("{feature}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: feature.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "feature", () => input.feature!, "{feature}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.entityId !== undefined && input.entityId !== null && { entityId: input.entityId }),
-    ...(input.evaluationContext !== undefined &&
-      input.evaluationContext !== null && { evaluationContext: __LazyJsonString.fromObject(input.evaluationContext) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      entityId: [],
+      evaluationContext: (_) => __LazyJsonString.fromObject(_),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "dataplane." + resolvedHostname;
@@ -539,7 +513,10 @@ export const serializeAws_restJson1EvaluateFeatureCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetExperimentCommand = async (
+/**
+ * serializeAws_restJson1GetExperimentCommand
+ */
+export const se_GetExperimentCommand = async (
   input: GetExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -548,24 +525,8 @@ export const serializeAws_restJson1GetExperimentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/projects/{project}/experiments/{experiment}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.experiment !== undefined) {
-    const labelValue: string = input.experiment;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: experiment.");
-    }
-    resolvedPath = resolvedPath.replace("{experiment}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: experiment.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -578,7 +539,10 @@ export const serializeAws_restJson1GetExperimentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetExperimentResultsCommand = async (
+/**
+ * serializeAws_restJson1GetExperimentResultsCommand
+ */
+export const se_GetExperimentResultsCommand = async (
   input: GetExperimentResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -589,47 +553,21 @@ export const serializeAws_restJson1GetExperimentResultsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/projects/{project}/experiments/{experiment}/results";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.experiment !== undefined) {
-    const labelValue: string = input.experiment;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: experiment.");
-    }
-    resolvedPath = resolvedPath.replace("{experiment}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: experiment.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.baseStat !== undefined && input.baseStat !== null && { baseStat: input.baseStat }),
-    ...(input.endTime !== undefined &&
-      input.endTime !== null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.metricNames !== undefined &&
-      input.metricNames !== null && { metricNames: serializeAws_restJson1MetricNameList(input.metricNames, context) }),
-    ...(input.period !== undefined && input.period !== null && { period: input.period }),
-    ...(input.reportNames !== undefined &&
-      input.reportNames !== null && {
-        reportNames: serializeAws_restJson1ExperimentReportNameList(input.reportNames, context),
-      }),
-    ...(input.resultStats !== undefined &&
-      input.resultStats !== null && {
-        resultStats: serializeAws_restJson1ExperimentResultRequestTypeList(input.resultStats, context),
-      }),
-    ...(input.startTime !== undefined &&
-      input.startTime !== null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.treatmentNames !== undefined &&
-      input.treatmentNames !== null && {
-        treatmentNames: serializeAws_restJson1TreatmentNameList(input.treatmentNames, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      baseStat: [],
+      endTime: (_) => Math.round(_.getTime() / 1000),
+      metricNames: (_) => _json(_),
+      period: [],
+      reportNames: (_) => _json(_),
+      resultStats: (_) => _json(_),
+      startTime: (_) => Math.round(_.getTime() / 1000),
+      treatmentNames: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -641,7 +579,10 @@ export const serializeAws_restJson1GetExperimentResultsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetFeatureCommand = async (
+/**
+ * serializeAws_restJson1GetFeatureCommand
+ */
+export const se_GetFeatureCommand = async (
   input: GetFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -649,24 +590,8 @@ export const serializeAws_restJson1GetFeatureCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/features/{feature}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.feature !== undefined) {
-    const labelValue: string = input.feature;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: feature.");
-    }
-    resolvedPath = resolvedPath.replace("{feature}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: feature.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "feature", () => input.feature!, "{feature}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -679,7 +604,10 @@ export const serializeAws_restJson1GetFeatureCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetLaunchCommand = async (
+/**
+ * serializeAws_restJson1GetLaunchCommand
+ */
+export const se_GetLaunchCommand = async (
   input: GetLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -687,24 +615,8 @@ export const serializeAws_restJson1GetLaunchCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/launches/{launch}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.launch !== undefined) {
-    const labelValue: string = input.launch;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: launch.");
-    }
-    resolvedPath = resolvedPath.replace("{launch}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: launch.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -717,22 +629,17 @@ export const serializeAws_restJson1GetLaunchCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetProjectCommand = async (
+/**
+ * serializeAws_restJson1GetProjectCommand
+ */
+export const se_GetProjectCommand = async (
   input: GetProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -745,7 +652,33 @@ export const serializeAws_restJson1GetProjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListExperimentsCommand = async (
+/**
+ * serializeAws_restJson1GetSegmentCommand
+ */
+export const se_GetSegmentCommand = async (
+  input: GetSegmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments/{segment}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "segment", () => input.segment!, "{segment}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListExperimentsCommand
+ */
+export const se_ListExperimentsCommand = async (
   input: ListExperimentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -753,20 +686,12 @@ export const serializeAws_restJson1ListExperimentsCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/experiments";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.status !== undefined && { status: input.status }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+    status: [, input.status!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -780,7 +705,10 @@ export const serializeAws_restJson1ListExperimentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListFeaturesCommand = async (
+/**
+ * serializeAws_restJson1ListFeaturesCommand
+ */
+export const se_ListFeaturesCommand = async (
   input: ListFeaturesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -788,19 +716,11 @@ export const serializeAws_restJson1ListFeaturesCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/features";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -814,7 +734,10 @@ export const serializeAws_restJson1ListFeaturesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListLaunchesCommand = async (
+/**
+ * serializeAws_restJson1ListLaunchesCommand
+ */
+export const se_ListLaunchesCommand = async (
   input: ListLaunchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -822,20 +745,12 @@ export const serializeAws_restJson1ListLaunchesCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/launches";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.status !== undefined && { status: input.status }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+    status: [, input.status!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -849,17 +764,20 @@ export const serializeAws_restJson1ListLaunchesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListProjectsCommand = async (
+/**
+ * serializeAws_restJson1ListProjectsCommand
+ */
+export const se_ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
-  const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -873,22 +791,74 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListSegmentReferencesCommand
+ */
+export const se_ListSegmentReferencesCommand = async (
+  input: ListSegmentReferencesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments/{segment}/references";
+  resolvedPath = __resolvedPath(resolvedPath, input, "segment", () => input.segment!, "{segment}", false);
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+    type: [, __expectNonNull(input.type!, `type`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListSegmentsCommand
+ */
+export const se_ListSegmentsCommand = async (
+  input: ListSegmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments";
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -901,7 +871,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutProjectEventsCommand = async (
+/**
+ * serializeAws_restJson1PutProjectEventsCommand
+ */
+export const se_PutProjectEventsCommand = async (
   input: PutProjectEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -911,20 +884,13 @@ export const serializeAws_restJson1PutProjectEventsCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events/projects/{project}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.events !== undefined &&
-      input.events !== null && { events: serializeAws_restJson1EventList(input.events, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      events: (_) => se_EventList(_, context),
+    })
+  );
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "dataplane." + resolvedHostname;
@@ -943,7 +909,10 @@ export const serializeAws_restJson1PutProjectEventsCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartExperimentCommand = async (
+/**
+ * serializeAws_restJson1StartExperimentCommand
+ */
+export const se_StartExperimentCommand = async (
   input: StartExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -954,31 +923,14 @@ export const serializeAws_restJson1StartExperimentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/projects/{project}/experiments/{experiment}/start";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.experiment !== undefined) {
-    const labelValue: string = input.experiment;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: experiment.");
-    }
-    resolvedPath = resolvedPath.replace("{experiment}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: experiment.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.analysisCompleteTime !== undefined &&
-      input.analysisCompleteTime !== null && {
-        analysisCompleteTime: Math.round(input.analysisCompleteTime.getTime() / 1000),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      analysisCompleteTime: (_) => Math.round(_.getTime() / 1000),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -990,7 +942,10 @@ export const serializeAws_restJson1StartExperimentCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartLaunchCommand = async (
+/**
+ * serializeAws_restJson1StartLaunchCommand
+ */
+export const se_StartLaunchCommand = async (
   input: StartLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -999,24 +954,8 @@ export const serializeAws_restJson1StartLaunchCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/projects/{project}/launches/{launch}/start";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.launch !== undefined) {
-    const labelValue: string = input.launch;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: launch.");
-    }
-    resolvedPath = resolvedPath.replace("{launch}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: launch.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1029,7 +968,10 @@ export const serializeAws_restJson1StartLaunchCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopExperimentCommand = async (
+/**
+ * serializeAws_restJson1StopExperimentCommand
+ */
+export const se_StopExperimentCommand = async (
   input: StopExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1040,29 +982,15 @@ export const serializeAws_restJson1StopExperimentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/projects/{project}/experiments/{experiment}/cancel";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.experiment !== undefined) {
-    const labelValue: string = input.experiment;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: experiment.");
-    }
-    resolvedPath = resolvedPath.replace("{experiment}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: experiment.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.desiredState !== undefined && input.desiredState !== null && { desiredState: input.desiredState }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      desiredState: [],
+      reason: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1074,7 +1002,10 @@ export const serializeAws_restJson1StopExperimentCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopLaunchCommand = async (
+/**
+ * serializeAws_restJson1StopLaunchCommand
+ */
+export const se_StopLaunchCommand = async (
   input: StopLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1085,29 +1016,15 @@ export const serializeAws_restJson1StopLaunchCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/projects/{project}/launches/{launch}/cancel";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.launch !== undefined) {
-    const labelValue: string = input.launch;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: launch.");
-    }
-    resolvedPath = resolvedPath.replace("{launch}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: launch.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.desiredState !== undefined && input.desiredState !== null && { desiredState: input.desiredState }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      desiredState: [],
+      reason: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1119,7 +1036,10 @@ export const serializeAws_restJson1StopLaunchCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1128,19 +1048,13 @@ export const serializeAws_restJson1TagResourceCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1152,25 +1066,53 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1TestSegmentPatternCommand
+ */
+export const se_TestSegmentPatternCommand = async (
+  input: TestSegmentPatternCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/test-segment-pattern";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      pattern: (_) => __LazyJsonString.fromObject(_),
+      payload: (_) => __LazyJsonString.fromObject(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
-  const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  const query: any = map({
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1184,7 +1126,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateExperimentCommand = async (
+/**
+ * serializeAws_restJson1UpdateExperimentCommand
+ */
+export const se_UpdateExperimentCommand = async (
   input: UpdateExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1195,43 +1140,21 @@ export const serializeAws_restJson1UpdateExperimentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/projects/{project}/experiments/{experiment}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.experiment !== undefined) {
-    const labelValue: string = input.experiment;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: experiment.");
-    }
-    resolvedPath = resolvedPath.replace("{experiment}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: experiment.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.metricGoals !== undefined &&
-      input.metricGoals !== null && {
-        metricGoals: serializeAws_restJson1MetricGoalConfigList(input.metricGoals, context),
-      }),
-    ...(input.onlineAbConfig !== undefined &&
-      input.onlineAbConfig !== null && {
-        onlineAbConfig: serializeAws_restJson1OnlineAbConfig(input.onlineAbConfig, context),
-      }),
-    ...(input.randomizationSalt !== undefined &&
-      input.randomizationSalt !== null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.samplingRate !== undefined && input.samplingRate !== null && { samplingRate: input.samplingRate }),
-    ...(input.treatments !== undefined &&
-      input.treatments !== null && {
-        treatments: serializeAws_restJson1TreatmentConfigList(input.treatments, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      metricGoals: (_) => se_MetricGoalConfigList(_, context),
+      onlineAbConfig: (_) => _json(_),
+      randomizationSalt: [],
+      removeSegment: [],
+      samplingRate: [],
+      segment: [],
+      treatments: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1243,7 +1166,10 @@ export const serializeAws_restJson1UpdateExperimentCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFeatureCommand = async (
+/**
+ * serializeAws_restJson1UpdateFeatureCommand
+ */
+export const se_UpdateFeatureCommand = async (
   input: UpdateFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1253,44 +1179,19 @@ export const serializeAws_restJson1UpdateFeatureCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/features/{feature}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.feature !== undefined) {
-    const labelValue: string = input.feature;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: feature.");
-    }
-    resolvedPath = resolvedPath.replace("{feature}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: feature.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "feature", () => input.feature!, "{feature}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.addOrUpdateVariations !== undefined &&
-      input.addOrUpdateVariations !== null && {
-        addOrUpdateVariations: serializeAws_restJson1VariationConfigsList(input.addOrUpdateVariations, context),
-      }),
-    ...(input.defaultVariation !== undefined &&
-      input.defaultVariation !== null && { defaultVariation: input.defaultVariation }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.entityOverrides !== undefined &&
-      input.entityOverrides !== null && {
-        entityOverrides: serializeAws_restJson1EntityOverrideMap(input.entityOverrides, context),
-      }),
-    ...(input.evaluationStrategy !== undefined &&
-      input.evaluationStrategy !== null && { evaluationStrategy: input.evaluationStrategy }),
-    ...(input.removeVariations !== undefined &&
-      input.removeVariations !== null && {
-        removeVariations: serializeAws_restJson1VariationNameList(input.removeVariations, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      addOrUpdateVariations: (_) => se_VariationConfigsList(_, context),
+      defaultVariation: [],
+      description: [],
+      entityOverrides: (_) => _json(_),
+      evaluationStrategy: [],
+      removeVariations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1302,7 +1203,10 @@ export const serializeAws_restJson1UpdateFeatureCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateLaunchCommand = async (
+/**
+ * serializeAws_restJson1UpdateLaunchCommand
+ */
+export const se_UpdateLaunchCommand = async (
   input: UpdateLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1312,40 +1216,18 @@ export const serializeAws_restJson1UpdateLaunchCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/launches/{launch}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
-  if (input.launch !== undefined) {
-    const labelValue: string = input.launch;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: launch.");
-    }
-    resolvedPath = resolvedPath.replace("{launch}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: launch.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.groups !== undefined &&
-      input.groups !== null && { groups: serializeAws_restJson1LaunchGroupConfigList(input.groups, context) }),
-    ...(input.metricMonitors !== undefined &&
-      input.metricMonitors !== null && {
-        metricMonitors: serializeAws_restJson1MetricMonitorConfigList(input.metricMonitors, context),
-      }),
-    ...(input.randomizationSalt !== undefined &&
-      input.randomizationSalt !== null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.scheduledSplitsConfig !== undefined &&
-      input.scheduledSplitsConfig !== null && {
-        scheduledSplitsConfig: serializeAws_restJson1ScheduledSplitsLaunchConfig(input.scheduledSplitsConfig, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      groups: (_) => _json(_),
+      metricMonitors: (_) => se_MetricMonitorConfigList(_, context),
+      randomizationSalt: [],
+      scheduledSplitsConfig: (_) => se_ScheduledSplitsLaunchConfig(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1357,7 +1239,10 @@ export const serializeAws_restJson1UpdateLaunchCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateProjectCommand = async (
+/**
+ * serializeAws_restJson1UpdateProjectCommand
+ */
+export const se_UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1366,19 +1251,14 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appConfigResource: (_) => _json(_),
+      description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1390,7 +1270,10 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateProjectDataDeliveryCommand = async (
+/**
+ * serializeAws_restJson1UpdateProjectDataDeliveryCommand
+ */
+export const se_UpdateProjectDataDeliveryCommand = async (
   input: UpdateProjectDataDeliveryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1400,26 +1283,14 @@ export const serializeAws_restJson1UpdateProjectDataDeliveryCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/data-delivery";
-  if (input.project !== undefined) {
-    const labelValue: string = input.project;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: project.");
-    }
-    resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: project.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.cloudWatchLogs !== undefined &&
-      input.cloudWatchLogs !== null && {
-        cloudWatchLogs: serializeAws_restJson1CloudWatchLogsDestinationConfig(input.cloudWatchLogs, context),
-      }),
-    ...(input.s3Destination !== undefined &&
-      input.s3Destination !== null && {
-        s3Destination: serializeAws_restJson1S3DestinationConfig(input.s3Destination, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cloudWatchLogs: (_) => _json(_),
+      s3Destination: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1431,1760 +1302,2166 @@ export const serializeAws_restJson1UpdateProjectDataDeliveryCommand = async (
   });
 };
 
-export const deserializeAws_restJson1BatchEvaluateFeatureCommand = async (
+/**
+ * deserializeAws_restJson1BatchEvaluateFeatureCommand
+ */
+export const de_BatchEvaluateFeatureCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchEvaluateFeatureCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchEvaluateFeatureCommandError(output, context);
+    return de_BatchEvaluateFeatureCommandError(output, context);
   }
-  const contents: BatchEvaluateFeatureCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    results: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.results !== undefined && data.results !== null) {
-    contents.results = deserializeAws_restJson1EvaluationResultsList(data.results, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    results: (_) => de_EvaluationResultsList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1BatchEvaluateFeatureCommandError = async (
+/**
+ * deserializeAws_restJson1BatchEvaluateFeatureCommandError
+ */
+const de_BatchEvaluateFeatureCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchEvaluateFeatureCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateExperimentCommand = async (
+/**
+ * deserializeAws_restJson1CreateExperimentCommand
+ */
+export const de_CreateExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateExperimentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateExperimentCommandError(output, context);
+    return de_CreateExperimentCommandError(output, context);
   }
-  const contents: CreateExperimentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    experiment: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.experiment !== undefined && data.experiment !== null) {
-    contents.experiment = deserializeAws_restJson1Experiment(data.experiment, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    experiment: (_) => de_Experiment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateExperimentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateExperimentCommandError
+ */
+const de_CreateExperimentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateExperimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.evidently#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateFeatureCommand = async (
+/**
+ * deserializeAws_restJson1CreateFeatureCommand
+ */
+export const de_CreateFeatureCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFeatureCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateFeatureCommandError(output, context);
+    return de_CreateFeatureCommandError(output, context);
   }
-  const contents: CreateFeatureCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    feature: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.feature !== undefined && data.feature !== null) {
-    contents.feature = deserializeAws_restJson1Feature(data.feature, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    feature: (_) => de_Feature(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateFeatureCommandError = async (
+/**
+ * deserializeAws_restJson1CreateFeatureCommandError
+ */
+const de_CreateFeatureCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFeatureCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.evidently#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateLaunchCommand = async (
+/**
+ * deserializeAws_restJson1CreateLaunchCommand
+ */
+export const de_CreateLaunchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLaunchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateLaunchCommandError(output, context);
+    return de_CreateLaunchCommandError(output, context);
   }
-  const contents: CreateLaunchCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    launch: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launch !== undefined && data.launch !== null) {
-    contents.launch = deserializeAws_restJson1Launch(data.launch, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    launch: (_) => de_Launch(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateLaunchCommandError = async (
+/**
+ * deserializeAws_restJson1CreateLaunchCommandError
+ */
+const de_CreateLaunchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLaunchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.evidently#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateProjectCommand = async (
+/**
+ * deserializeAws_restJson1CreateProjectCommand
+ */
+export const de_CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateProjectCommandError(output, context);
+    return de_CreateProjectCommandError(output, context);
   }
-  const contents: CreateProjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    project: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.project !== undefined && data.project !== null) {
-    contents.project = deserializeAws_restJson1Project(data.project, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    project: (_) => de_Project(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateProjectCommandError = async (
+/**
+ * deserializeAws_restJson1CreateProjectCommandError
+ */
+const de_CreateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.evidently#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteExperimentCommand = async (
+/**
+ * deserializeAws_restJson1CreateSegmentCommand
+ */
+export const de_CreateSegmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSegmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateSegmentCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    segment: (_) => de_Segment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateSegmentCommandError
+ */
+const de_CreateSegmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSegmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.evidently#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.evidently#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteExperimentCommand
+ */
+export const de_DeleteExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteExperimentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteExperimentCommandError(output, context);
+    return de_DeleteExperimentCommandError(output, context);
   }
-  const contents: DeleteExperimentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteExperimentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteExperimentCommandError
+ */
+const de_DeleteExperimentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteExperimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.evidently#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.evidently#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteFeatureCommand = async (
+/**
+ * deserializeAws_restJson1DeleteFeatureCommand
+ */
+export const de_DeleteFeatureCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFeatureCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteFeatureCommandError(output, context);
+    return de_DeleteFeatureCommandError(output, context);
   }
-  const contents: DeleteFeatureCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteFeatureCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteFeatureCommandError
+ */
+const de_DeleteFeatureCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFeatureCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteLaunchCommand = async (
+/**
+ * deserializeAws_restJson1DeleteLaunchCommand
+ */
+export const de_DeleteLaunchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLaunchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteLaunchCommandError(output, context);
+    return de_DeleteLaunchCommandError(output, context);
   }
-  const contents: DeleteLaunchCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteLaunchCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteLaunchCommandError
+ */
+const de_DeleteLaunchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLaunchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteProjectCommand = async (
+/**
+ * deserializeAws_restJson1DeleteProjectCommand
+ */
+export const de_DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteProjectCommandError(output, context);
+    return de_DeleteProjectCommandError(output, context);
   }
-  const contents: DeleteProjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteProjectCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteProjectCommandError
+ */
+const de_DeleteProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1EvaluateFeatureCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSegmentCommand
+ */
+export const de_DeleteSegmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSegmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteSegmentCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteSegmentCommandError
+ */
+const de_DeleteSegmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSegmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.evidently#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.evidently#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.evidently#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1EvaluateFeatureCommand
+ */
+export const de_EvaluateFeatureCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EvaluateFeatureCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1EvaluateFeatureCommandError(output, context);
+    return de_EvaluateFeatureCommandError(output, context);
   }
-  const contents: EvaluateFeatureCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    details: undefined,
-    reason: undefined,
-    value: undefined,
-    variation: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.details !== undefined && data.details !== null) {
-    contents.details = new __LazyJsonString(data.details);
-  }
-  if (data.reason !== undefined && data.reason !== null) {
-    contents.reason = __expectString(data.reason);
-  }
-  if (data.value !== undefined && data.value !== null) {
-    contents.value = deserializeAws_restJson1VariableValue(__expectUnion(data.value), context);
-  }
-  if (data.variation !== undefined && data.variation !== null) {
-    contents.variation = __expectString(data.variation);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    details: (_) => new __LazyJsonString(_),
+    reason: __expectString,
+    value: (_) => de_VariableValue(__expectUnion(_), context),
+    variation: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1EvaluateFeatureCommandError = async (
+/**
+ * deserializeAws_restJson1EvaluateFeatureCommandError
+ */
+const de_EvaluateFeatureCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EvaluateFeatureCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetExperimentCommand = async (
+/**
+ * deserializeAws_restJson1GetExperimentCommand
+ */
+export const de_GetExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExperimentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetExperimentCommandError(output, context);
+    return de_GetExperimentCommandError(output, context);
   }
-  const contents: GetExperimentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    experiment: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.experiment !== undefined && data.experiment !== null) {
-    contents.experiment = deserializeAws_restJson1Experiment(data.experiment, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    experiment: (_) => de_Experiment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetExperimentCommandError = async (
+/**
+ * deserializeAws_restJson1GetExperimentCommandError
+ */
+const de_GetExperimentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExperimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetExperimentResultsCommand = async (
+/**
+ * deserializeAws_restJson1GetExperimentResultsCommand
+ */
+export const de_GetExperimentResultsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExperimentResultsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetExperimentResultsCommandError(output, context);
+    return de_GetExperimentResultsCommandError(output, context);
   }
-  const contents: GetExperimentResultsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    reports: undefined,
-    resultsData: undefined,
-    timestamps: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.reports !== undefined && data.reports !== null) {
-    contents.reports = deserializeAws_restJson1ExperimentReportList(data.reports, context);
-  }
-  if (data.resultsData !== undefined && data.resultsData !== null) {
-    contents.resultsData = deserializeAws_restJson1ExperimentResultsDataList(data.resultsData, context);
-  }
-  if (data.timestamps !== undefined && data.timestamps !== null) {
-    contents.timestamps = deserializeAws_restJson1TimestampList(data.timestamps, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    details: __expectString,
+    reports: (_) => de_ExperimentReportList(_, context),
+    resultsData: (_) => de_ExperimentResultsDataList(_, context),
+    timestamps: (_) => de_TimestampList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetExperimentResultsCommandError = async (
+/**
+ * deserializeAws_restJson1GetExperimentResultsCommandError
+ */
+const de_GetExperimentResultsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExperimentResultsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetFeatureCommand = async (
+/**
+ * deserializeAws_restJson1GetFeatureCommand
+ */
+export const de_GetFeatureCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFeatureCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetFeatureCommandError(output, context);
+    return de_GetFeatureCommandError(output, context);
   }
-  const contents: GetFeatureCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    feature: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.feature !== undefined && data.feature !== null) {
-    contents.feature = deserializeAws_restJson1Feature(data.feature, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    feature: (_) => de_Feature(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetFeatureCommandError = async (
+/**
+ * deserializeAws_restJson1GetFeatureCommandError
+ */
+const de_GetFeatureCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFeatureCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetLaunchCommand = async (
+/**
+ * deserializeAws_restJson1GetLaunchCommand
+ */
+export const de_GetLaunchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLaunchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetLaunchCommandError(output, context);
+    return de_GetLaunchCommandError(output, context);
   }
-  const contents: GetLaunchCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    launch: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launch !== undefined && data.launch !== null) {
-    contents.launch = deserializeAws_restJson1Launch(data.launch, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    launch: (_) => de_Launch(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetLaunchCommandError = async (
+/**
+ * deserializeAws_restJson1GetLaunchCommandError
+ */
+const de_GetLaunchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLaunchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetProjectCommand = async (
+/**
+ * deserializeAws_restJson1GetProjectCommand
+ */
+export const de_GetProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetProjectCommandError(output, context);
+    return de_GetProjectCommandError(output, context);
   }
-  const contents: GetProjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    project: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.project !== undefined && data.project !== null) {
-    contents.project = deserializeAws_restJson1Project(data.project, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    project: (_) => de_Project(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetProjectCommandError = async (
+/**
+ * deserializeAws_restJson1GetProjectCommandError
+ */
+const de_GetProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListExperimentsCommand = async (
+/**
+ * deserializeAws_restJson1GetSegmentCommand
+ */
+export const de_GetSegmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSegmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetSegmentCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    segment: (_) => de_Segment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSegmentCommandError
+ */
+const de_GetSegmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSegmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.evidently#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.evidently#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListExperimentsCommand
+ */
+export const de_ListExperimentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExperimentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListExperimentsCommandError(output, context);
+    return de_ListExperimentsCommandError(output, context);
   }
-  const contents: ListExperimentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    experiments: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.experiments !== undefined && data.experiments !== null) {
-    contents.experiments = deserializeAws_restJson1ExperimentList(data.experiments, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    experiments: (_) => de_ExperimentList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListExperimentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListExperimentsCommandError
+ */
+const de_ListExperimentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExperimentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListFeaturesCommand = async (
+/**
+ * deserializeAws_restJson1ListFeaturesCommand
+ */
+export const de_ListFeaturesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFeaturesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListFeaturesCommandError(output, context);
+    return de_ListFeaturesCommandError(output, context);
   }
-  const contents: ListFeaturesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    features: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.features !== undefined && data.features !== null) {
-    contents.features = deserializeAws_restJson1FeatureSummariesList(data.features, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    features: (_) => de_FeatureSummariesList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListFeaturesCommandError = async (
+/**
+ * deserializeAws_restJson1ListFeaturesCommandError
+ */
+const de_ListFeaturesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFeaturesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListLaunchesCommand = async (
+/**
+ * deserializeAws_restJson1ListLaunchesCommand
+ */
+export const de_ListLaunchesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLaunchesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListLaunchesCommandError(output, context);
+    return de_ListLaunchesCommandError(output, context);
   }
-  const contents: ListLaunchesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    launches: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launches !== undefined && data.launches !== null) {
-    contents.launches = deserializeAws_restJson1LaunchesList(data.launches, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    launches: (_) => de_LaunchesList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListLaunchesCommandError = async (
+/**
+ * deserializeAws_restJson1ListLaunchesCommandError
+ */
+const de_ListLaunchesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLaunchesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListProjectsCommand = async (
+/**
+ * deserializeAws_restJson1ListProjectsCommand
+ */
+export const de_ListProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListProjectsCommandError(output, context);
+    return de_ListProjectsCommandError(output, context);
   }
-  const contents: ListProjectsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    projects: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.projects !== undefined && data.projects !== null) {
-    contents.projects = deserializeAws_restJson1ProjectSummariesList(data.projects, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    projects: (_) => de_ProjectSummariesList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListProjectsCommandError = async (
+/**
+ * deserializeAws_restJson1ListProjectsCommandError
+ */
+const de_ListProjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListSegmentReferencesCommand
+ */
+export const de_ListSegmentReferencesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSegmentReferencesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListSegmentReferencesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    referencedBy: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSegmentReferencesCommandError
+ */
+const de_ListSegmentReferencesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSegmentReferencesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.evidently#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.evidently#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListSegmentsCommand
+ */
+export const de_ListSegmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSegmentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListSegmentsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    segments: (_) => de_SegmentList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSegmentsCommandError
+ */
+const de_ListSegmentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSegmentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.evidently#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
-  const contents: ListTagsForResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutProjectEventsCommand = async (
+/**
+ * deserializeAws_restJson1PutProjectEventsCommand
+ */
+export const de_PutProjectEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutProjectEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutProjectEventsCommandError(output, context);
+    return de_PutProjectEventsCommandError(output, context);
   }
-  const contents: PutProjectEventsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    eventResults: undefined,
-    failedEventCount: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.eventResults !== undefined && data.eventResults !== null) {
-    contents.eventResults = deserializeAws_restJson1PutProjectEventsResultEntryList(data.eventResults, context);
-  }
-  if (data.failedEventCount !== undefined && data.failedEventCount !== null) {
-    contents.failedEventCount = __expectInt32(data.failedEventCount);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    eventResults: _json,
+    failedEventCount: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1PutProjectEventsCommandError = async (
+/**
+ * deserializeAws_restJson1PutProjectEventsCommandError
+ */
+const de_PutProjectEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutProjectEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1StartExperimentCommand = async (
+/**
+ * deserializeAws_restJson1StartExperimentCommand
+ */
+export const de_StartExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartExperimentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartExperimentCommandError(output, context);
+    return de_StartExperimentCommandError(output, context);
   }
-  const contents: StartExperimentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    startedTime: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.startedTime !== undefined && data.startedTime !== null) {
-    contents.startedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startedTime)));
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    startedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartExperimentCommandError = async (
+/**
+ * deserializeAws_restJson1StartExperimentCommandError
+ */
+const de_StartExperimentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartExperimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.evidently#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1StartLaunchCommand = async (
+/**
+ * deserializeAws_restJson1StartLaunchCommand
+ */
+export const de_StartLaunchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartLaunchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartLaunchCommandError(output, context);
+    return de_StartLaunchCommandError(output, context);
   }
-  const contents: StartLaunchCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    launch: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launch !== undefined && data.launch !== null) {
-    contents.launch = deserializeAws_restJson1Launch(data.launch, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    launch: (_) => de_Launch(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartLaunchCommandError = async (
+/**
+ * deserializeAws_restJson1StartLaunchCommandError
+ */
+const de_StartLaunchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartLaunchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.evidently#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1StopExperimentCommand = async (
+/**
+ * deserializeAws_restJson1StopExperimentCommand
+ */
+export const de_StopExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopExperimentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopExperimentCommandError(output, context);
+    return de_StopExperimentCommandError(output, context);
   }
-  const contents: StopExperimentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    endedTime: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endedTime !== undefined && data.endedTime !== null) {
-    contents.endedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endedTime)));
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    endedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StopExperimentCommandError = async (
+/**
+ * deserializeAws_restJson1StopExperimentCommandError
+ */
+const de_StopExperimentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopExperimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.evidently#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1StopLaunchCommand = async (
+/**
+ * deserializeAws_restJson1StopLaunchCommand
+ */
+export const de_StopLaunchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopLaunchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopLaunchCommandError(output, context);
+    return de_StopLaunchCommandError(output, context);
   }
-  const contents: StopLaunchCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    endedTime: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endedTime !== undefined && data.endedTime !== null) {
-    contents.endedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endedTime)));
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    endedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StopLaunchCommandError = async (
+/**
+ * deserializeAws_restJson1StopLaunchCommandError
+ */
+const de_StopLaunchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopLaunchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.evidently#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TestSegmentPatternCommand
+ */
+export const de_TestSegmentPatternCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestSegmentPatternCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_TestSegmentPatternCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    match: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TestSegmentPatternCommandError
+ */
+const de_TestSegmentPatternCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestSegmentPatternCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.evidently#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateExperimentCommand = async (
+/**
+ * deserializeAws_restJson1UpdateExperimentCommand
+ */
+export const de_UpdateExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateExperimentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateExperimentCommandError(output, context);
+    return de_UpdateExperimentCommandError(output, context);
   }
-  const contents: UpdateExperimentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    experiment: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.experiment !== undefined && data.experiment !== null) {
-    contents.experiment = deserializeAws_restJson1Experiment(data.experiment, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    experiment: (_) => de_Experiment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateExperimentCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateExperimentCommandError
+ */
+const de_UpdateExperimentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateExperimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateFeatureCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFeatureCommand
+ */
+export const de_UpdateFeatureCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFeatureCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFeatureCommandError(output, context);
+    return de_UpdateFeatureCommandError(output, context);
   }
-  const contents: UpdateFeatureCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    feature: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.feature !== undefined && data.feature !== null) {
-    contents.feature = deserializeAws_restJson1Feature(data.feature, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    feature: (_) => de_Feature(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateFeatureCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFeatureCommandError
+ */
+const de_UpdateFeatureCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFeatureCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.evidently#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateLaunchCommand = async (
+/**
+ * deserializeAws_restJson1UpdateLaunchCommand
+ */
+export const de_UpdateLaunchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLaunchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateLaunchCommandError(output, context);
+    return de_UpdateLaunchCommandError(output, context);
   }
-  const contents: UpdateLaunchCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    launch: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.launch !== undefined && data.launch !== null) {
-    contents.launch = deserializeAws_restJson1Launch(data.launch, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    launch: (_) => de_Launch(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateLaunchCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateLaunchCommandError
+ */
+const de_UpdateLaunchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLaunchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateProjectCommand = async (
+/**
+ * deserializeAws_restJson1UpdateProjectCommand
+ */
+export const de_UpdateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateProjectCommandError(output, context);
+    return de_UpdateProjectCommandError(output, context);
   }
-  const contents: UpdateProjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    project: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.project !== undefined && data.project !== null) {
-    contents.project = deserializeAws_restJson1Project(data.project, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    project: (_) => de_Project(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateProjectCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateProjectCommandError
+ */
+const de_UpdateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.evidently#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.evidently#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateProjectDataDeliveryCommand = async (
+/**
+ * deserializeAws_restJson1UpdateProjectDataDeliveryCommand
+ */
+export const de_UpdateProjectDataDeliveryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectDataDeliveryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateProjectDataDeliveryCommandError(output, context);
+    return de_UpdateProjectDataDeliveryCommandError(output, context);
   }
-  const contents: UpdateProjectDataDeliveryCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    project: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.project !== undefined && data.project !== null) {
-    contents.project = deserializeAws_restJson1Project(data.project, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    project: (_) => de_Project(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateProjectDataDeliveryCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateProjectDataDeliveryCommandError
+ */
+const de_UpdateProjectDataDeliveryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectDataDeliveryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.evidently#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.evidently#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.evidently#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3192,21 +3469,18 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3214,15 +3488,19 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3230,21 +3508,21 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3252,27 +3530,23 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode !== undefined && data.quotaCode !== null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = __expectString(data.resourceId);
-  }
-  if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
-  if (data.serviceCode !== undefined && data.serviceCode !== null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    resourceId: __expectString,
+    resourceType: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3280,15 +3554,19 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3296,21 +3574,18 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.quotaCode !== undefined && data.quotaCode !== null) {
-    contents.quotaCode = __expectString(data.quotaCode);
-  }
-  if (data.serviceCode !== undefined && data.serviceCode !== null) {
-    contents.serviceCode = __expectString(data.serviceCode);
-  }
+  const doc = take(data, {
+    message: __expectString,
+    quotaCode: __expectString,
+    serviceCode: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3318,21 +3593,18 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.fieldList !== undefined && data.fieldList !== null) {
-    contents.fieldList = deserializeAws_restJson1ValidationExceptionFieldList(data.fieldList, context);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.reason !== undefined && data.reason !== null) {
-    contents.reason = __expectString(data.reason);
-  }
+  const doc = take(data, {
+    fieldList: _json,
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3340,315 +3612,177 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1CloudWatchLogsDestinationConfig = (
-  input: CloudWatchLogsDestinationConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.logGroup !== undefined && input.logGroup !== null && { logGroup: input.logGroup }),
-  };
+// se_CloudWatchLogsDestinationConfig omitted.
+
+// se_EntityOverrideMap omitted.
+
+/**
+ * serializeAws_restJson1EvaluationRequest
+ */
+const se_EvaluationRequest = (input: EvaluationRequest, context: __SerdeContext): any => {
+  return take(input, {
+    entityId: [],
+    evaluationContext: __LazyJsonString.fromObject,
+    feature: [],
+  });
 };
 
-const serializeAws_restJson1EntityOverrideMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_restJson1EvaluationRequest = (input: EvaluationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.entityId !== undefined && input.entityId !== null && { entityId: input.entityId }),
-    ...(input.evaluationContext !== undefined &&
-      input.evaluationContext !== null && { evaluationContext: __LazyJsonString.fromObject(input.evaluationContext) }),
-    ...(input.feature !== undefined && input.feature !== null && { feature: input.feature }),
-  };
-};
-
-const serializeAws_restJson1EvaluationRequestsList = (input: EvaluationRequest[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EvaluationRequestsList
+ */
+const se_EvaluationRequestsList = (input: EvaluationRequest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1EvaluationRequest(entry, context);
+      return se_EvaluationRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
-  return {
-    ...(input.data !== undefined && input.data !== null && { data: __LazyJsonString.fromObject(input.data) }),
-    ...(input.timestamp !== undefined &&
-      input.timestamp !== null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
-  };
+/**
+ * serializeAws_restJson1Event
+ */
+const se_Event = (input: Event, context: __SerdeContext): any => {
+  return take(input, {
+    data: __LazyJsonString.fromObject,
+    timestamp: (_) => Math.round(_.getTime() / 1000),
+    type: [],
+  });
 };
 
-const serializeAws_restJson1EventList = (input: Event[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EventList
+ */
+const se_EventList = (input: Event[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Event(entry, context);
+      return se_Event(entry, context);
     });
 };
 
-const serializeAws_restJson1ExperimentReportNameList = (
-  input: (ExperimentReportName | string)[],
-  context: __SerdeContext
-): any => {
+// se_ExperimentReportNameList omitted.
+
+// se_ExperimentResultRequestTypeList omitted.
+
+// se_GroupToWeightMap omitted.
+
+// se_LaunchGroupConfig omitted.
+
+// se_LaunchGroupConfigList omitted.
+
+/**
+ * serializeAws_restJson1MetricDefinitionConfig
+ */
+const se_MetricDefinitionConfig = (input: MetricDefinitionConfig, context: __SerdeContext): any => {
+  return take(input, {
+    entityIdKey: [],
+    eventPattern: __LazyJsonString.fromObject,
+    name: [],
+    unitLabel: [],
+    valueKey: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1MetricGoalConfig
+ */
+const se_MetricGoalConfig = (input: MetricGoalConfig, context: __SerdeContext): any => {
+  return take(input, {
+    desiredChange: [],
+    metricDefinition: (_) => se_MetricDefinitionConfig(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1MetricGoalConfigList
+ */
+const se_MetricGoalConfigList = (input: MetricGoalConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
+      return se_MetricGoalConfig(entry, context);
     });
 };
 
-const serializeAws_restJson1ExperimentResultRequestTypeList = (
-  input: (ExperimentResultRequestType | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1MetricMonitorConfig
+ */
+const se_MetricMonitorConfig = (input: MetricMonitorConfig, context: __SerdeContext): any => {
+  return take(input, {
+    metricDefinition: (_) => se_MetricDefinitionConfig(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1MetricMonitorConfigList
+ */
+const se_MetricMonitorConfigList = (input: MetricMonitorConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
+      return se_MetricMonitorConfig(entry, context);
     });
 };
 
-const serializeAws_restJson1GroupToWeightMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
+// se_MetricNameList omitted.
+
+// se_OnlineAbConfig omitted.
+
+// se_ProjectAppConfigResourceConfig omitted.
+
+// se_ProjectDataDeliveryConfig omitted.
+
+// se_S3DestinationConfig omitted.
+
+/**
+ * serializeAws_restJson1ScheduledSplitConfig
+ */
+const se_ScheduledSplitConfig = (input: ScheduledSplitConfig, context: __SerdeContext): any => {
+  return take(input, {
+    groupWeights: _json,
+    segmentOverrides: _json,
+    startTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_restJson1LaunchGroupConfig = (input: LaunchGroupConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.feature !== undefined && input.feature !== null && { feature: input.feature }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.variation !== undefined && input.variation !== null && { variation: input.variation }),
-  };
-};
-
-const serializeAws_restJson1LaunchGroupConfigList = (input: LaunchGroupConfig[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ScheduledSplitConfigList
+ */
+const se_ScheduledSplitConfigList = (input: ScheduledSplitConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1LaunchGroupConfig(entry, context);
+      return se_ScheduledSplitConfig(entry, context);
     });
 };
 
-const serializeAws_restJson1MetricDefinitionConfig = (input: MetricDefinitionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.entityIdKey !== undefined && input.entityIdKey !== null && { entityIdKey: input.entityIdKey }),
-    ...(input.eventPattern !== undefined &&
-      input.eventPattern !== null && { eventPattern: __LazyJsonString.fromObject(input.eventPattern) }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.unitLabel !== undefined && input.unitLabel !== null && { unitLabel: input.unitLabel }),
-    ...(input.valueKey !== undefined && input.valueKey !== null && { valueKey: input.valueKey }),
-  };
+/**
+ * serializeAws_restJson1ScheduledSplitsLaunchConfig
+ */
+const se_ScheduledSplitsLaunchConfig = (input: ScheduledSplitsLaunchConfig, context: __SerdeContext): any => {
+  return take(input, {
+    steps: (_) => se_ScheduledSplitConfigList(_, context),
+  });
 };
 
-const serializeAws_restJson1MetricGoalConfig = (input: MetricGoalConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.desiredChange !== undefined && input.desiredChange !== null && { desiredChange: input.desiredChange }),
-    ...(input.metricDefinition !== undefined &&
-      input.metricDefinition !== null && {
-        metricDefinition: serializeAws_restJson1MetricDefinitionConfig(input.metricDefinition, context),
-      }),
-  };
-};
+// se_SegmentOverride omitted.
 
-const serializeAws_restJson1MetricGoalConfigList = (input: MetricGoalConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1MetricGoalConfig(entry, context);
-    });
-};
+// se_SegmentOverridesList omitted.
 
-const serializeAws_restJson1MetricMonitorConfig = (input: MetricMonitorConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.metricDefinition !== undefined &&
-      input.metricDefinition !== null && {
-        metricDefinition: serializeAws_restJson1MetricDefinitionConfig(input.metricDefinition, context),
-      }),
-  };
-};
+// se_TagMap omitted.
 
-const serializeAws_restJson1MetricMonitorConfigList = (input: MetricMonitorConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1MetricMonitorConfig(entry, context);
-    });
-};
+// se_TreatmentConfig omitted.
 
-const serializeAws_restJson1MetricNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// se_TreatmentConfigList omitted.
 
-const serializeAws_restJson1OnlineAbConfig = (input: OnlineAbConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.controlTreatmentName !== undefined &&
-      input.controlTreatmentName !== null && { controlTreatmentName: input.controlTreatmentName }),
-    ...(input.treatmentWeights !== undefined &&
-      input.treatmentWeights !== null && {
-        treatmentWeights: serializeAws_restJson1TreatmentToWeightMap(input.treatmentWeights, context),
-      }),
-  };
-};
+// se_TreatmentNameList omitted.
 
-const serializeAws_restJson1ProjectDataDeliveryConfig = (
-  input: ProjectDataDeliveryConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.cloudWatchLogs !== undefined &&
-      input.cloudWatchLogs !== null && {
-        cloudWatchLogs: serializeAws_restJson1CloudWatchLogsDestinationConfig(input.cloudWatchLogs, context),
-      }),
-    ...(input.s3Destination !== undefined &&
-      input.s3Destination !== null && {
-        s3Destination: serializeAws_restJson1S3DestinationConfig(input.s3Destination, context),
-      }),
-  };
-};
+// se_TreatmentToWeightMap omitted.
 
-const serializeAws_restJson1S3DestinationConfig = (input: S3DestinationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket !== undefined && input.bucket !== null && { bucket: input.bucket }),
-    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
-  };
-};
-
-const serializeAws_restJson1ScheduledSplitConfig = (input: ScheduledSplitConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.groupWeights !== undefined &&
-      input.groupWeights !== null && {
-        groupWeights: serializeAws_restJson1GroupToWeightMap(input.groupWeights, context),
-      }),
-    ...(input.startTime !== undefined &&
-      input.startTime !== null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-  };
-};
-
-const serializeAws_restJson1ScheduledSplitConfigList = (
-  input: ScheduledSplitConfig[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1ScheduledSplitConfig(entry, context);
-    });
-};
-
-const serializeAws_restJson1ScheduledSplitsLaunchConfig = (
-  input: ScheduledSplitsLaunchConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.steps !== undefined &&
-      input.steps !== null && { steps: serializeAws_restJson1ScheduledSplitConfigList(input.steps, context) }),
-  };
-};
-
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_restJson1TreatmentConfig = (input: TreatmentConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.feature !== undefined && input.feature !== null && { feature: input.feature }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.variation !== undefined && input.variation !== null && { variation: input.variation }),
-  };
-};
-
-const serializeAws_restJson1TreatmentConfigList = (input: TreatmentConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1TreatmentConfig(entry, context);
-    });
-};
-
-const serializeAws_restJson1TreatmentNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1TreatmentToWeightMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_restJson1VariableValue = (input: VariableValue, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1VariableValue
+ */
+const se_VariableValue = (input: VariableValue, context: __SerdeContext): any => {
   return VariableValue.visit(input, {
     boolValue: (value) => ({ boolValue: value }),
     doubleValue: (value) => ({ doubleValue: __serializeFloat(value) }),
@@ -3658,740 +3792,505 @@ const serializeAws_restJson1VariableValue = (input: VariableValue, context: __Se
   });
 };
 
-const serializeAws_restJson1VariationConfig = (input: VariationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.value !== undefined &&
-      input.value !== null && { value: serializeAws_restJson1VariableValue(input.value, context) }),
-  };
+/**
+ * serializeAws_restJson1VariationConfig
+ */
+const se_VariationConfig = (input: VariationConfig, context: __SerdeContext): any => {
+  return take(input, {
+    name: [],
+    value: (_) => se_VariableValue(_, context),
+  });
 };
 
-const serializeAws_restJson1VariationConfigsList = (input: VariationConfig[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1VariationConfigsList
+ */
+const se_VariationConfigsList = (input: VariationConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1VariationConfig(entry, context);
+      return se_VariationConfig(entry, context);
     });
 };
 
-const serializeAws_restJson1VariationNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// se_VariationNameList omitted.
 
-const deserializeAws_restJson1CloudWatchLogsDestination = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchLogsDestination => {
-  return {
-    logGroup: __expectString(output.logGroup),
-  } as any;
-};
+// de_CloudWatchLogsDestination omitted.
 
-const deserializeAws_restJson1DoubleValueList = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_restJson1DoubleValueList
+ */
+const de_DoubleValueList = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __limitedParseDouble(entry) as any;
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EntityOverrideMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
+// de_EntityOverrideMap omitted.
+
+/**
+ * deserializeAws_restJson1EvaluationResult
+ */
+const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
+  return take(output, {
+    details: (_: any) => new __LazyJsonString(_),
+    entityId: __expectString,
+    feature: __expectString,
+    project: __expectString,
+    reason: __expectString,
+    value: (_: any) => de_VariableValue(__expectUnion(_), context),
+    variation: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
-  return {
-    details: output.details !== undefined && output.details !== null ? new __LazyJsonString(output.details) : undefined,
-    entityId: __expectString(output.entityId),
-    feature: __expectString(output.feature),
-    project: __expectString(output.project),
-    reason: __expectString(output.reason),
-    value:
-      output.value !== undefined && output.value !== null
-        ? deserializeAws_restJson1VariableValue(__expectUnion(output.value), context)
-        : undefined,
-    variation: __expectString(output.variation),
-  } as any;
-};
-
-const deserializeAws_restJson1EvaluationResultsList = (output: any, context: __SerdeContext): EvaluationResult[] => {
+/**
+ * deserializeAws_restJson1EvaluationResultsList
+ */
+const de_EvaluationResultsList = (output: any, context: __SerdeContext): EvaluationResult[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1EvaluationResult(entry, context);
+      return de_EvaluationResult(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EvaluationRule = (output: any, context: __SerdeContext): EvaluationRule => {
-  return {
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-  } as any;
+// de_EvaluationRule omitted.
+
+// de_EvaluationRulesList omitted.
+
+/**
+ * deserializeAws_restJson1Experiment
+ */
+const de_Experiment = (output: any, context: __SerdeContext): Experiment => {
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    execution: (_: any) => de_ExperimentExecution(_, context),
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metricGoals: (_: any) => de_MetricGoalsList(_, context),
+    name: __expectString,
+    onlineAbDefinition: _json,
+    project: __expectString,
+    randomizationSalt: __expectString,
+    samplingRate: __expectLong,
+    schedule: (_: any) => de_ExperimentSchedule(_, context),
+    segment: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    tags: _json,
+    treatments: _json,
+    type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1EvaluationRulesList = (output: any, context: __SerdeContext): EvaluationRule[] => {
+/**
+ * deserializeAws_restJson1ExperimentExecution
+ */
+const de_ExperimentExecution = (output: any, context: __SerdeContext): ExperimentExecution => {
+  return take(output, {
+    endedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    startedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ExperimentList
+ */
+const de_ExperimentList = (output: any, context: __SerdeContext): Experiment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1EvaluationRule(entry, context);
+      return de_Experiment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Experiment = (output: any, context: __SerdeContext): Experiment => {
-  return {
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    description: __expectString(output.description),
-    execution:
-      output.execution !== undefined && output.execution !== null
-        ? deserializeAws_restJson1ExperimentExecution(output.execution, context)
-        : undefined,
-    lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    metricGoals:
-      output.metricGoals !== undefined && output.metricGoals !== null
-        ? deserializeAws_restJson1MetricGoalsList(output.metricGoals, context)
-        : undefined,
-    name: __expectString(output.name),
-    onlineAbDefinition:
-      output.onlineAbDefinition !== undefined && output.onlineAbDefinition !== null
-        ? deserializeAws_restJson1OnlineAbDefinition(output.onlineAbDefinition, context)
-        : undefined,
-    project: __expectString(output.project),
-    randomizationSalt: __expectString(output.randomizationSalt),
-    samplingRate: __expectLong(output.samplingRate),
-    schedule:
-      output.schedule !== undefined && output.schedule !== null
-        ? deserializeAws_restJson1ExperimentSchedule(output.schedule, context)
-        : undefined,
-    status: __expectString(output.status),
-    statusReason: __expectString(output.statusReason),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
-    treatments:
-      output.treatments !== undefined && output.treatments !== null
-        ? deserializeAws_restJson1TreatmentList(output.treatments, context)
-        : undefined,
-    type: __expectString(output.type),
-  } as any;
+/**
+ * deserializeAws_restJson1ExperimentReport
+ */
+const de_ExperimentReport = (output: any, context: __SerdeContext): ExperimentReport => {
+  return take(output, {
+    content: (_: any) => new __LazyJsonString(_),
+    metricName: __expectString,
+    reportName: __expectString,
+    treatmentName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1ExperimentExecution = (output: any, context: __SerdeContext): ExperimentExecution => {
-  return {
-    endedTime:
-      output.endedTime !== undefined && output.endedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endedTime)))
-        : undefined,
-    startedTime:
-      output.startedTime !== undefined && output.startedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedTime)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ExperimentList = (output: any, context: __SerdeContext): Experiment[] => {
+/**
+ * deserializeAws_restJson1ExperimentReportList
+ */
+const de_ExperimentReportList = (output: any, context: __SerdeContext): ExperimentReport[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Experiment(entry, context);
+      return de_ExperimentReport(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ExperimentReport = (output: any, context: __SerdeContext): ExperimentReport => {
-  return {
-    content: output.content !== undefined && output.content !== null ? new __LazyJsonString(output.content) : undefined,
-    metricName: __expectString(output.metricName),
-    reportName: __expectString(output.reportName),
-    treatmentName: __expectString(output.treatmentName),
-  } as any;
+/**
+ * deserializeAws_restJson1ExperimentResultsData
+ */
+const de_ExperimentResultsData = (output: any, context: __SerdeContext): ExperimentResultsData => {
+  return take(output, {
+    metricName: __expectString,
+    resultStat: __expectString,
+    treatmentName: __expectString,
+    values: (_: any) => de_DoubleValueList(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1ExperimentReportList = (output: any, context: __SerdeContext): ExperimentReport[] => {
+/**
+ * deserializeAws_restJson1ExperimentResultsDataList
+ */
+const de_ExperimentResultsDataList = (output: any, context: __SerdeContext): ExperimentResultsData[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ExperimentReport(entry, context);
+      return de_ExperimentResultsData(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ExperimentResultsData = (output: any, context: __SerdeContext): ExperimentResultsData => {
-  return {
-    metricName: __expectString(output.metricName),
-    resultStat: __expectString(output.resultStat),
-    treatmentName: __expectString(output.treatmentName),
-    values:
-      output.values !== undefined && output.values !== null
-        ? deserializeAws_restJson1DoubleValueList(output.values, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1ExperimentSchedule
+ */
+const de_ExperimentSchedule = (output: any, context: __SerdeContext): ExperimentSchedule => {
+  return take(output, {
+    analysisCompleteTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1ExperimentResultsDataList = (
-  output: any,
-  context: __SerdeContext
-): ExperimentResultsData[] => {
+/**
+ * deserializeAws_restJson1Feature
+ */
+const de_Feature = (output: any, context: __SerdeContext): Feature => {
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultVariation: __expectString,
+    description: __expectString,
+    entityOverrides: _json,
+    evaluationRules: _json,
+    evaluationStrategy: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    project: __expectString,
+    status: __expectString,
+    tags: _json,
+    valueType: __expectString,
+    variations: (_: any) => de_VariationsList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FeatureSummariesList
+ */
+const de_FeatureSummariesList = (output: any, context: __SerdeContext): FeatureSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ExperimentResultsData(entry, context);
+      return de_FeatureSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ExperimentSchedule = (output: any, context: __SerdeContext): ExperimentSchedule => {
-  return {
-    analysisCompleteTime:
-      output.analysisCompleteTime !== undefined && output.analysisCompleteTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.analysisCompleteTime)))
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1FeatureSummary
+ */
+const de_FeatureSummary = (output: any, context: __SerdeContext): FeatureSummary => {
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultVariation: __expectString,
+    evaluationRules: _json,
+    evaluationStrategy: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    project: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1Feature = (output: any, context: __SerdeContext): Feature => {
-  return {
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    defaultVariation: __expectString(output.defaultVariation),
-    description: __expectString(output.description),
-    entityOverrides:
-      output.entityOverrides !== undefined && output.entityOverrides !== null
-        ? deserializeAws_restJson1EntityOverrideMap(output.entityOverrides, context)
-        : undefined,
-    evaluationRules:
-      output.evaluationRules !== undefined && output.evaluationRules !== null
-        ? deserializeAws_restJson1EvaluationRulesList(output.evaluationRules, context)
-        : undefined,
-    evaluationStrategy: __expectString(output.evaluationStrategy),
-    lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    name: __expectString(output.name),
-    project: __expectString(output.project),
-    status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
-    valueType: __expectString(output.valueType),
-    variations:
-      output.variations !== undefined && output.variations !== null
-        ? deserializeAws_restJson1VariationsList(output.variations, context)
-        : undefined,
-  } as any;
+// de_FeatureToVariationMap omitted.
+
+// de_GroupToWeightMap omitted.
+
+/**
+ * deserializeAws_restJson1Launch
+ */
+const de_Launch = (output: any, context: __SerdeContext): Launch => {
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    execution: (_: any) => de_LaunchExecution(_, context),
+    groups: _json,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metricMonitors: (_: any) => de_MetricMonitorList(_, context),
+    name: __expectString,
+    project: __expectString,
+    randomizationSalt: __expectString,
+    scheduledSplitsDefinition: (_: any) => de_ScheduledSplitsLaunchDefinition(_, context),
+    status: __expectString,
+    statusReason: __expectString,
+    tags: _json,
+    type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1FeatureSummariesList = (output: any, context: __SerdeContext): FeatureSummary[] => {
+/**
+ * deserializeAws_restJson1LaunchesList
+ */
+const de_LaunchesList = (output: any, context: __SerdeContext): Launch[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1FeatureSummary(entry, context);
+      return de_Launch(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1FeatureSummary = (output: any, context: __SerdeContext): FeatureSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    defaultVariation: __expectString(output.defaultVariation),
-    evaluationRules:
-      output.evaluationRules !== undefined && output.evaluationRules !== null
-        ? deserializeAws_restJson1EvaluationRulesList(output.evaluationRules, context)
-        : undefined,
-    evaluationStrategy: __expectString(output.evaluationStrategy),
-    lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    name: __expectString(output.name),
-    project: __expectString(output.project),
-    status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1LaunchExecution
+ */
+const de_LaunchExecution = (output: any, context: __SerdeContext): LaunchExecution => {
+  return take(output, {
+    endedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    startedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1FeatureToVariationMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
+// de_LaunchGroup omitted.
+
+// de_LaunchGroupList omitted.
+
+/**
+ * deserializeAws_restJson1MetricDefinition
+ */
+const de_MetricDefinition = (output: any, context: __SerdeContext): MetricDefinition => {
+  return take(output, {
+    entityIdKey: __expectString,
+    eventPattern: (_: any) => new __LazyJsonString(_),
+    name: __expectString,
+    unitLabel: __expectString,
+    valueKey: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1GroupToWeightMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectLong(value) as any,
-    };
-  }, {});
+/**
+ * deserializeAws_restJson1MetricGoal
+ */
+const de_MetricGoal = (output: any, context: __SerdeContext): MetricGoal => {
+  return take(output, {
+    desiredChange: __expectString,
+    metricDefinition: (_: any) => de_MetricDefinition(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1Launch = (output: any, context: __SerdeContext): Launch => {
-  return {
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    description: __expectString(output.description),
-    execution:
-      output.execution !== undefined && output.execution !== null
-        ? deserializeAws_restJson1LaunchExecution(output.execution, context)
-        : undefined,
-    groups:
-      output.groups !== undefined && output.groups !== null
-        ? deserializeAws_restJson1LaunchGroupList(output.groups, context)
-        : undefined,
-    lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    metricMonitors:
-      output.metricMonitors !== undefined && output.metricMonitors !== null
-        ? deserializeAws_restJson1MetricMonitorList(output.metricMonitors, context)
-        : undefined,
-    name: __expectString(output.name),
-    project: __expectString(output.project),
-    randomizationSalt: __expectString(output.randomizationSalt),
-    scheduledSplitsDefinition:
-      output.scheduledSplitsDefinition !== undefined && output.scheduledSplitsDefinition !== null
-        ? deserializeAws_restJson1ScheduledSplitsLaunchDefinition(output.scheduledSplitsDefinition, context)
-        : undefined,
-    status: __expectString(output.status),
-    statusReason: __expectString(output.statusReason),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_restJson1LaunchesList = (output: any, context: __SerdeContext): Launch[] => {
+/**
+ * deserializeAws_restJson1MetricGoalsList
+ */
+const de_MetricGoalsList = (output: any, context: __SerdeContext): MetricGoal[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Launch(entry, context);
+      return de_MetricGoal(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1LaunchExecution = (output: any, context: __SerdeContext): LaunchExecution => {
-  return {
-    endedTime:
-      output.endedTime !== undefined && output.endedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endedTime)))
-        : undefined,
-    startedTime:
-      output.startedTime !== undefined && output.startedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedTime)))
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1MetricMonitor
+ */
+const de_MetricMonitor = (output: any, context: __SerdeContext): MetricMonitor => {
+  return take(output, {
+    metricDefinition: (_: any) => de_MetricDefinition(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1LaunchGroup = (output: any, context: __SerdeContext): LaunchGroup => {
-  return {
-    description: __expectString(output.description),
-    featureVariations:
-      output.featureVariations !== undefined && output.featureVariations !== null
-        ? deserializeAws_restJson1FeatureToVariationMap(output.featureVariations, context)
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_restJson1LaunchGroupList = (output: any, context: __SerdeContext): LaunchGroup[] => {
+/**
+ * deserializeAws_restJson1MetricMonitorList
+ */
+const de_MetricMonitorList = (output: any, context: __SerdeContext): MetricMonitor[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1LaunchGroup(entry, context);
+      return de_MetricMonitor(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1MetricDefinition = (output: any, context: __SerdeContext): MetricDefinition => {
-  return {
-    entityIdKey: __expectString(output.entityIdKey),
-    eventPattern:
-      output.eventPattern !== undefined && output.eventPattern !== null
-        ? new __LazyJsonString(output.eventPattern)
-        : undefined,
-    name: __expectString(output.name),
-    unitLabel: __expectString(output.unitLabel),
-    valueKey: __expectString(output.valueKey),
-  } as any;
+// de_OnlineAbDefinition omitted.
+
+/**
+ * deserializeAws_restJson1Project
+ */
+const de_Project = (output: any, context: __SerdeContext): Project => {
+  return take(output, {
+    activeExperimentCount: __expectLong,
+    activeLaunchCount: __expectLong,
+    appConfigResource: _json,
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataDelivery: _json,
+    description: __expectString,
+    experimentCount: __expectLong,
+    featureCount: __expectLong,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    launchCount: __expectLong,
+    name: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1MetricGoal = (output: any, context: __SerdeContext): MetricGoal => {
-  return {
-    desiredChange: __expectString(output.desiredChange),
-    metricDefinition:
-      output.metricDefinition !== undefined && output.metricDefinition !== null
-        ? deserializeAws_restJson1MetricDefinition(output.metricDefinition, context)
-        : undefined,
-  } as any;
-};
+// de_ProjectAppConfigResource omitted.
 
-const deserializeAws_restJson1MetricGoalsList = (output: any, context: __SerdeContext): MetricGoal[] => {
+// de_ProjectDataDelivery omitted.
+
+/**
+ * deserializeAws_restJson1ProjectSummariesList
+ */
+const de_ProjectSummariesList = (output: any, context: __SerdeContext): ProjectSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1MetricGoal(entry, context);
+      return de_ProjectSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1MetricMonitor = (output: any, context: __SerdeContext): MetricMonitor => {
-  return {
-    metricDefinition:
-      output.metricDefinition !== undefined && output.metricDefinition !== null
-        ? deserializeAws_restJson1MetricDefinition(output.metricDefinition, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1ProjectSummary
+ */
+const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
+  return take(output, {
+    activeExperimentCount: __expectLong,
+    activeLaunchCount: __expectLong,
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    experimentCount: __expectLong,
+    featureCount: __expectLong,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    launchCount: __expectLong,
+    name: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1MetricMonitorList = (output: any, context: __SerdeContext): MetricMonitor[] => {
+// de_PutProjectEventsResultEntry omitted.
+
+// de_PutProjectEventsResultEntryList omitted.
+
+// de_RefResource omitted.
+
+// de_RefResourceList omitted.
+
+// de_S3Destination omitted.
+
+/**
+ * deserializeAws_restJson1ScheduledSplit
+ */
+const de_ScheduledSplit = (output: any, context: __SerdeContext): ScheduledSplit => {
+  return take(output, {
+    groupWeights: _json,
+    segmentOverrides: _json,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ScheduledSplitsLaunchDefinition
+ */
+const de_ScheduledSplitsLaunchDefinition = (output: any, context: __SerdeContext): ScheduledSplitsLaunchDefinition => {
+  return take(output, {
+    steps: (_: any) => de_ScheduledStepList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ScheduledStepList
+ */
+const de_ScheduledStepList = (output: any, context: __SerdeContext): ScheduledSplit[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1MetricMonitor(entry, context);
+      return de_ScheduledSplit(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1OnlineAbDefinition = (output: any, context: __SerdeContext): OnlineAbDefinition => {
-  return {
-    controlTreatmentName: __expectString(output.controlTreatmentName),
-    treatmentWeights:
-      output.treatmentWeights !== undefined && output.treatmentWeights !== null
-        ? deserializeAws_restJson1TreatmentToWeightMap(output.treatmentWeights, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1Segment
+ */
+const de_Segment = (output: any, context: __SerdeContext): Segment => {
+  return take(output, {
+    arn: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    experimentCount: __expectLong,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    launchCount: __expectLong,
+    name: __expectString,
+    pattern: (_: any) => new __LazyJsonString(_),
+    tags: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1Project = (output: any, context: __SerdeContext): Project => {
-  return {
-    activeExperimentCount: __expectLong(output.activeExperimentCount),
-    activeLaunchCount: __expectLong(output.activeLaunchCount),
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    dataDelivery:
-      output.dataDelivery !== undefined && output.dataDelivery !== null
-        ? deserializeAws_restJson1ProjectDataDelivery(output.dataDelivery, context)
-        : undefined,
-    description: __expectString(output.description),
-    experimentCount: __expectLong(output.experimentCount),
-    featureCount: __expectLong(output.featureCount),
-    lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    launchCount: __expectLong(output.launchCount),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ProjectDataDelivery = (output: any, context: __SerdeContext): ProjectDataDelivery => {
-  return {
-    cloudWatchLogs:
-      output.cloudWatchLogs !== undefined && output.cloudWatchLogs !== null
-        ? deserializeAws_restJson1CloudWatchLogsDestination(output.cloudWatchLogs, context)
-        : undefined,
-    s3Destination:
-      output.s3Destination !== undefined && output.s3Destination !== null
-        ? deserializeAws_restJson1S3Destination(output.s3Destination, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ProjectSummariesList = (output: any, context: __SerdeContext): ProjectSummary[] => {
+/**
+ * deserializeAws_restJson1SegmentList
+ */
+const de_SegmentList = (output: any, context: __SerdeContext): Segment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ProjectSummary(entry, context);
+      return de_Segment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
-  return {
-    activeExperimentCount: __expectLong(output.activeExperimentCount),
-    activeLaunchCount: __expectLong(output.activeLaunchCount),
-    arn: __expectString(output.arn),
-    createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
-        : undefined,
-    description: __expectString(output.description),
-    experimentCount: __expectLong(output.experimentCount),
-    featureCount: __expectLong(output.featureCount),
-    lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
-        : undefined,
-    launchCount: __expectLong(output.launchCount),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
-  } as any;
-};
+// de_SegmentOverride omitted.
 
-const deserializeAws_restJson1PutProjectEventsResultEntry = (
-  output: any,
-  context: __SerdeContext
-): PutProjectEventsResultEntry => {
-  return {
-    errorCode: __expectString(output.errorCode),
-    errorMessage: __expectString(output.errorMessage),
-    eventId: __expectString(output.eventId),
-  } as any;
-};
+// de_SegmentOverridesList omitted.
 
-const deserializeAws_restJson1PutProjectEventsResultEntryList = (
-  output: any,
-  context: __SerdeContext
-): PutProjectEventsResultEntry[] => {
+// de_TagMap omitted.
+
+/**
+ * deserializeAws_restJson1TimestampList
+ */
+const de_TimestampList = (output: any, context: __SerdeContext): Date[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PutProjectEventsResultEntry(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1S3Destination = (output: any, context: __SerdeContext): S3Destination => {
-  return {
-    bucket: __expectString(output.bucket),
-    prefix: __expectString(output.prefix),
-  } as any;
-};
-
-const deserializeAws_restJson1ScheduledSplit = (output: any, context: __SerdeContext): ScheduledSplit => {
-  return {
-    groupWeights:
-      output.groupWeights !== undefined && output.groupWeights !== null
-        ? deserializeAws_restJson1GroupToWeightMap(output.groupWeights, context)
-        : undefined,
-    startTime:
-      output.startTime !== undefined && output.startTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ScheduledSplitsLaunchDefinition = (
-  output: any,
-  context: __SerdeContext
-): ScheduledSplitsLaunchDefinition => {
-  return {
-    steps:
-      output.steps !== undefined && output.steps !== null
-        ? deserializeAws_restJson1ScheduledStepList(output.steps, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ScheduledStepList = (output: any, context: __SerdeContext): ScheduledSplit[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ScheduledSplit(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1TimestampList = (output: any, context: __SerdeContext): Date[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Treatment = (output: any, context: __SerdeContext): Treatment => {
-  return {
-    description: __expectString(output.description),
-    featureVariations:
-      output.featureVariations !== undefined && output.featureVariations !== null
-        ? deserializeAws_restJson1FeatureToVariationMap(output.featureVariations, context)
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
+// de_Treatment omitted.
 
-const deserializeAws_restJson1TreatmentList = (output: any, context: __SerdeContext): Treatment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Treatment(entry, context);
-    });
-  return retVal;
-};
+// de_TreatmentList omitted.
 
-const deserializeAws_restJson1TreatmentToWeightMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectLong(value) as any,
-    };
-  }, {});
-};
+// de_TreatmentToWeightMap omitted.
 
-const deserializeAws_restJson1ValidationExceptionField = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField => {
-  return {
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-  } as any;
-};
+// de_ValidationExceptionField omitted.
 
-const deserializeAws_restJson1ValidationExceptionFieldList = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_ValidationExceptionFieldList omitted.
 
-const deserializeAws_restJson1VariableValue = (output: any, context: __SerdeContext): VariableValue => {
+/**
+ * deserializeAws_restJson1VariableValue
+ */
+const de_VariableValue = (output: any, context: __SerdeContext): VariableValue => {
   if (__expectBoolean(output.boolValue) !== undefined) {
     return { boolValue: __expectBoolean(output.boolValue) as any };
   }
@@ -4407,42 +4306,35 @@ const deserializeAws_restJson1VariableValue = (output: any, context: __SerdeCont
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1Variation = (output: any, context: __SerdeContext): Variation => {
-  return {
-    name: __expectString(output.name),
-    value:
-      output.value !== undefined && output.value !== null
-        ? deserializeAws_restJson1VariableValue(__expectUnion(output.value), context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1Variation
+ */
+const de_Variation = (output: any, context: __SerdeContext): Variation => {
+  return take(output, {
+    name: __expectString,
+    value: (_: any) => de_VariableValue(__expectUnion(_), context),
+  }) as any;
 };
 
-const deserializeAws_restJson1VariationsList = (output: any, context: __SerdeContext): Variation[] => {
+/**
+ * deserializeAws_restJson1VariationsList
+ */
+const de_VariationsList = (output: any, context: __SerdeContext): Variation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Variation(entry, context);
+      return de_Variation(entry, context);
     });
   return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -4463,14 +4355,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -4492,6 +4396,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

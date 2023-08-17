@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { PutCorsPolicyInput, PutCorsPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutCorsPolicyCommand,
-  serializeAws_json1_1PutCorsPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutCorsPolicyCommand, se_PutCorsPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutCorsPolicyCommand}.
+ */
 export interface PutCorsPolicyCommandInput extends PutCorsPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutCorsPolicyCommand}.
+ */
 export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the cross-origin resource sharing (CORS) configuration on a container so that
  *          the container can service cross-origin requests. For example, you might want to enable a
  *          request whose origin is http://www.example.com to access your AWS Elemental MediaStore
@@ -39,13 +53,50 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * import { MediaStoreClient, PutCorsPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, PutCorsPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = { // PutCorsPolicyInput
+ *   ContainerName: "STRING_VALUE", // required
+ *   CorsPolicy: [ // CorsPolicy // required
+ *     { // CorsRule
+ *       AllowedOrigins: [ // AllowedOrigins // required
+ *         "STRING_VALUE",
+ *       ],
+ *       AllowedMethods: [ // AllowedMethods
+ *         "STRING_VALUE",
+ *       ],
+ *       AllowedHeaders: [ // AllowedHeaders // required
+ *         "STRING_VALUE",
+ *       ],
+ *       MaxAgeSeconds: Number("int"),
+ *       ExposeHeaders: [ // ExposeHeaders
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutCorsPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param PutCorsPolicyCommandInput - {@link PutCorsPolicyCommandInput}
+ * @returns {@link PutCorsPolicyCommandOutput}
  * @see {@link PutCorsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutCorsPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
+ *
+ * @throws {@link ContainerInUseException} (client fault)
+ *  <p>The container that you specified in the request already exists or is being
+ *          updated.</p>
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class PutCorsPolicyCommand extends $Command<
@@ -56,6 +107,18 @@ export class PutCorsPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutCorsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +134,7 @@ export class PutCorsPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutCorsPolicyCommandInput, PutCorsPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutCorsPolicyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +145,8 @@ export class PutCorsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutCorsPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutCorsPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +156,18 @@ export class PutCorsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutCorsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutCorsPolicyCommand(input, context);
+    return se_PutCorsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCorsPolicyCommandOutput> {
-    return deserializeAws_json1_1PutCorsPolicyCommand(output, context);
+    return de_PutCorsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

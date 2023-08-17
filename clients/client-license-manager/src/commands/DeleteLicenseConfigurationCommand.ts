@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { DeleteLicenseConfigurationRequest, DeleteLicenseConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLicenseConfigurationCommand,
-  serializeAws_json1_1DeleteLicenseConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteLicenseConfigurationCommand, se_DeleteLicenseConfigurationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteLicenseConfigurationCommand}.
+ */
 export interface DeleteLicenseConfigurationCommandInput extends DeleteLicenseConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLicenseConfigurationCommand}.
+ */
 export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified license configuration.</p>
  *          <p>You cannot delete a license configuration that is in use.</p>
  * @example
@@ -30,13 +44,39 @@ export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseCo
  * import { LicenseManagerClient, DeleteLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, DeleteLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // DeleteLicenseConfigurationRequest
+ *   LicenseConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLicenseConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteLicenseConfigurationCommandInput - {@link DeleteLicenseConfigurationCommandInput}
+ * @returns {@link DeleteLicenseConfigurationCommandOutput}
  * @see {@link DeleteLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class DeleteLicenseConfigurationCommand extends $Command<
@@ -47,6 +87,18 @@ export class DeleteLicenseConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +114,9 @@ export class DeleteLicenseConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteLicenseConfigurationCommandInput, DeleteLicenseConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteLicenseConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +127,8 @@ export class DeleteLicenseConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLicenseConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLicenseConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,15 +138,21 @@ export class DeleteLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLicenseConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLicenseConfigurationCommand(input, context);
+    return se_DeleteLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteLicenseConfigurationCommand(output, context);
+    return de_DeleteLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

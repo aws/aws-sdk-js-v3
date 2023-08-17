@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteManagedPrefixListRequest, DeleteManagedPrefixListResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteManagedPrefixListCommand,
-  serializeAws_ec2DeleteManagedPrefixListCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteManagedPrefixListCommand, se_DeleteManagedPrefixListCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteManagedPrefixListCommand}.
+ */
 export interface DeleteManagedPrefixListCommandInput extends DeleteManagedPrefixListRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteManagedPrefixListCommand}.
+ */
 export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefixListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified managed prefix list. You must first remove all references to the prefix list in your resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,42 @@ export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefi
  * import { EC2Client, DeleteManagedPrefixListCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteManagedPrefixListCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteManagedPrefixListRequest
+ *   DryRun: true || false,
+ *   PrefixListId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteManagedPrefixListCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteManagedPrefixListResult
+ * //   PrefixList: { // ManagedPrefixList
+ * //     PrefixListId: "STRING_VALUE",
+ * //     AddressFamily: "STRING_VALUE",
+ * //     State: "create-in-progress" || "create-complete" || "create-failed" || "modify-in-progress" || "modify-complete" || "modify-failed" || "restore-in-progress" || "restore-complete" || "restore-failed" || "delete-in-progress" || "delete-complete" || "delete-failed",
+ * //     StateMessage: "STRING_VALUE",
+ * //     PrefixListArn: "STRING_VALUE",
+ * //     PrefixListName: "STRING_VALUE",
+ * //     MaxEntries: Number("int"),
+ * //     Version: Number("long"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     OwnerId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DeleteManagedPrefixListCommandInput - {@link DeleteManagedPrefixListCommandInput}
+ * @returns {@link DeleteManagedPrefixListCommandOutput}
  * @see {@link DeleteManagedPrefixListCommandInput} for command's `input` shape.
  * @see {@link DeleteManagedPrefixListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteManagedPrefixListCommand extends $Command<
@@ -46,6 +89,18 @@ export class DeleteManagedPrefixListCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteManagedPrefixListCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +116,9 @@ export class DeleteManagedPrefixListCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteManagedPrefixListCommandInput, DeleteManagedPrefixListCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteManagedPrefixListCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +129,8 @@ export class DeleteManagedPrefixListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteManagedPrefixListRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteManagedPrefixListResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +140,18 @@ export class DeleteManagedPrefixListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteManagedPrefixListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteManagedPrefixListCommand(input, context);
+    return se_DeleteManagedPrefixListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteManagedPrefixListCommandOutput> {
-    return deserializeAws_ec2DeleteManagedPrefixListCommand(output, context);
+    return de_DeleteManagedPrefixListCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { DescribeGroupsRequest, DescribeGroupsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeGroupsCommand,
-  serializeAws_restJson1DescribeGroupsCommand,
-} from "../protocols/Aws_restJson1";
+  DescribeGroupsRequest,
+  DescribeGroupsRequestFilterSensitiveLog,
+  DescribeGroupsResponse,
+} from "../models/models_0";
+import { de_DescribeGroupsCommand, se_DescribeGroupsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeGroupsCommand}.
+ */
 export interface DescribeGroupsCommandInput extends DescribeGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeGroupsCommand}.
+ */
 export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the groups specified by the query. Groups are defined by the underlying
  *             Active Directory.</p>
  * @example
@@ -30,13 +48,49 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  * import { WorkDocsClient, DescribeGroupsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeGroupsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DescribeGroupsRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   SearchQuery: "STRING_VALUE", // required
+ *   OrganizationId: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeGroupsResponse
+ * //   Groups: [ // GroupMetadataList
+ * //     { // GroupMetadata
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeGroupsCommandInput - {@link DescribeGroupsCommandInput}
+ * @returns {@link DescribeGroupsCommandOutput}
  * @see {@link DescribeGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DescribeGroupsCommand extends $Command<
@@ -47,6 +101,18 @@ export class DescribeGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +128,9 @@ export class DescribeGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeGroupsCommandInput, DescribeGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +141,8 @@ export class DescribeGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGroupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +152,18 @@ export class DescribeGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeGroupsCommand(input, context);
+    return se_DescribeGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupsCommandOutput> {
-    return deserializeAws_restJson1DescribeGroupsCommand(output, context);
+    return de_DescribeGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

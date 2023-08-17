@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +10,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { NullAndEmptyHeadersIO } from "../models/models_0";
-import {
-  deserializeAws_restJson1NullAndEmptyHeadersClientCommand,
-  serializeAws_restJson1NullAndEmptyHeadersClientCommand,
-} from "../protocols/Aws_restJson1";
+import { de_NullAndEmptyHeadersClientCommand, se_NullAndEmptyHeadersClientCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link NullAndEmptyHeadersClientCommand}.
+ */
 export interface NullAndEmptyHeadersClientCommandInput extends NullAndEmptyHeadersIO {}
+/**
+ * @public
+ *
+ * The output of {@link NullAndEmptyHeadersClientCommand}.
+ */
 export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHeadersIO, __MetadataBearer {}
 
 /**
+ * @public
  * Null and empty headers are not sent over the wire.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +42,33 @@ export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHead
  * import { RestJsonProtocolClient, NullAndEmptyHeadersClientCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, NullAndEmptyHeadersClientCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // NullAndEmptyHeadersIO
+ *   a: "STRING_VALUE",
+ *   b: "STRING_VALUE",
+ *   c: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new NullAndEmptyHeadersClientCommand(input);
  * const response = await client.send(command);
+ * // { // NullAndEmptyHeadersIO
+ * //   a: "STRING_VALUE",
+ * //   b: "STRING_VALUE",
+ * //   c: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param NullAndEmptyHeadersClientCommandInput - {@link NullAndEmptyHeadersClientCommandInput}
+ * @returns {@link NullAndEmptyHeadersClientCommandOutput}
  * @see {@link NullAndEmptyHeadersClientCommandInput} for command's `input` shape.
  * @see {@link NullAndEmptyHeadersClientCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class NullAndEmptyHeadersClientCommand extends $Command<
@@ -46,6 +79,9 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: NullAndEmptyHeadersClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,8 +107,8 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NullAndEmptyHeadersIO.filterSensitiveLog,
-      outputFilterSensitiveLog: NullAndEmptyHeadersIO.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +118,21 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NullAndEmptyHeadersClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1NullAndEmptyHeadersClientCommand(input, context);
+    return se_NullAndEmptyHeadersClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NullAndEmptyHeadersClientCommandOutput> {
-    return deserializeAws_restJson1NullAndEmptyHeadersClientCommand(output, context);
+    return de_NullAndEmptyHeadersClientCommand(output, context);
   }
 
   // Start section: command_body_extra

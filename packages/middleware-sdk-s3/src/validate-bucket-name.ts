@@ -1,3 +1,4 @@
+import { validate as validateArn } from "@aws-sdk/util-arn-parser";
 import {
   InitializeHandler,
   InitializeHandlerArguments,
@@ -6,8 +7,7 @@ import {
   InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-} from "@aws-sdk/types";
-import { validate as validateArn } from "@aws-sdk/util-arn-parser";
+} from "@smithy/types";
 
 /**
  * @internal

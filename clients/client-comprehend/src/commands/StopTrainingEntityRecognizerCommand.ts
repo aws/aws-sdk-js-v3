@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResponse } from "../models/models_0";
+import { StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1StopTrainingEntityRecognizerCommand,
-  serializeAws_json1_1StopTrainingEntityRecognizerCommand,
+  de_StopTrainingEntityRecognizerCommand,
+  se_StopTrainingEntityRecognizerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StopTrainingEntityRecognizerCommand}.
+ */
 export interface StopTrainingEntityRecognizerCommandInput extends StopTrainingEntityRecognizerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopTrainingEntityRecognizerCommand}.
+ */
 export interface StopTrainingEntityRecognizerCommandOutput
   extends StopTrainingEntityRecognizerResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an entity recognizer training job while in progress.</p>
  *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and
  *       put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
@@ -36,13 +53,35 @@ export interface StopTrainingEntityRecognizerCommandOutput
  * import { ComprehendClient, StopTrainingEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopTrainingEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // StopTrainingEntityRecognizerRequest
+ *   EntityRecognizerArn: "STRING_VALUE", // required
+ * };
  * const command = new StopTrainingEntityRecognizerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StopTrainingEntityRecognizerCommandInput - {@link StopTrainingEntityRecognizerCommandInput}
+ * @returns {@link StopTrainingEntityRecognizerCommandOutput}
  * @see {@link StopTrainingEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link StopTrainingEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StopTrainingEntityRecognizerCommand extends $Command<
@@ -53,6 +92,18 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StopTrainingEntityRecognizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +119,9 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopTrainingEntityRecognizerCommandInput, StopTrainingEntityRecognizerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopTrainingEntityRecognizerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +132,8 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTrainingEntityRecognizerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopTrainingEntityRecognizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,15 +143,21 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopTrainingEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTrainingEntityRecognizerCommand(input, context);
+    return se_StopTrainingEntityRecognizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopTrainingEntityRecognizerCommandOutput> {
-    return deserializeAws_json1_1StopTrainingEntityRecognizerCommand(output, context);
+    return de_StopTrainingEntityRecognizerCommand(output, context);
   }
 
   // Start section: command_body_extra

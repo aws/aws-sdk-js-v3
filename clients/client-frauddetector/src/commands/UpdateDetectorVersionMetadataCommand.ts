@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { UpdateDetectorVersionMetadataRequest, UpdateDetectorVersionMetadataResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateDetectorVersionMetadataCommand,
-  serializeAws_json1_1UpdateDetectorVersionMetadataCommand,
+  de_UpdateDetectorVersionMetadataCommand,
+  se_UpdateDetectorVersionMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateDetectorVersionMetadataCommand}.
+ */
 export interface UpdateDetectorVersionMetadataCommandInput extends UpdateDetectorVersionMetadataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDetectorVersionMetadataCommand}.
+ */
 export interface UpdateDetectorVersionMetadataCommandOutput
   extends UpdateDetectorVersionMetadataResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or
  *                 <code>INACTIVE</code>). </p>
  * @example
@@ -32,13 +49,40 @@ export interface UpdateDetectorVersionMetadataCommandOutput
  * import { FraudDetectorClient, UpdateDetectorVersionMetadataCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateDetectorVersionMetadataCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // UpdateDetectorVersionMetadataRequest
+ *   detectorId: "STRING_VALUE", // required
+ *   detectorVersionId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE", // required
+ * };
  * const command = new UpdateDetectorVersionMetadataCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateDetectorVersionMetadataCommandInput - {@link UpdateDetectorVersionMetadataCommandInput}
+ * @returns {@link UpdateDetectorVersionMetadataCommandOutput}
  * @see {@link UpdateDetectorVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An exception indicating there was a conflict during a delete operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateDetectorVersionMetadataCommand extends $Command<
@@ -49,6 +93,18 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDetectorVersionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +120,9 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDetectorVersionMetadataCommandInput, UpdateDetectorVersionMetadataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateDetectorVersionMetadataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +133,8 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDetectorVersionMetadataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDetectorVersionMetadataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,15 +144,21 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDetectorVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDetectorVersionMetadataCommand(input, context);
+    return se_UpdateDetectorVersionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDetectorVersionMetadataCommandOutput> {
-    return deserializeAws_json1_1UpdateDetectorVersionMetadataCommand(output, context);
+    return de_UpdateDetectorVersionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,5 +1,8 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,13 +11,16 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   expectUnion as __expectUnion,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AddFacetToObjectCommandInput, AddFacetToObjectCommandOutput } from "../commands/AddFacetToObjectCommand";
 import { ApplySchemaCommandInput, ApplySchemaCommandOutput } from "../commands/ApplySchemaCommand";
@@ -167,35 +173,23 @@ import {
   AttributeKeyAndValue,
   AttributeNameAndValue,
   BatchAddFacetToObject,
-  BatchAddFacetToObjectResponse,
   BatchAttachObject,
-  BatchAttachObjectResponse,
   BatchAttachPolicy,
-  BatchAttachPolicyResponse,
   BatchAttachToIndex,
-  BatchAttachToIndexResponse,
   BatchAttachTypedLink,
   BatchAttachTypedLinkResponse,
   BatchCreateIndex,
-  BatchCreateIndexResponse,
   BatchCreateObject,
-  BatchCreateObjectResponse,
   BatchDeleteObject,
-  BatchDeleteObjectResponse,
   BatchDetachFromIndex,
-  BatchDetachFromIndexResponse,
   BatchDetachObject,
-  BatchDetachObjectResponse,
   BatchDetachPolicy,
-  BatchDetachPolicyResponse,
   BatchDetachTypedLink,
-  BatchDetachTypedLinkResponse,
   BatchGetLinkAttributes,
   BatchGetLinkAttributesResponse,
   BatchGetObjectAttributes,
   BatchGetObjectAttributesResponse,
   BatchGetObjectInformation,
-  BatchGetObjectInformationResponse,
   BatchListAttachedIndices,
   BatchListAttachedIndicesResponse,
   BatchListIncomingTypedLinks,
@@ -205,29 +199,19 @@ import {
   BatchListObjectAttributes,
   BatchListObjectAttributesResponse,
   BatchListObjectChildren,
-  BatchListObjectChildrenResponse,
   BatchListObjectParentPaths,
-  BatchListObjectParentPathsResponse,
   BatchListObjectParents,
-  BatchListObjectParentsResponse,
   BatchListObjectPolicies,
-  BatchListObjectPoliciesResponse,
   BatchListOutgoingTypedLinks,
   BatchListOutgoingTypedLinksResponse,
   BatchListPolicyAttachments,
-  BatchListPolicyAttachmentsResponse,
   BatchLookupPolicy,
-  BatchLookupPolicyResponse,
-  BatchReadException,
   BatchReadOperation,
   BatchReadOperationResponse,
   BatchReadSuccessfulResponse,
   BatchRemoveFacetFromObject,
-  BatchRemoveFacetFromObjectResponse,
   BatchUpdateLinkAttributes,
-  BatchUpdateLinkAttributesResponse,
   BatchUpdateObjectAttributes,
-  BatchUpdateObjectAttributesResponse,
   BatchWriteException,
   BatchWriteOperation,
   BatchWriteOperationResponse,
@@ -237,7 +221,6 @@ import {
   DirectoryDeletedException,
   DirectoryNotDisabledException,
   DirectoryNotEnabledException,
-  Facet,
   FacetAlreadyExistsException,
   FacetAttribute,
   FacetAttributeDefinition,
@@ -268,12 +251,8 @@ import {
   ObjectAttributeAction,
   ObjectAttributeRange,
   ObjectAttributeUpdate,
-  ObjectIdentifierAndLinkNameTuple,
   ObjectNotDetachedException,
   ObjectReference,
-  PathToObjectIdentifiers,
-  PolicyAttachment,
-  PolicyToPath,
   ResourceNotFoundException,
   RetryableConflictException,
   Rule,
@@ -294,31 +273,29 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1AddFacetToObjectCommand = async (
+/**
+ * serializeAws_restJson1AddFacetToObjectCommand
+ */
+export const se_AddFacetToObjectCommand = async (
   input: AddFacetToObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/facets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectAttributeList !== undefined &&
-      input.ObjectAttributeList !== null && {
-        ObjectAttributeList: serializeAws_restJson1AttributeKeyAndValueList(input.ObjectAttributeList, context),
-      }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-    ...(input.SchemaFacet !== undefined &&
-      input.SchemaFacet !== null && { SchemaFacet: serializeAws_restJson1SchemaFacet(input.SchemaFacet, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectAttributeList: (_) => se_AttributeKeyAndValueList(_, context),
+      ObjectReference: (_) => _json(_),
+      SchemaFacet: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -330,23 +307,27 @@ export const serializeAws_restJson1AddFacetToObjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1ApplySchemaCommand = async (
+/**
+ * serializeAws_restJson1ApplySchemaCommand
+ */
+export const se_ApplySchemaCommand = async (
   input: ApplySchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/apply";
   let body: any;
-  body = JSON.stringify({
-    ...(input.PublishedSchemaArn !== undefined &&
-      input.PublishedSchemaArn !== null && { PublishedSchemaArn: input.PublishedSchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PublishedSchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -358,30 +339,29 @@ export const serializeAws_restJson1ApplySchemaCommand = async (
   });
 };
 
-export const serializeAws_restJson1AttachObjectCommand = async (
+/**
+ * serializeAws_restJson1AttachObjectCommand
+ */
+export const se_AttachObjectCommand = async (
   input: AttachObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/attach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChildReference !== undefined &&
-      input.ChildReference !== null && {
-        ChildReference: serializeAws_restJson1ObjectReference(input.ChildReference, context),
-      }),
-    ...(input.LinkName !== undefined && input.LinkName !== null && { LinkName: input.LinkName }),
-    ...(input.ParentReference !== undefined &&
-      input.ParentReference !== null && {
-        ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChildReference: (_) => _json(_),
+      LinkName: [],
+      ParentReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -393,29 +373,28 @@ export const serializeAws_restJson1AttachObjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1AttachPolicyCommand = async (
+/**
+ * serializeAws_restJson1AttachPolicyCommand
+ */
+export const se_AttachPolicyCommand = async (
   input: AttachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/attach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-    ...(input.PolicyReference !== undefined &&
-      input.PolicyReference !== null && {
-        PolicyReference: serializeAws_restJson1ObjectReference(input.PolicyReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectReference: (_) => _json(_),
+      PolicyReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -427,29 +406,28 @@ export const serializeAws_restJson1AttachPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1AttachToIndexCommand = async (
+/**
+ * serializeAws_restJson1AttachToIndexCommand
+ */
+export const se_AttachToIndexCommand = async (
   input: AttachToIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/index/attach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IndexReference !== undefined &&
-      input.IndexReference !== null && {
-        IndexReference: serializeAws_restJson1ObjectReference(input.IndexReference, context),
-      }),
-    ...(input.TargetReference !== undefined &&
-      input.TargetReference !== null && {
-        TargetReference: serializeAws_restJson1ObjectReference(input.TargetReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IndexReference: (_) => _json(_),
+      TargetReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -461,37 +439,30 @@ export const serializeAws_restJson1AttachToIndexCommand = async (
   });
 };
 
-export const serializeAws_restJson1AttachTypedLinkCommand = async (
+/**
+ * serializeAws_restJson1AttachTypedLinkCommand
+ */
+export const se_AttachTypedLinkCommand = async (
   input: AttachTypedLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/attach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Attributes !== undefined &&
-      input.Attributes !== null && {
-        Attributes: serializeAws_restJson1AttributeNameAndValueList(input.Attributes, context),
-      }),
-    ...(input.SourceObjectReference !== undefined &&
-      input.SourceObjectReference !== null && {
-        SourceObjectReference: serializeAws_restJson1ObjectReference(input.SourceObjectReference, context),
-      }),
-    ...(input.TargetObjectReference !== undefined &&
-      input.TargetObjectReference !== null && {
-        TargetObjectReference: serializeAws_restJson1ObjectReference(input.TargetObjectReference, context),
-      }),
-    ...(input.TypedLinkFacet !== undefined &&
-      input.TypedLinkFacet !== null && {
-        TypedLinkFacet: serializeAws_restJson1TypedLinkSchemaAndFacetName(input.TypedLinkFacet, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Attributes: (_) => se_AttributeNameAndValueList(_, context),
+      SourceObjectReference: (_) => _json(_),
+      TargetObjectReference: (_) => _json(_),
+      TypedLinkFacet: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -503,26 +474,28 @@ export const serializeAws_restJson1AttachTypedLinkCommand = async (
   });
 };
 
-export const serializeAws_restJson1BatchReadCommand = async (
+/**
+ * serializeAws_restJson1BatchReadCommand
+ */
+export const se_BatchReadCommand = async (
   input: BatchReadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+    "x-amz-consistency-level": input.ConsistencyLevel!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/batchread";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Operations !== undefined &&
-      input.Operations !== null && {
-        Operations: serializeAws_restJson1BatchReadOperationList(input.Operations, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Operations: (_) => se_BatchReadOperationList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -534,25 +507,27 @@ export const serializeAws_restJson1BatchReadCommand = async (
   });
 };
 
-export const serializeAws_restJson1BatchWriteCommand = async (
+/**
+ * serializeAws_restJson1BatchWriteCommand
+ */
+export const se_BatchWriteCommand = async (
   input: BatchWriteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/batchwrite";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Operations !== undefined &&
-      input.Operations !== null && {
-        Operations: serializeAws_restJson1BatchWriteOperationList(input.Operations, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Operations: (_) => se_BatchWriteOperationList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -564,22 +539,27 @@ export const serializeAws_restJson1BatchWriteCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDirectoryCommand = async (
+/**
+ * serializeAws_restJson1CreateDirectoryCommand
+ */
+export const se_CreateDirectoryCommand = async (
   input: CreateDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/create";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -591,26 +571,30 @@ export const serializeAws_restJson1CreateDirectoryCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateFacetCommand = async (
+/**
+ * serializeAws_restJson1CreateFacetCommand
+ */
+export const se_CreateFacetCommand = async (
   input: CreateFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/create";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Attributes !== undefined &&
-      input.Attributes !== null && { Attributes: serializeAws_restJson1FacetAttributeList(input.Attributes, context) }),
-    ...(input.FacetStyle !== undefined && input.FacetStyle !== null && { FacetStyle: input.FacetStyle }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ObjectType !== undefined && input.ObjectType !== null && { ObjectType: input.ObjectType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Attributes: (_) => se_FacetAttributeList(_, context),
+      FacetStyle: [],
+      Name: [],
+      ObjectType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -622,30 +606,29 @@ export const serializeAws_restJson1CreateFacetCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateIndexCommand = async (
+/**
+ * serializeAws_restJson1CreateIndexCommand
+ */
+export const se_CreateIndexCommand = async (
   input: CreateIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/index";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IsUnique !== undefined && input.IsUnique !== null && { IsUnique: input.IsUnique }),
-    ...(input.LinkName !== undefined && input.LinkName !== null && { LinkName: input.LinkName }),
-    ...(input.OrderedIndexedAttributeList !== undefined &&
-      input.OrderedIndexedAttributeList !== null && {
-        OrderedIndexedAttributeList: serializeAws_restJson1AttributeKeyList(input.OrderedIndexedAttributeList, context),
-      }),
-    ...(input.ParentReference !== undefined &&
-      input.ParentReference !== null && {
-        ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IsUnique: [],
+      LinkName: [],
+      OrderedIndexedAttributeList: (_) => _json(_),
+      ParentReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -657,33 +640,29 @@ export const serializeAws_restJson1CreateIndexCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateObjectCommand = async (
+/**
+ * serializeAws_restJson1CreateObjectCommand
+ */
+export const se_CreateObjectCommand = async (
   input: CreateObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/object";
   let body: any;
-  body = JSON.stringify({
-    ...(input.LinkName !== undefined && input.LinkName !== null && { LinkName: input.LinkName }),
-    ...(input.ObjectAttributeList !== undefined &&
-      input.ObjectAttributeList !== null && {
-        ObjectAttributeList: serializeAws_restJson1AttributeKeyAndValueList(input.ObjectAttributeList, context),
-      }),
-    ...(input.ParentReference !== undefined &&
-      input.ParentReference !== null && {
-        ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
-      }),
-    ...(input.SchemaFacets !== undefined &&
-      input.SchemaFacets !== null && {
-        SchemaFacets: serializeAws_restJson1SchemaFacetList(input.SchemaFacets, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LinkName: [],
+      ObjectAttributeList: (_) => se_AttributeKeyAndValueList(_, context),
+      ParentReference: (_) => _json(_),
+      SchemaFacets: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -695,7 +674,10 @@ export const serializeAws_restJson1CreateObjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateSchemaCommand = async (
+/**
+ * serializeAws_restJson1CreateSchemaCommand
+ */
+export const se_CreateSchemaCommand = async (
   input: CreateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -707,9 +689,11 @@ export const serializeAws_restJson1CreateSchemaCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/create";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -721,23 +705,27 @@ export const serializeAws_restJson1CreateSchemaCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateTypedLinkFacetCommand = async (
+/**
+ * serializeAws_restJson1CreateTypedLinkFacetCommand
+ */
+export const se_CreateTypedLinkFacetCommand = async (
   input: CreateTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/create";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Facet !== undefined &&
-      input.Facet !== null && { Facet: serializeAws_restJson1TypedLinkFacet(input.Facet, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Facet: (_) => se_TypedLinkFacet(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -749,14 +737,17 @@ export const serializeAws_restJson1CreateTypedLinkFacetCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDirectoryCommand = async (
+/**
+ * serializeAws_restJson1DeleteDirectoryCommand
+ */
+export const se_DeleteDirectoryCommand = async (
   input: DeleteDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory";
@@ -772,22 +763,27 @@ export const serializeAws_restJson1DeleteDirectoryCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteFacetCommand = async (
+/**
+ * serializeAws_restJson1DeleteFacetCommand
+ */
+export const se_DeleteFacetCommand = async (
   input: DeleteFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/delete";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -799,25 +795,27 @@ export const serializeAws_restJson1DeleteFacetCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteObjectCommand = async (
+/**
+ * serializeAws_restJson1DeleteObjectCommand
+ */
+export const se_DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/delete";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -829,14 +827,17 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSchemaCommand = async (
+/**
+ * serializeAws_restJson1DeleteSchemaCommand
+ */
+export const se_DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/schema";
   let body: any;
@@ -851,22 +852,27 @@ export const serializeAws_restJson1DeleteSchemaCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteTypedLinkFacetCommand = async (
+/**
+ * serializeAws_restJson1DeleteTypedLinkFacetCommand
+ */
+export const se_DeleteTypedLinkFacetCommand = async (
   input: DeleteTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/delete";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -878,29 +884,28 @@ export const serializeAws_restJson1DeleteTypedLinkFacetCommand = async (
   });
 };
 
-export const serializeAws_restJson1DetachFromIndexCommand = async (
+/**
+ * serializeAws_restJson1DetachFromIndexCommand
+ */
+export const se_DetachFromIndexCommand = async (
   input: DetachFromIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/index/detach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IndexReference !== undefined &&
-      input.IndexReference !== null && {
-        IndexReference: serializeAws_restJson1ObjectReference(input.IndexReference, context),
-      }),
-    ...(input.TargetReference !== undefined &&
-      input.TargetReference !== null && {
-        TargetReference: serializeAws_restJson1ObjectReference(input.TargetReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IndexReference: (_) => _json(_),
+      TargetReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -912,26 +917,28 @@ export const serializeAws_restJson1DetachFromIndexCommand = async (
   });
 };
 
-export const serializeAws_restJson1DetachObjectCommand = async (
+/**
+ * serializeAws_restJson1DetachObjectCommand
+ */
+export const se_DetachObjectCommand = async (
   input: DetachObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/detach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.LinkName !== undefined && input.LinkName !== null && { LinkName: input.LinkName }),
-    ...(input.ParentReference !== undefined &&
-      input.ParentReference !== null && {
-        ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LinkName: [],
+      ParentReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -943,29 +950,28 @@ export const serializeAws_restJson1DetachObjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1DetachPolicyCommand = async (
+/**
+ * serializeAws_restJson1DetachPolicyCommand
+ */
+export const se_DetachPolicyCommand = async (
   input: DetachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/detach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-    ...(input.PolicyReference !== undefined &&
-      input.PolicyReference !== null && {
-        PolicyReference: serializeAws_restJson1ObjectReference(input.PolicyReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectReference: (_) => _json(_),
+      PolicyReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -977,25 +983,27 @@ export const serializeAws_restJson1DetachPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1DetachTypedLinkCommand = async (
+/**
+ * serializeAws_restJson1DetachTypedLinkCommand
+ */
+export const se_DetachTypedLinkCommand = async (
   input: DetachTypedLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/detach";
   let body: any;
-  body = JSON.stringify({
-    ...(input.TypedLinkSpecifier !== undefined &&
-      input.TypedLinkSpecifier !== null && {
-        TypedLinkSpecifier: serializeAws_restJson1TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1007,14 +1015,17 @@ export const serializeAws_restJson1DetachTypedLinkCommand = async (
   });
 };
 
-export const serializeAws_restJson1DisableDirectoryCommand = async (
+/**
+ * serializeAws_restJson1DisableDirectoryCommand
+ */
+export const se_DisableDirectoryCommand = async (
   input: DisableDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/disable";
@@ -1030,14 +1041,17 @@ export const serializeAws_restJson1DisableDirectoryCommand = async (
   });
 };
 
-export const serializeAws_restJson1EnableDirectoryCommand = async (
+/**
+ * serializeAws_restJson1EnableDirectoryCommand
+ */
+export const se_EnableDirectoryCommand = async (
   input: EnableDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/enable";
@@ -1053,7 +1067,10 @@ export const serializeAws_restJson1EnableDirectoryCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAppliedSchemaVersionCommand = async (
+/**
+ * serializeAws_restJson1GetAppliedSchemaVersionCommand
+ */
+export const se_GetAppliedSchemaVersionCommand = async (
   input: GetAppliedSchemaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1065,9 +1082,11 @@ export const serializeAws_restJson1GetAppliedSchemaVersionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/getappliedschema";
   let body: any;
-  body = JSON.stringify({
-    ...(input.SchemaArn !== undefined && input.SchemaArn !== null && { SchemaArn: input.SchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1079,14 +1098,17 @@ export const serializeAws_restJson1GetAppliedSchemaVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDirectoryCommand = async (
+/**
+ * serializeAws_restJson1GetDirectoryCommand
+ */
+export const se_GetDirectoryCommand = async (
   input: GetDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/get";
@@ -1102,21 +1124,26 @@ export const serializeAws_restJson1GetDirectoryCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetFacetCommand = async (
+/**
+ * serializeAws_restJson1GetFacetCommand
+ */
+export const se_GetFacetCommand = async (
   input: GetFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1128,31 +1155,29 @@ export const serializeAws_restJson1GetFacetCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetLinkAttributesCommand = async (
+/**
+ * serializeAws_restJson1GetLinkAttributesCommand
+ */
+export const se_GetLinkAttributesCommand = async (
   input: GetLinkAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/get";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeNames !== undefined &&
-      input.AttributeNames !== null && {
-        AttributeNames: serializeAws_restJson1AttributeNameList(input.AttributeNames, context),
-      }),
-    ...(input.ConsistencyLevel !== undefined &&
-      input.ConsistencyLevel !== null && { ConsistencyLevel: input.ConsistencyLevel }),
-    ...(input.TypedLinkSpecifier !== undefined &&
-      input.TypedLinkSpecifier !== null && {
-        TypedLinkSpecifier: serializeAws_restJson1TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeNames: (_) => _json(_),
+      ConsistencyLevel: [],
+      TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1164,32 +1189,30 @@ export const serializeAws_restJson1GetLinkAttributesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetObjectAttributesCommand = async (
+/**
+ * serializeAws_restJson1GetObjectAttributesCommand
+ */
+export const se_GetObjectAttributesCommand = async (
   input: GetObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+    "x-amz-consistency-level": input.ConsistencyLevel!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeNames !== undefined &&
-      input.AttributeNames !== null && {
-        AttributeNames: serializeAws_restJson1AttributeNameList(input.AttributeNames, context),
-      }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-    ...(input.SchemaFacet !== undefined &&
-      input.SchemaFacet !== null && { SchemaFacet: serializeAws_restJson1SchemaFacet(input.SchemaFacet, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeNames: (_) => _json(_),
+      ObjectReference: (_) => _json(_),
+      SchemaFacet: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1201,26 +1224,28 @@ export const serializeAws_restJson1GetObjectAttributesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetObjectInformationCommand = async (
+/**
+ * serializeAws_restJson1GetObjectInformationCommand
+ */
+export const se_GetObjectInformationCommand = async (
   input: GetObjectInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+    "x-amz-consistency-level": input.ConsistencyLevel!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/information";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1232,14 +1257,17 @@ export const serializeAws_restJson1GetObjectInformationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSchemaAsJsonCommand = async (
+/**
+ * serializeAws_restJson1GetSchemaAsJsonCommand
+ */
+export const se_GetSchemaAsJsonCommand = async (
   input: GetSchemaAsJsonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/json";
@@ -1255,22 +1283,27 @@ export const serializeAws_restJson1GetSchemaAsJsonCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetTypedLinkFacetInformationCommand = async (
+/**
+ * serializeAws_restJson1GetTypedLinkFacetInformationCommand
+ */
+export const se_GetTypedLinkFacetInformationCommand = async (
   input: GetTypedLinkFacetInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/get";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1282,7 +1315,10 @@ export const serializeAws_restJson1GetTypedLinkFacetInformationCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAppliedSchemaArnsCommand = async (
+/**
+ * serializeAws_restJson1ListAppliedSchemaArnsCommand
+ */
+export const se_ListAppliedSchemaArnsCommand = async (
   input: ListAppliedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1294,12 +1330,14 @@ export const serializeAws_restJson1ListAppliedSchemaArnsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/applied";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DirectoryArn !== undefined && input.DirectoryArn !== null && { DirectoryArn: input.DirectoryArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SchemaArn !== undefined && input.SchemaArn !== null && { SchemaArn: input.SchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DirectoryArn: [],
+      MaxResults: [],
+      NextToken: [],
+      SchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1311,28 +1349,30 @@ export const serializeAws_restJson1ListAppliedSchemaArnsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAttachedIndicesCommand = async (
+/**
+ * serializeAws_restJson1ListAttachedIndicesCommand
+ */
+export const se_ListAttachedIndicesCommand = async (
   input: ListAttachedIndicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+    "x-amz-consistency-level": input.ConsistencyLevel!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/indices";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.TargetReference !== undefined &&
-      input.TargetReference !== null && {
-        TargetReference: serializeAws_restJson1ObjectReference(input.TargetReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      TargetReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1344,7 +1384,10 @@ export const serializeAws_restJson1ListAttachedIndicesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDevelopmentSchemaArnsCommand = async (
+/**
+ * serializeAws_restJson1ListDevelopmentSchemaArnsCommand
+ */
+export const se_ListDevelopmentSchemaArnsCommand = async (
   input: ListDevelopmentSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1356,10 +1399,12 @@ export const serializeAws_restJson1ListDevelopmentSchemaArnsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/development";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1371,7 +1416,10 @@ export const serializeAws_restJson1ListDevelopmentSchemaArnsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDirectoriesCommand = async (
+/**
+ * serializeAws_restJson1ListDirectoriesCommand
+ */
+export const se_ListDirectoriesCommand = async (
   input: ListDirectoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1383,11 +1431,13 @@ export const serializeAws_restJson1ListDirectoriesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.state !== undefined && input.state !== null && { state: input.state }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      state: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1399,24 +1449,29 @@ export const serializeAws_restJson1ListDirectoriesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListFacetAttributesCommand = async (
+/**
+ * serializeAws_restJson1ListFacetAttributesCommand
+ */
+export const se_ListFacetAttributesCommand = async (
   input: ListFacetAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/attributes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      Name: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1428,23 +1483,28 @@ export const serializeAws_restJson1ListFacetAttributesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListFacetNamesCommand = async (
+/**
+ * serializeAws_restJson1ListFacetNamesCommand
+ */
+export const se_ListFacetNamesCommand = async (
   input: ListFacetNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1456,37 +1516,32 @@ export const serializeAws_restJson1ListFacetNamesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListIncomingTypedLinksCommand = async (
+/**
+ * serializeAws_restJson1ListIncomingTypedLinksCommand
+ */
+export const se_ListIncomingTypedLinksCommand = async (
   input: ListIncomingTypedLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/incoming";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConsistencyLevel !== undefined &&
-      input.ConsistencyLevel !== null && { ConsistencyLevel: input.ConsistencyLevel }),
-    ...(input.FilterAttributeRanges !== undefined &&
-      input.FilterAttributeRanges !== null && {
-        FilterAttributeRanges: serializeAws_restJson1TypedLinkAttributeRangeList(input.FilterAttributeRanges, context),
-      }),
-    ...(input.FilterTypedLink !== undefined &&
-      input.FilterTypedLink !== null && {
-        FilterTypedLink: serializeAws_restJson1TypedLinkSchemaAndFacetName(input.FilterTypedLink, context),
-      }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConsistencyLevel: [],
+      FilterAttributeRanges: (_) => se_TypedLinkAttributeRangeList(_, context),
+      FilterTypedLink: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1498,32 +1553,31 @@ export const serializeAws_restJson1ListIncomingTypedLinksCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListIndexCommand = async (
+/**
+ * serializeAws_restJson1ListIndexCommand
+ */
+export const se_ListIndexCommand = async (
   input: ListIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+    "x-amz-consistency-level": input.ConsistencyLevel!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/index/targets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IndexReference !== undefined &&
-      input.IndexReference !== null && {
-        IndexReference: serializeAws_restJson1ObjectReference(input.IndexReference, context),
-      }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.RangesOnIndexedValues !== undefined &&
-      input.RangesOnIndexedValues !== null && {
-        RangesOnIndexedValues: serializeAws_restJson1ObjectAttributeRangeList(input.RangesOnIndexedValues, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IndexReference: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      RangesOnIndexedValues: (_) => se_ObjectAttributeRangeList(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1535,7 +1589,10 @@ export const serializeAws_restJson1ListIndexCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListManagedSchemaArnsCommand = async (
+/**
+ * serializeAws_restJson1ListManagedSchemaArnsCommand
+ */
+export const se_ListManagedSchemaArnsCommand = async (
   input: ListManagedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1547,11 +1604,13 @@ export const serializeAws_restJson1ListManagedSchemaArnsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/managed";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SchemaArn !== undefined && input.SchemaArn !== null && { SchemaArn: input.SchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      SchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1563,30 +1622,31 @@ export const serializeAws_restJson1ListManagedSchemaArnsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListObjectAttributesCommand = async (
+/**
+ * serializeAws_restJson1ListObjectAttributesCommand
+ */
+export const se_ListObjectAttributesCommand = async (
   input: ListObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+    "x-amz-consistency-level": input.ConsistencyLevel!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FacetFilter !== undefined &&
-      input.FacetFilter !== null && { FacetFilter: serializeAws_restJson1SchemaFacet(input.FacetFilter, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FacetFilter: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1598,28 +1658,30 @@ export const serializeAws_restJson1ListObjectAttributesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListObjectChildrenCommand = async (
+/**
+ * serializeAws_restJson1ListObjectChildrenCommand
+ */
+export const se_ListObjectChildrenCommand = async (
   input: ListObjectChildrenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+    "x-amz-consistency-level": input.ConsistencyLevel!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/children";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1631,27 +1693,29 @@ export const serializeAws_restJson1ListObjectChildrenCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListObjectParentPathsCommand = async (
+/**
+ * serializeAws_restJson1ListObjectParentPathsCommand
+ */
+export const se_ListObjectParentPathsCommand = async (
   input: ListObjectParentPathsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/parentpaths";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1663,30 +1727,31 @@ export const serializeAws_restJson1ListObjectParentPathsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListObjectParentsCommand = async (
+/**
+ * serializeAws_restJson1ListObjectParentsCommand
+ */
+export const se_ListObjectParentsCommand = async (
   input: ListObjectParentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+    "x-amz-consistency-level": input.ConsistencyLevel!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/parent";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IncludeAllLinksToEachParent !== undefined &&
-      input.IncludeAllLinksToEachParent !== null && { IncludeAllLinksToEachParent: input.IncludeAllLinksToEachParent }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IncludeAllLinksToEachParent: [],
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1698,28 +1763,30 @@ export const serializeAws_restJson1ListObjectParentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListObjectPoliciesCommand = async (
+/**
+ * serializeAws_restJson1ListObjectPoliciesCommand
+ */
+export const se_ListObjectPoliciesCommand = async (
   input: ListObjectPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+    "x-amz-consistency-level": input.ConsistencyLevel!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/policy";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1731,37 +1798,32 @@ export const serializeAws_restJson1ListObjectPoliciesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListOutgoingTypedLinksCommand = async (
+/**
+ * serializeAws_restJson1ListOutgoingTypedLinksCommand
+ */
+export const se_ListOutgoingTypedLinksCommand = async (
   input: ListOutgoingTypedLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/outgoing";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConsistencyLevel !== undefined &&
-      input.ConsistencyLevel !== null && { ConsistencyLevel: input.ConsistencyLevel }),
-    ...(input.FilterAttributeRanges !== undefined &&
-      input.FilterAttributeRanges !== null && {
-        FilterAttributeRanges: serializeAws_restJson1TypedLinkAttributeRangeList(input.FilterAttributeRanges, context),
-      }),
-    ...(input.FilterTypedLink !== undefined &&
-      input.FilterTypedLink !== null && {
-        FilterTypedLink: serializeAws_restJson1TypedLinkSchemaAndFacetName(input.FilterTypedLink, context),
-      }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConsistencyLevel: [],
+      FilterAttributeRanges: (_) => se_TypedLinkAttributeRangeList(_, context),
+      FilterTypedLink: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1773,28 +1835,30 @@ export const serializeAws_restJson1ListOutgoingTypedLinksCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListPolicyAttachmentsCommand = async (
+/**
+ * serializeAws_restJson1ListPolicyAttachmentsCommand
+ */
+export const se_ListPolicyAttachmentsCommand = async (
   input: ListPolicyAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+    "x-amz-consistency-level": input.ConsistencyLevel!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/attachment";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.PolicyReference !== undefined &&
-      input.PolicyReference !== null && {
-        PolicyReference: serializeAws_restJson1ObjectReference(input.PolicyReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      PolicyReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1806,7 +1870,10 @@ export const serializeAws_restJson1ListPolicyAttachmentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListPublishedSchemaArnsCommand = async (
+/**
+ * serializeAws_restJson1ListPublishedSchemaArnsCommand
+ */
+export const se_ListPublishedSchemaArnsCommand = async (
   input: ListPublishedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1818,11 +1885,13 @@ export const serializeAws_restJson1ListPublishedSchemaArnsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/published";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SchemaArn !== undefined && input.SchemaArn !== null && { SchemaArn: input.SchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      SchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1834,7 +1903,10 @@ export const serializeAws_restJson1ListPublishedSchemaArnsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1845,11 +1917,13 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/tags";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      ResourceArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1861,24 +1935,29 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTypedLinkFacetAttributesCommand = async (
+/**
+ * serializeAws_restJson1ListTypedLinkFacetAttributesCommand
+ */
+export const se_ListTypedLinkFacetAttributesCommand = async (
   input: ListTypedLinkFacetAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      Name: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1890,23 +1969,28 @@ export const serializeAws_restJson1ListTypedLinkFacetAttributesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTypedLinkFacetNamesCommand = async (
+/**
+ * serializeAws_restJson1ListTypedLinkFacetNamesCommand
+ */
+export const se_ListTypedLinkFacetNamesCommand = async (
   input: ListTypedLinkFacetNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/list";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1918,27 +2002,29 @@ export const serializeAws_restJson1ListTypedLinkFacetNamesCommand = async (
   });
 };
 
-export const serializeAws_restJson1LookupPolicyCommand = async (
+/**
+ * serializeAws_restJson1LookupPolicyCommand
+ */
+export const se_LookupPolicyCommand = async (
   input: LookupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/lookup";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1950,26 +2036,29 @@ export const serializeAws_restJson1LookupPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1PublishSchemaCommand = async (
+/**
+ * serializeAws_restJson1PublishSchemaCommand
+ */
+export const se_PublishSchemaCommand = async (
   input: PublishSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DevelopmentSchemaArn) && {
-      "x-amz-data-partition": input.DevelopmentSchemaArn!,
-    }),
-  };
+    "x-amz-data-partition": input.DevelopmentSchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/publish";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MinorVersion !== undefined && input.MinorVersion !== null && { MinorVersion: input.MinorVersion }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MinorVersion: [],
+      Name: [],
+      Version: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1981,22 +2070,27 @@ export const serializeAws_restJson1PublishSchemaCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutSchemaFromJsonCommand = async (
+/**
+ * serializeAws_restJson1PutSchemaFromJsonCommand
+ */
+export const se_PutSchemaFromJsonCommand = async (
   input: PutSchemaFromJsonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Document !== undefined && input.Document !== null && { Document: input.Document }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Document: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2008,27 +2102,28 @@ export const serializeAws_restJson1PutSchemaFromJsonCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveFacetFromObjectCommand = async (
+/**
+ * serializeAws_restJson1RemoveFacetFromObjectCommand
+ */
+export const se_RemoveFacetFromObjectCommand = async (
   input: RemoveFacetFromObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/facets/delete";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-    ...(input.SchemaFacet !== undefined &&
-      input.SchemaFacet !== null && { SchemaFacet: serializeAws_restJson1SchemaFacet(input.SchemaFacet, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ObjectReference: (_) => _json(_),
+      SchemaFacet: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2040,7 +2135,10 @@ export const serializeAws_restJson1RemoveFacetFromObjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2051,11 +2149,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/tags/add";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2067,7 +2166,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2079,11 +2181,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/tags/remove";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2095,26 +2198,28 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFacetCommand = async (
+/**
+ * serializeAws_restJson1UpdateFacetCommand
+ */
+export const se_UpdateFacetCommand = async (
   input: UpdateFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeUpdates !== undefined &&
-      input.AttributeUpdates !== null && {
-        AttributeUpdates: serializeAws_restJson1FacetAttributeUpdateList(input.AttributeUpdates, context),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ObjectType !== undefined && input.ObjectType !== null && { ObjectType: input.ObjectType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeUpdates: (_) => se_FacetAttributeUpdateList(_, context),
+      Name: [],
+      ObjectType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2126,29 +2231,28 @@ export const serializeAws_restJson1UpdateFacetCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateLinkAttributesCommand = async (
+/**
+ * serializeAws_restJson1UpdateLinkAttributesCommand
+ */
+export const se_UpdateLinkAttributesCommand = async (
   input: UpdateLinkAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeUpdates !== undefined &&
-      input.AttributeUpdates !== null && {
-        AttributeUpdates: serializeAws_restJson1LinkAttributeUpdateList(input.AttributeUpdates, context),
-      }),
-    ...(input.TypedLinkSpecifier !== undefined &&
-      input.TypedLinkSpecifier !== null && {
-        TypedLinkSpecifier: serializeAws_restJson1TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeUpdates: (_) => se_LinkAttributeUpdateList(_, context),
+      TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2160,29 +2264,28 @@ export const serializeAws_restJson1UpdateLinkAttributesCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateObjectAttributesCommand = async (
+/**
+ * serializeAws_restJson1UpdateObjectAttributesCommand
+ */
+export const se_UpdateObjectAttributesCommand = async (
   input: UpdateObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
-  };
+    "x-amz-data-partition": input.DirectoryArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeUpdates !== undefined &&
-      input.AttributeUpdates !== null && {
-        AttributeUpdates: serializeAws_restJson1ObjectAttributeUpdateList(input.AttributeUpdates, context),
-      }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeUpdates: (_) => se_ObjectAttributeUpdateList(_, context),
+      ObjectReference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2194,22 +2297,27 @@ export const serializeAws_restJson1UpdateObjectAttributesCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSchemaCommand = async (
+/**
+ * serializeAws_restJson1UpdateSchemaCommand
+ */
+export const se_UpdateSchemaCommand = async (
   input: UpdateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2221,30 +2329,29 @@ export const serializeAws_restJson1UpdateSchemaCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateTypedLinkFacetCommand = async (
+/**
+ * serializeAws_restJson1UpdateTypedLinkFacetCommand
+ */
+export const se_UpdateTypedLinkFacetCommand = async (
   input: UpdateTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
-  };
+    "x-amz-data-partition": input.SchemaArn!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AttributeUpdates !== undefined &&
-      input.AttributeUpdates !== null && {
-        AttributeUpdates: serializeAws_restJson1TypedLinkFacetAttributeUpdateList(input.AttributeUpdates, context),
-      }),
-    ...(input.IdentityAttributeOrder !== undefined &&
-      input.IdentityAttributeOrder !== null && {
-        IdentityAttributeOrder: serializeAws_restJson1AttributeNameList(input.IdentityAttributeOrder, context),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AttributeUpdates: (_) => se_TypedLinkFacetAttributeUpdateList(_, context),
+      IdentityAttributeOrder: (_) => _json(_),
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2256,7 +2363,10 @@ export const serializeAws_restJson1UpdateTypedLinkFacetCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpgradeAppliedSchemaCommand = async (
+/**
+ * serializeAws_restJson1UpgradeAppliedSchemaCommand
+ */
+export const se_UpgradeAppliedSchemaCommand = async (
   input: UpgradeAppliedSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2268,12 +2378,13 @@ export const serializeAws_restJson1UpgradeAppliedSchemaCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/upgradeapplied";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DirectoryArn !== undefined && input.DirectoryArn !== null && { DirectoryArn: input.DirectoryArn }),
-    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
-    ...(input.PublishedSchemaArn !== undefined &&
-      input.PublishedSchemaArn !== null && { PublishedSchemaArn: input.PublishedSchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DirectoryArn: [],
+      DryRun: [],
+      PublishedSchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2285,7 +2396,10 @@ export const serializeAws_restJson1UpgradeAppliedSchemaCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpgradePublishedSchemaCommand = async (
+/**
+ * serializeAws_restJson1UpgradePublishedSchemaCommand
+ */
+export const se_UpgradePublishedSchemaCommand = async (
   input: UpgradePublishedSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2297,14 +2411,14 @@ export const serializeAws_restJson1UpgradePublishedSchemaCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/upgradepublished";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DevelopmentSchemaArn !== undefined &&
-      input.DevelopmentSchemaArn !== null && { DevelopmentSchemaArn: input.DevelopmentSchemaArn }),
-    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
-    ...(input.MinorVersion !== undefined && input.MinorVersion !== null && { MinorVersion: input.MinorVersion }),
-    ...(input.PublishedSchemaArn !== undefined &&
-      input.PublishedSchemaArn !== null && { PublishedSchemaArn: input.PublishedSchemaArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DevelopmentSchemaArn: [],
+      DryRun: [],
+      MinorVersion: [],
+      PublishedSchemaArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2316,4529 +2430,4642 @@ export const serializeAws_restJson1UpgradePublishedSchemaCommand = async (
   });
 };
 
-export const deserializeAws_restJson1AddFacetToObjectCommand = async (
+/**
+ * deserializeAws_restJson1AddFacetToObjectCommand
+ */
+export const de_AddFacetToObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFacetToObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AddFacetToObjectCommandError(output, context);
+    return de_AddFacetToObjectCommandError(output, context);
   }
-  const contents: AddFacetToObjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1AddFacetToObjectCommandError = async (
+/**
+ * deserializeAws_restJson1AddFacetToObjectCommandError
+ */
+const de_AddFacetToObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFacetToObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ApplySchemaCommand = async (
+/**
+ * deserializeAws_restJson1ApplySchemaCommand
+ */
+export const de_ApplySchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApplySchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ApplySchemaCommandError(output, context);
+    return de_ApplySchemaCommandError(output, context);
   }
-  const contents: ApplySchemaCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppliedSchemaArn: undefined,
-    DirectoryArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppliedSchemaArn !== undefined && data.AppliedSchemaArn !== null) {
-    contents.AppliedSchemaArn = __expectString(data.AppliedSchemaArn);
-  }
-  if (data.DirectoryArn !== undefined && data.DirectoryArn !== null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AppliedSchemaArn: __expectString,
+    DirectoryArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ApplySchemaCommandError = async (
+/**
+ * deserializeAws_restJson1ApplySchemaCommandError
+ */
+const de_ApplySchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApplySchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidAttachmentException":
     case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await deserializeAws_restJson1InvalidAttachmentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "SchemaAlreadyExistsException":
     case "com.amazonaws.clouddirectory#SchemaAlreadyExistsException":
-      throw await deserializeAws_restJson1SchemaAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_SchemaAlreadyExistsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1AttachObjectCommand = async (
+/**
+ * deserializeAws_restJson1AttachObjectCommand
+ */
+export const de_AttachObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AttachObjectCommandError(output, context);
+    return de_AttachObjectCommandError(output, context);
   }
-  const contents: AttachObjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AttachedObjectIdentifier: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AttachedObjectIdentifier !== undefined && data.AttachedObjectIdentifier !== null) {
-    contents.AttachedObjectIdentifier = __expectString(data.AttachedObjectIdentifier);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AttachedObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1AttachObjectCommandError = async (
+/**
+ * deserializeAws_restJson1AttachObjectCommandError
+ */
+const de_AttachObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidAttachmentException":
     case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await deserializeAws_restJson1InvalidAttachmentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "LinkNameAlreadyInUseException":
     case "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException":
-      throw await deserializeAws_restJson1LinkNameAlreadyInUseExceptionResponse(parsedOutput, context);
+      throw await de_LinkNameAlreadyInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1AttachPolicyCommand = async (
+/**
+ * deserializeAws_restJson1AttachPolicyCommand
+ */
+export const de_AttachPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AttachPolicyCommandError(output, context);
+    return de_AttachPolicyCommandError(output, context);
   }
-  const contents: AttachPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1AttachPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1AttachPolicyCommandError
+ */
+const de_AttachPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotPolicyException":
     case "com.amazonaws.clouddirectory#NotPolicyException":
-      throw await deserializeAws_restJson1NotPolicyExceptionResponse(parsedOutput, context);
+      throw await de_NotPolicyExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1AttachToIndexCommand = async (
+/**
+ * deserializeAws_restJson1AttachToIndexCommand
+ */
+export const de_AttachToIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachToIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AttachToIndexCommandError(output, context);
+    return de_AttachToIndexCommandError(output, context);
   }
-  const contents: AttachToIndexCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AttachedObjectIdentifier: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AttachedObjectIdentifier !== undefined && data.AttachedObjectIdentifier !== null) {
-    contents.AttachedObjectIdentifier = __expectString(data.AttachedObjectIdentifier);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AttachedObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1AttachToIndexCommandError = async (
+/**
+ * deserializeAws_restJson1AttachToIndexCommandError
+ */
+const de_AttachToIndexCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachToIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "IndexedAttributeMissingException":
     case "com.amazonaws.clouddirectory#IndexedAttributeMissingException":
-      throw await deserializeAws_restJson1IndexedAttributeMissingExceptionResponse(parsedOutput, context);
+      throw await de_IndexedAttributeMissingExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidAttachmentException":
     case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await deserializeAws_restJson1InvalidAttachmentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "LinkNameAlreadyInUseException":
     case "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException":
-      throw await deserializeAws_restJson1LinkNameAlreadyInUseExceptionResponse(parsedOutput, context);
+      throw await de_LinkNameAlreadyInUseExceptionRes(parsedOutput, context);
     case "NotIndexException":
     case "com.amazonaws.clouddirectory#NotIndexException":
-      throw await deserializeAws_restJson1NotIndexExceptionResponse(parsedOutput, context);
+      throw await de_NotIndexExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1AttachTypedLinkCommand = async (
+/**
+ * deserializeAws_restJson1AttachTypedLinkCommand
+ */
+export const de_AttachTypedLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachTypedLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AttachTypedLinkCommandError(output, context);
+    return de_AttachTypedLinkCommandError(output, context);
   }
-  const contents: AttachTypedLinkCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    TypedLinkSpecifier: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TypedLinkSpecifier !== undefined && data.TypedLinkSpecifier !== null) {
-    contents.TypedLinkSpecifier = deserializeAws_restJson1TypedLinkSpecifier(data.TypedLinkSpecifier, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    TypedLinkSpecifier: (_) => de_TypedLinkSpecifier(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1AttachTypedLinkCommandError = async (
+/**
+ * deserializeAws_restJson1AttachTypedLinkCommandError
+ */
+const de_AttachTypedLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachTypedLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidAttachmentException":
     case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await deserializeAws_restJson1InvalidAttachmentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1BatchReadCommand = async (
+/**
+ * deserializeAws_restJson1BatchReadCommand
+ */
+export const de_BatchReadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchReadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchReadCommandError(output, context);
+    return de_BatchReadCommandError(output, context);
   }
-  const contents: BatchReadCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Responses: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Responses !== undefined && data.Responses !== null) {
-    contents.Responses = deserializeAws_restJson1BatchReadOperationResponseList(data.Responses, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Responses: (_) => de_BatchReadOperationResponseList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1BatchReadCommandError = async (
+/**
+ * deserializeAws_restJson1BatchReadCommandError
+ */
+const de_BatchReadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchReadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1BatchWriteCommand = async (
+/**
+ * deserializeAws_restJson1BatchWriteCommand
+ */
+export const de_BatchWriteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchWriteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchWriteCommandError(output, context);
+    return de_BatchWriteCommandError(output, context);
   }
-  const contents: BatchWriteCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Responses: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Responses !== undefined && data.Responses !== null) {
-    contents.Responses = deserializeAws_restJson1BatchWriteOperationResponseList(data.Responses, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Responses: (_) => de_BatchWriteOperationResponseList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1BatchWriteCommandError = async (
+/**
+ * deserializeAws_restJson1BatchWriteCommandError
+ */
+const de_BatchWriteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchWriteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BatchWriteException":
     case "com.amazonaws.clouddirectory#BatchWriteException":
-      throw await deserializeAws_restJson1BatchWriteExceptionResponse(parsedOutput, context);
+      throw await de_BatchWriteExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateDirectoryCommand = async (
+/**
+ * deserializeAws_restJson1CreateDirectoryCommand
+ */
+export const de_CreateDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDirectoryCommandError(output, context);
+    return de_CreateDirectoryCommandError(output, context);
   }
-  const contents: CreateDirectoryCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppliedSchemaArn: undefined,
-    DirectoryArn: undefined,
-    Name: undefined,
-    ObjectIdentifier: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppliedSchemaArn !== undefined && data.AppliedSchemaArn !== null) {
-    contents.AppliedSchemaArn = __expectString(data.AppliedSchemaArn);
-  }
-  if (data.DirectoryArn !== undefined && data.DirectoryArn !== null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ObjectIdentifier !== undefined && data.ObjectIdentifier !== null) {
-    contents.ObjectIdentifier = __expectString(data.ObjectIdentifier);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AppliedSchemaArn: __expectString,
+    DirectoryArn: __expectString,
+    Name: __expectString,
+    ObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateDirectoryCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDirectoryCommandError
+ */
+const de_CreateDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryAlreadyExistsException":
     case "com.amazonaws.clouddirectory#DirectoryAlreadyExistsException":
-      throw await deserializeAws_restJson1DirectoryAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryAlreadyExistsExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateFacetCommand = async (
+/**
+ * deserializeAws_restJson1CreateFacetCommand
+ */
+export const de_CreateFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateFacetCommandError(output, context);
+    return de_CreateFacetCommandError(output, context);
   }
-  const contents: CreateFacetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateFacetCommandError = async (
+/**
+ * deserializeAws_restJson1CreateFacetCommandError
+ */
+const de_CreateFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "FacetAlreadyExistsException":
     case "com.amazonaws.clouddirectory#FacetAlreadyExistsException":
-      throw await deserializeAws_restJson1FacetAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_FacetAlreadyExistsExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidRuleException":
     case "com.amazonaws.clouddirectory#InvalidRuleException":
-      throw await deserializeAws_restJson1InvalidRuleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRuleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateIndexCommand = async (
+/**
+ * deserializeAws_restJson1CreateIndexCommand
+ */
+export const de_CreateIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateIndexCommandError(output, context);
+    return de_CreateIndexCommandError(output, context);
   }
-  const contents: CreateIndexCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ObjectIdentifier: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ObjectIdentifier !== undefined && data.ObjectIdentifier !== null) {
-    contents.ObjectIdentifier = __expectString(data.ObjectIdentifier);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateIndexCommandError = async (
+/**
+ * deserializeAws_restJson1CreateIndexCommandError
+ */
+const de_CreateIndexCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "LinkNameAlreadyInUseException":
     case "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException":
-      throw await deserializeAws_restJson1LinkNameAlreadyInUseExceptionResponse(parsedOutput, context);
+      throw await de_LinkNameAlreadyInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "UnsupportedIndexTypeException":
     case "com.amazonaws.clouddirectory#UnsupportedIndexTypeException":
-      throw await deserializeAws_restJson1UnsupportedIndexTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedIndexTypeExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateObjectCommand = async (
+/**
+ * deserializeAws_restJson1CreateObjectCommand
+ */
+export const de_CreateObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateObjectCommandError(output, context);
+    return de_CreateObjectCommandError(output, context);
   }
-  const contents: CreateObjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ObjectIdentifier: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ObjectIdentifier !== undefined && data.ObjectIdentifier !== null) {
-    contents.ObjectIdentifier = __expectString(data.ObjectIdentifier);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateObjectCommandError = async (
+/**
+ * deserializeAws_restJson1CreateObjectCommandError
+ */
+const de_CreateObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "LinkNameAlreadyInUseException":
     case "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException":
-      throw await deserializeAws_restJson1LinkNameAlreadyInUseExceptionResponse(parsedOutput, context);
+      throw await de_LinkNameAlreadyInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "UnsupportedIndexTypeException":
     case "com.amazonaws.clouddirectory#UnsupportedIndexTypeException":
-      throw await deserializeAws_restJson1UnsupportedIndexTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedIndexTypeExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateSchemaCommand = async (
+/**
+ * deserializeAws_restJson1CreateSchemaCommand
+ */
+export const de_CreateSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSchemaCommandError(output, context);
+    return de_CreateSchemaCommandError(output, context);
   }
-  const contents: CreateSchemaCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    SchemaArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SchemaArn !== undefined && data.SchemaArn !== null) {
-    contents.SchemaArn = __expectString(data.SchemaArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateSchemaCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSchemaCommandError
+ */
+const de_CreateSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "SchemaAlreadyExistsException":
     case "com.amazonaws.clouddirectory#SchemaAlreadyExistsException":
-      throw await deserializeAws_restJson1SchemaAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_SchemaAlreadyExistsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1CreateTypedLinkFacetCommand = async (
+/**
+ * deserializeAws_restJson1CreateTypedLinkFacetCommand
+ */
+export const de_CreateTypedLinkFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTypedLinkFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateTypedLinkFacetCommandError(output, context);
+    return de_CreateTypedLinkFacetCommandError(output, context);
   }
-  const contents: CreateTypedLinkFacetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateTypedLinkFacetCommandError = async (
+/**
+ * deserializeAws_restJson1CreateTypedLinkFacetCommandError
+ */
+const de_CreateTypedLinkFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTypedLinkFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "FacetAlreadyExistsException":
     case "com.amazonaws.clouddirectory#FacetAlreadyExistsException":
-      throw await deserializeAws_restJson1FacetAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_FacetAlreadyExistsExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidRuleException":
     case "com.amazonaws.clouddirectory#InvalidRuleException":
-      throw await deserializeAws_restJson1InvalidRuleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRuleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteDirectoryCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDirectoryCommand
+ */
+export const de_DeleteDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDirectoryCommandError(output, context);
+    return de_DeleteDirectoryCommandError(output, context);
   }
-  const contents: DeleteDirectoryCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DirectoryArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DirectoryArn !== undefined && data.DirectoryArn !== null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectoryArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteDirectoryCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDirectoryCommandError
+ */
+const de_DeleteDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryDeletedException":
     case "com.amazonaws.clouddirectory#DirectoryDeletedException":
-      throw await deserializeAws_restJson1DirectoryDeletedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryDeletedExceptionRes(parsedOutput, context);
     case "DirectoryNotDisabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotDisabledException":
-      throw await deserializeAws_restJson1DirectoryNotDisabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotDisabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteFacetCommand = async (
+/**
+ * deserializeAws_restJson1DeleteFacetCommand
+ */
+export const de_DeleteFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteFacetCommandError(output, context);
+    return de_DeleteFacetCommandError(output, context);
   }
-  const contents: DeleteFacetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteFacetCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteFacetCommandError
+ */
+const de_DeleteFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "FacetInUseException":
     case "com.amazonaws.clouddirectory#FacetInUseException":
-      throw await deserializeAws_restJson1FacetInUseExceptionResponse(parsedOutput, context);
+      throw await de_FacetInUseExceptionRes(parsedOutput, context);
     case "FacetNotFoundException":
     case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await deserializeAws_restJson1FacetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteObjectCommand = async (
+/**
+ * deserializeAws_restJson1DeleteObjectCommand
+ */
+export const de_DeleteObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteObjectCommandError(output, context);
+    return de_DeleteObjectCommandError(output, context);
   }
-  const contents: DeleteObjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteObjectCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteObjectCommandError
+ */
+const de_DeleteObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ObjectNotDetachedException":
     case "com.amazonaws.clouddirectory#ObjectNotDetachedException":
-      throw await deserializeAws_restJson1ObjectNotDetachedExceptionResponse(parsedOutput, context);
+      throw await de_ObjectNotDetachedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteSchemaCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSchemaCommand
+ */
+export const de_DeleteSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSchemaCommandError(output, context);
+    return de_DeleteSchemaCommandError(output, context);
   }
-  const contents: DeleteSchemaCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    SchemaArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SchemaArn !== undefined && data.SchemaArn !== null) {
-    contents.SchemaArn = __expectString(data.SchemaArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteSchemaCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSchemaCommandError
+ */
+const de_DeleteSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "StillContainsLinksException":
     case "com.amazonaws.clouddirectory#StillContainsLinksException":
-      throw await deserializeAws_restJson1StillContainsLinksExceptionResponse(parsedOutput, context);
+      throw await de_StillContainsLinksExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DeleteTypedLinkFacetCommand = async (
+/**
+ * deserializeAws_restJson1DeleteTypedLinkFacetCommand
+ */
+export const de_DeleteTypedLinkFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTypedLinkFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteTypedLinkFacetCommandError(output, context);
+    return de_DeleteTypedLinkFacetCommandError(output, context);
   }
-  const contents: DeleteTypedLinkFacetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteTypedLinkFacetCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteTypedLinkFacetCommandError
+ */
+const de_DeleteTypedLinkFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTypedLinkFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "FacetNotFoundException":
     case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await deserializeAws_restJson1FacetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DetachFromIndexCommand = async (
+/**
+ * deserializeAws_restJson1DetachFromIndexCommand
+ */
+export const de_DetachFromIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachFromIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DetachFromIndexCommandError(output, context);
+    return de_DetachFromIndexCommandError(output, context);
   }
-  const contents: DetachFromIndexCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DetachedObjectIdentifier: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DetachedObjectIdentifier !== undefined && data.DetachedObjectIdentifier !== null) {
-    contents.DetachedObjectIdentifier = __expectString(data.DetachedObjectIdentifier);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DetachedObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DetachFromIndexCommandError = async (
+/**
+ * deserializeAws_restJson1DetachFromIndexCommandError
+ */
+const de_DetachFromIndexCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachFromIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotIndexException":
     case "com.amazonaws.clouddirectory#NotIndexException":
-      throw await deserializeAws_restJson1NotIndexExceptionResponse(parsedOutput, context);
+      throw await de_NotIndexExceptionRes(parsedOutput, context);
     case "ObjectAlreadyDetachedException":
     case "com.amazonaws.clouddirectory#ObjectAlreadyDetachedException":
-      throw await deserializeAws_restJson1ObjectAlreadyDetachedExceptionResponse(parsedOutput, context);
+      throw await de_ObjectAlreadyDetachedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DetachObjectCommand = async (
+/**
+ * deserializeAws_restJson1DetachObjectCommand
+ */
+export const de_DetachObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DetachObjectCommandError(output, context);
+    return de_DetachObjectCommandError(output, context);
   }
-  const contents: DetachObjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DetachedObjectIdentifier: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DetachedObjectIdentifier !== undefined && data.DetachedObjectIdentifier !== null) {
-    contents.DetachedObjectIdentifier = __expectString(data.DetachedObjectIdentifier);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DetachedObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DetachObjectCommandError = async (
+/**
+ * deserializeAws_restJson1DetachObjectCommandError
+ */
+const de_DetachObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotNodeException":
     case "com.amazonaws.clouddirectory#NotNodeException":
-      throw await deserializeAws_restJson1NotNodeExceptionResponse(parsedOutput, context);
+      throw await de_NotNodeExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DetachPolicyCommand = async (
+/**
+ * deserializeAws_restJson1DetachPolicyCommand
+ */
+export const de_DetachPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DetachPolicyCommandError(output, context);
+    return de_DetachPolicyCommandError(output, context);
   }
-  const contents: DetachPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DetachPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1DetachPolicyCommandError
+ */
+const de_DetachPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotPolicyException":
     case "com.amazonaws.clouddirectory#NotPolicyException":
-      throw await deserializeAws_restJson1NotPolicyExceptionResponse(parsedOutput, context);
+      throw await de_NotPolicyExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DetachTypedLinkCommand = async (
+/**
+ * deserializeAws_restJson1DetachTypedLinkCommand
+ */
+export const de_DetachTypedLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachTypedLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DetachTypedLinkCommandError(output, context);
+    return de_DetachTypedLinkCommandError(output, context);
   }
-  const contents: DetachTypedLinkCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DetachTypedLinkCommandError = async (
+/**
+ * deserializeAws_restJson1DetachTypedLinkCommandError
+ */
+const de_DetachTypedLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachTypedLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1DisableDirectoryCommand = async (
+/**
+ * deserializeAws_restJson1DisableDirectoryCommand
+ */
+export const de_DisableDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisableDirectoryCommandError(output, context);
+    return de_DisableDirectoryCommandError(output, context);
   }
-  const contents: DisableDirectoryCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DirectoryArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DirectoryArn !== undefined && data.DirectoryArn !== null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectoryArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DisableDirectoryCommandError = async (
+/**
+ * deserializeAws_restJson1DisableDirectoryCommandError
+ */
+const de_DisableDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryDeletedException":
     case "com.amazonaws.clouddirectory#DirectoryDeletedException":
-      throw await deserializeAws_restJson1DirectoryDeletedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryDeletedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1EnableDirectoryCommand = async (
+/**
+ * deserializeAws_restJson1EnableDirectoryCommand
+ */
+export const de_EnableDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1EnableDirectoryCommandError(output, context);
+    return de_EnableDirectoryCommandError(output, context);
   }
-  const contents: EnableDirectoryCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DirectoryArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DirectoryArn !== undefined && data.DirectoryArn !== null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectoryArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1EnableDirectoryCommandError = async (
+/**
+ * deserializeAws_restJson1EnableDirectoryCommandError
+ */
+const de_EnableDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryDeletedException":
     case "com.amazonaws.clouddirectory#DirectoryDeletedException":
-      throw await deserializeAws_restJson1DirectoryDeletedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryDeletedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetAppliedSchemaVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetAppliedSchemaVersionCommand
+ */
+export const de_GetAppliedSchemaVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppliedSchemaVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAppliedSchemaVersionCommandError(output, context);
+    return de_GetAppliedSchemaVersionCommandError(output, context);
   }
-  const contents: GetAppliedSchemaVersionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppliedSchemaArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AppliedSchemaArn !== undefined && data.AppliedSchemaArn !== null) {
-    contents.AppliedSchemaArn = __expectString(data.AppliedSchemaArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AppliedSchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetAppliedSchemaVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetAppliedSchemaVersionCommandError
+ */
+const de_GetAppliedSchemaVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppliedSchemaVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetDirectoryCommand = async (
+/**
+ * deserializeAws_restJson1GetDirectoryCommand
+ */
+export const de_GetDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDirectoryCommandError(output, context);
+    return de_GetDirectoryCommandError(output, context);
   }
-  const contents: GetDirectoryCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Directory: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Directory !== undefined && data.Directory !== null) {
-    contents.Directory = deserializeAws_restJson1Directory(data.Directory, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Directory: (_) => de_Directory(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetDirectoryCommandError = async (
+/**
+ * deserializeAws_restJson1GetDirectoryCommandError
+ */
+const de_GetDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetFacetCommand = async (
+/**
+ * deserializeAws_restJson1GetFacetCommand
+ */
+export const de_GetFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetFacetCommandError(output, context);
+    return de_GetFacetCommandError(output, context);
   }
-  const contents: GetFacetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Facet: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Facet !== undefined && data.Facet !== null) {
-    contents.Facet = deserializeAws_restJson1Facet(data.Facet, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Facet: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetFacetCommandError = async (
+/**
+ * deserializeAws_restJson1GetFacetCommandError
+ */
+const de_GetFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "FacetNotFoundException":
     case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await deserializeAws_restJson1FacetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetLinkAttributesCommand = async (
+/**
+ * deserializeAws_restJson1GetLinkAttributesCommand
+ */
+export const de_GetLinkAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLinkAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetLinkAttributesCommandError(output, context);
+    return de_GetLinkAttributesCommandError(output, context);
   }
-  const contents: GetLinkAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Attributes: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attributes !== undefined && data.Attributes !== null) {
-    contents.Attributes = deserializeAws_restJson1AttributeKeyAndValueList(data.Attributes, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Attributes: (_) => de_AttributeKeyAndValueList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetLinkAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1GetLinkAttributesCommandError
+ */
+const de_GetLinkAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLinkAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetObjectAttributesCommand = async (
+/**
+ * deserializeAws_restJson1GetObjectAttributesCommand
+ */
+export const de_GetObjectAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetObjectAttributesCommandError(output, context);
+    return de_GetObjectAttributesCommandError(output, context);
   }
-  const contents: GetObjectAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Attributes: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attributes !== undefined && data.Attributes !== null) {
-    contents.Attributes = deserializeAws_restJson1AttributeKeyAndValueList(data.Attributes, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Attributes: (_) => de_AttributeKeyAndValueList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetObjectAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1GetObjectAttributesCommandError
+ */
+const de_GetObjectAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetObjectInformationCommand = async (
+/**
+ * deserializeAws_restJson1GetObjectInformationCommand
+ */
+export const de_GetObjectInformationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectInformationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetObjectInformationCommandError(output, context);
+    return de_GetObjectInformationCommandError(output, context);
   }
-  const contents: GetObjectInformationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ObjectIdentifier: undefined,
-    SchemaFacets: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ObjectIdentifier !== undefined && data.ObjectIdentifier !== null) {
-    contents.ObjectIdentifier = __expectString(data.ObjectIdentifier);
-  }
-  if (data.SchemaFacets !== undefined && data.SchemaFacets !== null) {
-    contents.SchemaFacets = deserializeAws_restJson1SchemaFacetList(data.SchemaFacets, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ObjectIdentifier: __expectString,
+    SchemaFacets: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetObjectInformationCommandError = async (
+/**
+ * deserializeAws_restJson1GetObjectInformationCommandError
+ */
+const de_GetObjectInformationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectInformationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetSchemaAsJsonCommand = async (
+/**
+ * deserializeAws_restJson1GetSchemaAsJsonCommand
+ */
+export const de_GetSchemaAsJsonCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSchemaAsJsonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSchemaAsJsonCommandError(output, context);
+    return de_GetSchemaAsJsonCommandError(output, context);
   }
-  const contents: GetSchemaAsJsonCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Document: undefined,
-    Name: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Document !== undefined && data.Document !== null) {
-    contents.Document = __expectString(data.Document);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Document: __expectString,
+    Name: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetSchemaAsJsonCommandError = async (
+/**
+ * deserializeAws_restJson1GetSchemaAsJsonCommandError
+ */
+const de_GetSchemaAsJsonCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSchemaAsJsonCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1GetTypedLinkFacetInformationCommand = async (
+/**
+ * deserializeAws_restJson1GetTypedLinkFacetInformationCommand
+ */
+export const de_GetTypedLinkFacetInformationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTypedLinkFacetInformationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetTypedLinkFacetInformationCommandError(output, context);
+    return de_GetTypedLinkFacetInformationCommandError(output, context);
   }
-  const contents: GetTypedLinkFacetInformationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    IdentityAttributeOrder: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IdentityAttributeOrder !== undefined && data.IdentityAttributeOrder !== null) {
-    contents.IdentityAttributeOrder = deserializeAws_restJson1AttributeNameList(data.IdentityAttributeOrder, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    IdentityAttributeOrder: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetTypedLinkFacetInformationCommandError = async (
+/**
+ * deserializeAws_restJson1GetTypedLinkFacetInformationCommandError
+ */
+const de_GetTypedLinkFacetInformationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTypedLinkFacetInformationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "FacetNotFoundException":
     case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await deserializeAws_restJson1FacetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListAppliedSchemaArnsCommand = async (
+/**
+ * deserializeAws_restJson1ListAppliedSchemaArnsCommand
+ */
+export const de_ListAppliedSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppliedSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAppliedSchemaArnsCommandError(output, context);
+    return de_ListAppliedSchemaArnsCommandError(output, context);
   }
-  const contents: ListAppliedSchemaArnsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    SchemaArns: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SchemaArns !== undefined && data.SchemaArns !== null) {
-    contents.SchemaArns = deserializeAws_restJson1Arns(data.SchemaArns, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    SchemaArns: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListAppliedSchemaArnsCommandError = async (
+/**
+ * deserializeAws_restJson1ListAppliedSchemaArnsCommandError
+ */
+const de_ListAppliedSchemaArnsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppliedSchemaArnsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListAttachedIndicesCommand = async (
+/**
+ * deserializeAws_restJson1ListAttachedIndicesCommand
+ */
+export const de_ListAttachedIndicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedIndicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAttachedIndicesCommandError(output, context);
+    return de_ListAttachedIndicesCommandError(output, context);
   }
-  const contents: ListAttachedIndicesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    IndexAttachments: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IndexAttachments !== undefined && data.IndexAttachments !== null) {
-    contents.IndexAttachments = deserializeAws_restJson1IndexAttachmentList(data.IndexAttachments, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    IndexAttachments: (_) => de_IndexAttachmentList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListAttachedIndicesCommandError = async (
+/**
+ * deserializeAws_restJson1ListAttachedIndicesCommandError
+ */
+const de_ListAttachedIndicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedIndicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListDevelopmentSchemaArnsCommand = async (
+/**
+ * deserializeAws_restJson1ListDevelopmentSchemaArnsCommand
+ */
+export const de_ListDevelopmentSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDevelopmentSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDevelopmentSchemaArnsCommandError(output, context);
+    return de_ListDevelopmentSchemaArnsCommandError(output, context);
   }
-  const contents: ListDevelopmentSchemaArnsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    SchemaArns: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SchemaArns !== undefined && data.SchemaArns !== null) {
-    contents.SchemaArns = deserializeAws_restJson1Arns(data.SchemaArns, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    SchemaArns: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListDevelopmentSchemaArnsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDevelopmentSchemaArnsCommandError
+ */
+const de_ListDevelopmentSchemaArnsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDevelopmentSchemaArnsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListDirectoriesCommand = async (
+/**
+ * deserializeAws_restJson1ListDirectoriesCommand
+ */
+export const de_ListDirectoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDirectoriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDirectoriesCommandError(output, context);
+    return de_ListDirectoriesCommandError(output, context);
   }
-  const contents: ListDirectoriesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Directories: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Directories !== undefined && data.Directories !== null) {
-    contents.Directories = deserializeAws_restJson1DirectoryList(data.Directories, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Directories: (_) => de_DirectoryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListDirectoriesCommandError = async (
+/**
+ * deserializeAws_restJson1ListDirectoriesCommandError
+ */
+const de_ListDirectoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDirectoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListFacetAttributesCommand = async (
+/**
+ * deserializeAws_restJson1ListFacetAttributesCommand
+ */
+export const de_ListFacetAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFacetAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListFacetAttributesCommandError(output, context);
+    return de_ListFacetAttributesCommandError(output, context);
   }
-  const contents: ListFacetAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Attributes: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attributes !== undefined && data.Attributes !== null) {
-    contents.Attributes = deserializeAws_restJson1FacetAttributeList(data.Attributes, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Attributes: (_) => de_FacetAttributeList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListFacetAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1ListFacetAttributesCommandError
+ */
+const de_ListFacetAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFacetAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "FacetNotFoundException":
     case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await deserializeAws_restJson1FacetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListFacetNamesCommand = async (
+/**
+ * deserializeAws_restJson1ListFacetNamesCommand
+ */
+export const de_ListFacetNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFacetNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListFacetNamesCommandError(output, context);
+    return de_ListFacetNamesCommandError(output, context);
   }
-  const contents: ListFacetNamesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    FacetNames: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FacetNames !== undefined && data.FacetNames !== null) {
-    contents.FacetNames = deserializeAws_restJson1FacetNameList(data.FacetNames, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FacetNames: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListFacetNamesCommandError = async (
+/**
+ * deserializeAws_restJson1ListFacetNamesCommandError
+ */
+const de_ListFacetNamesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFacetNamesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListIncomingTypedLinksCommand = async (
+/**
+ * deserializeAws_restJson1ListIncomingTypedLinksCommand
+ */
+export const de_ListIncomingTypedLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIncomingTypedLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListIncomingTypedLinksCommandError(output, context);
+    return de_ListIncomingTypedLinksCommandError(output, context);
   }
-  const contents: ListIncomingTypedLinksCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    LinkSpecifiers: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LinkSpecifiers !== undefined && data.LinkSpecifiers !== null) {
-    contents.LinkSpecifiers = deserializeAws_restJson1TypedLinkSpecifierList(data.LinkSpecifiers, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LinkSpecifiers: (_) => de_TypedLinkSpecifierList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListIncomingTypedLinksCommandError = async (
+/**
+ * deserializeAws_restJson1ListIncomingTypedLinksCommandError
+ */
+const de_ListIncomingTypedLinksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIncomingTypedLinksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListIndexCommand = async (
+/**
+ * deserializeAws_restJson1ListIndexCommand
+ */
+export const de_ListIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListIndexCommandError(output, context);
+    return de_ListIndexCommandError(output, context);
   }
-  const contents: ListIndexCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    IndexAttachments: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.IndexAttachments !== undefined && data.IndexAttachments !== null) {
-    contents.IndexAttachments = deserializeAws_restJson1IndexAttachmentList(data.IndexAttachments, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    IndexAttachments: (_) => de_IndexAttachmentList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListIndexCommandError = async (
+/**
+ * deserializeAws_restJson1ListIndexCommandError
+ */
+const de_ListIndexCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotIndexException":
     case "com.amazonaws.clouddirectory#NotIndexException":
-      throw await deserializeAws_restJson1NotIndexExceptionResponse(parsedOutput, context);
+      throw await de_NotIndexExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListManagedSchemaArnsCommand = async (
+/**
+ * deserializeAws_restJson1ListManagedSchemaArnsCommand
+ */
+export const de_ListManagedSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListManagedSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListManagedSchemaArnsCommandError(output, context);
+    return de_ListManagedSchemaArnsCommandError(output, context);
   }
-  const contents: ListManagedSchemaArnsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    SchemaArns: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SchemaArns !== undefined && data.SchemaArns !== null) {
-    contents.SchemaArns = deserializeAws_restJson1Arns(data.SchemaArns, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    SchemaArns: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListManagedSchemaArnsCommandError = async (
+/**
+ * deserializeAws_restJson1ListManagedSchemaArnsCommandError
+ */
+const de_ListManagedSchemaArnsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListManagedSchemaArnsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListObjectAttributesCommand = async (
+/**
+ * deserializeAws_restJson1ListObjectAttributesCommand
+ */
+export const de_ListObjectAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListObjectAttributesCommandError(output, context);
+    return de_ListObjectAttributesCommandError(output, context);
   }
-  const contents: ListObjectAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Attributes: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attributes !== undefined && data.Attributes !== null) {
-    contents.Attributes = deserializeAws_restJson1AttributeKeyAndValueList(data.Attributes, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Attributes: (_) => de_AttributeKeyAndValueList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListObjectAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1ListObjectAttributesCommandError
+ */
+const de_ListObjectAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListObjectChildrenCommand = async (
+/**
+ * deserializeAws_restJson1ListObjectChildrenCommand
+ */
+export const de_ListObjectChildrenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectChildrenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListObjectChildrenCommandError(output, context);
+    return de_ListObjectChildrenCommandError(output, context);
   }
-  const contents: ListObjectChildrenCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Children: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Children !== undefined && data.Children !== null) {
-    contents.Children = deserializeAws_restJson1LinkNameToObjectIdentifierMap(data.Children, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Children: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListObjectChildrenCommandError = async (
+/**
+ * deserializeAws_restJson1ListObjectChildrenCommandError
+ */
+const de_ListObjectChildrenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectChildrenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotNodeException":
     case "com.amazonaws.clouddirectory#NotNodeException":
-      throw await deserializeAws_restJson1NotNodeExceptionResponse(parsedOutput, context);
+      throw await de_NotNodeExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListObjectParentPathsCommand = async (
+/**
+ * deserializeAws_restJson1ListObjectParentPathsCommand
+ */
+export const de_ListObjectParentPathsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectParentPathsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListObjectParentPathsCommandError(output, context);
+    return de_ListObjectParentPathsCommandError(output, context);
   }
-  const contents: ListObjectParentPathsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    PathToObjectIdentifiersList: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PathToObjectIdentifiersList !== undefined && data.PathToObjectIdentifiersList !== null) {
-    contents.PathToObjectIdentifiersList = deserializeAws_restJson1PathToObjectIdentifiersList(
-      data.PathToObjectIdentifiersList,
-      context
-    );
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    PathToObjectIdentifiersList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListObjectParentPathsCommandError = async (
+/**
+ * deserializeAws_restJson1ListObjectParentPathsCommandError
+ */
+const de_ListObjectParentPathsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectParentPathsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListObjectParentsCommand = async (
+/**
+ * deserializeAws_restJson1ListObjectParentsCommand
+ */
+export const de_ListObjectParentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectParentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListObjectParentsCommandError(output, context);
+    return de_ListObjectParentsCommandError(output, context);
   }
-  const contents: ListObjectParentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    ParentLinks: undefined,
-    Parents: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ParentLinks !== undefined && data.ParentLinks !== null) {
-    contents.ParentLinks = deserializeAws_restJson1ObjectIdentifierAndLinkNameList(data.ParentLinks, context);
-  }
-  if (data.Parents !== undefined && data.Parents !== null) {
-    contents.Parents = deserializeAws_restJson1ObjectIdentifierToLinkNameMap(data.Parents, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ParentLinks: _json,
+    Parents: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListObjectParentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListObjectParentsCommandError
+ */
+const de_ListObjectParentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectParentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "CannotListParentOfRootException":
     case "com.amazonaws.clouddirectory#CannotListParentOfRootException":
-      throw await deserializeAws_restJson1CannotListParentOfRootExceptionResponse(parsedOutput, context);
+      throw await de_CannotListParentOfRootExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListObjectPoliciesCommand = async (
+/**
+ * deserializeAws_restJson1ListObjectPoliciesCommand
+ */
+export const de_ListObjectPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListObjectPoliciesCommandError(output, context);
+    return de_ListObjectPoliciesCommandError(output, context);
   }
-  const contents: ListObjectPoliciesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AttachedPolicyIds: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AttachedPolicyIds !== undefined && data.AttachedPolicyIds !== null) {
-    contents.AttachedPolicyIds = deserializeAws_restJson1ObjectIdentifierList(data.AttachedPolicyIds, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AttachedPolicyIds: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListObjectPoliciesCommandError = async (
+/**
+ * deserializeAws_restJson1ListObjectPoliciesCommandError
+ */
+const de_ListObjectPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListOutgoingTypedLinksCommand = async (
+/**
+ * deserializeAws_restJson1ListOutgoingTypedLinksCommand
+ */
+export const de_ListOutgoingTypedLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOutgoingTypedLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListOutgoingTypedLinksCommandError(output, context);
+    return de_ListOutgoingTypedLinksCommandError(output, context);
   }
-  const contents: ListOutgoingTypedLinksCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    TypedLinkSpecifiers: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.TypedLinkSpecifiers !== undefined && data.TypedLinkSpecifiers !== null) {
-    contents.TypedLinkSpecifiers = deserializeAws_restJson1TypedLinkSpecifierList(data.TypedLinkSpecifiers, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    TypedLinkSpecifiers: (_) => de_TypedLinkSpecifierList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListOutgoingTypedLinksCommandError = async (
+/**
+ * deserializeAws_restJson1ListOutgoingTypedLinksCommandError
+ */
+const de_ListOutgoingTypedLinksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOutgoingTypedLinksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListPolicyAttachmentsCommand = async (
+/**
+ * deserializeAws_restJson1ListPolicyAttachmentsCommand
+ */
+export const de_ListPolicyAttachmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPolicyAttachmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListPolicyAttachmentsCommandError(output, context);
+    return de_ListPolicyAttachmentsCommandError(output, context);
   }
-  const contents: ListPolicyAttachmentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    ObjectIdentifiers: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ObjectIdentifiers !== undefined && data.ObjectIdentifiers !== null) {
-    contents.ObjectIdentifiers = deserializeAws_restJson1ObjectIdentifierList(data.ObjectIdentifiers, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ObjectIdentifiers: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListPolicyAttachmentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListPolicyAttachmentsCommandError
+ */
+const de_ListPolicyAttachmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPolicyAttachmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotPolicyException":
     case "com.amazonaws.clouddirectory#NotPolicyException":
-      throw await deserializeAws_restJson1NotPolicyExceptionResponse(parsedOutput, context);
+      throw await de_NotPolicyExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListPublishedSchemaArnsCommand = async (
+/**
+ * deserializeAws_restJson1ListPublishedSchemaArnsCommand
+ */
+export const de_ListPublishedSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPublishedSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListPublishedSchemaArnsCommandError(output, context);
+    return de_ListPublishedSchemaArnsCommandError(output, context);
   }
-  const contents: ListPublishedSchemaArnsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    SchemaArns: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SchemaArns !== undefined && data.SchemaArns !== null) {
-    contents.SchemaArns = deserializeAws_restJson1Arns(data.SchemaArns, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    SchemaArns: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListPublishedSchemaArnsCommandError = async (
+/**
+ * deserializeAws_restJson1ListPublishedSchemaArnsCommandError
+ */
+const de_ListPublishedSchemaArnsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPublishedSchemaArnsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
-  const contents: ListTagsForResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Tags !== undefined && data.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidTaggingRequestException":
     case "com.amazonaws.clouddirectory#InvalidTaggingRequestException":
-      throw await deserializeAws_restJson1InvalidTaggingRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTaggingRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListTypedLinkFacetAttributesCommand = async (
+/**
+ * deserializeAws_restJson1ListTypedLinkFacetAttributesCommand
+ */
+export const de_ListTypedLinkFacetAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypedLinkFacetAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTypedLinkFacetAttributesCommandError(output, context);
+    return de_ListTypedLinkFacetAttributesCommandError(output, context);
   }
-  const contents: ListTypedLinkFacetAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Attributes: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attributes !== undefined && data.Attributes !== null) {
-    contents.Attributes = deserializeAws_restJson1TypedLinkAttributeDefinitionList(data.Attributes, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Attributes: (_) => de_TypedLinkAttributeDefinitionList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTypedLinkFacetAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1ListTypedLinkFacetAttributesCommandError
+ */
+const de_ListTypedLinkFacetAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypedLinkFacetAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "FacetNotFoundException":
     case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await deserializeAws_restJson1FacetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1ListTypedLinkFacetNamesCommand = async (
+/**
+ * deserializeAws_restJson1ListTypedLinkFacetNamesCommand
+ */
+export const de_ListTypedLinkFacetNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypedLinkFacetNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTypedLinkFacetNamesCommandError(output, context);
+    return de_ListTypedLinkFacetNamesCommandError(output, context);
   }
-  const contents: ListTypedLinkFacetNamesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    FacetNames: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FacetNames !== undefined && data.FacetNames !== null) {
-    contents.FacetNames = deserializeAws_restJson1TypedLinkNameList(data.FacetNames, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FacetNames: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTypedLinkFacetNamesCommandError = async (
+/**
+ * deserializeAws_restJson1ListTypedLinkFacetNamesCommandError
+ */
+const de_ListTypedLinkFacetNamesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypedLinkFacetNamesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1LookupPolicyCommand = async (
+/**
+ * deserializeAws_restJson1LookupPolicyCommand
+ */
+export const de_LookupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LookupPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1LookupPolicyCommandError(output, context);
+    return de_LookupPolicyCommandError(output, context);
   }
-  const contents: LookupPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    PolicyToPathList: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PolicyToPathList !== undefined && data.PolicyToPathList !== null) {
-    contents.PolicyToPathList = deserializeAws_restJson1PolicyToPathList(data.PolicyToPathList, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    PolicyToPathList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1LookupPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1LookupPolicyCommandError
+ */
+const de_LookupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LookupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PublishSchemaCommand = async (
+/**
+ * deserializeAws_restJson1PublishSchemaCommand
+ */
+export const de_PublishSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PublishSchemaCommandError(output, context);
+    return de_PublishSchemaCommandError(output, context);
   }
-  const contents: PublishSchemaCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    PublishedSchemaArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PublishedSchemaArn !== undefined && data.PublishedSchemaArn !== null) {
-    contents.PublishedSchemaArn = __expectString(data.PublishedSchemaArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PublishedSchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1PublishSchemaCommandError = async (
+/**
+ * deserializeAws_restJson1PublishSchemaCommandError
+ */
+const de_PublishSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "SchemaAlreadyPublishedException":
     case "com.amazonaws.clouddirectory#SchemaAlreadyPublishedException":
-      throw await deserializeAws_restJson1SchemaAlreadyPublishedExceptionResponse(parsedOutput, context);
+      throw await de_SchemaAlreadyPublishedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1PutSchemaFromJsonCommand = async (
+/**
+ * deserializeAws_restJson1PutSchemaFromJsonCommand
+ */
+export const de_PutSchemaFromJsonCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSchemaFromJsonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutSchemaFromJsonCommandError(output, context);
+    return de_PutSchemaFromJsonCommandError(output, context);
   }
-  const contents: PutSchemaFromJsonCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Arn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1PutSchemaFromJsonCommandError = async (
+/**
+ * deserializeAws_restJson1PutSchemaFromJsonCommandError
+ */
+const de_PutSchemaFromJsonCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSchemaFromJsonCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidRuleException":
     case "com.amazonaws.clouddirectory#InvalidRuleException":
-      throw await deserializeAws_restJson1InvalidRuleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRuleExceptionRes(parsedOutput, context);
     case "InvalidSchemaDocException":
     case "com.amazonaws.clouddirectory#InvalidSchemaDocException":
-      throw await deserializeAws_restJson1InvalidSchemaDocExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSchemaDocExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1RemoveFacetFromObjectCommand = async (
+/**
+ * deserializeAws_restJson1RemoveFacetFromObjectCommand
+ */
+export const de_RemoveFacetFromObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFacetFromObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveFacetFromObjectCommandError(output, context);
+    return de_RemoveFacetFromObjectCommandError(output, context);
   }
-  const contents: RemoveFacetFromObjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1RemoveFacetFromObjectCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveFacetFromObjectCommandError
+ */
+const de_RemoveFacetFromObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFacetFromObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidTaggingRequestException":
     case "com.amazonaws.clouddirectory#InvalidTaggingRequestException":
-      throw await deserializeAws_restJson1InvalidTaggingRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTaggingRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidTaggingRequestException":
     case "com.amazonaws.clouddirectory#InvalidTaggingRequestException":
-      throw await deserializeAws_restJson1InvalidTaggingRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTaggingRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateFacetCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFacetCommand
+ */
+export const de_UpdateFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFacetCommandError(output, context);
+    return de_UpdateFacetCommandError(output, context);
   }
-  const contents: UpdateFacetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateFacetCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFacetCommandError
+ */
+const de_UpdateFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "FacetNotFoundException":
     case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await deserializeAws_restJson1FacetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidFacetUpdateException":
     case "com.amazonaws.clouddirectory#InvalidFacetUpdateException":
-      throw await deserializeAws_restJson1InvalidFacetUpdateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFacetUpdateExceptionRes(parsedOutput, context);
     case "InvalidRuleException":
     case "com.amazonaws.clouddirectory#InvalidRuleException":
-      throw await deserializeAws_restJson1InvalidRuleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRuleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateLinkAttributesCommand = async (
+/**
+ * deserializeAws_restJson1UpdateLinkAttributesCommand
+ */
+export const de_UpdateLinkAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLinkAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateLinkAttributesCommandError(output, context);
+    return de_UpdateLinkAttributesCommandError(output, context);
   }
-  const contents: UpdateLinkAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateLinkAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateLinkAttributesCommandError
+ */
+const de_UpdateLinkAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLinkAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateObjectAttributesCommand = async (
+/**
+ * deserializeAws_restJson1UpdateObjectAttributesCommand
+ */
+export const de_UpdateObjectAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateObjectAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateObjectAttributesCommandError(output, context);
+    return de_UpdateObjectAttributesCommandError(output, context);
   }
-  const contents: UpdateObjectAttributesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ObjectIdentifier: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ObjectIdentifier !== undefined && data.ObjectIdentifier !== null) {
-    contents.ObjectIdentifier = __expectString(data.ObjectIdentifier);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ObjectIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateObjectAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateObjectAttributesCommandError
+ */
+const de_UpdateObjectAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateObjectAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DirectoryNotEnabledException":
     case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await deserializeAws_restJson1DirectoryNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "LinkNameAlreadyInUseException":
     case "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException":
-      throw await deserializeAws_restJson1LinkNameAlreadyInUseExceptionResponse(parsedOutput, context);
+      throw await de_LinkNameAlreadyInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateSchemaCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSchemaCommand
+ */
+export const de_UpdateSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSchemaCommandError(output, context);
+    return de_UpdateSchemaCommandError(output, context);
   }
-  const contents: UpdateSchemaCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    SchemaArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SchemaArn !== undefined && data.SchemaArn !== null) {
-    contents.SchemaArn = __expectString(data.SchemaArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateSchemaCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSchemaCommandError
+ */
+const de_UpdateSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpdateTypedLinkFacetCommand = async (
+/**
+ * deserializeAws_restJson1UpdateTypedLinkFacetCommand
+ */
+export const de_UpdateTypedLinkFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTypedLinkFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateTypedLinkFacetCommandError(output, context);
+    return de_UpdateTypedLinkFacetCommandError(output, context);
   }
-  const contents: UpdateTypedLinkFacetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateTypedLinkFacetCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateTypedLinkFacetCommandError
+ */
+const de_UpdateTypedLinkFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTypedLinkFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "FacetNotFoundException":
     case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await deserializeAws_restJson1FacetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
     case "FacetValidationException":
     case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await deserializeAws_restJson1FacetValidationExceptionResponse(parsedOutput, context);
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidFacetUpdateException":
     case "com.amazonaws.clouddirectory#InvalidFacetUpdateException":
-      throw await deserializeAws_restJson1InvalidFacetUpdateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFacetUpdateExceptionRes(parsedOutput, context);
     case "InvalidRuleException":
     case "com.amazonaws.clouddirectory#InvalidRuleException":
-      throw await deserializeAws_restJson1InvalidRuleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRuleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpgradeAppliedSchemaCommand = async (
+/**
+ * deserializeAws_restJson1UpgradeAppliedSchemaCommand
+ */
+export const de_UpgradeAppliedSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpgradeAppliedSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpgradeAppliedSchemaCommandError(output, context);
+    return de_UpgradeAppliedSchemaCommandError(output, context);
   }
-  const contents: UpgradeAppliedSchemaCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DirectoryArn: undefined,
-    UpgradedSchemaArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DirectoryArn !== undefined && data.DirectoryArn !== null) {
-    contents.DirectoryArn = __expectString(data.DirectoryArn);
-  }
-  if (data.UpgradedSchemaArn !== undefined && data.UpgradedSchemaArn !== null) {
-    contents.UpgradedSchemaArn = __expectString(data.UpgradedSchemaArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectoryArn: __expectString,
+    UpgradedSchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpgradeAppliedSchemaCommandError = async (
+/**
+ * deserializeAws_restJson1UpgradeAppliedSchemaCommandError
+ */
+const de_UpgradeAppliedSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpgradeAppliedSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleSchemaException":
     case "com.amazonaws.clouddirectory#IncompatibleSchemaException":
-      throw await deserializeAws_restJson1IncompatibleSchemaExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleSchemaExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidAttachmentException":
     case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await deserializeAws_restJson1InvalidAttachmentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "SchemaAlreadyExistsException":
     case "com.amazonaws.clouddirectory#SchemaAlreadyExistsException":
-      throw await deserializeAws_restJson1SchemaAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_SchemaAlreadyExistsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_restJson1UpgradePublishedSchemaCommand = async (
+/**
+ * deserializeAws_restJson1UpgradePublishedSchemaCommand
+ */
+export const de_UpgradePublishedSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpgradePublishedSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpgradePublishedSchemaCommandError(output, context);
+    return de_UpgradePublishedSchemaCommandError(output, context);
   }
-  const contents: UpgradePublishedSchemaCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    UpgradedSchemaArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.UpgradedSchemaArn !== undefined && data.UpgradedSchemaArn !== null) {
-    contents.UpgradedSchemaArn = __expectString(data.UpgradedSchemaArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    UpgradedSchemaArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpgradePublishedSchemaCommandError = async (
+/**
+ * deserializeAws_restJson1UpgradePublishedSchemaCommandError
+ */
+const de_UpgradePublishedSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpgradePublishedSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleSchemaException":
     case "com.amazonaws.clouddirectory#IncompatibleSchemaException":
-      throw await deserializeAws_restJson1IncompatibleSchemaExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleSchemaExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await deserializeAws_restJson1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidAttachmentException":
     case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await deserializeAws_restJson1InvalidAttachmentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableConflictException":
     case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await deserializeAws_restJson1RetryableConflictExceptionResponse(parsedOutput, context);
+      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6846,21 +7073,18 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BatchWriteExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BatchWriteException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1BatchWriteExceptionRes
+ */
+const de_BatchWriteExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BatchWriteException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Index !== undefined && data.Index !== null) {
-    contents.Index = __expectInt32(data.Index);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Index: __expectInt32,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BatchWriteException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6868,15 +7092,19 @@ const deserializeAws_restJson1BatchWriteExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1CannotListParentOfRootExceptionResponse = async (
+/**
+ * deserializeAws_restJson1CannotListParentOfRootExceptionRes
+ */
+const de_CannotListParentOfRootExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CannotListParentOfRootException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new CannotListParentOfRootException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6884,15 +7112,19 @@ const deserializeAws_restJson1CannotListParentOfRootExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DirectoryAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DirectoryAlreadyExistsExceptionRes
+ */
+const de_DirectoryAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryAlreadyExistsException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DirectoryAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6900,15 +7132,19 @@ const deserializeAws_restJson1DirectoryAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DirectoryDeletedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DirectoryDeletedExceptionRes
+ */
+const de_DirectoryDeletedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryDeletedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DirectoryDeletedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6916,15 +7152,19 @@ const deserializeAws_restJson1DirectoryDeletedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DirectoryNotDisabledExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DirectoryNotDisabledExceptionRes
+ */
+const de_DirectoryNotDisabledExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryNotDisabledException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DirectoryNotDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6932,15 +7172,19 @@ const deserializeAws_restJson1DirectoryNotDisabledExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DirectoryNotEnabledExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DirectoryNotEnabledExceptionRes
+ */
+const de_DirectoryNotEnabledExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryNotEnabledException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DirectoryNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6948,15 +7192,19 @@ const deserializeAws_restJson1DirectoryNotEnabledExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1FacetAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1FacetAlreadyExistsExceptionRes
+ */
+const de_FacetAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FacetAlreadyExistsException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FacetAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6964,15 +7212,16 @@ const deserializeAws_restJson1FacetAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1FacetInUseExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<FacetInUseException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1FacetInUseExceptionRes
+ */
+const de_FacetInUseExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<FacetInUseException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FacetInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6980,15 +7229,19 @@ const deserializeAws_restJson1FacetInUseExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1FacetNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1FacetNotFoundExceptionRes
+ */
+const de_FacetNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FacetNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FacetNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -6996,15 +7249,19 @@ const deserializeAws_restJson1FacetNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1FacetValidationExceptionResponse = async (
+/**
+ * deserializeAws_restJson1FacetValidationExceptionRes
+ */
+const de_FacetValidationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FacetValidationException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FacetValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7012,15 +7269,19 @@ const deserializeAws_restJson1FacetValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1IncompatibleSchemaExceptionResponse = async (
+/**
+ * deserializeAws_restJson1IncompatibleSchemaExceptionRes
+ */
+const de_IncompatibleSchemaExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IncompatibleSchemaException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IncompatibleSchemaException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7028,15 +7289,19 @@ const deserializeAws_restJson1IncompatibleSchemaExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1IndexedAttributeMissingExceptionResponse = async (
+/**
+ * deserializeAws_restJson1IndexedAttributeMissingExceptionRes
+ */
+const de_IndexedAttributeMissingExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IndexedAttributeMissingException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IndexedAttributeMissingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7044,15 +7309,19 @@ const deserializeAws_restJson1IndexedAttributeMissingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServiceExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServiceExceptionRes
+ */
+const de_InternalServiceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7060,15 +7329,16 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidArnExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidArnException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1InvalidArnExceptionRes
+ */
+const de_InvalidArnExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidArnException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7076,15 +7346,19 @@ const deserializeAws_restJson1InvalidArnExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidAttachmentExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidAttachmentExceptionRes
+ */
+const de_InvalidAttachmentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAttachmentException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidAttachmentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7092,15 +7366,19 @@ const deserializeAws_restJson1InvalidAttachmentExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidFacetUpdateExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidFacetUpdateExceptionRes
+ */
+const de_InvalidFacetUpdateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidFacetUpdateException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidFacetUpdateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7108,15 +7386,19 @@ const deserializeAws_restJson1InvalidFacetUpdateExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidNextTokenExceptionRes
+ */
+const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7124,15 +7406,19 @@ const deserializeAws_restJson1InvalidNextTokenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidRuleExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidRuleExceptionRes
+ */
+const de_InvalidRuleExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRuleException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRuleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7140,15 +7426,19 @@ const deserializeAws_restJson1InvalidRuleExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidSchemaDocExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidSchemaDocExceptionRes
+ */
+const de_InvalidSchemaDocExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSchemaDocException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidSchemaDocException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7156,15 +7446,19 @@ const deserializeAws_restJson1InvalidSchemaDocExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidTaggingRequestExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidTaggingRequestExceptionRes
+ */
+const de_InvalidTaggingRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTaggingRequestException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidTaggingRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7172,15 +7466,19 @@ const deserializeAws_restJson1InvalidTaggingRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7188,15 +7486,19 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LinkNameAlreadyInUseExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LinkNameAlreadyInUseExceptionRes
+ */
+const de_LinkNameAlreadyInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LinkNameAlreadyInUseException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LinkNameAlreadyInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7204,15 +7506,16 @@ const deserializeAws_restJson1LinkNameAlreadyInUseExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotIndexExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotIndexException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1NotIndexExceptionRes
+ */
+const de_NotIndexExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotIndexException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotIndexException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7220,15 +7523,16 @@ const deserializeAws_restJson1NotIndexExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotNodeExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotNodeException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1NotNodeExceptionRes
+ */
+const de_NotNodeExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotNodeException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotNodeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7236,15 +7540,16 @@ const deserializeAws_restJson1NotNodeExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotPolicyExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotPolicyException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1NotPolicyExceptionRes
+ */
+const de_NotPolicyExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotPolicyException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7252,15 +7557,19 @@ const deserializeAws_restJson1NotPolicyExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ObjectAlreadyDetachedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ObjectAlreadyDetachedExceptionRes
+ */
+const de_ObjectAlreadyDetachedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ObjectAlreadyDetachedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ObjectAlreadyDetachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7268,15 +7577,19 @@ const deserializeAws_restJson1ObjectAlreadyDetachedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ObjectNotDetachedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ObjectNotDetachedExceptionRes
+ */
+const de_ObjectNotDetachedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ObjectNotDetachedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ObjectNotDetachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7284,15 +7597,19 @@ const deserializeAws_restJson1ObjectNotDetachedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7300,15 +7617,19 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1RetryableConflictExceptionResponse = async (
+/**
+ * deserializeAws_restJson1RetryableConflictExceptionRes
+ */
+const de_RetryableConflictExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RetryableConflictException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RetryableConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7316,15 +7637,19 @@ const deserializeAws_restJson1RetryableConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1SchemaAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1SchemaAlreadyExistsExceptionRes
+ */
+const de_SchemaAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SchemaAlreadyExistsException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SchemaAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7332,15 +7657,19 @@ const deserializeAws_restJson1SchemaAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1SchemaAlreadyPublishedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1SchemaAlreadyPublishedExceptionRes
+ */
+const de_SchemaAlreadyPublishedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SchemaAlreadyPublishedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SchemaAlreadyPublishedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7348,15 +7677,19 @@ const deserializeAws_restJson1SchemaAlreadyPublishedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1StillContainsLinksExceptionResponse = async (
+/**
+ * deserializeAws_restJson1StillContainsLinksExceptionRes
+ */
+const de_StillContainsLinksExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StillContainsLinksException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new StillContainsLinksException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7364,15 +7697,19 @@ const deserializeAws_restJson1StillContainsLinksExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnsupportedIndexTypeExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnsupportedIndexTypeExceptionRes
+ */
+const de_UnsupportedIndexTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedIndexTypeException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedIndexTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7380,15 +7717,16 @@ const deserializeAws_restJson1UnsupportedIndexTypeExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
-  const contents: any = {};
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -7396,919 +7734,435 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AttributeKey = (input: AttributeKey, context: __SerdeContext): any => {
-  return {
-    ...(input.FacetName !== undefined && input.FacetName !== null && { FacetName: input.FacetName }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.SchemaArn !== undefined && input.SchemaArn !== null && { SchemaArn: input.SchemaArn }),
-  };
+// se_AttributeKey omitted.
+
+/**
+ * serializeAws_restJson1AttributeKeyAndValue
+ */
+const se_AttributeKeyAndValue = (input: AttributeKeyAndValue, context: __SerdeContext): any => {
+  return take(input, {
+    Key: _json,
+    Value: (_) => se_TypedAttributeValue(_, context),
+  });
 };
 
-const serializeAws_restJson1AttributeKeyAndValue = (input: AttributeKeyAndValue, context: __SerdeContext): any => {
-  return {
-    ...(input.Key !== undefined &&
-      input.Key !== null && { Key: serializeAws_restJson1AttributeKey(input.Key, context) }),
-    ...(input.Value !== undefined &&
-      input.Value !== null && { Value: serializeAws_restJson1TypedAttributeValue(input.Value, context) }),
-  };
-};
-
-const serializeAws_restJson1AttributeKeyAndValueList = (
-  input: AttributeKeyAndValue[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1AttributeKeyAndValueList
+ */
+const se_AttributeKeyAndValueList = (input: AttributeKeyAndValue[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1AttributeKeyAndValue(entry, context);
+      return se_AttributeKeyAndValue(entry, context);
     });
 };
 
-const serializeAws_restJson1AttributeKeyList = (input: AttributeKey[], context: __SerdeContext): any => {
+// se_AttributeKeyList omitted.
+
+/**
+ * serializeAws_restJson1AttributeNameAndValue
+ */
+const se_AttributeNameAndValue = (input: AttributeNameAndValue, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeName: [],
+    Value: (_) => se_TypedAttributeValue(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1AttributeNameAndValueList
+ */
+const se_AttributeNameAndValueList = (input: AttributeNameAndValue[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1AttributeKey(entry, context);
+      return se_AttributeNameAndValue(entry, context);
     });
 };
 
-const serializeAws_restJson1AttributeNameAndValue = (input: AttributeNameAndValue, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName !== undefined && input.AttributeName !== null && { AttributeName: input.AttributeName }),
-    ...(input.Value !== undefined &&
-      input.Value !== null && { Value: serializeAws_restJson1TypedAttributeValue(input.Value, context) }),
-  };
+// se_AttributeNameList omitted.
+
+/**
+ * serializeAws_restJson1BatchAddFacetToObject
+ */
+const se_BatchAddFacetToObject = (input: BatchAddFacetToObject, context: __SerdeContext): any => {
+  return take(input, {
+    ObjectAttributeList: (_) => se_AttributeKeyAndValueList(_, context),
+    ObjectReference: _json,
+    SchemaFacet: _json,
+  });
 };
 
-const serializeAws_restJson1AttributeNameAndValueList = (
-  input: AttributeNameAndValue[],
-  context: __SerdeContext
-): any => {
+// se_BatchAttachObject omitted.
+
+// se_BatchAttachPolicy omitted.
+
+// se_BatchAttachToIndex omitted.
+
+/**
+ * serializeAws_restJson1BatchAttachTypedLink
+ */
+const se_BatchAttachTypedLink = (input: BatchAttachTypedLink, context: __SerdeContext): any => {
+  return take(input, {
+    Attributes: (_) => se_AttributeNameAndValueList(_, context),
+    SourceObjectReference: _json,
+    TargetObjectReference: _json,
+    TypedLinkFacet: _json,
+  });
+};
+
+// se_BatchCreateIndex omitted.
+
+/**
+ * serializeAws_restJson1BatchCreateObject
+ */
+const se_BatchCreateObject = (input: BatchCreateObject, context: __SerdeContext): any => {
+  return take(input, {
+    BatchReferenceName: [],
+    LinkName: [],
+    ObjectAttributeList: (_) => se_AttributeKeyAndValueList(_, context),
+    ParentReference: _json,
+    SchemaFacet: _json,
+  });
+};
+
+// se_BatchDeleteObject omitted.
+
+// se_BatchDetachFromIndex omitted.
+
+// se_BatchDetachObject omitted.
+
+// se_BatchDetachPolicy omitted.
+
+/**
+ * serializeAws_restJson1BatchDetachTypedLink
+ */
+const se_BatchDetachTypedLink = (input: BatchDetachTypedLink, context: __SerdeContext): any => {
+  return take(input, {
+    TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchGetLinkAttributes
+ */
+const se_BatchGetLinkAttributes = (input: BatchGetLinkAttributes, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeNames: _json,
+    TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+  });
+};
+
+// se_BatchGetObjectAttributes omitted.
+
+// se_BatchGetObjectInformation omitted.
+
+// se_BatchListAttachedIndices omitted.
+
+/**
+ * serializeAws_restJson1BatchListIncomingTypedLinks
+ */
+const se_BatchListIncomingTypedLinks = (input: BatchListIncomingTypedLinks, context: __SerdeContext): any => {
+  return take(input, {
+    FilterAttributeRanges: (_) => se_TypedLinkAttributeRangeList(_, context),
+    FilterTypedLink: _json,
+    MaxResults: [],
+    NextToken: [],
+    ObjectReference: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchListIndex
+ */
+const se_BatchListIndex = (input: BatchListIndex, context: __SerdeContext): any => {
+  return take(input, {
+    IndexReference: _json,
+    MaxResults: [],
+    NextToken: [],
+    RangesOnIndexedValues: (_) => se_ObjectAttributeRangeList(_, context),
+  });
+};
+
+// se_BatchListObjectAttributes omitted.
+
+// se_BatchListObjectChildren omitted.
+
+// se_BatchListObjectParentPaths omitted.
+
+// se_BatchListObjectParents omitted.
+
+// se_BatchListObjectPolicies omitted.
+
+/**
+ * serializeAws_restJson1BatchListOutgoingTypedLinks
+ */
+const se_BatchListOutgoingTypedLinks = (input: BatchListOutgoingTypedLinks, context: __SerdeContext): any => {
+  return take(input, {
+    FilterAttributeRanges: (_) => se_TypedLinkAttributeRangeList(_, context),
+    FilterTypedLink: _json,
+    MaxResults: [],
+    NextToken: [],
+    ObjectReference: _json,
+  });
+};
+
+// se_BatchListPolicyAttachments omitted.
+
+// se_BatchLookupPolicy omitted.
+
+/**
+ * serializeAws_restJson1BatchReadOperation
+ */
+const se_BatchReadOperation = (input: BatchReadOperation, context: __SerdeContext): any => {
+  return take(input, {
+    GetLinkAttributes: (_) => se_BatchGetLinkAttributes(_, context),
+    GetObjectAttributes: _json,
+    GetObjectInformation: _json,
+    ListAttachedIndices: _json,
+    ListIncomingTypedLinks: (_) => se_BatchListIncomingTypedLinks(_, context),
+    ListIndex: (_) => se_BatchListIndex(_, context),
+    ListObjectAttributes: _json,
+    ListObjectChildren: _json,
+    ListObjectParentPaths: _json,
+    ListObjectParents: _json,
+    ListObjectPolicies: _json,
+    ListOutgoingTypedLinks: (_) => se_BatchListOutgoingTypedLinks(_, context),
+    ListPolicyAttachments: _json,
+    LookupPolicy: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchReadOperationList
+ */
+const se_BatchReadOperationList = (input: BatchReadOperation[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1AttributeNameAndValue(entry, context);
+      return se_BatchReadOperation(entry, context);
     });
 };
 
-const serializeAws_restJson1AttributeNameList = (input: string[], context: __SerdeContext): any => {
+// se_BatchRemoveFacetFromObject omitted.
+
+/**
+ * serializeAws_restJson1BatchUpdateLinkAttributes
+ */
+const se_BatchUpdateLinkAttributes = (input: BatchUpdateLinkAttributes, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeUpdates: (_) => se_LinkAttributeUpdateList(_, context),
+    TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchUpdateObjectAttributes
+ */
+const se_BatchUpdateObjectAttributes = (input: BatchUpdateObjectAttributes, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeUpdates: (_) => se_ObjectAttributeUpdateList(_, context),
+    ObjectReference: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchWriteOperation
+ */
+const se_BatchWriteOperation = (input: BatchWriteOperation, context: __SerdeContext): any => {
+  return take(input, {
+    AddFacetToObject: (_) => se_BatchAddFacetToObject(_, context),
+    AttachObject: _json,
+    AttachPolicy: _json,
+    AttachToIndex: _json,
+    AttachTypedLink: (_) => se_BatchAttachTypedLink(_, context),
+    CreateIndex: _json,
+    CreateObject: (_) => se_BatchCreateObject(_, context),
+    DeleteObject: _json,
+    DetachFromIndex: _json,
+    DetachObject: _json,
+    DetachPolicy: _json,
+    DetachTypedLink: (_) => se_BatchDetachTypedLink(_, context),
+    RemoveFacetFromObject: _json,
+    UpdateLinkAttributes: (_) => se_BatchUpdateLinkAttributes(_, context),
+    UpdateObjectAttributes: (_) => se_BatchUpdateObjectAttributes(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchWriteOperationList
+ */
+const se_BatchWriteOperationList = (input: BatchWriteOperation[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
+      return se_BatchWriteOperation(entry, context);
     });
 };
 
-const serializeAws_restJson1BatchAddFacetToObject = (input: BatchAddFacetToObject, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectAttributeList !== undefined &&
-      input.ObjectAttributeList !== null && {
-        ObjectAttributeList: serializeAws_restJson1AttributeKeyAndValueList(input.ObjectAttributeList, context),
-      }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-    ...(input.SchemaFacet !== undefined &&
-      input.SchemaFacet !== null && { SchemaFacet: serializeAws_restJson1SchemaFacet(input.SchemaFacet, context) }),
-  };
+/**
+ * serializeAws_restJson1FacetAttribute
+ */
+const se_FacetAttribute = (input: FacetAttribute, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeDefinition: (_) => se_FacetAttributeDefinition(_, context),
+    AttributeReference: _json,
+    Name: [],
+    RequiredBehavior: [],
+  });
 };
 
-const serializeAws_restJson1BatchAttachObject = (input: BatchAttachObject, context: __SerdeContext): any => {
-  return {
-    ...(input.ChildReference !== undefined &&
-      input.ChildReference !== null && {
-        ChildReference: serializeAws_restJson1ObjectReference(input.ChildReference, context),
-      }),
-    ...(input.LinkName !== undefined && input.LinkName !== null && { LinkName: input.LinkName }),
-    ...(input.ParentReference !== undefined &&
-      input.ParentReference !== null && {
-        ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
-      }),
-  };
+/**
+ * serializeAws_restJson1FacetAttributeDefinition
+ */
+const se_FacetAttributeDefinition = (input: FacetAttributeDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    DefaultValue: (_) => se_TypedAttributeValue(_, context),
+    IsImmutable: [],
+    Rules: _json,
+    Type: [],
+  });
 };
 
-const serializeAws_restJson1BatchAttachPolicy = (input: BatchAttachPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-    ...(input.PolicyReference !== undefined &&
-      input.PolicyReference !== null && {
-        PolicyReference: serializeAws_restJson1ObjectReference(input.PolicyReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchAttachToIndex = (input: BatchAttachToIndex, context: __SerdeContext): any => {
-  return {
-    ...(input.IndexReference !== undefined &&
-      input.IndexReference !== null && {
-        IndexReference: serializeAws_restJson1ObjectReference(input.IndexReference, context),
-      }),
-    ...(input.TargetReference !== undefined &&
-      input.TargetReference !== null && {
-        TargetReference: serializeAws_restJson1ObjectReference(input.TargetReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchAttachTypedLink = (input: BatchAttachTypedLink, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes !== undefined &&
-      input.Attributes !== null && {
-        Attributes: serializeAws_restJson1AttributeNameAndValueList(input.Attributes, context),
-      }),
-    ...(input.SourceObjectReference !== undefined &&
-      input.SourceObjectReference !== null && {
-        SourceObjectReference: serializeAws_restJson1ObjectReference(input.SourceObjectReference, context),
-      }),
-    ...(input.TargetObjectReference !== undefined &&
-      input.TargetObjectReference !== null && {
-        TargetObjectReference: serializeAws_restJson1ObjectReference(input.TargetObjectReference, context),
-      }),
-    ...(input.TypedLinkFacet !== undefined &&
-      input.TypedLinkFacet !== null && {
-        TypedLinkFacet: serializeAws_restJson1TypedLinkSchemaAndFacetName(input.TypedLinkFacet, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchCreateIndex = (input: BatchCreateIndex, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchReferenceName !== undefined &&
-      input.BatchReferenceName !== null && { BatchReferenceName: input.BatchReferenceName }),
-    ...(input.IsUnique !== undefined && input.IsUnique !== null && { IsUnique: input.IsUnique }),
-    ...(input.LinkName !== undefined && input.LinkName !== null && { LinkName: input.LinkName }),
-    ...(input.OrderedIndexedAttributeList !== undefined &&
-      input.OrderedIndexedAttributeList !== null && {
-        OrderedIndexedAttributeList: serializeAws_restJson1AttributeKeyList(input.OrderedIndexedAttributeList, context),
-      }),
-    ...(input.ParentReference !== undefined &&
-      input.ParentReference !== null && {
-        ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchCreateObject = (input: BatchCreateObject, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchReferenceName !== undefined &&
-      input.BatchReferenceName !== null && { BatchReferenceName: input.BatchReferenceName }),
-    ...(input.LinkName !== undefined && input.LinkName !== null && { LinkName: input.LinkName }),
-    ...(input.ObjectAttributeList !== undefined &&
-      input.ObjectAttributeList !== null && {
-        ObjectAttributeList: serializeAws_restJson1AttributeKeyAndValueList(input.ObjectAttributeList, context),
-      }),
-    ...(input.ParentReference !== undefined &&
-      input.ParentReference !== null && {
-        ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
-      }),
-    ...(input.SchemaFacet !== undefined &&
-      input.SchemaFacet !== null && { SchemaFacet: serializeAws_restJson1SchemaFacetList(input.SchemaFacet, context) }),
-  };
-};
-
-const serializeAws_restJson1BatchDeleteObject = (input: BatchDeleteObject, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchDetachFromIndex = (input: BatchDetachFromIndex, context: __SerdeContext): any => {
-  return {
-    ...(input.IndexReference !== undefined &&
-      input.IndexReference !== null && {
-        IndexReference: serializeAws_restJson1ObjectReference(input.IndexReference, context),
-      }),
-    ...(input.TargetReference !== undefined &&
-      input.TargetReference !== null && {
-        TargetReference: serializeAws_restJson1ObjectReference(input.TargetReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchDetachObject = (input: BatchDetachObject, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchReferenceName !== undefined &&
-      input.BatchReferenceName !== null && { BatchReferenceName: input.BatchReferenceName }),
-    ...(input.LinkName !== undefined && input.LinkName !== null && { LinkName: input.LinkName }),
-    ...(input.ParentReference !== undefined &&
-      input.ParentReference !== null && {
-        ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchDetachPolicy = (input: BatchDetachPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-    ...(input.PolicyReference !== undefined &&
-      input.PolicyReference !== null && {
-        PolicyReference: serializeAws_restJson1ObjectReference(input.PolicyReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchDetachTypedLink = (input: BatchDetachTypedLink, context: __SerdeContext): any => {
-  return {
-    ...(input.TypedLinkSpecifier !== undefined &&
-      input.TypedLinkSpecifier !== null && {
-        TypedLinkSpecifier: serializeAws_restJson1TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchGetLinkAttributes = (input: BatchGetLinkAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeNames !== undefined &&
-      input.AttributeNames !== null && {
-        AttributeNames: serializeAws_restJson1AttributeNameList(input.AttributeNames, context),
-      }),
-    ...(input.TypedLinkSpecifier !== undefined &&
-      input.TypedLinkSpecifier !== null && {
-        TypedLinkSpecifier: serializeAws_restJson1TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchGetObjectAttributes = (
-  input: BatchGetObjectAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AttributeNames !== undefined &&
-      input.AttributeNames !== null && {
-        AttributeNames: serializeAws_restJson1AttributeNameList(input.AttributeNames, context),
-      }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-    ...(input.SchemaFacet !== undefined &&
-      input.SchemaFacet !== null && { SchemaFacet: serializeAws_restJson1SchemaFacet(input.SchemaFacet, context) }),
-  };
-};
-
-const serializeAws_restJson1BatchGetObjectInformation = (
-  input: BatchGetObjectInformation,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchListAttachedIndices = (
-  input: BatchListAttachedIndices,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.TargetReference !== undefined &&
-      input.TargetReference !== null && {
-        TargetReference: serializeAws_restJson1ObjectReference(input.TargetReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchListIncomingTypedLinks = (
-  input: BatchListIncomingTypedLinks,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FilterAttributeRanges !== undefined &&
-      input.FilterAttributeRanges !== null && {
-        FilterAttributeRanges: serializeAws_restJson1TypedLinkAttributeRangeList(input.FilterAttributeRanges, context),
-      }),
-    ...(input.FilterTypedLink !== undefined &&
-      input.FilterTypedLink !== null && {
-        FilterTypedLink: serializeAws_restJson1TypedLinkSchemaAndFacetName(input.FilterTypedLink, context),
-      }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchListIndex = (input: BatchListIndex, context: __SerdeContext): any => {
-  return {
-    ...(input.IndexReference !== undefined &&
-      input.IndexReference !== null && {
-        IndexReference: serializeAws_restJson1ObjectReference(input.IndexReference, context),
-      }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.RangesOnIndexedValues !== undefined &&
-      input.RangesOnIndexedValues !== null && {
-        RangesOnIndexedValues: serializeAws_restJson1ObjectAttributeRangeList(input.RangesOnIndexedValues, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchListObjectAttributes = (
-  input: BatchListObjectAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FacetFilter !== undefined &&
-      input.FacetFilter !== null && { FacetFilter: serializeAws_restJson1SchemaFacet(input.FacetFilter, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchListObjectChildren = (
-  input: BatchListObjectChildren,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchListObjectParentPaths = (
-  input: BatchListObjectParentPaths,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchListObjectParents = (input: BatchListObjectParents, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchListObjectPolicies = (
-  input: BatchListObjectPolicies,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchListOutgoingTypedLinks = (
-  input: BatchListOutgoingTypedLinks,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FilterAttributeRanges !== undefined &&
-      input.FilterAttributeRanges !== null && {
-        FilterAttributeRanges: serializeAws_restJson1TypedLinkAttributeRangeList(input.FilterAttributeRanges, context),
-      }),
-    ...(input.FilterTypedLink !== undefined &&
-      input.FilterTypedLink !== null && {
-        FilterTypedLink: serializeAws_restJson1TypedLinkSchemaAndFacetName(input.FilterTypedLink, context),
-      }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchListPolicyAttachments = (
-  input: BatchListPolicyAttachments,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.PolicyReference !== undefined &&
-      input.PolicyReference !== null && {
-        PolicyReference: serializeAws_restJson1ObjectReference(input.PolicyReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchLookupPolicy = (input: BatchLookupPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchReadOperation = (input: BatchReadOperation, context: __SerdeContext): any => {
-  return {
-    ...(input.GetLinkAttributes !== undefined &&
-      input.GetLinkAttributes !== null && {
-        GetLinkAttributes: serializeAws_restJson1BatchGetLinkAttributes(input.GetLinkAttributes, context),
-      }),
-    ...(input.GetObjectAttributes !== undefined &&
-      input.GetObjectAttributes !== null && {
-        GetObjectAttributes: serializeAws_restJson1BatchGetObjectAttributes(input.GetObjectAttributes, context),
-      }),
-    ...(input.GetObjectInformation !== undefined &&
-      input.GetObjectInformation !== null && {
-        GetObjectInformation: serializeAws_restJson1BatchGetObjectInformation(input.GetObjectInformation, context),
-      }),
-    ...(input.ListAttachedIndices !== undefined &&
-      input.ListAttachedIndices !== null && {
-        ListAttachedIndices: serializeAws_restJson1BatchListAttachedIndices(input.ListAttachedIndices, context),
-      }),
-    ...(input.ListIncomingTypedLinks !== undefined &&
-      input.ListIncomingTypedLinks !== null && {
-        ListIncomingTypedLinks: serializeAws_restJson1BatchListIncomingTypedLinks(
-          input.ListIncomingTypedLinks,
-          context
-        ),
-      }),
-    ...(input.ListIndex !== undefined &&
-      input.ListIndex !== null && { ListIndex: serializeAws_restJson1BatchListIndex(input.ListIndex, context) }),
-    ...(input.ListObjectAttributes !== undefined &&
-      input.ListObjectAttributes !== null && {
-        ListObjectAttributes: serializeAws_restJson1BatchListObjectAttributes(input.ListObjectAttributes, context),
-      }),
-    ...(input.ListObjectChildren !== undefined &&
-      input.ListObjectChildren !== null && {
-        ListObjectChildren: serializeAws_restJson1BatchListObjectChildren(input.ListObjectChildren, context),
-      }),
-    ...(input.ListObjectParentPaths !== undefined &&
-      input.ListObjectParentPaths !== null && {
-        ListObjectParentPaths: serializeAws_restJson1BatchListObjectParentPaths(input.ListObjectParentPaths, context),
-      }),
-    ...(input.ListObjectParents !== undefined &&
-      input.ListObjectParents !== null && {
-        ListObjectParents: serializeAws_restJson1BatchListObjectParents(input.ListObjectParents, context),
-      }),
-    ...(input.ListObjectPolicies !== undefined &&
-      input.ListObjectPolicies !== null && {
-        ListObjectPolicies: serializeAws_restJson1BatchListObjectPolicies(input.ListObjectPolicies, context),
-      }),
-    ...(input.ListOutgoingTypedLinks !== undefined &&
-      input.ListOutgoingTypedLinks !== null && {
-        ListOutgoingTypedLinks: serializeAws_restJson1BatchListOutgoingTypedLinks(
-          input.ListOutgoingTypedLinks,
-          context
-        ),
-      }),
-    ...(input.ListPolicyAttachments !== undefined &&
-      input.ListPolicyAttachments !== null && {
-        ListPolicyAttachments: serializeAws_restJson1BatchListPolicyAttachments(input.ListPolicyAttachments, context),
-      }),
-    ...(input.LookupPolicy !== undefined &&
-      input.LookupPolicy !== null && {
-        LookupPolicy: serializeAws_restJson1BatchLookupPolicy(input.LookupPolicy, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchReadOperationList = (input: BatchReadOperation[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FacetAttributeList
+ */
+const se_FacetAttributeList = (input: FacetAttribute[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1BatchReadOperation(entry, context);
+      return se_FacetAttribute(entry, context);
     });
 };
 
-const serializeAws_restJson1BatchRemoveFacetFromObject = (
-  input: BatchRemoveFacetFromObject,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-    ...(input.SchemaFacet !== undefined &&
-      input.SchemaFacet !== null && { SchemaFacet: serializeAws_restJson1SchemaFacet(input.SchemaFacet, context) }),
-  };
+// se_FacetAttributeReference omitted.
+
+/**
+ * serializeAws_restJson1FacetAttributeUpdate
+ */
+const se_FacetAttributeUpdate = (input: FacetAttributeUpdate, context: __SerdeContext): any => {
+  return take(input, {
+    Action: [],
+    Attribute: (_) => se_FacetAttribute(_, context),
+  });
 };
 
-const serializeAws_restJson1BatchUpdateLinkAttributes = (
-  input: BatchUpdateLinkAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AttributeUpdates !== undefined &&
-      input.AttributeUpdates !== null && {
-        AttributeUpdates: serializeAws_restJson1LinkAttributeUpdateList(input.AttributeUpdates, context),
-      }),
-    ...(input.TypedLinkSpecifier !== undefined &&
-      input.TypedLinkSpecifier !== null && {
-        TypedLinkSpecifier: serializeAws_restJson1TypedLinkSpecifier(input.TypedLinkSpecifier, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchUpdateObjectAttributes = (
-  input: BatchUpdateObjectAttributes,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AttributeUpdates !== undefined &&
-      input.AttributeUpdates !== null && {
-        AttributeUpdates: serializeAws_restJson1ObjectAttributeUpdateList(input.AttributeUpdates, context),
-      }),
-    ...(input.ObjectReference !== undefined &&
-      input.ObjectReference !== null && {
-        ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchWriteOperation = (input: BatchWriteOperation, context: __SerdeContext): any => {
-  return {
-    ...(input.AddFacetToObject !== undefined &&
-      input.AddFacetToObject !== null && {
-        AddFacetToObject: serializeAws_restJson1BatchAddFacetToObject(input.AddFacetToObject, context),
-      }),
-    ...(input.AttachObject !== undefined &&
-      input.AttachObject !== null && {
-        AttachObject: serializeAws_restJson1BatchAttachObject(input.AttachObject, context),
-      }),
-    ...(input.AttachPolicy !== undefined &&
-      input.AttachPolicy !== null && {
-        AttachPolicy: serializeAws_restJson1BatchAttachPolicy(input.AttachPolicy, context),
-      }),
-    ...(input.AttachToIndex !== undefined &&
-      input.AttachToIndex !== null && {
-        AttachToIndex: serializeAws_restJson1BatchAttachToIndex(input.AttachToIndex, context),
-      }),
-    ...(input.AttachTypedLink !== undefined &&
-      input.AttachTypedLink !== null && {
-        AttachTypedLink: serializeAws_restJson1BatchAttachTypedLink(input.AttachTypedLink, context),
-      }),
-    ...(input.CreateIndex !== undefined &&
-      input.CreateIndex !== null && {
-        CreateIndex: serializeAws_restJson1BatchCreateIndex(input.CreateIndex, context),
-      }),
-    ...(input.CreateObject !== undefined &&
-      input.CreateObject !== null && {
-        CreateObject: serializeAws_restJson1BatchCreateObject(input.CreateObject, context),
-      }),
-    ...(input.DeleteObject !== undefined &&
-      input.DeleteObject !== null && {
-        DeleteObject: serializeAws_restJson1BatchDeleteObject(input.DeleteObject, context),
-      }),
-    ...(input.DetachFromIndex !== undefined &&
-      input.DetachFromIndex !== null && {
-        DetachFromIndex: serializeAws_restJson1BatchDetachFromIndex(input.DetachFromIndex, context),
-      }),
-    ...(input.DetachObject !== undefined &&
-      input.DetachObject !== null && {
-        DetachObject: serializeAws_restJson1BatchDetachObject(input.DetachObject, context),
-      }),
-    ...(input.DetachPolicy !== undefined &&
-      input.DetachPolicy !== null && {
-        DetachPolicy: serializeAws_restJson1BatchDetachPolicy(input.DetachPolicy, context),
-      }),
-    ...(input.DetachTypedLink !== undefined &&
-      input.DetachTypedLink !== null && {
-        DetachTypedLink: serializeAws_restJson1BatchDetachTypedLink(input.DetachTypedLink, context),
-      }),
-    ...(input.RemoveFacetFromObject !== undefined &&
-      input.RemoveFacetFromObject !== null && {
-        RemoveFacetFromObject: serializeAws_restJson1BatchRemoveFacetFromObject(input.RemoveFacetFromObject, context),
-      }),
-    ...(input.UpdateLinkAttributes !== undefined &&
-      input.UpdateLinkAttributes !== null && {
-        UpdateLinkAttributes: serializeAws_restJson1BatchUpdateLinkAttributes(input.UpdateLinkAttributes, context),
-      }),
-    ...(input.UpdateObjectAttributes !== undefined &&
-      input.UpdateObjectAttributes !== null && {
-        UpdateObjectAttributes: serializeAws_restJson1BatchUpdateObjectAttributes(
-          input.UpdateObjectAttributes,
-          context
-        ),
-      }),
-  };
-};
-
-const serializeAws_restJson1BatchWriteOperationList = (input: BatchWriteOperation[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FacetAttributeUpdateList
+ */
+const se_FacetAttributeUpdateList = (input: FacetAttributeUpdate[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1BatchWriteOperation(entry, context);
+      return se_FacetAttributeUpdate(entry, context);
     });
 };
 
-const serializeAws_restJson1FacetAttribute = (input: FacetAttribute, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeDefinition !== undefined &&
-      input.AttributeDefinition !== null && {
-        AttributeDefinition: serializeAws_restJson1FacetAttributeDefinition(input.AttributeDefinition, context),
-      }),
-    ...(input.AttributeReference !== undefined &&
-      input.AttributeReference !== null && {
-        AttributeReference: serializeAws_restJson1FacetAttributeReference(input.AttributeReference, context),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.RequiredBehavior !== undefined &&
-      input.RequiredBehavior !== null && { RequiredBehavior: input.RequiredBehavior }),
-  };
+/**
+ * serializeAws_restJson1LinkAttributeAction
+ */
+const se_LinkAttributeAction = (input: LinkAttributeAction, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeActionType: [],
+    AttributeUpdateValue: (_) => se_TypedAttributeValue(_, context),
+  });
 };
 
-const serializeAws_restJson1FacetAttributeDefinition = (
-  input: FacetAttributeDefinition,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DefaultValue !== undefined &&
-      input.DefaultValue !== null && {
-        DefaultValue: serializeAws_restJson1TypedAttributeValue(input.DefaultValue, context),
-      }),
-    ...(input.IsImmutable !== undefined && input.IsImmutable !== null && { IsImmutable: input.IsImmutable }),
-    ...(input.Rules !== undefined &&
-      input.Rules !== null && { Rules: serializeAws_restJson1RuleMap(input.Rules, context) }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-  };
+/**
+ * serializeAws_restJson1LinkAttributeUpdate
+ */
+const se_LinkAttributeUpdate = (input: LinkAttributeUpdate, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeAction: (_) => se_LinkAttributeAction(_, context),
+    AttributeKey: _json,
+  });
 };
 
-const serializeAws_restJson1FacetAttributeList = (input: FacetAttribute[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LinkAttributeUpdateList
+ */
+const se_LinkAttributeUpdateList = (input: LinkAttributeUpdate[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1FacetAttribute(entry, context);
+      return se_LinkAttributeUpdate(entry, context);
     });
 };
 
-const serializeAws_restJson1FacetAttributeReference = (
-  input: FacetAttributeReference,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.TargetAttributeName !== undefined &&
-      input.TargetAttributeName !== null && { TargetAttributeName: input.TargetAttributeName }),
-    ...(input.TargetFacetName !== undefined &&
-      input.TargetFacetName !== null && { TargetFacetName: input.TargetFacetName }),
-  };
+/**
+ * serializeAws_restJson1ObjectAttributeAction
+ */
+const se_ObjectAttributeAction = (input: ObjectAttributeAction, context: __SerdeContext): any => {
+  return take(input, {
+    ObjectAttributeActionType: [],
+    ObjectAttributeUpdateValue: (_) => se_TypedAttributeValue(_, context),
+  });
 };
 
-const serializeAws_restJson1FacetAttributeUpdate = (input: FacetAttributeUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
-    ...(input.Attribute !== undefined &&
-      input.Attribute !== null && { Attribute: serializeAws_restJson1FacetAttribute(input.Attribute, context) }),
-  };
+/**
+ * serializeAws_restJson1ObjectAttributeRange
+ */
+const se_ObjectAttributeRange = (input: ObjectAttributeRange, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeKey: _json,
+    Range: (_) => se_TypedAttributeValueRange(_, context),
+  });
 };
 
-const serializeAws_restJson1FacetAttributeUpdateList = (
-  input: FacetAttributeUpdate[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ObjectAttributeRangeList
+ */
+const se_ObjectAttributeRangeList = (input: ObjectAttributeRange[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1FacetAttributeUpdate(entry, context);
+      return se_ObjectAttributeRange(entry, context);
     });
 };
 
-const serializeAws_restJson1LinkAttributeAction = (input: LinkAttributeAction, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeActionType !== undefined &&
-      input.AttributeActionType !== null && { AttributeActionType: input.AttributeActionType }),
-    ...(input.AttributeUpdateValue !== undefined &&
-      input.AttributeUpdateValue !== null && {
-        AttributeUpdateValue: serializeAws_restJson1TypedAttributeValue(input.AttributeUpdateValue, context),
-      }),
-  };
+/**
+ * serializeAws_restJson1ObjectAttributeUpdate
+ */
+const se_ObjectAttributeUpdate = (input: ObjectAttributeUpdate, context: __SerdeContext): any => {
+  return take(input, {
+    ObjectAttributeAction: (_) => se_ObjectAttributeAction(_, context),
+    ObjectAttributeKey: _json,
+  });
 };
 
-const serializeAws_restJson1LinkAttributeUpdate = (input: LinkAttributeUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeAction !== undefined &&
-      input.AttributeAction !== null && {
-        AttributeAction: serializeAws_restJson1LinkAttributeAction(input.AttributeAction, context),
-      }),
-    ...(input.AttributeKey !== undefined &&
-      input.AttributeKey !== null && { AttributeKey: serializeAws_restJson1AttributeKey(input.AttributeKey, context) }),
-  };
-};
-
-const serializeAws_restJson1LinkAttributeUpdateList = (input: LinkAttributeUpdate[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ObjectAttributeUpdateList
+ */
+const se_ObjectAttributeUpdateList = (input: ObjectAttributeUpdate[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1LinkAttributeUpdate(entry, context);
+      return se_ObjectAttributeUpdate(entry, context);
     });
 };
 
-const serializeAws_restJson1ObjectAttributeAction = (input: ObjectAttributeAction, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectAttributeActionType !== undefined &&
-      input.ObjectAttributeActionType !== null && { ObjectAttributeActionType: input.ObjectAttributeActionType }),
-    ...(input.ObjectAttributeUpdateValue !== undefined &&
-      input.ObjectAttributeUpdateValue !== null && {
-        ObjectAttributeUpdateValue: serializeAws_restJson1TypedAttributeValue(
-          input.ObjectAttributeUpdateValue,
-          context
-        ),
-      }),
-  };
-};
+// se_ObjectReference omitted.
 
-const serializeAws_restJson1ObjectAttributeRange = (input: ObjectAttributeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeKey !== undefined &&
-      input.AttributeKey !== null && { AttributeKey: serializeAws_restJson1AttributeKey(input.AttributeKey, context) }),
-    ...(input.Range !== undefined &&
-      input.Range !== null && { Range: serializeAws_restJson1TypedAttributeValueRange(input.Range, context) }),
-  };
-};
+// se_Rule omitted.
 
-const serializeAws_restJson1ObjectAttributeRangeList = (
-  input: ObjectAttributeRange[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1ObjectAttributeRange(entry, context);
-    });
-};
+// se_RuleMap omitted.
 
-const serializeAws_restJson1ObjectAttributeUpdate = (input: ObjectAttributeUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.ObjectAttributeAction !== undefined &&
-      input.ObjectAttributeAction !== null && {
-        ObjectAttributeAction: serializeAws_restJson1ObjectAttributeAction(input.ObjectAttributeAction, context),
-      }),
-    ...(input.ObjectAttributeKey !== undefined &&
-      input.ObjectAttributeKey !== null && {
-        ObjectAttributeKey: serializeAws_restJson1AttributeKey(input.ObjectAttributeKey, context),
-      }),
-  };
-};
+// se_RuleParameterMap omitted.
 
-const serializeAws_restJson1ObjectAttributeUpdateList = (
-  input: ObjectAttributeUpdate[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1ObjectAttributeUpdate(entry, context);
-    });
-};
+// se_SchemaFacet omitted.
 
-const serializeAws_restJson1ObjectReference = (input: ObjectReference, context: __SerdeContext): any => {
-  return {
-    ...(input.Selector !== undefined && input.Selector !== null && { Selector: input.Selector }),
-  };
-};
+// se_SchemaFacetList omitted.
 
-const serializeAws_restJson1Rule = (input: Rule, context: __SerdeContext): any => {
-  return {
-    ...(input.Parameters !== undefined &&
-      input.Parameters !== null && { Parameters: serializeAws_restJson1RuleParameterMap(input.Parameters, context) }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-  };
-};
+// se_Tag omitted.
 
-const serializeAws_restJson1RuleMap = (input: { [key: string]: Rule }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Rule(value, context),
-    };
-  }, {});
-};
+// se_TagKeyList omitted.
 
-const serializeAws_restJson1RuleParameterMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
+// se_TagList omitted.
 
-const serializeAws_restJson1SchemaFacet = (input: SchemaFacet, context: __SerdeContext): any => {
-  return {
-    ...(input.FacetName !== undefined && input.FacetName !== null && { FacetName: input.FacetName }),
-    ...(input.SchemaArn !== undefined && input.SchemaArn !== null && { SchemaArn: input.SchemaArn }),
-  };
-};
-
-const serializeAws_restJson1SchemaFacetList = (input: SchemaFacet[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1SchemaFacet(entry, context);
-    });
-};
-
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Tag(entry, context);
-    });
-};
-
-const serializeAws_restJson1TypedAttributeValue = (input: TypedAttributeValue, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TypedAttributeValue
+ */
+const se_TypedAttributeValue = (input: TypedAttributeValue, context: __SerdeContext): any => {
   return TypedAttributeValue.visit(input, {
     BinaryValue: (value) => ({ BinaryValue: context.base64Encoder(value) }),
     BooleanValue: (value) => ({ BooleanValue: value }),
@@ -8319,1067 +8173,506 @@ const serializeAws_restJson1TypedAttributeValue = (input: TypedAttributeValue, c
   });
 };
 
-const serializeAws_restJson1TypedAttributeValueRange = (
-  input: TypedAttributeValueRange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EndMode !== undefined && input.EndMode !== null && { EndMode: input.EndMode }),
-    ...(input.EndValue !== undefined &&
-      input.EndValue !== null && { EndValue: serializeAws_restJson1TypedAttributeValue(input.EndValue, context) }),
-    ...(input.StartMode !== undefined && input.StartMode !== null && { StartMode: input.StartMode }),
-    ...(input.StartValue !== undefined &&
-      input.StartValue !== null && {
-        StartValue: serializeAws_restJson1TypedAttributeValue(input.StartValue, context),
-      }),
-  };
+/**
+ * serializeAws_restJson1TypedAttributeValueRange
+ */
+const se_TypedAttributeValueRange = (input: TypedAttributeValueRange, context: __SerdeContext): any => {
+  return take(input, {
+    EndMode: [],
+    EndValue: (_) => se_TypedAttributeValue(_, context),
+    StartMode: [],
+    StartValue: (_) => se_TypedAttributeValue(_, context),
+  });
 };
 
-const serializeAws_restJson1TypedLinkAttributeDefinition = (
-  input: TypedLinkAttributeDefinition,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DefaultValue !== undefined &&
-      input.DefaultValue !== null && {
-        DefaultValue: serializeAws_restJson1TypedAttributeValue(input.DefaultValue, context),
-      }),
-    ...(input.IsImmutable !== undefined && input.IsImmutable !== null && { IsImmutable: input.IsImmutable }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.RequiredBehavior !== undefined &&
-      input.RequiredBehavior !== null && { RequiredBehavior: input.RequiredBehavior }),
-    ...(input.Rules !== undefined &&
-      input.Rules !== null && { Rules: serializeAws_restJson1RuleMap(input.Rules, context) }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-  };
+/**
+ * serializeAws_restJson1TypedLinkAttributeDefinition
+ */
+const se_TypedLinkAttributeDefinition = (input: TypedLinkAttributeDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    DefaultValue: (_) => se_TypedAttributeValue(_, context),
+    IsImmutable: [],
+    Name: [],
+    RequiredBehavior: [],
+    Rules: _json,
+    Type: [],
+  });
 };
 
-const serializeAws_restJson1TypedLinkAttributeDefinitionList = (
-  input: TypedLinkAttributeDefinition[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1TypedLinkAttributeDefinitionList
+ */
+const se_TypedLinkAttributeDefinitionList = (input: TypedLinkAttributeDefinition[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1TypedLinkAttributeDefinition(entry, context);
+      return se_TypedLinkAttributeDefinition(entry, context);
     });
 };
 
-const serializeAws_restJson1TypedLinkAttributeRange = (
-  input: TypedLinkAttributeRange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AttributeName !== undefined && input.AttributeName !== null && { AttributeName: input.AttributeName }),
-    ...(input.Range !== undefined &&
-      input.Range !== null && { Range: serializeAws_restJson1TypedAttributeValueRange(input.Range, context) }),
-  };
+/**
+ * serializeAws_restJson1TypedLinkAttributeRange
+ */
+const se_TypedLinkAttributeRange = (input: TypedLinkAttributeRange, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeName: [],
+    Range: (_) => se_TypedAttributeValueRange(_, context),
+  });
 };
 
-const serializeAws_restJson1TypedLinkAttributeRangeList = (
-  input: TypedLinkAttributeRange[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1TypedLinkAttributeRangeList
+ */
+const se_TypedLinkAttributeRangeList = (input: TypedLinkAttributeRange[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1TypedLinkAttributeRange(entry, context);
+      return se_TypedLinkAttributeRange(entry, context);
     });
 };
 
-const serializeAws_restJson1TypedLinkFacet = (input: TypedLinkFacet, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes !== undefined &&
-      input.Attributes !== null && {
-        Attributes: serializeAws_restJson1TypedLinkAttributeDefinitionList(input.Attributes, context),
-      }),
-    ...(input.IdentityAttributeOrder !== undefined &&
-      input.IdentityAttributeOrder !== null && {
-        IdentityAttributeOrder: serializeAws_restJson1AttributeNameList(input.IdentityAttributeOrder, context),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-  };
+/**
+ * serializeAws_restJson1TypedLinkFacet
+ */
+const se_TypedLinkFacet = (input: TypedLinkFacet, context: __SerdeContext): any => {
+  return take(input, {
+    Attributes: (_) => se_TypedLinkAttributeDefinitionList(_, context),
+    IdentityAttributeOrder: _json,
+    Name: [],
+  });
 };
 
-const serializeAws_restJson1TypedLinkFacetAttributeUpdate = (
-  input: TypedLinkFacetAttributeUpdate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
-    ...(input.Attribute !== undefined &&
-      input.Attribute !== null && {
-        Attribute: serializeAws_restJson1TypedLinkAttributeDefinition(input.Attribute, context),
-      }),
-  };
+/**
+ * serializeAws_restJson1TypedLinkFacetAttributeUpdate
+ */
+const se_TypedLinkFacetAttributeUpdate = (input: TypedLinkFacetAttributeUpdate, context: __SerdeContext): any => {
+  return take(input, {
+    Action: [],
+    Attribute: (_) => se_TypedLinkAttributeDefinition(_, context),
+  });
 };
 
-const serializeAws_restJson1TypedLinkFacetAttributeUpdateList = (
-  input: TypedLinkFacetAttributeUpdate[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1TypedLinkFacetAttributeUpdateList
+ */
+const se_TypedLinkFacetAttributeUpdateList = (input: TypedLinkFacetAttributeUpdate[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1TypedLinkFacetAttributeUpdate(entry, context);
+      return se_TypedLinkFacetAttributeUpdate(entry, context);
     });
 };
 
-const serializeAws_restJson1TypedLinkSchemaAndFacetName = (
-  input: TypedLinkSchemaAndFacetName,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SchemaArn !== undefined && input.SchemaArn !== null && { SchemaArn: input.SchemaArn }),
-    ...(input.TypedLinkName !== undefined && input.TypedLinkName !== null && { TypedLinkName: input.TypedLinkName }),
-  };
+// se_TypedLinkSchemaAndFacetName omitted.
+
+/**
+ * serializeAws_restJson1TypedLinkSpecifier
+ */
+const se_TypedLinkSpecifier = (input: TypedLinkSpecifier, context: __SerdeContext): any => {
+  return take(input, {
+    IdentityAttributeValues: (_) => se_AttributeNameAndValueList(_, context),
+    SourceObjectReference: _json,
+    TargetObjectReference: _json,
+    TypedLinkFacet: _json,
+  });
 };
 
-const serializeAws_restJson1TypedLinkSpecifier = (input: TypedLinkSpecifier, context: __SerdeContext): any => {
-  return {
-    ...(input.IdentityAttributeValues !== undefined &&
-      input.IdentityAttributeValues !== null && {
-        IdentityAttributeValues: serializeAws_restJson1AttributeNameAndValueList(
-          input.IdentityAttributeValues,
-          context
-        ),
-      }),
-    ...(input.SourceObjectReference !== undefined &&
-      input.SourceObjectReference !== null && {
-        SourceObjectReference: serializeAws_restJson1ObjectReference(input.SourceObjectReference, context),
-      }),
-    ...(input.TargetObjectReference !== undefined &&
-      input.TargetObjectReference !== null && {
-        TargetObjectReference: serializeAws_restJson1ObjectReference(input.TargetObjectReference, context),
-      }),
-    ...(input.TypedLinkFacet !== undefined &&
-      input.TypedLinkFacet !== null && {
-        TypedLinkFacet: serializeAws_restJson1TypedLinkSchemaAndFacetName(input.TypedLinkFacet, context),
-      }),
-  };
+// de_Arns omitted.
+
+// de_AttributeKey omitted.
+
+/**
+ * deserializeAws_restJson1AttributeKeyAndValue
+ */
+const de_AttributeKeyAndValue = (output: any, context: __SerdeContext): AttributeKeyAndValue => {
+  return take(output, {
+    Key: _json,
+    Value: (_: any) => de_TypedAttributeValue(__expectUnion(_), context),
+  }) as any;
 };
 
-const deserializeAws_restJson1Arns = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1AttributeKeyAndValueList
+ */
+const de_AttributeKeyAndValueList = (output: any, context: __SerdeContext): AttributeKeyAndValue[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_AttributeKeyAndValue(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AttributeKey = (output: any, context: __SerdeContext): AttributeKey => {
-  return {
-    FacetName: __expectString(output.FacetName),
-    Name: __expectString(output.Name),
-    SchemaArn: __expectString(output.SchemaArn),
-  } as any;
+/**
+ * deserializeAws_restJson1AttributeNameAndValue
+ */
+const de_AttributeNameAndValue = (output: any, context: __SerdeContext): AttributeNameAndValue => {
+  return take(output, {
+    AttributeName: __expectString,
+    Value: (_: any) => de_TypedAttributeValue(__expectUnion(_), context),
+  }) as any;
 };
 
-const deserializeAws_restJson1AttributeKeyAndValue = (output: any, context: __SerdeContext): AttributeKeyAndValue => {
-  return {
-    Key:
-      output.Key !== undefined && output.Key !== null
-        ? deserializeAws_restJson1AttributeKey(output.Key, context)
-        : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? deserializeAws_restJson1TypedAttributeValue(__expectUnion(output.Value), context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AttributeKeyAndValueList = (
-  output: any,
-  context: __SerdeContext
-): AttributeKeyAndValue[] => {
+/**
+ * deserializeAws_restJson1AttributeNameAndValueList
+ */
+const de_AttributeNameAndValueList = (output: any, context: __SerdeContext): AttributeNameAndValue[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AttributeKeyAndValue(entry, context);
+      return de_AttributeNameAndValue(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AttributeNameAndValue = (output: any, context: __SerdeContext): AttributeNameAndValue => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? deserializeAws_restJson1TypedAttributeValue(__expectUnion(output.Value), context)
-        : undefined,
-  } as any;
+// de_AttributeNameList omitted.
+
+// de_BatchAddFacetToObjectResponse omitted.
+
+// de_BatchAttachObjectResponse omitted.
+
+// de_BatchAttachPolicyResponse omitted.
+
+// de_BatchAttachToIndexResponse omitted.
+
+/**
+ * deserializeAws_restJson1BatchAttachTypedLinkResponse
+ */
+const de_BatchAttachTypedLinkResponse = (output: any, context: __SerdeContext): BatchAttachTypedLinkResponse => {
+  return take(output, {
+    TypedLinkSpecifier: (_: any) => de_TypedLinkSpecifier(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1AttributeNameAndValueList = (
-  output: any,
-  context: __SerdeContext
-): AttributeNameAndValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AttributeNameAndValue(entry, context);
-    });
-  return retVal;
+// de_BatchCreateIndexResponse omitted.
+
+// de_BatchCreateObjectResponse omitted.
+
+// de_BatchDeleteObjectResponse omitted.
+
+// de_BatchDetachFromIndexResponse omitted.
+
+// de_BatchDetachObjectResponse omitted.
+
+// de_BatchDetachPolicyResponse omitted.
+
+// de_BatchDetachTypedLinkResponse omitted.
+
+/**
+ * deserializeAws_restJson1BatchGetLinkAttributesResponse
+ */
+const de_BatchGetLinkAttributesResponse = (output: any, context: __SerdeContext): BatchGetLinkAttributesResponse => {
+  return take(output, {
+    Attributes: (_: any) => de_AttributeKeyAndValueList(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1AttributeNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1BatchAddFacetToObjectResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchAddFacetToObjectResponse => {
-  return {} as any;
-};
-
-const deserializeAws_restJson1BatchAttachObjectResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchAttachObjectResponse => {
-  return {
-    attachedObjectIdentifier: __expectString(output.attachedObjectIdentifier),
-  } as any;
-};
-
-const deserializeAws_restJson1BatchAttachPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchAttachPolicyResponse => {
-  return {} as any;
-};
-
-const deserializeAws_restJson1BatchAttachToIndexResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchAttachToIndexResponse => {
-  return {
-    AttachedObjectIdentifier: __expectString(output.AttachedObjectIdentifier),
-  } as any;
-};
-
-const deserializeAws_restJson1BatchAttachTypedLinkResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchAttachTypedLinkResponse => {
-  return {
-    TypedLinkSpecifier:
-      output.TypedLinkSpecifier !== undefined && output.TypedLinkSpecifier !== null
-        ? deserializeAws_restJson1TypedLinkSpecifier(output.TypedLinkSpecifier, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BatchCreateIndexResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchCreateIndexResponse => {
-  return {
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-  } as any;
-};
-
-const deserializeAws_restJson1BatchCreateObjectResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchCreateObjectResponse => {
-  return {
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-  } as any;
-};
-
-const deserializeAws_restJson1BatchDeleteObjectResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchDeleteObjectResponse => {
-  return {} as any;
-};
-
-const deserializeAws_restJson1BatchDetachFromIndexResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchDetachFromIndexResponse => {
-  return {
-    DetachedObjectIdentifier: __expectString(output.DetachedObjectIdentifier),
-  } as any;
-};
-
-const deserializeAws_restJson1BatchDetachObjectResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchDetachObjectResponse => {
-  return {
-    detachedObjectIdentifier: __expectString(output.detachedObjectIdentifier),
-  } as any;
-};
-
-const deserializeAws_restJson1BatchDetachPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchDetachPolicyResponse => {
-  return {} as any;
-};
-
-const deserializeAws_restJson1BatchDetachTypedLinkResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchDetachTypedLinkResponse => {
-  return {} as any;
-};
-
-const deserializeAws_restJson1BatchGetLinkAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchGetLinkAttributesResponse => {
-  return {
-    Attributes:
-      output.Attributes !== undefined && output.Attributes !== null
-        ? deserializeAws_restJson1AttributeKeyAndValueList(output.Attributes, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BatchGetObjectAttributesResponse = (
+/**
+ * deserializeAws_restJson1BatchGetObjectAttributesResponse
+ */
+const de_BatchGetObjectAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): BatchGetObjectAttributesResponse => {
-  return {
-    Attributes:
-      output.Attributes !== undefined && output.Attributes !== null
-        ? deserializeAws_restJson1AttributeKeyAndValueList(output.Attributes, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    Attributes: (_: any) => de_AttributeKeyAndValueList(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1BatchGetObjectInformationResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchGetObjectInformationResponse => {
-  return {
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-    SchemaFacets:
-      output.SchemaFacets !== undefined && output.SchemaFacets !== null
-        ? deserializeAws_restJson1SchemaFacetList(output.SchemaFacets, context)
-        : undefined,
-  } as any;
-};
+// de_BatchGetObjectInformationResponse omitted.
 
-const deserializeAws_restJson1BatchListAttachedIndicesResponse = (
+/**
+ * deserializeAws_restJson1BatchListAttachedIndicesResponse
+ */
+const de_BatchListAttachedIndicesResponse = (
   output: any,
   context: __SerdeContext
 ): BatchListAttachedIndicesResponse => {
-  return {
-    IndexAttachments:
-      output.IndexAttachments !== undefined && output.IndexAttachments !== null
-        ? deserializeAws_restJson1IndexAttachmentList(output.IndexAttachments, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    IndexAttachments: (_: any) => de_IndexAttachmentList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BatchListIncomingTypedLinksResponse = (
+/**
+ * deserializeAws_restJson1BatchListIncomingTypedLinksResponse
+ */
+const de_BatchListIncomingTypedLinksResponse = (
   output: any,
   context: __SerdeContext
 ): BatchListIncomingTypedLinksResponse => {
-  return {
-    LinkSpecifiers:
-      output.LinkSpecifiers !== undefined && output.LinkSpecifiers !== null
-        ? deserializeAws_restJson1TypedLinkSpecifierList(output.LinkSpecifiers, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    LinkSpecifiers: (_: any) => de_TypedLinkSpecifierList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BatchListIndexResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchListIndexResponse => {
-  return {
-    IndexAttachments:
-      output.IndexAttachments !== undefined && output.IndexAttachments !== null
-        ? deserializeAws_restJson1IndexAttachmentList(output.IndexAttachments, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+/**
+ * deserializeAws_restJson1BatchListIndexResponse
+ */
+const de_BatchListIndexResponse = (output: any, context: __SerdeContext): BatchListIndexResponse => {
+  return take(output, {
+    IndexAttachments: (_: any) => de_IndexAttachmentList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BatchListObjectAttributesResponse = (
+/**
+ * deserializeAws_restJson1BatchListObjectAttributesResponse
+ */
+const de_BatchListObjectAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): BatchListObjectAttributesResponse => {
-  return {
-    Attributes:
-      output.Attributes !== undefined && output.Attributes !== null
-        ? deserializeAws_restJson1AttributeKeyAndValueList(output.Attributes, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Attributes: (_: any) => de_AttributeKeyAndValueList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BatchListObjectChildrenResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchListObjectChildrenResponse => {
-  return {
-    Children:
-      output.Children !== undefined && output.Children !== null
-        ? deserializeAws_restJson1LinkNameToObjectIdentifierMap(output.Children, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_BatchListObjectChildrenResponse omitted.
 
-const deserializeAws_restJson1BatchListObjectParentPathsResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchListObjectParentPathsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PathToObjectIdentifiersList:
-      output.PathToObjectIdentifiersList !== undefined && output.PathToObjectIdentifiersList !== null
-        ? deserializeAws_restJson1PathToObjectIdentifiersList(output.PathToObjectIdentifiersList, context)
-        : undefined,
-  } as any;
-};
+// de_BatchListObjectParentPathsResponse omitted.
 
-const deserializeAws_restJson1BatchListObjectParentsResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchListObjectParentsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ParentLinks:
-      output.ParentLinks !== undefined && output.ParentLinks !== null
-        ? deserializeAws_restJson1ObjectIdentifierAndLinkNameList(output.ParentLinks, context)
-        : undefined,
-  } as any;
-};
+// de_BatchListObjectParentsResponse omitted.
 
-const deserializeAws_restJson1BatchListObjectPoliciesResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchListObjectPoliciesResponse => {
-  return {
-    AttachedPolicyIds:
-      output.AttachedPolicyIds !== undefined && output.AttachedPolicyIds !== null
-        ? deserializeAws_restJson1ObjectIdentifierList(output.AttachedPolicyIds, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_BatchListObjectPoliciesResponse omitted.
 
-const deserializeAws_restJson1BatchListOutgoingTypedLinksResponse = (
+/**
+ * deserializeAws_restJson1BatchListOutgoingTypedLinksResponse
+ */
+const de_BatchListOutgoingTypedLinksResponse = (
   output: any,
   context: __SerdeContext
 ): BatchListOutgoingTypedLinksResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    TypedLinkSpecifiers:
-      output.TypedLinkSpecifiers !== undefined && output.TypedLinkSpecifiers !== null
-        ? deserializeAws_restJson1TypedLinkSpecifierList(output.TypedLinkSpecifiers, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    TypedLinkSpecifiers: (_: any) => de_TypedLinkSpecifierList(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1BatchListPolicyAttachmentsResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchListPolicyAttachmentsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ObjectIdentifiers:
-      output.ObjectIdentifiers !== undefined && output.ObjectIdentifiers !== null
-        ? deserializeAws_restJson1ObjectIdentifierList(output.ObjectIdentifiers, context)
-        : undefined,
-  } as any;
+// de_BatchListPolicyAttachmentsResponse omitted.
+
+// de_BatchLookupPolicyResponse omitted.
+
+// de_BatchReadException omitted.
+
+/**
+ * deserializeAws_restJson1BatchReadOperationResponse
+ */
+const de_BatchReadOperationResponse = (output: any, context: __SerdeContext): BatchReadOperationResponse => {
+  return take(output, {
+    ExceptionResponse: _json,
+    SuccessfulResponse: (_: any) => de_BatchReadSuccessfulResponse(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1BatchLookupPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchLookupPolicyResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PolicyToPathList:
-      output.PolicyToPathList !== undefined && output.PolicyToPathList !== null
-        ? deserializeAws_restJson1PolicyToPathList(output.PolicyToPathList, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BatchReadException = (output: any, context: __SerdeContext): BatchReadException => {
-  return {
-    Message: __expectString(output.Message),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1BatchReadOperationResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchReadOperationResponse => {
-  return {
-    ExceptionResponse:
-      output.ExceptionResponse !== undefined && output.ExceptionResponse !== null
-        ? deserializeAws_restJson1BatchReadException(output.ExceptionResponse, context)
-        : undefined,
-    SuccessfulResponse:
-      output.SuccessfulResponse !== undefined && output.SuccessfulResponse !== null
-        ? deserializeAws_restJson1BatchReadSuccessfulResponse(output.SuccessfulResponse, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BatchReadOperationResponseList = (
-  output: any,
-  context: __SerdeContext
-): BatchReadOperationResponse[] => {
+/**
+ * deserializeAws_restJson1BatchReadOperationResponseList
+ */
+const de_BatchReadOperationResponseList = (output: any, context: __SerdeContext): BatchReadOperationResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BatchReadOperationResponse(entry, context);
+      return de_BatchReadOperationResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BatchReadSuccessfulResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchReadSuccessfulResponse => {
-  return {
-    GetLinkAttributes:
-      output.GetLinkAttributes !== undefined && output.GetLinkAttributes !== null
-        ? deserializeAws_restJson1BatchGetLinkAttributesResponse(output.GetLinkAttributes, context)
-        : undefined,
-    GetObjectAttributes:
-      output.GetObjectAttributes !== undefined && output.GetObjectAttributes !== null
-        ? deserializeAws_restJson1BatchGetObjectAttributesResponse(output.GetObjectAttributes, context)
-        : undefined,
-    GetObjectInformation:
-      output.GetObjectInformation !== undefined && output.GetObjectInformation !== null
-        ? deserializeAws_restJson1BatchGetObjectInformationResponse(output.GetObjectInformation, context)
-        : undefined,
-    ListAttachedIndices:
-      output.ListAttachedIndices !== undefined && output.ListAttachedIndices !== null
-        ? deserializeAws_restJson1BatchListAttachedIndicesResponse(output.ListAttachedIndices, context)
-        : undefined,
-    ListIncomingTypedLinks:
-      output.ListIncomingTypedLinks !== undefined && output.ListIncomingTypedLinks !== null
-        ? deserializeAws_restJson1BatchListIncomingTypedLinksResponse(output.ListIncomingTypedLinks, context)
-        : undefined,
-    ListIndex:
-      output.ListIndex !== undefined && output.ListIndex !== null
-        ? deserializeAws_restJson1BatchListIndexResponse(output.ListIndex, context)
-        : undefined,
-    ListObjectAttributes:
-      output.ListObjectAttributes !== undefined && output.ListObjectAttributes !== null
-        ? deserializeAws_restJson1BatchListObjectAttributesResponse(output.ListObjectAttributes, context)
-        : undefined,
-    ListObjectChildren:
-      output.ListObjectChildren !== undefined && output.ListObjectChildren !== null
-        ? deserializeAws_restJson1BatchListObjectChildrenResponse(output.ListObjectChildren, context)
-        : undefined,
-    ListObjectParentPaths:
-      output.ListObjectParentPaths !== undefined && output.ListObjectParentPaths !== null
-        ? deserializeAws_restJson1BatchListObjectParentPathsResponse(output.ListObjectParentPaths, context)
-        : undefined,
-    ListObjectParents:
-      output.ListObjectParents !== undefined && output.ListObjectParents !== null
-        ? deserializeAws_restJson1BatchListObjectParentsResponse(output.ListObjectParents, context)
-        : undefined,
-    ListObjectPolicies:
-      output.ListObjectPolicies !== undefined && output.ListObjectPolicies !== null
-        ? deserializeAws_restJson1BatchListObjectPoliciesResponse(output.ListObjectPolicies, context)
-        : undefined,
-    ListOutgoingTypedLinks:
-      output.ListOutgoingTypedLinks !== undefined && output.ListOutgoingTypedLinks !== null
-        ? deserializeAws_restJson1BatchListOutgoingTypedLinksResponse(output.ListOutgoingTypedLinks, context)
-        : undefined,
-    ListPolicyAttachments:
-      output.ListPolicyAttachments !== undefined && output.ListPolicyAttachments !== null
-        ? deserializeAws_restJson1BatchListPolicyAttachmentsResponse(output.ListPolicyAttachments, context)
-        : undefined,
-    LookupPolicy:
-      output.LookupPolicy !== undefined && output.LookupPolicy !== null
-        ? deserializeAws_restJson1BatchLookupPolicyResponse(output.LookupPolicy, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1BatchReadSuccessfulResponse
+ */
+const de_BatchReadSuccessfulResponse = (output: any, context: __SerdeContext): BatchReadSuccessfulResponse => {
+  return take(output, {
+    GetLinkAttributes: (_: any) => de_BatchGetLinkAttributesResponse(_, context),
+    GetObjectAttributes: (_: any) => de_BatchGetObjectAttributesResponse(_, context),
+    GetObjectInformation: _json,
+    ListAttachedIndices: (_: any) => de_BatchListAttachedIndicesResponse(_, context),
+    ListIncomingTypedLinks: (_: any) => de_BatchListIncomingTypedLinksResponse(_, context),
+    ListIndex: (_: any) => de_BatchListIndexResponse(_, context),
+    ListObjectAttributes: (_: any) => de_BatchListObjectAttributesResponse(_, context),
+    ListObjectChildren: _json,
+    ListObjectParentPaths: _json,
+    ListObjectParents: _json,
+    ListObjectPolicies: _json,
+    ListOutgoingTypedLinks: (_: any) => de_BatchListOutgoingTypedLinksResponse(_, context),
+    ListPolicyAttachments: _json,
+    LookupPolicy: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1BatchRemoveFacetFromObjectResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchRemoveFacetFromObjectResponse => {
-  return {} as any;
+// de_BatchRemoveFacetFromObjectResponse omitted.
+
+// de_BatchUpdateLinkAttributesResponse omitted.
+
+// de_BatchUpdateObjectAttributesResponse omitted.
+
+/**
+ * deserializeAws_restJson1BatchWriteOperationResponse
+ */
+const de_BatchWriteOperationResponse = (output: any, context: __SerdeContext): BatchWriteOperationResponse => {
+  return take(output, {
+    AddFacetToObject: _json,
+    AttachObject: _json,
+    AttachPolicy: _json,
+    AttachToIndex: _json,
+    AttachTypedLink: (_: any) => de_BatchAttachTypedLinkResponse(_, context),
+    CreateIndex: _json,
+    CreateObject: _json,
+    DeleteObject: _json,
+    DetachFromIndex: _json,
+    DetachObject: _json,
+    DetachPolicy: _json,
+    DetachTypedLink: _json,
+    RemoveFacetFromObject: _json,
+    UpdateLinkAttributes: _json,
+    UpdateObjectAttributes: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1BatchUpdateLinkAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchUpdateLinkAttributesResponse => {
-  return {} as any;
-};
-
-const deserializeAws_restJson1BatchUpdateObjectAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchUpdateObjectAttributesResponse => {
-  return {
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-  } as any;
-};
-
-const deserializeAws_restJson1BatchWriteOperationResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchWriteOperationResponse => {
-  return {
-    AddFacetToObject:
-      output.AddFacetToObject !== undefined && output.AddFacetToObject !== null
-        ? deserializeAws_restJson1BatchAddFacetToObjectResponse(output.AddFacetToObject, context)
-        : undefined,
-    AttachObject:
-      output.AttachObject !== undefined && output.AttachObject !== null
-        ? deserializeAws_restJson1BatchAttachObjectResponse(output.AttachObject, context)
-        : undefined,
-    AttachPolicy:
-      output.AttachPolicy !== undefined && output.AttachPolicy !== null
-        ? deserializeAws_restJson1BatchAttachPolicyResponse(output.AttachPolicy, context)
-        : undefined,
-    AttachToIndex:
-      output.AttachToIndex !== undefined && output.AttachToIndex !== null
-        ? deserializeAws_restJson1BatchAttachToIndexResponse(output.AttachToIndex, context)
-        : undefined,
-    AttachTypedLink:
-      output.AttachTypedLink !== undefined && output.AttachTypedLink !== null
-        ? deserializeAws_restJson1BatchAttachTypedLinkResponse(output.AttachTypedLink, context)
-        : undefined,
-    CreateIndex:
-      output.CreateIndex !== undefined && output.CreateIndex !== null
-        ? deserializeAws_restJson1BatchCreateIndexResponse(output.CreateIndex, context)
-        : undefined,
-    CreateObject:
-      output.CreateObject !== undefined && output.CreateObject !== null
-        ? deserializeAws_restJson1BatchCreateObjectResponse(output.CreateObject, context)
-        : undefined,
-    DeleteObject:
-      output.DeleteObject !== undefined && output.DeleteObject !== null
-        ? deserializeAws_restJson1BatchDeleteObjectResponse(output.DeleteObject, context)
-        : undefined,
-    DetachFromIndex:
-      output.DetachFromIndex !== undefined && output.DetachFromIndex !== null
-        ? deserializeAws_restJson1BatchDetachFromIndexResponse(output.DetachFromIndex, context)
-        : undefined,
-    DetachObject:
-      output.DetachObject !== undefined && output.DetachObject !== null
-        ? deserializeAws_restJson1BatchDetachObjectResponse(output.DetachObject, context)
-        : undefined,
-    DetachPolicy:
-      output.DetachPolicy !== undefined && output.DetachPolicy !== null
-        ? deserializeAws_restJson1BatchDetachPolicyResponse(output.DetachPolicy, context)
-        : undefined,
-    DetachTypedLink:
-      output.DetachTypedLink !== undefined && output.DetachTypedLink !== null
-        ? deserializeAws_restJson1BatchDetachTypedLinkResponse(output.DetachTypedLink, context)
-        : undefined,
-    RemoveFacetFromObject:
-      output.RemoveFacetFromObject !== undefined && output.RemoveFacetFromObject !== null
-        ? deserializeAws_restJson1BatchRemoveFacetFromObjectResponse(output.RemoveFacetFromObject, context)
-        : undefined,
-    UpdateLinkAttributes:
-      output.UpdateLinkAttributes !== undefined && output.UpdateLinkAttributes !== null
-        ? deserializeAws_restJson1BatchUpdateLinkAttributesResponse(output.UpdateLinkAttributes, context)
-        : undefined,
-    UpdateObjectAttributes:
-      output.UpdateObjectAttributes !== undefined && output.UpdateObjectAttributes !== null
-        ? deserializeAws_restJson1BatchUpdateObjectAttributesResponse(output.UpdateObjectAttributes, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BatchWriteOperationResponseList = (
-  output: any,
-  context: __SerdeContext
-): BatchWriteOperationResponse[] => {
+/**
+ * deserializeAws_restJson1BatchWriteOperationResponseList
+ */
+const de_BatchWriteOperationResponseList = (output: any, context: __SerdeContext): BatchWriteOperationResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BatchWriteOperationResponse(entry, context);
+      return de_BatchWriteOperationResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Directory = (output: any, context: __SerdeContext): Directory => {
-  return {
-    CreationDateTime:
-      output.CreationDateTime !== undefined && output.CreationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDateTime)))
-        : undefined,
-    DirectoryArn: __expectString(output.DirectoryArn),
-    Name: __expectString(output.Name),
-    State: __expectString(output.State),
-  } as any;
+/**
+ * deserializeAws_restJson1Directory
+ */
+const de_Directory = (output: any, context: __SerdeContext): Directory => {
+  return take(output, {
+    CreationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DirectoryArn: __expectString,
+    Name: __expectString,
+    State: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1DirectoryList = (output: any, context: __SerdeContext): Directory[] => {
+/**
+ * deserializeAws_restJson1DirectoryList
+ */
+const de_DirectoryList = (output: any, context: __SerdeContext): Directory[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Directory(entry, context);
+      return de_Directory(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Facet = (output: any, context: __SerdeContext): Facet => {
-  return {
-    FacetStyle: __expectString(output.FacetStyle),
-    Name: __expectString(output.Name),
-    ObjectType: __expectString(output.ObjectType),
-  } as any;
+// de_Facet omitted.
+
+/**
+ * deserializeAws_restJson1FacetAttribute
+ */
+const de_FacetAttribute = (output: any, context: __SerdeContext): FacetAttribute => {
+  return take(output, {
+    AttributeDefinition: (_: any) => de_FacetAttributeDefinition(_, context),
+    AttributeReference: _json,
+    Name: __expectString,
+    RequiredBehavior: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1FacetAttribute = (output: any, context: __SerdeContext): FacetAttribute => {
-  return {
-    AttributeDefinition:
-      output.AttributeDefinition !== undefined && output.AttributeDefinition !== null
-        ? deserializeAws_restJson1FacetAttributeDefinition(output.AttributeDefinition, context)
-        : undefined,
-    AttributeReference:
-      output.AttributeReference !== undefined && output.AttributeReference !== null
-        ? deserializeAws_restJson1FacetAttributeReference(output.AttributeReference, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    RequiredBehavior: __expectString(output.RequiredBehavior),
-  } as any;
+/**
+ * deserializeAws_restJson1FacetAttributeDefinition
+ */
+const de_FacetAttributeDefinition = (output: any, context: __SerdeContext): FacetAttributeDefinition => {
+  return take(output, {
+    DefaultValue: (_: any) => de_TypedAttributeValue(__expectUnion(_), context),
+    IsImmutable: __expectBoolean,
+    Rules: _json,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1FacetAttributeDefinition = (
-  output: any,
-  context: __SerdeContext
-): FacetAttributeDefinition => {
-  return {
-    DefaultValue:
-      output.DefaultValue !== undefined && output.DefaultValue !== null
-        ? deserializeAws_restJson1TypedAttributeValue(__expectUnion(output.DefaultValue), context)
-        : undefined,
-    IsImmutable: __expectBoolean(output.IsImmutable),
-    Rules:
-      output.Rules !== undefined && output.Rules !== null
-        ? deserializeAws_restJson1RuleMap(output.Rules, context)
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1FacetAttributeList = (output: any, context: __SerdeContext): FacetAttribute[] => {
+/**
+ * deserializeAws_restJson1FacetAttributeList
+ */
+const de_FacetAttributeList = (output: any, context: __SerdeContext): FacetAttribute[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1FacetAttribute(entry, context);
+      return de_FacetAttribute(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1FacetAttributeReference = (
-  output: any,
-  context: __SerdeContext
-): FacetAttributeReference => {
-  return {
-    TargetAttributeName: __expectString(output.TargetAttributeName),
-    TargetFacetName: __expectString(output.TargetFacetName),
-  } as any;
+// de_FacetAttributeReference omitted.
+
+// de_FacetNameList omitted.
+
+/**
+ * deserializeAws_restJson1IndexAttachment
+ */
+const de_IndexAttachment = (output: any, context: __SerdeContext): IndexAttachment => {
+  return take(output, {
+    IndexedAttributes: (_: any) => de_AttributeKeyAndValueList(_, context),
+    ObjectIdentifier: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1FacetNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1IndexAttachmentList
+ */
+const de_IndexAttachmentList = (output: any, context: __SerdeContext): IndexAttachment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_IndexAttachment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1IndexAttachment = (output: any, context: __SerdeContext): IndexAttachment => {
-  return {
-    IndexedAttributes:
-      output.IndexedAttributes !== undefined && output.IndexedAttributes !== null
-        ? deserializeAws_restJson1AttributeKeyAndValueList(output.IndexedAttributes, context)
-        : undefined,
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-  } as any;
-};
+// de_LinkNameToObjectIdentifierMap omitted.
 
-const deserializeAws_restJson1IndexAttachmentList = (output: any, context: __SerdeContext): IndexAttachment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1IndexAttachment(entry, context);
-    });
-  return retVal;
-};
+// de_ObjectIdentifierAndLinkNameList omitted.
 
-const deserializeAws_restJson1LinkNameToObjectIdentifierMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
+// de_ObjectIdentifierAndLinkNameTuple omitted.
 
-const deserializeAws_restJson1ObjectIdentifierAndLinkNameList = (
-  output: any,
-  context: __SerdeContext
-): ObjectIdentifierAndLinkNameTuple[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ObjectIdentifierAndLinkNameTuple(entry, context);
-    });
-  return retVal;
-};
+// de_ObjectIdentifierList omitted.
 
-const deserializeAws_restJson1ObjectIdentifierAndLinkNameTuple = (
-  output: any,
-  context: __SerdeContext
-): ObjectIdentifierAndLinkNameTuple => {
-  return {
-    LinkName: __expectString(output.LinkName),
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-  } as any;
-};
+// de_ObjectIdentifierToLinkNameMap omitted.
 
-const deserializeAws_restJson1ObjectIdentifierList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ObjectReference omitted.
 
-const deserializeAws_restJson1ObjectIdentifierToLinkNameMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
+// de_PathToObjectIdentifiers omitted.
 
-const deserializeAws_restJson1ObjectReference = (output: any, context: __SerdeContext): ObjectReference => {
-  return {
-    Selector: __expectString(output.Selector),
-  } as any;
-};
+// de_PathToObjectIdentifiersList omitted.
 
-const deserializeAws_restJson1PathToObjectIdentifiers = (
-  output: any,
-  context: __SerdeContext
-): PathToObjectIdentifiers => {
-  return {
-    ObjectIdentifiers:
-      output.ObjectIdentifiers !== undefined && output.ObjectIdentifiers !== null
-        ? deserializeAws_restJson1ObjectIdentifierList(output.ObjectIdentifiers, context)
-        : undefined,
-    Path: __expectString(output.Path),
-  } as any;
-};
+// de_PolicyAttachment omitted.
 
-const deserializeAws_restJson1PathToObjectIdentifiersList = (
-  output: any,
-  context: __SerdeContext
-): PathToObjectIdentifiers[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PathToObjectIdentifiers(entry, context);
-    });
-  return retVal;
-};
+// de_PolicyAttachmentList omitted.
 
-const deserializeAws_restJson1PolicyAttachment = (output: any, context: __SerdeContext): PolicyAttachment => {
-  return {
-    ObjectIdentifier: __expectString(output.ObjectIdentifier),
-    PolicyId: __expectString(output.PolicyId),
-    PolicyType: __expectString(output.PolicyType),
-  } as any;
-};
+// de_PolicyToPath omitted.
 
-const deserializeAws_restJson1PolicyAttachmentList = (output: any, context: __SerdeContext): PolicyAttachment[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PolicyAttachment(entry, context);
-    });
-  return retVal;
-};
+// de_PolicyToPathList omitted.
 
-const deserializeAws_restJson1PolicyToPath = (output: any, context: __SerdeContext): PolicyToPath => {
-  return {
-    Path: __expectString(output.Path),
-    Policies:
-      output.Policies !== undefined && output.Policies !== null
-        ? deserializeAws_restJson1PolicyAttachmentList(output.Policies, context)
-        : undefined,
-  } as any;
-};
+// de_Rule omitted.
 
-const deserializeAws_restJson1PolicyToPathList = (output: any, context: __SerdeContext): PolicyToPath[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PolicyToPath(entry, context);
-    });
-  return retVal;
-};
+// de_RuleMap omitted.
 
-const deserializeAws_restJson1Rule = (output: any, context: __SerdeContext): Rule => {
-  return {
-    Parameters:
-      output.Parameters !== undefined && output.Parameters !== null
-        ? deserializeAws_restJson1RuleParameterMap(output.Parameters, context)
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_RuleParameterMap omitted.
 
-const deserializeAws_restJson1RuleMap = (output: any, context: __SerdeContext): { [key: string]: Rule } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Rule }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Rule(value, context),
-    };
-  }, {});
-};
+// de_SchemaFacet omitted.
 
-const deserializeAws_restJson1RuleParameterMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
+// de_SchemaFacetList omitted.
 
-const deserializeAws_restJson1SchemaFacet = (output: any, context: __SerdeContext): SchemaFacet => {
-  return {
-    FacetName: __expectString(output.FacetName),
-    SchemaArn: __expectString(output.SchemaArn),
-  } as any;
-};
+// de_Tag omitted.
 
-const deserializeAws_restJson1SchemaFacetList = (output: any, context: __SerdeContext): SchemaFacet[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SchemaFacet(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1TypedAttributeValue = (output: any, context: __SerdeContext): TypedAttributeValue => {
-  if (output.BinaryValue !== undefined && output.BinaryValue !== null) {
+/**
+ * deserializeAws_restJson1TypedAttributeValue
+ */
+const de_TypedAttributeValue = (output: any, context: __SerdeContext): TypedAttributeValue => {
+  if (output.BinaryValue != null) {
     return {
       BinaryValue: context.base64Decoder(output.BinaryValue),
     };
@@ -9387,7 +8680,7 @@ const deserializeAws_restJson1TypedAttributeValue = (output: any, context: __Ser
   if (__expectBoolean(output.BooleanValue) !== undefined) {
     return { BooleanValue: __expectBoolean(output.BooleanValue) as any };
   }
-  if (output.DatetimeValue !== undefined && output.DatetimeValue !== null) {
+  if (output.DatetimeValue != null) {
     return {
       DatetimeValue: __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DatetimeValue))),
     };
@@ -9401,110 +8694,67 @@ const deserializeAws_restJson1TypedAttributeValue = (output: any, context: __Ser
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1TypedLinkAttributeDefinition = (
-  output: any,
-  context: __SerdeContext
-): TypedLinkAttributeDefinition => {
-  return {
-    DefaultValue:
-      output.DefaultValue !== undefined && output.DefaultValue !== null
-        ? deserializeAws_restJson1TypedAttributeValue(__expectUnion(output.DefaultValue), context)
-        : undefined,
-    IsImmutable: __expectBoolean(output.IsImmutable),
-    Name: __expectString(output.Name),
-    RequiredBehavior: __expectString(output.RequiredBehavior),
-    Rules:
-      output.Rules !== undefined && output.Rules !== null
-        ? deserializeAws_restJson1RuleMap(output.Rules, context)
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+/**
+ * deserializeAws_restJson1TypedLinkAttributeDefinition
+ */
+const de_TypedLinkAttributeDefinition = (output: any, context: __SerdeContext): TypedLinkAttributeDefinition => {
+  return take(output, {
+    DefaultValue: (_: any) => de_TypedAttributeValue(__expectUnion(_), context),
+    IsImmutable: __expectBoolean,
+    Name: __expectString,
+    RequiredBehavior: __expectString,
+    Rules: _json,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1TypedLinkAttributeDefinitionList = (
-  output: any,
-  context: __SerdeContext
-): TypedLinkAttributeDefinition[] => {
+/**
+ * deserializeAws_restJson1TypedLinkAttributeDefinitionList
+ */
+const de_TypedLinkAttributeDefinitionList = (output: any, context: __SerdeContext): TypedLinkAttributeDefinition[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TypedLinkAttributeDefinition(entry, context);
+      return de_TypedLinkAttributeDefinition(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1TypedLinkNameList = (output: any, context: __SerdeContext): string[] => {
+// de_TypedLinkNameList omitted.
+
+// de_TypedLinkSchemaAndFacetName omitted.
+
+/**
+ * deserializeAws_restJson1TypedLinkSpecifier
+ */
+const de_TypedLinkSpecifier = (output: any, context: __SerdeContext): TypedLinkSpecifier => {
+  return take(output, {
+    IdentityAttributeValues: (_: any) => de_AttributeNameAndValueList(_, context),
+    SourceObjectReference: _json,
+    TargetObjectReference: _json,
+    TypedLinkFacet: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TypedLinkSpecifierList
+ */
+const de_TypedLinkSpecifierList = (output: any, context: __SerdeContext): TypedLinkSpecifier[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1TypedLinkSchemaAndFacetName = (
-  output: any,
-  context: __SerdeContext
-): TypedLinkSchemaAndFacetName => {
-  return {
-    SchemaArn: __expectString(output.SchemaArn),
-    TypedLinkName: __expectString(output.TypedLinkName),
-  } as any;
-};
-
-const deserializeAws_restJson1TypedLinkSpecifier = (output: any, context: __SerdeContext): TypedLinkSpecifier => {
-  return {
-    IdentityAttributeValues:
-      output.IdentityAttributeValues !== undefined && output.IdentityAttributeValues !== null
-        ? deserializeAws_restJson1AttributeNameAndValueList(output.IdentityAttributeValues, context)
-        : undefined,
-    SourceObjectReference:
-      output.SourceObjectReference !== undefined && output.SourceObjectReference !== null
-        ? deserializeAws_restJson1ObjectReference(output.SourceObjectReference, context)
-        : undefined,
-    TargetObjectReference:
-      output.TargetObjectReference !== undefined && output.TargetObjectReference !== null
-        ? deserializeAws_restJson1ObjectReference(output.TargetObjectReference, context)
-        : undefined,
-    TypedLinkFacet:
-      output.TypedLinkFacet !== undefined && output.TypedLinkFacet !== null
-        ? deserializeAws_restJson1TypedLinkSchemaAndFacetName(output.TypedLinkFacet, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TypedLinkSpecifierList = (output: any, context: __SerdeContext): TypedLinkSpecifier[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TypedLinkSpecifier(entry, context);
+      return de_TypedLinkSpecifier(entry, context);
     });
   return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -9525,14 +8775,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -9554,6 +8816,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 
-import { DEFAULT_TEST_SCOPE } from "./constants";
-import { loadWorkspacePackages } from "./workspace";
+import { DEFAULT_TEST_SCOPE } from "./constants.js";
+import { loadWorkspacePackages } from "./workspace.js";
 
 export type PackageContext = {
   package: string;

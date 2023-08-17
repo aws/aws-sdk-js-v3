@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,34 +11,85 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
 import { StartSuiteRunRequest, StartSuiteRunResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartSuiteRunCommand,
-  serializeAws_restJson1StartSuiteRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartSuiteRunCommand, se_StartSuiteRunCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StartSuiteRunCommand}.
+ */
 export interface StartSuiteRunCommandInput extends StartSuiteRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartSuiteRunCommand}.
+ */
 export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a Device Advisor test suite run.</p>
- *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartSuiteRun</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartSuiteRun</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IotDeviceAdvisorClient, StartSuiteRunCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, StartSuiteRunCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
+ * const input = { // StartSuiteRunRequest
+ *   suiteDefinitionId: "STRING_VALUE", // required
+ *   suiteDefinitionVersion: "STRING_VALUE",
+ *   suiteRunConfiguration: { // SuiteRunConfiguration
+ *     primaryDevice: { // DeviceUnderTest
+ *       thingArn: "STRING_VALUE",
+ *       certificateArn: "STRING_VALUE",
+ *       deviceRoleArn: "STRING_VALUE",
+ *     },
+ *     selectedTestList: [ // SelectedTestList
+ *       "STRING_VALUE",
+ *     ],
+ *     parallelRun: true || false,
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartSuiteRunCommand(input);
  * const response = await client.send(command);
+ * // { // StartSuiteRunResponse
+ * //   suiteRunId: "STRING_VALUE",
+ * //   suiteRunArn: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   endpoint: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param StartSuiteRunCommandInput - {@link StartSuiteRunCommandInput}
+ * @returns {@link StartSuiteRunCommandOutput}
  * @see {@link StartSuiteRunCommandInput} for command's `input` shape.
  * @see {@link StartSuiteRunCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Sends a Conflict Exception.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Sends an Internal Failure exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Sends a validation exception.</p>
+ *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class StartSuiteRunCommand extends $Command<
@@ -47,6 +100,18 @@ export class StartSuiteRunCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StartSuiteRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +127,7 @@ export class StartSuiteRunCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartSuiteRunCommandInput, StartSuiteRunCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StartSuiteRunCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +138,8 @@ export class StartSuiteRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSuiteRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartSuiteRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +149,18 @@ export class StartSuiteRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSuiteRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartSuiteRunCommand(input, context);
+    return se_StartSuiteRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSuiteRunCommandOutput> {
-    return deserializeAws_restJson1StartSuiteRunCommand(output, context);
+    return de_StartSuiteRunCommand(output, context);
   }
 
   // Start section: command_body_extra

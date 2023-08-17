@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,27 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { StringPayloadInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpStringPayloadCommand,
-  serializeAws_restJson1HttpStringPayloadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_HttpStringPayloadCommand, se_HttpStringPayloadCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link HttpStringPayloadCommand}.
+ */
 export interface HttpStringPayloadCommandInput extends StringPayloadInput {}
+/**
+ * @public
+ *
+ * The output of {@link HttpStringPayloadCommand}.
+ */
 export interface HttpStringPayloadCommandOutput extends StringPayloadInput, __MetadataBearer {}
 
 export class HttpStringPayloadCommand extends $Command<
@@ -29,6 +41,9 @@ export class HttpStringPayloadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpStringPayloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +69,8 @@ export class HttpStringPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StringPayloadInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StringPayloadInput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,12 +80,18 @@ export class HttpStringPayloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpStringPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpStringPayloadCommand(input, context);
+    return se_HttpStringPayloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpStringPayloadCommandOutput> {
-    return deserializeAws_restJson1HttpStringPayloadCommand(output, context);
+    return de_HttpStringPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

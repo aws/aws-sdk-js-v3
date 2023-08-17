@@ -1,0 +1,2899 @@
+{
+  "smithy": "2.0",
+  "shapes": {
+    "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You don't have sufficient access to perform this action.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ActiveDirectoryIdentityProvider": {
+      "type": "structure",
+      "members": {
+        "DirectoryId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The directory ID for an Active Directory identity provider.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about an Active Directory identity provider.</p>"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#AssociateUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#AssociateUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#AssociateUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Associates the user to an EC2 instance to utilize user-based subscriptions.</p>\n         <note>\n            <p>Your estimated bill for charges on the number of users and related costs will take 48\n        hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html\">Viewing your\n          monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p>\n         </note>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/user/AssociateUser"
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#AssociateUserRequest": {
+      "type": "structure",
+      "members": {
+        "Username": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The user name from the identity provider for the user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the EC2 instance, which provides user-based subscriptions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>The identity provider of the user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Domain": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name of the user.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#AssociateUserResponse": {
+      "type": "structure",
+      "members": {
+        "InstanceUserSummary": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InstanceUserSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that describes the associate user operation.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#BoxInteger": {
+      "type": "integer"
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ConflictException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request couldn't be completed because it conflicted with the current state of the\n      resource.</p>",
+        "smithy.api#error": "server"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#DeregisterIdentityProvider": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#DeregisterIdentityProviderRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#DeregisterIdentityProviderResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deregisters the identity provider from providing user-based subscriptions.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/identity-provider/DeregisterIdentityProvider"
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#DeregisterIdentityProviderRequest": {
+      "type": "structure",
+      "members": {
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that specifies details for the identity provider.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Product": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the user-based subscription product.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#DeregisterIdentityProviderResponse": {
+      "type": "structure",
+      "members": {
+        "IdentityProviderSummary": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProviderSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that describes the results of an identity provider operation.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#DisassociateUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#DisassociateUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#DisassociateUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disassociates the user from an EC2 instance providing user-based subscriptions.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/user/DisassociateUser"
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#DisassociateUserRequest": {
+      "type": "structure",
+      "members": {
+        "Username": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The user name from the identity provider for the user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the EC2 instance, which provides user-based subscriptions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that specifies details for the identity provider.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Domain": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name of the user.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#DisassociateUserResponse": {
+      "type": "structure",
+      "members": {
+        "InstanceUserSummary": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InstanceUserSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that describes the associate user operation.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#Filter": {
+      "type": "structure",
+      "members": {
+        "Attribute": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of an attribute to use as a filter.</p>"
+          }
+        },
+        "Operation": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of search (For example, eq, geq, leq)</p>"
+          }
+        },
+        "Value": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Value of the filter.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A filter name and value pair that is used to return more specific results from a describe\n      operation. Filters can be used to match a set of resources by specific criteria, such as tags,\n      attributes, or IDs.</p>"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#FilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#Filter"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider": {
+      "type": "union",
+      "members": {
+        "ActiveDirectoryIdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ActiveDirectoryIdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that details an Active Directory identity provider.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about an identity provider.</p>"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#IdentityProviderSummary": {
+      "type": "structure",
+      "members": {
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that specifies details for the identity provider.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Settings": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#Settings",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that details the registered identity provider’s product related configuration\n      settings such as the subnets to provision VPC endpoints.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Product": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the user-based subscription product.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of an identity provider.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FailureMessage": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The failure message associated with an identity provider.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an identity provider.</p>"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#IdentityProviderSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProviderSummary"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#InstanceSummary": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the EC2 instance, which provides user-based subscriptions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of an EC2 instance resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Products": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of provided user-based subscription products.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LastStatusCheckDate": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The date of the last status check.</p>"
+          }
+        },
+        "StatusMessage": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status message for an EC2 instance.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an EC2 instance providing user-based subscriptions.</p>"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#InstanceSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#InstanceSummary"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#InstanceUserSummary": {
+      "type": "structure",
+      "members": {
+        "Username": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The user name from the identity provider for the user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the EC2 instance, which provides user-based subscriptions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that specifies details for the identity provider.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of a user associated with an EC2 instance.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StatusMessage": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status message for users of an EC2 instance.</p>"
+          }
+        },
+        "Domain": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name of the user.</p>"
+          }
+        },
+        "AssociationDate": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The date a user was associated with an EC2 instance.</p>"
+          }
+        },
+        "DisassociationDate": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The date a user was disassociated from an EC2 instance.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes users of an EC2 instance providing user-based subscriptions.</p>"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#InstanceUserSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#InstanceUserSummary"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#InternalServerException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An exception occurred with the service.</p>",
+        "smithy.api#error": "server"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#LicenseManagerUserSubscriptions": {
+      "type": "service",
+      "version": "2018-05-10",
+      "operations": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AssociateUser"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#DeregisterIdentityProvider"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#DisassociateUser"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ListIdentityProviders"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ListInstances"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ListProductSubscriptions"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ListUserAssociations"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#RegisterIdentityProvider"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#StartProductSubscription"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#StopProductSubscription"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#UpdateIdentityProviderSettings"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "License Manager User Subscriptions",
+          "arnNamespace": "license-manager-user-subscriptions",
+          "cloudTrailEventSource": "license-manager-user-subscriptions.amazonaws.com"
+        },
+        "aws.auth#sigv4": {
+          "name": "license-manager-user-subscriptions"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#cors": {
+          "additionalAllowedHeaders": [
+            "*",
+            "content-type",
+            "x-amz-content-sha256",
+            "x-amz-user-agent",
+            "x-amzn-platform-id",
+            "x-amzn-trace-id",
+            "content-length",
+            "x-api-key",
+            "authorization",
+            "x-amz-date",
+            "x-amz-security-token",
+            "Access-Control-Allow-Headers",
+            "Access-Control-Allow-Methods",
+            "Access-Control-Allow-Origin"
+          ],
+          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"]
+        },
+        "smithy.api#documentation": "<p>With License Manager, you can create user-based subscriptions to utilize licensed software with\n      a per user subscription fee on Amazon EC2 instances.</p>",
+        "smithy.api#title": "AWS License Manager User Subscriptions",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://license-manager-user-subscriptions-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://license-manager-user-subscriptions-fips.{Region}.{PartitionResult#dnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://license-manager-user-subscriptions.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://license-manager-user-subscriptions.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ca-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ca-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ca-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ca-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-central-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-central-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "af-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "af-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "af-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "af-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-north-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-north-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-north-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-north-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "eu-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "eu-west-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-3",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-3",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-northeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-northeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "me-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "me-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "me-south-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "me-south-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "sa-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "sa-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "sa-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "sa-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "ap-southeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "ap-southeast-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-2",
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-user-subscriptions.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-2",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "UseFIPS": true,
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "UseFIPS": false,
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListIdentityProviders": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#ListIdentityProvidersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#ListIdentityProvidersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the identity providers for user-based subscriptions.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/identity-provider/ListIdentityProviders"
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults",
+          "items": "IdentityProviderSummaries"
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListIdentityProvidersRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#BoxInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListIdentityProvidersResponse": {
+      "type": "structure",
+      "members": {
+        "IdentityProviderSummaries": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProviderSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that describes the list identity providers operation.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListInstances": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#ListInstancesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#ListInstancesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the EC2 instances providing user-based subscriptions.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/instance/ListInstances"
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults",
+          "items": "InstanceSummaries"
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListInstancesRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#BoxInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of structures that you can use to filter the results to those that match one or\n      more sets of key-value pairs that you specify.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListInstancesResponse": {
+      "type": "structure",
+      "members": {
+        "InstanceSummaries": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InstanceSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that describes the list instances operation.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListProductSubscriptions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#ListProductSubscriptionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#ListProductSubscriptionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the user-based subscription products available from an identity provider.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/user/ListProductSubscriptions"
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults",
+          "items": "ProductUserSummaries"
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListProductSubscriptionsRequest": {
+      "type": "structure",
+      "members": {
+        "Product": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the user-based subscription product.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that specifies details for the identity provider.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#BoxInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of structures that you can use to filter the results to those that match one or\n      more sets of key-value pairs that you specify.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListProductSubscriptionsResponse": {
+      "type": "structure",
+      "members": {
+        "ProductUserSummaries": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ProductUserSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that describes the list product subscriptions operation.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListUserAssociations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#ListUserAssociationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#ListUserAssociationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists user associations for an identity provider.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/user/ListUserAssociations"
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults",
+          "items": "InstanceUserSummaries"
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListUserAssociationsRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the EC2 instance, which provides user-based subscriptions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that specifies details for the identity provider.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#BoxInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of structures that you can use to filter the results to those that match one or\n      more sets of key-value pairs that you specify.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ListUserAssociationsResponse": {
+      "type": "structure",
+      "members": {
+        "InstanceUserSummaries": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InstanceUserSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that describes the list user association operation.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ProductUserSummary": {
+      "type": "structure",
+      "members": {
+        "Username": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The user name from the identity provider of the user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Product": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the user-based subscription product.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that specifies details for the identity provider.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of a product for a user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StatusMessage": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status message for a product for a user.</p>"
+          }
+        },
+        "Domain": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name of the user.</p>"
+          }
+        },
+        "SubscriptionStartDate": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The start date of a subscription.</p>"
+          }
+        },
+        "SubscriptionEndDate": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The end date of a subscription.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The summary of the user-based subscription products for a user.</p>"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ProductUserSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#ProductUserSummary"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#RegisterIdentityProvider": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#RegisterIdentityProviderRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#RegisterIdentityProviderResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Registers an identity provider for user-based subscriptions.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/identity-provider/RegisterIdentityProvider"
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#RegisterIdentityProviderRequest": {
+      "type": "structure",
+      "members": {
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that specifies details for the identity provider.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Product": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the user-based subscription product.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Settings": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#Settings",
+          "traits": {
+            "smithy.api#documentation": "<p>The registered identity provider’s product related configuration settings such as the\n      subnets to provision VPC endpoints.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#RegisterIdentityProviderResponse": {
+      "type": "structure",
+      "members": {
+        "IdentityProviderSummary": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProviderSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that describes the results of an identity provider operation.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The resource couldn't be found.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#SecurityGroup": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 5,
+          "max": 200
+        },
+        "smithy.api#pattern": "^sg-(([0-9a-z]{8})|([0-9a-z]{17}))$"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request failed because a service quota is exceeded.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#Settings": {
+      "type": "structure",
+      "members": {
+        "Subnets": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#Subnets",
+          "traits": {
+            "smithy.api#documentation": "<p>The subnets defined for the registered identity provider.</p>",
+            "smithy.api#length": {
+              "min": 1
+            },
+            "smithy.api#required": {}
+          }
+        },
+        "SecurityGroupId": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#SecurityGroup",
+          "traits": {
+            "smithy.api#documentation": "<p>A security group ID that allows inbound TCP port 1688 communication between resources in\n      your VPC and the VPC endpoint for activation servers.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The registered identity provider’s product related configuration settings such as the\n      subnets to provision VPC endpoints, and the security group ID that is associated with the VPC\n      endpoints. The security group should permit inbound TCP port 1688 communication from resources\n      in the VPC.</p>"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#StartProductSubscription": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#StartProductSubscriptionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#StartProductSubscriptionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts a product subscription for a user with the specified identity provider.</p>\n         <note>\n            <p>Your estimated bill for charges on the number of users and related costs will take 48\n        hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html\">Viewing your\n          monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p>\n         </note>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/user/StartProductSubscription"
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#StartProductSubscriptionRequest": {
+      "type": "structure",
+      "members": {
+        "Username": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The user name from the identity provider of the user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that specifies details for the identity provider.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Product": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the user-based subscription product.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Domain": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name of the user.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#StartProductSubscriptionResponse": {
+      "type": "structure",
+      "members": {
+        "ProductUserSummary": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ProductUserSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that describes the start product subscription operation.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#StopProductSubscription": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#StopProductSubscriptionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#StopProductSubscriptionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Stops a product subscription for a user with the specified identity provider.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/user/StopProductSubscription"
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#StopProductSubscriptionRequest": {
+      "type": "structure",
+      "members": {
+        "Username": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The user name from the identity provider for the user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that specifies details for the identity provider.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Product": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the user-based subscription product.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Domain": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain name of the user.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#StopProductSubscriptionResponse": {
+      "type": "structure",
+      "members": {
+        "ProductUserSummary": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ProductUserSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata that describes the start product subscription operation.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#StringList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#Subnet": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "subnet-[a-z0-9]{8,17}"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#Subnets": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#Subnet"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request was denied because of request throttling. Retry the request.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#UpdateIdentityProviderSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#UpdateIdentityProviderSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanagerusersubscriptions#UpdateIdentityProviderSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates additional product configuration settings for the registered identity\n      provider.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/identity-provider/UpdateIdentityProviderSettings"
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#UpdateIdentityProviderSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "IdentityProvider": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProvider",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "Product": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the user-based subscription product.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UpdateSettings": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#UpdateSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Updates the registered identity provider’s product related configuration settings. You can\n      update any combination of settings in a single operation such as the:</p>\n         <ul>\n            <li>\n               <p>Subnets which you want to add to provision VPC endpoints.</p>\n            </li>\n            <li>\n               <p>Subnets which you want to remove the VPC endpoints from.</p>\n            </li>\n            <li>\n               <p>Security group ID which permits traffic to the VPC endpoints.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#UpdateIdentityProviderSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "IdentityProviderSummary": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#IdentityProviderSummary",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#UpdateSettings": {
+      "type": "structure",
+      "members": {
+        "AddSubnets": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#Subnets",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of one or more subnets in which License Manager will create a VPC endpoint for products that\n      require connectivity to activation servers.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RemoveSubnets": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#Subnets",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of one or more subnets to remove.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SecurityGroupId": {
+          "target": "com.amazonaws.licensemanagerusersubscriptions#SecurityGroup",
+          "traits": {
+            "smithy.api#documentation": "<p>A security group ID that allows inbound TCP port 1688 communication between resources in\n      your VPC and the VPC endpoints for activation servers.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the registered identity provider’s product related configuration settings such as\n      the subnets to provision VPC endpoints.</p>"
+      }
+    },
+    "com.amazonaws.licensemanagerusersubscriptions#ValidationException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A parameter is not valid.</p>",
+        "smithy.api#error": "client"
+      }
+    }
+  }
+}

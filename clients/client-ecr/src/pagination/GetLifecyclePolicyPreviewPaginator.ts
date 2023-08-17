@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetLifecyclePolicyPreviewCommand,
   GetLifecyclePolicyPreviewCommandInput,
   GetLifecyclePolicyPreviewCommandOutput,
 } from "../commands/GetLifecyclePolicyPreviewCommand";
-import { ECR } from "../ECR";
 import { ECRClient } from "../ECRClient";
 import { ECRPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ECRClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetLifecyclePolicyPreviewCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ECR,
-  input: GetLifecyclePolicyPreviewCommandInput,
-  ...args: any
-): Promise<GetLifecyclePolicyPreviewCommandOutput> => {
-  // @ts-ignore
-  return await client.getLifecyclePolicyPreview(input, ...args);
-};
 export async function* paginateGetLifecyclePolicyPreview(
   config: ECRPaginationConfiguration,
   input: GetLifecyclePolicyPreviewCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateGetLifecyclePolicyPreview(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ECR) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ECRClient) {
+    if (config.client instanceof ECRClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ECR | ECRClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

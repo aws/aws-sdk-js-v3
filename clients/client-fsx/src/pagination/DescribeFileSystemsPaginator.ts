@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeFileSystemsCommand,
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "../commands/DescribeFileSystemsCommand";
-import { FSx } from "../FSx";
 import { FSxClient } from "../FSxClient";
 import { FSxPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FSxClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeFileSystemsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: FSx,
-  input: DescribeFileSystemsCommandInput,
-  ...args: any
-): Promise<DescribeFileSystemsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeFileSystems(input, ...args);
-};
 export async function* paginateDescribeFileSystems(
   config: FSxPaginationConfiguration,
   input: DescribeFileSystemsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeFileSystems(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof FSx) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FSxClient) {
+    if (config.client instanceof FSxClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FSx | FSxClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

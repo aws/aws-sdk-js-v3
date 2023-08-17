@@ -2,7 +2,7 @@ import commonjsPlugin from "@rollup/plugin-commonjs";
 import jsonPlugin from "@rollup/plugin-json";
 import resolvePlugin from "@rollup/plugin-node-resolve";
 import { build as esbuild } from "esbuild";
-import { lstat } from "fs-extra";
+import fsExtra from "fs-extra";
 import { join } from "path";
 import { rollup } from "rollup";
 import { terser as terserPlugin } from "rollup-plugin-terser";
@@ -10,6 +10,8 @@ import { promisify } from "util";
 import webpack from "webpack";
 
 import type { SizeReportContext } from "../index";
+
+const { lstat } = fsExtra;
 
 export interface BundlerSizeReportContext extends SizeReportContext {
   projectDir: string;

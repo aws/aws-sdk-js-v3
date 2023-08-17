@@ -24,7 +24,6 @@ import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
-import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
@@ -44,8 +43,8 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
         return ListUtils.of(
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.dependency,
-                                "WebSocket")
-                        .servicePredicate((m, s) -> AddTranscribeStreamingDependency.isTranscribeStreaming(s))
+                                "TranscribeStreaming", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> isTranscribeStreaming(s))
                         .build()
         );
     }
@@ -68,23 +67,9 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
                         writer.addImport("eventStreamPayloadHandler", "eventStreamPayloadHandler",
                             AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.packageName);
                         writer.write("(() => eventStreamPayloadHandler)");
-                },
-                "requestHandler", writer -> {
-                        writer.addDependency(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE);
-                        writer.addImport("WebSocketHandler", "WebSocketHandler",
-                            AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.packageName);
-                        writer.write("new WebSocketHandler()");
                 });
 
         switch (target) {
-            case NODE:
-                return MapUtils.of(
-                    "requestHandler", writer -> {
-                        writer.addDependency(TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
-                        writer.addImport("NodeHttp2Handler", "NodeHttp2Handler",
-                            TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER.packageName);
-                         writer.write("new NodeHttp2Handler({ disableConcurrentStreams: true })");
-                    });
             case REACT_NATIVE:
             case BROWSER:
                 return transcribeStreamingHandlerConfig;

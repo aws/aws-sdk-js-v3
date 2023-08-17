@@ -1,7 +1,9 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+// smithy-typescript generated code
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,19 +12,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1MergeDeveloperIdentitiesCommand,
-  serializeAws_json1_1MergeDeveloperIdentitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_MergeDeveloperIdentitiesCommand, se_MergeDeveloperIdentitiesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link MergeDeveloperIdentitiesCommand}.
+ */
 export interface MergeDeveloperIdentitiesCommandInput extends MergeDeveloperIdentitiesInput {}
+/**
+ * @public
+ *
+ * The output of {@link MergeDeveloperIdentitiesCommand}.
+ */
 export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIdentitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Merges two users having different <code>IdentityId</code>s, existing in the same
  *          identity pool, and identified by the same developer provider. You can use this action to
  *          request that discrete users be merged and identified as a single user in the Cognito
@@ -42,13 +56,48 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  * import { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // MergeDeveloperIdentitiesInput
+ *   SourceUserIdentifier: "STRING_VALUE", // required
+ *   DestinationUserIdentifier: "STRING_VALUE", // required
+ *   DeveloperProviderName: "STRING_VALUE", // required
+ *   IdentityPoolId: "STRING_VALUE", // required
+ * };
  * const command = new MergeDeveloperIdentitiesCommand(input);
  * const response = await client.send(command);
+ * // { // MergeDeveloperIdentitiesResponse
+ * //   IdentityId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param MergeDeveloperIdentitiesCommandInput - {@link MergeDeveloperIdentitiesCommandInput}
+ * @returns {@link MergeDeveloperIdentitiesCommandOutput}
  * @see {@link MergeDeveloperIdentitiesCommandInput} for command's `input` shape.
  * @see {@link MergeDeveloperIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>Thrown when a user tries to use a login which is already linked to another
+ *          account.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when the requested resource (for example, a dataset or record) does not
+ *          exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Thrown when a request is throttled.</p>
+ *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class MergeDeveloperIdentitiesCommand extends $Command<
@@ -59,6 +108,18 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: MergeDeveloperIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +135,9 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<MergeDeveloperIdentitiesCommandInput, MergeDeveloperIdentitiesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, MergeDeveloperIdentitiesCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -85,8 +149,8 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergeDeveloperIdentitiesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: MergeDeveloperIdentitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +160,18 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergeDeveloperIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergeDeveloperIdentitiesCommand(input, context);
+    return se_MergeDeveloperIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeDeveloperIdentitiesCommandOutput> {
-    return deserializeAws_json1_1MergeDeveloperIdentitiesCommand(output, context);
+    return de_MergeDeveloperIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

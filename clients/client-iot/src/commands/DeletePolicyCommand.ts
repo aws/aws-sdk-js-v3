@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeletePolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePolicyCommand,
-  serializeAws_restJson1DeletePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeletePolicyRequest } from "../models/models_1";
+import { de_DeletePolicyCommand, se_DeletePolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeletePolicyCommand}.
+ */
 export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePolicyCommand}.
+ */
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified policy.</p>
  *          <p>A policy cannot be deleted if it has non-default versions or it is attached to any
  *          certificate.</p>
@@ -41,13 +55,45 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * import { IoTClient, DeletePolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeletePolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeletePolicyRequest
+ *   policyName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeletePolicyCommandInput - {@link DeletePolicyCommandInput}
+ * @returns {@link DeletePolicyCommandOutput}
  * @see {@link DeletePolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link DeleteConflictException} (client fault)
+ *  <p>You can't delete the resource because it is attached to one or more
+ *          resources.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeletePolicyCommand extends $Command<
@@ -58,6 +104,18 @@ export class DeletePolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +131,7 @@ export class DeletePolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeletePolicyCommandInput, DeletePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeletePolicyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -83,8 +142,8 @@ export class DeletePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +153,18 @@ export class DeletePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePolicyCommand(input, context);
+    return se_DeletePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePolicyCommandOutput> {
-    return deserializeAws_restJson1DeletePolicyCommand(output, context);
+    return de_DeletePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

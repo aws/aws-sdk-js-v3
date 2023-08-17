@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   CodeStarConnectionsClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
 import { ListConnectionsInput, ListConnectionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListConnectionsCommand,
-  serializeAws_json1_0ListConnectionsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListConnectionsCommand, se_ListConnectionsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListConnectionsCommand}.
+ */
 export interface ListConnectionsCommandInput extends ListConnectionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListConnectionsCommand}.
+ */
 export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the connections associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,41 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * import { CodeStarConnectionsClient, ListConnectionsCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, ListConnectionsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = { // ListConnectionsInput
+ *   ProviderTypeFilter: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab",
+ *   HostArnFilter: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListConnectionsOutput
+ * //   Connections: [ // ConnectionList
+ * //     { // Connection
+ * //       ConnectionName: "STRING_VALUE",
+ * //       ConnectionArn: "STRING_VALUE",
+ * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab",
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       ConnectionStatus: "PENDING" || "AVAILABLE" || "ERROR",
+ * //       HostArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
+ * @returns {@link ListConnectionsCommandOutput}
  * @see {@link ListConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class ListConnectionsCommand extends $Command<
@@ -50,6 +92,18 @@ export class ListConnectionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +119,9 @@ export class ListConnectionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListConnectionsCommandInput, ListConnectionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListConnectionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +132,8 @@ export class ListConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConnectionsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListConnectionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +143,18 @@ export class ListConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListConnectionsCommand(input, context);
+    return se_ListConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectionsCommandOutput> {
-    return deserializeAws_json1_0ListConnectionsCommand(output, context);
+    return de_ListConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

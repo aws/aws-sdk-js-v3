@@ -1,40 +1,37 @@
+// smithy-typescript generated code
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
+import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
+import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
+import { ChecksumConstructor as __ChecksumConstructor, HashConstructor as __HashConstructor } from "@aws-sdk/types";
+import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
   NODE_REGION_CONFIG_OPTIONS,
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
   NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
-} from "@aws-sdk/config-resolver";
-import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
-import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
-import { Hash } from "@aws-sdk/hash-node";
-import { readableStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
-import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
-import {
-  DEFAULT_RETRY_MODE,
-  NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
-  NODE_RETRY_MODE_CONFIG_OPTIONS,
-} from "@aws-sdk/middleware-retry";
-import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
-import { NodeHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
-import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
-import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
-import { getAwsChunkedEncodingStream } from "@aws-sdk/util-stream-node";
-import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
+} from "@smithy/config-resolver";
+import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-node";
+import { Hash } from "@smithy/hash-node";
+import { readableStreamHasher as streamHasher } from "@smithy/hash-stream-node";
+import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
+import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
+import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import { calculateBodyLength } from "@smithy/util-body-length-node";
+import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { S3ClientConfig } from "./S3Client";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
-import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
-import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-node";
+import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
+import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-node";
+import { emitWarningIfUnsupportedVersion } from "@smithy/smithy-client";
 
 /**
  * @internal
  */
 export const getRuntimeConfig = (config: S3ClientConfig) => {
+  emitWarningIfUnsupportedVersion(process.version);
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
@@ -43,8 +40,6 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     ...config,
     runtime: "node",
     defaultsMode,
-    base64Decoder: config?.base64Decoder ?? fromBase64,
-    base64Encoder: config?.base64Encoder ?? toBase64,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider:
       config?.credentialDefaultProvider ?? decorateDefaultCredentialProvider(credentialDefaultProvider),
@@ -52,7 +47,6 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
       config?.defaultUserAgentProvider ??
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
-    getAwsChunkedEncodingStream: config?.getAwsChunkedEncodingStream ?? getAwsChunkedEncodingStream,
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     md5: config?.md5 ?? Hash.bind(null, "md5"),
     region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
@@ -70,7 +64,5 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     useArnRegion: config?.useArnRegion ?? loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS),
     useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),
     useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
-    utf8Decoder: config?.utf8Decoder ?? fromUtf8,
-    utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };
 };

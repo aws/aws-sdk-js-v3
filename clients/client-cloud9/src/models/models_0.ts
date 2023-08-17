@@ -1,9 +1,10 @@
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { Cloud9ServiceException as __BaseException } from "./Cloud9ServiceException";
 
 /**
+ * @public
  * <p>The target request is invalid.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -27,6 +28,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A conflict occurred.</p>
  */
 export class ConflictException extends __BaseException {
@@ -49,12 +51,22 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum ConnectionType {
-  CONNECT_SSH = "CONNECT_SSH",
-  CONNECT_SSM = "CONNECT_SSM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionType = {
+  CONNECT_SSH: "CONNECT_SSH",
+  CONNECT_SSM: "CONNECT_SSM",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * @public
  * <p>Metadata that is associated with Amazon Web Services resources. In particular, a name-value pair that
  *       can be associated with an Cloud9 development environment. There are two types of tags:
  *         <i>user tags</i> and <i>system tags</i>. A user tag is created
@@ -63,40 +75,37 @@ export enum ConnectionType {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The <b>name</b> part of a tag.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The <b>value</b> part of a tag.</p>
    */
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-    ...(obj.Key && { Key: SENSITIVE_STRING }),
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateEnvironmentEC2Request {
   /**
+   * @public
    * <p>The name of the environment to create.</p>
    *          <p>This name is visible to other IAM users in the same Amazon Web Services account.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the environment to create.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A unique, case-sensitive string that helps Cloud9 to ensure this operation completes no
    *       more than one time.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Client Tokens</a> in the
@@ -105,24 +114,31 @@ export interface CreateEnvironmentEC2Request {
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>The type of instance to connect to the environment (for example,
    *       <code>t2.micro</code>).</p>
    */
   instanceType: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the subnet in Amazon VPC that Cloud9 will use to communicate with the Amazon EC2
    *       instance.</p>
    */
   subnetId?: string;
 
   /**
+   * @public
    * <p>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
    *       To choose an AMI for the instance, you must specify a valid AMI alias or a valid Amazon EC2 Systems Manager (SSM)
    *       path.</p>
-   *          <p>The default AMI is used if the parameter isn't explicitly assigned a value in the request.
-   *       Because Amazon Linux AMI has ended standard support as of December 31, 2020, we recommend you
-   *       choose Amazon Linux 2, which includes long term support through 2023.</p>
+   *          <p>The default Amazon Linux AMI is currently used if the parameter isn't explicitly assigned
+   *       a value in the request. Because Amazon Linux AMI has ended standard support as of December 31,
+   *       2020, we recommend you choose Amazon Linux 2, which includes long term support through
+   *       2023.</p>
+   *          <p>From December 31, 2023, the parameter for Amazon Linux will no longer be available when
+   *       you specify an AMI for your instance. Amazon Linux 2 will then become the default AMI, which
+   *       is used to launch your instance if no parameter is explicitly defined.</p>
    *          <p>
    *             <b>AMI aliases </b>
    *          </p>
@@ -169,12 +185,14 @@ export interface CreateEnvironmentEC2Request {
   imageId?: string;
 
   /**
+   * @public
    * <p>The number of minutes until the running instance is shut down after the environment has
    *       last been used.</p>
    */
   automaticStopTimeMinutes?: number;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any
    *       IAM principal. If this value is not specified, the ARN defaults to this environment's
    *       creator.</p>
@@ -182,12 +200,14 @@ export interface CreateEnvironmentEC2Request {
   ownerArn?: string;
 
   /**
+   * @public
    * <p>An array of key-value pairs that will be associated with the new Cloud9 development
    *       environment.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>The connection type used for connecting to an Amazon EC2 environment. Valid values are
    *         <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through
    *       Amazon EC2 Systems Manager).</p>
@@ -197,39 +217,25 @@ export interface CreateEnvironmentEC2Request {
   connectionType?: ConnectionType | string;
 
   /**
+   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   dryRun?: boolean;
 }
 
-export namespace CreateEnvironmentEC2Request {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentEC2Request): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateEnvironmentEC2Result {
   /**
+   * @public
    * <p>The ID of the environment that was created.</p>
    */
   environmentId?: string;
 }
 
-export namespace CreateEnvironmentEC2Result {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentEC2Result): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An access permissions issue occurred.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -253,6 +259,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal server error occurred.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -276,6 +283,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A service limit was exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -299,6 +307,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The target resource cannot be found.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -322,6 +331,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Too many service requests were made over the given time period.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -344,23 +354,38 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
-export enum MemberPermissions {
-  READ_ONLY = "read-only",
-  READ_WRITE = "read-write",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MemberPermissions = {
+  READ_ONLY: "read-only",
+  READ_WRITE: "read-write",
+} as const;
 
+/**
+ * @public
+ */
+export type MemberPermissions = (typeof MemberPermissions)[keyof typeof MemberPermissions];
+
+/**
+ * @public
+ */
 export interface CreateEnvironmentMembershipRequest {
   /**
+   * @public
    * <p>The ID of the environment that contains the environment member you want to add.</p>
    */
   environmentId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The type of environment member permissions you want to associate with this environment
    *       member. Available values include:</p>
    *          <ul>
@@ -377,26 +402,28 @@ export interface CreateEnvironmentMembershipRequest {
   permissions: MemberPermissions | string | undefined;
 }
 
-export namespace CreateEnvironmentMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum Permissions {
-  OWNER = "owner",
-  READ_ONLY = "read-only",
-  READ_WRITE = "read-write",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Permissions = {
+  OWNER: "owner",
+  READ_ONLY: "read-only",
+  READ_WRITE: "read-write",
+} as const;
 
 /**
+ * @public
+ */
+export type Permissions = (typeof Permissions)[keyof typeof Permissions];
+
+/**
+ * @public
  * <p>Information about an environment member for an Cloud9 development environment.</p>
  */
 export interface EnvironmentMember {
   /**
+   * @public
    * <p>The type of environment member permissions associated with this environment member.
    *       Available values include:</p>
    *          <ul>
@@ -417,114 +444,87 @@ export interface EnvironmentMember {
   permissions: Permissions | string | undefined;
 
   /**
+   * @public
    * <p>The user ID in Identity and Access Management (IAM) of the environment member.</p>
    */
   userId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the environment member.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the environment for the environment member.</p>
    */
   environmentId: string | undefined;
 
   /**
+   * @public
    * <p>The time, expressed in epoch time format, when the environment member last opened the
    *       environment.</p>
    */
   lastAccess?: Date;
 }
 
-export namespace EnvironmentMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentMember): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateEnvironmentMembershipResult {
   /**
+   * @public
    * <p>Information about the environment member that was added.</p>
    */
   membership: EnvironmentMember | undefined;
 }
 
-export namespace CreateEnvironmentMembershipResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentMembershipResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteEnvironmentRequest {
   /**
+   * @public
    * <p>The ID of the environment to delete.</p>
    */
   environmentId: string | undefined;
 }
 
-export namespace DeleteEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteEnvironmentResult {}
 
-export namespace DeleteEnvironmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteEnvironmentMembershipRequest {
   /**
+   * @public
    * <p>The ID of the environment to delete the environment member from.</p>
    */
   environmentId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the environment member to delete from the
    *       environment.</p>
    */
   userArn: string | undefined;
 }
 
-export namespace DeleteEnvironmentMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteEnvironmentMembershipResult {}
 
-export namespace DeleteEnvironmentMembershipResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentMembershipResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeEnvironmentMembershipsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an individual environment member to get information
    *       about. If no value is specified, information about all environment members are
    *       returned.</p>
@@ -532,11 +532,13 @@ export interface DescribeEnvironmentMembershipsRequest {
   userArn?: string;
 
   /**
+   * @public
    * <p>The ID of the environment to get environment member information about.</p>
    */
   environmentId?: string;
 
   /**
+   * @public
    * <p>The type of environment member permissions to get information about. Available values
    *       include:</p>
    *          <ul>
@@ -558,6 +560,7 @@ export interface DescribeEnvironmentMembershipsRequest {
   permissions?: (Permissions | string)[];
 
   /**
+   * @public
    * <p>During a previous call, if there are more than 25 items in the list, only the first 25
    *       items are returned, along with a unique string called a <i>next token</i>. To
    *       get the next batch of items in the list, call this operation again, adding the next token to
@@ -567,27 +570,24 @@ export interface DescribeEnvironmentMembershipsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of environment members to get information about.</p>
    */
   maxResults?: number;
 }
 
-export namespace DescribeEnvironmentMembershipsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentMembershipsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeEnvironmentMembershipsResult {
   /**
+   * @public
    * <p>Information about the environment members for the environment.</p>
    */
   memberships?: EnvironmentMember[];
 
   /**
+   * @public
    * <p>If there are more than 25 items in the list, only the first 25 items are returned, along
    *       with a unique string called a <i>next token</i>. To get the next batch of items
    *       in the list, call this operation again, adding the next token to the call.</p>
@@ -595,45 +595,42 @@ export interface DescribeEnvironmentMembershipsResult {
   nextToken?: string;
 }
 
-export namespace DescribeEnvironmentMembershipsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentMembershipsResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeEnvironmentsRequest {
   /**
+   * @public
    * <p>The IDs of individual environments to get information about.</p>
    */
   environmentIds: string[] | undefined;
 }
 
-export namespace DescribeEnvironmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum EnvironmentLifecycleStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnvironmentLifecycleStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
 
 /**
+ * @public
+ */
+export type EnvironmentLifecycleStatus = (typeof EnvironmentLifecycleStatus)[keyof typeof EnvironmentLifecycleStatus];
+
+/**
+ * @public
  * <p>Information about the current creation or deletion lifecycle state of an Cloud9 development
  *       environment.</p>
  */
 export interface EnvironmentLifecycle {
   /**
+   * @public
    * <p>The current creation or deletion lifecycle state of the environment.</p>
    *          <ul>
    *             <li>
@@ -661,65 +658,81 @@ export interface EnvironmentLifecycle {
   status?: EnvironmentLifecycleStatus | string;
 
   /**
+   * @public
    * <p>Any informational message about the lifecycle state of the environment.</p>
    */
   reason?: string;
 
   /**
+   * @public
    * <p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related Amazon Web Services
    *       resource.</p>
    */
   failureResource?: string;
 }
 
-export namespace EnvironmentLifecycle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentLifecycle): any => ({
-    ...obj,
-  });
-}
-
-export enum ManagedCredentialsStatus {
-  DISABLED_BY_COLLABORATOR = "DISABLED_BY_COLLABORATOR",
-  DISABLED_BY_DEFAULT = "DISABLED_BY_DEFAULT",
-  DISABLED_BY_OWNER = "DISABLED_BY_OWNER",
-  ENABLED_BY_OWNER = "ENABLED_BY_OWNER",
-  ENABLED_ON_CREATE = "ENABLED_ON_CREATE",
-  FAILED_REMOVAL_BY_COLLABORATOR = "FAILED_REMOVAL_BY_COLLABORATOR",
-  FAILED_REMOVAL_BY_OWNER = "FAILED_REMOVAL_BY_OWNER",
-  PENDING_REMOVAL_BY_COLLABORATOR = "PENDING_REMOVAL_BY_COLLABORATOR",
-  PENDING_REMOVAL_BY_OWNER = "PENDING_REMOVAL_BY_OWNER",
-  PENDING_START_REMOVAL_BY_COLLABORATOR = "PENDING_START_REMOVAL_BY_COLLABORATOR",
-  PENDING_START_REMOVAL_BY_OWNER = "PENDING_START_REMOVAL_BY_OWNER",
-}
-
-export enum EnvironmentType {
-  EC2 = "ec2",
-  SSH = "ssh",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ManagedCredentialsStatus = {
+  DISABLED_BY_COLLABORATOR: "DISABLED_BY_COLLABORATOR",
+  DISABLED_BY_DEFAULT: "DISABLED_BY_DEFAULT",
+  DISABLED_BY_OWNER: "DISABLED_BY_OWNER",
+  ENABLED_BY_OWNER: "ENABLED_BY_OWNER",
+  ENABLED_ON_CREATE: "ENABLED_ON_CREATE",
+  FAILED_REMOVAL_BY_COLLABORATOR: "FAILED_REMOVAL_BY_COLLABORATOR",
+  FAILED_REMOVAL_BY_OWNER: "FAILED_REMOVAL_BY_OWNER",
+  PENDING_REMOVAL_BY_COLLABORATOR: "PENDING_REMOVAL_BY_COLLABORATOR",
+  PENDING_REMOVAL_BY_OWNER: "PENDING_REMOVAL_BY_OWNER",
+  PENDING_START_REMOVAL_BY_COLLABORATOR: "PENDING_START_REMOVAL_BY_COLLABORATOR",
+  PENDING_START_REMOVAL_BY_OWNER: "PENDING_START_REMOVAL_BY_OWNER",
+} as const;
 
 /**
+ * @public
+ */
+export type ManagedCredentialsStatus = (typeof ManagedCredentialsStatus)[keyof typeof ManagedCredentialsStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EnvironmentType = {
+  EC2: "ec2",
+  SSH: "ssh",
+} as const;
+
+/**
+ * @public
+ */
+export type EnvironmentType = (typeof EnvironmentType)[keyof typeof EnvironmentType];
+
+/**
+ * @public
  * <p>Information about an Cloud9 development environment.</p>
  */
 export interface Environment {
   /**
+   * @public
    * <p>The ID of the environment.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The name of the environment.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description for the environment.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The type of environment. Valid values include the following:</p>
    *          <ul>
    *             <li>
@@ -735,27 +748,32 @@ export interface Environment {
   type: EnvironmentType | string | undefined;
 
   /**
+   * @public
    * <p>The connection type used for connecting to an Amazon EC2 environment. <code>CONNECT_SSH</code>
    *       is selected by default.</p>
    */
   connectionType?: ConnectionType | string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the environment owner.</p>
    */
   ownerArn: string | undefined;
 
   /**
+   * @public
    * <p>The state of the environment in its creation or deletion lifecycle.</p>
    */
   lifecycle?: EnvironmentLifecycle;
 
   /**
+   * @public
    * <p>Describes the status of Amazon Web Services managed temporary credentials for the Cloud9 environment.
    *       Available values are:</p>
    *          <ul>
@@ -814,61 +832,53 @@ export interface Environment {
   managedCredentialsStatus?: ManagedCredentialsStatus | string;
 }
 
-export namespace Environment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Environment): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeEnvironmentsResult {
   /**
+   * @public
    * <p>Information about the environments that are returned.</p>
    */
   environments?: Environment[];
 }
 
-export namespace DescribeEnvironmentsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentsResult): any => ({
-    ...obj,
-    ...(obj.environments && { environments: obj.environments.map((item) => Environment.filterSensitiveLog(item)) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeEnvironmentStatusRequest {
   /**
+   * @public
    * <p>The ID of the environment to get status information about.</p>
    */
   environmentId: string | undefined;
 }
 
-export namespace DescribeEnvironmentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentStatusRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnvironmentStatus = {
+  CONNECTING: "connecting",
+  CREATING: "creating",
+  DELETING: "deleting",
+  ERROR: "error",
+  READY: "ready",
+  STOPPED: "stopped",
+  STOPPING: "stopping",
+} as const;
 
-export enum EnvironmentStatus {
-  CONNECTING = "connecting",
-  CREATING = "creating",
-  DELETING = "deleting",
-  ERROR = "error",
-  READY = "ready",
-  STOPPED = "stopped",
-  STOPPING = "stopping",
-}
+/**
+ * @public
+ */
+export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
 
+/**
+ * @public
+ */
 export interface DescribeEnvironmentStatusResult {
   /**
+   * @public
    * <p>The status of the environment. Available values include:</p>
    *          <ul>
    *             <li>
@@ -904,22 +914,18 @@ export interface DescribeEnvironmentStatusResult {
   status: EnvironmentStatus | string | undefined;
 
   /**
+   * @public
    * <p>Any informational message about the status of the environment.</p>
    */
   message: string | undefined;
 }
 
-export namespace DescribeEnvironmentStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentStatusResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListEnvironmentsRequest {
   /**
+   * @public
    * <p>During a previous call, if there are more than 25 items in the list, only the first 25
    *       items are returned, along with a unique string called a <i>next token</i>. To
    *       get the next batch of items in the list, call this operation again, adding the next token to
@@ -929,22 +935,18 @@ export interface ListEnvironmentsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of environments to get identifiers for.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListEnvironmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListEnvironmentsResult {
   /**
+   * @public
    * <p>If there are more than 25 items in the list, only the first 25 items are returned, along
    *       with a unique string called a <i>next token</i>. To get the next batch of items
    *       in the list, call this operation again, adding the next token to the call.</p>
@@ -952,55 +954,37 @@ export interface ListEnvironmentsResult {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The list of environment identifiers.</p>
    */
   environmentIds?: string[];
 }
 
-export namespace ListEnvironmentsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to get the tags
    *       for.</p>
    */
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The list of tags associated with the Cloud9 development environment.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 /**
+ * @public
  * <p>A concurrent access issue occurred.</p>
  */
 export class ConcurrentAccessException extends __BaseException {
@@ -1023,97 +1007,91 @@ export class ConcurrentAccessException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to add tags
    *       to.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>The list of tags to add to the given Cloud9 development environment.</p>
    */
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to remove tags
    *       from.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>The tag names of the tags to remove from the given Cloud9 development
    *       environment.</p>
    */
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ManagedCredentialsAction = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+} as const;
 
-export enum ManagedCredentialsAction {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+/**
+ * @public
+ */
+export type ManagedCredentialsAction = (typeof ManagedCredentialsAction)[keyof typeof ManagedCredentialsAction];
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentRequest {
   /**
+   * @public
    * <p>The ID of the environment to change settings.</p>
    */
   environmentId: string | undefined;
 
   /**
+   * @public
    * <p>A replacement name for the environment.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>Any new or replacement description for the environment.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Allows the environment owner to turn on or turn off the Amazon Web Services managed temporary
    *       credentials for an Cloud9 environment by using one of the following values:</p>
    *          <ul>
@@ -1136,41 +1114,31 @@ export interface UpdateEnvironmentRequest {
   managedCredentialsAction?: ManagedCredentialsAction | string;
 }
 
-export namespace UpdateEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateEnvironmentResult {}
 
-export namespace UpdateEnvironmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateEnvironmentMembershipRequest {
   /**
+   * @public
    * <p>The ID of the environment for the environment member whose settings you want to
    *       change.</p>
    */
   environmentId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the environment member whose settings you want to
    *       change.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The replacement type of environment member permissions you want to associate with this
    *       environment member. Available values include:</p>
    *          <ul>
@@ -1187,27 +1155,79 @@ export interface UpdateEnvironmentMembershipRequest {
   permissions: MemberPermissions | string | undefined;
 }
 
-export namespace UpdateEnvironmentMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateEnvironmentMembershipResult {
   /**
+   * @public
    * <p>Information about the environment member whose settings were changed.</p>
    */
   membership?: EnvironmentMember;
 }
 
-export namespace UpdateEnvironmentMembershipResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentMembershipResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentEC2RequestFilterSensitiveLog = (obj: CreateEnvironmentEC2Request): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentsResultFilterSensitiveLog = (obj: DescribeEnvironmentsResult): any => ({
+  ...obj,
+  ...(obj.environments && { environments: obj.environments.map((item) => EnvironmentFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentRequestFilterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});

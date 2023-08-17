@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { GetDataIntegrationRequest, GetDataIntegrationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataIntegrationCommand,
-  serializeAws_restJson1GetDataIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDataIntegrationCommand, se_GetDataIntegrationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetDataIntegrationCommand}.
+ */
 export interface GetDataIntegrationCommandInput extends GetDataIntegrationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDataIntegrationCommand}.
+ */
 export interface GetDataIntegrationCommandOutput extends GetDataIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the DataIntegration.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -34,13 +48,70 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  * import { AppIntegrationsClient, GetDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, GetDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // GetDataIntegrationRequest
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetDataIntegrationCommand(input);
  * const response = await client.send(command);
+ * // { // GetDataIntegrationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   KmsKey: "STRING_VALUE",
+ * //   SourceURI: "STRING_VALUE",
+ * //   ScheduleConfiguration: { // ScheduleConfiguration
+ * //     FirstExecutionFrom: "STRING_VALUE",
+ * //     Object: "STRING_VALUE",
+ * //     ScheduleExpression: "STRING_VALUE", // required
+ * //   },
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   FileConfiguration: { // FileConfiguration
+ * //     Folders: [ // FolderList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Filters: { // FieldsMap
+ * //       "<keys>": [ // FieldsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * //   ObjectConfiguration: { // ObjectConfiguration
+ * //     "<keys>": {
+ * //       "<keys>": [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetDataIntegrationCommandInput - {@link GetDataIntegrationCommandInput}
+ * @returns {@link GetDataIntegrationCommandOutput}
  * @see {@link GetDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class GetDataIntegrationCommand extends $Command<
@@ -51,6 +122,18 @@ export class GetDataIntegrationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +149,9 @@ export class GetDataIntegrationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetDataIntegrationCommandInput, GetDataIntegrationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetDataIntegrationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +162,8 @@ export class GetDataIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataIntegrationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDataIntegrationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +173,18 @@ export class GetDataIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataIntegrationCommand(input, context);
+    return se_GetDataIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataIntegrationCommandOutput> {
-    return deserializeAws_restJson1GetDataIntegrationCommand(output, context);
+    return de_GetDataIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

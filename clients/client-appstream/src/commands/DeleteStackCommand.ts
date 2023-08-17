@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DeleteStackRequest, DeleteStackResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteStackCommand,
-  serializeAws_json1_1DeleteStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteStackCommand, se_DeleteStackCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteStackCommand}.
+ */
 export interface DeleteStackCommandInput extends DeleteStackRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteStackCommand}.
+ */
 export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,35 @@ export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataB
  * import { AppStreamClient, DeleteStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DeleteStackRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStackCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteStackCommandInput - {@link DeleteStackCommandInput}
+ * @returns {@link DeleteStackCommandOutput}
  * @see {@link DeleteStackCommandInput} for command's `input` shape.
  * @see {@link DeleteStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DeleteStackCommand extends $Command<
@@ -46,6 +82,18 @@ export class DeleteStackCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +109,7 @@ export class DeleteStackCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteStackCommandInput, DeleteStackCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteStackCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +120,8 @@ export class DeleteStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStackRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStackResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +131,18 @@ export class DeleteStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStackCommand(input, context);
+    return se_DeleteStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStackCommandOutput> {
-    return deserializeAws_json1_1DeleteStackCommand(output, context);
+    return de_DeleteStackCommand(output, context);
   }
 
   // Start section: command_body_extra

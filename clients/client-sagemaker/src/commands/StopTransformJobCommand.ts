@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { StopTransformJobRequest } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopTransformJobCommand,
-  serializeAws_json1_1StopTransformJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopTransformJobRequest } from "../models/models_4";
+import { de_StopTransformJobCommand, se_StopTransformJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StopTransformJobCommand}.
+ */
 export interface StopTransformJobCommandInput extends StopTransformJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopTransformJobCommand}.
+ */
 export interface StopTransformJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a batch transform job.</p>
- *         <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
+ *          <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
  *             changes to <code>Stopping</code>. After Amazon SageMaker
  *             stops
  *             the job, the status is set to <code>Stopped</code>. When you stop a batch transform job before
@@ -34,13 +48,26 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopTransformJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopTransformJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopTransformJobRequest
+ *   TransformJobName: "STRING_VALUE", // required
+ * };
  * const command = new StopTransformJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StopTransformJobCommandInput - {@link StopTransformJobCommandInput}
+ * @returns {@link StopTransformJobCommandOutput}
  * @see {@link StopTransformJobCommandInput} for command's `input` shape.
  * @see {@link StopTransformJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StopTransformJobCommand extends $Command<
@@ -51,6 +78,18 @@ export class StopTransformJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StopTransformJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +105,9 @@ export class StopTransformJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopTransformJobCommandInput, StopTransformJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopTransformJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +118,8 @@ export class StopTransformJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTransformJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +129,18 @@ export class StopTransformJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopTransformJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTransformJobCommand(input, context);
+    return se_StopTransformJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTransformJobCommandOutput> {
-    return deserializeAws_json1_1StopTransformJobCommand(output, context);
+    return de_StopTransformJobCommand(output, context);
   }
 
   // Start section: command_body_extra

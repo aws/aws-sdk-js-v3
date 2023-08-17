@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeInstancesRequest, DescribeInstancesResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeInstancesCommand,
-  serializeAws_json1_1DescribeInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeInstancesCommand, se_DescribeInstancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstancesCommand}.
+ */
 export interface DescribeInstancesCommandInput extends DescribeInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstancesCommand}.
+ */
 export interface DescribeInstancesCommandOutput extends DescribeInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a description of a set of instances.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -37,13 +51,100 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * import { OpsWorksClient, DescribeInstancesCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeInstancesCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeInstancesRequest
+ *   StackId: "STRING_VALUE",
+ *   LayerId: "STRING_VALUE",
+ *   InstanceIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeInstancesResult
+ * //   Instances: [ // Instances
+ * //     { // Instance
+ * //       AgentVersion: "STRING_VALUE",
+ * //       AmiId: "STRING_VALUE",
+ * //       Architecture: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       AutoScalingType: "STRING_VALUE",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       BlockDeviceMappings: [ // BlockDeviceMappings
+ * //         { // BlockDeviceMapping
+ * //           DeviceName: "STRING_VALUE",
+ * //           NoDevice: "STRING_VALUE",
+ * //           VirtualName: "STRING_VALUE",
+ * //           Ebs: { // EbsBlockDevice
+ * //             SnapshotId: "STRING_VALUE",
+ * //             Iops: Number("int"),
+ * //             VolumeSize: Number("int"),
+ * //             VolumeType: "STRING_VALUE",
+ * //             DeleteOnTermination: true || false,
+ * //           },
+ * //         },
+ * //       ],
+ * //       CreatedAt: "STRING_VALUE",
+ * //       EbsOptimized: true || false,
+ * //       Ec2InstanceId: "STRING_VALUE",
+ * //       EcsClusterArn: "STRING_VALUE",
+ * //       EcsContainerInstanceArn: "STRING_VALUE",
+ * //       ElasticIp: "STRING_VALUE",
+ * //       Hostname: "STRING_VALUE",
+ * //       InfrastructureClass: "STRING_VALUE",
+ * //       InstallUpdatesOnBoot: true || false,
+ * //       InstanceId: "STRING_VALUE",
+ * //       InstanceProfileArn: "STRING_VALUE",
+ * //       InstanceType: "STRING_VALUE",
+ * //       LastServiceErrorId: "STRING_VALUE",
+ * //       LayerIds: [ // Strings
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Os: "STRING_VALUE",
+ * //       Platform: "STRING_VALUE",
+ * //       PrivateDns: "STRING_VALUE",
+ * //       PrivateIp: "STRING_VALUE",
+ * //       PublicDns: "STRING_VALUE",
+ * //       PublicIp: "STRING_VALUE",
+ * //       RegisteredBy: "STRING_VALUE",
+ * //       ReportedAgentVersion: "STRING_VALUE",
+ * //       ReportedOs: { // ReportedOs
+ * //         Family: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //       RootDeviceType: "STRING_VALUE",
+ * //       RootDeviceVolumeId: "STRING_VALUE",
+ * //       SecurityGroupIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SshHostDsaKeyFingerprint: "STRING_VALUE",
+ * //       SshHostRsaKeyFingerprint: "STRING_VALUE",
+ * //       SshKeyName: "STRING_VALUE",
+ * //       StackId: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       Tenancy: "STRING_VALUE",
+ * //       VirtualizationType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeInstancesCommandInput - {@link DescribeInstancesCommandInput}
+ * @returns {@link DescribeInstancesCommandOutput}
  * @see {@link DescribeInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeInstancesCommand extends $Command<
@@ -54,6 +155,18 @@ export class DescribeInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +182,9 @@ export class DescribeInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeInstancesCommandInput, DescribeInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +195,8 @@ export class DescribeInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +206,18 @@ export class DescribeInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstancesCommand(input, context);
+    return se_DescribeInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeInstancesCommand(output, context);
+    return de_DescribeInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

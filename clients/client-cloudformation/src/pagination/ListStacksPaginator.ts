@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CloudFormation } from "../CloudFormation";
 import { CloudFormationClient } from "../CloudFormationClient";
 import { ListStacksCommand, ListStacksCommandInput, ListStacksCommandOutput } from "../commands/ListStacksCommand";
 import { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudFormationClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListStacksCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudFormation,
-  input: ListStacksCommandInput,
-  ...args: any
-): Promise<ListStacksCommandOutput> => {
-  // @ts-ignore
-  return await client.listStacks(input, ...args);
-};
 export async function* paginateListStacks(
   config: CloudFormationPaginationConfiguration,
   input: ListStacksCommandInput,
@@ -38,16 +30,15 @@ export async function* paginateListStacks(
   let page: ListStacksCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof CloudFormation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudFormationClient) {
+    if (config.client instanceof CloudFormationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

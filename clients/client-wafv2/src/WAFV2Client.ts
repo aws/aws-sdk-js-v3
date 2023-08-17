@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,32 +19,40 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AssociateWebACLCommandInput, AssociateWebACLCommandOutput } from "./commands/AssociateWebACLCommand";
 import { CheckCapacityCommandInput, CheckCapacityCommandOutput } from "./commands/CheckCapacityCommand";
+import { CreateAPIKeyCommandInput, CreateAPIKeyCommandOutput } from "./commands/CreateAPIKeyCommand";
 import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
   CreateRegexPatternSetCommandInput,
@@ -80,6 +80,14 @@ import {
 import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "./commands/DeleteRuleGroupCommand";
 import { DeleteWebACLCommandInput, DeleteWebACLCommandOutput } from "./commands/DeleteWebACLCommand";
 import {
+  DescribeAllManagedProductsCommandInput,
+  DescribeAllManagedProductsCommandOutput,
+} from "./commands/DescribeAllManagedProductsCommand";
+import {
+  DescribeManagedProductsByVendorCommandInput,
+  DescribeManagedProductsByVendorCommandOutput,
+} from "./commands/DescribeManagedProductsByVendorCommand";
+import {
   DescribeManagedRuleGroupCommandInput,
   DescribeManagedRuleGroupCommandOutput,
 } from "./commands/DescribeManagedRuleGroupCommand";
@@ -88,6 +96,7 @@ import {
   GenerateMobileSdkReleaseUrlCommandInput,
   GenerateMobileSdkReleaseUrlCommandOutput,
 } from "./commands/GenerateMobileSdkReleaseUrlCommand";
+import { GetDecryptedAPIKeyCommandInput, GetDecryptedAPIKeyCommandOutput } from "./commands/GetDecryptedAPIKeyCommand";
 import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommandInput,
@@ -114,6 +123,7 @@ import {
   GetWebACLForResourceCommandInput,
   GetWebACLForResourceCommandOutput,
 } from "./commands/GetWebACLForResourceCommand";
+import { ListAPIKeysCommandInput, ListAPIKeysCommandOutput } from "./commands/ListAPIKeysCommand";
 import {
   ListAvailableManagedRuleGroupsCommandInput,
   ListAvailableManagedRuleGroupsCommandOutput,
@@ -174,11 +184,24 @@ import {
 } from "./commands/UpdateRegexPatternSetCommand";
 import { UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput } from "./commands/UpdateRuleGroupCommand";
 import { UpdateWebACLCommandInput, UpdateWebACLCommandOutput } from "./commands/UpdateWebACLCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateWebACLCommandInput
   | CheckCapacityCommandInput
+  | CreateAPIKeyCommandInput
   | CreateIPSetCommandInput
   | CreateRegexPatternSetCommandInput
   | CreateRuleGroupCommandInput
@@ -190,9 +213,12 @@ export type ServiceInputTypes =
   | DeleteRegexPatternSetCommandInput
   | DeleteRuleGroupCommandInput
   | DeleteWebACLCommandInput
+  | DescribeAllManagedProductsCommandInput
+  | DescribeManagedProductsByVendorCommandInput
   | DescribeManagedRuleGroupCommandInput
   | DisassociateWebACLCommandInput
   | GenerateMobileSdkReleaseUrlCommandInput
+  | GetDecryptedAPIKeyCommandInput
   | GetIPSetCommandInput
   | GetLoggingConfigurationCommandInput
   | GetManagedRuleSetCommandInput
@@ -204,6 +230,7 @@ export type ServiceInputTypes =
   | GetSampledRequestsCommandInput
   | GetWebACLCommandInput
   | GetWebACLForResourceCommandInput
+  | ListAPIKeysCommandInput
   | ListAvailableManagedRuleGroupVersionsCommandInput
   | ListAvailableManagedRuleGroupsCommandInput
   | ListIPSetsCommandInput
@@ -226,9 +253,13 @@ export type ServiceInputTypes =
   | UpdateRuleGroupCommandInput
   | UpdateWebACLCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateWebACLCommandOutput
   | CheckCapacityCommandOutput
+  | CreateAPIKeyCommandOutput
   | CreateIPSetCommandOutput
   | CreateRegexPatternSetCommandOutput
   | CreateRuleGroupCommandOutput
@@ -240,9 +271,12 @@ export type ServiceOutputTypes =
   | DeleteRegexPatternSetCommandOutput
   | DeleteRuleGroupCommandOutput
   | DeleteWebACLCommandOutput
+  | DescribeAllManagedProductsCommandOutput
+  | DescribeManagedProductsByVendorCommandOutput
   | DescribeManagedRuleGroupCommandOutput
   | DisassociateWebACLCommandOutput
   | GenerateMobileSdkReleaseUrlCommandOutput
+  | GetDecryptedAPIKeyCommandOutput
   | GetIPSetCommandOutput
   | GetLoggingConfigurationCommandOutput
   | GetManagedRuleSetCommandOutput
@@ -254,6 +288,7 @@ export type ServiceOutputTypes =
   | GetSampledRequestsCommandOutput
   | GetWebACLCommandOutput
   | GetWebACLForResourceCommandOutput
+  | ListAPIKeysCommandOutput
   | ListAvailableManagedRuleGroupVersionsCommandOutput
   | ListAvailableManagedRuleGroupsCommandOutput
   | ListIPSetsCommandOutput
@@ -276,6 +311,9 @@ export type ServiceOutputTypes =
   | UpdateRuleGroupCommandOutput
   | UpdateWebACLCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -283,11 +321,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -338,10 +376,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -359,77 +430,57 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type WAFV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type WAFV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of WAFV2Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of WAFV2Client class constructor that set the region, credentials and other options.
  */
 export interface WAFV2ClientConfig extends WAFV2ClientConfigType {}
 
-type WAFV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type WAFV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of WAFV2Client class. This is resolved and normalized from the {@link WAFV2ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of WAFV2Client class. This is resolved and normalized from the {@link WAFV2ClientConfig | constructor configuration interface}.
  */
 export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>WAF</fullname>
  *          <note>
  *             <p>This is the latest version of the <b>WAF</b> API,
@@ -445,22 +496,21 @@ export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType
  *             see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
  *          </note>
  *          <p>WAF is a web application firewall that lets you monitor the HTTP and HTTPS
- *          requests that are forwarded to Amazon CloudFront, an Amazon API Gateway REST API, an Application Load Balancer, or an AppSync
- *          GraphQL API. WAF also lets you control access to your content. Based on conditions that
+ *          requests that are forwarded to an Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync
+ *       GraphQL API, Amazon Cognito user pool, App Runner service, or Amazon Web Services Verified Access instance. WAF also lets you control access to your content,
+ *       to protect the Amazon Web Services resource that WAF is monitoring. Based on conditions that
  *          you specify, such as the IP addresses that requests originate from or the values of query
- *          strings, the Amazon API Gateway REST API, CloudFront distribution, the Application Load Balancer, or the AppSync GraphQL
- *          API responds to requests either with the requested content or with an HTTP 403 status code
- *          (Forbidden). You also can configure CloudFront to return a custom error page when a request is
- *          blocked.</p>
+ *          strings, the protected resource responds to requests with either the requested content, an HTTP 403 status code
+ *          (Forbidden), or with a custom response. </p>
  *          <p>This API guide is for developers who need detailed information about WAF API actions,
- *          data types, and errors. For detailed information about WAF features and an overview of
- *          how to use WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">WAF Developer
+ *          data types, and errors. For detailed information about WAF features and guidance for configuring and using
+ *          WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">WAF Developer
  *          Guide</a>.</p>
  *          <p>You can make calls using the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/waf.html">WAF endpoints and quotas</a>. </p>
  *          <ul>
  *             <li>
  *                <p>For regional applications, you can use any of the endpoints in the list.
- *                A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API. </p>
+ *                A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
  *             </li>
  *             <li>
  *                <p>For Amazon CloudFront applications, you must use the API endpoint listed for
@@ -501,20 +551,23 @@ export class WAFV2Client extends __Client<
    */
   readonly config: WAFV2ClientResolvedConfig;
 
-  constructor(configuration: WAFV2ClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<WAFV2ClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

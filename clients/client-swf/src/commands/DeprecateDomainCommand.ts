@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeprecateDomainInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeprecateDomainCommand,
-  serializeAws_json1_0DeprecateDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeprecateDomainCommand, se_DeprecateDomainCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeprecateDomainCommand}.
+ */
 export interface DeprecateDomainCommandInput extends DeprecateDomainInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeprecateDomainCommand}.
+ */
 export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecates the specified domain. After a domain has been deprecated it cannot be used
  *       to create new workflow executions or register new types. However, you can still use visibility
  *       actions on this domain. Deprecating a domain also deprecates all activity and workflow types
@@ -60,13 +74,32 @@ export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
  * import { SWFClient, DeprecateDomainCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DeprecateDomainCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // DeprecateDomainInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeprecateDomainCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeprecateDomainCommandInput - {@link DeprecateDomainCommandInput}
+ * @returns {@link DeprecateDomainCommandOutput}
  * @see {@link DeprecateDomainCommandInput} for command's `input` shape.
  * @see {@link DeprecateDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link DomainDeprecatedFault} (client fault)
+ *  <p>Returned when the specified domain has been deprecated.</p>
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class DeprecateDomainCommand extends $Command<
@@ -77,6 +110,18 @@ export class DeprecateDomainCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +137,9 @@ export class DeprecateDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeprecateDomainCommandInput, DeprecateDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeprecateDomainCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -102,8 +150,8 @@ export class DeprecateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprecateDomainInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +161,18 @@ export class DeprecateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeprecateDomainCommand(input, context);
+    return se_DeprecateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateDomainCommandOutput> {
-    return deserializeAws_json1_0DeprecateDomainCommand(output, context);
+    return de_DeprecateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

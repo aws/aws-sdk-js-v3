@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,25 +11,37 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0ListTagsForResourceCommand,
-  serializeAws_json1_0ListTagsForResourceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the tags associated with the specified resource. Tags are key:value pairs that
  *          you can use to categorize and manage your resources, for purposes like billing. For
  *          example, you might set the tag key to "customer" and the value to the customer name or ID.
- *          You can specify one or more tags to add to each AWS resource, up to 50 tags for a
+ *          You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a
  *          resource.</p>
- *          <p>You can tag the AWS resources that you manage through AWS Network Firewall: firewalls, firewall
+ *          <p>You can tag the Amazon Web Services resources that you manage through Network Firewall: firewalls, firewall
  *          policies, and rule groups. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +49,59 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { NetworkFirewallClient, ListTagsForResourceCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, ListTagsForResourceCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // ListTagsForResourceRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *          system problem. Retry your request. </p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The operation failed because of a problem with your request. Examples include: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified an unsupported parameter name or value.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a property with a value that isn't among the available
+ *                types.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                that isn't valid in the context of the request.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Unable to locate a resource using the parameters that you provided.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Unable to process the request due to throttling limitations.</p>
+ *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<
@@ -52,6 +112,18 @@ export class ListTagsForResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +139,9 @@ export class ListTagsForResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +152,8 @@ export class ListTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +163,18 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListTagsForResourceCommand(input, context);
+    return se_ListTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
-    return deserializeAws_json1_0ListTagsForResourceCommand(output, context);
+    return de_ListTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

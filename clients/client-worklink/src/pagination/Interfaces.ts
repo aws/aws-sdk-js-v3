@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { WorkLink } from "../WorkLink";
 import { WorkLinkClient } from "../WorkLinkClient";
 
+/**
+ * @public
+ */
 export interface WorkLinkPaginationConfiguration extends PaginationConfiguration {
-  client: WorkLink | WorkLinkClient;
+  client: WorkLinkClient;
 }

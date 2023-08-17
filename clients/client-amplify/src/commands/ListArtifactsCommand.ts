@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { ListArtifactsRequest, ListArtifactsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListArtifactsCommand,
-  serializeAws_restJson1ListArtifactsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListArtifactsCommand, se_ListArtifactsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListArtifactsCommand}.
+ */
 export interface ListArtifactsCommandInput extends ListArtifactsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListArtifactsCommand}.
+ */
 export interface ListArtifactsCommandOutput extends ListArtifactsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of artifacts for a specified app, branch, and job. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,47 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * import { AmplifyClient, ListArtifactsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListArtifactsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // ListArtifactsRequest
+ *   appId: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListArtifactsCommand(input);
  * const response = await client.send(command);
+ * // { // ListArtifactsResult
+ * //   artifacts: [ // Artifacts // required
+ * //     { // Artifact
+ * //       artifactFileName: "STRING_VALUE", // required
+ * //       artifactId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListArtifactsCommandInput - {@link ListArtifactsCommandInput}
+ * @returns {@link ListArtifactsCommandOutput}
  * @see {@link ListArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListArtifactsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p> A resource could not be created because service quotas were exceeded. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class ListArtifactsCommand extends $Command<
@@ -46,6 +94,18 @@ export class ListArtifactsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +121,7 @@ export class ListArtifactsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListArtifactsCommandInput, ListArtifactsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListArtifactsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +132,8 @@ export class ListArtifactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListArtifactsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListArtifactsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +143,18 @@ export class ListArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListArtifactsCommand(input, context);
+    return se_ListArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListArtifactsCommandOutput> {
-    return deserializeAws_restJson1ListArtifactsCommand(output, context);
+    return de_ListArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

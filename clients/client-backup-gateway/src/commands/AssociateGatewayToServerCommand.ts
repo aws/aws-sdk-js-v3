@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { AssociateGatewayToServerInput, AssociateGatewayToServerOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0AssociateGatewayToServerCommand,
-  serializeAws_json1_0AssociateGatewayToServerCommand,
-} from "../protocols/Aws_json1_0";
+import { de_AssociateGatewayToServerCommand, se_AssociateGatewayToServerCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateGatewayToServerCommand}.
+ */
 export interface AssociateGatewayToServerCommandInput extends AssociateGatewayToServerInput {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateGatewayToServerCommand}.
+ */
 export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayToServerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a backup gateway with your server. After you complete the association process,
  *       you can back up and restore your VMs through the gateway.</p>
  * @example
@@ -30,13 +44,39 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  * import { BackupGatewayClient, AssociateGatewayToServerCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, AssociateGatewayToServerCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // AssociateGatewayToServerInput
+ *   GatewayArn: "STRING_VALUE", // required
+ *   ServerArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateGatewayToServerCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateGatewayToServerOutput
+ * //   GatewayArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param AssociateGatewayToServerCommandInput - {@link AssociateGatewayToServerCommandInput}
+ * @returns {@link AssociateGatewayToServerCommandOutput}
  * @see {@link AssociateGatewayToServerCommandInput} for command's `input` shape.
  * @see {@link AssociateGatewayToServerCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The operation cannot proceed because it is not supported.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>TPS has been limited to protect against intentional or unintentional
+ *     high request volumes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class AssociateGatewayToServerCommand extends $Command<
@@ -47,6 +87,18 @@ export class AssociateGatewayToServerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateGatewayToServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +114,9 @@ export class AssociateGatewayToServerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateGatewayToServerCommandInput, AssociateGatewayToServerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateGatewayToServerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +127,8 @@ export class AssociateGatewayToServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateGatewayToServerInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateGatewayToServerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +138,18 @@ export class AssociateGatewayToServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateGatewayToServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0AssociateGatewayToServerCommand(input, context);
+    return se_AssociateGatewayToServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateGatewayToServerCommandOutput> {
-    return deserializeAws_json1_0AssociateGatewayToServerCommand(output, context);
+    return de_AssociateGatewayToServerCommand(output, context);
   }
 
   // Start section: command_body_extra

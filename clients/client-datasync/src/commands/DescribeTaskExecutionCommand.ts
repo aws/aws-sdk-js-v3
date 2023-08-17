@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,113 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { DescribeTaskExecutionRequest, DescribeTaskExecutionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTaskExecutionCommand,
-  serializeAws_json1_1DescribeTaskExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeTaskExecutionCommand, se_DescribeTaskExecutionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeTaskExecutionCommand}.
+ */
 export interface DescribeTaskExecutionCommandInput extends DescribeTaskExecutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTaskExecutionCommand}.
+ */
 export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Returns detailed metadata about a task that is being executed.</p>
+ * @public
+ * <p>Provides information about an DataSync transfer task that's
+ *       running.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, DescribeTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DescribeTaskExecutionRequest
+ *   TaskExecutionArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTaskExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTaskExecutionResponse
+ * //   TaskExecutionArn: "STRING_VALUE",
+ * //   Status: "QUEUED" || "LAUNCHING" || "PREPARING" || "TRANSFERRING" || "VERIFYING" || "SUCCESS" || "ERROR",
+ * //   Options: { // Options
+ * //     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
+ * //     OverwriteMode: "ALWAYS" || "NEVER",
+ * //     Atime: "NONE" || "BEST_EFFORT",
+ * //     Mtime: "NONE" || "PRESERVE",
+ * //     Uid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ * //     Gid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ * //     PreserveDeletedFiles: "PRESERVE" || "REMOVE",
+ * //     PreserveDevices: "NONE" || "PRESERVE",
+ * //     PosixPermissions: "NONE" || "PRESERVE",
+ * //     BytesPerSecond: Number("long"),
+ * //     TaskQueueing: "ENABLED" || "DISABLED",
+ * //     LogLevel: "OFF" || "BASIC" || "TRANSFER",
+ * //     TransferMode: "CHANGED" || "ALL",
+ * //     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
+ * //     ObjectTags: "PRESERVE" || "NONE",
+ * //   },
+ * //   Excludes: [ // FilterList
+ * //     { // FilterRule
+ * //       FilterType: "SIMPLE_PATTERN",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Includes: [
+ * //     {
+ * //       FilterType: "SIMPLE_PATTERN",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   EstimatedFilesToTransfer: Number("long"),
+ * //   EstimatedBytesToTransfer: Number("long"),
+ * //   FilesTransferred: Number("long"),
+ * //   BytesWritten: Number("long"),
+ * //   BytesTransferred: Number("long"),
+ * //   Result: { // TaskExecutionResultDetail
+ * //     PrepareDuration: Number("long"),
+ * //     PrepareStatus: "PENDING" || "SUCCESS" || "ERROR",
+ * //     TotalDuration: Number("long"),
+ * //     TransferDuration: Number("long"),
+ * //     TransferStatus: "PENDING" || "SUCCESS" || "ERROR",
+ * //     VerifyDuration: Number("long"),
+ * //     VerifyStatus: "PENDING" || "SUCCESS" || "ERROR",
+ * //     ErrorCode: "STRING_VALUE",
+ * //     ErrorDetail: "STRING_VALUE",
+ * //   },
+ * //   BytesCompressed: Number("long"),
+ * // };
+ *
  * ```
  *
+ * @param DescribeTaskExecutionCommandInput - {@link DescribeTaskExecutionCommandInput}
+ * @returns {@link DescribeTaskExecutionCommandOutput}
  * @see {@link DescribeTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskExecutionCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeTaskExecutionCommand extends $Command<
@@ -46,6 +128,18 @@ export class DescribeTaskExecutionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTaskExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +155,9 @@ export class DescribeTaskExecutionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeTaskExecutionCommandInput, DescribeTaskExecutionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeTaskExecutionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +168,8 @@ export class DescribeTaskExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTaskExecutionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTaskExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +179,18 @@ export class DescribeTaskExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTaskExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTaskExecutionCommand(input, context);
+    return se_DescribeTaskExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskExecutionCommandOutput> {
-    return deserializeAws_json1_1DescribeTaskExecutionCommand(output, context);
+    return de_DescribeTaskExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

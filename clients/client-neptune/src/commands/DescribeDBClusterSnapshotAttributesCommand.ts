@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   DescribeDBClusterSnapshotAttributesMessage,
@@ -17,16 +19,31 @@ import {
 } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand,
-  serializeAws_queryDescribeDBClusterSnapshotAttributesCommand,
+  de_DescribeDBClusterSnapshotAttributesCommand,
+  se_DescribeDBClusterSnapshotAttributesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeDBClusterSnapshotAttributesCommand}.
+ */
 export interface DescribeDBClusterSnapshotAttributesCommandInput extends DescribeDBClusterSnapshotAttributesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDBClusterSnapshotAttributesCommand}.
+ */
 export interface DescribeDBClusterSnapshotAttributesCommandOutput
   extends DescribeDBClusterSnapshotAttributesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster
  *       snapshot.</p>
  *          <p>When sharing snapshots with other Amazon accounts,
@@ -43,13 +60,40 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * import { NeptuneClient, DescribeDBClusterSnapshotAttributesCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBClusterSnapshotAttributesCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DescribeDBClusterSnapshotAttributesMessage
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDBClusterSnapshotAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDBClusterSnapshotAttributesResult
+ * //   DBClusterSnapshotAttributesResult: { // DBClusterSnapshotAttributesResult
+ * //     DBClusterSnapshotIdentifier: "STRING_VALUE",
+ * //     DBClusterSnapshotAttributes: [ // DBClusterSnapshotAttributeList
+ * //       { // DBClusterSnapshotAttribute
+ * //         AttributeName: "STRING_VALUE",
+ * //         AttributeValues: [ // AttributeValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeDBClusterSnapshotAttributesCommandInput - {@link DescribeDBClusterSnapshotAttributesCommandInput}
+ * @returns {@link DescribeDBClusterSnapshotAttributesCommandOutput}
  * @see {@link DescribeDBClusterSnapshotAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterSnapshotAttributesCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
+ *       DB cluster snapshot.</p>
+ *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
@@ -60,6 +104,18 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterSnapshotAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +131,9 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeDBClusterSnapshotAttributesCommandInput, DescribeDBClusterSnapshotAttributesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeDBClusterSnapshotAttributesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,8 +144,8 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterSnapshotAttributesMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBClusterSnapshotAttributesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,18 +155,24 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDBClusterSnapshotAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterSnapshotAttributesCommand(input, context);
+    return se_DescribeDBClusterSnapshotAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand(output, context);
+    return de_DescribeDBClusterSnapshotAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

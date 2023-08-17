@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteSnapshotScheduleMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSnapshotScheduleCommand,
-  serializeAws_queryDeleteSnapshotScheduleCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteSnapshotScheduleCommand, se_DeleteSnapshotScheduleCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteSnapshotScheduleCommand}.
+ */
 export interface DeleteSnapshotScheduleCommandInput extends DeleteSnapshotScheduleMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSnapshotScheduleCommand}.
+ */
 export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a snapshot schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,29 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
  * import { RedshiftClient, DeleteSnapshotScheduleCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteSnapshotScheduleCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteSnapshotScheduleMessage
+ *   ScheduleIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSnapshotScheduleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteSnapshotScheduleCommandInput - {@link DeleteSnapshotScheduleCommandInput}
+ * @returns {@link DeleteSnapshotScheduleCommandOutput}
  * @see {@link DeleteSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link InvalidClusterSnapshotScheduleStateFault} (client fault)
+ *  <p>The cluster snapshot schedule state is not valid.</p>
+ *
+ * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
+ *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteSnapshotScheduleCommand extends $Command<
@@ -46,6 +76,18 @@ export class DeleteSnapshotScheduleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +103,9 @@ export class DeleteSnapshotScheduleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteSnapshotScheduleCommandInput, DeleteSnapshotScheduleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteSnapshotScheduleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +116,8 @@ export class DeleteSnapshotScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotScheduleMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +127,18 @@ export class DeleteSnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSnapshotScheduleCommand(input, context);
+    return se_DeleteSnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotScheduleCommandOutput> {
-    return deserializeAws_queryDeleteSnapshotScheduleCommand(output, context);
+    return de_DeleteSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

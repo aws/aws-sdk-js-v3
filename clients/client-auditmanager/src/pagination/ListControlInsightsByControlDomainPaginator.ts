@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { AuditManager } from "../AuditManager";
 import { AuditManagerClient } from "../AuditManagerClient";
 import {
   ListControlInsightsByControlDomainCommand,
@@ -10,7 +10,7 @@ import {
 import { AuditManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AuditManagerClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListControlInsightsByControlDomainCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AuditManager,
-  input: ListControlInsightsByControlDomainCommandInput,
-  ...args: any
-): Promise<ListControlInsightsByControlDomainCommandOutput> => {
-  // @ts-ignore
-  return await client.listControlInsightsByControlDomain(input, ...args);
-};
 export async function* paginateListControlInsightsByControlDomain(
   config: AuditManagerPaginationConfiguration,
   input: ListControlInsightsByControlDomainCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListControlInsightsByControlDomain(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof AuditManager) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AuditManagerClient) {
+    if (config.client instanceof AuditManagerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AuditManager | AuditManagerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

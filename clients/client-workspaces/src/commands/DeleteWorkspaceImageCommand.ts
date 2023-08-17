@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteWorkspaceImageRequest, DeleteWorkspaceImageResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWorkspaceImageCommand,
-  serializeAws_json1_1DeleteWorkspaceImageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteWorkspaceImageCommand, se_DeleteWorkspaceImageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteWorkspaceImageCommand}.
+ */
 export interface DeleteWorkspaceImageCommandInput extends DeleteWorkspaceImageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteWorkspaceImageCommand}.
+ */
 export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified image from your account. To delete an image, you must first delete
  *          any bundles that are associated with the image and unshare the image if it is shared with
  *          other accounts. </p>
@@ -31,13 +45,32 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  * import { WorkSpacesClient, DeleteWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DeleteWorkspaceImageRequest
+ *   ImageId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkspaceImageCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteWorkspaceImageCommandInput - {@link DeleteWorkspaceImageCommandInput}
+ * @returns {@link DeleteWorkspaceImageCommandOutput}
  * @see {@link DeleteWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * @throws {@link ResourceAssociatedException} (client fault)
+ *  <p>The resource is associated with a directory.</p>
+ *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeleteWorkspaceImageCommand extends $Command<
@@ -48,6 +81,18 @@ export class DeleteWorkspaceImageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkspaceImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +108,9 @@ export class DeleteWorkspaceImageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteWorkspaceImageCommandInput, DeleteWorkspaceImageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteWorkspaceImageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +121,8 @@ export class DeleteWorkspaceImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkspaceImageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkspaceImageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +132,18 @@ export class DeleteWorkspaceImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWorkspaceImageCommand(input, context);
+    return se_DeleteWorkspaceImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceImageCommandOutput> {
-    return deserializeAws_json1_1DeleteWorkspaceImageCommand(output, context);
+    return de_DeleteWorkspaceImageCommand(output, context);
   }
 
   // Start section: command_body_extra

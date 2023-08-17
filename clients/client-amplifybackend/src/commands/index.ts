@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CloneBackendCommand";
 export * from "./CreateBackendAPICommand";
 export * from "./CreateBackendAuthCommand";

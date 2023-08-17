@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,12 +11,12 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetRecoveryGroupReadinessSummaryRequest, GetRecoveryGroupReadinessSummaryResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand,
-  serializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand,
+  de_GetRecoveryGroupReadinessSummaryCommand,
+  se_GetRecoveryGroupReadinessSummaryCommand,
 } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
@@ -22,12 +24,27 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetRecoveryGroupReadinessSummaryCommand}.
+ */
 export interface GetRecoveryGroupReadinessSummaryCommandInput extends GetRecoveryGroupReadinessSummaryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRecoveryGroupReadinessSummaryCommand}.
+ */
 export interface GetRecoveryGroupReadinessSummaryCommandOutput
   extends GetRecoveryGroupReadinessSummaryResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays a summary of information about a recovery group's readiness status. Includes the readiness checks for resources in the recovery group and the readiness status of each one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +52,49 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
  * import { Route53RecoveryReadinessClient, GetRecoveryGroupReadinessSummaryCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetRecoveryGroupReadinessSummaryCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // GetRecoveryGroupReadinessSummaryRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RecoveryGroupName: "STRING_VALUE", // required
+ * };
  * const command = new GetRecoveryGroupReadinessSummaryCommand(input);
  * const response = await client.send(command);
+ * // { // GetRecoveryGroupReadinessSummaryResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Readiness: "STRING_VALUE",
+ * //   ReadinessChecks: [ // __listOfReadinessCheckSummary
+ * //     { // ReadinessCheckSummary
+ * //       Readiness: "STRING_VALUE",
+ * //       ReadinessCheckName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GetRecoveryGroupReadinessSummaryCommandInput - {@link GetRecoveryGroupReadinessSummaryCommandInput}
+ * @returns {@link GetRecoveryGroupReadinessSummaryCommandOutput}
  * @see {@link GetRecoveryGroupReadinessSummaryCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryGroupReadinessSummaryCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  User does not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  The requested resource does not exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Request was denied due to request throttling.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
@@ -52,6 +105,18 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecoveryGroupReadinessSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +132,9 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRecoveryGroupReadinessSummaryCommandInput, GetRecoveryGroupReadinessSummaryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetRecoveryGroupReadinessSummaryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +145,8 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecoveryGroupReadinessSummaryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRecoveryGroupReadinessSummaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,18 +156,24 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRecoveryGroupReadinessSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand(input, context);
+    return se_GetRecoveryGroupReadinessSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecoveryGroupReadinessSummaryCommandOutput> {
-    return deserializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand(output, context);
+    return de_GetRecoveryGroupReadinessSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

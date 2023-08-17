@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { AppRunner } from "../AppRunner";
 import { AppRunnerClient } from "../AppRunnerClient";
 import {
   ListOperationsCommand,
@@ -10,7 +10,7 @@ import {
 import { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppRunnerClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListOperationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AppRunner,
-  input: ListOperationsCommandInput,
-  ...args: any
-): Promise<ListOperationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listOperations(input, ...args);
-};
 export async function* paginateListOperations(
   config: AppRunnerPaginationConfiguration,
   input: ListOperationsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListOperations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof AppRunner) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AppRunnerClient) {
+    if (config.client instanceof AppRunnerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AppRunner | AppRunnerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

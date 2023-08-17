@@ -1,145 +1,221 @@
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { GlobalAcceleratorServiceException as __BaseException } from "./GlobalAcceleratorServiceException";
 
-export enum IpAddressType {
-  IPV4 = "IPV4",
+/**
+ * @public
+ * <p>A complex type that contains a <code>Timestamp</code> value and <code>Message</code> for changes
+ * 			that you make to an accelerator in Global Accelerator. Messages stored here provide progress or error information when
+ * 			you update an accelerator from IPv4 to dual-stack, or from dual-stack to IPv4. Global Accelerator stores a maximum
+ * 			of ten event messages. </p>
+ */
+export interface AcceleratorEvent {
+  /**
+   * @public
+   * <p>A string that contains an <code>Event</code> message describing changes or errors
+   * 			when you update an accelerator in Global Accelerator from IPv4 to dual-stack, or dual-stack to IPv4.</p>
+   */
+  Message?: string;
+
+  /**
+   * @public
+   * <p>A timestamp for when you update an accelerator in Global Accelerator from IPv4 to dual-stack, or dual-stack to IPv4.</p>
+   */
+  Timestamp?: Date;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const IpAddressType = {
+  DUAL_STACK: "DUAL_STACK",
+  IPV4: "IPV4",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpAddressFamily = {
+  IPv4: "IPv4",
+  IPv6: "IPv6",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressFamily = (typeof IpAddressFamily)[keyof typeof IpAddressFamily];
+
+/**
+ * @public
  * <p>A complex type for the set of IP addresses for an accelerator.</p>
  */
 export interface IpSet {
   /**
-   * <p>The types of IP addresses included in this IP set.</p>
+   * @public
+   * @deprecated
+   *
+   * <p>IpFamily is deprecated and has been replaced by IpAddressFamily.</p>
    */
   IpFamily?: string;
 
   /**
+   * @public
    * <p>The array of IP addresses in the IP address set. An IP address set can have a maximum of two IP addresses.</p>
    */
   IpAddresses?: string[];
-}
 
-export namespace IpSet {
   /**
-   * @internal
+   * @public
+   * <p>The types of IP addresses included in this IP set. </p>
    */
-  export const filterSensitiveLog = (obj: IpSet): any => ({
-    ...obj,
-  });
+  IpAddressFamily?: IpAddressFamily | string;
 }
-
-export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
 
 /**
+ * @public
+ * @enum
+ */
+export const AcceleratorStatus = {
+  DEPLOYED: "DEPLOYED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceleratorStatus = (typeof AcceleratorStatus)[keyof typeof AcceleratorStatus];
+
+/**
+ * @public
  * <p>An accelerator is a complex type that includes one or more listeners that process inbound connections and then direct
  * 			traffic to one or more endpoint groups, each of which includes endpoints, such as load balancers.</p>
  */
 export interface Accelerator {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator.</p>
    */
   AcceleratorArn?: string;
 
   /**
+   * @public
    * <p>The name of the accelerator. The name must contain only alphanumeric characters or
    * 			hyphens (-), and must not begin or end with a hyphen.</p>
    */
   Name?: string;
 
   /**
-   * <p>The value for the address type must be IPv4.
-   * 			</p>
+   * @public
+   * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p>
-   * 		       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>
+   *          <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The static IP addresses that Global Accelerator associates with the accelerator.</p>
    */
   IpSets?: IpSet[];
 
   /**
-   * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses. </p>
-   * 		       <p>The naming convention for the DNS name is the following: A lowercase letter a,
+   * @public
+   * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses.</p>
+   *          <p>The naming convention for the DNS name for an accelerator is the following: A lowercase letter a,
    * 			followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:
    * 			a1234567890abcdef.awsglobalaccelerator.com.</p>
-   * 		       <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
-   * 			Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>If you have a dual-stack accelerator, you also have a second DNS name, <code>DualStackDnsName</code>, that points to both
+   *  			the A record and the AAAA record for all four static addresses for the accelerator: two IPv4 addresses and two IPv6 addresses.</p>
+   *          <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html">
+   * 			Support for DNS addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   DnsName?: string;
 
   /**
+   * @public
    * <p>Describes the deployment status of the accelerator.</p>
    */
   Status?: AcceleratorStatus | string;
 
   /**
+   * @public
    * <p>The date and time that the accelerator was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The date and time that the accelerator was last modified.</p>
    */
   LastModifiedTime?: Date;
-}
 
-export namespace Accelerator {
   /**
-   * @internal
+   * @public
+   * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses:
+   * 			two IPv4 addresses and two IPv6 addresses.</p>
+   *          <p>The naming convention for the dual-stack DNS name is the following: A lowercase letter a,
+   * 			followed by a 16-bit random hex string, followed by .dualstack.awsglobalaccelerator.com. For example:
+   * 			a1234567890abcdef.dualstack.awsglobalaccelerator.com.</p>
+   *          <p>Note: Global Accelerator also assigns a default DNS name, <code>DnsName</code>, to your accelerator that points just to the static IPv4 addresses. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
+   * 			Support for DNS addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
-  export const filterSensitiveLog = (obj: Accelerator): any => ({
-    ...obj,
-  });
+  DualStackDnsName?: string;
+
+  /**
+   * @public
+   * <p>A history of changes that you make to an accelerator in Global Accelerator.</p>
+   */
+  Events?: AcceleratorEvent[];
 }
 
 /**
+ * @public
  * <p>Attributes of an accelerator.</p>
  */
 export interface AcceleratorAttributes {
   /**
+   * @public
    * <p>Indicates whether flow logs are enabled. The default value is false. If the value is true,
    * 				<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
-   * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow logs</a> in
+   * 		    the <i>Global Accelerator Developer Guide</i>.</p>
    */
   FlowLogsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
-   * 				<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the
+   * 		    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 			bucket.</p>
    */
   FlowLogsS3Bucket?: string;
 
   /**
+   * @public
    * <p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 				<code>FlowLogsEnabled</code> is <code>true</code>.</p>
-   * 		       <p>If you don’t specify a prefix, the flow logs are stored in the
-   * 			root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
-   * 		       <p>s3-bucket_name//AWSLogs/aws_account_id</p>
+   *          <p>If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
+   *          <p>s3-bucket_name//AWSLogs/aws_account_id</p>
    */
   FlowLogsS3Prefix?: string;
 }
 
-export namespace AcceleratorAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceleratorAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The accelerator that you specified could not be disabled.</p>
  */
 export class AcceleratorNotDisabledException extends __BaseException {
@@ -161,6 +237,7 @@ export class AcceleratorNotDisabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The accelerator that you specified doesn't exist.</p>
  */
 export class AcceleratorNotFoundException extends __BaseException {
@@ -182,6 +259,7 @@ export class AcceleratorNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You don't have access permission.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -203,89 +281,68 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The list of endpoint objects. For custom routing, this is a list of virtual private cloud (VPC) subnet IDs.</p>
  */
 export interface CustomRoutingEndpointConfiguration {
   /**
+   * @public
    * <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC)
    * 			subnet ID. </p>
    */
   EndpointId?: string;
 }
 
-export namespace CustomRoutingEndpointConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingEndpointConfiguration): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AddCustomRoutingEndpointsRequest {
   /**
+   * @public
    * <p>The list of endpoint objects to add to a custom routing accelerator.</p>
    */
   EndpointConfigurations: CustomRoutingEndpointConfiguration[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group for the custom routing endpoint.</p>
    */
   EndpointGroupArn: string | undefined;
 }
 
-export namespace AddCustomRoutingEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddCustomRoutingEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A complex type for an endpoint for a custom routing accelerator. Each endpoint group can include one or more endpoints,
  * 			which are virtual private cloud (VPC) subnets.</p>
  */
 export interface CustomRoutingEndpointDescription {
   /**
+   * @public
    * <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC)
    * 			subnet ID. </p>
    */
   EndpointId?: string;
 }
 
-export namespace CustomRoutingEndpointDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingEndpointDescription): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AddCustomRoutingEndpointsResponse {
   /**
+   * @public
    * <p>The endpoint objects added to the custom routing accelerator.</p>
    */
   EndpointDescriptions?: CustomRoutingEndpointDescription[];
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group for the custom routing endpoint.</p>
    */
   EndpointGroupArn?: string;
 }
 
-export namespace AddCustomRoutingEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddCustomRoutingEndpointsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>You can't use both of those options.</p>
  */
 export class ConflictException extends __BaseException {
@@ -307,6 +364,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The endpoint that you specified doesn't exist.</p>
  */
 export class EndpointAlreadyExistsException extends __BaseException {
@@ -328,6 +386,7 @@ export class EndpointAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The endpoint group that you specified doesn't exist.</p>
  */
 export class EndpointGroupNotFoundException extends __BaseException {
@@ -349,7 +408,8 @@ export class EndpointGroupNotFoundException extends __BaseException {
 }
 
 /**
- * <p>There was an internal error for AWS Global Accelerator.</p>
+ * @public
+ * <p>There was an internal error for Global Accelerator.</p>
  */
 export class InternalServiceErrorException extends __BaseException {
   readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
@@ -370,6 +430,7 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An argument that you specified is invalid.</p>
  */
 export class InvalidArgumentException extends __BaseException {
@@ -391,7 +452,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>Processing your request would cause you to exceed an AWS Global Accelerator limit.</p>
+ * @public
+ * <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -411,181 +473,331 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ * <p>A complex type for endpoints. A resource must be valid and active when you add it as an endpoint.</p>
+ */
+export interface EndpointConfiguration {
+  /**
+   * @public
+   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
+   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
+   * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. A resource must be valid and active
+   * 			when you add it as an endpoint.</p>
+   *          <p>An Application Load Balancer can be either internal or internet-facing.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * @public
+   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure Global Accelerator to route traffic
+   * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
+   * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
+   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint weights</a> in the
+   * 	        <i>Global Accelerator Developer Guide</i>.</p>
+   */
+  Weight?: number;
+
+  /**
+   * @public
+   * <p>Indicates whether client IP address preservation is enabled for an endpoint.
+   * 			The value is true or false. The default value is true for new accelerators. </p>
+   *          <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
+   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
+   *          <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
+   * 			Balancers and Amazon EC2 instances.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
+   * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+   */
+  ClientIPPreservationEnabled?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface AddEndpointsRequest {
+  /**
+   * @public
+   * <p>The list of endpoint objects.</p>
+   */
+  EndpointConfigurations: EndpointConfiguration[] | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
+   */
+  EndpointGroupArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthState = {
+  HEALTHY: "HEALTHY",
+  INITIAL: "INITIAL",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthState = (typeof HealthState)[keyof typeof HealthState];
+
+/**
+ * @public
+ * <p>A complex type for an endpoint. Each endpoint group can include one or more endpoints, such as load
+ * 			balancers.</p>
+ */
+export interface EndpointDescription {
+  /**
+   * @public
+   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
+   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
+   * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. </p>
+   *          <p>An Application Load Balancer can be either internal or internet-facing.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * @public
+   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure Global Accelerator to route traffic
+   * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
+   * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
+   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint weights</a> in the
+   * 	        <i>Global Accelerator Developer Guide</i>. </p>
+   */
+  Weight?: number;
+
+  /**
+   * @public
+   * <p>The health status of the endpoint.</p>
+   */
+  HealthState?: HealthState | string;
+
+  /**
+   * @public
+   * <p>Returns a null result.</p>
+   */
+  HealthReason?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether client IP address preservation is enabled for an endpoint.
+   * 			The value is true or false. The default value is true for new accelerators. </p>
+   *          <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
+   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
+   *          <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
+   * 			Balancers and Amazon EC2 instances.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
+   * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+   */
+  ClientIPPreservationEnabled?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface AddEndpointsResponse {
+  /**
+   * @public
+   * <p>The list of endpoint objects.</p>
+   */
+  EndpointDescriptions?: EndpointDescription[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
+   */
+  EndpointGroupArn?: string;
+}
+
+/**
+ * @public
+ * <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ */
+export class TransactionInProgressException extends __BaseException {
+  readonly name: "TransactionInProgressException" = "TransactionInProgressException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TransactionInProgressException, __BaseException>) {
+    super({
+      name: "TransactionInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TransactionInProgressException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
 export interface AdvertiseByoipCidrRequest {
   /**
+   * @public
    * <p>The address range, in CIDR notation. This must be the exact range that you provisioned.
    * 			You can't advertise only a portion of the provisioned range.</p>
    */
   Cidr: string | undefined;
 }
 
-export namespace AdvertiseByoipCidrRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdvertiseByoipCidrRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A complex type that contains a <code>Message</code> and a <code>Timestamp</code> value for changes
- * 			that you make in the status an IP address range that you bring to AWS Global Accelerator through bring your own IP
+ * 			that you make in the status of an IP address range that you bring to Global Accelerator through bring your own IP
  * 			address (BYOIP).</p>
  */
 export interface ByoipCidrEvent {
   /**
+   * @public
    * <p>A string that contains an <code>Event</code> message describing changes that you make in the status
-   * 			of an IP address range that you bring to AWS Global Accelerator through bring your own IP address (BYOIP).</p>
+   * 			of an IP address range that you bring to Global Accelerator through bring your own IP address (BYOIP).</p>
    */
   Message?: string;
 
   /**
-   * <p>A timestamp when you make a status change for an IP address range that you bring to AWS Global Accelerator through
+   * @public
+   * <p>A timestamp for when you make a status change for an IP address range that you bring to Global Accelerator through
    * 			bring your own IP address (BYOIP).</p>
    */
   Timestamp?: Date;
 }
 
-export namespace ByoipCidrEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ByoipCidrEvent): any => ({
-    ...obj,
-  });
-}
-
-export enum ByoipCidrState {
-  ADVERTISING = "ADVERTISING",
-  DEPROVISIONED = "DEPROVISIONED",
-  FAILED_ADVERTISING = "FAILED_ADVERTISING",
-  FAILED_DEPROVISION = "FAILED_DEPROVISION",
-  FAILED_PROVISION = "FAILED_PROVISION",
-  FAILED_WITHDRAW = "FAILED_WITHDRAW",
-  PENDING_ADVERTISING = "PENDING_ADVERTISING",
-  PENDING_DEPROVISIONING = "PENDING_DEPROVISIONING",
-  PENDING_PROVISIONING = "PENDING_PROVISIONING",
-  PENDING_WITHDRAWING = "PENDING_WITHDRAWING",
-  READY = "READY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ByoipCidrState = {
+  ADVERTISING: "ADVERTISING",
+  DEPROVISIONED: "DEPROVISIONED",
+  FAILED_ADVERTISING: "FAILED_ADVERTISING",
+  FAILED_DEPROVISION: "FAILED_DEPROVISION",
+  FAILED_PROVISION: "FAILED_PROVISION",
+  FAILED_WITHDRAW: "FAILED_WITHDRAW",
+  PENDING_ADVERTISING: "PENDING_ADVERTISING",
+  PENDING_DEPROVISIONING: "PENDING_DEPROVISIONING",
+  PENDING_PROVISIONING: "PENDING_PROVISIONING",
+  PENDING_WITHDRAWING: "PENDING_WITHDRAWING",
+  READY: "READY",
+} as const;
 
 /**
- * <p>Information about an IP address range that is provisioned for use with your AWS resources through
+ * @public
+ */
+export type ByoipCidrState = (typeof ByoipCidrState)[keyof typeof ByoipCidrState];
+
+/**
+ * @public
+ * <p>Information about an IP address range that is provisioned for use with your Amazon Web Services resources through
  * 			bring your own IP address (BYOIP).</p>
- * 		       <p>The following describes each BYOIP <code>State</code> that your IP address range can be in.</p>
- * 		       <ul>
+ *          <p>The following describes each BYOIP <code>State</code> that your IP address range can be in.</p>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <b>PENDING_PROVISIONING</b> —
  * 				You’ve submitted a request to provision an IP address range but it is not yet provisioned with
- * 				AWS Global Accelerator.</p>
+ * 			    Global Accelerator.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>READY</b> — The address range is provisioned
- * 				with AWS Global Accelerator and can be advertised.</p>
+ * 			    with Global Accelerator and can be advertised.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>PENDING_ADVERTISING</b> — You’ve submitted a
- * 				request for AWS Global Accelerator to advertise an address range but it is not yet being advertised.</p>
+ * 			    request for Global Accelerator to advertise an address range but it is not yet being advertised.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>ADVERTISING</b> — The address range is
- * 				being advertised by AWS Global Accelerator.</p>
+ * 			    being advertised by Global Accelerator.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>PENDING_WITHDRAWING</b> — You’ve submitted
  * 				a request to withdraw an address range from being advertised but it is still being advertised
- * 				by AWS Global Accelerator.</p>
+ * 				by Global Accelerator.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>PENDING_DEPROVISIONING</b> — You’ve submitted a
- * 				request to deprovision an address range from AWS Global Accelerator but it is still provisioned.</p>
+ * 			    request to deprovision an address range from Global Accelerator but it is still provisioned.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>DEPROVISIONED</b> — The address range is deprovisioned
- * 				from AWS Global Accelerator.</p>
+ * 			    from Global Accelerator.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>FAILED_PROVISION </b> — The request to
- * 				provision the address range from AWS Global Accelerator was not successful. Please make sure that
+ * 			    provision the address range from Global Accelerator was not successful. Please make sure that
  * 				you provide all of the correct information, and try again. If the request fails
- * 				a second time, contact AWS support.</p>
+ * 				a second time, contact Amazon Web Services support.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>FAILED_ADVERTISING</b> — The request for AWS Global Accelerator
+ *                   <b>FAILED_ADVERTISING</b> — The request for Global Accelerator
  * 				to advertise the address range was not successful. Please make sure that
  * 				you provide all of the correct information, and try again. If the request fails
- * 				a second time, contact AWS support.</p>
+ * 				a second time, contact Amazon Web Services support.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>FAILED_WITHDRAW</b> — The request to withdraw
- * 				the address range from advertising by AWS Global Accelerator was not successful. Please make sure that
+ * 			    the address range from advertising by Global Accelerator was not successful. Please make sure that
  * 				you provide all of the correct information, and try again. If the request fails
- * 				a second time, contact AWS support.</p>
+ * 				a second time, contact Amazon Web Services support.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>FAILED_DEPROVISION </b> — The request to
- * 				deprovision the address range from AWS Global Accelerator was not successful. Please make sure that
+ * 			    deprovision the address range from Global Accelerator was not successful. Please make sure that
  * 				you provide all of the correct information, and try again. If the request fails
- * 				a second time, contact AWS support.</p>
+ * 				a second time, contact Amazon Web Services support.</p>
  *             </li>
  *          </ul>
  */
 export interface ByoipCidr {
   /**
+   * @public
    * <p>The address range, in CIDR notation.</p>
    */
   Cidr?: string;
 
   /**
+   * @public
    * <p>The state of the address pool.</p>
    */
   State?: ByoipCidrState | string;
 
   /**
-   * <p>A history of status changes for an IP address range that you bring to AWS Global Accelerator
+   * @public
+   * <p>A history of status changes for an IP address range that you bring to Global Accelerator
    * 			through bring your own IP address (BYOIP).</p>
    */
   Events?: ByoipCidrEvent[];
 }
 
-export namespace ByoipCidr {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ByoipCidr): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AdvertiseByoipCidrResponse {
   /**
+   * @public
    * <p>Information about the address range.</p>
    */
   ByoipCidr?: ByoipCidr;
 }
 
-export namespace AdvertiseByoipCidrResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdvertiseByoipCidrResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The CIDR that you specified was not found or is incorrect.</p>
  */
 export class ByoipCidrNotFoundException extends __BaseException {
@@ -607,6 +819,7 @@ export class ByoipCidrNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be
  * 		incorrect for this action.</p>
  */
@@ -628,54 +841,54 @@ export class IncorrectCidrStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AllowCustomRoutingTrafficRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.</p>
    */
   EndpointId: string | undefined;
 
   /**
+   * @public
    * <p>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet that you want to allow to receive
    * 			traffic. The IP addresses must be a subset of the IP addresses that you specified for the endpoint group.</p>
-   * 		       <p>
+   *          <p>
    *             <code>DestinationAddresses</code> is required if <code>AllowAllTrafficToEndpoint</code> is <code>FALSE</code> or is
    * 		not specified.</p>
    */
   DestinationAddresses?: string[];
 
   /**
+   * @public
    * <p>A list of specific Amazon EC2 instance ports (destination ports) that you want to allow to receive traffic.</p>
    */
   DestinationPorts?: number[];
 
   /**
+   * @public
    * <p>Indicates whether all destination IP addresses and ports for a specified VPC subnet endpoint can receive traffic
    * 			from a custom routing accelerator. The value is TRUE or FALSE. </p>
-   * 		       <p>When set to TRUE, <i>all</i> destinations in the custom routing VPC subnet can receive traffic. Note
+   *          <p>When set to TRUE, <i>all</i> destinations in the custom routing VPC subnet can receive traffic. Note
    * 			that you cannot specify destination IP addresses and ports when the value is set to TRUE.</p>
-   * 		       <p>When set to FALSE (or not specified), you <i>must</i> specify a list of destination IP addresses that are allowed
+   *          <p>When set to FALSE (or not specified), you <i>must</i> specify a list of destination IP addresses that are allowed
    * 			to receive traffic. A list of ports is optional. If you don't specify a list of ports, the ports that can accept traffic is
    * 			the same as the ports configured for the endpoint group.</p>
-   * 		       <p>The default value is FALSE.</p>
+   *          <p>The default value is FALSE.</p>
    */
   AllowAllTrafficToEndpoint?: boolean;
 }
 
-export namespace AllowCustomRoutingTrafficRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllowCustomRoutingTrafficRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources
  * 			from a listener before you can delete it.</p>
  */
@@ -698,6 +911,7 @@ export class AssociatedEndpointGroupFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an
  * 			accelerator before you can delete it.</p>
  */
@@ -720,426 +934,434 @@ export class AssociatedListenerFoundException extends __BaseException {
 }
 
 /**
- * <p>Provides authorization for Amazon to bring a specific IP address range to a specific AWS
+ * @public
+ * <p>Provides authorization for Amazon to bring a specific IP address range to a specific Amazon Web Services
  * 			account using bring your own IP addresses (BYOIP). </p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
- * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring your own
+ * 		    IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
  */
 export interface CidrAuthorizationContext {
   /**
+   * @public
    * <p>The plain-text authorization message for the prefix and account.</p>
    */
   Message: string | undefined;
 
   /**
+   * @public
    * <p>The signed authorization message for the prefix and account.</p>
    */
   Signature: string | undefined;
 }
 
-export namespace CidrAuthorizationContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CidrAuthorizationContext): any => ({
-    ...obj,
-  });
-}
-
-export type ClientAffinity = "NONE" | "SOURCE_IP";
+/**
+ * @public
+ * @enum
+ */
+export const ClientAffinity = {
+  NONE: "NONE",
+  SOURCE_IP: "SOURCE_IP",
+} as const;
 
 /**
+ * @public
+ */
+export type ClientAffinity = (typeof ClientAffinity)[keyof typeof ClientAffinity];
+
+/**
+ * @public
  * <p>A complex type that contains a <code>Tag</code> key and <code>Tag</code> value.</p>
  */
 export interface Tag {
   /**
+   * @public
    * <p>A string that contains a <code>Tag</code> key.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>A string that contains a <code>Tag</code> value.</p>
    */
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateAcceleratorRequest {
   /**
-   * <p>The name of an accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or
-   * 			hyphens (-), and must not begin or end with a hyphen.</p>
+   * @public
+   * <p>The name of the accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters,
+   * 			periods (.), or hyphens (-), and must not begin or end with a hyphen or period.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The value for the address type must be IPv4.</p>
+   * @public
+   * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
-   * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses
-   * 			from your own pool to use for the accelerator's static IP addresses when you create an accelerator. You can
-   * 			specify one or two addresses, separated by a space. Do not include the /32 suffix.</p>
-   * 		       <p>Only one IP address from each of your IP address ranges can be used for each accelerator. If you specify only
-   * 			one IP address from your IP address range, Global Accelerator assigns a second static IP address for the
-   * 			accelerator from the AWS IP address pool.</p>
-   * 		       <p>Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new
+   * @public
+   * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose an IPv4 address
+   * 			from your own pool to use for the accelerator's static IPv4 address when you create an accelerator. </p>
+   *          <p>After you bring an address range to Amazon Web Services, it appears in your account as an address pool.
+   * 	    	When you create an accelerator, you can assign one IPv4 address from your range to it. Global Accelerator assigns
+   * 	    	you a second static IPv4 address from an Amazon IP address range. If you bring two IPv4 address ranges
+   * 	    	to Amazon Web Services, you can assign one IPv4 address from each range to your accelerator. This restriction is
+   * 			because Global Accelerator assigns each address range to a different network zone, for high availability.</p>
+   *          <p>You can specify one or two addresses, separated by a space. Do not include the /32 suffix.</p>
+   *          <p>Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new
    * 			accelerator with the new addresses.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
-   * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
+   * 		    your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   IpAddresses?: string[];
 
   /**
+   * @public
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
-   * 		       <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
+   *          <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
    * 			uniqueness—of an accelerator.</p>
    */
   IdempotencyToken?: string;
 
   /**
+   * @public
    * <p>Create tags for an accelerator.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
-   * 			in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+   * 		    in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreateAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateAcceleratorResponse {
   /**
+   * @public
    * <p>The accelerator that is created by specifying a listener and the supported IP address types.</p>
    */
   Accelerator?: Accelerator;
 }
 
-export namespace CreateAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAcceleratorResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateCustomRoutingAcceleratorRequest {
   /**
+   * @public
    * <p>The name of a custom routing accelerator. The name can have a maximum of 64 characters, must contain
    * 		only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The value for the address type must be IPv4.</p>
+   * @public
+   * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
-   * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses
-   * 				from your own pool to use for the accelerator's static IP addresses when you create an accelerator. You can
-   * 				specify one or two addresses, separated by a space. Do not include the /32 suffix.</p>
-   * 			      <p>Only one IP address from each of your IP address ranges can be used for each accelerator. If you specify only
-   * 				one IP address from your IP address range, Global Accelerator assigns a second static IP address for the
-   * 				accelerator from the AWS IP address pool.</p>
-   * 			      <p>Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new
-   * 				accelerator with the new addresses.</p>
-   * 			      <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
-   * 				your own IP addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * @public
+   * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose an IPv4 address
+   * 			from your own pool to use for the accelerator's static IPv4 address when you create an accelerator. </p>
+   *          <p>After you bring an address range to Amazon Web Services, it appears in your account as an address pool.
+   * 			When you create an accelerator, you can assign one IPv4 address from your range to it. Global Accelerator assigns
+   * 			you a second static IPv4 address from an Amazon IP address range. If you bring two IPv4 address ranges
+   * 			to Amazon Web Services, you can assign one IPv4 address from each range to your accelerator. This restriction is
+   * 			because Global Accelerator assigns each address range to a different network zone, for high availability.</p>
+   *          <p>You can specify one or two addresses, separated by a space. Do not include the /32 suffix.</p>
+   *          <p>Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new
+   * 			accelerator with the new addresses.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
+   * 			your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   IpAddresses?: string[];
 
   /**
+   * @public
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
-   * 	        <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
+   *          <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that
    * 			is, the uniqueness—of the request.</p>
    */
   IdempotencyToken?: string;
 
   /**
+   * @public
    * <p>Create tags for an accelerator.</p>
-   * 	        <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
-   * 		in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+   * 	    in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreateCustomRoutingAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
-export type CustomRoutingAcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
+/**
+ * @public
+ * @enum
+ */
+export const CustomRoutingAcceleratorStatus = {
+  DEPLOYED: "DEPLOYED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomRoutingAcceleratorStatus =
+  (typeof CustomRoutingAcceleratorStatus)[keyof typeof CustomRoutingAcceleratorStatus];
+
+/**
+ * @public
  * <p>Attributes of a custom routing accelerator.</p>
  */
 export interface CustomRoutingAccelerator {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator.</p>
    */
   AcceleratorArn?: string;
 
   /**
+   * @public
    * <p>The name of the accelerator. The name must contain only alphanumeric characters or
    * 			hyphens (-), and must not begin or end with a hyphen.</p>
    */
   Name?: string;
 
   /**
-   * <p>The value for the address type must be IPv4.</p>
+   * @public
+   * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p>
-   * 		       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>
+   *          <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The static IP addresses that Global Accelerator associates with the accelerator.</p>
    */
   IpSets?: IpSet[];
 
   /**
-   * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses. </p>
-   * 		       <p>The naming convention for the DNS name is the following: A lowercase letter a,
+   * @public
+   * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses. </p>
+   *          <p>The naming convention for the DNS name is the following: A lowercase letter a,
    * 			followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:
    * 			a1234567890abcdef.awsglobalaccelerator.com.</p>
-   * 		       <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
-   * 			Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>If you have a dual-stack accelerator, you also have a second DNS name, <code>DualStackDnsName</code>, that points to both the A record
+   * 			and the AAAA record for all four static addresses for the accelerator: two IPv4 addresses and two IPv6 addresses.</p>
+   *          <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html">
+   * 			Support for DNS addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   DnsName?: string;
 
   /**
+   * @public
    * <p>Describes the deployment status of the accelerator.</p>
    */
   Status?: CustomRoutingAcceleratorStatus | string;
 
   /**
+   * @public
    * <p>The date and time that the accelerator was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The date and time that the accelerator was last modified.</p>
    */
   LastModifiedTime?: Date;
 }
 
-export namespace CustomRoutingAccelerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingAccelerator): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateCustomRoutingAcceleratorResponse {
   /**
+   * @public
    * <p>The accelerator that is created.</p>
    */
   Accelerator?: CustomRoutingAccelerator;
 }
 
-export namespace CreateCustomRoutingAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingAcceleratorResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum CustomRoutingProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomRoutingProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomRoutingProtocol = (typeof CustomRoutingProtocol)[keyof typeof CustomRoutingProtocol];
+
+/**
+ * @public
  * <p>For a custom routing accelerator, sets the port range and protocol for all endpoints (virtual
  * 			private cloud subnets) in an endpoint group to accept client traffic on.</p>
  */
 export interface CustomRoutingDestinationConfiguration {
   /**
+   * @public
    * <p>The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
    */
   FromPort: number | undefined;
 
   /**
+   * @public
    * <p>The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
    */
   ToPort: number | undefined;
 
   /**
+   * @public
    * <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
    */
   Protocols: (CustomRoutingProtocol | string)[] | undefined;
 }
 
-export namespace CustomRoutingDestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingDestinationConfiguration): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateCustomRoutingEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener for a custom routing endpoint.</p>
    */
   ListenerArn: string | undefined;
 
   /**
-   * <p>The AWS Region where the endpoint group is located. A listener can have only one endpoint group in a
+   * @public
+   * <p>The Amazon Web Services Region where the endpoint group is located. A listener can have only one endpoint group in a
    * 		specific Region.</p>
    */
   EndpointGroupRegion: string | undefined;
 
   /**
+   * @public
    * <p>Sets the port range and protocol for all endpoints (virtual private cloud subnets) in a custom routing endpoint group to accept
    * 		client traffic on.</p>
    */
   DestinationConfigurations: CustomRoutingDestinationConfiguration[] | undefined;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
    * 		uniqueness—of the request.</p>
    */
   IdempotencyToken?: string;
 }
 
-export namespace CreateCustomRoutingEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingEndpointGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum Protocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Protocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
 
 /**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
+/**
+ * @public
  * <p>For a custom routing accelerator, describes the port range and protocol for all endpoints
  * 			(virtual private cloud subnets) in an endpoint group to accept client traffic on.</p>
  */
 export interface CustomRoutingDestinationDescription {
   /**
+   * @public
    * <p>The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
    */
   FromPort?: number;
 
   /**
+   * @public
    * <p>The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
    */
   ToPort?: number;
 
   /**
+   * @public
    * <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
    */
   Protocols?: (Protocol | string)[];
 }
 
-export namespace CustomRoutingDestinationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingDestinationDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>A complex type for the endpoint group for a custom routing accelerator. An AWS Region can have only one endpoint group for a specific listener.
+ * @public
+ * <p>A complex type for the endpoint group for a custom routing accelerator. An Amazon Web Services Region can have only one endpoint group for a specific listener.
  * 		</p>
  */
 export interface CustomRoutingEndpointGroup {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn?: string;
 
   /**
-   * <p>The AWS Region where the endpoint group is located.</p>
+   * @public
+   * <p>The Amazon Web Services Region where the endpoint group is located.</p>
    */
   EndpointGroupRegion?: string;
 
   /**
+   * @public
    * <p>For a custom routing accelerator, describes the port range and protocol for all endpoints
    * 			(virtual private cloud subnets) in an endpoint group to accept client traffic on.</p>
    */
   DestinationDescriptions?: CustomRoutingDestinationDescription[];
 
   /**
+   * @public
    * <p>For a custom routing accelerator, describes the endpoints (virtual private cloud subnets) in an
    * 			endpoint group to accept client traffic on.</p>
    */
   EndpointDescriptions?: CustomRoutingEndpointDescription[];
 }
 
-export namespace CustomRoutingEndpointGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingEndpointGroup): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateCustomRoutingEndpointGroupResponse {
   /**
+   * @public
    * <p>The information about the endpoint group created for a custom routing accelerator.</p>
    */
   EndpointGroup?: CustomRoutingEndpointGroup;
 }
 
-export namespace CreateCustomRoutingEndpointGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingEndpointGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The endpoint group that you specified already exists.</p>
  */
 export class EndpointGroupAlreadyExistsException extends __BaseException {
@@ -1161,6 +1383,7 @@ export class EndpointGroupAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
  */
 export class InvalidPortRangeException extends __BaseException {
@@ -1182,6 +1405,7 @@ export class InvalidPortRangeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The listener that you specified doesn't exist.</p>
  */
 export class ListenerNotFoundException extends __BaseException {
@@ -1203,669 +1427,528 @@ export class ListenerNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type for a range of ports for a listener.</p>
  */
 export interface PortRange {
   /**
+   * @public
    * <p>The first port in the range of ports, inclusive.</p>
    */
   FromPort?: number;
 
   /**
+   * @public
    * <p>The last port in the range of ports, inclusive.</p>
    */
   ToPort?: number;
 }
 
-export namespace PortRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortRange): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateCustomRoutingListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator for a custom routing listener.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The port range to support for connections from clients to your accelerator.</p>
-   * 	        <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About
+   *          <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About
    * 		endpoints for custom routing accelerators</a>.</p>
    */
   PortRanges: PortRange[] | undefined;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
    * 		uniqueness—of the request.</p>
    */
   IdempotencyToken?: string;
 }
 
-export namespace CreateCustomRoutingListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingListenerRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A complex type for a listener for a custom routing accelerator.</p>
  */
 export interface CustomRoutingListener {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn?: string;
 
   /**
+   * @public
    * <p>The port range to support for connections from clients to your accelerator.</p>
-   * 		       <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About
+   *          <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About
    * 				endpoints for custom routing accelerators</a>.</p>
    */
   PortRanges?: PortRange[];
 }
 
-export namespace CustomRoutingListener {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingListener): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateCustomRoutingListenerResponse {
   /**
+   * @public
    * <p>The listener that you've created for a custom routing accelerator.</p>
    */
   Listener?: CustomRoutingListener;
 }
 
-export namespace CreateCustomRoutingListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingListenerResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>A complex type for endpoints. A resource must be valid and active when you add it as an endpoint.</p>
+ * @public
+ * @enum
  */
-export interface EndpointConfiguration {
-  /**
-   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
-   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
-   * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. A resource must be valid and active
-   * 			when you add it as an endpoint.</p>
-   * 		       <p>An Application Load Balancer can be either internal or internet-facing.</p>
-   */
-  EndpointId?: string;
-
-  /**
-   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic
-   * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
-   * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
-   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint Weights</a> in the
-   * 				<i>AWS Global Accelerator Developer Guide</i>.</p>
-   */
-  Weight?: number;
-
-  /**
-   * <p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint.
-   * 			The value is true or false. The default value is true for new accelerators. </p>
-   * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
-   * 			traffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
-   * 			Preserve Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-   */
-  ClientIPPreservationEnabled?: boolean;
-}
-
-export namespace EndpointConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export enum HealthCheckProtocol {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP",
-}
+export const HealthCheckProtocol = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  TCP: "TCP",
+} as const;
 
 /**
+ * @public
+ */
+export type HealthCheckProtocol = (typeof HealthCheckProtocol)[keyof typeof HealthCheckProtocol];
+
+/**
+ * @public
  * <p>Override specific listener ports used to route traffic to endpoints that are part of an endpoint group.
  * 			For example, you can create a port override in which the listener
  * 			receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080
  * 			and 1443, respectively, on the endpoints.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
- * 			Port overrides</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
+ * 		    Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</p>
  */
 export interface PortOverride {
   /**
+   * @public
    * <p>The listener port that you want to map to a specific endpoint port. This is the port that user traffic
-   * 		arrives to the Global Accelerator on.</p>
+   * 		    arrives to the Global Accelerator on.</p>
    */
   ListenerPort?: number;
 
   /**
+   * @public
    * <p>The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint,
-   * 			such as the Application Load Balancer or Amazon EC2 instance.</p>
+   * 		    such as the Application Load Balancer or Amazon EC2 instance.</p>
    */
   EndpointPort?: number;
 }
 
-export namespace PortOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortOverride): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
 
   /**
-   * <p>The AWS Region where the endpoint group is located. A listener can have only one endpoint group in a
+   * @public
+   * <p>The Amazon Web Services Region where the endpoint group is located. A listener can have only one endpoint group in a
    * 			specific Region.</p>
    */
   EndpointGroupRegion: string | undefined;
 
   /**
+   * @public
    * <p>The list of endpoint objects.</p>
    */
   EndpointConfigurations?: EndpointConfiguration[];
 
   /**
-   * <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for
+   * @public
+   * <p>The percentage of traffic to send to an Amazon Web Services Region. Additional traffic is distributed to other endpoint groups for
    * 			this listener. </p>
-   * 		       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
+   *          <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
    * 			applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>
-   * 		       <p>The default value is 100.</p>
+   *          <p>The default value is 100.</p>
    */
   TrafficDialPercentage?: number;
 
   /**
-   * <p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
-   * 			is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the
+   * @public
+   * <p>The port that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
+   * 	        is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the
    * 			first port in the list.</p>
    */
   HealthCheckPort?: number;
 
   /**
-   * <p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
+   * @public
+   * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
   HealthCheckProtocol?: HealthCheckProtocol | string;
 
   /**
+   * @public
    * <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The
    * 			default value is slash (/).</p>
    */
   HealthCheckPath?: string;
 
   /**
+   * @public
    * <p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
   /**
+   * @public
    * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
    * 			unhealthy endpoint to healthy. The default value is 3.</p>
    */
   ThresholdCount?: number;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
    * 			uniqueness—of the request.</p>
    */
   IdempotencyToken?: string;
 
   /**
+   * @public
    * <p>Override specific listener ports used to route traffic to endpoints that are part of this endpoint group.
    * 			For example, you can create a port override in which the listener
    * 			receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080
    * 			and 1443, respectively, on the endpoints.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
-   * 			Port overrides</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
+   * 			Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   PortOverrides?: PortOverride[];
 }
 
-export namespace CreateEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEndpointGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export type HealthState = "HEALTHY" | "INITIAL" | "UNHEALTHY";
-
 /**
- * <p>A complex type for an endpoint. Each endpoint group can include one or more endpoints, such as load
- * 			balancers.</p>
- */
-export interface EndpointDescription {
-  /**
-   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
-   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
-   * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. </p>
-   * 		       <p>An Application Load Balancer can be either internal or internet-facing.</p>
-   */
-  EndpointId?: string;
-
-  /**
-   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic
-   * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
-   * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
-   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint Weights</a> in the
-   * 				<i>AWS Global Accelerator Developer Guide</i>. </p>
-   */
-  Weight?: number;
-
-  /**
-   * <p>The health status of the endpoint.</p>
-   */
-  HealthState?: HealthState | string;
-
-  /**
-   * <p>Returns a null result.</p>
-   */
-  HealthReason?: string;
-
-  /**
-   * <p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint.
-   * 			The value is true or false. The default value is true for new accelerators. </p>
-   * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
-   * 			traffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-how-it-works-client-ip.html">
-   * 			Viewing Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-   */
-  ClientIPPreservationEnabled?: boolean;
-}
-
-export namespace EndpointDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointDescription): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A complex type for the endpoint group. An AWS Region can have only one endpoint group for a specific listener.
+ * @public
+ * <p>A complex type for the endpoint group. An Amazon Web Services Region can have only one endpoint group for a specific listener.
  * 		</p>
  */
 export interface EndpointGroup {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn?: string;
 
   /**
-   * <p>The AWS Region where the endpoint group is located.</p>
+   * @public
+   * <p>The Amazon Web Services Region where the endpoint group is located.</p>
    */
   EndpointGroupRegion?: string;
 
   /**
+   * @public
    * <p>The list of endpoint objects.</p>
    */
   EndpointDescriptions?: EndpointDescription[];
 
   /**
-   * <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for
+   * @public
+   * <p>The percentage of traffic to send to an Amazon Web Services Region. Additional traffic is distributed to other endpoint groups for
    * 			this listener. </p>
-   * 		       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
+   *          <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
    * 			applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>
-   * 		       <p>The default value is 100.</p>
+   *          <p>The default value is 100.</p>
    */
   TrafficDialPercentage?: number;
 
   /**
+   * @public
    * <p>The port that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. </p>
-   *
-   * 		       <p>The default port is the port for the listener that this endpoint group is associated with. If the listener port is a
-   * 			list, Global Accelerator uses the first specified port in the list of ports.</p>
+   *          <p>The default port is the port for the listener that this endpoint group is associated with. If the listener port is a
+   * 		    list, Global Accelerator uses the first specified port in the list of ports.</p>
    */
   HealthCheckPort?: number;
 
   /**
+   * @public
    * <p>The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
   HealthCheckProtocol?: HealthCheckProtocol | string;
 
   /**
+   * @public
    * <p>If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the
    * 			endpoints for health checks. The default is slash (/).</p>
    */
   HealthCheckPath?: string;
 
   /**
+   * @public
    * <p>The time—10 seconds or 30 seconds—between health checks for each endpoint. The default value is 30.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
   /**
+   * @public
    * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
    * 			unhealthy endpoint to healthy. The default value is 3.</p>
    */
   ThresholdCount?: number;
 
   /**
+   * @public
    * <p>Allows you to override the destination ports used to route traffic to an endpoint.
-   * 			Using a port override lets you to map a list of external destination ports (that your
+   * 			Using a port override lets you map a list of external destination ports (that your
    * 			users send traffic to) to a list of internal destination ports that you want an application
    * 			endpoint to receive traffic on. </p>
    */
   PortOverrides?: PortOverride[];
 }
 
-export namespace EndpointGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointGroup): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateEndpointGroupResponse {
   /**
+   * @public
    * <p>The information about the endpoint group that was created.</p>
    */
   EndpointGroup?: EndpointGroup;
 }
 
-export namespace CreateEndpointGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEndpointGroupResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of your accelerator.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of port ranges to support for connections from clients to your accelerator.</p>
    */
   PortRanges: PortRange[] | undefined;
 
   /**
+   * @public
    * <p>The protocol for connections from clients to your accelerator.</p>
    */
   Protocol: Protocol | string | undefined;
 
   /**
+   * @public
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
    * 			regardless of the port and protocol of the client request. Client affinity gives you control over whether to always
    * 			route each client to the same specific endpoint.</p>
-   * 		       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
-   * 			affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
+   *          <p>Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
+   * 	        affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
    * 			destination IP address, destination port, and protocol—to select the hash value, and then chooses the best
    * 			endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not
    * 			be always routed to the same endpoint because the hash value changes. </p>
-   * 		       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>
-   * 			instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
+   *          <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>
+   * 		    instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
-   * 		       <p>The default value is <code>NONE</code>.</p>
+   *          <p>The default value is <code>NONE</code>.</p>
    */
   ClientAffinity?: ClientAffinity | string;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
    * 			uniqueness—of the request.</p>
    */
   IdempotencyToken?: string;
 }
 
-export namespace CreateListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateListenerRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A complex type for a listener.</p>
  */
 export interface Listener {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn?: string;
 
   /**
+   * @public
    * <p>The list of port ranges for the connections from clients to the accelerator.</p>
    */
   PortRanges?: PortRange[];
 
   /**
+   * @public
    * <p>The protocol for the connections from clients to the accelerator.</p>
    */
   Protocol?: Protocol | string;
 
   /**
+   * @public
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
    * 			regardless of the port and protocol of the client request. Client affinity gives you control over whether to always
    * 			route each client to the same specific endpoint.</p>
-   * 		       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
-   * 			affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
+   *          <p>Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
+   * 	        affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
    * 			destination IP address, destination port, and protocol—to select the hash value, and then chooses the best
    * 			endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not
    * 			be always routed to the same endpoint because the hash value changes. </p>
-   * 		       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>
-   * 			instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
+   *          <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>
+   * 		    instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
-   * 		       <p>The default value is <code>NONE</code>.</p>
+   *          <p>The default value is <code>NONE</code>.</p>
    */
   ClientAffinity?: ClientAffinity | string;
 }
 
-export namespace Listener {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Listener): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateListenerResponse {
   /**
+   * @public
    * <p>The listener that you've created.</p>
    */
   Listener?: Listener;
 }
 
-export namespace CreateListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateListenerResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Attributes of a custom routing accelerator.</p>
  */
 export interface CustomRoutingAcceleratorAttributes {
   /**
+   * @public
    * <p>Indicates whether flow logs are enabled. The default value is false. If the value is true,
    * 			<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
-   * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow logs</a> in
+   * 		    the <i>Global Accelerator Developer Guide</i>.</p>
    */
   FlowLogsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
-   * 			<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the
+   * 		    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 			bucket.</p>
    */
   FlowLogsS3Bucket?: string;
 
   /**
+   * @public
    * <p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 			<code>FlowLogsEnabled</code> is <code>true</code>.</p>
-   * 		       <p>If you don’t specify a prefix, the flow logs are stored in the
+   *          <p>If you don’t specify a prefix, the flow logs are stored in the
    * 			root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
-   * 		       <p>DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id</p>
+   *          <p>DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id</p>
    */
   FlowLogsS3Prefix?: string;
 }
 
-export namespace CustomRoutingAcceleratorAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingAcceleratorAttributes): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomRoutingDestinationTrafficState = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
 
-export enum CustomRoutingDestinationTrafficState {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+/**
+ * @public
+ */
+export type CustomRoutingDestinationTrafficState =
+  (typeof CustomRoutingDestinationTrafficState)[keyof typeof CustomRoutingDestinationTrafficState];
 
+/**
+ * @public
+ */
 export interface DeleteAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an accelerator.</p>
    */
   AcceleratorArn: string | undefined;
 }
 
-export namespace DeleteAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteCustomRoutingAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator to delete.</p>
    */
   AcceleratorArn: string | undefined;
 }
 
-export namespace DeleteCustomRoutingAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomRoutingAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteCustomRoutingEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to delete.</p>
    */
   EndpointGroupArn: string | undefined;
 }
 
-export namespace DeleteCustomRoutingEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomRoutingEndpointGroupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteCustomRoutingListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to delete.</p>
    */
   ListenerArn: string | undefined;
 }
 
-export namespace DeleteCustomRoutingListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomRoutingListenerRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to delete.</p>
    */
   EndpointGroupArn: string | undefined;
 }
 
-export namespace DeleteEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEndpointGroupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
 }
 
-export namespace DeleteListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteListenerRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DenyCustomRoutingTrafficRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.</p>
    */
   EndpointId: string | undefined;
 
   /**
+   * @public
    * <p>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet that you want to prevent from receiving
    * 			traffic. The IP addresses must be a subset of the IP addresses allowed for the VPC subnet associated with the
    * 			endpoint group.</p>
@@ -1873,404 +1956,325 @@ export interface DenyCustomRoutingTrafficRequest {
   DestinationAddresses?: string[];
 
   /**
+   * @public
    * <p>A list of specific Amazon EC2 instance ports (destination ports) in a subnet endpoint that you want to prevent from
    * 			receiving traffic.</p>
    */
   DestinationPorts?: number[];
 
   /**
+   * @public
    * <p>Indicates whether all destination IP addresses and ports for a specified VPC subnet endpoint <i>cannot</i>
    * 			receive traffic from a custom routing accelerator. The value is TRUE or FALSE. </p>
-   * 		       <p>When set to TRUE, <i>no</i> destinations in the custom routing VPC subnet can receive traffic. Note
+   *          <p>When set to TRUE, <i>no</i> destinations in the custom routing VPC subnet can receive traffic. Note
    * 			that you cannot specify destination IP addresses and ports when the value is set to TRUE.</p>
-   * 		       <p>When set to FALSE (or not specified), you <i>must</i> specify a list of destination IP addresses that cannot receive
+   *          <p>When set to FALSE (or not specified), you <i>must</i> specify a list of destination IP addresses that cannot receive
    * 			traffic. A list of ports is optional. If you don't specify a list of ports, the ports that can accept traffic is
    * 			the same as the ports configured for the endpoint group.</p>
-   * 		       <p>The default value is FALSE.</p>
+   *          <p>The default value is FALSE.</p>
    */
   DenyAllTrafficToEndpoint?: boolean;
 }
 
-export namespace DenyCustomRoutingTrafficRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DenyCustomRoutingTrafficRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeprovisionByoipCidrRequest {
   /**
+   * @public
    * <p>The address range, in CIDR notation. The prefix must be the same prefix that you specified
    * 			when you provisioned the address range.</p>
    */
   Cidr: string | undefined;
 }
 
-export namespace DeprovisionByoipCidrRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeprovisionByoipCidrRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeprovisionByoipCidrResponse {
   /**
+   * @public
    * <p>Information about the address range.</p>
    */
   ByoipCidr?: ByoipCidr;
 }
 
-export namespace DeprovisionByoipCidrResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeprovisionByoipCidrResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to describe.</p>
    */
   AcceleratorArn: string | undefined;
 }
 
-export namespace DescribeAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAcceleratorResponse {
   /**
+   * @public
    * <p>The description of the accelerator.</p>
    */
   Accelerator?: Accelerator;
 }
 
-export namespace DescribeAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAcceleratorAttributesRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator with the attributes that you want to describe.</p>
    */
   AcceleratorArn: string | undefined;
 }
 
-export namespace DescribeAcceleratorAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAcceleratorAttributesResponse {
   /**
+   * @public
    * <p>The attributes of the accelerator.</p>
    */
   AcceleratorAttributes?: AcceleratorAttributes;
 }
 
-export namespace DescribeAcceleratorAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeCustomRoutingAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to describe.</p>
    */
   AcceleratorArn: string | undefined;
 }
 
-export namespace DescribeCustomRoutingAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeCustomRoutingAcceleratorResponse {
   /**
+   * @public
    * <p>The description of the custom routing accelerator.</p>
    */
   Accelerator?: CustomRoutingAccelerator;
 }
 
-export namespace DescribeCustomRoutingAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeCustomRoutingAcceleratorAttributesRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator to describe the attributes for.</p>
    */
   AcceleratorArn: string | undefined;
 }
 
-export namespace DescribeCustomRoutingAcceleratorAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeCustomRoutingAcceleratorAttributesResponse {
   /**
+   * @public
    * <p>The attributes of the custom routing accelerator.</p>
    */
   AcceleratorAttributes?: CustomRoutingAcceleratorAttributes;
 }
 
-export namespace DescribeCustomRoutingAcceleratorAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeCustomRoutingEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>
    */
   EndpointGroupArn: string | undefined;
 }
 
-export namespace DescribeCustomRoutingEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingEndpointGroupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeCustomRoutingEndpointGroupResponse {
   /**
+   * @public
    * <p>The description of an endpoint group for a custom routing accelerator.</p>
    */
   EndpointGroup?: CustomRoutingEndpointGroup;
 }
 
-export namespace DescribeCustomRoutingEndpointGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingEndpointGroupResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeCustomRoutingListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to describe.</p>
    */
   ListenerArn: string | undefined;
 }
 
-export namespace DescribeCustomRoutingListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingListenerRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeCustomRoutingListenerResponse {
   /**
+   * @public
    * <p>The description of a listener for a custom routing accelerator.</p>
    */
   Listener?: CustomRoutingListener;
 }
 
-export namespace DescribeCustomRoutingListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingListenerResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>
    */
   EndpointGroupArn: string | undefined;
 }
 
-export namespace DescribeEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointGroupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeEndpointGroupResponse {
   /**
+   * @public
    * <p>The description of an endpoint group.</p>
    */
   EndpointGroup?: EndpointGroup;
 }
 
-export namespace DescribeEndpointGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointGroupResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to describe.</p>
    */
   ListenerArn: string | undefined;
 }
 
-export namespace DescribeListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenerRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeListenerResponse {
   /**
+   * @public
    * <p>The description of a listener.</p>
    */
   Listener?: Listener;
 }
 
-export namespace DescribeListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenerResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An IP address/port combination.</p>
  */
 export interface SocketAddress {
   /**
+   * @public
    * <p>The IP address for the socket address.</p>
    */
   IpAddress?: string;
 
   /**
+   * @public
    * <p>The port for the socket address.</p>
    */
   Port?: number;
 }
 
-export namespace SocketAddress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SocketAddress): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The port mappings for a specified endpoint IP address (destination).</p>
  */
 export interface DestinationPortMapping {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator
    * 			that you have port mappings for.</p>
    */
   AcceleratorArn?: string;
 
   /**
+   * @public
    * <p>The IP address/port combinations (sockets) that map to a given destination socket
    * 			address.</p>
    */
   AcceleratorSocketAddresses?: SocketAddress[];
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn?: string;
 
   /**
+   * @public
    * <p>The ID for the virtual private cloud (VPC) subnet.</p>
    */
   EndpointId?: string;
 
   /**
-   * <p>The AWS Region for the endpoint group.</p>
+   * @public
+   * <p>The Amazon Web Services Region for the endpoint group.</p>
    */
   EndpointGroupRegion?: string;
 
   /**
+   * @public
    * <p>The endpoint IP address/port combination for traffic received on the accelerator socket address.</p>
    */
   DestinationSocketAddress?: SocketAddress;
 
   /**
-   * <p>The IP address type, which must be IPv4.</p>
+   * @public
+   * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if
    * 			traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
    */
   DestinationTrafficState?: CustomRoutingDestinationTrafficState | string;
 }
 
-export namespace DestinationPortMapping {
+/**
+ * @public
+ * <p>A complex type for an endpoint. Specifies information about the endpoint to remove from the endpoint group.</p>
+ */
+export interface EndpointIdentifier {
   /**
-   * @internal
+   * @public
+   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
+   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
+   * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. </p>
+   *          <p>An Application Load Balancer can be either internal or internet-facing.</p>
    */
-  export const filterSensitiveLog = (obj: DestinationPortMapping): any => ({
-    ...obj,
-  });
+  EndpointId: string | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether client IP address preservation is enabled for an endpoint. The value is true or false. </p>
+   *          <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
+   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
+   */
+  ClientIPPreservationEnabled?: boolean;
 }
 
 /**
+ * @public
  * <p>The endpoint that you specified doesn't exist.</p>
  */
 export class EndpointNotFoundException extends __BaseException {
@@ -2292,6 +2296,7 @@ export class EndpointNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There isn't another item to return.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -2312,508 +2317,436 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListAcceleratorsRequest {
   /**
+   * @public
    * <p>The number of Global Accelerator objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListAcceleratorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAcceleratorsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAcceleratorsResponse {
   /**
+   * @public
    * <p>The list of accelerators for a customer account.</p>
    */
   Accelerators?: Accelerator[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListAcceleratorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAcceleratorsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListByoipCidrsRequest {
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make
    * 			another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListByoipCidrsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListByoipCidrsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListByoipCidrsResponse {
   /**
+   * @public
    * <p>Information about your address ranges.</p>
    */
   ByoipCidrs?: ByoipCidr[];
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListByoipCidrsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListByoipCidrsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListCustomRoutingAcceleratorsRequest {
   /**
+   * @public
    * <p>The number of custom routing Global Accelerator objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingAcceleratorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingAcceleratorsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListCustomRoutingAcceleratorsResponse {
   /**
+   * @public
    * <p>The list of custom routing accelerators for a customer account.</p>
    */
   Accelerators?: CustomRoutingAccelerator[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingAcceleratorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingAcceleratorsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListCustomRoutingEndpointGroupsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to list endpoint groups for.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingEndpointGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingEndpointGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListCustomRoutingEndpointGroupsResponse {
   /**
+   * @public
    * <p>The list of the endpoint groups associated with a listener for a custom routing accelerator.</p>
    */
   EndpointGroups?: CustomRoutingEndpointGroup[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingEndpointGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingEndpointGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListCustomRoutingListenersRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to list listeners for.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingListenersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingListenersRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListCustomRoutingListenersResponse {
   /**
+   * @public
    * <p>The list of listeners for a custom routing accelerator.</p>
    */
   Listeners?: CustomRoutingListener[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingListenersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingListenersResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListCustomRoutingPortMappingsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to list the custom routing port mappings for.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to list the custom routing port mappings for.</p>
    */
   EndpointGroupArn?: string;
 
   /**
+   * @public
    * <p>The number of destination port mappings that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingPortMappingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Returns the ports and associated IP addresses and ports of Amazon EC2 instances in your virtual
- * 			private cloud (VPC) subnets. Custom routing is a port mapping protocol in AWS Global Accelerator that
- * 			statically associates port ranges with VPC subnets, which allows Global Accelerator to route to
+ * 		    private cloud (VPC) subnets. Custom routing is a port mapping protocol in Global Accelerator that
+ * 		    statically associates port ranges with VPC subnets, which allows Global Accelerator to route to
  * 			specific instances and ports within one or more subnets. </p>
  */
 export interface PortMapping {
   /**
+   * @public
    * <p>The accelerator port.</p>
    */
   AcceleratorPort?: number;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn?: string;
 
   /**
+   * @public
    * <p>The IP address of the VPC subnet (the subnet ID).</p>
    */
   EndpointId?: string;
 
   /**
+   * @public
    * <p>The EC2 instance IP address and port number in the virtual private cloud (VPC) subnet.</p>
    */
   DestinationSocketAddress?: SocketAddress;
 
   /**
+   * @public
    * <p>The protocols supported by the endpoint group.</p>
    */
   Protocols?: (CustomRoutingProtocol | string)[];
 
   /**
+   * @public
    * <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if
    * 			traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
    */
   DestinationTrafficState?: CustomRoutingDestinationTrafficState | string;
 }
 
-export namespace PortMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortMapping): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListCustomRoutingPortMappingsResponse {
   /**
+   * @public
    * <p>The port mappings for a custom routing accelerator.</p>
    */
   PortMappings?: PortMapping[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingPortMappingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListCustomRoutingPortMappingsByDestinationRequest {
   /**
+   * @public
    * <p>The ID for the virtual private cloud (VPC) subnet.</p>
    */
   EndpointId: string | undefined;
 
   /**
+   * @public
    * <p>The endpoint IP address in a virtual private cloud (VPC) subnet for which you want to receive back port
    * 		mappings.</p>
    */
   DestinationAddress: string | undefined;
 
   /**
+   * @public
    * <p>The number of destination port mappings that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingPortMappingsByDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsByDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListCustomRoutingPortMappingsByDestinationResponse {
   /**
+   * @public
    * <p>The port mappings for the endpoint IP address that you specified in the request.</p>
    */
   DestinationPortMappings?: DestinationPortMapping[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingPortMappingsByDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsByDestinationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListEndpointGroupsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListEndpointGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEndpointGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListEndpointGroupsResponse {
   /**
+   * @public
    * <p>The list of the endpoint groups associated with a listener.</p>
    */
   EndpointGroups?: EndpointGroup[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListEndpointGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEndpointGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListListenersRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListListenersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListListenersRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListListenersResponse {
   /**
+   * @public
    * <p>The list of listeners for an accelerator.</p>
    */
   Listeners?: Listener[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListListenersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListListenersResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to list tags for. An ARN uniquely identifies an accelerator.</p>
    */
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>Root level tag for the Tags parameters.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ProvisionByoipCidrRequest {
   /**
+   * @public
    * <p>The public IPv4 address range, in CIDR notation. The most specific IP prefix that you can
    * 			specify is /24. The address range cannot overlap with another address range that you've brought
    * 			to this or another Region.</p>
@@ -2821,6 +2754,7 @@ export interface ProvisionByoipCidrRequest {
   Cidr: string | undefined;
 
   /**
+   * @public
    * <p>A signed document that proves that you are authorized to bring the specified IP address range to
    * 			Amazon using BYOIP.
    * 		</p>
@@ -2828,539 +2762,462 @@ export interface ProvisionByoipCidrRequest {
   CidrAuthorizationContext: CidrAuthorizationContext | undefined;
 }
 
-export namespace ProvisionByoipCidrRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionByoipCidrRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ProvisionByoipCidrResponse {
   /**
+   * @public
    * <p>Information about the address range.</p>
    */
   ByoipCidr?: ByoipCidr;
 }
 
-export namespace ProvisionByoipCidrResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionByoipCidrResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RemoveCustomRoutingEndpointsRequest {
   /**
+   * @public
    * <p>The IDs for the endpoints. For custom routing accelerators, endpoint IDs are the virtual private cloud (VPC)
    * 		subnet IDs. </p>
    */
   EndpointIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to remove endpoints from.</p>
    */
   EndpointGroupArn: string | undefined;
 }
 
-export namespace RemoveCustomRoutingEndpointsRequest {
+/**
+ * @public
+ */
+export interface RemoveEndpointsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The identifiers of the endpoints that you want to remove.</p>
    */
-  export const filterSensitiveLog = (obj: RemoveCustomRoutingEndpointsRequest): any => ({
-    ...obj,
-  });
+  EndpointIdentifiers: EndpointIdentifier[] | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
+   */
+  EndpointGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to add tags to. An ARN uniquely identifies a resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to add to a resource. A tag consists of a key and a value that you define.</p>
    */
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to remove tags from. An ARN uniquely identifies a resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tag key pairs that you want to remove from the specified resources.</p>
    */
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
-   * <p>The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or
-   * 			hyphens (-), and must not begin or end with a hyphen.</p>
+   * @public
+   * <p>The name of the accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters,
+   * 			periods (.), or hyphens (-), and must not begin or end with a hyphen or period.</p>
    */
   Name?: string;
 
   /**
-   * <p>The IP address type, which must be IPv4.</p>
+   * @public
+   * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
-   * 		       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
+   *          <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
    */
   Enabled?: boolean;
 }
 
-export namespace UpdateAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateAcceleratorResponse {
   /**
+   * @public
    * <p>Information about the updated accelerator.</p>
    */
   Accelerator?: Accelerator;
 }
 
-export namespace UpdateAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAcceleratorResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateAcceleratorAttributesRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>Update whether flow logs are enabled. The default value is false. If the value is true,
    * 				<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
-   * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
+   * 		    the <i>Global Accelerator Developer Guide</i>.</p>
    */
   FlowLogsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
-   * 				<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the
+   * 		    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 			bucket.</p>
    */
   FlowLogsS3Bucket?: string;
 
   /**
+   * @public
    * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 				<code>FlowLogsEnabled</code> is <code>true</code>. </p>
-   * 		       <p>If you don’t specify a prefix, the flow logs are stored in the
-   * 			root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
-   * 			      <p>s3-bucket_name//AWSLogs/aws_account_id</p>
+   *          <p>If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//),
+   * 			like the following:</p>
+   *          <p>s3-bucket_name//AWSLogs/aws_account_id</p>
    */
   FlowLogsS3Prefix?: string;
 }
 
-export namespace UpdateAcceleratorAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAcceleratorAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateAcceleratorAttributesResponse {
   /**
+   * @public
    * <p>Updated attributes for the accelerator.</p>
    */
   AcceleratorAttributes?: AcceleratorAttributes;
 }
 
-export namespace UpdateAcceleratorAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAcceleratorAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateCustomRoutingAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
-   * <p>The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or
-   * 		hyphens (-), and must not begin or end with a hyphen.</p>
+   * @public
+   * <p>The name of the accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters,
+   * 		periods (.), or hyphens (-), and must not begin or end with a hyphen or period.</p>
    */
   Name?: string;
 
   /**
-   * <p>The value for the address type must be IPv4.</p>
+   * @public
+   * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
-   * 	        <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
+   *          <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
    */
   Enabled?: boolean;
 }
 
-export namespace UpdateCustomRoutingAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateCustomRoutingAcceleratorResponse {
   /**
+   * @public
    * <p>Information about the updated custom routing accelerator.</p>
    */
   Accelerator?: CustomRoutingAccelerator;
 }
 
-export namespace UpdateCustomRoutingAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateCustomRoutingAcceleratorAttributesRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator to update attributes for.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>Update whether flow logs are enabled. The default value is false. If the value is true,
    * 		<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
-   * 	        <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
-   * 		the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow logs</a> in
+   * 	    the <i>Global Accelerator Developer Guide</i>.</p>
    */
   FlowLogsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
-   * 		<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the
+   * 	    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 		bucket.</p>
    */
   FlowLogsS3Bucket?: string;
 
   /**
+   * @public
    * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 		<code>FlowLogsEnabled</code> is <code>true</code>. </p>
-   * 	        <p>If you don’t specify a prefix, the flow logs are stored in the
+   *          <p>If you don’t specify a prefix, the flow logs are stored in the
    * 		root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
-   * 	        <p>DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id</p>
+   *          <p>DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id</p>
    */
   FlowLogsS3Prefix?: string;
 }
 
-export namespace UpdateCustomRoutingAcceleratorAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateCustomRoutingAcceleratorAttributesResponse {
   /**
+   * @public
    * <p>Updated custom routing accelerator.</p>
    */
   AcceleratorAttributes?: CustomRoutingAcceleratorAttributes;
 }
 
-export namespace UpdateCustomRoutingAcceleratorAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateCustomRoutingListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to update.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The updated port range to support for connections from clients to your accelerator. If you remove ports that are
    * 	currently being used by a subnet endpoint, the call fails.</p>
-   * 	        <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About
+   *          <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About
    * 		endpoints for custom routing accelerators</a>.</p>
    */
   PortRanges: PortRange[] | undefined;
 }
 
-export namespace UpdateCustomRoutingListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingListenerRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateCustomRoutingListenerResponse {
   /**
+   * @public
    * <p>Information for the updated listener for a custom routing accelerator.</p>
    */
   Listener?: CustomRoutingListener;
 }
 
-export namespace UpdateCustomRoutingListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingListenerResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of endpoint objects. A resource must be valid and active when you add it as an endpoint.</p>
    */
   EndpointConfigurations?: EndpointConfiguration[];
 
   /**
-   * <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for
+   * @public
+   * <p>The percentage of traffic to send to an Amazon Web Services Region. Additional traffic is distributed to other endpoint groups for
    * 			this listener. </p>
-   * 		       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
+   *          <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
    * 			applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>
-   * 		       <p>The default value is 100.</p>
+   *          <p>The default value is 100.</p>
    */
   TrafficDialPercentage?: number;
 
   /**
-   * <p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
-   * 			is the listener port that this endpoint group is associated with. If the listener port is a list of ports, Global Accelerator uses
+   * @public
+   * <p>The port that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
+   * 	        is the listener port that this endpoint group is associated with. If the listener port is a list of ports, Global Accelerator uses
    * 			the first port in the list.</p>
    */
   HealthCheckPort?: number;
 
   /**
-   * <p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
+   * @public
+   * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
   HealthCheckProtocol?: HealthCheckProtocol | string;
 
   /**
+   * @public
    * <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The
    * 			default value is slash (/).</p>
    */
   HealthCheckPath?: string;
 
   /**
+   * @public
    * <p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
   /**
+   * @public
    * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
    * 			unhealthy endpoint to healthy. The default value is 3.</p>
    */
   ThresholdCount?: number;
 
   /**
+   * @public
    * <p>Override specific listener ports used to route traffic to endpoints that are part of this endpoint group.
    * 			For example, you can create a port override in which the listener
    * 			receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080
    * 			and 1443, respectively, on the endpoints.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
-   * 			Port overrides</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
+   * 			Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   PortOverrides?: PortOverride[];
 }
 
-export namespace UpdateEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointGroupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateEndpointGroupResponse {
   /**
+   * @public
    * <p>The information about the endpoint group that was updated.</p>
    */
   EndpointGroup?: EndpointGroup;
 }
 
-export namespace UpdateEndpointGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointGroupResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to update.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The updated list of port ranges for the connections from clients to the accelerator.</p>
    */
   PortRanges?: PortRange[];
 
   /**
+   * @public
    * <p>The updated protocol for the connections from clients to the accelerator.</p>
    */
   Protocol?: Protocol | string;
 
   /**
+   * @public
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
    * 			regardless of the port and protocol of the client request. Client affinity gives you control over whether to always
    * 			route each client to the same specific endpoint.</p>
-   * 		       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
-   * 			affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
+   *          <p>Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
+   * 	        affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
    * 			destination IP address, destination port, and protocol—to select the hash value, and then chooses the best
    * 			endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not
    * 			be always routed to the same endpoint because the hash value changes. </p>
-   * 		       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>
-   * 			instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
+   *          <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>
+   * 		    instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
-   * 		       <p>The default value is <code>NONE</code>.</p>
+   *          <p>The default value is <code>NONE</code>.</p>
    */
   ClientAffinity?: ClientAffinity | string;
 }
 
-export namespace UpdateListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateListenerRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateListenerResponse {
   /**
+   * @public
    * <p>Information for the updated listener.</p>
    */
   Listener?: Listener;
 }
 
-export namespace UpdateListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateListenerResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface WithdrawByoipCidrRequest {
   /**
+   * @public
    * <p>The address range, in CIDR notation.</p>
    */
   Cidr: string | undefined;
 }
 
-export namespace WithdrawByoipCidrRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WithdrawByoipCidrRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface WithdrawByoipCidrResponse {
   /**
+   * @public
    * <p>Information about the address pool.</p>
    */
   ByoipCidr?: ByoipCidr;
-}
-
-export namespace WithdrawByoipCidrResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WithdrawByoipCidrResponse): any => ({
-    ...obj,
-  });
 }

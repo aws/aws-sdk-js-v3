@@ -1,5 +1,5 @@
 const { S3 } = require("../../clients/client-s3");
-const { AfterAll } = require("cucumber");
+const { AfterAll } = require("@cucumber/cucumber");
 
 /**
  * Cleanup fixtures and resources. The world does not exist when
@@ -9,7 +9,7 @@ const { AfterAll } = require("cucumber");
 AfterAll(async () => {
   const path = require("path");
   const fs = require("fs");
-  const filePath = path.resolve("integ.buckets.json");
+  const filePath = path.resolve("e2e.buckets.json");
 
   try {
     if (!fs.existsSync(filePath)) return Promise.resolve();

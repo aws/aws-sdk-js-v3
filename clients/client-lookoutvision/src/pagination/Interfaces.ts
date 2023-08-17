@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { LookoutVision } from "../LookoutVision";
 import { LookoutVisionClient } from "../LookoutVisionClient";
 
+/**
+ * @public
+ */
 export interface LookoutVisionPaginationConfiguration extends PaginationConfiguration {
-  client: LookoutVision | LookoutVisionClient;
+  client: LookoutVisionClient;
 }

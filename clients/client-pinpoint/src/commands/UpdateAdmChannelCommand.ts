@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateAdmChannelRequest, UpdateAdmChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateAdmChannelCommand,
-  serializeAws_restJson1UpdateAdmChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAdmChannelCommand, se_UpdateAdmChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateAdmChannelCommand}.
+ */
 export interface UpdateAdmChannelCommandInput extends UpdateAdmChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAdmChannelCommand}.
+ */
 export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the ADM channel for an application or updates the status and settings of the ADM channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,62 @@ export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse,
  * import { PinpointClient, UpdateAdmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateAdmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateAdmChannelRequest
+ *   ADMChannelRequest: { // ADMChannelRequest
+ *     ClientId: "STRING_VALUE", // required
+ *     ClientSecret: "STRING_VALUE", // required
+ *     Enabled: true || false,
+ *   },
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAdmChannelCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateAdmChannelResponse
+ * //   ADMChannelResponse: { // ADMChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param UpdateAdmChannelCommandInput - {@link UpdateAdmChannelCommandInput}
+ * @returns {@link UpdateAdmChannelCommandOutput}
  * @see {@link UpdateAdmChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateAdmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateAdmChannelCommand extends $Command<
@@ -46,6 +109,18 @@ export class UpdateAdmChannelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAdmChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +136,9 @@ export class UpdateAdmChannelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateAdmChannelCommandInput, UpdateAdmChannelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateAdmChannelCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +149,8 @@ export class UpdateAdmChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAdmChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAdmChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +160,18 @@ export class UpdateAdmChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAdmChannelCommand(input, context);
+    return se_UpdateAdmChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAdmChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateAdmChannelCommand(output, context);
+    return de_UpdateAdmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

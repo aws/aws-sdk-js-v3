@@ -1,12 +1,17 @@
-import { Profile } from "@aws-sdk/shared-ini-file-loader";
-import { Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity, Profile } from "@smithy/types";
 
+/**
+ * @internal
+ */
 export interface StaticCredsProfile extends Profile {
   aws_access_key_id: string;
   aws_secret_access_key: string;
   aws_session_token?: string;
 }
 
+/**
+ * @internal
+ */
 export const isStaticCredsProfile = (arg: any): arg is StaticCredsProfile =>
   Boolean(arg) &&
   typeof arg === "object" &&
@@ -14,7 +19,10 @@ export const isStaticCredsProfile = (arg: any): arg is StaticCredsProfile =>
   typeof arg.aws_secret_access_key === "string" &&
   ["undefined", "string"].indexOf(typeof arg.aws_session_token) > -1;
 
-export const resolveStaticCredentials = (profile: StaticCredsProfile): Promise<Credentials> =>
+/**
+ * @internal
+ */
+export const resolveStaticCredentials = (profile: StaticCredsProfile): Promise<AwsCredentialIdentity> =>
   Promise.resolve({
     accessKeyId: profile.aws_access_key_id,
     secretAccessKey: profile.aws_secret_access_key,

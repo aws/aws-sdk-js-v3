@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { StopSolutionVersionCreationRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1StopSolutionVersionCreationCommand,
-  serializeAws_json1_1StopSolutionVersionCreationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopSolutionVersionCreationCommand, se_StopSolutionVersionCreationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StopSolutionVersionCreationCommand}.
+ */
 export interface StopSolutionVersionCreationCommandInput extends StopSolutionVersionCreationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopSolutionVersionCreationCommand}.
+ */
 export interface StopSolutionVersionCreationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
  *       </p>
  *          <p>Depending on the current state of the solution version, the solution version state changes as follows:</p>
@@ -42,13 +56,32 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  * import { PersonalizeClient, StopSolutionVersionCreationCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, StopSolutionVersionCreationCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // StopSolutionVersionCreationRequest
+ *   solutionVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new StopSolutionVersionCreationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StopSolutionVersionCreationCommandInput - {@link StopSolutionVersionCreationCommandInput}
+ * @returns {@link StopSolutionVersionCreationCommandOutput}
  * @see {@link StopSolutionVersionCreationCommandInput} for command's `input` shape.
  * @see {@link StopSolutionVersionCreationCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class StopSolutionVersionCreationCommand extends $Command<
@@ -59,6 +92,18 @@ export class StopSolutionVersionCreationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StopSolutionVersionCreationCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +119,9 @@ export class StopSolutionVersionCreationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopSolutionVersionCreationCommandInput, StopSolutionVersionCreationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopSolutionVersionCreationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -84,8 +132,8 @@ export class StopSolutionVersionCreationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopSolutionVersionCreationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,15 +143,21 @@ export class StopSolutionVersionCreationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopSolutionVersionCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopSolutionVersionCreationCommand(input, context);
+    return se_StopSolutionVersionCreationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopSolutionVersionCreationCommandOutput> {
-    return deserializeAws_json1_1StopSolutionVersionCreationCommand(output, context);
+    return de_StopSolutionVersionCreationCommand(output, context);
   }
 
   // Start section: command_body_extra

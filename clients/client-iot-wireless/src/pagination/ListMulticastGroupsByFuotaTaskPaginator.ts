@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListMulticastGroupsByFuotaTaskCommand,
   ListMulticastGroupsByFuotaTaskCommandInput,
   ListMulticastGroupsByFuotaTaskCommandOutput,
 } from "../commands/ListMulticastGroupsByFuotaTaskCommand";
-import { IoTWireless } from "../IoTWireless";
 import { IoTWirelessClient } from "../IoTWirelessClient";
 import { IoTWirelessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTWirelessClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListMulticastGroupsByFuotaTaskCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTWireless,
-  input: ListMulticastGroupsByFuotaTaskCommandInput,
-  ...args: any
-): Promise<ListMulticastGroupsByFuotaTaskCommandOutput> => {
-  // @ts-ignore
-  return await client.listMulticastGroupsByFuotaTask(input, ...args);
-};
 export async function* paginateListMulticastGroupsByFuotaTask(
   config: IoTWirelessPaginationConfiguration,
   input: ListMulticastGroupsByFuotaTaskCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListMulticastGroupsByFuotaTask(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof IoTWireless) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTWirelessClient) {
+    if (config.client instanceof IoTWirelessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTWireless | IoTWirelessClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

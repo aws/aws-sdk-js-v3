@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { PI } from "../PI";
 import { PIClient } from "../PIClient";
 
+/**
+ * @public
+ */
 export interface PIPaginationConfiguration extends PaginationConfiguration {
-  client: PI | PIClient;
+  client: PIClient;
 }

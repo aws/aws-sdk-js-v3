@@ -1,7 +1,5 @@
 import { readFileSync } from "fs";
-jest.mock("./fromWebToken", () => ({
-  fromWebToken: jest.fn().mockReturnValue(() => Promise.resolve(MOCK_CREDS)),
-}));
+
 import { fromTokenFile } from "./fromTokenFile";
 import { fromWebToken } from "./fromWebToken";
 
@@ -9,9 +7,10 @@ const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";
 const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
 
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@smithy/property-provider";
 
 jest.mock("fs");
+jest.mock("./fromWebToken");
 
 const MOCK_CREDS = {
   accessKeyId: "accessKeyId",
@@ -27,6 +26,7 @@ const mockRoleSessionName = "mockRoleSessionName";
 describe(fromTokenFile.name, () => {
   beforeEach(() => {
     (readFileSync as jest.Mock).mockReturnValue(mockTokenValue);
+    (fromWebToken as jest.Mock).mockReturnValue(() => Promise.resolve(MOCK_CREDS));
   });
 
   afterEach(() => {
@@ -45,7 +45,7 @@ describe(fromTokenFile.name, () => {
       process.env[ENV_ROLE_SESSION_NAME] = mockRoleSessionName;
     });
 
-    afterAll(() => {
+    afterEach(() => {
       process.env[ENV_TOKEN_FILE] = original_ENV_TOKEN_FILE;
       process.env[ENV_ROLE_ARN] = original_ENV_ROLE_ARN;
       process.env[ENV_ROLE_SESSION_NAME] = original_ENV_ROLE_SESSION_NAME;

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetDetectorsCommand,
   GetDetectorsCommandInput,
   GetDetectorsCommandOutput,
 } from "../commands/GetDetectorsCommand";
-import { FraudDetector } from "../FraudDetector";
 import { FraudDetectorClient } from "../FraudDetectorClient";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FraudDetectorClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetDetectorsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: FraudDetector,
-  input: GetDetectorsCommandInput,
-  ...args: any
-): Promise<GetDetectorsCommandOutput> => {
-  // @ts-ignore
-  return await client.getDetectors(input, ...args);
-};
 export async function* paginateGetDetectors(
   config: FraudDetectorPaginationConfiguration,
   input: GetDetectorsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateGetDetectors(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof FraudDetector) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FraudDetectorClient) {
+    if (config.client instanceof FraudDetectorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

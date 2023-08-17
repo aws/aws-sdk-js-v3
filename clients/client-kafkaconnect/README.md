@@ -1,7 +1,6 @@
-# @aws-sdk/client-kafkaconnect
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kafkaconnect/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-kafkaconnect)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kafkaconnect.svg)](https://www.npmjs.com/package/@aws-sdk/client-kafkaconnect)
+# @aws-sdk/client-kafkaconnect
 
 ## Description
 
@@ -115,7 +114,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -149,7 +148,7 @@ client
 
 // callbacks.
 client.createConnector(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -163,7 +162,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -201,3 +200,102 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/createconnectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/createconnectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/createconnectorcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateCustomPlugin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/createcustomplugincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/createcustomplugincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/createcustomplugincommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateWorkerConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/createworkerconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/createworkerconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/createworkerconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/deleteconnectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/deleteconnectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/deleteconnectorcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteCustomPlugin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/deletecustomplugincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/deletecustomplugincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/deletecustomplugincommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/describeconnectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/describeconnectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/describeconnectorcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeCustomPlugin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/describecustomplugincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/describecustomplugincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/describecustomplugincommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeWorkerConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/describeworkerconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/describeworkerconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/describeworkerconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListConnectors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/listconnectorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/listconnectorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/listconnectorscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCustomPlugins
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/listcustompluginscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/listcustompluginscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/listcustompluginscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListWorkerConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/listworkerconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/listworkerconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/listworkerconfigurationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/classes/updateconnectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/updateconnectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafkaconnect/interfaces/updateconnectorcommandoutput.html)
+
+</details>

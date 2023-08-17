@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { ListNodegroupsRequest, ListNodegroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNodegroupsCommand,
-  serializeAws_restJson1ListNodegroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNodegroupsCommand, se_ListNodegroupsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListNodegroupsCommand}.
+ */
 export interface ListNodegroupsCommandInput extends ListNodegroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListNodegroupsCommand}.
+ */
 export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon EKS managed node groups associated with the specified cluster
  *             in your Amazon Web Services account in the specified Region. Self-managed node groups are
  *             not listed.</p>
@@ -31,13 +45,51 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  * import { EKSClient, ListNodegroupsCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListNodegroupsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // ListNodegroupsRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListNodegroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListNodegroupsResponse
+ * //   nodegroups: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListNodegroupsCommandInput - {@link ListNodegroupsCommandInput}
+ * @returns {@link ListNodegroupsCommandOutput}
  * @see {@link ListNodegroupsCommandInput} for command's `input` shape.
  * @see {@link ListNodegroupsCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found. You can view your available clusters with
+ *                 <a>ListClusters</a>. You can view your available managed node groups with
+ *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
+ *             Region-specific.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class ListNodegroupsCommand extends $Command<
@@ -48,6 +100,18 @@ export class ListNodegroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListNodegroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +127,9 @@ export class ListNodegroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListNodegroupsCommandInput, ListNodegroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListNodegroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +140,8 @@ export class ListNodegroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNodegroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListNodegroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +151,18 @@ export class ListNodegroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNodegroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNodegroupsCommand(input, context);
+    return se_ListNodegroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNodegroupsCommandOutput> {
-    return deserializeAws_restJson1ListNodegroupsCommand(output, context);
+    return de_ListNodegroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

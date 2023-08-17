@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,37 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { SearchContactsRequest, SearchContactsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1SearchContactsCommand,
-  serializeAws_json1_1SearchContactsCommand,
-} from "../protocols/Aws_json1_1";
+  SearchContactsRequest,
+  SearchContactsResponse,
+  SearchContactsResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_SearchContactsCommand, se_SearchContactsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SearchContactsCommand}.
+ */
 export interface SearchContactsCommandInput extends SearchContactsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchContactsCommand}.
+ */
 export interface SearchContactsCommandOutput extends SearchContactsResponse, __MetadataBearer {}
 
 /**
+ * @public
+ * @deprecated
+ *
  * <p>Searches contacts and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -30,13 +50,62 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * import { AlexaForBusinessClient, SearchContactsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SearchContactsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // SearchContactsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SortCriteria: [ // SortList
+ *     { // Sort
+ *       Key: "STRING_VALUE", // required
+ *       Value: "ASC" || "DESC", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new SearchContactsCommand(input);
  * const response = await client.send(command);
+ * // { // SearchContactsResponse
+ * //   Contacts: [ // ContactDataList
+ * //     { // ContactData
+ * //       ContactArn: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       FirstName: "STRING_VALUE",
+ * //       LastName: "STRING_VALUE",
+ * //       PhoneNumber: "STRING_VALUE",
+ * //       PhoneNumbers: [ // PhoneNumberList
+ * //         { // PhoneNumber
+ * //           Number: "STRING_VALUE", // required
+ * //           Type: "MOBILE" || "WORK" || "HOME", // required
+ * //         },
+ * //       ],
+ * //       SipAddresses: [ // SipAddressList
+ * //         { // SipAddress
+ * //           Uri: "STRING_VALUE", // required
+ * //           Type: "WORK", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * // };
+ *
  * ```
  *
+ * @param SearchContactsCommandInput - {@link SearchContactsCommandInput}
+ * @returns {@link SearchContactsCommandOutput}
  * @see {@link SearchContactsCommandInput} for command's `input` shape.
  * @see {@link SearchContactsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SearchContactsCommand extends $Command<
@@ -47,6 +116,18 @@ export class SearchContactsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SearchContactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +143,9 @@ export class SearchContactsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchContactsCommandInput, SearchContactsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchContactsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +156,8 @@ export class SearchContactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchContactsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchContactsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: SearchContactsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +167,18 @@ export class SearchContactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchContactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchContactsCommand(input, context);
+    return se_SearchContactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchContactsCommandOutput> {
-    return deserializeAws_json1_1SearchContactsCommand(output, context);
+    return de_SearchContactsCommand(output, context);
   }
 
   // Start section: command_body_extra

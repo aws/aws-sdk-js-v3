@@ -202,7 +202,7 @@ describe("convertToNative", () => {
             stringSet: new Set(["one", "two", "three"]),
           },
         },
-      ] as { input: { [key: string]: AttributeValue }; output: { [key: string]: NativeAttributeValue } }[]
+      ] as { input: Record<string, AttributeValue>; output: Record<string, NativeAttributeValue> }[]
     ).forEach(({ input, output }) => {
       it(`testing map: ${input}`, () => {
         expect(convertToNative({ M: input })).toEqual(output);
@@ -213,6 +213,18 @@ describe("convertToNative", () => {
       const input = { numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } };
       const output = { numberKey: { value: "1.01" }, bigintKey: { value: "9007199254740996" } };
       expect(convertToNative({ M: input }, { wrapNumbers: true })).toEqual(output);
+    });
+
+    it(`testing map with big objects`, () => {
+      const input = Array.from({ length: 100000 }, (_, idx) => [idx, { N: "1.00" }]).reduce((acc, [key, value]) => {
+        acc[key as unknown as string] = value;
+        return acc;
+      }, {});
+      const output = Array.from({ length: 100000 }, (_, idx) => [idx, 1]).reduce((acc, [key, value]) => {
+        acc[key as unknown as string] = value;
+        return acc;
+      }, {});
+      expect(convertToNative({ M: input })).toEqual(output);
     });
   });
 

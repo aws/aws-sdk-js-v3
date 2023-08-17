@@ -1,4 +1,5 @@
 export * from "./waitForLaunchProfileDeleted";
+// smithy-typescript generated code
 export * from "./waitForLaunchProfileReady";
 export * from "./waitForStreamingImageDeleted";
 export * from "./waitForStreamingImageReady";

@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,29 +19,36 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   BatchPutPropertyValuesCommandInput,
@@ -61,6 +60,7 @@ import {
 } from "./commands/CreateComponentTypeCommand";
 import { CreateEntityCommandInput, CreateEntityCommandOutput } from "./commands/CreateEntityCommand";
 import { CreateSceneCommandInput, CreateSceneCommandOutput } from "./commands/CreateSceneCommand";
+import { CreateSyncJobCommandInput, CreateSyncJobCommandOutput } from "./commands/CreateSyncJobCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
 import {
   DeleteComponentTypeCommandInput,
@@ -68,19 +68,25 @@ import {
 } from "./commands/DeleteComponentTypeCommand";
 import { DeleteEntityCommandInput, DeleteEntityCommandOutput } from "./commands/DeleteEntityCommand";
 import { DeleteSceneCommandInput, DeleteSceneCommandOutput } from "./commands/DeleteSceneCommand";
+import { DeleteSyncJobCommandInput, DeleteSyncJobCommandOutput } from "./commands/DeleteSyncJobCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
+import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "./commands/ExecuteQueryCommand";
 import { GetComponentTypeCommandInput, GetComponentTypeCommandOutput } from "./commands/GetComponentTypeCommand";
 import { GetEntityCommandInput, GetEntityCommandOutput } from "./commands/GetEntityCommand";
+import { GetPricingPlanCommandInput, GetPricingPlanCommandOutput } from "./commands/GetPricingPlanCommand";
 import { GetPropertyValueCommandInput, GetPropertyValueCommandOutput } from "./commands/GetPropertyValueCommand";
 import {
   GetPropertyValueHistoryCommandInput,
   GetPropertyValueHistoryCommandOutput,
 } from "./commands/GetPropertyValueHistoryCommand";
 import { GetSceneCommandInput, GetSceneCommandOutput } from "./commands/GetSceneCommand";
+import { GetSyncJobCommandInput, GetSyncJobCommandOutput } from "./commands/GetSyncJobCommand";
 import { GetWorkspaceCommandInput, GetWorkspaceCommandOutput } from "./commands/GetWorkspaceCommand";
 import { ListComponentTypesCommandInput, ListComponentTypesCommandOutput } from "./commands/ListComponentTypesCommand";
 import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
 import { ListScenesCommandInput, ListScenesCommandOutput } from "./commands/ListScenesCommand";
+import { ListSyncJobsCommandInput, ListSyncJobsCommandOutput } from "./commands/ListSyncJobsCommand";
+import { ListSyncResourcesCommandInput, ListSyncResourcesCommandOutput } from "./commands/ListSyncResourcesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -93,66 +99,101 @@ import {
   UpdateComponentTypeCommandOutput,
 } from "./commands/UpdateComponentTypeCommand";
 import { UpdateEntityCommandInput, UpdateEntityCommandOutput } from "./commands/UpdateEntityCommand";
+import { UpdatePricingPlanCommandInput, UpdatePricingPlanCommandOutput } from "./commands/UpdatePricingPlanCommand";
 import { UpdateSceneCommandInput, UpdateSceneCommandOutput } from "./commands/UpdateSceneCommand";
 import { UpdateWorkspaceCommandInput, UpdateWorkspaceCommandOutput } from "./commands/UpdateWorkspaceCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchPutPropertyValuesCommandInput
   | CreateComponentTypeCommandInput
   | CreateEntityCommandInput
   | CreateSceneCommandInput
+  | CreateSyncJobCommandInput
   | CreateWorkspaceCommandInput
   | DeleteComponentTypeCommandInput
   | DeleteEntityCommandInput
   | DeleteSceneCommandInput
+  | DeleteSyncJobCommandInput
   | DeleteWorkspaceCommandInput
+  | ExecuteQueryCommandInput
   | GetComponentTypeCommandInput
   | GetEntityCommandInput
+  | GetPricingPlanCommandInput
   | GetPropertyValueCommandInput
   | GetPropertyValueHistoryCommandInput
   | GetSceneCommandInput
+  | GetSyncJobCommandInput
   | GetWorkspaceCommandInput
   | ListComponentTypesCommandInput
   | ListEntitiesCommandInput
   | ListScenesCommandInput
+  | ListSyncJobsCommandInput
+  | ListSyncResourcesCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkspacesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateComponentTypeCommandInput
   | UpdateEntityCommandInput
+  | UpdatePricingPlanCommandInput
   | UpdateSceneCommandInput
   | UpdateWorkspaceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchPutPropertyValuesCommandOutput
   | CreateComponentTypeCommandOutput
   | CreateEntityCommandOutput
   | CreateSceneCommandOutput
+  | CreateSyncJobCommandOutput
   | CreateWorkspaceCommandOutput
   | DeleteComponentTypeCommandOutput
   | DeleteEntityCommandOutput
   | DeleteSceneCommandOutput
+  | DeleteSyncJobCommandOutput
   | DeleteWorkspaceCommandOutput
+  | ExecuteQueryCommandOutput
   | GetComponentTypeCommandOutput
   | GetEntityCommandOutput
+  | GetPricingPlanCommandOutput
   | GetPropertyValueCommandOutput
   | GetPropertyValueHistoryCommandOutput
   | GetSceneCommandOutput
+  | GetSyncJobCommandOutput
   | GetWorkspaceCommandOutput
   | ListComponentTypesCommandOutput
   | ListEntitiesCommandOutput
   | ListScenesCommandOutput
+  | ListSyncJobsCommandOutput
+  | ListSyncResourcesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkspacesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateComponentTypeCommandOutput
   | UpdateEntityCommandOutput
+  | UpdatePricingPlanCommandOutput
   | UpdateSceneCommandOutput
   | UpdateWorkspaceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -160,11 +201,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -215,10 +256,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -236,87 +310,64 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type IoTTwinMakerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type IoTTwinMakerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of IoTTwinMakerClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of IoTTwinMakerClient class constructor that set the region, credentials and other options.
  */
 export interface IoTTwinMakerClientConfig extends IoTTwinMakerClientConfigType {}
 
-type IoTTwinMakerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type IoTTwinMakerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of IoTTwinMakerClient class. This is resolved and normalized from the {@link IoTTwinMakerClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of IoTTwinMakerClient class. This is resolved and normalized from the {@link IoTTwinMakerClientConfig | constructor configuration interface}.
  */
 export interface IoTTwinMakerClientResolvedConfig extends IoTTwinMakerClientResolvedConfigType {}
 
 /**
- * <important>
- *             <p>
- *         TwinMaker is in public preview and is subject to change.
- *       </p>
- *          </important>
- *          <p>IoT TwinMaker is a service that enables you to build operational digital twins of
- *          physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors,
- *          cameras, and enterprise applications so you can create data visualizations to monitor your
- *          physical factory, building, or industrial plant. You can use this real-world data to
- *          monitor operations and diagnose and repair errors.</p>
+ * @public
+ * <p>IoT TwinMaker is a service with which you
+ *          can
+ *          build operational digital twins of physical systems. IoT TwinMaker overlays measurements
+ *          and analysis from real-world sensors, cameras, and enterprise applications so you can
+ *          create data visualizations to monitor your physical factory, building, or industrial plant.
+ *          You can use this real-world data to monitor operations and diagnose and repair
+ *          errors.</p>
  */
 export class IoTTwinMakerClient extends __Client<
   __HttpHandlerOptions,
@@ -329,20 +380,23 @@ export class IoTTwinMakerClient extends __Client<
    */
   readonly config: IoTTwinMakerClientResolvedConfig;
 
-  constructor(configuration: IoTTwinMakerClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<IoTTwinMakerClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

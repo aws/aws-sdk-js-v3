@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeFleetHistoryRequest, DescribeFleetHistoryResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeFleetHistoryCommand,
-  serializeAws_ec2DescribeFleetHistoryCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeFleetHistoryCommand, se_DescribeFleetHistoryCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetHistoryCommand}.
+ */
 export interface DescribeFleetHistoryCommandInput extends DescribeFleetHistoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetHistoryCommand}.
+ */
 export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the events for the specified EC2 Fleet during the specified time.</p>
  *          <p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures
  *          that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events
@@ -34,13 +48,44 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  * import { EC2Client, DescribeFleetHistoryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFleetHistoryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeFleetHistoryRequest
+ *   DryRun: true || false,
+ *   EventType: "instance-change" || "fleet-change" || "service-error",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   FleetId: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new DescribeFleetHistoryCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFleetHistoryResult
+ * //   HistoryRecords: [ // HistoryRecordSet
+ * //     { // HistoryRecordEntry
+ * //       EventInformation: { // EventInformation
+ * //         EventDescription: "STRING_VALUE",
+ * //         EventSubType: "STRING_VALUE",
+ * //         InstanceId: "STRING_VALUE",
+ * //       },
+ * //       EventType: "instance-change" || "fleet-change" || "service-error",
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   LastEvaluatedTime: new Date("TIMESTAMP"),
+ * //   NextToken: "STRING_VALUE",
+ * //   FleetId: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
+ * @param DescribeFleetHistoryCommandInput - {@link DescribeFleetHistoryCommandInput}
+ * @returns {@link DescribeFleetHistoryCommandOutput}
  * @see {@link DescribeFleetHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeFleetHistoryCommand extends $Command<
@@ -51,6 +96,18 @@ export class DescribeFleetHistoryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +123,9 @@ export class DescribeFleetHistoryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeFleetHistoryCommandInput, DescribeFleetHistoryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeFleetHistoryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +136,8 @@ export class DescribeFleetHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetHistoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +147,18 @@ export class DescribeFleetHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeFleetHistoryCommand(input, context);
+    return se_DescribeFleetHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetHistoryCommandOutput> {
-    return deserializeAws_ec2DescribeFleetHistoryCommand(output, context);
+    return de_DescribeFleetHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

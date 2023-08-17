@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,34 +11,62 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
 import { DeleteSuiteDefinitionRequest, DeleteSuiteDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSuiteDefinitionCommand,
-  serializeAws_restJson1DeleteSuiteDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSuiteDefinitionCommand, se_DeleteSuiteDefinitionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteSuiteDefinitionCommand}.
+ */
 export interface DeleteSuiteDefinitionCommandInput extends DeleteSuiteDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSuiteDefinitionCommand}.
+ */
 export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Device Advisor test suite.</p>
- *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSuiteDefinition</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSuiteDefinition</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IotDeviceAdvisorClient, DeleteSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, DeleteSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
+ * const input = { // DeleteSuiteDefinitionRequest
+ *   suiteDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSuiteDefinitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteSuiteDefinitionCommandInput - {@link DeleteSuiteDefinitionCommandInput}
+ * @returns {@link DeleteSuiteDefinitionCommandOutput}
  * @see {@link DeleteSuiteDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteSuiteDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Sends an Internal Failure exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Sends a validation exception.</p>
+ *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class DeleteSuiteDefinitionCommand extends $Command<
@@ -47,6 +77,18 @@ export class DeleteSuiteDefinitionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSuiteDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +104,9 @@ export class DeleteSuiteDefinitionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteSuiteDefinitionCommandInput, DeleteSuiteDefinitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteSuiteDefinitionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +117,8 @@ export class DeleteSuiteDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSuiteDefinitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSuiteDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +128,18 @@ export class DeleteSuiteDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSuiteDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSuiteDefinitionCommand(input, context);
+    return se_DeleteSuiteDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSuiteDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteSuiteDefinitionCommand(output, context);
+    return de_DeleteSuiteDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { ListMonitoringExecutionsRequest, ListMonitoringExecutionsResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ListMonitoringExecutionsCommand,
-  serializeAws_json1_1ListMonitoringExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMonitoringExecutionsRequest, ListMonitoringExecutionsResponse } from "../models/models_3";
+import { de_ListMonitoringExecutionsCommand, se_ListMonitoringExecutionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListMonitoringExecutionsCommand}.
+ */
 export interface ListMonitoringExecutionsCommandInput extends ListMonitoringExecutionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMonitoringExecutionsCommand}.
+ */
 export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns list of all monitoring job executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,53 @@ export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExe
  * import { SageMakerClient, ListMonitoringExecutionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListMonitoringExecutionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListMonitoringExecutionsRequest
+ *   MonitoringScheduleName: "STRING_VALUE",
+ *   EndpointName: "STRING_VALUE",
+ *   SortBy: "CreationTime" || "ScheduledTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ScheduledTimeBefore: new Date("TIMESTAMP"),
+ *   ScheduledTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   StatusEquals: "Pending" || "Completed" || "CompletedWithViolations" || "InProgress" || "Failed" || "Stopping" || "Stopped",
+ *   MonitoringJobDefinitionName: "STRING_VALUE",
+ *   MonitoringTypeEquals: "DataQuality" || "ModelQuality" || "ModelBias" || "ModelExplainability",
+ * };
  * const command = new ListMonitoringExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMonitoringExecutionsResponse
+ * //   MonitoringExecutionSummaries: [ // MonitoringExecutionSummaryList // required
+ * //     { // MonitoringExecutionSummary
+ * //       MonitoringScheduleName: "STRING_VALUE", // required
+ * //       ScheduledTime: new Date("TIMESTAMP"), // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       MonitoringExecutionStatus: "Pending" || "Completed" || "CompletedWithViolations" || "InProgress" || "Failed" || "Stopping" || "Stopped", // required
+ * //       ProcessingJobArn: "STRING_VALUE",
+ * //       EndpointName: "STRING_VALUE",
+ * //       FailureReason: "STRING_VALUE",
+ * //       MonitoringJobDefinitionName: "STRING_VALUE",
+ * //       MonitoringType: "DataQuality" || "ModelQuality" || "ModelBias" || "ModelExplainability",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListMonitoringExecutionsCommandInput - {@link ListMonitoringExecutionsCommandInput}
+ * @returns {@link ListMonitoringExecutionsCommandOutput}
  * @see {@link ListMonitoringExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListMonitoringExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListMonitoringExecutionsCommand extends $Command<
@@ -46,6 +100,18 @@ export class ListMonitoringExecutionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitoringExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +127,9 @@ export class ListMonitoringExecutionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListMonitoringExecutionsCommandInput, ListMonitoringExecutionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListMonitoringExecutionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +140,8 @@ export class ListMonitoringExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMonitoringExecutionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMonitoringExecutionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +151,18 @@ export class ListMonitoringExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitoringExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMonitoringExecutionsCommand(input, context);
+    return se_ListMonitoringExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitoringExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListMonitoringExecutionsCommand(output, context);
+    return de_ListMonitoringExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

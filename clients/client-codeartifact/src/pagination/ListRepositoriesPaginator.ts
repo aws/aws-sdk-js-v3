@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { Codeartifact } from "../Codeartifact";
 import { CodeartifactClient } from "../CodeartifactClient";
 import {
   ListRepositoriesCommand,
@@ -10,7 +10,7 @@ import {
 import { CodeartifactPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeartifactClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListRepositoriesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Codeartifact,
-  input: ListRepositoriesCommandInput,
-  ...args: any
-): Promise<ListRepositoriesCommandOutput> => {
-  // @ts-ignore
-  return await client.listRepositories(input, ...args);
-};
 export async function* paginateListRepositories(
   config: CodeartifactPaginationConfiguration,
   input: ListRepositoriesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListRepositories(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Codeartifact) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeartifactClient) {
+    if (config.client instanceof CodeartifactClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Codeartifact | CodeartifactClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListConfigurationSetsRequest, ListConfigurationSetsResponse } from "../models/models_0";
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
-import {
-  deserializeAws_restJson1ListConfigurationSetsCommand,
-  serializeAws_restJson1ListConfigurationSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListConfigurationSetsCommand, se_ListConfigurationSetsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListConfigurationSetsCommand}.
+ */
 export interface ListConfigurationSetsCommandInput extends ListConfigurationSetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListConfigurationSetsCommand}.
+ */
 export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * List all of the configuration sets associated with your Amazon Pinpoint account in the current region.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,38 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * import { PinpointSMSVoiceClient, ListConfigurationSetsCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
  * // const { PinpointSMSVoiceClient, ListConfigurationSetsCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
+ * const input = { // ListConfigurationSetsRequest
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: "STRING_VALUE",
+ * };
  * const command = new ListConfigurationSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListConfigurationSetsResponse
+ * //   ConfigurationSets: [ // ConfigurationSets
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
+ * @returns {@link ListConfigurationSetsCommandOutput}
  * @see {@link ListConfigurationSetsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  The input you provided is invalid.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  You've issued too many requests to the resource. Wait a few minutes, and then try again.
+ *
+ * @throws {@link PinpointSMSVoiceServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
  */
 export class ListConfigurationSetsCommand extends $Command<
@@ -46,6 +85,18 @@ export class ListConfigurationSetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +112,9 @@ export class ListConfigurationSetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListConfigurationSetsCommandInput, ListConfigurationSetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListConfigurationSetsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +125,8 @@ export class ListConfigurationSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationSetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListConfigurationSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +136,18 @@ export class ListConfigurationSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfigurationSetsCommand(input, context);
+    return se_ListConfigurationSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationSetsCommandOutput> {
-    return deserializeAws_restJson1ListConfigurationSetsCommand(output, context);
+    return de_ListConfigurationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

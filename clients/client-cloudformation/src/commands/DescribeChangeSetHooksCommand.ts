@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,87 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DescribeChangeSetHooksInput, DescribeChangeSetHooksOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeChangeSetHooksCommand,
-  serializeAws_queryDescribeChangeSetHooksCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeChangeSetHooksCommand, se_DescribeChangeSetHooksCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeChangeSetHooksCommand}.
+ */
 export interface DescribeChangeSetHooksCommandInput extends DescribeChangeSetHooksInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeChangeSetHooksCommand}.
+ */
 export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHooksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns hook-related information for the change set and a list of changes that CloudFormation makes when you run the change set.</p>
+ * @public
+ * <p>Returns hook-related information for the change set and a list of changes that CloudFormation makes when you
+ *    run the change set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, DescribeChangeSetHooksCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeChangeSetHooksCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeChangeSetHooksInput
+ *   ChangeSetName: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   LogicalResourceId: "STRING_VALUE",
+ * };
  * const command = new DescribeChangeSetHooksCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeChangeSetHooksOutput
+ * //   ChangeSetId: "STRING_VALUE",
+ * //   ChangeSetName: "STRING_VALUE",
+ * //   Hooks: [ // ChangeSetHooks
+ * //     { // ChangeSetHook
+ * //       InvocationPoint: "PRE_PROVISION",
+ * //       FailureMode: "FAIL" || "WARN",
+ * //       TypeName: "STRING_VALUE",
+ * //       TypeVersionId: "STRING_VALUE",
+ * //       TypeConfigurationVersionId: "STRING_VALUE",
+ * //       TargetDetails: { // ChangeSetHookTargetDetails
+ * //         TargetType: "RESOURCE",
+ * //         ResourceTargetDetails: { // ChangeSetHookResourceTargetDetails
+ * //           LogicalResourceId: "STRING_VALUE",
+ * //           ResourceType: "STRING_VALUE",
+ * //           ResourceAction: "Add" || "Modify" || "Remove" || "Import" || "Dynamic",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   Status: "PLANNING" || "PLANNED" || "UNAVAILABLE",
+ * //   NextToken: "STRING_VALUE",
+ * //   StackId: "STRING_VALUE",
+ * //   StackName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeChangeSetHooksCommandInput - {@link DescribeChangeSetHooksCommandInput}
+ * @returns {@link DescribeChangeSetHooksCommandOutput}
  * @see {@link DescribeChangeSetHooksCommandInput} for command's `input` shape.
  * @see {@link DescribeChangeSetHooksCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link ChangeSetNotFoundException} (client fault)
+ *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the
+ *     <code>ListChangeSets</code> operation.</p>
+ *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeChangeSetHooksCommand extends $Command<
@@ -46,6 +102,18 @@ export class DescribeChangeSetHooksCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChangeSetHooksCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +129,9 @@ export class DescribeChangeSetHooksCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeChangeSetHooksCommandInput, DescribeChangeSetHooksCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeChangeSetHooksCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +142,8 @@ export class DescribeChangeSetHooksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChangeSetHooksInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeChangeSetHooksOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +153,18 @@ export class DescribeChangeSetHooksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChangeSetHooksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeChangeSetHooksCommand(input, context);
+    return se_DescribeChangeSetHooksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChangeSetHooksCommandOutput> {
-    return deserializeAws_queryDescribeChangeSetHooksCommand(output, context);
+    return de_DescribeChangeSetHooksCommand(output, context);
   }
 
   // Start section: command_body_extra

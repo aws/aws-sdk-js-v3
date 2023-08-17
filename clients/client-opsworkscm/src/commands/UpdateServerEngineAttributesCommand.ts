@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { UpdateServerEngineAttributesRequest, UpdateServerEngineAttributesResponse } from "../models/models_0";
+import {
+  UpdateServerEngineAttributesRequest,
+  UpdateServerEngineAttributesResponse,
+  UpdateServerEngineAttributesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
-  deserializeAws_json1_1UpdateServerEngineAttributesCommand,
-  serializeAws_json1_1UpdateServerEngineAttributesCommand,
+  de_UpdateServerEngineAttributesCommand,
+  se_UpdateServerEngineAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateServerEngineAttributesCommand}.
+ */
 export interface UpdateServerEngineAttributesCommandInput extends UpdateServerEngineAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateServerEngineAttributesCommand}.
+ */
 export interface UpdateServerEngineAttributesCommandOutput
   extends UpdateServerEngineAttributesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Updates engine-specific attributes on a specified server. The server
  *       enters the <code>MODIFYING</code> state when this operation
@@ -44,13 +65,73 @@ export interface UpdateServerEngineAttributesCommandOutput
  * import { OpsWorksCMClient, UpdateServerEngineAttributesCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, UpdateServerEngineAttributesCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // UpdateServerEngineAttributesRequest
+ *   ServerName: "STRING_VALUE", // required
+ *   AttributeName: "STRING_VALUE", // required
+ *   AttributeValue: "STRING_VALUE",
+ * };
  * const command = new UpdateServerEngineAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateServerEngineAttributesResponse
+ * //   Server: { // Server
+ * //     AssociatePublicIpAddress: true || false,
+ * //     BackupRetentionCount: Number("int"),
+ * //     ServerName: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     CloudFormationStackArn: "STRING_VALUE",
+ * //     CustomDomain: "STRING_VALUE",
+ * //     DisableAutomatedBackup: true || false,
+ * //     Endpoint: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineModel: "STRING_VALUE",
+ * //     EngineAttributes: [ // EngineAttributes
+ * //       { // EngineAttribute
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     EngineVersion: "STRING_VALUE",
+ * //     InstanceProfileArn: "STRING_VALUE",
+ * //     InstanceType: "STRING_VALUE",
+ * //     KeyPair: "STRING_VALUE",
+ * //     MaintenanceStatus: "STRING_VALUE",
+ * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     PreferredBackupWindow: "STRING_VALUE",
+ * //     SecurityGroupIds: [ // Strings
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServiceRoleArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     StatusReason: "STRING_VALUE",
+ * //     SubnetIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServerArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param UpdateServerEngineAttributesCommandInput - {@link UpdateServerEngineAttributesCommandInput}
+ * @returns {@link UpdateServerEngineAttributesCommandOutput}
  * @see {@link UpdateServerEngineAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateServerEngineAttributesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The resource is in a state that does not allow you to perform a specified action.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the provided request parameters are not valid.
+ *     </p>
+ *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class UpdateServerEngineAttributesCommand extends $Command<
@@ -61,6 +142,18 @@ export class UpdateServerEngineAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServerEngineAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +169,9 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateServerEngineAttributesCommandInput, UpdateServerEngineAttributesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateServerEngineAttributesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -86,8 +182,8 @@ export class UpdateServerEngineAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerEngineAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServerEngineAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: UpdateServerEngineAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,15 +193,21 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServerEngineAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServerEngineAttributesCommand(input, context);
+    return se_UpdateServerEngineAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServerEngineAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateServerEngineAttributesCommand(output, context);
+    return de_UpdateServerEngineAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteParallelDataRequest, DeleteParallelDataResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteParallelDataCommand,
-  serializeAws_json1_1DeleteParallelDataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteParallelDataCommand, se_DeleteParallelDataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteParallelDataCommand}.
+ */
 export interface DeleteParallelDataCommandInput extends DeleteParallelDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteParallelDataCommand}.
+ */
 export interface DeleteParallelDataCommandOutput extends DeleteParallelDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a parallel data resource in Amazon Translate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,42 @@ export interface DeleteParallelDataCommandOutput extends DeleteParallelDataRespo
  * import { TranslateClient, DeleteParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, DeleteParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = { // DeleteParallelDataRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteParallelDataCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteParallelDataResponse
+ * //   Name: "STRING_VALUE",
+ * //   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * // };
+ *
  * ```
  *
+ * @param DeleteParallelDataCommandInput - {@link DeleteParallelDataCommandInput}
+ * @returns {@link DeleteParallelDataCommandOutput}
  * @see {@link DeleteParallelDataCommandInput} for command's `input` shape.
  * @see {@link DeleteParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you are looking for has not been found. Review the resource you're looking
+ *       for and see if a different resource will accomplish your needs before retrying the revised
+ *       request.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again.</p>
+ *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class DeleteParallelDataCommand extends $Command<
@@ -46,6 +89,18 @@ export class DeleteParallelDataCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteParallelDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +116,9 @@ export class DeleteParallelDataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteParallelDataCommandInput, DeleteParallelDataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteParallelDataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +129,8 @@ export class DeleteParallelDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteParallelDataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteParallelDataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +140,18 @@ export class DeleteParallelDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteParallelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteParallelDataCommand(input, context);
+    return se_DeleteParallelDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteParallelDataCommandOutput> {
-    return deserializeAws_json1_1DeleteParallelDataCommand(output, context);
+    return de_DeleteParallelDataCommand(output, context);
   }
 
   // Start section: command_body_extra

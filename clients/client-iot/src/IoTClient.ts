@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,13 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import {
-  getOmitRetryHeadersPlugin,
-  getRetryPlugin,
-  resolveRetryConfig,
-  RetryInputConfig,
-  RetryResolvedConfig,
-} from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -33,29 +19,42 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import {
+  getOmitRetryHeadersPlugin,
+  getRetryPlugin,
+  resolveRetryConfig,
+  RetryInputConfig,
+  RetryResolvedConfig,
+} from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
-  Credentials as __Credentials,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   AcceptCertificateTransferCommandInput,
@@ -141,6 +140,11 @@ import {
   CreateMitigationActionCommandOutput,
 } from "./commands/CreateMitigationActionCommand";
 import { CreateOTAUpdateCommandInput, CreateOTAUpdateCommandOutput } from "./commands/CreateOTAUpdateCommand";
+import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
+import {
+  CreatePackageVersionCommandInput,
+  CreatePackageVersionCommandOutput,
+} from "./commands/CreatePackageVersionCommand";
 import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
 import {
   CreatePolicyVersionCommandInput,
@@ -210,6 +214,11 @@ import {
   DeleteMitigationActionCommandOutput,
 } from "./commands/DeleteMitigationActionCommand";
 import { DeleteOTAUpdateCommandInput, DeleteOTAUpdateCommandOutput } from "./commands/DeleteOTAUpdateCommand";
+import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
+import {
+  DeletePackageVersionCommandInput,
+  DeletePackageVersionCommandOutput,
+} from "./commands/DeletePackageVersionCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import {
   DeletePolicyVersionCommandInput,
@@ -384,6 +393,12 @@ import {
 import { GetJobDocumentCommandInput, GetJobDocumentCommandOutput } from "./commands/GetJobDocumentCommand";
 import { GetLoggingOptionsCommandInput, GetLoggingOptionsCommandOutput } from "./commands/GetLoggingOptionsCommand";
 import { GetOTAUpdateCommandInput, GetOTAUpdateCommandOutput } from "./commands/GetOTAUpdateCommand";
+import { GetPackageCommandInput, GetPackageCommandOutput } from "./commands/GetPackageCommand";
+import {
+  GetPackageConfigurationCommandInput,
+  GetPackageConfigurationCommandOutput,
+} from "./commands/GetPackageConfigurationCommand";
+import { GetPackageVersionCommandInput, GetPackageVersionCommandOutput } from "./commands/GetPackageVersionCommand";
 import { GetPercentilesCommandInput, GetPercentilesCommandOutput } from "./commands/GetPercentilesCommand";
 import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand";
@@ -461,6 +476,7 @@ import {
   ListManagedJobTemplatesCommandInput,
   ListManagedJobTemplatesCommandOutput,
 } from "./commands/ListManagedJobTemplatesCommand";
+import { ListMetricValuesCommandInput, ListMetricValuesCommandOutput } from "./commands/ListMetricValuesCommand";
 import {
   ListMitigationActionsCommandInput,
   ListMitigationActionsCommandOutput,
@@ -470,6 +486,11 @@ import {
   ListOutgoingCertificatesCommandInput,
   ListOutgoingCertificatesCommandOutput,
 } from "./commands/ListOutgoingCertificatesCommand";
+import { ListPackagesCommandInput, ListPackagesCommandOutput } from "./commands/ListPackagesCommand";
+import {
+  ListPackageVersionsCommandInput,
+  ListPackageVersionsCommandOutput,
+} from "./commands/ListPackageVersionsCommand";
 import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import {
   ListPolicyPrincipalsCommandInput,
@@ -492,6 +513,10 @@ import {
   ListProvisioningTemplateVersionsCommandInput,
   ListProvisioningTemplateVersionsCommandOutput,
 } from "./commands/ListProvisioningTemplateVersionsCommand";
+import {
+  ListRelatedResourcesForAuditFindingCommandInput,
+  ListRelatedResourcesForAuditFindingCommandOutput,
+} from "./commands/ListRelatedResourcesForAuditFindingCommand";
 import { ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput } from "./commands/ListRoleAliasesCommand";
 import {
   ListScheduledAuditsCommandInput,
@@ -673,6 +698,15 @@ import {
   UpdateMitigationActionCommandInput,
   UpdateMitigationActionCommandOutput,
 } from "./commands/UpdateMitigationActionCommand";
+import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
+import {
+  UpdatePackageConfigurationCommandInput,
+  UpdatePackageConfigurationCommandOutput,
+} from "./commands/UpdatePackageConfigurationCommand";
+import {
+  UpdatePackageVersionCommandInput,
+  UpdatePackageVersionCommandOutput,
+} from "./commands/UpdatePackageVersionCommand";
 import {
   UpdateProvisioningTemplateCommandInput,
   UpdateProvisioningTemplateCommandOutput,
@@ -701,8 +735,20 @@ import {
   ValidateSecurityProfileBehaviorsCommandInput,
   ValidateSecurityProfileBehaviorsCommandOutput,
 } from "./commands/ValidateSecurityProfileBehaviorsCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptCertificateTransferCommandInput
   | AddThingToBillingGroupCommandInput
@@ -734,6 +780,8 @@ export type ServiceInputTypes =
   | CreateKeysAndCertificateCommandInput
   | CreateMitigationActionCommandInput
   | CreateOTAUpdateCommandInput
+  | CreatePackageCommandInput
+  | CreatePackageVersionCommandInput
   | CreatePolicyCommandInput
   | CreatePolicyVersionCommandInput
   | CreateProvisioningClaimCommandInput
@@ -764,6 +812,8 @@ export type ServiceInputTypes =
   | DeleteJobTemplateCommandInput
   | DeleteMitigationActionCommandInput
   | DeleteOTAUpdateCommandInput
+  | DeletePackageCommandInput
+  | DeletePackageVersionCommandInput
   | DeletePolicyCommandInput
   | DeletePolicyVersionCommandInput
   | DeleteProvisioningTemplateCommandInput
@@ -827,6 +877,9 @@ export type ServiceInputTypes =
   | GetJobDocumentCommandInput
   | GetLoggingOptionsCommandInput
   | GetOTAUpdateCommandInput
+  | GetPackageCommandInput
+  | GetPackageConfigurationCommandInput
+  | GetPackageVersionCommandInput
   | GetPercentilesCommandInput
   | GetPolicyCommandInput
   | GetPolicyVersionCommandInput
@@ -859,9 +912,12 @@ export type ServiceInputTypes =
   | ListJobTemplatesCommandInput
   | ListJobsCommandInput
   | ListManagedJobTemplatesCommandInput
+  | ListMetricValuesCommandInput
   | ListMitigationActionsCommandInput
   | ListOTAUpdatesCommandInput
   | ListOutgoingCertificatesCommandInput
+  | ListPackageVersionsCommandInput
+  | ListPackagesCommandInput
   | ListPoliciesCommandInput
   | ListPolicyPrincipalsCommandInput
   | ListPolicyVersionsCommandInput
@@ -869,6 +925,7 @@ export type ServiceInputTypes =
   | ListPrincipalThingsCommandInput
   | ListProvisioningTemplateVersionsCommandInput
   | ListProvisioningTemplatesCommandInput
+  | ListRelatedResourcesForAuditFindingCommandInput
   | ListRoleAliasesCommandInput
   | ListScheduledAuditsCommandInput
   | ListSecurityProfilesCommandInput
@@ -930,6 +987,9 @@ export type ServiceInputTypes =
   | UpdateIndexingConfigurationCommandInput
   | UpdateJobCommandInput
   | UpdateMitigationActionCommandInput
+  | UpdatePackageCommandInput
+  | UpdatePackageConfigurationCommandInput
+  | UpdatePackageVersionCommandInput
   | UpdateProvisioningTemplateCommandInput
   | UpdateRoleAliasCommandInput
   | UpdateScheduledAuditCommandInput
@@ -941,6 +1001,9 @@ export type ServiceInputTypes =
   | UpdateTopicRuleDestinationCommandInput
   | ValidateSecurityProfileBehaviorsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptCertificateTransferCommandOutput
   | AddThingToBillingGroupCommandOutput
@@ -972,6 +1035,8 @@ export type ServiceOutputTypes =
   | CreateKeysAndCertificateCommandOutput
   | CreateMitigationActionCommandOutput
   | CreateOTAUpdateCommandOutput
+  | CreatePackageCommandOutput
+  | CreatePackageVersionCommandOutput
   | CreatePolicyCommandOutput
   | CreatePolicyVersionCommandOutput
   | CreateProvisioningClaimCommandOutput
@@ -1002,6 +1067,8 @@ export type ServiceOutputTypes =
   | DeleteJobTemplateCommandOutput
   | DeleteMitigationActionCommandOutput
   | DeleteOTAUpdateCommandOutput
+  | DeletePackageCommandOutput
+  | DeletePackageVersionCommandOutput
   | DeletePolicyCommandOutput
   | DeletePolicyVersionCommandOutput
   | DeleteProvisioningTemplateCommandOutput
@@ -1065,6 +1132,9 @@ export type ServiceOutputTypes =
   | GetJobDocumentCommandOutput
   | GetLoggingOptionsCommandOutput
   | GetOTAUpdateCommandOutput
+  | GetPackageCommandOutput
+  | GetPackageConfigurationCommandOutput
+  | GetPackageVersionCommandOutput
   | GetPercentilesCommandOutput
   | GetPolicyCommandOutput
   | GetPolicyVersionCommandOutput
@@ -1097,9 +1167,12 @@ export type ServiceOutputTypes =
   | ListJobTemplatesCommandOutput
   | ListJobsCommandOutput
   | ListManagedJobTemplatesCommandOutput
+  | ListMetricValuesCommandOutput
   | ListMitigationActionsCommandOutput
   | ListOTAUpdatesCommandOutput
   | ListOutgoingCertificatesCommandOutput
+  | ListPackageVersionsCommandOutput
+  | ListPackagesCommandOutput
   | ListPoliciesCommandOutput
   | ListPolicyPrincipalsCommandOutput
   | ListPolicyVersionsCommandOutput
@@ -1107,6 +1180,7 @@ export type ServiceOutputTypes =
   | ListPrincipalThingsCommandOutput
   | ListProvisioningTemplateVersionsCommandOutput
   | ListProvisioningTemplatesCommandOutput
+  | ListRelatedResourcesForAuditFindingCommandOutput
   | ListRoleAliasesCommandOutput
   | ListScheduledAuditsCommandOutput
   | ListSecurityProfilesCommandOutput
@@ -1168,6 +1242,9 @@ export type ServiceOutputTypes =
   | UpdateIndexingConfigurationCommandOutput
   | UpdateJobCommandOutput
   | UpdateMitigationActionCommandOutput
+  | UpdatePackageCommandOutput
+  | UpdatePackageConfigurationCommandOutput
+  | UpdatePackageVersionCommandOutput
   | UpdateProvisioningTemplateCommandOutput
   | UpdateRoleAliasCommandOutput
   | UpdateScheduledAuditCommandOutput
@@ -1179,6 +1256,9 @@ export type ServiceOutputTypes =
   | UpdateTopicRuleDestinationCommandOutput
   | ValidateSecurityProfileBehaviorsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -1186,11 +1266,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -1241,10 +1321,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -1262,93 +1375,73 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * Optional extensions
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
+  extensions?: RuntimeExtension[];
 
   /**
-   * Enables FIPS compatible endpoints.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type IoTClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type IoTClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of IoTClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of IoTClient class constructor that set the region, credentials and other options.
  */
 export interface IoTClientConfig extends IoTClientConfigType {}
 
-type IoTClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type IoTClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of IoTClient class. This is resolved and normalized from the {@link IoTClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of IoTClient class. This is resolved and normalized from the {@link IoTClientConfig | constructor configuration interface}.
  */
 export interface IoTClientResolvedConfig extends IoTClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>IoT</fullname>
- *         <p>IoT provides secure, bi-directional communication between Internet-connected
+ *          <p>IoT provides secure, bi-directional communication between Internet-connected
  *             devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services
  *             cloud. You can discover your custom IoT-Data endpoint to communicate with, configure
  *             rules for data processing and integration with other services, organize resources
  *             associated with each device (Registry), configure logging, and create and manage
  *             policies and credentials to authenticate devices.</p>
- *         <p>The service endpoints that expose this API are listed in
+ *          <p>The service endpoints that expose this API are listed in
  *             <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>.
  *             You must use the endpoint for the region that has the resources you want to access.</p>
- *         <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services
+ *          <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services
  *                 Signature Version 4</a> to sign the request is:
  *             <i>execute-api</i>.</p>
- *         <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
+ *          <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
  *             Guide</a>.</p>
- *         <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>
+ *          <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>
  */
 export class IoTClient extends __Client<
   __HttpHandlerOptions,
@@ -1361,20 +1454,23 @@ export class IoTClient extends __Client<
    */
   readonly config: IoTClientResolvedConfig;
 
-  constructor(configuration: IoTClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<IoTClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getOmitRetryHeadersPlugin(this.config));

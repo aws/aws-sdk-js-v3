@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { ApplicationInsights } from "../ApplicationInsights";
 import { ApplicationInsightsClient } from "../ApplicationInsightsClient";
 import {
   ListComponentsCommand,
@@ -10,7 +10,7 @@ import {
 import { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ApplicationInsightsClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListComponentsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ApplicationInsights,
-  input: ListComponentsCommandInput,
-  ...args: any
-): Promise<ListComponentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listComponents(input, ...args);
-};
 export async function* paginateListComponents(
   config: ApplicationInsightsPaginationConfiguration,
   input: ListComponentsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListComponents(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ApplicationInsights) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ApplicationInsightsClient) {
+    if (config.client instanceof ApplicationInsightsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ApplicationInsights | ApplicationInsightsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

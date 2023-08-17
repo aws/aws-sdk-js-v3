@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ApiGatewayManagementApiClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient";
 import { DeleteConnectionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteConnectionCommand,
-  serializeAws_restJson1DeleteConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteConnectionCommand, se_DeleteConnectionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteConnectionCommand}.
+ */
 export interface DeleteConnectionCommandInput extends DeleteConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteConnectionCommand}.
+ */
 export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the connection with the provided id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,32 @@ export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayManagementApiClient, DeleteConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
  * // const { ApiGatewayManagementApiClient, DeleteConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
  * const client = new ApiGatewayManagementApiClient(config);
+ * const input = { // DeleteConnectionRequest
+ *   ConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
+ * @returns {@link DeleteConnectionCommandOutput}
  * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for ApiGatewayManagementApiClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The caller is not authorized to invoke this operation.</p>
+ *
+ * @throws {@link GoneException} (client fault)
+ *  <p>The connection with the provided id no longer exists.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
+ *
+ * @throws {@link ApiGatewayManagementApiServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
  */
 export class DeleteConnectionCommand extends $Command<
@@ -50,6 +83,18 @@ export class DeleteConnectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +110,9 @@ export class DeleteConnectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteConnectionCommandInput, DeleteConnectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteConnectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +123,8 @@ export class DeleteConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +134,18 @@ export class DeleteConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConnectionCommand(input, context);
+    return se_DeleteConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionCommandOutput> {
-    return deserializeAws_restJson1DeleteConnectionCommand(output, context);
+    return de_DeleteConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

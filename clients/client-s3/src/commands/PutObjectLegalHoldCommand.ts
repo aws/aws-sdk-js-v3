@@ -1,8 +1,9 @@
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+// smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -11,19 +12,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PutObjectLegalHoldOutput, PutObjectLegalHoldRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutObjectLegalHoldCommand,
-  serializeAws_restXmlPutObjectLegalHoldCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutObjectLegalHoldCommand, se_PutObjectLegalHoldCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutObjectLegalHoldCommand}.
+ */
 export interface PutObjectLegalHoldCommandInput extends PutObjectLegalHoldRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutObjectLegalHoldCommand}.
+ */
 export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a legal hold configuration to the specified object. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *             Objects</a>.</p>
@@ -34,13 +47,34 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
  * import { S3Client, PutObjectLegalHoldCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectLegalHoldCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutObjectLegalHoldRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   LegalHold: { // ObjectLockLegalHold
+ *     Status: "ON" || "OFF",
+ *   },
+ *   RequestPayer: "requester",
+ *   VersionId: "STRING_VALUE",
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutObjectLegalHoldCommand(input);
  * const response = await client.send(command);
+ * // { // PutObjectLegalHoldOutput
+ * //   RequestCharged: "requester",
+ * // };
+ *
  * ```
  *
+ * @param PutObjectLegalHoldCommandInput - {@link PutObjectLegalHoldCommandInput}
+ * @returns {@link PutObjectLegalHoldCommandOutput}
  * @see {@link PutObjectLegalHoldCommandInput} for command's `input` shape.
  * @see {@link PutObjectLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class PutObjectLegalHoldCommand extends $Command<
@@ -51,6 +85,24 @@ export class PutObjectLegalHoldCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,7 +118,9 @@ export class PutObjectLegalHoldCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutObjectLegalHoldCommandInput, PutObjectLegalHoldCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutObjectLegalHoldCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(
       getFlexibleChecksumsPlugin(configuration, {
         input: this.input,
@@ -84,8 +138,8 @@ export class PutObjectLegalHoldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutObjectLegalHoldRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectLegalHoldOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +149,18 @@ export class PutObjectLegalHoldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutObjectLegalHoldCommand(input, context);
+    return se_PutObjectLegalHoldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectLegalHoldCommandOutput> {
-    return deserializeAws_restXmlPutObjectLegalHoldCommand(output, context);
+    return de_PutObjectLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

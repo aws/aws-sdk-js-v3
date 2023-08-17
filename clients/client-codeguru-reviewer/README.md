@@ -1,28 +1,28 @@
-# @aws-sdk/client-codeguru-reviewer
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codeguru-reviewer/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-codeguru-reviewer)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codeguru-reviewer.svg)](https://www.npmjs.com/package/@aws-sdk/client-codeguru-reviewer)
+# @aws-sdk/client-codeguru-reviewer
 
 ## Description
 
 AWS SDK for JavaScript CodeGuruReviewer Client for Node.js, Browser and React Native.
 
-<p>This section provides documentation for the Amazon CodeGuru Reviewer API operations. CodeGuru Reviewer is a service
-that uses program analysis and machine learning to detect potential defects that are difficult for developers to find and recommends
-fixes in your Java and Python code.</p>
+<p>This section provides documentation for the Amazon CodeGuru Reviewer API operations. CodeGuru Reviewer is a
+service that uses program analysis and machine learning to detect potential defects that
+are difficult for developers to find and recommends fixes in your Java and Python
+code.</p>
 
-<p>By proactively detecting and providing recommendations for addressing code defects and implementing best practices, CodeGuru Reviewer
-improves the overall quality and maintainability of your code base during the code review stage. For more information about CodeGuru Reviewer, see the
+<p>By proactively detecting and providing recommendations for addressing code defects and
+implementing best practices, CodeGuru Reviewer improves the overall quality and maintainability of
+your code base during the code review stage. For more information about CodeGuru Reviewer, see the
 <i>
 <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html">Amazon CodeGuru Reviewer User Guide</a>.</i>
 </p>
 
-<p>
-To improve the security of your CodeGuru Reviewer API calls, you can establish a private connection between your VPC and CodeGuru Reviewer by
-creating an <i>interface VPC endpoint</i>. For more information, see
-<a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/vpc-interface-endpoints.html">CodeGuru Reviewer and interface
-VPC endpoints (Amazon Web Services PrivateLink)</a> in the <i>Amazon CodeGuru Reviewer User Guide</i>.
-</p>
+<p>To improve the security of your CodeGuru Reviewer API calls, you can establish a private connection
+between your VPC and CodeGuru Reviewer by creating an <i>interface VPC endpoint</i>. For
+more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/vpc-interface-endpoints.html">CodeGuru Reviewer and interface VPC
+endpoints (Amazon Web Services PrivateLink)</a> in the <i>Amazon CodeGuru Reviewer User
+Guide</i>.</p>
 
 ## Installing
 
@@ -130,7 +130,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -164,7 +164,7 @@ client
 
 // callbacks.
 client.associateRepository(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -178,7 +178,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -216,3 +216,118 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+AssociateRepository
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/associaterepositorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/associaterepositorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/associaterepositorycommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateCodeReview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/createcodereviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/createcodereviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/createcodereviewcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeCodeReview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/describecodereviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/describecodereviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/describecodereviewcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeRecommendationFeedback
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/describerecommendationfeedbackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/describerecommendationfeedbackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/describerecommendationfeedbackcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeRepositoryAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/describerepositoryassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/describerepositoryassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/describerepositoryassociationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DisassociateRepository
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/disassociaterepositorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/disassociaterepositorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/disassociaterepositorycommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCodeReviews
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/listcodereviewscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/listcodereviewscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/listcodereviewscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRecommendationFeedback
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/listrecommendationfeedbackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/listrecommendationfeedbackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/listrecommendationfeedbackcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/listrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/listrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/listrecommendationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRepositoryAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/listrepositoryassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/listrepositoryassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/listrepositoryassociationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutRecommendationFeedback
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/putrecommendationfeedbackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/putrecommendationfeedbackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/putrecommendationfeedbackcommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-reviewer/interfaces/untagresourcecommandoutput.html)
+
+</details>

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,20 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { DescribeParametersRequest } from "../models/models_0";
-import { DescribeParametersResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribeParametersCommand,
-  serializeAws_json1_1DescribeParametersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeParametersRequest, DescribeParametersResult } from "../models/models_1";
+import { de_DescribeParametersCommand, se_DescribeParametersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeParametersCommand}.
+ */
 export interface DescribeParametersCommandInput extends DescribeParametersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeParametersCommand}.
+ */
 export interface DescribeParametersCommandOutput extends DescribeParametersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about a parameter.</p>
  *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
  *    in the request, the response includes information up to the limit specified. The number of items
@@ -42,13 +55,80 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * import { SSMClient, DescribeParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeParametersRequest
+ *   Filters: [ // ParametersFilterList
+ *     { // ParametersFilter
+ *       Key: "Name" || "Type" || "KeyId", // required
+ *       Values: [ // ParametersFilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ParameterFilters: [ // ParameterStringFilterList
+ *     { // ParameterStringFilter
+ *       Key: "STRING_VALUE", // required
+ *       Option: "STRING_VALUE",
+ *       Values: [ // ParameterStringFilterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeParametersResult
+ * //   Parameters: [ // ParameterMetadataList
+ * //     { // ParameterMetadata
+ * //       Name: "STRING_VALUE",
+ * //       Type: "String" || "StringList" || "SecureString",
+ * //       KeyId: "STRING_VALUE",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedUser: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       AllowedPattern: "STRING_VALUE",
+ * //       Version: Number("long"),
+ * //       Tier: "Standard" || "Advanced" || "Intelligent-Tiering",
+ * //       Policies: [ // ParameterPolicyList
+ * //         { // ParameterInlinePolicy
+ * //           PolicyText: "STRING_VALUE",
+ * //           PolicyType: "STRING_VALUE",
+ * //           PolicyStatus: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DataType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
+ * @returns {@link DescribeParametersCommandOutput}
  * @see {@link DescribeParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilterKey} (client fault)
+ *  <p>The specified key isn't valid.</p>
+ *
+ * @throws {@link InvalidFilterOption} (client fault)
+ *  <p>The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path
+ *    filter, valid options are Recursive and OneLevel.</p>
+ *
+ * @throws {@link InvalidFilterValue} (client fault)
+ *  <p>The filter value isn't valid. Verify the value and try again.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeParametersCommand extends $Command<
@@ -59,6 +139,18 @@ export class DescribeParametersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +166,9 @@ export class DescribeParametersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeParametersCommandInput, DescribeParametersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeParametersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -84,8 +179,8 @@ export class DescribeParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeParametersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeParametersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +190,18 @@ export class DescribeParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeParametersCommand(input, context);
+    return se_DescribeParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeParametersCommand(output, context);
+    return de_DescribeParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

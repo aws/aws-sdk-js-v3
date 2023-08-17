@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListEventActionsCommand,
   ListEventActionsCommandInput,
   ListEventActionsCommandOutput,
 } from "../commands/ListEventActionsCommand";
-import { DataExchange } from "../DataExchange";
 import { DataExchangeClient } from "../DataExchangeClient";
 import { DataExchangePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DataExchangeClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEventActionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DataExchange,
-  input: ListEventActionsCommandInput,
-  ...args: any
-): Promise<ListEventActionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEventActions(input, ...args);
-};
 export async function* paginateListEventActions(
   config: DataExchangePaginationConfiguration,
   input: ListEventActionsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListEventActions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof DataExchange) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DataExchangeClient) {
+    if (config.client instanceof DataExchangeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DataExchange | DataExchangeClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

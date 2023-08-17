@@ -15,8 +15,12 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor.getFrom;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.codegen.core.SymbolReference;
@@ -36,6 +40,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
+
 /**
  * Handles generating the aws.rest-xml protocol for services. It handles reading and
  * writing from document bodies, including generating any functions needed for
@@ -54,8 +59,8 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * @see XmlMemberSerVisitor
  * @see XmlMemberDeserVisitor
  * @see AwsProtocolUtils
- * @see <a href="https://awslabs.github.io/smithy/spec/http.html">Smithy HTTP protocol bindings.</a>
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/spec/http-bindings.html">Smithy HTTP protocol bindings.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
 @SmithyInternalApi
 final class AwsRestXml extends HttpBindingProtocolGenerator {
@@ -98,6 +103,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateXmlParseBody(context);
+        AwsProtocolUtils.generateXmlParseErrorBody(context);
         AwsProtocolUtils.addItempotencyAutofillImport(context);
 
         TypeScriptWriter writer = context.getWriter();
@@ -109,18 +115,16 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         writer.openBlock("const loadRestXmlErrorCode = (\n"
                        + "  output: $T,\n"
                        + "  data: any\n"
-                       + "): string => {", "};", responseType, () -> {
+                       + "): string | undefined => {", "};", responseType, () -> {
             // Attempt to fetch the error code from the specific location.
-            String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
-            writer.openBlock("if ($L !== undefined) {", "}", errorCodeLocation, () -> {
-                writer.write("return $L;", errorCodeLocation);
+            String errorCodeCheckLocation = getErrorBodyLocation(context, "data") + "?.Code";
+            String errorCodeAccessLocation = getErrorBodyLocation(context, "data") + ".Code";
+            writer.openBlock("if ($L !== undefined) {", "}", errorCodeCheckLocation, () -> {
+                writer.write("return $L;", errorCodeAccessLocation);
             });
 
             // Default a 404 status code to the NotFound code.
             writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
-
-            // Default to an empty error code so an unmodeled exception is built.
-            writer.write("return '';");
         });
         writer.write("");
     }
@@ -150,6 +154,12 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             List<HttpBinding> documentBindings
     ) {
         serializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    protected void serializeInputEventDocumentPayload(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+        writer.write("body = context.utf8Decoder(body.toString());");
     }
 
     @Override
@@ -267,10 +277,10 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         writer.write("let contents: any;");
 
         // Generate an if statement to set the body node if the member is set.
-        writer.openBlock("if (input.$L !== undefined) {", "}", memberName, () -> {
+        writer.openBlock("if ($L !== undefined) {", "}", getFrom("input", memberName), () -> {
             Shape target = context.getModel().expectShape(member.getTarget());
             writer.write("contents = $L;",
-                    getInputValue(context, Location.PAYLOAD, "input." + memberName, member, target));
+                    getInputValue(context, Location.PAYLOAD, getFrom("input", memberName), member, target));
 
             String targetName = target.getTrait(XmlNameTrait.class)
                             .map(XmlNameTrait::getValue)
@@ -310,7 +320,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
 
         // Outsource error code parsing since it's complex for this protocol.
-        writer.write("errorCode = loadRestXmlErrorCode(output, parsedOutput.body);");
+        writer.write("const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);");
     }
 
     @Override
@@ -359,6 +369,21 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
                 writer.write("contents.$L = $L;", memberName, target.accept(visitor));
             });
         }
+    }
+
+    @Override
+    public void generateRequestSerializers(GenerationContext context) {
+        String serviceId = context.getService()
+            .getTrait(ServiceTrait.class)
+            .map(ServiceTrait::getSdkId)
+            .orElse("");
+
+        if (serviceId.equals("S3")) {
+            setContextParamDeduplicationParamControlSet(Collections.singleton("Bucket"));
+        } else {
+            setContextParamDeduplicationParamControlSet(Collections.emptySet());
+        }
+        super.generateRequestSerializers(context);
     }
 
     @Override

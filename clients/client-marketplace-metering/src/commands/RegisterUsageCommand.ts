@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   MarketplaceMeteringClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
 import { RegisterUsageRequest, RegisterUsageResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterUsageCommand,
-  serializeAws_json1_1RegisterUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterUsageCommand, se_RegisterUsageCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RegisterUsageCommand}.
+ */
 export interface RegisterUsageCommandInput extends RegisterUsageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterUsageCommand}.
+ */
 export interface RegisterUsageCommandOutput extends RegisterUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Paid container software products sold through AWS Marketplace must integrate with the
  *             AWS Marketplace Metering Service and call the <code>RegisterUsage</code> operation for
  *             software entitlement and metering. Free and BYOL products for Amazon ECS or Amazon EKS
@@ -72,13 +86,59 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * import { MarketplaceMeteringClient, RegisterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, RegisterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
+ * const input = { // RegisterUsageRequest
+ *   ProductCode: "STRING_VALUE", // required
+ *   PublicKeyVersion: Number("int"), // required
+ *   Nonce: "STRING_VALUE",
+ * };
  * const command = new RegisterUsageCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterUsageResult
+ * //   PublicKeyRotationTimestamp: new Date("TIMESTAMP"),
+ * //   Signature: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param RegisterUsageCommandInput - {@link RegisterUsageCommandInput}
+ * @returns {@link RegisterUsageCommandOutput}
  * @see {@link RegisterUsageCommandInput} for command's `input` shape.
  * @see {@link RegisterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
+ *
+ * @throws {@link CustomerNotEntitledException} (client fault)
+ *  <p>Exception thrown when the customer does not have a valid subscription for the
+ *             product.</p>
+ *
+ * @throws {@link DisabledApiException} (client fault)
+ *  <p>The API is disabled in the Region.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
+ *             message with details on the AWS forums.</p>
+ *
+ * @throws {@link InvalidProductCodeException} (client fault)
+ *  <p>The product code passed does not match the product code used for publishing the
+ *             product.</p>
+ *
+ * @throws {@link InvalidPublicKeyVersionException} (client fault)
+ *  <p>Public Key version is invalid.</p>
+ *
+ * @throws {@link InvalidRegionException} (client fault)
+ *  <p>
+ *             <code>RegisterUsage</code> must be called in the same AWS Region the ECS task was
+ *             launched in. This prevents a container from hardcoding a Region (e.g.
+ *             withRegion(“us-east-1”) when calling <code>RegisterUsage</code>.</p>
+ *
+ * @throws {@link PlatformNotSupportedException} (client fault)
+ *  <p>AWS Marketplace does not support metering usage from the underlying platform.
+ *             Currently, Amazon ECS, Amazon EKS, and AWS Fargate are supported.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The calls to the API are throttled.</p>
+ *
+ * @throws {@link MarketplaceMeteringServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
  */
 export class RegisterUsageCommand extends $Command<
@@ -89,6 +149,18 @@ export class RegisterUsageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,6 +176,7 @@ export class RegisterUsageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterUsageCommandInput, RegisterUsageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, RegisterUsageCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -114,8 +187,8 @@ export class RegisterUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterUsageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterUsageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +198,18 @@ export class RegisterUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterUsageCommand(input, context);
+    return se_RegisterUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterUsageCommandOutput> {
-    return deserializeAws_json1_1RegisterUsageCommand(output, context);
+    return de_RegisterUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

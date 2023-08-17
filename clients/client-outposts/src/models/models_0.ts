@@ -1,9 +1,10 @@
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { OutpostsServiceException as __BaseException } from "./OutpostsServiceException";
 
 /**
+ * @public
  * <p>You do not have permission to perform this operation.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,116 +26,269 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *       Information about an address.
  *     </p>
  */
 export interface Address {
   /**
+   * @public
    * <p>The name of the contact.</p>
    */
   ContactName?: string;
 
   /**
+   * @public
    * <p>The phone number of the contact.</p>
    */
   ContactPhoneNumber?: string;
 
   /**
+   * @public
    * <p>The first line of the address.</p>
    */
   AddressLine1: string | undefined;
 
   /**
+   * @public
    * <p>The second line of the address.</p>
    */
   AddressLine2?: string;
 
   /**
+   * @public
    * <p>The third line of the address.</p>
    */
   AddressLine3?: string;
 
   /**
+   * @public
    * <p>The city for the address.</p>
    */
   City: string | undefined;
 
   /**
+   * @public
    * <p>The state for the address.</p>
    */
   StateOrRegion: string | undefined;
 
   /**
+   * @public
    * <p>The district or county for the address.</p>
    */
   DistrictOrCounty?: string;
 
   /**
+   * @public
    * <p>The postal code for the address.</p>
    */
   PostalCode: string | undefined;
 
   /**
+   * @public
    * <p>The ISO-3166 two-letter country code for the address.</p>
    */
   CountryCode: string | undefined;
 
   /**
+   * @public
    * <p>The municipality for the address.</p>
    */
   Municipality?: string;
 }
 
-export namespace Address {
+/**
+ * @public
+ * @enum
+ */
+export const AddressType = {
+  OPERATING_ADDRESS: "OPERATING_ADDRESS",
+  SHIPPING_ADDRESS: "SHIPPING_ADDRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AddressType = (typeof AddressType)[keyof typeof AddressType];
+
+/**
+ * @public
+ * <p>
+ *       Information about the position of the asset in a rack.
+ *     </p>
+ */
+export interface AssetLocation {
   /**
-   * @internal
+   * @public
+   * <p>
+   *       The position of an asset in a rack measured in rack units.
+   *     </p>
    */
-  export const filterSensitiveLog = (obj: Address): any => ({
-    ...obj,
-  });
+  RackElevation?: number;
 }
 
-export enum AddressType {
-  OPERATING_ADDRESS = "OPERATING_ADDRESS",
-  SHIPPING_ADDRESS = "SHIPPING_ADDRESS",
+/**
+ * @public
+ * @enum
+ */
+export const AssetType = {
+  COMPUTE: "COMPUTE",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetType = (typeof AssetType)[keyof typeof AssetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComputeAssetState = {
+  ACTIVE: "ACTIVE",
+  ISOLATED: "ISOLATED",
+  RETIRING: "RETIRING",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputeAssetState = (typeof ComputeAssetState)[keyof typeof ComputeAssetState];
+
+/**
+ * @public
+ * <p>
+ *       Information about compute hardware assets.
+ *     </p>
+ */
+export interface ComputeAttributes {
+  /**
+   * @public
+   * <p>
+   *       The host ID of the Dedicated Host on the asset.
+   *     </p>
+   */
+  HostId?: string;
+
+  /**
+   * @public
+   * <p>The state.</p>
+   *          <ul>
+   *             <li>
+   *                <p>ACTIVE - The asset is available and can provide capacity for new compute resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>ISOLATED - The asset is undergoing maintenance and can't provide capacity for new compute resources.
+   *             Existing compute resources on the asset are not affected.</p>
+   *             </li>
+   *             <li>
+   *                <p>RETIRING - The underlying hardware for the asset is degraded. Capacity for new compute resources is reduced.
+   *             Amazon Web Services sends notifications for resources that must be stopped before the asset can be replaced.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: ComputeAssetState | string;
 }
 
+/**
+ * @public
+ * <p>
+ *       Information about hardware assets.
+ *     </p>
+ */
+export interface AssetInfo {
+  /**
+   * @public
+   * <p>
+   *       The ID of the asset.
+   *     </p>
+   */
+  AssetId?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The rack ID of the asset.
+   *     </p>
+   */
+  RackId?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The type of the asset.
+   *     </p>
+   */
+  AssetType?: AssetType | string;
+
+  /**
+   * @public
+   * <p>
+   *       Information about compute hardware assets.
+   *     </p>
+   */
+  ComputeAttributes?: ComputeAttributes;
+
+  /**
+   * @public
+   * <p>
+   *       The position of an asset in a rack.
+   *     </p>
+   */
+  AssetLocation?: AssetLocation;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetState = {
+  ACTIVE: "ACTIVE",
+  ISOLATED: "ISOLATED",
+  RETIRING: "RETIRING",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetState = (typeof AssetState)[keyof typeof AssetState];
+
+/**
+ * @public
+ */
 export interface CancelOrderInput {
   /**
+   * @public
    * <p>
-   *       The ID of the order to cancel.
+   *       The ID of the order.
    *     </p>
    */
   OrderId: string | undefined;
 }
 
-export namespace CancelOrderInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelOrderInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CancelOrderOutput {}
 
-export namespace CancelOrderOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelOrderOutput): any => ({
-    ...obj,
-  });
-}
-
-export enum ResourceType {
-  ORDER = "ORDER",
-  OUTPOST = "OUTPOST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  ORDER: "ORDER",
+  OUTPOST: "OUTPOST",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>Updating or deleting this resource can cause an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -142,11 +296,13 @@ export class ConflictException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The ID of the resource causing the conflict.</p>
    */
   ResourceId?: string;
 
   /**
+   * @public
    * <p>The type of the resource causing the conflict.</p>
    */
   ResourceType?: ResourceType | string;
@@ -167,6 +323,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -188,6 +345,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified request is not valid.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -209,6 +367,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A parameter is not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -230,10 +389,12 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Information about EC2 capacity. </p>
  */
 export interface EC2Capacity {
   /**
+   * @public
    * <p>
    *       The family of the EC2 capacity.
    *     </p>
@@ -241,6 +402,7 @@ export interface EC2Capacity {
   Family?: string;
 
   /**
+   * @public
    * <p>
    *       The maximum size of the EC2 capacity.
    *     </p>
@@ -248,6 +410,7 @@ export interface EC2Capacity {
   MaxSize?: string;
 
   /**
+   * @public
    * <p>
    *       The quantity of the EC2 capacity.
    *     </p>
@@ -255,30 +418,41 @@ export interface EC2Capacity {
   Quantity?: string;
 }
 
-export namespace EC2Capacity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2Capacity): any => ({
-    ...obj,
-  });
-}
-
-export enum CatalogItemStatus {
-  AVAILABLE = "AVAILABLE",
-  DISCONTINUED = "DISCONTINUED",
-}
-
-export enum SupportedStorageEnum {
-  EBS = "EBS",
-  S3 = "S3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CatalogItemStatus = {
+  AVAILABLE: "AVAILABLE",
+  DISCONTINUED: "DISCONTINUED",
+} as const;
 
 /**
+ * @public
+ */
+export type CatalogItemStatus = (typeof CatalogItemStatus)[keyof typeof CatalogItemStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SupportedStorageEnum = {
+  EBS: "EBS",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportedStorageEnum = (typeof SupportedStorageEnum)[keyof typeof SupportedStorageEnum];
+
+/**
+ * @public
  * <p> Information about a catalog item. </p>
  */
 export interface CatalogItem {
   /**
+   * @public
    * <p>
    *       The ID of the catalog item.
    *     </p>
@@ -286,6 +460,7 @@ export interface CatalogItem {
   CatalogItemId?: string;
 
   /**
+   * @public
    * <p>
    *       The status of a catalog item.
    *     </p>
@@ -293,6 +468,7 @@ export interface CatalogItem {
   ItemStatus?: CatalogItemStatus | string;
 
   /**
+   * @public
    * <p>
    *       Information about the EC2 capacity of an item.
    *     </p>
@@ -300,6 +476,7 @@ export interface CatalogItem {
   EC2Capacities?: EC2Capacity[];
 
   /**
+   * @public
    * <p>
    *       Information about the power draw of an item.
    *     </p>
@@ -307,11 +484,13 @@ export interface CatalogItem {
   PowerKva?: number;
 
   /**
+   * @public
    * <p> The weight of the item in pounds. </p>
    */
   WeightLbs?: number;
 
   /**
+   * @public
    * <p>
    *       The uplink speed this catalog item requires for the
    *       connection to the Region.
@@ -320,6 +499,7 @@ export interface CatalogItem {
   SupportedUplinkGbps?: number[];
 
   /**
+   * @public
    * <p>
    *       The supported storage options for the catalog item.
    *     </p>
@@ -327,56 +507,129 @@ export interface CatalogItem {
   SupportedStorage?: (SupportedStorageEnum | string)[];
 }
 
-export namespace CatalogItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CatalogItem): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const CatalogItemClass = {
+  RACK: "RACK",
+  SERVER: "SERVER",
+} as const;
 
-export enum CatalogItemClass {
-  RACK = "RACK",
-  SERVER = "SERVER",
+/**
+ * @public
+ */
+export type CatalogItemClass = (typeof CatalogItemClass)[keyof typeof CatalogItemClass];
+
+/**
+ * @public
+ * <p>
+ *     Information about a connection.
+ *     </p>
+ */
+export interface ConnectionDetails {
+  /**
+   * @public
+   * <p>
+   *       The public key of the client.
+   *     </p>
+   */
+  ClientPublicKey?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The public key of the server.
+   *     </p>
+   */
+  ServerPublicKey?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The endpoint for the server.
+   *     </p>
+   */
+  ServerEndpoint?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The client tunnel address.
+   *     </p>
+   */
+  ClientTunnelAddress?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The server tunnel address.
+   *     </p>
+   */
+  ServerTunnelAddress?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The allowed IP addresses.
+   *     </p>
+   */
+  AllowedIps?: string[];
 }
 
 /**
+ * @public
  * <p>Information about a line item request.</p>
  */
 export interface LineItemRequest {
   /**
+   * @public
    * <p>The ID of the catalog item.</p>
    */
   CatalogItemId?: string;
 
   /**
+   * @public
    * <p>The quantity of a line item request.</p>
    */
   Quantity?: number;
 }
 
-export namespace LineItemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LineItemRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const PaymentOption = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  NO_UPFRONT: "NO_UPFRONT",
+  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
+} as const;
 
-export enum PaymentOption {
-  ALL_UPFRONT = "ALL_UPFRONT",
-  NO_UPFRONT = "NO_UPFRONT",
-  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
-}
+/**
+ * @public
+ */
+export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
 
-export enum PaymentTerm {
-  THREE_YEARS = "THREE_YEARS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PaymentTerm = {
+  ONE_YEAR: "ONE_YEAR",
+  THREE_YEARS: "THREE_YEARS",
+} as const;
 
+/**
+ * @public
+ */
+export type PaymentTerm = (typeof PaymentTerm)[keyof typeof PaymentTerm];
+
+/**
+ * @public
+ */
 export interface CreateOrderInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
@@ -384,46 +637,116 @@ export interface CreateOrderInput {
   OutpostIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The line items that make up the order.</p>
    */
   LineItems: LineItemRequest[] | undefined;
 
   /**
-   * <p>The payment option for the order.</p>
+   * @public
+   * <p>The payment option.</p>
    */
   PaymentOption: PaymentOption | string | undefined;
 
   /**
-   * <p>The payment terms for the order.</p>
+   * @public
+   * <p>The payment terms.</p>
    */
   PaymentTerm?: PaymentTerm | string;
 }
 
-export namespace CreateOrderInput {
+/**
+ * @public
+ * <p>
+ *       Information about a line item asset.
+ *     </p>
+ */
+export interface LineItemAssetInformation {
   /**
-   * @internal
+   * @public
+   * <p>
+   *       The ID of the asset.
+   *     </p>
    */
-  export const filterSensitiveLog = (obj: CreateOrderInput): any => ({
-    ...obj,
-  });
-}
+  AssetId?: string;
 
-export enum LineItemStatus {
-  BUILDING = "BUILDING",
-  CANCELLED = "CANCELLED",
-  DELIVERED = "DELIVERED",
-  ERROR = "ERROR",
-  INSTALLED = "INSTALLED",
-  INSTALLING = "INSTALLING",
-  PREPARING = "PREPARING",
-  SHIPPED = "SHIPPED",
+  /**
+   * @public
+   * <p>
+   *       The MAC addresses of the asset.
+   *     </p>
+   */
+  MacAddressList?: string[];
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ShipmentCarrier = {
+  DBS: "DBS",
+  DHL: "DHL",
+  FEDEX: "FEDEX",
+  UPS: "UPS",
+} as const;
+
+/**
+ * @public
+ */
+export type ShipmentCarrier = (typeof ShipmentCarrier)[keyof typeof ShipmentCarrier];
+
+/**
+ * @public
+ * <p>
+ *       Information about a line item shipment.
+ *     </p>
+ */
+export interface ShipmentInformation {
+  /**
+   * @public
+   * <p>
+   *       The tracking number of the shipment.
+   *     </p>
+   */
+  ShipmentTrackingNumber?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The carrier of the shipment.
+   *     </p>
+   */
+  ShipmentCarrier?: ShipmentCarrier | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LineItemStatus = {
+  BUILDING: "BUILDING",
+  CANCELLED: "CANCELLED",
+  DELIVERED: "DELIVERED",
+  ERROR: "ERROR",
+  INSTALLED: "INSTALLED",
+  INSTALLING: "INSTALLING",
+  PREPARING: "PREPARING",
+  REPLACED: "REPLACED",
+  SHIPPED: "SHIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type LineItemStatus = (typeof LineItemStatus)[keyof typeof LineItemStatus];
+
+/**
+ * @public
  * <p>Information about a line item.</p>
  */
 export interface LineItem {
   /**
+   * @public
    * <p>
    *       The ID of the catalog item.
    *     </p>
@@ -431,48 +754,95 @@ export interface LineItem {
   CatalogItemId?: string;
 
   /**
+   * @public
    * <p>The ID of the line item.</p>
    */
   LineItemId?: string;
 
   /**
+   * @public
    * <p>The quantity of the line item.</p>
    */
   Quantity?: number;
 
   /**
+   * @public
    * <p>The status of the line item.</p>
    */
   Status?: LineItemStatus | string;
-}
 
-export namespace LineItem {
   /**
-   * @internal
+   * @public
+   * <p>
+   *       Information about a line item shipment.
+   *     </p>
    */
-  export const filterSensitiveLog = (obj: LineItem): any => ({
-    ...obj,
-  });
-}
+  ShipmentInformation?: ShipmentInformation;
 
-export enum OrderStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  ERROR = "ERROR",
-  FULFILLED = "FULFILLED",
-  INSTALLING = "INSTALLING",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  PREPARING = "PREPARING",
-  PROCESSING = "PROCESSING",
-  RECEIVED = "RECEIVED",
+  /**
+   * @public
+   * <p>
+   *       Information about assets.
+   *     </p>
+   */
+  AssetInformationList?: LineItemAssetInformation[];
+
+  /**
+   * @public
+   * <p>The ID of the previous line item.</p>
+   */
+  PreviousLineItemId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the previous order item.</p>
+   */
+  PreviousOrderId?: string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const OrderType = {
+  OUTPOST: "OUTPOST",
+  REPLACEMENT: "REPLACEMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderType = (typeof OrderType)[keyof typeof OrderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrderStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  FULFILLED: "FULFILLED",
+  INSTALLING: "INSTALLING",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  PREPARING: "PREPARING",
+  PROCESSING: "PROCESSING",
+  RECEIVED: "RECEIVED",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus];
+
+/**
+ * @public
  * <p>Information about an order.</p>
  */
 export interface Order {
   /**
+   * @public
    * <p>
    *       The ID of the Outpost in the order.
    *     </p>
@@ -480,11 +850,13 @@ export interface Order {
   OutpostId?: string;
 
   /**
+   * @public
    * <p>The ID of the order.</p>
    */
   OrderId?: string;
 
   /**
+   * @public
    * <p>The status of the order.</p>
    *          <ul>
    *             <li>
@@ -494,7 +866,7 @@ export interface Order {
    *             <li>
    *                <p>
    *                   <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. To get more
-   *           details, see the <code>LineItem</code> status.</p>
+   *           details, see the line item status.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -509,7 +881,6 @@ export interface Order {
    *                   <code>ERROR</code> - Customer should contact support.</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>The following status are deprecated: <code>RECEIVED</code>, <code>PENDING</code>,
    *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
@@ -518,52 +889,55 @@ export interface Order {
   Status?: OrderStatus | string;
 
   /**
+   * @public
    * <p>The line items for the order</p>
    */
   LineItems?: LineItem[];
 
   /**
+   * @public
    * <p>The payment option for the order.</p>
    */
   PaymentOption?: PaymentOption | string;
 
   /**
+   * @public
    * <p>The submission date for the order.</p>
    */
   OrderSubmissionDate?: Date;
 
   /**
+   * @public
    * <p>The fulfillment date of the order.</p>
    */
   OrderFulfilledDate?: Date;
-}
 
-export namespace Order {
   /**
-   * @internal
+   * @public
+   * <p>The payment term.</p>
    */
-  export const filterSensitiveLog = (obj: Order): any => ({
-    ...obj,
-  });
+  PaymentTerm?: PaymentTerm | string;
+
+  /**
+   * @public
+   * <p>Type of order.</p>
+   */
+  OrderType?: OrderType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateOrderOutput {
   /**
+   * @public
    * <p>Information about this order.</p>
    */
   Order?: Order;
 }
 
-export namespace CreateOrderOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOrderOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>You have exceeded a service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -584,23 +958,38 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
-export enum SupportedHardwareType {
-  RACK = "RACK",
-  SERVER = "SERVER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SupportedHardwareType = {
+  RACK: "RACK",
+  SERVER: "SERVER",
+} as const;
 
+/**
+ * @public
+ */
+export type SupportedHardwareType = (typeof SupportedHardwareType)[keyof typeof SupportedHardwareType];
+
+/**
+ * @public
+ */
 export interface CreateOutpostInput {
   /**
+   * @public
    * <p>The name of the Outpost.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the Outpost.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
@@ -608,21 +997,25 @@ export interface CreateOutpostInput {
   SiteId: string | undefined;
 
   /**
+   * @public
    * <p>The Availability Zone.</p>
    */
   AvailabilityZone?: string;
 
   /**
+   * @public
    * <p>The ID of the Availability Zone.</p>
    */
   AvailabilityZoneId?: string;
 
   /**
+   * @public
    * <p>The tags to apply to the Outpost.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>
    *       The type of hardware for this Outpost.
    *     </p>
@@ -630,20 +1023,13 @@ export interface CreateOutpostInput {
   SupportedHardwareType?: SupportedHardwareType | string;
 }
 
-export namespace CreateOutpostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOutpostInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about an Outpost.</p>
  */
 export interface Outpost {
   /**
+   * @public
    * <p>
    *       The ID of the Outpost.
    *     </p>
@@ -651,58 +1037,67 @@ export interface Outpost {
   OutpostId?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID of the Outpost owner.</p>
    */
   OwnerId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    */
   OutpostArn?: string;
 
   /**
-   * <p>
-   *       The ID of the site.
-   *     </p>
+   * @public
+   * <p>The ID of the site.</p>
    */
   SiteId?: string;
 
   /**
+   * @public
    * <p>The name of the Outpost.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the Outpost.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The life cycle status.</p>
    */
   LifeCycleStatus?: string;
 
   /**
+   * @public
    * <p>The Availability Zone.</p>
    */
   AvailabilityZone?: string;
 
   /**
+   * @public
    * <p>The ID of the Availability Zone.</p>
    */
   AvailabilityZoneId?: string;
 
   /**
+   * @public
    * <p>The Outpost tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the site.</p>
    */
   SiteArn?: string;
 
   /**
+   * @public
    * <p>
    *       The hardware type.
    *     </p>
@@ -710,104 +1105,173 @@ export interface Outpost {
   SupportedHardwareType?: SupportedHardwareType | string;
 }
 
-export namespace Outpost {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Outpost): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateOutpostOutput {
   /**
+   * @public
    * <p>Information about an Outpost.</p>
    */
   Outpost?: Outpost;
 }
 
-export namespace CreateOutpostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOutpostOutput): any => ({
-    ...obj,
-  });
-}
-
-export enum FiberOpticCableType {
-  MULTI_MODE = "MULTI_MODE",
-  SINGLE_MODE = "SINGLE_MODE",
-}
-
-export enum MaximumSupportedWeightLbs {
-  MAX_1400_LBS = "MAX_1400_LBS",
-  MAX_1600_LBS = "MAX_1600_LBS",
-  MAX_1800_LBS = "MAX_1800_LBS",
-  MAX_2000_LBS = "MAX_2000_LBS",
-  NO_LIMIT = "NO_LIMIT",
-}
-
-export enum OpticalStandard {
-  OPTIC_1000BASE_LX = "OPTIC_1000BASE_LX",
-  OPTIC_1000BASE_SX = "OPTIC_1000BASE_SX",
-  OPTIC_100GBASE_CWDM4 = "OPTIC_100GBASE_CWDM4",
-  OPTIC_100GBASE_LR4 = "OPTIC_100GBASE_LR4",
-  OPTIC_100GBASE_SR4 = "OPTIC_100GBASE_SR4",
-  OPTIC_100G_PSM4_MSA = "OPTIC_100G_PSM4_MSA",
-  OPTIC_10GBASE_IR = "OPTIC_10GBASE_IR",
-  OPTIC_10GBASE_LR = "OPTIC_10GBASE_LR",
-  OPTIC_10GBASE_SR = "OPTIC_10GBASE_SR",
-  OPTIC_40GBASE_ESR = "OPTIC_40GBASE_ESR",
-  OPTIC_40GBASE_IR4_LR4L = "OPTIC_40GBASE_IR4_LR4L",
-  OPTIC_40GBASE_LR4 = "OPTIC_40GBASE_LR4",
-  OPTIC_40GBASE_SR = "OPTIC_40GBASE_SR",
-}
-
-export enum PowerConnector {
-  AH530P7W = "AH530P7W",
-  AH532P6W = "AH532P6W",
-  IEC309 = "IEC309",
-  L6_30P = "L6_30P",
-}
-
-export enum PowerDrawKva {
-  POWER_10_KVA = "POWER_10_KVA",
-  POWER_15_KVA = "POWER_15_KVA",
-  POWER_5_KVA = "POWER_5_KVA",
-}
-
-export enum PowerFeedDrop {
-  ABOVE_RACK = "ABOVE_RACK",
-  BELOW_RACK = "BELOW_RACK",
-}
-
-export enum PowerPhase {
-  SINGLE_PHASE = "SINGLE_PHASE",
-  THREE_PHASE = "THREE_PHASE",
-}
-
-export enum UplinkCount {
-  UPLINK_COUNT_1 = "UPLINK_COUNT_1",
-  UPLINK_COUNT_12 = "UPLINK_COUNT_12",
-  UPLINK_COUNT_16 = "UPLINK_COUNT_16",
-  UPLINK_COUNT_2 = "UPLINK_COUNT_2",
-  UPLINK_COUNT_3 = "UPLINK_COUNT_3",
-  UPLINK_COUNT_4 = "UPLINK_COUNT_4",
-  UPLINK_COUNT_5 = "UPLINK_COUNT_5",
-  UPLINK_COUNT_6 = "UPLINK_COUNT_6",
-  UPLINK_COUNT_7 = "UPLINK_COUNT_7",
-  UPLINK_COUNT_8 = "UPLINK_COUNT_8",
-}
-
-export enum UplinkGbps {
-  UPLINK_100G = "UPLINK_100G",
-  UPLINK_10G = "UPLINK_10G",
-  UPLINK_1G = "UPLINK_1G",
-  UPLINK_40G = "UPLINK_40G",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FiberOpticCableType = {
+  MULTI_MODE: "MULTI_MODE",
+  SINGLE_MODE: "SINGLE_MODE",
+} as const;
 
 /**
+ * @public
+ */
+export type FiberOpticCableType = (typeof FiberOpticCableType)[keyof typeof FiberOpticCableType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaximumSupportedWeightLbs = {
+  MAX_1400_LBS: "MAX_1400_LBS",
+  MAX_1600_LBS: "MAX_1600_LBS",
+  MAX_1800_LBS: "MAX_1800_LBS",
+  MAX_2000_LBS: "MAX_2000_LBS",
+  NO_LIMIT: "NO_LIMIT",
+} as const;
+
+/**
+ * @public
+ */
+export type MaximumSupportedWeightLbs = (typeof MaximumSupportedWeightLbs)[keyof typeof MaximumSupportedWeightLbs];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpticalStandard = {
+  OPTIC_1000BASE_LX: "OPTIC_1000BASE_LX",
+  OPTIC_1000BASE_SX: "OPTIC_1000BASE_SX",
+  OPTIC_100GBASE_CWDM4: "OPTIC_100GBASE_CWDM4",
+  OPTIC_100GBASE_LR4: "OPTIC_100GBASE_LR4",
+  OPTIC_100GBASE_SR4: "OPTIC_100GBASE_SR4",
+  OPTIC_100G_PSM4_MSA: "OPTIC_100G_PSM4_MSA",
+  OPTIC_10GBASE_IR: "OPTIC_10GBASE_IR",
+  OPTIC_10GBASE_LR: "OPTIC_10GBASE_LR",
+  OPTIC_10GBASE_SR: "OPTIC_10GBASE_SR",
+  OPTIC_40GBASE_ESR: "OPTIC_40GBASE_ESR",
+  OPTIC_40GBASE_IR4_LR4L: "OPTIC_40GBASE_IR4_LR4L",
+  OPTIC_40GBASE_LR4: "OPTIC_40GBASE_LR4",
+  OPTIC_40GBASE_SR: "OPTIC_40GBASE_SR",
+} as const;
+
+/**
+ * @public
+ */
+export type OpticalStandard = (typeof OpticalStandard)[keyof typeof OpticalStandard];
+
+/**
+ * @public
+ * @enum
+ */
+export const PowerConnector = {
+  AH530P7W: "AH530P7W",
+  AH532P6W: "AH532P6W",
+  IEC309: "IEC309",
+  L6_30P: "L6_30P",
+} as const;
+
+/**
+ * @public
+ */
+export type PowerConnector = (typeof PowerConnector)[keyof typeof PowerConnector];
+
+/**
+ * @public
+ * @enum
+ */
+export const PowerDrawKva = {
+  POWER_10_KVA: "POWER_10_KVA",
+  POWER_15_KVA: "POWER_15_KVA",
+  POWER_30_KVA: "POWER_30_KVA",
+  POWER_5_KVA: "POWER_5_KVA",
+} as const;
+
+/**
+ * @public
+ */
+export type PowerDrawKva = (typeof PowerDrawKva)[keyof typeof PowerDrawKva];
+
+/**
+ * @public
+ * @enum
+ */
+export const PowerFeedDrop = {
+  ABOVE_RACK: "ABOVE_RACK",
+  BELOW_RACK: "BELOW_RACK",
+} as const;
+
+/**
+ * @public
+ */
+export type PowerFeedDrop = (typeof PowerFeedDrop)[keyof typeof PowerFeedDrop];
+
+/**
+ * @public
+ * @enum
+ */
+export const PowerPhase = {
+  SINGLE_PHASE: "SINGLE_PHASE",
+  THREE_PHASE: "THREE_PHASE",
+} as const;
+
+/**
+ * @public
+ */
+export type PowerPhase = (typeof PowerPhase)[keyof typeof PowerPhase];
+
+/**
+ * @public
+ * @enum
+ */
+export const UplinkCount = {
+  UPLINK_COUNT_1: "UPLINK_COUNT_1",
+  UPLINK_COUNT_12: "UPLINK_COUNT_12",
+  UPLINK_COUNT_16: "UPLINK_COUNT_16",
+  UPLINK_COUNT_2: "UPLINK_COUNT_2",
+  UPLINK_COUNT_3: "UPLINK_COUNT_3",
+  UPLINK_COUNT_4: "UPLINK_COUNT_4",
+  UPLINK_COUNT_5: "UPLINK_COUNT_5",
+  UPLINK_COUNT_6: "UPLINK_COUNT_6",
+  UPLINK_COUNT_7: "UPLINK_COUNT_7",
+  UPLINK_COUNT_8: "UPLINK_COUNT_8",
+} as const;
+
+/**
+ * @public
+ */
+export type UplinkCount = (typeof UplinkCount)[keyof typeof UplinkCount];
+
+/**
+ * @public
+ * @enum
+ */
+export const UplinkGbps = {
+  UPLINK_100G: "UPLINK_100G",
+  UPLINK_10G: "UPLINK_10G",
+  UPLINK_1G: "UPLINK_1G",
+  UPLINK_40G: "UPLINK_40G",
+} as const;
+
+/**
+ * @public
+ */
+export type UplinkGbps = (typeof UplinkGbps)[keyof typeof UplinkGbps];
+
+/**
+ * @public
  * <p> Information about the physical and logistical details for racks at sites.
  *       For more information
  *       about hardware requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist">Network
@@ -816,41 +1280,49 @@ export enum UplinkGbps {
  */
 export interface RackPhysicalProperties {
   /**
+   * @public
    * <p>The power draw available at the hardware placement position for the rack. </p>
    */
   PowerDrawKva?: PowerDrawKva | string;
 
   /**
+   * @public
    * <p>The power option that you can provide for hardware.</p>
    */
   PowerPhase?: PowerPhase | string;
 
   /**
+   * @public
    * <p>The power connector for the hardware. </p>
    */
   PowerConnector?: PowerConnector | string;
 
   /**
+   * @public
    * <p>The position of the power feed.</p>
    */
   PowerFeedDrop?: PowerFeedDrop | string;
 
   /**
+   * @public
    * <p>The uplink speed the rack supports for the connection to the Region. </p>
    */
   UplinkGbps?: UplinkGbps | string;
 
   /**
+   * @public
    * <p>The number of uplinks each Outpost network device.</p>
    */
   UplinkCount?: UplinkCount | string;
 
   /**
+   * @public
    * <p>The type of fiber used to attach the Outpost to the network. </p>
    */
   FiberOpticCableType?: FiberOpticCableType | string;
 
   /**
+   * @public
    * <p>The type of optical standard used to attach the Outpost to the network. This field is
    *       dependent on uplink speed, fiber type, and distance to the upstream device. For more information
    *       about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a>
@@ -860,33 +1332,31 @@ export interface RackPhysicalProperties {
   OpticalStandard?: OpticalStandard | string;
 
   /**
+   * @public
    * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000 lbs
    *       (907 kg). </p>
    */
   MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | string;
 }
 
-export namespace RackPhysicalProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RackPhysicalProperties): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateSiteInput {
   /**
+   * @public
    * <p>The name of the site.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the site.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Additional information that you provide about site access requirements, electrician
    *       scheduling, personal protective equipment, or regulation of equipment materials that could
    *       affect your installation process. </p>
@@ -894,13 +1364,15 @@ export interface CreateSiteInput {
   Notes?: string;
 
   /**
+   * @public
    * <p>
    *       The tags to apply to a site.
    *     </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>
    *       The location to install and power on the hardware. This address might be
    *       different from the shipping address.
@@ -909,6 +1381,7 @@ export interface CreateSiteInput {
   OperatingAddress?: Address;
 
   /**
+   * @public
    * <p>
    *       The location to ship the hardware. This address might be different
    *       from the operating address.
@@ -917,6 +1390,7 @@ export interface CreateSiteInput {
   ShippingAddress?: Address;
 
   /**
+   * @public
    * <p> Information about the physical and logistical details for the rack at this site.
    *       For more information
    *       about hardware requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist">Network
@@ -926,52 +1400,49 @@ export interface CreateSiteInput {
   RackPhysicalProperties?: RackPhysicalProperties;
 }
 
-export namespace CreateSiteInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSiteInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a site.</p>
  */
 export interface Site {
   /**
-   * <p>
-   *       The ID of the site.
-   *     </p>
+   * @public
+   * <p>The ID of the site.</p>
    */
   SiteId?: string;
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account.</p>
    */
   AccountId?: string;
 
   /**
+   * @public
    * <p>The name of the site.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the site.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The site tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the site.</p>
    */
   SiteArn?: string;
 
   /**
+   * @public
    * <p>
    *       Notes about a site.
    *     </p>
@@ -979,6 +1450,7 @@ export interface Site {
   Notes?: string;
 
   /**
+   * @public
    * <p>
    *       The ISO-3166 two-letter country code where the hardware is installed and powered on.
    *     </p>
@@ -986,11 +1458,13 @@ export interface Site {
   OperatingAddressCountryCode?: string;
 
   /**
+   * @public
    * <p> State or region where the hardware is installed and powered on. </p>
    */
   OperatingAddressStateOrRegion?: string;
 
   /**
+   * @public
    * <p>
    *       City where the hardware is installed and powered on.
    *     </p>
@@ -998,6 +1472,7 @@ export interface Site {
   OperatingAddressCity?: string;
 
   /**
+   * @public
    * <p>
    *       Information about the physical and logistical details for a rack at the site.
    *     </p>
@@ -1005,33 +1480,23 @@ export interface Site {
   RackPhysicalProperties?: RackPhysicalProperties;
 }
 
-export namespace Site {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Site): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateSiteOutput {
   /**
+   * @public
    * <p>Information about a site.</p>
    */
   Site?: Site;
 }
 
-export namespace CreateSiteOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSiteOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteOutpostInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
@@ -1039,28 +1504,17 @@ export interface DeleteOutpostInput {
   OutpostId: string | undefined;
 }
 
-export namespace DeleteOutpostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOutpostInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteOutpostOutput {}
 
-export namespace DeleteOutpostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOutpostOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteSiteInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
@@ -1068,92 +1522,95 @@ export interface DeleteSiteInput {
   SiteId: string | undefined;
 }
 
-export namespace DeleteSiteInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSiteInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteSiteOutput {}
 
-export namespace DeleteSiteOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSiteOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetCatalogItemInput {
   /**
+   * @public
    * <p>The ID of the catalog item.</p>
    */
   CatalogItemId: string | undefined;
 }
 
-export namespace GetCatalogItemInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCatalogItemInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetCatalogItemOutput {
   /**
+   * @public
    * <p>Information about this catalog item.</p>
    */
   CatalogItem?: CatalogItem;
 }
 
-export namespace GetCatalogItemOutput {
+/**
+ * @public
+ */
+export interface GetConnectionRequest {
   /**
-   * @internal
+   * @public
+   * <p>
+   *       The ID of the connection.
+   *     </p>
    */
-  export const filterSensitiveLog = (obj: GetCatalogItemOutput): any => ({
-    ...obj,
-  });
+  ConnectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface GetConnectionResponse {
+  /**
+   * @public
+   * <p>
+   *       The ID of the connection.
+   *     </p>
+   */
+  ConnectionId?: string;
+
+  /**
+   * @public
+   * <p>
+   *      Information about the connection.
+   *     </p>
+   */
+  ConnectionDetails?: ConnectionDetails;
+}
+
+/**
+ * @public
+ */
 export interface GetOrderInput {
   /**
+   * @public
    * <p>The ID of the order.</p>
    */
   OrderId: string | undefined;
 }
 
-export namespace GetOrderInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrderInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetOrderOutput {
   /**
+   * @public
    * <p>Information about an order.</p>
    */
   Order?: Order;
 }
 
-export namespace GetOrderOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrderOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetOutpostInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
@@ -1161,33 +1618,23 @@ export interface GetOutpostInput {
   OutpostId: string | undefined;
 }
 
-export namespace GetOutpostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOutpostInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetOutpostOutput {
   /**
+   * @public
    * <p>Information about an Outpost.</p>
    */
   Outpost?: Outpost;
 }
 
-export namespace GetOutpostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOutpostOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetOutpostInstanceTypesInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
@@ -1195,56 +1642,48 @@ export interface GetOutpostInstanceTypesInput {
   OutpostId: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum page size.</p>
    */
   MaxResults?: number;
 }
 
-export namespace GetOutpostInstanceTypesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOutpostInstanceTypesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about an instance type.</p>
  */
 export interface InstanceTypeItem {
   /**
+   * @public
    * <p>The instance type.</p>
    */
   InstanceType?: string;
 }
 
-export namespace InstanceTypeItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceTypeItem): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetOutpostInstanceTypesOutput {
   /**
+   * @public
    * <p>Information about the instance types.</p>
    */
   InstanceTypes?: InstanceTypeItem[];
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>
    *       The ID of the Outpost.
    *     </p>
@@ -1252,22 +1691,18 @@ export interface GetOutpostInstanceTypesOutput {
   OutpostId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    */
   OutpostArn?: string;
 }
 
-export namespace GetOutpostInstanceTypesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOutpostInstanceTypesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetSiteInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
@@ -1275,33 +1710,23 @@ export interface GetSiteInput {
   SiteId: string | undefined;
 }
 
-export namespace GetSiteInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSiteInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetSiteOutput {
   /**
+   * @public
    * <p>Information about a site.</p>
    */
   Site?: Site;
 }
 
-export namespace GetSiteOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSiteOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetSiteAddressInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
@@ -1309,34 +1734,30 @@ export interface GetSiteAddressInput {
   SiteId: string | undefined;
 
   /**
-   * <p> The type of the address you request. </p>
+   * @public
+   * <p>The type of the address you request. </p>
    */
   AddressType: AddressType | string | undefined;
 }
 
-export namespace GetSiteAddressInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSiteAddressInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetSiteAddressOutput {
   /**
-   * <p>
-   *       The ID of the site.
-   *     </p>
+   * @public
+   * <p>The ID of the site.</p>
    */
   SiteId?: string;
 
   /**
-   * <p> The type of the address you receive. </p>
+   * @public
+   * <p>The type of the address you receive. </p>
    */
   AddressType?: AddressType | string;
 
   /**
+   * @public
    * <p>
    *       Information about the address.
    *     </p>
@@ -1344,89 +1765,118 @@ export interface GetSiteAddressOutput {
   Address?: Address;
 }
 
-export namespace GetSiteAddressOutput {
+/**
+ * @public
+ */
+export interface ListAssetsInput {
   /**
-   * @internal
+   * @public
+   * <p>
+   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
+   *     </p>
    */
-  export const filterSensitiveLog = (obj: GetSiteAddressOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface ListCatalogItemsInput {
-  /**
-   * <p>The pagination token.</p>
-   */
-  NextToken?: string;
+  OutpostIdentifier: string | undefined;
 
   /**
+   * @public
+   * <p>Filters the results by the host ID of a Dedicated Host.</p>
+   */
+  HostIdFilter?: string[];
+
+  /**
+   * @public
    * <p>The maximum page size.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>
-   *       A filter for the class of items in the catalog.
-   *     </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * @public
+   * <p>The pagination token.</p>
    */
-  ItemClassFilter?: (CatalogItemClass | string)[];
+  NextToken?: string;
 
   /**
-   * <p>
-   *       A filter for the storage options of items in the catalog.
-   *     </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * @public
+   * <p>Filters the results by state.</p>
    */
-  SupportedStorageFilter?: (SupportedStorageEnum | string)[];
-
-  /**
-   * <p>
-   *       A filter for EC2 family options for items in the catalog.
-   *     </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
-   */
-  EC2FamilyFilter?: string[];
+  StatusFilter?: (AssetState | string)[];
 }
 
-export namespace ListCatalogItemsInput {
+/**
+ * @public
+ */
+export interface ListAssetsOutput {
   /**
-   * @internal
+   * @public
+   * <p>Information about the hardware assets.</p>
    */
-  export const filterSensitiveLog = (obj: ListCatalogItemsInput): any => ({
-    ...obj,
-  });
-}
-
-export interface ListCatalogItemsOutput {
-  /**
-   * <p>Information about the catalog items.</p>
-   */
-  CatalogItems?: CatalogItem[];
+  Assets?: AssetInfo[];
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListCatalogItemsOutput {
+/**
+ * @public
+ */
+export interface ListCatalogItemsInput {
   /**
-   * @internal
+   * @public
+   * <p>The pagination token.</p>
    */
-  export const filterSensitiveLog = (obj: ListCatalogItemsOutput): any => ({
-    ...obj,
-  });
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum page size.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>Filters the results by item class.</p>
+   */
+  ItemClassFilter?: (CatalogItemClass | string)[];
+
+  /**
+   * @public
+   * <p>Filters the results by storage option.</p>
+   */
+  SupportedStorageFilter?: (SupportedStorageEnum | string)[];
+
+  /**
+   * @public
+   * <p>Filters the results by EC2 family (for example, M5).</p>
+   */
+  EC2FamilyFilter?: string[];
 }
 
+/**
+ * @public
+ */
+export interface ListCatalogItemsOutput {
+  /**
+   * @public
+   * <p>Information about the catalog items.</p>
+   */
+  CatalogItems?: CatalogItem[];
+
+  /**
+   * @public
+   * <p>The pagination token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListOrdersInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
@@ -1434,37 +1884,27 @@ export interface ListOrdersInput {
   OutpostIdentifierFilter?: string;
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum page size.</p>
    */
   MaxResults?: number;
 }
 
-export namespace ListOrdersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrdersInput): any => ({
-    ...obj,
-  });
-}
-
-export enum OrderType {
-  OUTPOST = "OUTPOST",
-  REPLACEMENT = "REPLACEMENT",
-}
-
 /**
+ * @public
  * <p>
  *       A summary of line items in your order.
  *     </p>
  */
 export interface OrderSummary {
   /**
+   * @public
    * <p>
    *       The ID of the Outpost.
    *     </p>
@@ -1472,6 +1912,7 @@ export interface OrderSummary {
   OutpostId?: string;
 
   /**
+   * @public
    * <p>
    *       The ID of the order.
    *     </p>
@@ -1479,6 +1920,7 @@ export interface OrderSummary {
   OrderId?: string;
 
   /**
+   * @public
    * <p>
    *       The type of order.
    *     </p>
@@ -1486,6 +1928,7 @@ export interface OrderSummary {
   OrderType?: OrderType | string;
 
   /**
+   * @public
    * <p>The status of the order.</p>
    *          <ul>
    *             <li>
@@ -1510,7 +1953,6 @@ export interface OrderSummary {
    *                   <code>ERROR</code> - Customer should contact support.</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>,
    *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
@@ -1519,38 +1961,36 @@ export interface OrderSummary {
   Status?: OrderStatus | string;
 
   /**
+   * @public
    * <p>
    *       The status of all line items in the order.
    *     </p>
    */
-  LineItemCountsByStatus?: { [key: string]: number };
+  LineItemCountsByStatus?: Record<string, number>;
 
   /**
+   * @public
    * <p>
-   *       Submission date for the order.
+   *       The submission date for the order.
    *     </p>
    */
   OrderSubmissionDate?: Date;
 
   /**
+   * @public
    * <p>
-   *       Fulfilment date for the order.
+   *       The fulfilment date for the order.
    *     </p>
    */
   OrderFulfilledDate?: Date;
 }
 
-export namespace OrderSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrderSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListOrdersOutput {
   /**
+   * @public
    * <p>
    *       Information about the orders.
    *     </p>
@@ -1558,232 +1998,246 @@ export interface ListOrdersOutput {
   Orders?: OrderSummary[];
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListOrdersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrdersOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListOutpostsInput {
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum page size.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>
-   *       A filter for the lifecycle status of the Outpost.
-   *     </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * @public
+   * <p>Filters the results by the lifecycle status.</p>
    */
   LifeCycleStatusFilter?: string[];
 
   /**
-   * <p> A filter for the Availability Zone (<code>us-east-1a</code>) of the Outpost. </p>
-   *
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * @public
+   * <p>Filters the results by Availability Zone (for example, <code>us-east-1a</code>).</p>
    */
   AvailabilityZoneFilter?: string[];
 
   /**
-   * <p>
-   *       A filter for the AZ IDs (<code>use1-az1</code>) of the Outpost.
-   *     </p>
-   *
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * @public
+   * <p>Filters the results by AZ ID (for example, <code>use1-az1</code>).</p>
    */
   AvailabilityZoneIdFilter?: string[];
 }
 
-export namespace ListOutpostsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOutpostsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListOutpostsOutput {
   /**
+   * @public
    * <p>Information about the Outposts.</p>
    */
   Outposts?: Outpost[];
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListOutpostsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOutpostsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListSitesInput {
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum page size.</p>
    */
   MaxResults?: number;
-}
 
-export namespace ListSitesInput {
   /**
-   * @internal
+   * @public
+   * <p>Filters the results by country code.</p>
    */
-  export const filterSensitiveLog = (obj: ListSitesInput): any => ({
-    ...obj,
-  });
+  OperatingAddressCountryCodeFilter?: string[];
+
+  /**
+   * @public
+   * <p>Filters the results by state or region.</p>
+   */
+  OperatingAddressStateOrRegionFilter?: string[];
+
+  /**
+   * @public
+   * <p>Filters the results by city.</p>
+   */
+  OperatingAddressCityFilter?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListSitesOutput {
   /**
+   * @public
    * <p>Information about the sites.</p>
    */
   Sites?: Site[];
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListSitesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSitesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The resource tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceResponse {
+/**
+ * @public
+ */
+export interface StartConnectionRequest {
   /**
-   * @internal
+   * @public
+   * <p>
+   *       The serial number of the dongle.
+   *     </p>
    */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
+  DeviceSerialNumber: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       The ID of the Outpost server.
+   *     </p>
+   */
+  AssetId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       The public key of the client.
+   *     </p>
+   */
+  ClientPublicKey: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       The device index of the network interface on the Outpost server.
+   *     </p>
+   */
+  NetworkInterfaceDeviceIndex: number | undefined;
 }
 
+/**
+ * @public
+ */
+export interface StartConnectionResponse {
+  /**
+   * @public
+   * <p>
+   *       The ID of the connection.
+   *     </p>
+   */
+  ConnectionId?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The underlay IP address.
+   *     </p>
+   */
+  UnderlayIpAddress?: string;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the resource.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tag keys.</p>
    */
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateOutpostInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
@@ -1791,16 +2245,19 @@ export interface UpdateOutpostInput {
   OutpostId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the Outpost.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the Outpost.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>
    *       The type of hardware for this Outpost.
    *     </p>
@@ -1808,33 +2265,23 @@ export interface UpdateOutpostInput {
   SupportedHardwareType?: SupportedHardwareType | string;
 }
 
-export namespace UpdateOutpostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOutpostInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateOutpostOutput {
   /**
+   * @public
    * <p>Information about an Outpost.</p>
    */
   Outpost?: Outpost;
 }
 
-export namespace UpdateOutpostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOutpostOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateSiteInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
@@ -1842,50 +2289,41 @@ export interface UpdateSiteInput {
   SiteId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the site.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the site.</p>
    */
   Description?: string;
 
   /**
-   * <p>
-   *       Notes about a site.
-   *     </p>
+   * @public
+   * <p>Notes about a site.</p>
    */
   Notes?: string;
 }
 
-export namespace UpdateSiteInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateSiteOutput {
   /**
+   * @public
    * <p>Information about a site.</p>
    */
   Site?: Site;
 }
 
-export namespace UpdateSiteOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateSiteAddressInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
@@ -1893,6 +2331,7 @@ export interface UpdateSiteAddressInput {
   SiteId: string | undefined;
 
   /**
+   * @public
    * <p>
    *       The type of the address.
    *     </p>
@@ -1900,6 +2339,7 @@ export interface UpdateSiteAddressInput {
   AddressType: AddressType | string | undefined;
 
   /**
+   * @public
    * <p>
    *       The address for the site.
    *     </p>
@@ -1907,17 +2347,12 @@ export interface UpdateSiteAddressInput {
   Address: Address | undefined;
 }
 
-export namespace UpdateSiteAddressInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteAddressInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateSiteAddressOutput {
   /**
+   * @public
    * <p>
    *       The type of the address.
    *     </p>
@@ -1925,6 +2360,7 @@ export interface UpdateSiteAddressOutput {
   AddressType?: AddressType | string;
 
   /**
+   * @public
    * <p>
    *       Information about an address.
    *     </p>
@@ -1932,17 +2368,12 @@ export interface UpdateSiteAddressOutput {
   Address?: Address;
 }
 
-export namespace UpdateSiteAddressOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteAddressOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateSiteRackPhysicalPropertiesInput {
   /**
+   * @public
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
@@ -1950,13 +2381,15 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
   SiteId: string | undefined;
 
   /**
-   * <p>Specify in kVA the power draw available at the hardware placement position for the
+   * @public
+   * <p>The power draw, in kVA, available at the hardware placement position for the
    *       rack.</p>
    */
   PowerDrawKva?: PowerDrawKva | string;
 
   /**
-   * <p> Specify the power option that you can provide for hardware. </p>
+   * @public
+   * <p>The power option that you can provide for hardware. </p>
    *          <ul>
    *             <li>
    *                <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p>
@@ -1969,7 +2402,8 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
   PowerPhase?: PowerPhase | string;
 
   /**
-   * <p> Specify the power connector that Amazon Web Services should plan to provide for connections to the
+   * @public
+   * <p>The power connector that Amazon Web Services should plan to provide for connections to the
    *       hardware. Note the correlation between <code>PowerPhase</code> and
    *       <code>PowerConnector</code>. </p>
    *          <ul>
@@ -2007,17 +2441,20 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
   PowerConnector?: PowerConnector | string;
 
   /**
-   * <p> Specify whether the power feed comes above or below the rack. </p>
+   * @public
+   * <p>Indicates whether the power feed comes above or below the rack. </p>
    */
   PowerFeedDrop?: PowerFeedDrop | string;
 
   /**
-   * <p> Specify the uplink speed the rack should support for the connection to the Region.
+   * @public
+   * <p>The uplink speed the rack should support for the connection to the Region.
    *     </p>
    */
   UplinkGbps?: UplinkGbps | string;
 
   /**
+   * @public
    * <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at
    *       the site, the Outpost network devices provide a variable number of uplinks. Specify the number
    *       of uplinks for each Outpost network device that you intend to use to connect the rack to your
@@ -2037,13 +2474,15 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
   UplinkCount?: UplinkCount | string;
 
   /**
-   * <p> Specify the type of fiber that you will use to attach the Outpost to your network.
+   * @public
+   * <p>The type of fiber that you will use to attach the Outpost to your network.
    *     </p>
    */
   FiberOpticCableType?: FiberOpticCableType | string;
 
   /**
-   * <p>Specify the type of optical standard that you will use to attach the Outpost to your
+   * @public
+   * <p>The type of optical standard that you will use to attach the Outpost to your
    *       network. This field is dependent on uplink speed, fiber type, and distance to the upstream
    *       device. For more information
    *       about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a>
@@ -2107,33 +2546,20 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
   OpticalStandard?: OpticalStandard | string;
 
   /**
-   * <p> Specify the maximum rack weight that this site can support. <code>NO_LIMIT</code> is over
+   * @public
+   * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over
    *       2000lbs. </p>
    */
   MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | string;
 }
 
-export namespace UpdateSiteRackPhysicalPropertiesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteRackPhysicalPropertiesInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateSiteRackPhysicalPropertiesOutput {
   /**
+   * @public
    * <p>Information about a site.</p>
    */
   Site?: Site;
-}
-
-export namespace UpdateSiteRackPhysicalPropertiesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteRackPhysicalPropertiesOutput): any => ({
-    ...obj,
-  });
 }

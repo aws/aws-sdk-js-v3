@@ -1,5 +1,17 @@
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
+import {
+  CreatePerformanceAnalysisReportCommand,
+  CreatePerformanceAnalysisReportCommandInput,
+  CreatePerformanceAnalysisReportCommandOutput,
+} from "./commands/CreatePerformanceAnalysisReportCommand";
+import {
+  DeletePerformanceAnalysisReportCommand,
+  DeletePerformanceAnalysisReportCommandInput,
+  DeletePerformanceAnalysisReportCommandOutput,
+} from "./commands/DeletePerformanceAnalysisReportCommand";
 import {
   DescribeDimensionKeysCommand,
   DescribeDimensionKeysCommandInput,
@@ -10,6 +22,11 @@ import {
   GetDimensionKeyDetailsCommandInput,
   GetDimensionKeyDetailsCommandOutput,
 } from "./commands/GetDimensionKeyDetailsCommand";
+import {
+  GetPerformanceAnalysisReportCommand,
+  GetPerformanceAnalysisReportCommandInput,
+  GetPerformanceAnalysisReportCommandOutput,
+} from "./commands/GetPerformanceAnalysisReportCommand";
 import {
   GetResourceMetadataCommand,
   GetResourceMetadataCommandInput,
@@ -30,245 +47,278 @@ import {
   ListAvailableResourceMetricsCommandInput,
   ListAvailableResourceMetricsCommandOutput,
 } from "./commands/ListAvailableResourceMetricsCommand";
-import { PIClient } from "./PIClient";
+import {
+  ListPerformanceAnalysisReportsCommand,
+  ListPerformanceAnalysisReportsCommandInput,
+  ListPerformanceAnalysisReportsCommandOutput,
+} from "./commands/ListPerformanceAnalysisReportsCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
+import { PIClient, PIClientConfig } from "./PIClient";
 
-/**
- * <fullname>Amazon RDS Performance Insights</fullname>
- *
- *          <p>Amazon RDS Performance Insights enables you to monitor and explore different dimensions of database load based on
- *           data captured from a running DB instance. The guide provides detailed information about Performance Insights
- *           data types, parameters and errors.
- *       </p>
- *
- *          <p>When Performance Insights is enabled, the Amazon RDS Performance Insights API provides visibility into the performance of your DB instance.
- *           Amazon CloudWatch provides the authoritative source for Amazon Web Services service-vended monitoring metrics.
- *           Performance Insights offers a domain-specific view of DB load.
- *       </p>
- *          <p>DB load is measured as average active sessions. Performance Insights provides the data to API consumers as a two-dimensional
- *           time-series dataset. The time dimension provides DB load data for each time point in the
- *           queried time range. Each time point decomposes overall load in relation to the requested dimensions,
- *           measured at that time point. Examples include SQL, Wait event, User, and Host.
- *       </p>
- *
- *          <ul>
- *             <li>
- *                <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>.
- *             </p>
- *             </li>
- *             <li>
- *                <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>.
- *             </p>
- *             </li>
- *          </ul>
- */
-export class PI extends PIClient {
+const commands = {
+  CreatePerformanceAnalysisReportCommand,
+  DeletePerformanceAnalysisReportCommand,
+  DescribeDimensionKeysCommand,
+  GetDimensionKeyDetailsCommand,
+  GetPerformanceAnalysisReportCommand,
+  GetResourceMetadataCommand,
+  GetResourceMetricsCommand,
+  ListAvailableResourceDimensionsCommand,
+  ListAvailableResourceMetricsCommand,
+  ListPerformanceAnalysisReportsCommand,
+  ListTagsForResourceCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+};
+
+export interface PI {
   /**
-   * <p>For a specific time period, retrieve the top <code>N</code> dimension keys for a metric.
-   *       </p>
-   *          <note>
-   *             <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements,
-   *         only the first 500 bytes are returned.</p>
-   *          </note>
+   * @see {@link CreatePerformanceAnalysisReportCommand}
    */
-  public describeDimensionKeys(
+  createPerformanceAnalysisReport(
+    args: CreatePerformanceAnalysisReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePerformanceAnalysisReportCommandOutput>;
+  createPerformanceAnalysisReport(
+    args: CreatePerformanceAnalysisReportCommandInput,
+    cb: (err: any, data?: CreatePerformanceAnalysisReportCommandOutput) => void
+  ): void;
+  createPerformanceAnalysisReport(
+    args: CreatePerformanceAnalysisReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePerformanceAnalysisReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePerformanceAnalysisReportCommand}
+   */
+  deletePerformanceAnalysisReport(
+    args: DeletePerformanceAnalysisReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePerformanceAnalysisReportCommandOutput>;
+  deletePerformanceAnalysisReport(
+    args: DeletePerformanceAnalysisReportCommandInput,
+    cb: (err: any, data?: DeletePerformanceAnalysisReportCommandOutput) => void
+  ): void;
+  deletePerformanceAnalysisReport(
+    args: DeletePerformanceAnalysisReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePerformanceAnalysisReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDimensionKeysCommand}
+   */
+  describeDimensionKeys(
     args: DescribeDimensionKeysCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDimensionKeysCommandOutput>;
-  public describeDimensionKeys(
+  describeDimensionKeys(
     args: DescribeDimensionKeysCommandInput,
     cb: (err: any, data?: DescribeDimensionKeysCommandOutput) => void
   ): void;
-  public describeDimensionKeys(
+  describeDimensionKeys(
     args: DescribeDimensionKeysCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDimensionKeysCommandOutput) => void
   ): void;
-  public describeDimensionKeys(
-    args: DescribeDimensionKeysCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDimensionKeysCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDimensionKeysCommandOutput) => void
-  ): Promise<DescribeDimensionKeysCommandOutput> | void {
-    const command = new DescribeDimensionKeysCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Get the attributes of the specified dimension group for a DB instance or data source.
-   *           For example, if you specify a SQL ID, <code>GetDimensionKeyDetails</code> retrieves
-   *           the full text of the dimension <code>db.sql.statement</code>cassociated with this ID.
-   *           This operation is useful because <code>GetResourceMetrics</code> and <code>DescribeDimensionKeys</code>
-   *           don't support retrieval of large SQL statement text.</p>
+   * @see {@link GetDimensionKeyDetailsCommand}
    */
-  public getDimensionKeyDetails(
+  getDimensionKeyDetails(
     args: GetDimensionKeyDetailsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDimensionKeyDetailsCommandOutput>;
-  public getDimensionKeyDetails(
+  getDimensionKeyDetails(
     args: GetDimensionKeyDetailsCommandInput,
     cb: (err: any, data?: GetDimensionKeyDetailsCommandOutput) => void
   ): void;
-  public getDimensionKeyDetails(
+  getDimensionKeyDetails(
     args: GetDimensionKeyDetailsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDimensionKeyDetailsCommandOutput) => void
   ): void;
-  public getDimensionKeyDetails(
-    args: GetDimensionKeyDetailsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDimensionKeyDetailsCommandOutput) => void),
-    cb?: (err: any, data?: GetDimensionKeyDetailsCommandOutput) => void
-  ): Promise<GetDimensionKeyDetailsCommandOutput> | void {
-    const command = new GetDimensionKeyDetailsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieve the metadata for different features. For example, the metadata might indicate
-   *             that a feature is turned on or off on a specific DB instance.
-   *         </p>
+   * @see {@link GetPerformanceAnalysisReportCommand}
    */
-  public getResourceMetadata(
+  getPerformanceAnalysisReport(
+    args: GetPerformanceAnalysisReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPerformanceAnalysisReportCommandOutput>;
+  getPerformanceAnalysisReport(
+    args: GetPerformanceAnalysisReportCommandInput,
+    cb: (err: any, data?: GetPerformanceAnalysisReportCommandOutput) => void
+  ): void;
+  getPerformanceAnalysisReport(
+    args: GetPerformanceAnalysisReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPerformanceAnalysisReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourceMetadataCommand}
+   */
+  getResourceMetadata(
     args: GetResourceMetadataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetResourceMetadataCommandOutput>;
-  public getResourceMetadata(
+  getResourceMetadata(
     args: GetResourceMetadataCommandInput,
     cb: (err: any, data?: GetResourceMetadataCommandOutput) => void
   ): void;
-  public getResourceMetadata(
+  getResourceMetadata(
     args: GetResourceMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetResourceMetadataCommandOutput) => void
   ): void;
-  public getResourceMetadata(
-    args: GetResourceMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceMetadataCommandOutput) => void),
-    cb?: (err: any, data?: GetResourceMetadataCommandOutput) => void
-  ): Promise<GetResourceMetadataCommandOutput> | void {
-    const command = new GetResourceMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieve Performance Insights metrics for a set of data sources, over a time period. You can provide
-   *       specific dimension groups and dimensions, and provide aggregation and filtering criteria for
-   *       each group.</p>
-   *          <note>
-   *             <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements,
-   *                only the first 500 bytes are returned.</p>
-   *          </note>
+   * @see {@link GetResourceMetricsCommand}
    */
-  public getResourceMetrics(
+  getResourceMetrics(
     args: GetResourceMetricsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetResourceMetricsCommandOutput>;
-  public getResourceMetrics(
+  getResourceMetrics(
     args: GetResourceMetricsCommandInput,
     cb: (err: any, data?: GetResourceMetricsCommandOutput) => void
   ): void;
-  public getResourceMetrics(
+  getResourceMetrics(
     args: GetResourceMetricsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetResourceMetricsCommandOutput) => void
   ): void;
-  public getResourceMetrics(
-    args: GetResourceMetricsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceMetricsCommandOutput) => void),
-    cb?: (err: any, data?: GetResourceMetricsCommandOutput) => void
-  ): Promise<GetResourceMetricsCommandOutput> | void {
-    const command = new GetResourceMetricsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieve the dimensions that can be queried for each specified metric type on a specified DB instance.</p>
+   * @see {@link ListAvailableResourceDimensionsCommand}
    */
-  public listAvailableResourceDimensions(
+  listAvailableResourceDimensions(
     args: ListAvailableResourceDimensionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAvailableResourceDimensionsCommandOutput>;
-  public listAvailableResourceDimensions(
+  listAvailableResourceDimensions(
     args: ListAvailableResourceDimensionsCommandInput,
     cb: (err: any, data?: ListAvailableResourceDimensionsCommandOutput) => void
   ): void;
-  public listAvailableResourceDimensions(
+  listAvailableResourceDimensions(
     args: ListAvailableResourceDimensionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAvailableResourceDimensionsCommandOutput) => void
   ): void;
-  public listAvailableResourceDimensions(
-    args: ListAvailableResourceDimensionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAvailableResourceDimensionsCommandOutput) => void),
-    cb?: (err: any, data?: ListAvailableResourceDimensionsCommandOutput) => void
-  ): Promise<ListAvailableResourceDimensionsCommandOutput> | void {
-    const command = new ListAvailableResourceDimensionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieve metrics of the specified types that can be queried for a specified DB instance.
-   *       </p>
+   * @see {@link ListAvailableResourceMetricsCommand}
    */
-  public listAvailableResourceMetrics(
+  listAvailableResourceMetrics(
     args: ListAvailableResourceMetricsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAvailableResourceMetricsCommandOutput>;
-  public listAvailableResourceMetrics(
+  listAvailableResourceMetrics(
     args: ListAvailableResourceMetricsCommandInput,
     cb: (err: any, data?: ListAvailableResourceMetricsCommandOutput) => void
   ): void;
-  public listAvailableResourceMetrics(
+  listAvailableResourceMetrics(
     args: ListAvailableResourceMetricsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAvailableResourceMetricsCommandOutput) => void
   ): void;
-  public listAvailableResourceMetrics(
-    args: ListAvailableResourceMetricsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAvailableResourceMetricsCommandOutput) => void),
-    cb?: (err: any, data?: ListAvailableResourceMetricsCommandOutput) => void
-  ): Promise<ListAvailableResourceMetricsCommandOutput> | void {
-    const command = new ListAvailableResourceMetricsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
+
+  /**
+   * @see {@link ListPerformanceAnalysisReportsCommand}
+   */
+  listPerformanceAnalysisReports(
+    args: ListPerformanceAnalysisReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPerformanceAnalysisReportsCommandOutput>;
+  listPerformanceAnalysisReports(
+    args: ListPerformanceAnalysisReportsCommandInput,
+    cb: (err: any, data?: ListPerformanceAnalysisReportsCommandOutput) => void
+  ): void;
+  listPerformanceAnalysisReports(
+    args: ListPerformanceAnalysisReportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPerformanceAnalysisReportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
 }
+
+/**
+ * @public
+ * <fullname>Amazon RDS Performance Insights</fullname>
+ *          <p>Amazon RDS Performance Insights enables you to monitor and explore different dimensions of database load based on data captured from a running DB instance. The guide
+ *             provides detailed information about Performance Insights data types, parameters and errors.</p>
+ *          <p>When Performance Insights is enabled, the Amazon RDS Performance Insights API provides visibility into the performance of your DB instance. Amazon CloudWatch provides the
+ *             authoritative source for Amazon Web Services service-vended monitoring metrics. Performance Insights offers a domain-specific view of DB load.</p>
+ *          <p>DB load is measured as average active sessions. Performance Insights provides the data to API consumers as a two-dimensional time-series dataset. The time dimension
+ *             provides DB load data for each time point in the queried time range. Each time point decomposes overall load in relation to the requested
+ *             dimensions, measured at that time point. Examples include SQL, Wait event, User, and Host.</p>
+ *          <ul>
+ *             <li>
+ *                <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <i>
+ *                      <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>
+ *                   </i>. </p>
+ *             </li>
+ *             <li>
+ *                <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <i>
+ *                      <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>
+ *                   </i>. </p>
+ *             </li>
+ *             <li>
+ *                <p>To learn more about Performance Insights and Amazon DocumentDB clusters, go to the <i>
+ *                      <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html"> Amazon DocumentDB Developer Guide</a>
+ *                   </i>.</p>
+ *             </li>
+ *          </ul>
+ */
+export class PI extends PIClient implements PI {}
+createAggregatedClient(commands, PI);

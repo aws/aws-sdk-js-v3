@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,80 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { DescribeReleaseLabelInput, DescribeReleaseLabelOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReleaseLabelCommand,
-  serializeAws_json1_1DescribeReleaseLabelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeReleaseLabelCommand, se_DescribeReleaseLabelCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeReleaseLabelCommand}.
+ */
 export interface DescribeReleaseLabelCommandInput extends DescribeReleaseLabelInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeReleaseLabelCommand}.
+ */
 export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelOutput, __MetadataBearer {}
 
 /**
- * <p>Provides EMR release label details, such as releases available the region where the API request is run, and the available applications for a specific EMR release label. Can also list EMR release versions that support a specified version of Spark.</p>
+ * @public
+ * <p>Provides Amazon EMR release label details, such as the releases available the
+ *          Region where the API request is run, and the available applications for a specific Amazon EMR release label. Can also list Amazon EMR releases that support a
+ *          specified version of Spark.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, DescribeReleaseLabelCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeReleaseLabelCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // DescribeReleaseLabelInput
+ *   ReleaseLabel: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeReleaseLabelCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeReleaseLabelOutput
+ * //   ReleaseLabel: "STRING_VALUE",
+ * //   Applications: [ // SimplifiedApplicationList
+ * //     { // SimplifiedApplication
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   AvailableOSReleases: [ // OSReleaseList
+ * //     { // OSRelease
+ * //       Label: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeReleaseLabelCommandInput - {@link DescribeReleaseLabelCommandInput}
+ * @returns {@link DescribeReleaseLabelCommandOutput}
  * @see {@link DescribeReleaseLabelCommandInput} for command's `input` shape.
  * @see {@link DescribeReleaseLabelCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class DescribeReleaseLabelCommand extends $Command<
@@ -46,6 +95,18 @@ export class DescribeReleaseLabelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReleaseLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +122,9 @@ export class DescribeReleaseLabelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeReleaseLabelCommandInput, DescribeReleaseLabelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeReleaseLabelCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +135,8 @@ export class DescribeReleaseLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReleaseLabelInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReleaseLabelOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +146,18 @@ export class DescribeReleaseLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReleaseLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReleaseLabelCommand(input, context);
+    return se_DescribeReleaseLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReleaseLabelCommandOutput> {
-    return deserializeAws_json1_1DescribeReleaseLabelCommand(output, context);
+    return de_DescribeReleaseLabelCommand(output, context);
   }
 
   // Start section: command_body_extra

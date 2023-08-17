@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { PutRuleRequest, PutRuleResponse } from "../models/models_0";
-import { deserializeAws_json1_1PutRuleCommand, serializeAws_json1_1PutRuleCommand } from "../protocols/Aws_json1_1";
+import { de_PutRuleCommand, se_PutRuleCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutRuleCommand}.
+ */
 export interface PutRuleCommandInput extends PutRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutRuleCommand}.
+ */
 export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the specified rule. Rules are enabled by default, or based on value of
  *       the state. You can disable a rule using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html">DisableRule</a>.</p>
  *
@@ -72,13 +89,61 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  * import { CloudWatchEventsClient, PutRuleCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutRuleCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // PutRuleRequest
+ *   Name: "STRING_VALUE", // required
+ *   ScheduleExpression: "STRING_VALUE",
+ *   EventPattern: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   EventBusName: "STRING_VALUE",
+ * };
  * const command = new PutRuleCommand(input);
  * const response = await client.send(command);
+ * // { // PutRuleResponse
+ * //   RuleArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param PutRuleCommandInput - {@link PutRuleCommandInput}
+ * @returns {@link PutRuleCommandOutput}
  * @see {@link PutRuleCommandInput} for command's `input` shape.
  * @see {@link PutRuleCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link InvalidEventPatternException} (client fault)
+ *  <p>The event pattern is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request failed because it attempted to create resource beyond the allowed service
+ *       quota.</p>
+ *
+ * @throws {@link ManagedRuleException} (client fault)
+ *  <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that
+ *       service. If you see this error in response to <code>DeleteRule</code> or
+ *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
+ *       delete the rule or remove targets from the rule. You cannot modify these managed rules by
+ *       using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>,
+ *         <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class PutRuleCommand extends $Command<
@@ -89,6 +154,18 @@ export class PutRuleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,6 +181,7 @@ export class PutRuleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutRuleCommandInput, PutRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutRuleCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -114,8 +192,8 @@ export class PutRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +203,18 @@ export class PutRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRuleCommand(input, context);
+    return se_PutRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRuleCommandOutput> {
-    return deserializeAws_json1_1PutRuleCommand(output, context);
+    return de_PutRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,4 +1,4 @@
-import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
+import { isArrayBuffer } from "@smithy/is-array-buffer";
 
 /**
  * Returns true if the given value is a streaming response.

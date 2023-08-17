@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { IoTThingsGraph } from "../IoTThingsGraph";
 import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
 
+/**
+ * @public
+ */
 export interface IoTThingsGraphPaginationConfiguration extends PaginationConfiguration {
-  client: IoTThingsGraph | IoTThingsGraphClient;
+  client: IoTThingsGraphClient;
 }

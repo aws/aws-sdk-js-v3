@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,30 +11,41 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DeleteTagsRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTagsCommand,
-  serializeAws_restJson1DeleteTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <note>
- *             <p>DEPRECATED - DeleteTags is deprecated and not maintained. Please use the
- *        API action to remove tags from EFS resources.</p>
+ *             <p>DEPRECATED - <code>DeleteTags</code> is deprecated and not maintained. To remove tags from EFS
+ *         resources, use the  API action.</p>
  *          </note>
  *          <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
  *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
  *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag restrictions</a> in the
  *         <i>Billing and Cost Management User Guide</i>.</p>
- *
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
  *       action.</p>
  * @example
@@ -41,13 +54,51 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * import { EFSClient, DeleteTagsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteTagsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DeleteTagsRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ *   TagKeys: [ // TagKeys // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
+ * @returns {@link DeleteTagsCommandOutput}
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
+ *
+ * @example To delete tags for an EFS file system
+ * ```javascript
+ * // This operation deletes tags for an EFS file system.
+ * const input = {
+ *   "FileSystemId": "fs-01234567",
+ *   "TagKeys": [
+ *     "Name"
+ *   ]
+ * };
+ * const command = new DeleteTagsCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-tags-for-an-efs-file-system-1481848189061
+ * ```
  *
  */
 export class DeleteTagsCommand extends $Command<
@@ -58,6 +109,18 @@ export class DeleteTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +136,7 @@ export class DeleteTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteTagsCommandInput, DeleteTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -83,8 +147,8 @@ export class DeleteTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +158,18 @@ export class DeleteTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTagsCommand(input, context);
+    return se_DeleteTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagsCommandOutput> {
-    return deserializeAws_restJson1DeleteTagsCommand(output, context);
+    return de_DeleteTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

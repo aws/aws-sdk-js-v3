@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListThreatIntelSetsCommand,
   ListThreatIntelSetsCommandInput,
   ListThreatIntelSetsCommandOutput,
 } from "../commands/ListThreatIntelSetsCommand";
-import { GuardDuty } from "../GuardDuty";
 import { GuardDutyClient } from "../GuardDutyClient";
 import { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GuardDutyClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListThreatIntelSetsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GuardDuty,
-  input: ListThreatIntelSetsCommandInput,
-  ...args: any
-): Promise<ListThreatIntelSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listThreatIntelSets(input, ...args);
-};
 export async function* paginateListThreatIntelSets(
   config: GuardDutyPaginationConfiguration,
   input: ListThreatIntelSetsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListThreatIntelSets(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GuardDuty) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GuardDutyClient) {
+    if (config.client instanceof GuardDutyClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GuardDuty | GuardDutyClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

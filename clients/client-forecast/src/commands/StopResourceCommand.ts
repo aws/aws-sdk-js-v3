@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { StopResourceRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopResourceCommand,
-  serializeAws_json1_1StopResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopResourceCommand, se_StopResourceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StopResourceCommand}.
+ */
 export interface StopResourceCommandInput extends StopResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopResourceCommand}.
+ */
 export interface StopResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a resource.</p>
  *          <p>The resource undergoes the following states: <code>CREATE_STOPPING</code> and
  *             <code>CREATE_STOPPED</code>. You cannot resume a resource once it has been
@@ -57,13 +71,34 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, StopResourceCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, StopResourceCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // StopResourceRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new StopResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StopResourceCommandInput - {@link StopResourceCommandInput}
+ * @returns {@link StopResourceCommandOutput}
  * @see {@link StopResourceCommandInput} for command's `input` shape.
  * @see {@link StopResourceCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class StopResourceCommand extends $Command<
@@ -74,6 +109,18 @@ export class StopResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StopResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,6 +136,7 @@ export class StopResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopResourceCommandInput, StopResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StopResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -99,8 +147,8 @@ export class StopResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +158,18 @@ export class StopResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopResourceCommand(input, context);
+    return se_StopResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopResourceCommandOutput> {
-    return deserializeAws_json1_1StopResourceCommand(output, context);
+    return de_StopResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

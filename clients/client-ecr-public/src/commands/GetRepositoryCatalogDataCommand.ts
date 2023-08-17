@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { GetRepositoryCatalogDataRequest, GetRepositoryCatalogDataResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRepositoryCatalogDataCommand,
-  serializeAws_json1_1GetRepositoryCatalogDataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRepositoryCatalogDataCommand, se_GetRepositoryCatalogDataCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetRepositoryCatalogDataCommand}.
+ */
 export interface GetRepositoryCatalogDataCommandInput extends GetRepositoryCatalogDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRepositoryCatalogDataCommand}.
+ */
 export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCatalogDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve catalog metadata for a repository in a public registry. This metadata is
  *          displayed publicly in the Amazon ECR Public Gallery.</p>
  * @example
@@ -30,13 +44,55 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  * import { ECRPUBLICClient, GetRepositoryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, GetRepositoryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // GetRepositoryCatalogDataRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new GetRepositoryCatalogDataCommand(input);
  * const response = await client.send(command);
+ * // { // GetRepositoryCatalogDataResponse
+ * //   catalogData: { // RepositoryCatalogData
+ * //     description: "STRING_VALUE",
+ * //     architectures: [ // ArchitectureList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     operatingSystems: [ // OperatingSystemList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     logoUrl: "STRING_VALUE",
+ * //     aboutText: "STRING_VALUE",
+ * //     usageText: "STRING_VALUE",
+ * //     marketplaceCertified: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetRepositoryCatalogDataCommandInput - {@link GetRepositoryCatalogDataCommandInput}
+ * @returns {@link GetRepositoryCatalogDataCommandOutput}
  * @see {@link GetRepositoryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryCatalogDataCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *          request.</p>
+ *
+ * @throws {@link RepositoryCatalogDataNotFoundException} (client fault)
+ *  <p>The repository catalog data doesn't exist.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository can't be found. Check the spelling of the specified repository
+ *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedCommandException} (client fault)
+ *  <p>The action isn't supported in this Region.</p>
+ *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class GetRepositoryCatalogDataCommand extends $Command<
@@ -47,6 +103,18 @@ export class GetRepositoryCatalogDataCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryCatalogDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +130,9 @@ export class GetRepositoryCatalogDataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRepositoryCatalogDataCommandInput, GetRepositoryCatalogDataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetRepositoryCatalogDataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +143,8 @@ export class GetRepositoryCatalogDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRepositoryCatalogDataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRepositoryCatalogDataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +154,18 @@ export class GetRepositoryCatalogDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositoryCatalogDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRepositoryCatalogDataCommand(input, context);
+    return se_GetRepositoryCatalogDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryCatalogDataCommandOutput> {
-    return deserializeAws_json1_1GetRepositoryCatalogDataCommand(output, context);
+    return de_GetRepositoryCatalogDataCommand(output, context);
   }
 
   // Start section: command_body_extra

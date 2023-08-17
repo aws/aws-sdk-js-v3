@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { MigrationHubConfig } from "../MigrationHubConfig";
 import { MigrationHubConfigClient } from "../MigrationHubConfigClient";
 
+/**
+ * @public
+ */
 export interface MigrationHubConfigPaginationConfiguration extends PaginationConfiguration {
-  client: MigrationHubConfig | MigrationHubConfigClient;
+  client: MigrationHubConfigClient;
 }

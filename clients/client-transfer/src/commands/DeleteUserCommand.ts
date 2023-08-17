@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteUserRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteUserCommand,
-  serializeAws_json1_1DeleteUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteUserCommand, se_DeleteUserCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteUserCommand}.
+ */
 export interface DeleteUserCommandInput extends DeleteUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteUserCommand}.
+ */
 export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the user belonging to a file transfer protocol-enabled server you specify.</p>
- *
  *          <p>No response returns from this operation.</p>
- *
  *          <note>
  *             <p>When you delete a user from a server, the user's information is lost.</p>
  *          </note>
@@ -35,13 +47,37 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteUserCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteUserCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DeleteUserRequest
+ *   ServerId: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
+ * @returns {@link DeleteUserCommandOutput}
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DeleteUserCommand extends $Command<
@@ -52,6 +88,18 @@ export class DeleteUserCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +115,7 @@ export class DeleteUserCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteUserCommandInput, DeleteUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteUserCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +126,8 @@ export class DeleteUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +137,18 @@ export class DeleteUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUserCommand(input, context);
+    return se_DeleteUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserCommandOutput> {
-    return deserializeAws_json1_1DeleteUserCommand(output, context);
+    return de_DeleteUserCommand(output, context);
   }
 
   // Start section: command_body_extra

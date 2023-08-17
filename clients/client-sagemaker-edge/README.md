@@ -1,7 +1,6 @@
-# @aws-sdk/client-sagemaker-edge
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sagemaker-edge/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker-edge)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sagemaker-edge.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker-edge)
+# @aws-sdk/client-sagemaker-edge
 
 ## Description
 
@@ -24,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SagemakerEdgeClient` and
-the commands you need, for example `GetDeviceRegistrationCommand`:
+the commands you need, for example `GetDeploymentsCommand`:
 
 ```js
 // ES5 example
-const { SagemakerEdgeClient, GetDeviceRegistrationCommand } = require("@aws-sdk/client-sagemaker-edge");
+const { SagemakerEdgeClient, GetDeploymentsCommand } = require("@aws-sdk/client-sagemaker-edge");
 ```
 
 ```ts
 // ES6+ example
-import { SagemakerEdgeClient, GetDeviceRegistrationCommand } from "@aws-sdk/client-sagemaker-edge";
+import { SagemakerEdgeClient, GetDeploymentsCommand } from "@aws-sdk/client-sagemaker-edge";
 ```
 
 ### Usage
@@ -52,7 +51,7 @@ const client = new SagemakerEdgeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetDeviceRegistrationCommand(params);
+const command = new GetDeploymentsCommand(params);
 ```
 
 #### Async/await
@@ -115,7 +114,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -131,7 +130,7 @@ const client = new AWS.SagemakerEdge({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getDeviceRegistration(params);
+  const data = await client.getDeployments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +138,7 @@ try {
 
 // Promises.
 client
-  .getDeviceRegistration(params)
+  .getDeployments(params)
   .then((data) => {
     // process data.
   })
@@ -148,8 +147,8 @@ client
   });
 
 // callbacks.
-client.getDeviceRegistration(params, (err, data) => {
-  // proccess err and data.
+client.getDeployments(params, (err, data) => {
+  // process err and data.
 });
 ```
 
@@ -163,7 +162,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -201,3 +200,30 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+GetDeployments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-edge/classes/getdeploymentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-edge/interfaces/getdeploymentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-edge/interfaces/getdeploymentscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDeviceRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-edge/classes/getdeviceregistrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-edge/interfaces/getdeviceregistrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-edge/interfaces/getdeviceregistrationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SendHeartbeat
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-edge/classes/sendheartbeatcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-edge/interfaces/sendheartbeatcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-edge/interfaces/sendheartbeatcommandoutput.html)
+
+</details>

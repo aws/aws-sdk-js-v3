@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   CodeStarConnectionsClientResolvedConfig,
@@ -17,12 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
 import { ListHostsInput, ListHostsOutput } from "../models/models_0";
-import { deserializeAws_json1_0ListHostsCommand, serializeAws_json1_0ListHostsCommand } from "../protocols/Aws_json1_0";
+import { de_ListHostsCommand, se_ListHostsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListHostsCommand}.
+ */
 export interface ListHostsCommandInput extends ListHostsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListHostsCommand}.
+ */
 export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the hosts associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -30,13 +47,46 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
  * import { CodeStarConnectionsClient, ListHostsCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, ListHostsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = { // ListHostsInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListHostsCommand(input);
  * const response = await client.send(command);
+ * // { // ListHostsOutput
+ * //   Hosts: [ // HostList
+ * //     { // Host
+ * //       Name: "STRING_VALUE",
+ * //       HostArn: "STRING_VALUE",
+ * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab",
+ * //       ProviderEndpoint: "STRING_VALUE",
+ * //       VpcConfiguration: { // VpcConfiguration
+ * //         VpcId: "STRING_VALUE", // required
+ * //         SubnetIds: [ // SubnetIds // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SecurityGroupIds: [ // SecurityGroupIds // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         TlsCertificate: "STRING_VALUE",
+ * //       },
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListHostsCommandInput - {@link ListHostsCommandInput}
+ * @returns {@link ListHostsCommandOutput}
  * @see {@link ListHostsCommandInput} for command's `input` shape.
  * @see {@link ListHostsCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
+ *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class ListHostsCommand extends $Command<
@@ -47,6 +97,18 @@ export class ListHostsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +124,7 @@ export class ListHostsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListHostsCommandInput, ListHostsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListHostsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +135,8 @@ export class ListHostsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHostsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListHostsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +146,18 @@ export class ListHostsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListHostsCommand(input, context);
+    return se_ListHostsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostsCommandOutput> {
-    return deserializeAws_json1_0ListHostsCommand(output, context);
+    return de_ListHostsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,37 +11,78 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DeleteReplicationConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteReplicationConfigurationCommand,
-  serializeAws_restJson1DeleteReplicationConfigurationCommand,
+  de_DeleteReplicationConfigurationCommand,
+  se_DeleteReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteReplicationConfigurationCommand}.
+ */
 export interface DeleteReplicationConfigurationCommandInput extends DeleteReplicationConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteReplicationConfigurationCommand}.
+ */
 export interface DeleteReplicationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an existing replication configuration.  To delete a replication
- *       configuration, you must make the request from the Amazon Web Services Region
- *       in which the destination file system is located. Deleting a replication
- *       configuration ends the replication process. You can write to the destination file
- *       system once it's status becomes <code>Writeable</code>.</p>
+ * @public
+ * <p>Deletes an existing replication configuration. To delete a replication configuration, you
+ *       must make the request from the Amazon Web Services Region in which the destination file system
+ *       is located. Deleting a replication configuration ends the replication process. After a
+ *       replication configuration is deleted, the destination file system is no longer read-only. You
+ *       can write to the destination file system after its status becomes
+ *       <code>Writeable</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EFSClient, DeleteReplicationConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteReplicationConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DeleteReplicationConfigurationRequest
+ *   SourceFileSystemId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteReplicationConfigurationCommandInput - {@link DeleteReplicationConfigurationCommandInput}
+ * @returns {@link DeleteReplicationConfigurationCommandOutput}
  * @see {@link DeleteReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link ReplicationNotFound} (client fault)
+ *  <p>Returned if the specified file system does not have a replication
+ *             configuration.</p>
+ *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class DeleteReplicationConfigurationCommand extends $Command<
@@ -50,6 +93,18 @@ export class DeleteReplicationConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +120,9 @@ export class DeleteReplicationConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteReplicationConfigurationCommandInput, DeleteReplicationConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteReplicationConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +133,8 @@ export class DeleteReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,18 +144,24 @@ export class DeleteReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteReplicationConfigurationCommand(input, context);
+    return se_DeleteReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteReplicationConfigurationCommand(output, context);
+    return de_DeleteReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

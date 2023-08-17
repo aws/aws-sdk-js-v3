@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/models_0";
-import {
-  deserializeAws_queryGetQueueAttributesCommand,
-  serializeAws_queryGetQueueAttributesCommand,
-} from "../protocols/Aws_query";
+import { de_GetQueueAttributesCommand, se_GetQueueAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetQueueAttributesCommand}.
+ */
 export interface GetQueueAttributesCommandInput extends GetQueueAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetQueueAttributesCommand}.
+ */
 export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets attributes for the specified queue.</p>
  *          <note>
  *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
@@ -32,13 +46,33 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * import { SQSClient, GetQueueAttributesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, GetQueueAttributesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // GetQueueAttributesRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ *   AttributeNames: [ // AttributeNameList
+ *     "All" || "Policy" || "VisibilityTimeout" || "MaximumMessageSize" || "MessageRetentionPeriod" || "ApproximateNumberOfMessages" || "ApproximateNumberOfMessagesNotVisible" || "CreatedTimestamp" || "LastModifiedTimestamp" || "QueueArn" || "ApproximateNumberOfMessagesDelayed" || "DelaySeconds" || "ReceiveMessageWaitTimeSeconds" || "RedrivePolicy" || "FifoQueue" || "ContentBasedDeduplication" || "KmsMasterKeyId" || "KmsDataKeyReusePeriodSeconds" || "DeduplicationScope" || "FifoThroughputLimit" || "RedriveAllowPolicy" || "SqsManagedSseEnabled",
+ *   ],
+ * };
  * const command = new GetQueueAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // GetQueueAttributesResult
+ * //   Attributes: { // QueueAttributeMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetQueueAttributesCommandInput - {@link GetQueueAttributesCommandInput}
+ * @returns {@link GetQueueAttributesCommandOutput}
  * @see {@link GetQueueAttributesCommandInput} for command's `input` shape.
  * @see {@link GetQueueAttributesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link InvalidAttributeName} (client fault)
+ *  <p>The specified attribute doesn't exist.</p>
+ *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class GetQueueAttributesCommand extends $Command<
@@ -49,6 +83,18 @@ export class GetQueueAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueueAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +110,9 @@ export class GetQueueAttributesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetQueueAttributesCommandInput, GetQueueAttributesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetQueueAttributesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +123,8 @@ export class GetQueueAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueueAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetQueueAttributesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +134,18 @@ export class GetQueueAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueueAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetQueueAttributesCommand(input, context);
+    return se_GetQueueAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueueAttributesCommandOutput> {
-    return deserializeAws_queryGetQueueAttributesCommand(output, context);
+    return de_GetQueueAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

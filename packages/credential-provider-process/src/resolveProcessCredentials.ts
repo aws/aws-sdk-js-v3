@@ -1,13 +1,18 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
-import { Credentials } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 import { exec } from "child_process";
 import { promisify } from "util";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { ProcessCredentials } from "./ProcessCredentials";
 
-export const resolveProcessCredentials = async (profileName: string, profiles: ParsedIniData): Promise<Credentials> => {
+/**
+ * @internal
+ */
+export const resolveProcessCredentials = async (
+  profileName: string,
+  profiles: ParsedIniData
+): Promise<AwsCredentialIdentity> => {
   const profile = profiles[profileName];
 
   if (profiles[profileName]) {

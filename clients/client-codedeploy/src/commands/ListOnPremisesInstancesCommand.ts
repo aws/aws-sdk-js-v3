@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { ListOnPremisesInstancesInput, ListOnPremisesInstancesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListOnPremisesInstancesCommand,
-  serializeAws_json1_1ListOnPremisesInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListOnPremisesInstancesCommand, se_ListOnPremisesInstancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListOnPremisesInstancesCommand}.
+ */
 export interface ListOnPremisesInstancesCommandInput extends ListOnPremisesInstancesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListOnPremisesInstancesCommand}.
+ */
 export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of names for one or more on-premises instances.</p>
  *         <p>Unless otherwise specified, both registered and deregistered on-premises instance
  *             names are listed. To list only registered or deregistered on-premises instance names,
@@ -32,13 +46,45 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  * import { CodeDeployClient, ListOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // ListOnPremisesInstancesInput
+ *   registrationStatus: "Registered" || "Deregistered",
+ *   tagFilters: [ // TagFilterList
+ *     { // TagFilter
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // ListOnPremisesInstancesOutput
+ * //   instanceNames: [ // InstanceNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListOnPremisesInstancesCommandInput - {@link ListOnPremisesInstancesCommandInput}
+ * @returns {@link ListOnPremisesInstancesCommandOutput}
  * @see {@link ListOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link ListOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidRegistrationStatusException} (client fault)
+ *  <p>The registration status was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidTagFilterException} (client fault)
+ *  <p>The tag filter was specified in an invalid format.</p>
+ *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListOnPremisesInstancesCommand extends $Command<
@@ -49,6 +95,18 @@ export class ListOnPremisesInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListOnPremisesInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +122,9 @@ export class ListOnPremisesInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListOnPremisesInstancesCommandInput, ListOnPremisesInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListOnPremisesInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +135,8 @@ export class ListOnPremisesInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOnPremisesInstancesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListOnPremisesInstancesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +146,18 @@ export class ListOnPremisesInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOnPremisesInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOnPremisesInstancesCommand(input, context);
+    return se_ListOnPremisesInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOnPremisesInstancesCommandOutput> {
-    return deserializeAws_json1_1ListOnPremisesInstancesCommand(output, context);
+    return de_ListOnPremisesInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

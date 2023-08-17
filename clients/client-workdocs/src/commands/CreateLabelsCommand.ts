@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { CreateLabelsRequest, CreateLabelsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLabelsCommand,
-  serializeAws_restJson1CreateLabelsCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateLabelsRequest, CreateLabelsRequestFilterSensitiveLog, CreateLabelsResponse } from "../models/models_0";
+import { de_CreateLabelsCommand, se_CreateLabelsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateLabelsCommand}.
+ */
 export interface CreateLabelsCommandInput extends CreateLabelsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLabelsCommand}.
+ */
 export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified list of labels to the given resource (a document or
  *             folder)</p>
  * @example
@@ -30,13 +44,48 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
  * import { WorkDocsClient, CreateLabelsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateLabelsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // CreateLabelsRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   Labels: [ // SharedLabels // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AuthenticationToken: "STRING_VALUE",
+ * };
  * const command = new CreateLabelsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateLabelsCommandInput - {@link CreateLabelsCommandInput}
+ * @returns {@link CreateLabelsCommandOutput}
  * @see {@link CreateLabelsCommandInput} for command's `input` shape.
  * @see {@link CreateLabelsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
+ *
+ * @throws {@link EntityNotExistsException} (client fault)
+ *  <p>The resource does not exist.</p>
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link TooManyLabelsException} (client fault)
+ *  <p>The limit has been reached on the number of labels for the specified
+ *             resource.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class CreateLabelsCommand extends $Command<
@@ -47,6 +96,18 @@ export class CreateLabelsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +123,7 @@ export class CreateLabelsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLabelsCommandInput, CreateLabelsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateLabelsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +134,8 @@ export class CreateLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLabelsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLabelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLabelsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +145,18 @@ export class CreateLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLabelsCommand(input, context);
+    return se_CreateLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLabelsCommandOutput> {
-    return deserializeAws_restJson1CreateLabelsCommand(output, context);
+    return de_CreateLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput } from "../commands/ListPortalsCommand";
-import { IoTSiteWise } from "../IoTSiteWise";
 import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTSiteWiseClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPortalsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTSiteWise,
-  input: ListPortalsCommandInput,
-  ...args: any
-): Promise<ListPortalsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPortals(input, ...args);
-};
 export async function* paginateListPortals(
   config: IoTSiteWisePaginationConfiguration,
   input: ListPortalsCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListPortals(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTSiteWise) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTSiteWiseClient) {
+    if (config.client instanceof IoTSiteWiseClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTSiteWise | IoTSiteWiseClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

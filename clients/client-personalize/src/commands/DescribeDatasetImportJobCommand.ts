@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,34 +11,77 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeDatasetImportJobRequest, DescribeDatasetImportJobResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeDatasetImportJobCommand,
-  serializeAws_json1_1DescribeDatasetImportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDatasetImportJobCommand, se_DescribeDatasetImportJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeDatasetImportJobCommand}.
+ */
 export interface DescribeDatasetImportJobCommandInput extends DescribeDatasetImportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDatasetImportJobCommand}.
+ */
 export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the dataset import job created by <a>CreateDatasetImportJob</a>,
- *       including the import job status.</p>
+ * @public
+ * <p>Describes the dataset import job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>, including the import job status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, DescribeDatasetImportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeDatasetImportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeDatasetImportJobRequest
+ *   datasetImportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDatasetImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDatasetImportJobResponse
+ * //   datasetImportJob: { // DatasetImportJob
+ * //     jobName: "STRING_VALUE",
+ * //     datasetImportJobArn: "STRING_VALUE",
+ * //     datasetArn: "STRING_VALUE",
+ * //     dataSource: { // DataSource
+ * //       dataLocation: "STRING_VALUE",
+ * //     },
+ * //     roleArn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     failureReason: "STRING_VALUE",
+ * //     importMode: "FULL" || "INCREMENTAL",
+ * //     publishAttributionMetricsToS3: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeDatasetImportJobCommandInput - {@link DescribeDatasetImportJobCommandInput}
+ * @returns {@link DescribeDatasetImportJobCommandOutput}
  * @see {@link DescribeDatasetImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetImportJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeDatasetImportJobCommand extends $Command<
@@ -47,6 +92,18 @@ export class DescribeDatasetImportJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatasetImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +119,9 @@ export class DescribeDatasetImportJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeDatasetImportJobCommandInput, DescribeDatasetImportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeDatasetImportJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +132,8 @@ export class DescribeDatasetImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatasetImportJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatasetImportJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +143,18 @@ export class DescribeDatasetImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatasetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDatasetImportJobCommand(input, context);
+    return se_DescribeDatasetImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetImportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeDatasetImportJobCommand(output, context);
+    return de_DescribeDatasetImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

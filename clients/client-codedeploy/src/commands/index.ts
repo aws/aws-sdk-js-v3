@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddTagsToOnPremisesInstancesCommand";
 export * from "./BatchGetApplicationRevisionsCommand";
 export * from "./BatchGetApplicationsCommand";

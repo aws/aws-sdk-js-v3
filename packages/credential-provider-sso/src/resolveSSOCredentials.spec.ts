@@ -1,23 +1,24 @@
 import { GetRoleCredentialsCommand, SSOClient } from "@aws-sdk/client-sso";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getHomeDir } from "@aws-sdk/shared-ini-file-loader";
-import { createHash } from "crypto";
-import { promises } from "fs";
-import { join } from "path";
+import * as tokenProviders from "@aws-sdk/token-providers";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { getSSOTokenFromFile } from "@smithy/shared-ini-file-loader";
 
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 
-jest.mock("crypto");
-jest.mock("@aws-sdk/shared-ini-file-loader");
-jest.mock("fs", () => ({ promises: { readFile: jest.fn() } }));
+jest.mock("@smithy/shared-ini-file-loader");
 jest.mock("@aws-sdk/client-sso");
+jest.mock("@aws-sdk/token-providers", () => {
+  return {
+    fromSso: jest.fn(() => async () => {
+      return {
+        token: "mockAccessToken",
+        expiration: new Date(Date.now() + 6_000_000),
+      };
+    }),
+  };
+});
 
 describe(resolveSSOCredentials.name, () => {
-  const mockCacheName = "mockCacheName";
-  const mockDigest = jest.fn().mockReturnValue(mockCacheName);
-  const mockUpdate = jest.fn().mockReturnValue({ digest: mockDigest });
-  const mockHomeDir = "/home/dir";
-
   const mockToken = {
     accessToken: "mockAccessToken",
     expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
@@ -44,44 +45,36 @@ describe(resolveSSOCredentials.name, () => {
   };
 
   beforeEach(() => {
-    (createHash as jest.Mock).mockReturnValue({ update: mockUpdate });
-    (getHomeDir as jest.Mock).mockReturnValue(mockHomeDir);
-    (promises.readFile as jest.Mock).mockResolvedValue(JSON.stringify(mockToken));
+    (getSSOTokenFromFile as jest.Mock).mockResolvedValue(mockToken);
     mockSsoSend.mockResolvedValue({ roleCredentials: mockCreds });
   });
 
   afterEach(() => {
-    expect(createHash).toHaveBeenCalledWith("sha1");
-    expect(mockUpdate).toHaveBeenCalledWith(mockOptions.ssoStartUrl);
-    expect(mockDigest).toHaveBeenCalledWith("hex");
-    expect(promises.readFile).toHaveBeenCalledWith(
-      join(mockHomeDir, ".aws", "sso", "cache", `${mockCacheName}.json`),
-      "utf8"
-    );
     jest.clearAllMocks();
   });
 
-  describe("throws error for invalid token", () => {
-    afterEach(async () => {
-      const expectedError = new CredentialsProviderError(
-        `The SSO session associated with this profile is invalid. ${refreshMessage}`,
-        SHOULD_FAIL_CREDENTIAL_CHAIN
-      );
+  it("throws error if getSSOTokenFromFile fails", async () => {
+    const expectedError = new CredentialsProviderError(
+      `The SSO session associated with this profile is invalid. ${refreshMessage}`,
+      SHOULD_FAIL_CREDENTIAL_CHAIN
+    );
+    (getSSOTokenFromFile as jest.Mock).mockRejectedValue(new Error("error"));
 
-      try {
-        await resolveSSOCredentials(mockOptions);
-        fail(`expected ${expectedError}`);
-      } catch (error) {
-        expect(error).toStrictEqual(expectedError);
-      }
+    try {
+      await resolveSSOCredentials(mockOptions);
+      fail(`expected ${expectedError}`);
+    } catch (error) {
+      expect(error).toStrictEqual(expectedError);
+    }
+  });
+
+  it("uses the SSOTokenProvider if SSO Session name is present", async () => {
+    await resolveSSOCredentials({
+      ...mockOptions,
+      ssoSession: "test-sso-session",
     });
-
-    it("throws error if readFile fails", async () => {
-      (promises.readFile as jest.Mock).mockRejectedValue(new Error("error"));
-    });
-
-    it("throws error if token is not a valid JSON", async () => {
-      (promises.readFile as jest.Mock).mockReturnValue("invalid JSON");
+    expect(tokenProviders.fromSso).toHaveBeenCalledWith({
+      profile: undefined,
     });
   });
 
@@ -102,12 +95,12 @@ describe(resolveSSOCredentials.name, () => {
 
     it("throws error if SSO session has expired", async () => {
       const mockExpiredToken = { ...mockToken, expiresAt: new Date(Date.now() - 60 * 1000).toISOString() };
-      (promises.readFile as jest.Mock).mockReturnValue(JSON.stringify(mockExpiredToken));
+      (getSSOTokenFromFile as jest.Mock).mockResolvedValue(mockExpiredToken);
     });
 
     it("throws error if SSO session expires in <15 mins", async () => {
       const mockExpiredToken = { ...mockToken, expiresAt: new Date(Date.now() + 899 * 1000).toISOString() };
-      (promises.readFile as jest.Mock).mockReturnValue(JSON.stringify(mockExpiredToken));
+      (getSSOTokenFromFile as jest.Mock).mockResolvedValue(mockExpiredToken);
     });
   });
 
@@ -162,8 +155,7 @@ describe(resolveSSOCredentials.name, () => {
     });
 
     it("returns valid credentials from sso.getRoleCredentials", async () => {
-      const receivedCreds = await resolveSSOCredentials(mockOptions);
-      expect(receivedCreds).toStrictEqual(receivedCreds);
+      await resolveSSOCredentials(mockOptions);
       expect(mockSsoSend).toHaveBeenCalledTimes(1);
     });
 
@@ -171,9 +163,7 @@ describe(resolveSSOCredentials.name, () => {
       const mockCustomSsoSend = jest.fn().mockResolvedValue({ roleCredentials: mockCreds });
       (SSOClient as jest.Mock).mockReturnValue({ send: mockCustomSsoSend });
 
-      const receivedCreds = await resolveSSOCredentials({ ...mockOptions, ssoClient: undefined });
-      expect(receivedCreds).toStrictEqual(receivedCreds);
-
+      await resolveSSOCredentials({ ...mockOptions, ssoClient: undefined });
       expect(mockCustomSsoSend).toHaveBeenCalledTimes(1);
     });
   });

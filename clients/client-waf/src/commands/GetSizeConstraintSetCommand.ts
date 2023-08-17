@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetSizeConstraintSetRequest, GetSizeConstraintSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSizeConstraintSetCommand,
-  serializeAws_json1_1GetSizeConstraintSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSizeConstraintSetCommand, se_GetSizeConstraintSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetSizeConstraintSetCommand}.
+ */
 export interface GetSizeConstraintSetCommandInput extends GetSizeConstraintSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSizeConstraintSetCommand}.
+ */
 export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -37,13 +51,77 @@ export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetR
  * import { WAFClient, GetSizeConstraintSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetSizeConstraintSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // GetSizeConstraintSetRequest
+ *   SizeConstraintSetId: "STRING_VALUE", // required
+ * };
  * const command = new GetSizeConstraintSetCommand(input);
  * const response = await client.send(command);
+ * // { // GetSizeConstraintSetResponse
+ * //   SizeConstraintSet: { // SizeConstraintSet
+ * //     SizeConstraintSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     SizeConstraints: [ // SizeConstraints // required
+ * //       { // SizeConstraint
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //         ComparisonOperator: "STRING_VALUE", // required
+ * //         Size: Number("long"), // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetSizeConstraintSetCommandInput - {@link GetSizeConstraintSetCommandInput}
+ * @returns {@link GetSizeConstraintSetCommandOutput}
  * @see {@link GetSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link GetSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
+ *
+ * @example To get a size constraint set
+ * ```javascript
+ * // The following example returns the details of a size constraint match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ * };
+ * const command = new GetSizeConstraintSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SizeConstraintSet": {
+ *     "Name": "MySampleSizeConstraintSet",
+ *     "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     "SizeConstraints": [
+ *       {
+ *         "ComparisonOperator": "GT",
+ *         "FieldToMatch": {
+ *           "Type": "QUERY_STRING"
+ *         },
+ *         "Size": 0,
+ *         "TextTransformation": "NONE"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: getsizeconstraintset-1475005422493
+ * ```
  *
  */
 export class GetSizeConstraintSetCommand extends $Command<
@@ -54,6 +132,18 @@ export class GetSizeConstraintSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetSizeConstraintSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +159,9 @@ export class GetSizeConstraintSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetSizeConstraintSetCommandInput, GetSizeConstraintSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetSizeConstraintSetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +172,8 @@ export class GetSizeConstraintSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSizeConstraintSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSizeConstraintSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +183,18 @@ export class GetSizeConstraintSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSizeConstraintSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSizeConstraintSetCommand(input, context);
+    return se_GetSizeConstraintSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSizeConstraintSetCommandOutput> {
-    return deserializeAws_json1_1GetSizeConstraintSetCommand(output, context);
+    return de_GetSizeConstraintSetCommand(output, context);
   }
 
   // Start section: command_body_extra

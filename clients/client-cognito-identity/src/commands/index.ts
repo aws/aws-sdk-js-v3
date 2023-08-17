@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateIdentityPoolCommand";
 export * from "./DeleteIdentitiesCommand";
 export * from "./DeleteIdentityPoolCommand";

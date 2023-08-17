@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateDeliveryStreamCommand";
 export * from "./DeleteDeliveryStreamCommand";
 export * from "./DescribeDeliveryStreamCommand";

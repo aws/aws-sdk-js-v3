@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DeleteAppBlockRequest, DeleteAppBlockResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAppBlockCommand,
-  serializeAws_json1_1DeleteAppBlockCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAppBlockCommand, se_DeleteAppBlockCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteAppBlockCommand}.
+ */
 export interface DeleteAppBlockCommandInput extends DeleteAppBlockRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAppBlockCommand}.
+ */
 export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an app block.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,32 @@ export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __Met
  * import { AppStreamClient, DeleteAppBlockCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteAppBlockCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DeleteAppBlockRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAppBlockCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteAppBlockCommandInput - {@link DeleteAppBlockCommandInput}
+ * @returns {@link DeleteAppBlockCommandOutput}
  * @see {@link DeleteAppBlockCommandInput} for command's `input` shape.
  * @see {@link DeleteAppBlockCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DeleteAppBlockCommand extends $Command<
@@ -46,6 +79,18 @@ export class DeleteAppBlockCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +106,9 @@ export class DeleteAppBlockCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteAppBlockCommandInput, DeleteAppBlockCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteAppBlockCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +119,8 @@ export class DeleteAppBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppBlockRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppBlockResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +130,18 @@ export class DeleteAppBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppBlockCommand(input, context);
+    return se_DeleteAppBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppBlockCommandOutput> {
-    return deserializeAws_json1_1DeleteAppBlockCommand(output, context);
+    return de_DeleteAppBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

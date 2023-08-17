@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   MigrationHubRefactorSpacesClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
 import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResourcePolicyCommand,
-  serializeAws_restJson1DeleteResourcePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteResourcePolicyCommand}.
+ */
 export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteResourcePolicyCommand}.
+ */
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the resource policy set for the environment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,39 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * import { MigrationHubRefactorSpacesClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = { // DeleteResourcePolicyRequest
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
+ * @returns {@link DeleteResourcePolicyCommandOutput}
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user does not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied because the request was throttled. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
+ *     </p>
+ *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<
@@ -50,6 +90,18 @@ export class DeleteResourcePolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +117,9 @@ export class DeleteResourcePolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteResourcePolicyCommandInput, DeleteResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteResourcePolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +130,8 @@ export class DeleteResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +141,18 @@ export class DeleteResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourcePolicyCommand(input, context);
+    return se_DeleteResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteResourcePolicyCommand(output, context);
+    return de_DeleteResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

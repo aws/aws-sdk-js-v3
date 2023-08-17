@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListTargetsForPolicyCommand,
   ListTargetsForPolicyCommandInput,
   ListTargetsForPolicyCommandOutput,
 } from "../commands/ListTargetsForPolicyCommand";
-import { Organizations } from "../Organizations";
 import { OrganizationsClient } from "../OrganizationsClient";
 import { OrganizationsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OrganizationsClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTargetsForPolicyCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Organizations,
-  input: ListTargetsForPolicyCommandInput,
-  ...args: any
-): Promise<ListTargetsForPolicyCommandOutput> => {
-  // @ts-ignore
-  return await client.listTargetsForPolicy(input, ...args);
-};
 export async function* paginateListTargetsForPolicy(
   config: OrganizationsPaginationConfiguration,
   input: ListTargetsForPolicyCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListTargetsForPolicy(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Organizations) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OrganizationsClient) {
+    if (config.client instanceof OrganizationsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Organizations | OrganizationsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

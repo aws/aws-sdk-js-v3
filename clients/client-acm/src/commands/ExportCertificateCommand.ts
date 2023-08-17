@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { ExportCertificateRequest, ExportCertificateResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ExportCertificateCommand,
-  serializeAws_json1_1ExportCertificateCommand,
-} from "../protocols/Aws_json1_1";
+  ExportCertificateRequest,
+  ExportCertificateRequestFilterSensitiveLog,
+  ExportCertificateResponse,
+  ExportCertificateResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_ExportCertificateCommand, se_ExportCertificateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ExportCertificateCommand}.
+ */
 export interface ExportCertificateCommandInput extends ExportCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ExportCertificateCommand}.
+ */
 export interface ExportCertificateCommandOutput extends ExportCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a private certificate issued by a private certificate authority (CA) for use
  *       anywhere. The exported file contains the certificate, the certificate chain, and the encrypted
  *       private 2048-bit RSA key associated with the public key that is embedded in the certificate.
@@ -35,13 +54,39 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * import { ACMClient, ExportCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ExportCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // ExportCertificateRequest
+ *   CertificateArn: "STRING_VALUE", // required
+ *   Passphrase: "BLOB_VALUE", // required
+ * };
  * const command = new ExportCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // ExportCertificateResponse
+ * //   Certificate: "STRING_VALUE",
+ * //   CertificateChain: "STRING_VALUE",
+ * //   PrivateKey: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ExportCertificateCommandInput - {@link ExportCertificateCommandInput}
+ * @returns {@link ExportCertificateCommandOutput}
  * @see {@link ExportCertificateCommandInput} for command's `input` shape.
  * @see {@link ExportCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * @throws {@link RequestInProgressException} (client fault)
+ *  <p>The certificate request is in process and the certificate in your account has not yet been
+ *       issued.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account
+ *       cannot be found.</p>
+ *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class ExportCertificateCommand extends $Command<
@@ -52,6 +97,18 @@ export class ExportCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ExportCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +124,9 @@ export class ExportCertificateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ExportCertificateCommandInput, ExportCertificateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ExportCertificateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +137,8 @@ export class ExportCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportCertificateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExportCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportCertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExportCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +148,18 @@ export class ExportCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExportCertificateCommand(input, context);
+    return se_ExportCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportCertificateCommandOutput> {
-    return deserializeAws_json1_1ExportCertificateCommand(output, context);
+    return de_ExportCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

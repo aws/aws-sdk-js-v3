@@ -1,5 +1,8 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -7,13 +10,15 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateKeyspaceCommandInput, CreateKeyspaceCommandOutput } from "../commands/CreateKeyspaceCommand";
 import { CreateTableCommandInput, CreateTableCommandOutput } from "../commands/CreateTableCommand";
@@ -36,960 +41,990 @@ import {
   AccessDeniedException,
   CapacitySpecification,
   CapacitySpecificationSummary,
+  ClientSideTimestamps,
   ClusteringKey,
   ColumnDefinition,
   Comment,
   ConflictException,
   CreateKeyspaceRequest,
-  CreateKeyspaceResponse,
   CreateTableRequest,
-  CreateTableResponse,
   DeleteKeyspaceRequest,
-  DeleteKeyspaceResponse,
   DeleteTableRequest,
-  DeleteTableResponse,
   EncryptionSpecification,
   GetKeyspaceRequest,
-  GetKeyspaceResponse,
   GetTableRequest,
   GetTableResponse,
   InternalServerException,
-  KeyspaceSummary,
   ListKeyspacesRequest,
-  ListKeyspacesResponse,
   ListTablesRequest,
-  ListTablesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   PartitionKey,
   PointInTimeRecovery,
   PointInTimeRecoverySummary,
+  ReplicationSpecification,
   ResourceNotFoundException,
   RestoreTableRequest,
-  RestoreTableResponse,
   SchemaDefinition,
   ServiceQuotaExceededException,
   StaticColumn,
-  TableSummary,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TimeToLive,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateTableRequest,
-  UpdateTableResponse,
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_json1_0CreateKeyspaceCommand = async (
+/**
+ * serializeAws_json1_0CreateKeyspaceCommand
+ */
+export const se_CreateKeyspaceCommand = async (
   input: CreateKeyspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.CreateKeyspace",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateKeyspace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateKeyspaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateTableCommand = async (
+/**
+ * serializeAws_json1_0CreateTableCommand
+ */
+export const se_CreateTableCommand = async (
   input: CreateTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.CreateTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTable");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteKeyspaceCommand = async (
+/**
+ * serializeAws_json1_0DeleteKeyspaceCommand
+ */
+export const se_DeleteKeyspaceCommand = async (
   input: DeleteKeyspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.DeleteKeyspace",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteKeyspace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteKeyspaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteTableCommand = async (
+/**
+ * serializeAws_json1_0DeleteTableCommand
+ */
+export const se_DeleteTableCommand = async (
   input: DeleteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.DeleteTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTable");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetKeyspaceCommand = async (
+/**
+ * serializeAws_json1_0GetKeyspaceCommand
+ */
+export const se_GetKeyspaceCommand = async (
   input: GetKeyspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.GetKeyspace",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetKeyspace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetKeyspaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetTableCommand = async (
+/**
+ * serializeAws_json1_0GetTableCommand
+ */
+export const se_GetTableCommand = async (
   input: GetTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.GetTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTable");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListKeyspacesCommand = async (
+/**
+ * serializeAws_json1_0ListKeyspacesCommand
+ */
+export const se_ListKeyspacesCommand = async (
   input: ListKeyspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.ListKeyspaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListKeyspaces");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListKeyspacesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTablesCommand = async (
+/**
+ * serializeAws_json1_0ListTablesCommand
+ */
+export const se_ListTablesCommand = async (
   input: ListTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.ListTables",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTables");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTablesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0RestoreTableCommand = async (
+/**
+ * serializeAws_json1_0RestoreTableCommand
+ */
+export const se_RestoreTableCommand = async (
   input: RestoreTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.RestoreTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreTable");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0RestoreTableRequest(input, context));
+  body = JSON.stringify(se_RestoreTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0TagResourceCommand = async (
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UntagResourceCommand = async (
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateTableCommand = async (
+/**
+ * serializeAws_json1_0UpdateTableCommand
+ */
+export const se_UpdateTableCommand = async (
   input: UpdateTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.UpdateTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTable");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateTableRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0CreateKeyspaceCommand = async (
+/**
+ * deserializeAws_json1_0CreateKeyspaceCommand
+ */
+export const de_CreateKeyspaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateKeyspaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateKeyspaceCommandError(output, context);
+    return de_CreateKeyspaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateKeyspaceResponse(data, context);
+  contents = _json(data);
   const response: CreateKeyspaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0CreateKeyspaceCommandError = async (
+/**
+ * deserializeAws_json1_0CreateKeyspaceCommandError
+ */
+const de_CreateKeyspaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateKeyspaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.keyspaces#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0CreateTableCommand = async (
+/**
+ * deserializeAws_json1_0CreateTableCommand
+ */
+export const de_CreateTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateTableCommandError(output, context);
+    return de_CreateTableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateTableResponse(data, context);
+  contents = _json(data);
   const response: CreateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0CreateTableCommandError = async (
+/**
+ * deserializeAws_json1_0CreateTableCommandError
+ */
+const de_CreateTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.keyspaces#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0DeleteKeyspaceCommand = async (
+/**
+ * deserializeAws_json1_0DeleteKeyspaceCommand
+ */
+export const de_DeleteKeyspaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteKeyspaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteKeyspaceCommandError(output, context);
+    return de_DeleteKeyspaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteKeyspaceResponse(data, context);
+  contents = _json(data);
   const response: DeleteKeyspaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DeleteKeyspaceCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteKeyspaceCommandError
+ */
+const de_DeleteKeyspaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteKeyspaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.keyspaces#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0DeleteTableCommand = async (
+/**
+ * deserializeAws_json1_0DeleteTableCommand
+ */
+export const de_DeleteTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteTableCommandError(output, context);
+    return de_DeleteTableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteTableResponse(data, context);
+  contents = _json(data);
   const response: DeleteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DeleteTableCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteTableCommandError
+ */
+const de_DeleteTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.keyspaces#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0GetKeyspaceCommand = async (
+/**
+ * deserializeAws_json1_0GetKeyspaceCommand
+ */
+export const de_GetKeyspaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKeyspaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetKeyspaceCommandError(output, context);
+    return de_GetKeyspaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetKeyspaceResponse(data, context);
+  contents = _json(data);
   const response: GetKeyspaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0GetKeyspaceCommandError = async (
+/**
+ * deserializeAws_json1_0GetKeyspaceCommandError
+ */
+const de_GetKeyspaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKeyspaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0GetTableCommand = async (
+/**
+ * deserializeAws_json1_0GetTableCommand
+ */
+export const de_GetTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetTableCommandError(output, context);
+    return de_GetTableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetTableResponse(data, context);
+  contents = de_GetTableResponse(data, context);
   const response: GetTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0GetTableCommandError = async (
+/**
+ * deserializeAws_json1_0GetTableCommandError
+ */
+const de_GetTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0ListKeyspacesCommand = async (
+/**
+ * deserializeAws_json1_0ListKeyspacesCommand
+ */
+export const de_ListKeyspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKeyspacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListKeyspacesCommandError(output, context);
+    return de_ListKeyspacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListKeyspacesResponse(data, context);
+  contents = _json(data);
   const response: ListKeyspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListKeyspacesCommandError = async (
+/**
+ * deserializeAws_json1_0ListKeyspacesCommandError
+ */
+const de_ListKeyspacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKeyspacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0ListTablesCommand = async (
+/**
+ * deserializeAws_json1_0ListTablesCommand
+ */
+export const de_ListTablesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTablesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTablesCommandError(output, context);
+    return de_ListTablesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTablesResponse(data, context);
+  contents = _json(data);
   const response: ListTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListTablesCommandError = async (
+/**
+ * deserializeAws_json1_0ListTablesCommandError
+ */
+const de_ListTablesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTablesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0RestoreTableCommand = async (
+/**
+ * deserializeAws_json1_0RestoreTableCommand
+ */
+export const de_RestoreTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0RestoreTableCommandError(output, context);
+    return de_RestoreTableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0RestoreTableResponse(data, context);
+  contents = _json(data);
   const response: RestoreTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0RestoreTableCommandError = async (
+/**
+ * deserializeAws_json1_0RestoreTableCommandError
+ */
+const de_RestoreTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.keyspaces#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0TagResourceCommand = async (
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.keyspaces#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_0UpdateTableCommand = async (
+/**
+ * deserializeAws_json1_0UpdateTableCommand
+ */
+export const de_UpdateTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateTableCommandError(output, context);
+    return de_UpdateTableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateTableResponse(data, context);
+  contents = _json(data);
   const response: UpdateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UpdateTableCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateTableCommandError
+ */
+const de_UpdateTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.keyspaces#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.keyspaces#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.keyspaces#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.keyspaces#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.keyspaces#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_0AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -997,12 +1032,12 @@ const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_0ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1010,12 +1045,15 @@ const deserializeAws_json1_0ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1023,12 +1061,15 @@ const deserializeAws_json1_0InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1036,12 +1077,15 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1049,12 +1093,12 @@ const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_0ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1062,700 +1106,217 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0CapacitySpecification = (input: CapacitySpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.readCapacityUnits !== undefined &&
-      input.readCapacityUnits !== null && { readCapacityUnits: input.readCapacityUnits }),
-    ...(input.throughputMode !== undefined &&
-      input.throughputMode !== null && { throughputMode: input.throughputMode }),
-    ...(input.writeCapacityUnits !== undefined &&
-      input.writeCapacityUnits !== null && { writeCapacityUnits: input.writeCapacityUnits }),
-  };
-};
+// se_CapacitySpecification omitted.
 
-const serializeAws_json1_0ClusteringKey = (input: ClusteringKey, context: __SerdeContext): any => {
-  return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.orderBy !== undefined && input.orderBy !== null && { orderBy: input.orderBy }),
-  };
-};
+// se_ClientSideTimestamps omitted.
 
-const serializeAws_json1_0ClusteringKeyList = (input: ClusteringKey[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_0ClusteringKey(entry, context);
-    });
-};
+// se_ClusteringKey omitted.
 
-const serializeAws_json1_0ColumnDefinition = (input: ColumnDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
-  };
-};
+// se_ClusteringKeyList omitted.
 
-const serializeAws_json1_0ColumnDefinitionList = (input: ColumnDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_0ColumnDefinition(entry, context);
-    });
-};
+// se_ColumnDefinition omitted.
 
-const serializeAws_json1_0Comment = (input: Comment, context: __SerdeContext): any => {
-  return {
-    ...(input.message !== undefined && input.message !== null && { message: input.message }),
-  };
-};
+// se_ColumnDefinitionList omitted.
 
-const serializeAws_json1_0CreateKeyspaceRequest = (input: CreateKeyspaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
-  };
-};
+// se_Comment omitted.
 
-const serializeAws_json1_0CreateTableRequest = (input: CreateTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.capacitySpecification !== undefined &&
-      input.capacitySpecification !== null && {
-        capacitySpecification: serializeAws_json1_0CapacitySpecification(input.capacitySpecification, context),
-      }),
-    ...(input.comment !== undefined &&
-      input.comment !== null && { comment: serializeAws_json1_0Comment(input.comment, context) }),
-    ...(input.defaultTimeToLive !== undefined &&
-      input.defaultTimeToLive !== null && { defaultTimeToLive: input.defaultTimeToLive }),
-    ...(input.encryptionSpecification !== undefined &&
-      input.encryptionSpecification !== null && {
-        encryptionSpecification: serializeAws_json1_0EncryptionSpecification(input.encryptionSpecification, context),
-      }),
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.pointInTimeRecovery !== undefined &&
-      input.pointInTimeRecovery !== null && {
-        pointInTimeRecovery: serializeAws_json1_0PointInTimeRecovery(input.pointInTimeRecovery, context),
-      }),
-    ...(input.schemaDefinition !== undefined &&
-      input.schemaDefinition !== null && {
-        schemaDefinition: serializeAws_json1_0SchemaDefinition(input.schemaDefinition, context),
-      }),
-    ...(input.tableName !== undefined && input.tableName !== null && { tableName: input.tableName }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
-    ...(input.ttl !== undefined && input.ttl !== null && { ttl: serializeAws_json1_0TimeToLive(input.ttl, context) }),
-  };
-};
+// se_CreateKeyspaceRequest omitted.
 
-const serializeAws_json1_0DeleteKeyspaceRequest = (input: DeleteKeyspaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-  };
-};
+// se_CreateTableRequest omitted.
 
-const serializeAws_json1_0DeleteTableRequest = (input: DeleteTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.tableName !== undefined && input.tableName !== null && { tableName: input.tableName }),
-  };
-};
+// se_DeleteKeyspaceRequest omitted.
 
-const serializeAws_json1_0EncryptionSpecification = (input: EncryptionSpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.kmsKeyIdentifier !== undefined &&
-      input.kmsKeyIdentifier !== null && { kmsKeyIdentifier: input.kmsKeyIdentifier }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
-  };
-};
+// se_DeleteTableRequest omitted.
 
-const serializeAws_json1_0GetKeyspaceRequest = (input: GetKeyspaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-  };
-};
+// se_EncryptionSpecification omitted.
 
-const serializeAws_json1_0GetTableRequest = (input: GetTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.tableName !== undefined && input.tableName !== null && { tableName: input.tableName }),
-  };
-};
+// se_GetKeyspaceRequest omitted.
 
-const serializeAws_json1_0ListKeyspacesRequest = (input: ListKeyspacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_GetTableRequest omitted.
 
-const serializeAws_json1_0ListTablesRequest = (input: ListTablesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListKeyspacesRequest omitted.
 
-const serializeAws_json1_0ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_ListTablesRequest omitted.
 
-const serializeAws_json1_0PartitionKey = (input: PartitionKey, context: __SerdeContext): any => {
-  return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-const serializeAws_json1_0PartitionKeyList = (input: PartitionKey[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_0PartitionKey(entry, context);
-    });
-};
+// se_PartitionKey omitted.
 
-const serializeAws_json1_0PointInTimeRecovery = (input: PointInTimeRecovery, context: __SerdeContext): any => {
-  return {
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
-  };
-};
+// se_PartitionKeyList omitted.
 
-const serializeAws_json1_0RestoreTableRequest = (input: RestoreTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.capacitySpecificationOverride !== undefined &&
-      input.capacitySpecificationOverride !== null && {
-        capacitySpecificationOverride: serializeAws_json1_0CapacitySpecification(
-          input.capacitySpecificationOverride,
-          context
-        ),
-      }),
-    ...(input.encryptionSpecificationOverride !== undefined &&
-      input.encryptionSpecificationOverride !== null && {
-        encryptionSpecificationOverride: serializeAws_json1_0EncryptionSpecification(
-          input.encryptionSpecificationOverride,
-          context
-        ),
-      }),
-    ...(input.pointInTimeRecoveryOverride !== undefined &&
-      input.pointInTimeRecoveryOverride !== null && {
-        pointInTimeRecoveryOverride: serializeAws_json1_0PointInTimeRecovery(
-          input.pointInTimeRecoveryOverride,
-          context
-        ),
-      }),
-    ...(input.restoreTimestamp !== undefined &&
-      input.restoreTimestamp !== null && { restoreTimestamp: Math.round(input.restoreTimestamp.getTime() / 1000) }),
-    ...(input.sourceKeyspaceName !== undefined &&
-      input.sourceKeyspaceName !== null && { sourceKeyspaceName: input.sourceKeyspaceName }),
-    ...(input.sourceTableName !== undefined &&
-      input.sourceTableName !== null && { sourceTableName: input.sourceTableName }),
-    ...(input.tagsOverride !== undefined &&
-      input.tagsOverride !== null && { tagsOverride: serializeAws_json1_0TagList(input.tagsOverride, context) }),
-    ...(input.targetKeyspaceName !== undefined &&
-      input.targetKeyspaceName !== null && { targetKeyspaceName: input.targetKeyspaceName }),
-    ...(input.targetTableName !== undefined &&
-      input.targetTableName !== null && { targetTableName: input.targetTableName }),
-  };
-};
+// se_PointInTimeRecovery omitted.
 
-const serializeAws_json1_0SchemaDefinition = (input: SchemaDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.allColumns !== undefined &&
-      input.allColumns !== null && { allColumns: serializeAws_json1_0ColumnDefinitionList(input.allColumns, context) }),
-    ...(input.clusteringKeys !== undefined &&
-      input.clusteringKeys !== null && {
-        clusteringKeys: serializeAws_json1_0ClusteringKeyList(input.clusteringKeys, context),
-      }),
-    ...(input.partitionKeys !== undefined &&
-      input.partitionKeys !== null && {
-        partitionKeys: serializeAws_json1_0PartitionKeyList(input.partitionKeys, context),
-      }),
-    ...(input.staticColumns !== undefined &&
-      input.staticColumns !== null && {
-        staticColumns: serializeAws_json1_0StaticColumnList(input.staticColumns, context),
-      }),
-  };
-};
+// se_RegionList omitted.
 
-const serializeAws_json1_0StaticColumn = (input: StaticColumn, context: __SerdeContext): any => {
-  return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-  };
-};
+// se_ReplicationSpecification omitted.
 
-const serializeAws_json1_0StaticColumnList = (input: StaticColumn[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_0StaticColumn(entry, context);
-    });
+/**
+ * serializeAws_json1_0RestoreTableRequest
+ */
+const se_RestoreTableRequest = (input: RestoreTableRequest, context: __SerdeContext): any => {
+  return take(input, {
+    capacitySpecificationOverride: _json,
+    encryptionSpecificationOverride: _json,
+    pointInTimeRecoveryOverride: _json,
+    restoreTimestamp: (_) => Math.round(_.getTime() / 1000),
+    sourceKeyspaceName: [],
+    sourceTableName: [],
+    tagsOverride: _json,
+    targetKeyspaceName: [],
+    targetTableName: [],
+  });
 };
 
-const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
-  };
-};
+// se_SchemaDefinition omitted.
 
-const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_0Tag(entry, context);
-    });
-};
+// se_StaticColumn omitted.
 
-const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
-  };
-};
+// se_StaticColumnList omitted.
 
-const serializeAws_json1_0TimeToLive = (input: TimeToLive, context: __SerdeContext): any => {
-  return {
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
-  };
-};
+// se_Tag omitted.
 
-const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
-  };
-};
+// se_TagList omitted.
 
-const serializeAws_json1_0UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.addColumns !== undefined &&
-      input.addColumns !== null && { addColumns: serializeAws_json1_0ColumnDefinitionList(input.addColumns, context) }),
-    ...(input.capacitySpecification !== undefined &&
-      input.capacitySpecification !== null && {
-        capacitySpecification: serializeAws_json1_0CapacitySpecification(input.capacitySpecification, context),
-      }),
-    ...(input.defaultTimeToLive !== undefined &&
-      input.defaultTimeToLive !== null && { defaultTimeToLive: input.defaultTimeToLive }),
-    ...(input.encryptionSpecification !== undefined &&
-      input.encryptionSpecification !== null && {
-        encryptionSpecification: serializeAws_json1_0EncryptionSpecification(input.encryptionSpecification, context),
-      }),
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.pointInTimeRecovery !== undefined &&
-      input.pointInTimeRecovery !== null && {
-        pointInTimeRecovery: serializeAws_json1_0PointInTimeRecovery(input.pointInTimeRecovery, context),
-      }),
-    ...(input.tableName !== undefined && input.tableName !== null && { tableName: input.tableName }),
-    ...(input.ttl !== undefined && input.ttl !== null && { ttl: serializeAws_json1_0TimeToLive(input.ttl, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// se_TimeToLive omitted.
 
-const deserializeAws_json1_0CapacitySpecificationSummary = (
-  output: any,
-  context: __SerdeContext
-): CapacitySpecificationSummary => {
-  return {
-    lastUpdateToPayPerRequestTimestamp:
-      output.lastUpdateToPayPerRequestTimestamp !== undefined && output.lastUpdateToPayPerRequestTimestamp !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateToPayPerRequestTimestamp)))
-        : undefined,
-    readCapacityUnits: __expectLong(output.readCapacityUnits),
-    throughputMode: __expectString(output.throughputMode),
-    writeCapacityUnits: __expectLong(output.writeCapacityUnits),
-  } as any;
-};
+// se_UntagResourceRequest omitted.
 
-const deserializeAws_json1_0ClusteringKey = (output: any, context: __SerdeContext): ClusteringKey => {
-  return {
-    name: __expectString(output.name),
-    orderBy: __expectString(output.orderBy),
-  } as any;
-};
+// se_UpdateTableRequest omitted.
 
-const deserializeAws_json1_0ClusteringKeyList = (output: any, context: __SerdeContext): ClusteringKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0ClusteringKey(entry, context);
-    });
-  return retVal;
-};
+// de_AccessDeniedException omitted.
 
-const deserializeAws_json1_0ColumnDefinition = (output: any, context: __SerdeContext): ColumnDefinition => {
-  return {
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-  } as any;
+/**
+ * deserializeAws_json1_0CapacitySpecificationSummary
+ */
+const de_CapacitySpecificationSummary = (output: any, context: __SerdeContext): CapacitySpecificationSummary => {
+  return take(output, {
+    lastUpdateToPayPerRequestTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    readCapacityUnits: __expectLong,
+    throughputMode: __expectString,
+    writeCapacityUnits: __expectLong,
+  }) as any;
 };
 
-const deserializeAws_json1_0ColumnDefinitionList = (output: any, context: __SerdeContext): ColumnDefinition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0ColumnDefinition(entry, context);
-    });
-  return retVal;
-};
+// de_ClientSideTimestamps omitted.
 
-const deserializeAws_json1_0Comment = (output: any, context: __SerdeContext): Comment => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ClusteringKey omitted.
 
-const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ClusteringKeyList omitted.
 
-const deserializeAws_json1_0CreateKeyspaceResponse = (output: any, context: __SerdeContext): CreateKeyspaceResponse => {
-  return {
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_ColumnDefinition omitted.
 
-const deserializeAws_json1_0CreateTableResponse = (output: any, context: __SerdeContext): CreateTableResponse => {
-  return {
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_ColumnDefinitionList omitted.
 
-const deserializeAws_json1_0DeleteKeyspaceResponse = (output: any, context: __SerdeContext): DeleteKeyspaceResponse => {
-  return {} as any;
-};
+// de_Comment omitted.
 
-const deserializeAws_json1_0DeleteTableResponse = (output: any, context: __SerdeContext): DeleteTableResponse => {
-  return {} as any;
-};
+// de_ConflictException omitted.
 
-const deserializeAws_json1_0EncryptionSpecification = (
-  output: any,
-  context: __SerdeContext
-): EncryptionSpecification => {
-  return {
-    kmsKeyIdentifier: __expectString(output.kmsKeyIdentifier),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_CreateKeyspaceResponse omitted.
 
-const deserializeAws_json1_0GetKeyspaceResponse = (output: any, context: __SerdeContext): GetKeyspaceResponse => {
-  return {
-    keyspaceName: __expectString(output.keyspaceName),
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_CreateTableResponse omitted.
 
-const deserializeAws_json1_0GetTableResponse = (output: any, context: __SerdeContext): GetTableResponse => {
-  return {
-    capacitySpecification:
-      output.capacitySpecification !== undefined && output.capacitySpecification !== null
-        ? deserializeAws_json1_0CapacitySpecificationSummary(output.capacitySpecification, context)
-        : undefined,
-    comment:
-      output.comment !== undefined && output.comment !== null
-        ? deserializeAws_json1_0Comment(output.comment, context)
-        : undefined,
-    creationTimestamp:
-      output.creationTimestamp !== undefined && output.creationTimestamp !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTimestamp)))
-        : undefined,
-    defaultTimeToLive: __expectInt32(output.defaultTimeToLive),
-    encryptionSpecification:
-      output.encryptionSpecification !== undefined && output.encryptionSpecification !== null
-        ? deserializeAws_json1_0EncryptionSpecification(output.encryptionSpecification, context)
-        : undefined,
-    keyspaceName: __expectString(output.keyspaceName),
-    pointInTimeRecovery:
-      output.pointInTimeRecovery !== undefined && output.pointInTimeRecovery !== null
-        ? deserializeAws_json1_0PointInTimeRecoverySummary(output.pointInTimeRecovery, context)
-        : undefined,
-    resourceArn: __expectString(output.resourceArn),
-    schemaDefinition:
-      output.schemaDefinition !== undefined && output.schemaDefinition !== null
-        ? deserializeAws_json1_0SchemaDefinition(output.schemaDefinition, context)
-        : undefined,
-    status: __expectString(output.status),
-    tableName: __expectString(output.tableName),
-    ttl:
-      output.ttl !== undefined && output.ttl !== null
-        ? deserializeAws_json1_0TimeToLive(output.ttl, context)
-        : undefined,
-  } as any;
-};
+// de_DeleteKeyspaceResponse omitted.
 
-const deserializeAws_json1_0InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_DeleteTableResponse omitted.
 
-const deserializeAws_json1_0KeyspaceSummary = (output: any, context: __SerdeContext): KeyspaceSummary => {
-  return {
-    keyspaceName: __expectString(output.keyspaceName),
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_EncryptionSpecification omitted.
 
-const deserializeAws_json1_0KeyspaceSummaryList = (output: any, context: __SerdeContext): KeyspaceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0KeyspaceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_GetKeyspaceResponse omitted.
 
-const deserializeAws_json1_0ListKeyspacesResponse = (output: any, context: __SerdeContext): ListKeyspacesResponse => {
-  return {
-    keyspaces:
-      output.keyspaces !== undefined && output.keyspaces !== null
-        ? deserializeAws_json1_0KeyspaceSummaryList(output.keyspaces, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+/**
+ * deserializeAws_json1_0GetTableResponse
+ */
+const de_GetTableResponse = (output: any, context: __SerdeContext): GetTableResponse => {
+  return take(output, {
+    capacitySpecification: (_: any) => de_CapacitySpecificationSummary(_, context),
+    clientSideTimestamps: _json,
+    comment: _json,
+    creationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultTimeToLive: __expectInt32,
+    encryptionSpecification: _json,
+    keyspaceName: __expectString,
+    pointInTimeRecovery: (_: any) => de_PointInTimeRecoverySummary(_, context),
+    resourceArn: __expectString,
+    schemaDefinition: _json,
+    status: __expectString,
+    tableName: __expectString,
+    ttl: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_0ListTablesResponse = (output: any, context: __SerdeContext): ListTablesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tables:
-      output.tables !== undefined && output.tables !== null
-        ? deserializeAws_json1_0TableSummaryList(output.tables, context)
-        : undefined,
-  } as any;
-};
+// de_InternalServerException omitted.
 
-const deserializeAws_json1_0ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_json1_0TagList(output.tags, context)
-        : undefined,
-  } as any;
-};
+// de_KeyspaceSummary omitted.
 
-const deserializeAws_json1_0PartitionKey = (output: any, context: __SerdeContext): PartitionKey => {
-  return {
-    name: __expectString(output.name),
-  } as any;
-};
+// de_KeyspaceSummaryList omitted.
 
-const deserializeAws_json1_0PartitionKeyList = (output: any, context: __SerdeContext): PartitionKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0PartitionKey(entry, context);
-    });
-  return retVal;
-};
+// de_ListKeyspacesResponse omitted.
 
-const deserializeAws_json1_0PointInTimeRecoverySummary = (
-  output: any,
-  context: __SerdeContext
-): PointInTimeRecoverySummary => {
-  return {
-    earliestRestorableTimestamp:
-      output.earliestRestorableTimestamp !== undefined && output.earliestRestorableTimestamp !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.earliestRestorableTimestamp)))
-        : undefined,
-    status: __expectString(output.status),
-  } as any;
-};
+// de_ListTablesResponse omitted.
 
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_ListTagsForResourceResponse omitted.
 
-const deserializeAws_json1_0RestoreTableResponse = (output: any, context: __SerdeContext): RestoreTableResponse => {
-  return {
-    restoredTableARN: __expectString(output.restoredTableARN),
-  } as any;
-};
+// de_PartitionKey omitted.
 
-const deserializeAws_json1_0SchemaDefinition = (output: any, context: __SerdeContext): SchemaDefinition => {
-  return {
-    allColumns:
-      output.allColumns !== undefined && output.allColumns !== null
-        ? deserializeAws_json1_0ColumnDefinitionList(output.allColumns, context)
-        : undefined,
-    clusteringKeys:
-      output.clusteringKeys !== undefined && output.clusteringKeys !== null
-        ? deserializeAws_json1_0ClusteringKeyList(output.clusteringKeys, context)
-        : undefined,
-    partitionKeys:
-      output.partitionKeys !== undefined && output.partitionKeys !== null
-        ? deserializeAws_json1_0PartitionKeyList(output.partitionKeys, context)
-        : undefined,
-    staticColumns:
-      output.staticColumns !== undefined && output.staticColumns !== null
-        ? deserializeAws_json1_0StaticColumnList(output.staticColumns, context)
-        : undefined,
-  } as any;
-};
+// de_PartitionKeyList omitted.
 
-const deserializeAws_json1_0ServiceQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+/**
+ * deserializeAws_json1_0PointInTimeRecoverySummary
+ */
+const de_PointInTimeRecoverySummary = (output: any, context: __SerdeContext): PointInTimeRecoverySummary => {
+  return take(output, {
+    earliestRestorableTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0StaticColumn = (output: any, context: __SerdeContext): StaticColumn => {
-  return {
-    name: __expectString(output.name),
-  } as any;
-};
+// de_RegionList omitted.
 
-const deserializeAws_json1_0StaticColumnList = (output: any, context: __SerdeContext): StaticColumn[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0StaticColumn(entry, context);
-    });
-  return retVal;
-};
+// de_ResourceNotFoundException omitted.
 
-const deserializeAws_json1_0TableSummary = (output: any, context: __SerdeContext): TableSummary => {
-  return {
-    keyspaceName: __expectString(output.keyspaceName),
-    resourceArn: __expectString(output.resourceArn),
-    tableName: __expectString(output.tableName),
-  } as any;
-};
+// de_RestoreTableResponse omitted.
 
-const deserializeAws_json1_0TableSummaryList = (output: any, context: __SerdeContext): TableSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0TableSummary(entry, context);
-    });
-  return retVal;
-};
+// de_SchemaDefinition omitted.
 
-const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
-const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0Tag(entry, context);
-    });
-  return retVal;
-};
+// de_StaticColumn omitted.
 
-const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_StaticColumnList omitted.
 
-const deserializeAws_json1_0TimeToLive = (output: any, context: __SerdeContext): TimeToLive => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_TableSummary omitted.
 
-const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_TableSummaryList omitted.
 
-const deserializeAws_json1_0UpdateTableResponse = (output: any, context: __SerdeContext): UpdateTableResponse => {
-  return {
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
+// de_Tag omitted.
 
-const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TagList omitted.
+
+// de_TagResourceResponse omitted.
+
+// de_TimeToLive omitted.
+
+// de_UntagResourceResponse omitted.
+
+// de_UpdateTableResponse omitted.
+
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -1780,6 +1341,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `KeyspacesService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
@@ -1789,14 +1356,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -1818,6 +1397,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

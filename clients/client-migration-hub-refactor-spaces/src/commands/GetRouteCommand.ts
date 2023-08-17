@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   MigrationHubRefactorSpacesClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import { GetRouteRequest, GetRouteResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRouteCommand,
-  serializeAws_restJson1GetRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRouteRequest, GetRouteResponse, GetRouteResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetRouteCommand, se_GetRouteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetRouteCommand}.
+ */
 export interface GetRouteCommandInput extends GetRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRouteCommand}.
+ */
 export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an Amazon Web Services Migration Hub Refactor Spaces route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,75 @@ export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBeare
  * import { MigrationHubRefactorSpacesClient, GetRouteCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, GetRouteCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = { // GetRouteRequest
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   RouteIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetRouteCommand(input);
  * const response = await client.send(command);
+ * // { // GetRouteResponse
+ * //   RouteId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   OwnerAccountId: "STRING_VALUE",
+ * //   CreatedByAccountId: "STRING_VALUE",
+ * //   RouteType: "STRING_VALUE",
+ * //   ServiceId: "STRING_VALUE",
+ * //   ApplicationId: "STRING_VALUE",
+ * //   EnvironmentId: "STRING_VALUE",
+ * //   SourcePath: "STRING_VALUE",
+ * //   Methods: [ // HttpMethods
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   IncludeChildPaths: true || false,
+ * //   PathResourceToId: { // PathResourceToId
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   State: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   Error: { // ErrorResponse
+ * //     Code: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //     AccountId: "STRING_VALUE",
+ * //     ResourceIdentifier: "STRING_VALUE",
+ * //     ResourceType: "STRING_VALUE",
+ * //     AdditionalDetails: { // AdditionalDetails
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   AppendSourcePath: true || false,
+ * // };
+ *
  * ```
  *
+ * @param GetRouteCommandInput - {@link GetRouteCommandInput}
+ * @returns {@link GetRouteCommandOutput}
  * @see {@link GetRouteCommandInput} for command's `input` shape.
  * @see {@link GetRouteCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user does not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied because the request was throttled. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
+ *     </p>
+ *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class GetRouteCommand extends $Command<
@@ -50,6 +126,18 @@ export class GetRouteCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +153,7 @@ export class GetRouteCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRouteCommandInput, GetRouteCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetRouteCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +164,8 @@ export class GetRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRouteRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRouteResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetRouteResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +175,18 @@ export class GetRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRouteCommand(input, context);
+    return se_GetRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRouteCommandOutput> {
-    return deserializeAws_restJson1GetRouteCommand(output, context);
+    return de_GetRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

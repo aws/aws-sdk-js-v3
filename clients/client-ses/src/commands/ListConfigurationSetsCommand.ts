@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,27 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListConfigurationSetsRequest, ListConfigurationSetsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListConfigurationSetsCommand,
-  serializeAws_queryListConfigurationSetsCommand,
-} from "../protocols/Aws_query";
+import { de_ListConfigurationSetsCommand, se_ListConfigurationSetsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListConfigurationSetsCommand}.
+ */
 export interface ListConfigurationSetsCommandInput extends ListConfigurationSetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListConfigurationSetsCommand}.
+ */
 export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of the configuration sets associated with your Amazon SES account in the
- *             current AWS Region. For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer
+ *             current Amazon Web Services Region. For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Monitoring
+ *                 Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer
  *                 Guide.</i>
  *          </p>
- *         <p>You can execute this operation no more than once per second. This operation will
- *             return up to 1,000 configuration sets each time it is run. If your Amazon SES account has
- *             more than 1,000 configuration sets, this operation will also return a NextToken element.
- *             You can then execute the <code>ListConfigurationSets</code> operation again, passing the
+ *          <p>You can execute this operation no more than once per second. This operation returns up
+ *             to 1,000 configuration sets each time it is run. If your Amazon SES account has more than
+ *             1,000 configuration sets, this operation also returns <code>NextToken</code>. You can
+ *             then execute the <code>ListConfigurationSets</code> operation again, passing the
  *                 <code>NextToken</code> parameter and the value of the NextToken element to retrieve
  *             additional results.</p>
  * @example
@@ -38,13 +53,31 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * import { SESClient, ListConfigurationSetsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListConfigurationSetsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // ListConfigurationSetsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListConfigurationSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListConfigurationSetsResponse
+ * //   ConfigurationSets: [ // ConfigurationSets
+ * //     { // ConfigurationSet
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
+ * @returns {@link ListConfigurationSetsCommandOutput}
  * @see {@link ListConfigurationSetsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class ListConfigurationSetsCommand extends $Command<
@@ -55,6 +88,18 @@ export class ListConfigurationSetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +115,9 @@ export class ListConfigurationSetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListConfigurationSetsCommandInput, ListConfigurationSetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListConfigurationSetsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +128,8 @@ export class ListConfigurationSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationSetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListConfigurationSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +139,18 @@ export class ListConfigurationSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListConfigurationSetsCommand(input, context);
+    return se_ListConfigurationSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationSetsCommandOutput> {
-    return deserializeAws_queryListConfigurationSetsCommand(output, context);
+    return de_ListConfigurationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

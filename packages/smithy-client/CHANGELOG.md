@@ -3,6 +3,668 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.387.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.386.0...v3.387.0) (2023-08-08)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.378.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.377.0...v3.378.0) (2023-07-26)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.375.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.374.0...v3.375.0) (2023-07-21)
+
+
+### Bug Fixes
+
+* **codegen:** create folder stub ([#4995](https://github.com/aws/aws-sdk-js-v3/issues/4995)) ([bcfabc2](https://github.com/aws/aws-sdk-js-v3/commit/bcfabc25d59fcf987a7403df9ff7f3d7e45234b7))
+* move smithy-client back to packages ([#4997](https://github.com/aws/aws-sdk-js-v3/issues/4997)) ([1d7a7c9](https://github.com/aws/aws-sdk-js-v3/commit/1d7a7c94207eb5c5d7974ebec91dba261feae7fd))
+
+
+
+
+
+# [3.374.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.1...v3.374.0) (2023-07-20)
+
+
+### Features
+
+* **smithy-client:** update client defaults provider ([830cb06](https://github.com/aws/aws-sdk-js-v3/commit/830cb068bc2fdeb6cd99cf8a5d1146b46494614b))
+
+
+
+
+
+# [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.369.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.368.0...v3.369.0) (2023-07-11)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.360.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.359.0...v3.360.0) (2023-06-26)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.358.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.357.0...v3.358.0) (2023-06-22)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.357.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.356.0...v3.357.0) (2023-06-21)
+
+
+### Features
+
+* **clients:** automatic blob type conversions ([#4836](https://github.com/aws/aws-sdk-js-v3/issues/4836)) ([60ec921](https://github.com/aws/aws-sdk-js-v3/commit/60ec921c879ae8363f32ebbe9e1ecd6062df1081))
+
+
+
+
+
+# [3.347.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.346.0...v3.347.0) (2023-06-06)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.341.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.340.0...v3.341.0) (2023-05-26)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.337.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.336.0...v3.337.0) (2023-05-22)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.325.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.324.0...v3.325.0) (2023-05-02)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
+
+
+### Bug Fixes
+
+* **clients:** always allow idempotency token ([#4642](https://github.com/aws/aws-sdk-js-v3/issues/4642)) ([aaff894](https://github.com/aws/aws-sdk-js-v3/commit/aaff894f7840d199bae043594ca56e290d5f3deb))
+
+
+### Features
+
+* **smithy-client:** factory for aggregated clients ([#4639](https://github.com/aws/aws-sdk-js-v3/issues/4639)) ([852b99d](https://github.com/aws/aws-sdk-js-v3/commit/852b99d393fe5f1a9ff6345f797949f3901a9cbf))
+
+
+
+
+
+# [3.315.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.314.0...v3.315.0) (2023-04-17)
+
+
+### Features
+
+* **codegen:** shorten serialization and deserialization code in protocols files ([#4625](https://github.com/aws/aws-sdk-js-v3/issues/4625)) ([8798a6e](https://github.com/aws/aws-sdk-js-v3/commit/8798a6eac1b48f0a807c51e38b864ef62b712943))
+* **smithy-client:** update client defaults provider ([3a4d2cb](https://github.com/aws/aws-sdk-js-v3/commit/3a4d2cbe511f19566375a93dcce3a7d58bd3b380))
+
+
+
+
+
+# [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
+
+
+### Bug Fixes
+
+* use updated dist glob pattern in package.json ([#4628](https://github.com/aws/aws-sdk-js-v3/issues/4628)) ([352393d](https://github.com/aws/aws-sdk-js-v3/commit/352393dcdba5ba16dca589c265c40e22913c7f2b))
+
+
+
+
+
+# [3.309.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.308.0...v3.309.0) (2023-04-07)
+
+
+### Features
+
+* **codegen:** add serde helper function ([#4616](https://github.com/aws/aws-sdk-js-v3/issues/4616)) ([bcb14ba](https://github.com/aws/aws-sdk-js-v3/commit/bcb14ba35166fb975b635f4db6f0a45afbe0e0b7))
+
+
+
+
+
+# [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.295.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.294.0...v3.295.0) (2023-03-20)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.292.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.291.0...v3.292.0) (2023-03-15)
+
+
+### Bug Fixes
+
+* **docs:** add plugin-eslint-tsdoc ([#4525](https://github.com/aws/aws-sdk-js-v3/issues/4525)) ([35f60e3](https://github.com/aws/aws-sdk-js-v3/commit/35f60e349dbc0632156473e9414b8b1bef2e472d))
+
+
+### Features
+
+* **smithy-client:** update client defaults provider ([0d0cac0](https://github.com/aws/aws-sdk-js-v3/commit/0d0cac03acfb24d5a73a721e27c094950a44e973))
+
+
+
+
+
+# [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
+
+
+### Features
+
+* **smithy-client:** update client defaults provider ([a092b53](https://github.com/aws/aws-sdk-js-v3/commit/a092b53771649755fbec9f999ef85cf020e7c51b))
+
+
+
+
+
+# [3.289.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.288.0...v3.289.0) (2023-03-10)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
+
+
+### Bug Fixes
+
+* **smithy-client:** optional param in error handling path ([#4410](https://github.com/aws/aws-sdk-js-v3/issues/4410)) ([df945f5](https://github.com/aws/aws-sdk-js-v3/commit/df945f5225c6f7962e2b56d8c899156df427920a))
+
+
+
+
+
+# [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.261.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.260.0...v3.261.0) (2023-01-30)
+
+
+### Features
+
+* **smithy-client:** parse datetime offsets ([#4379](https://github.com/aws/aws-sdk-js-v3/issues/4379)) ([c1d323b](https://github.com/aws/aws-sdk-js-v3/commit/c1d323b92199443ec4909e814975365d21fadea0))
+
+
+
+
+
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
+
+
+### Bug Fixes
+
+* **smithy-client:** add header check for x-amz-request-id ([#4295](https://github.com/aws/aws-sdk-js-v3/issues/4295)) ([efdda44](https://github.com/aws/aws-sdk-js-v3/commit/efdda445ab4ac093df4981838613e8ae886f04d2))
+
+
+
+
+
+# [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.224.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.223.0...v3.224.0) (2022-12-05)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.222.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.221.0...v3.222.0) (2022-12-01)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.215.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.214.0...v3.215.0) (2022-11-21)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.209.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.208.0...v3.209.0) (2022-11-11)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.208.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.207.0...v3.208.0) (2022-11-10)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.201.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.200.0...v3.201.0) (2022-11-01)
+
+
+### Features
+
+* end support for Node.js 12.x ([#4123](https://github.com/aws/aws-sdk-js-v3/issues/4123)) ([83f913e](https://github.com/aws/aws-sdk-js-v3/commit/83f913ec2ac3878d8726c6964f585550dc5caf3e))
+
+
+
+
+
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
+
+
+### Bug Fixes
+
+* **smithy-client:** fix default error typo ([#4092](https://github.com/aws/aws-sdk-js-v3/issues/4092)) ([e8158a6](https://github.com/aws/aws-sdk-js-v3/commit/e8158a6798317aa3905232ee3ff6570a95322ef1))
+
+
+
+
+
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.186.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.185.0...v3.186.0) (2022-10-06)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.183.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.182.0...v3.183.0) (2022-10-03)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.180.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.179.0...v3.180.0) (2022-09-27)
+
+
+### Bug Fixes
+
+* **smithy-client:** exception option missing message property ([#3424](https://github.com/aws/aws-sdk-js-v3/issues/3424)) ([6fc39be](https://github.com/aws/aws-sdk-js-v3/commit/6fc39be4c79ee9d353c2af54252df936776c2bf3))
+
+
+
+
+
+# [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.169.0...v3.170.0) (2022-09-13)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.167.0...v3.168.0) (2022-09-09)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.161.0...v3.162.0) (2022-08-31)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.160.0...v3.161.0) (2022-08-30)
+
+
+### Features
+
+* **smithy-client:** allow unambiguous type conversions in parse-utils ([#3888](https://github.com/aws/aws-sdk-js-v3/issues/3888)) ([967eb0a](https://github.com/aws/aws-sdk-js-v3/commit/967eb0aea76714a5f3243a57604799479fa7baea))
+
+
+
+
+
+# [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.158.0...v3.159.0) (2022-08-26)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.141.0...v3.142.0) (2022-08-02)
+
+
+### Features
+
+* **codegen:** general data mapping function ([#3830](https://github.com/aws/aws-sdk-js-v3/issues/3830)) ([9417eae](https://github.com/aws/aws-sdk-js-v3/commit/9417eae722806799fb4c15c07921574268c1165c))
+* **smithy-client:** update client defaults provider ([70224cc](https://github.com/aws/aws-sdk-js-v3/commit/70224cc2dccebd7bcc1538e66e412100d85fe210))
+
+
+
+
+
+# [3.137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.136.1...v3.137.0) (2022-07-26)
+
+
+### Bug Fixes
+
+* **smithy-client:** rfc-7231 date-time value ([#3814](https://github.com/aws/aws-sdk-js-v3/issues/3814)) ([f52a985](https://github.com/aws/aws-sdk-js-v3/commit/f52a985b90e1a015704472dd1a3754c4b5b005df))
+
+
+
+
+
+# [3.127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.126.0...v3.127.0) (2022-07-11)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.109.0...v3.110.0) (2022-06-14)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.108.1...v3.109.0) (2022-06-13)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.99.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.98.0...v3.99.0) (2022-05-25)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.85.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.84.0...v3.85.0) (2022-05-05)
+
+
+### Features
+
+* **smithy-client:** update client defaults provider ([92a5c30](https://github.com/aws/aws-sdk-js-v3/commit/92a5c303da3558d1802ad5242599cfea74953c4f))
+
+
+
+
+
+# [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.72.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.71.0...v3.72.0) (2022-04-15)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.55.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.1...v3.55.0) (2022-03-21)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+## [3.54.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.0...v3.54.1) (2022-03-15)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
 # [3.54.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.53.1...v3.54.0) (2022-03-11)
 
 **Note:** Version bump only for package @aws-sdk/smithy-client

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { GetOnPremisesInstanceInput, GetOnPremisesInstanceOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOnPremisesInstanceCommand,
-  serializeAws_json1_1GetOnPremisesInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetOnPremisesInstanceCommand, se_GetOnPremisesInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetOnPremisesInstanceCommand}.
+ */
 export interface GetOnPremisesInstanceCommandInput extends GetOnPremisesInstanceInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetOnPremisesInstanceCommand}.
+ */
 export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Gets information about an on-premises instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,47 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  * import { CodeDeployClient, GetOnPremisesInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetOnPremisesInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // GetOnPremisesInstanceInput
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new GetOnPremisesInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // GetOnPremisesInstanceOutput
+ * //   instanceInfo: { // InstanceInfo
+ * //     instanceName: "STRING_VALUE",
+ * //     iamSessionArn: "STRING_VALUE",
+ * //     iamUserArn: "STRING_VALUE",
+ * //     instanceArn: "STRING_VALUE",
+ * //     registerTime: new Date("TIMESTAMP"),
+ * //     deregisterTime: new Date("TIMESTAMP"),
+ * //     tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetOnPremisesInstanceCommandInput - {@link GetOnPremisesInstanceCommandInput}
+ * @returns {@link GetOnPremisesInstanceCommandOutput}
  * @see {@link GetOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link GetOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link InstanceNameRequiredException} (client fault)
+ *  <p>An on-premises instance name was not specified.</p>
+ *
+ * @throws {@link InstanceNotRegisteredException} (client fault)
+ *  <p>The specified on-premises instance is not registered.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class GetOnPremisesInstanceCommand extends $Command<
@@ -46,6 +94,18 @@ export class GetOnPremisesInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetOnPremisesInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +121,9 @@ export class GetOnPremisesInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetOnPremisesInstanceCommandInput, GetOnPremisesInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetOnPremisesInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +134,8 @@ export class GetOnPremisesInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOnPremisesInstanceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetOnPremisesInstanceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +145,18 @@ export class GetOnPremisesInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOnPremisesInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOnPremisesInstanceCommand(input, context);
+    return se_GetOnPremisesInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOnPremisesInstanceCommandOutput> {
-    return deserializeAws_json1_1GetOnPremisesInstanceCommand(output, context);
+    return de_GetOnPremisesInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

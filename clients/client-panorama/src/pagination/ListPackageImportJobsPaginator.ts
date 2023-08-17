@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListPackageImportJobsCommand,
   ListPackageImportJobsCommandInput,
   ListPackageImportJobsCommandOutput,
 } from "../commands/ListPackageImportJobsCommand";
-import { Panorama } from "../Panorama";
 import { PanoramaClient } from "../PanoramaClient";
 import { PanoramaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PanoramaClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPackageImportJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Panorama,
-  input: ListPackageImportJobsCommandInput,
-  ...args: any
-): Promise<ListPackageImportJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPackageImportJobs(input, ...args);
-};
 export async function* paginateListPackageImportJobs(
   config: PanoramaPaginationConfiguration,
   input: ListPackageImportJobsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListPackageImportJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Panorama) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PanoramaClient) {
+    if (config.client instanceof PanoramaClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Panorama | PanoramaClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

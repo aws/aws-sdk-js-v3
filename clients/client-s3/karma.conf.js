@@ -1,10 +1,14 @@
+// Set up following binaries before running the test:
+// CHROME_BIN: path to Chromium browser
+// FIREFOX_BIN: path to Firefox browser
 const webpack = require("webpack");
 
 module.exports = function (config) {
   config.set({
     basePath: "",
-    frameworks: ["mocha", "chai"],
+    frameworks: ["mocha", "chai", "webpack"],
     files: ["test/e2e/**/*.ispec.ts"],
+    processKillTimeout: 5000,
     preprocessors: {
       "test/e2e/**/*.ispec.ts": ["webpack", "sourcemap", "credentials", "env"],
     },
@@ -14,6 +18,9 @@ module.exports = function (config) {
     webpack: {
       resolve: {
         extensions: [".ts", ".js"],
+        fallback: {
+          stream: false,
+        },
       },
       mode: "development",
       module: {
@@ -38,7 +45,7 @@ module.exports = function (config) {
       plugins: [new webpack.NormalModuleReplacementPlugin(/\.\/runtimeConfig$/, "./runtimeConfig.browser")],
       devtool: "inline-source-map",
     },
-    envPreprocessor: ["AWS_SMOKE_TEST_REGION", "AWS_SMOKE_TEST_BUCKET"],
+    envPreprocessor: ["AWS_SMOKE_TEST_REGION", "AWS_SMOKE_TEST_BUCKET", "AWS_SMOKE_TEST_MRAP_ARN"],
     plugins: [
       "@aws-sdk/karma-credential-loader",
       "karma-chrome-launcher",

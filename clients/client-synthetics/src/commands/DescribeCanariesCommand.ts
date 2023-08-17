@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeCanariesRequest, DescribeCanariesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCanariesCommand,
-  serializeAws_restJson1DescribeCanariesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeCanariesCommand, se_DescribeCanariesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeCanariesCommand}.
+ */
 export interface DescribeCanariesCommandInput extends DescribeCanariesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCanariesCommand}.
+ */
 export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns a list of the canaries in your account, along with full details
  *       about each canary.</p>
  *          <p>This operation supports resource-level authorization using an IAM policy and
@@ -38,13 +52,100 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * import { SyntheticsClient, DescribeCanariesCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DescribeCanariesCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // DescribeCanariesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Names: [ // DescribeCanariesNameFilter
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeCanariesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCanariesResponse
+ * //   Canaries: [ // Canaries
+ * //     { // Canary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Code: { // CanaryCodeOutput
+ * //         SourceLocationArn: "STRING_VALUE",
+ * //         Handler: "STRING_VALUE",
+ * //       },
+ * //       ExecutionRoleArn: "STRING_VALUE",
+ * //       Schedule: { // CanaryScheduleOutput
+ * //         Expression: "STRING_VALUE",
+ * //         DurationInSeconds: Number("long"),
+ * //       },
+ * //       RunConfig: { // CanaryRunConfigOutput
+ * //         TimeoutInSeconds: Number("int"),
+ * //         MemoryInMB: Number("int"),
+ * //         ActiveTracing: true || false,
+ * //       },
+ * //       SuccessRetentionPeriodInDays: Number("int"),
+ * //       FailureRetentionPeriodInDays: Number("int"),
+ * //       Status: { // CanaryStatus
+ * //         State: "STRING_VALUE",
+ * //         StateReason: "STRING_VALUE",
+ * //         StateReasonCode: "STRING_VALUE",
+ * //       },
+ * //       Timeline: { // CanaryTimeline
+ * //         Created: new Date("TIMESTAMP"),
+ * //         LastModified: new Date("TIMESTAMP"),
+ * //         LastStarted: new Date("TIMESTAMP"),
+ * //         LastStopped: new Date("TIMESTAMP"),
+ * //       },
+ * //       ArtifactS3Location: "STRING_VALUE",
+ * //       EngineArn: "STRING_VALUE",
+ * //       RuntimeVersion: "STRING_VALUE",
+ * //       VpcConfig: { // VpcConfigOutput
+ * //         VpcId: "STRING_VALUE",
+ * //         SubnetIds: [ // SubnetIds
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SecurityGroupIds: [ // SecurityGroupIds
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       VisualReference: { // VisualReferenceOutput
+ * //         BaseScreenshots: [ // BaseScreenshots
+ * //           { // BaseScreenshot
+ * //             ScreenshotName: "STRING_VALUE", // required
+ * //             IgnoreCoordinates: [ // BaseScreenshotIgnoreCoordinates
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         BaseCanaryRunId: "STRING_VALUE",
+ * //       },
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       ArtifactConfig: { // ArtifactConfigOutput
+ * //         S3Encryption: { // S3EncryptionConfig
+ * //           EncryptionMode: "STRING_VALUE",
+ * //           KmsKeyArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeCanariesCommandInput - {@link DescribeCanariesCommandInput}
+ * @returns {@link DescribeCanariesCommandOutput}
  * @see {@link DescribeCanariesCommandInput} for command's `input` shape.
  * @see {@link DescribeCanariesCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unknown internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter could not be validated.</p>
+ *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class DescribeCanariesCommand extends $Command<
@@ -55,6 +156,18 @@ export class DescribeCanariesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCanariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +183,9 @@ export class DescribeCanariesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeCanariesCommandInput, DescribeCanariesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeCanariesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +196,8 @@ export class DescribeCanariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCanariesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCanariesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +207,18 @@ export class DescribeCanariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCanariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCanariesCommand(input, context);
+    return se_DescribeCanariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCanariesCommandOutput> {
-    return deserializeAws_restJson1DescribeCanariesCommand(output, context);
+    return de_DescribeCanariesCommand(output, context);
   }
 
   // Start section: command_body_extra

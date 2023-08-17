@@ -1,5 +1,8 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,13 +11,15 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   AcceptQualificationRequestCommandInput,
@@ -120,41 +125,29 @@ import {
 } from "../commands/UpdateQualificationTypeCommand";
 import {
   AcceptQualificationRequestRequest,
-  AcceptQualificationRequestResponse,
   ApproveAssignmentRequest,
-  ApproveAssignmentResponse,
   Assignment,
   AssignmentStatus,
   AssociateQualificationWithWorkerRequest,
-  AssociateQualificationWithWorkerResponse,
   BonusPayment,
   CreateAdditionalAssignmentsForHITRequest,
-  CreateAdditionalAssignmentsForHITResponse,
   CreateHITRequest,
   CreateHITResponse,
   CreateHITTypeRequest,
-  CreateHITTypeResponse,
   CreateHITWithHITTypeRequest,
   CreateHITWithHITTypeResponse,
   CreateQualificationTypeRequest,
   CreateQualificationTypeResponse,
   CreateWorkerBlockRequest,
-  CreateWorkerBlockResponse,
   DeleteHITRequest,
-  DeleteHITResponse,
   DeleteQualificationTypeRequest,
-  DeleteQualificationTypeResponse,
   DeleteWorkerBlockRequest,
-  DeleteWorkerBlockResponse,
   DisassociateQualificationFromWorkerRequest,
-  DisassociateQualificationFromWorkerResponse,
   EventType,
   GetAccountBalanceRequest,
-  GetAccountBalanceResponse,
   GetAssignmentRequest,
   GetAssignmentResponse,
   GetFileUploadURLRequest,
-  GetFileUploadURLResponse,
   GetHITRequest,
   GetHITResponse,
   GetQualificationScoreRequest,
@@ -180,14 +173,11 @@ import {
   ListReviewPolicyResultsForHITRequest,
   ListReviewPolicyResultsForHITResponse,
   ListWorkerBlocksRequest,
-  ListWorkerBlocksResponse,
   ListWorkersWithQualificationTypeRequest,
   ListWorkersWithQualificationTypeResponse,
   Locale,
   NotificationSpecification,
-  NotifyWorkersFailureStatus,
   NotifyWorkersRequest,
-  NotifyWorkersResponse,
   ParameterMapEntry,
   PolicyParameter,
   Qualification,
@@ -195,2341 +185,2442 @@ import {
   QualificationRequirement,
   QualificationType,
   RejectAssignmentRequest,
-  RejectAssignmentResponse,
   RejectQualificationRequestRequest,
-  RejectQualificationRequestResponse,
   RequestError,
   ReviewActionDetail,
   ReviewPolicy,
   ReviewPolicyLevel,
   ReviewReport,
-  ReviewResultDetail,
   SendBonusRequest,
-  SendBonusResponse,
   SendTestEventNotificationRequest,
-  SendTestEventNotificationResponse,
   ServiceFault,
   UpdateExpirationForHITRequest,
-  UpdateExpirationForHITResponse,
   UpdateHITReviewStatusRequest,
-  UpdateHITReviewStatusResponse,
   UpdateHITTypeOfHITRequest,
-  UpdateHITTypeOfHITResponse,
   UpdateNotificationSettingsRequest,
-  UpdateNotificationSettingsResponse,
   UpdateQualificationTypeRequest,
   UpdateQualificationTypeResponse,
-  WorkerBlock,
 } from "../models/models_0";
 import { MTurkServiceException as __BaseException } from "../models/MTurkServiceException";
 
-export const serializeAws_json1_1AcceptQualificationRequestCommand = async (
+/**
+ * serializeAws_json1_1AcceptQualificationRequestCommand
+ */
+export const se_AcceptQualificationRequestCommand = async (
   input: AcceptQualificationRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.AcceptQualificationRequest",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptQualificationRequest");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AcceptQualificationRequestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ApproveAssignmentCommand = async (
+/**
+ * serializeAws_json1_1ApproveAssignmentCommand
+ */
+export const se_ApproveAssignmentCommand = async (
   input: ApproveAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ApproveAssignment",
-  };
+  const headers: __HeaderBag = sharedHeaders("ApproveAssignment");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ApproveAssignmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateQualificationWithWorkerCommand = async (
+/**
+ * serializeAws_json1_1AssociateQualificationWithWorkerCommand
+ */
+export const se_AssociateQualificationWithWorkerCommand = async (
   input: AssociateQualificationWithWorkerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.AssociateQualificationWithWorker",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateQualificationWithWorker");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateQualificationWithWorkerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand = async (
+/**
+ * serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand
+ */
+export const se_CreateAdditionalAssignmentsForHITCommand = async (
   input: CreateAdditionalAssignmentsForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAdditionalAssignmentsForHIT");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateAdditionalAssignmentsForHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateHITCommand = async (
+/**
+ * serializeAws_json1_1CreateHITCommand
+ */
+export const se_CreateHITCommand = async (
   input: CreateHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHIT");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateHITTypeCommand = async (
+/**
+ * serializeAws_json1_1CreateHITTypeCommand
+ */
+export const se_CreateHITTypeCommand = async (
   input: CreateHITTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateHITType",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHITType");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateHITTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateHITWithHITTypeCommand = async (
+/**
+ * serializeAws_json1_1CreateHITWithHITTypeCommand
+ */
+export const se_CreateHITWithHITTypeCommand = async (
   input: CreateHITWithHITTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateHITWithHITType",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHITWithHITType");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateHITWithHITTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateQualificationTypeCommand = async (
+/**
+ * serializeAws_json1_1CreateQualificationTypeCommand
+ */
+export const se_CreateQualificationTypeCommand = async (
   input: CreateQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateQualificationType");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateWorkerBlockCommand = async (
+/**
+ * serializeAws_json1_1CreateWorkerBlockCommand
+ */
+export const se_CreateWorkerBlockCommand = async (
   input: CreateWorkerBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateWorkerBlock",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkerBlock");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateWorkerBlockRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteHITCommand = async (
+/**
+ * serializeAws_json1_1DeleteHITCommand
+ */
+export const se_DeleteHITCommand = async (
   input: DeleteHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.DeleteHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteHIT");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteQualificationTypeCommand = async (
+/**
+ * serializeAws_json1_1DeleteQualificationTypeCommand
+ */
+export const se_DeleteQualificationTypeCommand = async (
   input: DeleteQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.DeleteQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteQualificationType");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteWorkerBlockCommand = async (
+/**
+ * serializeAws_json1_1DeleteWorkerBlockCommand
+ */
+export const se_DeleteWorkerBlockCommand = async (
   input: DeleteWorkerBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.DeleteWorkerBlock",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkerBlock");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteWorkerBlockRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateQualificationFromWorkerCommand = async (
+/**
+ * serializeAws_json1_1DisassociateQualificationFromWorkerCommand
+ */
+export const se_DisassociateQualificationFromWorkerCommand = async (
   input: DisassociateQualificationFromWorkerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateQualificationFromWorker");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateQualificationFromWorkerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAccountBalanceCommand = async (
+/**
+ * serializeAws_json1_1GetAccountBalanceCommand
+ */
+export const se_GetAccountBalanceCommand = async (
   input: GetAccountBalanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetAccountBalance",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAccountBalance");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAccountBalanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAssignmentCommand = async (
+/**
+ * serializeAws_json1_1GetAssignmentCommand
+ */
+export const se_GetAssignmentCommand = async (
   input: GetAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetAssignment",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAssignment");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAssignmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetFileUploadURLCommand = async (
+/**
+ * serializeAws_json1_1GetFileUploadURLCommand
+ */
+export const se_GetFileUploadURLCommand = async (
   input: GetFileUploadURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetFileUploadURL",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFileUploadURL");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetFileUploadURLRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetHITCommand = async (
-  input: GetHITCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetHIT",
-  };
+/**
+ * serializeAws_json1_1GetHITCommand
+ */
+export const se_GetHITCommand = async (input: GetHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetHIT");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetQualificationScoreCommand = async (
+/**
+ * serializeAws_json1_1GetQualificationScoreCommand
+ */
+export const se_GetQualificationScoreCommand = async (
   input: GetQualificationScoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetQualificationScore",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetQualificationScore");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetQualificationScoreRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetQualificationTypeCommand = async (
+/**
+ * serializeAws_json1_1GetQualificationTypeCommand
+ */
+export const se_GetQualificationTypeCommand = async (
   input: GetQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetQualificationType");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAssignmentsForHITCommand = async (
+/**
+ * serializeAws_json1_1ListAssignmentsForHITCommand
+ */
+export const se_ListAssignmentsForHITCommand = async (
   input: ListAssignmentsForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListAssignmentsForHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssignmentsForHIT");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAssignmentsForHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListBonusPaymentsCommand = async (
+/**
+ * serializeAws_json1_1ListBonusPaymentsCommand
+ */
+export const se_ListBonusPaymentsCommand = async (
   input: ListBonusPaymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListBonusPayments",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBonusPayments");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListBonusPaymentsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListHITsCommand = async (
+/**
+ * serializeAws_json1_1ListHITsCommand
+ */
+export const se_ListHITsCommand = async (
   input: ListHITsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListHITs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHITs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListHITsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListHITsForQualificationTypeCommand = async (
+/**
+ * serializeAws_json1_1ListHITsForQualificationTypeCommand
+ */
+export const se_ListHITsForQualificationTypeCommand = async (
   input: ListHITsForQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListHITsForQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHITsForQualificationType");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListHITsForQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListQualificationRequestsCommand = async (
+/**
+ * serializeAws_json1_1ListQualificationRequestsCommand
+ */
+export const se_ListQualificationRequestsCommand = async (
   input: ListQualificationRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListQualificationRequests",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListQualificationRequests");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListQualificationRequestsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListQualificationTypesCommand = async (
+/**
+ * serializeAws_json1_1ListQualificationTypesCommand
+ */
+export const se_ListQualificationTypesCommand = async (
   input: ListQualificationTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListQualificationTypes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListQualificationTypes");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListQualificationTypesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListReviewableHITsCommand = async (
+/**
+ * serializeAws_json1_1ListReviewableHITsCommand
+ */
+export const se_ListReviewableHITsCommand = async (
   input: ListReviewableHITsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListReviewableHITs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReviewableHITs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListReviewableHITsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListReviewPolicyResultsForHITCommand = async (
+/**
+ * serializeAws_json1_1ListReviewPolicyResultsForHITCommand
+ */
+export const se_ListReviewPolicyResultsForHITCommand = async (
   input: ListReviewPolicyResultsForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReviewPolicyResultsForHIT");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListReviewPolicyResultsForHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListWorkerBlocksCommand = async (
+/**
+ * serializeAws_json1_1ListWorkerBlocksCommand
+ */
+export const se_ListWorkerBlocksCommand = async (
   input: ListWorkerBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListWorkerBlocks",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkerBlocks");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListWorkerBlocksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListWorkersWithQualificationTypeCommand = async (
+/**
+ * serializeAws_json1_1ListWorkersWithQualificationTypeCommand
+ */
+export const se_ListWorkersWithQualificationTypeCommand = async (
   input: ListWorkersWithQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkersWithQualificationType");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListWorkersWithQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1NotifyWorkersCommand = async (
+/**
+ * serializeAws_json1_1NotifyWorkersCommand
+ */
+export const se_NotifyWorkersCommand = async (
   input: NotifyWorkersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.NotifyWorkers",
-  };
+  const headers: __HeaderBag = sharedHeaders("NotifyWorkers");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1NotifyWorkersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RejectAssignmentCommand = async (
+/**
+ * serializeAws_json1_1RejectAssignmentCommand
+ */
+export const se_RejectAssignmentCommand = async (
   input: RejectAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.RejectAssignment",
-  };
+  const headers: __HeaderBag = sharedHeaders("RejectAssignment");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RejectAssignmentRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RejectQualificationRequestCommand = async (
+/**
+ * serializeAws_json1_1RejectQualificationRequestCommand
+ */
+export const se_RejectQualificationRequestCommand = async (
   input: RejectQualificationRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.RejectQualificationRequest",
-  };
+  const headers: __HeaderBag = sharedHeaders("RejectQualificationRequest");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RejectQualificationRequestRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SendBonusCommand = async (
+/**
+ * serializeAws_json1_1SendBonusCommand
+ */
+export const se_SendBonusCommand = async (
   input: SendBonusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.SendBonus",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendBonus");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SendBonusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SendTestEventNotificationCommand = async (
+/**
+ * serializeAws_json1_1SendTestEventNotificationCommand
+ */
+export const se_SendTestEventNotificationCommand = async (
   input: SendTestEventNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.SendTestEventNotification",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendTestEventNotification");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SendTestEventNotificationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateExpirationForHITCommand = async (
+/**
+ * serializeAws_json1_1UpdateExpirationForHITCommand
+ */
+export const se_UpdateExpirationForHITCommand = async (
   input: UpdateExpirationForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.UpdateExpirationForHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateExpirationForHIT");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateExpirationForHITRequest(input, context));
+  body = JSON.stringify(se_UpdateExpirationForHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateHITReviewStatusCommand = async (
+/**
+ * serializeAws_json1_1UpdateHITReviewStatusCommand
+ */
+export const se_UpdateHITReviewStatusCommand = async (
   input: UpdateHITReviewStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.UpdateHITReviewStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateHITReviewStatus");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateHITReviewStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateHITTypeOfHITCommand = async (
+/**
+ * serializeAws_json1_1UpdateHITTypeOfHITCommand
+ */
+export const se_UpdateHITTypeOfHITCommand = async (
   input: UpdateHITTypeOfHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateHITTypeOfHIT");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateHITTypeOfHITRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateNotificationSettingsCommand = async (
+/**
+ * serializeAws_json1_1UpdateNotificationSettingsCommand
+ */
+export const se_UpdateNotificationSettingsCommand = async (
   input: UpdateNotificationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.UpdateNotificationSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNotificationSettings");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateNotificationSettingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateQualificationTypeCommand = async (
+/**
+ * serializeAws_json1_1UpdateQualificationTypeCommand
+ */
+export const se_UpdateQualificationTypeCommand = async (
   input: UpdateQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.UpdateQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateQualificationType");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateQualificationTypeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AcceptQualificationRequestCommand = async (
+/**
+ * deserializeAws_json1_1AcceptQualificationRequestCommand
+ */
+export const de_AcceptQualificationRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptQualificationRequestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AcceptQualificationRequestCommandError(output, context);
+    return de_AcceptQualificationRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AcceptQualificationRequestResponse(data, context);
+  contents = _json(data);
   const response: AcceptQualificationRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1AcceptQualificationRequestCommandError = async (
+/**
+ * deserializeAws_json1_1AcceptQualificationRequestCommandError
+ */
+const de_AcceptQualificationRequestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptQualificationRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ApproveAssignmentCommand = async (
+/**
+ * deserializeAws_json1_1ApproveAssignmentCommand
+ */
+export const de_ApproveAssignmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApproveAssignmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ApproveAssignmentCommandError(output, context);
+    return de_ApproveAssignmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ApproveAssignmentResponse(data, context);
+  contents = _json(data);
   const response: ApproveAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ApproveAssignmentCommandError = async (
+/**
+ * deserializeAws_json1_1ApproveAssignmentCommandError
+ */
+const de_ApproveAssignmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApproveAssignmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1AssociateQualificationWithWorkerCommand = async (
+/**
+ * deserializeAws_json1_1AssociateQualificationWithWorkerCommand
+ */
+export const de_AssociateQualificationWithWorkerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateQualificationWithWorkerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateQualificationWithWorkerCommandError(output, context);
+    return de_AssociateQualificationWithWorkerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateQualificationWithWorkerResponse(data, context);
+  contents = _json(data);
   const response: AssociateQualificationWithWorkerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1AssociateQualificationWithWorkerCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateQualificationWithWorkerCommandError
+ */
+const de_AssociateQualificationWithWorkerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateQualificationWithWorkerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommand = async (
+/**
+ * deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommand
+ */
+export const de_CreateAdditionalAssignmentsForHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAdditionalAssignmentsForHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommandError(output, context);
+    return de_CreateAdditionalAssignmentsForHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAdditionalAssignmentsForHITResponse(data, context);
+  contents = _json(data);
   const response: CreateAdditionalAssignmentsForHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommandError = async (
+/**
+ * deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommandError
+ */
+const de_CreateAdditionalAssignmentsForHITCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAdditionalAssignmentsForHITCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1CreateHITCommand = async (
+/**
+ * deserializeAws_json1_1CreateHITCommand
+ */
+export const de_CreateHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateHITCommandError(output, context);
+    return de_CreateHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHITResponse(data, context);
+  contents = de_CreateHITResponse(data, context);
   const response: CreateHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateHITCommandError = async (
+/**
+ * deserializeAws_json1_1CreateHITCommandError
+ */
+const de_CreateHITCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHITCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1CreateHITTypeCommand = async (
+/**
+ * deserializeAws_json1_1CreateHITTypeCommand
+ */
+export const de_CreateHITTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHITTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateHITTypeCommandError(output, context);
+    return de_CreateHITTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHITTypeResponse(data, context);
+  contents = _json(data);
   const response: CreateHITTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateHITTypeCommandError = async (
+/**
+ * deserializeAws_json1_1CreateHITTypeCommandError
+ */
+const de_CreateHITTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHITTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1CreateHITWithHITTypeCommand = async (
+/**
+ * deserializeAws_json1_1CreateHITWithHITTypeCommand
+ */
+export const de_CreateHITWithHITTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHITWithHITTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateHITWithHITTypeCommandError(output, context);
+    return de_CreateHITWithHITTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHITWithHITTypeResponse(data, context);
+  contents = de_CreateHITWithHITTypeResponse(data, context);
   const response: CreateHITWithHITTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateHITWithHITTypeCommandError = async (
+/**
+ * deserializeAws_json1_1CreateHITWithHITTypeCommandError
+ */
+const de_CreateHITWithHITTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHITWithHITTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1CreateQualificationTypeCommand = async (
+/**
+ * deserializeAws_json1_1CreateQualificationTypeCommand
+ */
+export const de_CreateQualificationTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateQualificationTypeCommandError(output, context);
+    return de_CreateQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateQualificationTypeResponse(data, context);
+  contents = de_CreateQualificationTypeResponse(data, context);
   const response: CreateQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateQualificationTypeCommandError = async (
+/**
+ * deserializeAws_json1_1CreateQualificationTypeCommandError
+ */
+const de_CreateQualificationTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateQualificationTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1CreateWorkerBlockCommand = async (
+/**
+ * deserializeAws_json1_1CreateWorkerBlockCommand
+ */
+export const de_CreateWorkerBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkerBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateWorkerBlockCommandError(output, context);
+    return de_CreateWorkerBlockCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWorkerBlockResponse(data, context);
+  contents = _json(data);
   const response: CreateWorkerBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateWorkerBlockCommandError = async (
+/**
+ * deserializeAws_json1_1CreateWorkerBlockCommandError
+ */
+const de_CreateWorkerBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkerBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DeleteHITCommand = async (
+/**
+ * deserializeAws_json1_1DeleteHITCommand
+ */
+export const de_DeleteHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteHITCommandError(output, context);
+    return de_DeleteHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteHITResponse(data, context);
+  contents = _json(data);
   const response: DeleteHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteHITCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteHITCommandError
+ */
+const de_DeleteHITCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHITCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DeleteQualificationTypeCommand = async (
+/**
+ * deserializeAws_json1_1DeleteQualificationTypeCommand
+ */
+export const de_DeleteQualificationTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteQualificationTypeCommandError(output, context);
+    return de_DeleteQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteQualificationTypeResponse(data, context);
+  contents = _json(data);
   const response: DeleteQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteQualificationTypeCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteQualificationTypeCommandError
+ */
+const de_DeleteQualificationTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteQualificationTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DeleteWorkerBlockCommand = async (
+/**
+ * deserializeAws_json1_1DeleteWorkerBlockCommand
+ */
+export const de_DeleteWorkerBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkerBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteWorkerBlockCommandError(output, context);
+    return de_DeleteWorkerBlockCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWorkerBlockResponse(data, context);
+  contents = _json(data);
   const response: DeleteWorkerBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteWorkerBlockCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteWorkerBlockCommandError
+ */
+const de_DeleteWorkerBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkerBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1DisassociateQualificationFromWorkerCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateQualificationFromWorkerCommand
+ */
+export const de_DisassociateQualificationFromWorkerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateQualificationFromWorkerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateQualificationFromWorkerCommandError(output, context);
+    return de_DisassociateQualificationFromWorkerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateQualificationFromWorkerResponse(data, context);
+  contents = _json(data);
   const response: DisassociateQualificationFromWorkerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DisassociateQualificationFromWorkerCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateQualificationFromWorkerCommandError
+ */
+const de_DisassociateQualificationFromWorkerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateQualificationFromWorkerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1GetAccountBalanceCommand = async (
+/**
+ * deserializeAws_json1_1GetAccountBalanceCommand
+ */
+export const de_GetAccountBalanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountBalanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAccountBalanceCommandError(output, context);
+    return de_GetAccountBalanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAccountBalanceResponse(data, context);
+  contents = _json(data);
   const response: GetAccountBalanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetAccountBalanceCommandError = async (
+/**
+ * deserializeAws_json1_1GetAccountBalanceCommandError
+ */
+const de_GetAccountBalanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountBalanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1GetAssignmentCommand = async (
+/**
+ * deserializeAws_json1_1GetAssignmentCommand
+ */
+export const de_GetAssignmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssignmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAssignmentCommandError(output, context);
+    return de_GetAssignmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAssignmentResponse(data, context);
+  contents = de_GetAssignmentResponse(data, context);
   const response: GetAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetAssignmentCommandError = async (
+/**
+ * deserializeAws_json1_1GetAssignmentCommandError
+ */
+const de_GetAssignmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssignmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1GetFileUploadURLCommand = async (
+/**
+ * deserializeAws_json1_1GetFileUploadURLCommand
+ */
+export const de_GetFileUploadURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFileUploadURLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetFileUploadURLCommandError(output, context);
+    return de_GetFileUploadURLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFileUploadURLResponse(data, context);
+  contents = _json(data);
   const response: GetFileUploadURLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetFileUploadURLCommandError = async (
+/**
+ * deserializeAws_json1_1GetFileUploadURLCommandError
+ */
+const de_GetFileUploadURLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFileUploadURLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1GetHITCommand = async (
+/**
+ * deserializeAws_json1_1GetHITCommand
+ */
+export const de_GetHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetHITCommandError(output, context);
+    return de_GetHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetHITResponse(data, context);
+  contents = de_GetHITResponse(data, context);
   const response: GetHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetHITCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHITCommandOutput> => {
+/**
+ * deserializeAws_json1_1GetHITCommandError
+ */
+const de_GetHITCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetHITCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1GetQualificationScoreCommand = async (
+/**
+ * deserializeAws_json1_1GetQualificationScoreCommand
+ */
+export const de_GetQualificationScoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetQualificationScoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetQualificationScoreCommandError(output, context);
+    return de_GetQualificationScoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetQualificationScoreResponse(data, context);
+  contents = de_GetQualificationScoreResponse(data, context);
   const response: GetQualificationScoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetQualificationScoreCommandError = async (
+/**
+ * deserializeAws_json1_1GetQualificationScoreCommandError
+ */
+const de_GetQualificationScoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetQualificationScoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1GetQualificationTypeCommand = async (
+/**
+ * deserializeAws_json1_1GetQualificationTypeCommand
+ */
+export const de_GetQualificationTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetQualificationTypeCommandError(output, context);
+    return de_GetQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetQualificationTypeResponse(data, context);
+  contents = de_GetQualificationTypeResponse(data, context);
   const response: GetQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetQualificationTypeCommandError = async (
+/**
+ * deserializeAws_json1_1GetQualificationTypeCommandError
+ */
+const de_GetQualificationTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetQualificationTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListAssignmentsForHITCommand = async (
+/**
+ * deserializeAws_json1_1ListAssignmentsForHITCommand
+ */
+export const de_ListAssignmentsForHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssignmentsForHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAssignmentsForHITCommandError(output, context);
+    return de_ListAssignmentsForHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssignmentsForHITResponse(data, context);
+  contents = de_ListAssignmentsForHITResponse(data, context);
   const response: ListAssignmentsForHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListAssignmentsForHITCommandError = async (
+/**
+ * deserializeAws_json1_1ListAssignmentsForHITCommandError
+ */
+const de_ListAssignmentsForHITCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssignmentsForHITCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListBonusPaymentsCommand = async (
+/**
+ * deserializeAws_json1_1ListBonusPaymentsCommand
+ */
+export const de_ListBonusPaymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBonusPaymentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListBonusPaymentsCommandError(output, context);
+    return de_ListBonusPaymentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBonusPaymentsResponse(data, context);
+  contents = de_ListBonusPaymentsResponse(data, context);
   const response: ListBonusPaymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListBonusPaymentsCommandError = async (
+/**
+ * deserializeAws_json1_1ListBonusPaymentsCommandError
+ */
+const de_ListBonusPaymentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBonusPaymentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListHITsCommand = async (
+/**
+ * deserializeAws_json1_1ListHITsCommand
+ */
+export const de_ListHITsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHITsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListHITsCommandError(output, context);
+    return de_ListHITsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListHITsResponse(data, context);
+  contents = de_ListHITsResponse(data, context);
   const response: ListHITsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListHITsCommandError = async (
+/**
+ * deserializeAws_json1_1ListHITsCommandError
+ */
+const de_ListHITsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHITsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListHITsForQualificationTypeCommand = async (
+/**
+ * deserializeAws_json1_1ListHITsForQualificationTypeCommand
+ */
+export const de_ListHITsForQualificationTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHITsForQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListHITsForQualificationTypeCommandError(output, context);
+    return de_ListHITsForQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListHITsForQualificationTypeResponse(data, context);
+  contents = de_ListHITsForQualificationTypeResponse(data, context);
   const response: ListHITsForQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListHITsForQualificationTypeCommandError = async (
+/**
+ * deserializeAws_json1_1ListHITsForQualificationTypeCommandError
+ */
+const de_ListHITsForQualificationTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHITsForQualificationTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListQualificationRequestsCommand = async (
+/**
+ * deserializeAws_json1_1ListQualificationRequestsCommand
+ */
+export const de_ListQualificationRequestsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListQualificationRequestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListQualificationRequestsCommandError(output, context);
+    return de_ListQualificationRequestsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListQualificationRequestsResponse(data, context);
+  contents = de_ListQualificationRequestsResponse(data, context);
   const response: ListQualificationRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListQualificationRequestsCommandError = async (
+/**
+ * deserializeAws_json1_1ListQualificationRequestsCommandError
+ */
+const de_ListQualificationRequestsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListQualificationRequestsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListQualificationTypesCommand = async (
+/**
+ * deserializeAws_json1_1ListQualificationTypesCommand
+ */
+export const de_ListQualificationTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListQualificationTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListQualificationTypesCommandError(output, context);
+    return de_ListQualificationTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListQualificationTypesResponse(data, context);
+  contents = de_ListQualificationTypesResponse(data, context);
   const response: ListQualificationTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListQualificationTypesCommandError = async (
+/**
+ * deserializeAws_json1_1ListQualificationTypesCommandError
+ */
+const de_ListQualificationTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListQualificationTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListReviewableHITsCommand = async (
+/**
+ * deserializeAws_json1_1ListReviewableHITsCommand
+ */
+export const de_ListReviewableHITsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReviewableHITsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListReviewableHITsCommandError(output, context);
+    return de_ListReviewableHITsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReviewableHITsResponse(data, context);
+  contents = de_ListReviewableHITsResponse(data, context);
   const response: ListReviewableHITsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListReviewableHITsCommandError = async (
+/**
+ * deserializeAws_json1_1ListReviewableHITsCommandError
+ */
+const de_ListReviewableHITsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReviewableHITsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListReviewPolicyResultsForHITCommand = async (
+/**
+ * deserializeAws_json1_1ListReviewPolicyResultsForHITCommand
+ */
+export const de_ListReviewPolicyResultsForHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReviewPolicyResultsForHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListReviewPolicyResultsForHITCommandError(output, context);
+    return de_ListReviewPolicyResultsForHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReviewPolicyResultsForHITResponse(data, context);
+  contents = de_ListReviewPolicyResultsForHITResponse(data, context);
   const response: ListReviewPolicyResultsForHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListReviewPolicyResultsForHITCommandError = async (
+/**
+ * deserializeAws_json1_1ListReviewPolicyResultsForHITCommandError
+ */
+const de_ListReviewPolicyResultsForHITCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReviewPolicyResultsForHITCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListWorkerBlocksCommand = async (
+/**
+ * deserializeAws_json1_1ListWorkerBlocksCommand
+ */
+export const de_ListWorkerBlocksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkerBlocksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListWorkerBlocksCommandError(output, context);
+    return de_ListWorkerBlocksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListWorkerBlocksResponse(data, context);
+  contents = _json(data);
   const response: ListWorkerBlocksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListWorkerBlocksCommandError = async (
+/**
+ * deserializeAws_json1_1ListWorkerBlocksCommandError
+ */
+const de_ListWorkerBlocksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkerBlocksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1ListWorkersWithQualificationTypeCommand = async (
+/**
+ * deserializeAws_json1_1ListWorkersWithQualificationTypeCommand
+ */
+export const de_ListWorkersWithQualificationTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkersWithQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListWorkersWithQualificationTypeCommandError(output, context);
+    return de_ListWorkersWithQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListWorkersWithQualificationTypeResponse(data, context);
+  contents = de_ListWorkersWithQualificationTypeResponse(data, context);
   const response: ListWorkersWithQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListWorkersWithQualificationTypeCommandError = async (
+/**
+ * deserializeAws_json1_1ListWorkersWithQualificationTypeCommandError
+ */
+const de_ListWorkersWithQualificationTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkersWithQualificationTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1NotifyWorkersCommand = async (
+/**
+ * deserializeAws_json1_1NotifyWorkersCommand
+ */
+export const de_NotifyWorkersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyWorkersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1NotifyWorkersCommandError(output, context);
+    return de_NotifyWorkersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1NotifyWorkersResponse(data, context);
+  contents = _json(data);
   const response: NotifyWorkersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1NotifyWorkersCommandError = async (
+/**
+ * deserializeAws_json1_1NotifyWorkersCommandError
+ */
+const de_NotifyWorkersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyWorkersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1RejectAssignmentCommand = async (
+/**
+ * deserializeAws_json1_1RejectAssignmentCommand
+ */
+export const de_RejectAssignmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectAssignmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RejectAssignmentCommandError(output, context);
+    return de_RejectAssignmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RejectAssignmentResponse(data, context);
+  contents = _json(data);
   const response: RejectAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RejectAssignmentCommandError = async (
+/**
+ * deserializeAws_json1_1RejectAssignmentCommandError
+ */
+const de_RejectAssignmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectAssignmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1RejectQualificationRequestCommand = async (
+/**
+ * deserializeAws_json1_1RejectQualificationRequestCommand
+ */
+export const de_RejectQualificationRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectQualificationRequestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RejectQualificationRequestCommandError(output, context);
+    return de_RejectQualificationRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RejectQualificationRequestResponse(data, context);
+  contents = _json(data);
   const response: RejectQualificationRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RejectQualificationRequestCommandError = async (
+/**
+ * deserializeAws_json1_1RejectQualificationRequestCommandError
+ */
+const de_RejectQualificationRequestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectQualificationRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1SendBonusCommand = async (
+/**
+ * deserializeAws_json1_1SendBonusCommand
+ */
+export const de_SendBonusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendBonusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SendBonusCommandError(output, context);
+    return de_SendBonusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SendBonusResponse(data, context);
+  contents = _json(data);
   const response: SendBonusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1SendBonusCommandError = async (
+/**
+ * deserializeAws_json1_1SendBonusCommandError
+ */
+const de_SendBonusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendBonusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1SendTestEventNotificationCommand = async (
+/**
+ * deserializeAws_json1_1SendTestEventNotificationCommand
+ */
+export const de_SendTestEventNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTestEventNotificationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SendTestEventNotificationCommandError(output, context);
+    return de_SendTestEventNotificationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SendTestEventNotificationResponse(data, context);
+  contents = _json(data);
   const response: SendTestEventNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1SendTestEventNotificationCommandError = async (
+/**
+ * deserializeAws_json1_1SendTestEventNotificationCommandError
+ */
+const de_SendTestEventNotificationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTestEventNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1UpdateExpirationForHITCommand = async (
+/**
+ * deserializeAws_json1_1UpdateExpirationForHITCommand
+ */
+export const de_UpdateExpirationForHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateExpirationForHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateExpirationForHITCommandError(output, context);
+    return de_UpdateExpirationForHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateExpirationForHITResponse(data, context);
+  contents = _json(data);
   const response: UpdateExpirationForHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateExpirationForHITCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateExpirationForHITCommandError
+ */
+const de_UpdateExpirationForHITCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateExpirationForHITCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1UpdateHITReviewStatusCommand = async (
+/**
+ * deserializeAws_json1_1UpdateHITReviewStatusCommand
+ */
+export const de_UpdateHITReviewStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHITReviewStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateHITReviewStatusCommandError(output, context);
+    return de_UpdateHITReviewStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateHITReviewStatusResponse(data, context);
+  contents = _json(data);
   const response: UpdateHITReviewStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateHITReviewStatusCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateHITReviewStatusCommandError
+ */
+const de_UpdateHITReviewStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHITReviewStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1UpdateHITTypeOfHITCommand = async (
+/**
+ * deserializeAws_json1_1UpdateHITTypeOfHITCommand
+ */
+export const de_UpdateHITTypeOfHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHITTypeOfHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateHITTypeOfHITCommandError(output, context);
+    return de_UpdateHITTypeOfHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateHITTypeOfHITResponse(data, context);
+  contents = _json(data);
   const response: UpdateHITTypeOfHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateHITTypeOfHITCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateHITTypeOfHITCommandError
+ */
+const de_UpdateHITTypeOfHITCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHITTypeOfHITCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1UpdateNotificationSettingsCommand = async (
+/**
+ * deserializeAws_json1_1UpdateNotificationSettingsCommand
+ */
+export const de_UpdateNotificationSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNotificationSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateNotificationSettingsCommandError(output, context);
+    return de_UpdateNotificationSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateNotificationSettingsResponse(data, context);
+  contents = _json(data);
   const response: UpdateNotificationSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateNotificationSettingsCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateNotificationSettingsCommandError
+ */
+const de_UpdateNotificationSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNotificationSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-export const deserializeAws_json1_1UpdateQualificationTypeCommand = async (
+/**
+ * deserializeAws_json1_1UpdateQualificationTypeCommand
+ */
+export const de_UpdateQualificationTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateQualificationTypeCommandError(output, context);
+    return de_UpdateQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateQualificationTypeResponse(data, context);
+  contents = de_UpdateQualificationTypeResponse(data, context);
   const response: UpdateQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateQualificationTypeCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateQualificationTypeCommandError
+ */
+const de_UpdateQualificationTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateQualificationTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
-      throw await deserializeAws_json1_1RequestErrorResponse(parsedOutput, context);
+      throw await de_RequestErrorRes(parsedOutput, context);
     case "ServiceFault":
     case "com.amazonaws.mturk#ServiceFault":
-      throw await deserializeAws_json1_1ServiceFaultResponse(parsedOutput, context);
+      throw await de_ServiceFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
-const deserializeAws_json1_1RequestErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<RequestError> => {
+/**
+ * deserializeAws_json1_1RequestErrorRes
+ */
+const de_RequestErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<RequestError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RequestError(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2537,12 +2628,12 @@ const deserializeAws_json1_1RequestErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ServiceFault> => {
+/**
+ * deserializeAws_json1_1ServiceFaultRes
+ */
+const de_ServiceFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2550,1580 +2641,631 @@ const deserializeAws_json1_1ServiceFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AcceptQualificationRequestRequest = (
-  input: AcceptQualificationRequestRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IntegerValue !== undefined && input.IntegerValue !== null && { IntegerValue: input.IntegerValue }),
-    ...(input.QualificationRequestId !== undefined &&
-      input.QualificationRequestId !== null && { QualificationRequestId: input.QualificationRequestId }),
-  };
+// se_AcceptQualificationRequestRequest omitted.
+
+// se_ApproveAssignmentRequest omitted.
+
+// se_AssignmentStatusList omitted.
+
+// se_AssociateQualificationWithWorkerRequest omitted.
+
+// se_CreateAdditionalAssignmentsForHITRequest omitted.
+
+// se_CreateHITRequest omitted.
+
+// se_CreateHITTypeRequest omitted.
+
+// se_CreateHITWithHITTypeRequest omitted.
+
+// se_CreateQualificationTypeRequest omitted.
+
+// se_CreateWorkerBlockRequest omitted.
+
+// se_CustomerIdList omitted.
+
+// se_DeleteHITRequest omitted.
+
+// se_DeleteQualificationTypeRequest omitted.
+
+// se_DeleteWorkerBlockRequest omitted.
+
+// se_DisassociateQualificationFromWorkerRequest omitted.
+
+// se_EventTypeList omitted.
+
+// se_GetAccountBalanceRequest omitted.
+
+// se_GetAssignmentRequest omitted.
+
+// se_GetFileUploadURLRequest omitted.
+
+// se_GetHITRequest omitted.
+
+// se_GetQualificationScoreRequest omitted.
+
+// se_GetQualificationTypeRequest omitted.
+
+// se_HITLayoutParameter omitted.
+
+// se_HITLayoutParameterList omitted.
+
+// se_IntegerList omitted.
+
+// se_ListAssignmentsForHITRequest omitted.
+
+// se_ListBonusPaymentsRequest omitted.
+
+// se_ListHITsForQualificationTypeRequest omitted.
+
+// se_ListHITsRequest omitted.
+
+// se_ListQualificationRequestsRequest omitted.
+
+// se_ListQualificationTypesRequest omitted.
+
+// se_ListReviewableHITsRequest omitted.
+
+// se_ListReviewPolicyResultsForHITRequest omitted.
+
+// se_ListWorkerBlocksRequest omitted.
+
+// se_ListWorkersWithQualificationTypeRequest omitted.
+
+// se_Locale omitted.
+
+// se_LocaleList omitted.
+
+// se_NotificationSpecification omitted.
+
+// se_NotifyWorkersRequest omitted.
+
+// se_ParameterMapEntry omitted.
+
+// se_ParameterMapEntryList omitted.
+
+// se_PolicyParameter omitted.
+
+// se_PolicyParameterList omitted.
+
+// se_QualificationRequirement omitted.
+
+// se_QualificationRequirementList omitted.
+
+// se_RejectAssignmentRequest omitted.
+
+// se_RejectQualificationRequestRequest omitted.
+
+// se_ReviewPolicy omitted.
+
+// se_ReviewPolicyLevelList omitted.
+
+// se_SendBonusRequest omitted.
+
+// se_SendTestEventNotificationRequest omitted.
+
+// se_StringList omitted.
+
+/**
+ * serializeAws_json1_1UpdateExpirationForHITRequest
+ */
+const se_UpdateExpirationForHITRequest = (input: UpdateExpirationForHITRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ExpireAt: (_) => Math.round(_.getTime() / 1000),
+    HITId: [],
+  });
 };
 
-const serializeAws_json1_1ApproveAssignmentRequest = (
-  input: ApproveAssignmentRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
-    ...(input.OverrideRejection !== undefined &&
-      input.OverrideRejection !== null && { OverrideRejection: input.OverrideRejection }),
-    ...(input.RequesterFeedback !== undefined &&
-      input.RequesterFeedback !== null && { RequesterFeedback: input.RequesterFeedback }),
-  };
+// se_UpdateHITReviewStatusRequest omitted.
+
+// se_UpdateHITTypeOfHITRequest omitted.
+
+// se_UpdateNotificationSettingsRequest omitted.
+
+// se_UpdateQualificationTypeRequest omitted.
+
+// de_AcceptQualificationRequestResponse omitted.
+
+// de_ApproveAssignmentResponse omitted.
+
+/**
+ * deserializeAws_json1_1Assignment
+ */
+const de_Assignment = (output: any, context: __SerdeContext): Assignment => {
+  return take(output, {
+    AcceptTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Answer: __expectString,
+    ApprovalTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AssignmentId: __expectString,
+    AssignmentStatus: __expectString,
+    AutoApprovalTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Deadline: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HITId: __expectString,
+    RejectionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RequesterFeedback: __expectString,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WorkerId: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1AssignmentStatusList = (
-  input: (AssignmentStatus | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_json1_1AssociateQualificationWithWorkerRequest = (
-  input: AssociateQualificationWithWorkerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.IntegerValue !== undefined && input.IntegerValue !== null && { IntegerValue: input.IntegerValue }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.SendNotification !== undefined &&
-      input.SendNotification !== null && { SendNotification: input.SendNotification }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
-  };
-};
-
-const serializeAws_json1_1CreateAdditionalAssignmentsForHITRequest = (
-  input: CreateAdditionalAssignmentsForHITRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.NumberOfAdditionalAssignments !== undefined &&
-      input.NumberOfAdditionalAssignments !== null && {
-        NumberOfAdditionalAssignments: input.NumberOfAdditionalAssignments,
-      }),
-    ...(input.UniqueRequestToken !== undefined &&
-      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
-  };
-};
-
-const serializeAws_json1_1CreateHITRequest = (input: CreateHITRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentDurationInSeconds !== undefined &&
-      input.AssignmentDurationInSeconds !== null && { AssignmentDurationInSeconds: input.AssignmentDurationInSeconds }),
-    ...(input.AssignmentReviewPolicy !== undefined &&
-      input.AssignmentReviewPolicy !== null && {
-        AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(input.AssignmentReviewPolicy, context),
-      }),
-    ...(input.AutoApprovalDelayInSeconds !== undefined &&
-      input.AutoApprovalDelayInSeconds !== null && { AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.HITLayoutId !== undefined && input.HITLayoutId !== null && { HITLayoutId: input.HITLayoutId }),
-    ...(input.HITLayoutParameters !== undefined &&
-      input.HITLayoutParameters !== null && {
-        HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(input.HITLayoutParameters, context),
-      }),
-    ...(input.HITReviewPolicy !== undefined &&
-      input.HITReviewPolicy !== null && {
-        HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
-      }),
-    ...(input.Keywords !== undefined && input.Keywords !== null && { Keywords: input.Keywords }),
-    ...(input.LifetimeInSeconds !== undefined &&
-      input.LifetimeInSeconds !== null && { LifetimeInSeconds: input.LifetimeInSeconds }),
-    ...(input.MaxAssignments !== undefined &&
-      input.MaxAssignments !== null && { MaxAssignments: input.MaxAssignments }),
-    ...(input.QualificationRequirements !== undefined &&
-      input.QualificationRequirements !== null && {
-        QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
-          input.QualificationRequirements,
-          context
-        ),
-      }),
-    ...(input.Question !== undefined && input.Question !== null && { Question: input.Question }),
-    ...(input.RequesterAnnotation !== undefined &&
-      input.RequesterAnnotation !== null && { RequesterAnnotation: input.RequesterAnnotation }),
-    ...(input.Reward !== undefined && input.Reward !== null && { Reward: input.Reward }),
-    ...(input.Title !== undefined && input.Title !== null && { Title: input.Title }),
-    ...(input.UniqueRequestToken !== undefined &&
-      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
-  };
-};
-
-const serializeAws_json1_1CreateHITTypeRequest = (input: CreateHITTypeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentDurationInSeconds !== undefined &&
-      input.AssignmentDurationInSeconds !== null && { AssignmentDurationInSeconds: input.AssignmentDurationInSeconds }),
-    ...(input.AutoApprovalDelayInSeconds !== undefined &&
-      input.AutoApprovalDelayInSeconds !== null && { AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Keywords !== undefined && input.Keywords !== null && { Keywords: input.Keywords }),
-    ...(input.QualificationRequirements !== undefined &&
-      input.QualificationRequirements !== null && {
-        QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
-          input.QualificationRequirements,
-          context
-        ),
-      }),
-    ...(input.Reward !== undefined && input.Reward !== null && { Reward: input.Reward }),
-    ...(input.Title !== undefined && input.Title !== null && { Title: input.Title }),
-  };
-};
-
-const serializeAws_json1_1CreateHITWithHITTypeRequest = (
-  input: CreateHITWithHITTypeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AssignmentReviewPolicy !== undefined &&
-      input.AssignmentReviewPolicy !== null && {
-        AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(input.AssignmentReviewPolicy, context),
-      }),
-    ...(input.HITLayoutId !== undefined && input.HITLayoutId !== null && { HITLayoutId: input.HITLayoutId }),
-    ...(input.HITLayoutParameters !== undefined &&
-      input.HITLayoutParameters !== null && {
-        HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(input.HITLayoutParameters, context),
-      }),
-    ...(input.HITReviewPolicy !== undefined &&
-      input.HITReviewPolicy !== null && {
-        HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
-      }),
-    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
-    ...(input.LifetimeInSeconds !== undefined &&
-      input.LifetimeInSeconds !== null && { LifetimeInSeconds: input.LifetimeInSeconds }),
-    ...(input.MaxAssignments !== undefined &&
-      input.MaxAssignments !== null && { MaxAssignments: input.MaxAssignments }),
-    ...(input.Question !== undefined && input.Question !== null && { Question: input.Question }),
-    ...(input.RequesterAnnotation !== undefined &&
-      input.RequesterAnnotation !== null && { RequesterAnnotation: input.RequesterAnnotation }),
-    ...(input.UniqueRequestToken !== undefined &&
-      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
-  };
-};
-
-const serializeAws_json1_1CreateQualificationTypeRequest = (
-  input: CreateQualificationTypeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AnswerKey !== undefined && input.AnswerKey !== null && { AnswerKey: input.AnswerKey }),
-    ...(input.AutoGranted !== undefined && input.AutoGranted !== null && { AutoGranted: input.AutoGranted }),
-    ...(input.AutoGrantedValue !== undefined &&
-      input.AutoGrantedValue !== null && { AutoGrantedValue: input.AutoGrantedValue }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Keywords !== undefined && input.Keywords !== null && { Keywords: input.Keywords }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.QualificationTypeStatus !== undefined &&
-      input.QualificationTypeStatus !== null && { QualificationTypeStatus: input.QualificationTypeStatus }),
-    ...(input.RetryDelayInSeconds !== undefined &&
-      input.RetryDelayInSeconds !== null && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
-    ...(input.Test !== undefined && input.Test !== null && { Test: input.Test }),
-    ...(input.TestDurationInSeconds !== undefined &&
-      input.TestDurationInSeconds !== null && { TestDurationInSeconds: input.TestDurationInSeconds }),
-  };
-};
-
-const serializeAws_json1_1CreateWorkerBlockRequest = (
-  input: CreateWorkerBlockRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
-  };
-};
-
-const serializeAws_json1_1CustomerIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_json1_1DeleteHITRequest = (input: DeleteHITRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-  };
-};
-
-const serializeAws_json1_1DeleteQualificationTypeRequest = (
-  input: DeleteQualificationTypeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-  };
-};
-
-const serializeAws_json1_1DeleteWorkerBlockRequest = (
-  input: DeleteWorkerBlockRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
-  };
-};
-
-const serializeAws_json1_1DisassociateQualificationFromWorkerRequest = (
-  input: DisassociateQualificationFromWorkerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
-  };
-};
-
-const serializeAws_json1_1EventTypeList = (input: (EventType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_json1_1GetAccountBalanceRequest = (
-  input: GetAccountBalanceRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
-
-const serializeAws_json1_1GetAssignmentRequest = (input: GetAssignmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
-  };
-};
-
-const serializeAws_json1_1GetFileUploadURLRequest = (input: GetFileUploadURLRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
-    ...(input.QuestionIdentifier !== undefined &&
-      input.QuestionIdentifier !== null && { QuestionIdentifier: input.QuestionIdentifier }),
-  };
-};
-
-const serializeAws_json1_1GetHITRequest = (input: GetHITRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-  };
-};
-
-const serializeAws_json1_1GetQualificationScoreRequest = (
-  input: GetQualificationScoreRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
-  };
-};
-
-const serializeAws_json1_1GetQualificationTypeRequest = (
-  input: GetQualificationTypeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-  };
-};
-
-const serializeAws_json1_1HITLayoutParameter = (input: HITLayoutParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_json1_1HITLayoutParameterList = (input: HITLayoutParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1HITLayoutParameter(entry, context);
-    });
-};
-
-const serializeAws_json1_1IntegerList = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_json1_1ListAssignmentsForHITRequest = (
-  input: ListAssignmentsForHITRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AssignmentStatuses !== undefined &&
-      input.AssignmentStatuses !== null && {
-        AssignmentStatuses: serializeAws_json1_1AssignmentStatusList(input.AssignmentStatuses, context),
-      }),
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListBonusPaymentsRequest = (
-  input: ListBonusPaymentsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListHITsForQualificationTypeRequest = (
-  input: ListHITsForQualificationTypeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-  };
-};
-
-const serializeAws_json1_1ListHITsRequest = (input: ListHITsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListQualificationRequestsRequest = (
-  input: ListQualificationRequestsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-  };
-};
-
-const serializeAws_json1_1ListQualificationTypesRequest = (
-  input: ListQualificationTypesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.MustBeOwnedByCaller !== undefined &&
-      input.MustBeOwnedByCaller !== null && { MustBeOwnedByCaller: input.MustBeOwnedByCaller }),
-    ...(input.MustBeRequestable !== undefined &&
-      input.MustBeRequestable !== null && { MustBeRequestable: input.MustBeRequestable }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Query !== undefined && input.Query !== null && { Query: input.Query }),
-  };
-};
-
-const serializeAws_json1_1ListReviewableHITsRequest = (
-  input: ListReviewableHITsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
-  };
-};
-
-const serializeAws_json1_1ListReviewPolicyResultsForHITRequest = (
-  input: ListReviewPolicyResultsForHITRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.PolicyLevels !== undefined &&
-      input.PolicyLevels !== null && {
-        PolicyLevels: serializeAws_json1_1ReviewPolicyLevelList(input.PolicyLevels, context),
-      }),
-    ...(input.RetrieveActions !== undefined &&
-      input.RetrieveActions !== null && { RetrieveActions: input.RetrieveActions }),
-    ...(input.RetrieveResults !== undefined &&
-      input.RetrieveResults !== null && { RetrieveResults: input.RetrieveResults }),
-  };
-};
-
-const serializeAws_json1_1ListWorkerBlocksRequest = (input: ListWorkerBlocksRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListWorkersWithQualificationTypeRequest = (
-  input: ListWorkersWithQualificationTypeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
-  };
-};
-
-const serializeAws_json1_1Locale = (input: Locale, context: __SerdeContext): any => {
-  return {
-    ...(input.Country !== undefined && input.Country !== null && { Country: input.Country }),
-    ...(input.Subdivision !== undefined && input.Subdivision !== null && { Subdivision: input.Subdivision }),
-  };
-};
-
-const serializeAws_json1_1LocaleList = (input: Locale[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1Locale(entry, context);
-    });
-};
-
-const serializeAws_json1_1NotificationSpecification = (
-  input: NotificationSpecification,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Destination !== undefined && input.Destination !== null && { Destination: input.Destination }),
-    ...(input.EventTypes !== undefined &&
-      input.EventTypes !== null && { EventTypes: serializeAws_json1_1EventTypeList(input.EventTypes, context) }),
-    ...(input.Transport !== undefined && input.Transport !== null && { Transport: input.Transport }),
-    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
-  };
-};
-
-const serializeAws_json1_1NotifyWorkersRequest = (input: NotifyWorkersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MessageText !== undefined && input.MessageText !== null && { MessageText: input.MessageText }),
-    ...(input.Subject !== undefined && input.Subject !== null && { Subject: input.Subject }),
-    ...(input.WorkerIds !== undefined &&
-      input.WorkerIds !== null && { WorkerIds: serializeAws_json1_1CustomerIdList(input.WorkerIds, context) }),
-  };
-};
-
-const serializeAws_json1_1ParameterMapEntry = (input: ParameterMapEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Values !== undefined &&
-      input.Values !== null && { Values: serializeAws_json1_1StringList(input.Values, context) }),
-  };
-};
-
-const serializeAws_json1_1ParameterMapEntryList = (input: ParameterMapEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1ParameterMapEntry(entry, context);
-    });
-};
-
-const serializeAws_json1_1PolicyParameter = (input: PolicyParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.MapEntries !== undefined &&
-      input.MapEntries !== null && {
-        MapEntries: serializeAws_json1_1ParameterMapEntryList(input.MapEntries, context),
-      }),
-    ...(input.Values !== undefined &&
-      input.Values !== null && { Values: serializeAws_json1_1StringList(input.Values, context) }),
-  };
-};
-
-const serializeAws_json1_1PolicyParameterList = (input: PolicyParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1PolicyParameter(entry, context);
-    });
-};
-
-const serializeAws_json1_1QualificationRequirement = (
-  input: QualificationRequirement,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ActionsGuarded !== undefined &&
-      input.ActionsGuarded !== null && { ActionsGuarded: input.ActionsGuarded }),
-    ...(input.Comparator !== undefined && input.Comparator !== null && { Comparator: input.Comparator }),
-    ...(input.IntegerValues !== undefined &&
-      input.IntegerValues !== null && { IntegerValues: serializeAws_json1_1IntegerList(input.IntegerValues, context) }),
-    ...(input.LocaleValues !== undefined &&
-      input.LocaleValues !== null && { LocaleValues: serializeAws_json1_1LocaleList(input.LocaleValues, context) }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.RequiredToPreview !== undefined &&
-      input.RequiredToPreview !== null && { RequiredToPreview: input.RequiredToPreview }),
-  };
-};
-
-const serializeAws_json1_1QualificationRequirementList = (
-  input: QualificationRequirement[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1QualificationRequirement(entry, context);
-    });
-};
-
-const serializeAws_json1_1RejectAssignmentRequest = (input: RejectAssignmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
-    ...(input.RequesterFeedback !== undefined &&
-      input.RequesterFeedback !== null && { RequesterFeedback: input.RequesterFeedback }),
-  };
-};
-
-const serializeAws_json1_1RejectQualificationRequestRequest = (
-  input: RejectQualificationRequestRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.QualificationRequestId !== undefined &&
-      input.QualificationRequestId !== null && { QualificationRequestId: input.QualificationRequestId }),
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
-  };
-};
-
-const serializeAws_json1_1ReviewPolicy = (input: ReviewPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.Parameters !== undefined &&
-      input.Parameters !== null && { Parameters: serializeAws_json1_1PolicyParameterList(input.Parameters, context) }),
-    ...(input.PolicyName !== undefined && input.PolicyName !== null && { PolicyName: input.PolicyName }),
-  };
-};
-
-const serializeAws_json1_1ReviewPolicyLevelList = (
-  input: (ReviewPolicyLevel | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_json1_1SendBonusRequest = (input: SendBonusRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
-    ...(input.BonusAmount !== undefined && input.BonusAmount !== null && { BonusAmount: input.BonusAmount }),
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
-    ...(input.UniqueRequestToken !== undefined &&
-      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
-  };
-};
-
-const serializeAws_json1_1SendTestEventNotificationRequest = (
-  input: SendTestEventNotificationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Notification !== undefined &&
-      input.Notification !== null && {
-        Notification: serializeAws_json1_1NotificationSpecification(input.Notification, context),
-      }),
-    ...(input.TestEventType !== undefined && input.TestEventType !== null && { TestEventType: input.TestEventType }),
-  };
-};
-
-const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_json1_1UpdateExpirationForHITRequest = (
-  input: UpdateExpirationForHITRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ExpireAt !== undefined &&
-      input.ExpireAt !== null && { ExpireAt: Math.round(input.ExpireAt.getTime() / 1000) }),
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-  };
-};
-
-const serializeAws_json1_1UpdateHITReviewStatusRequest = (
-  input: UpdateHITReviewStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.Revert !== undefined && input.Revert !== null && { Revert: input.Revert }),
-  };
-};
-
-const serializeAws_json1_1UpdateHITTypeOfHITRequest = (
-  input: UpdateHITTypeOfHITRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
-  };
-};
-
-const serializeAws_json1_1UpdateNotificationSettingsRequest = (
-  input: UpdateNotificationSettingsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Active !== undefined && input.Active !== null && { Active: input.Active }),
-    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
-    ...(input.Notification !== undefined &&
-      input.Notification !== null && {
-        Notification: serializeAws_json1_1NotificationSpecification(input.Notification, context),
-      }),
-  };
-};
-
-const serializeAws_json1_1UpdateQualificationTypeRequest = (
-  input: UpdateQualificationTypeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AnswerKey !== undefined && input.AnswerKey !== null && { AnswerKey: input.AnswerKey }),
-    ...(input.AutoGranted !== undefined && input.AutoGranted !== null && { AutoGranted: input.AutoGranted }),
-    ...(input.AutoGrantedValue !== undefined &&
-      input.AutoGrantedValue !== null && { AutoGrantedValue: input.AutoGrantedValue }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.QualificationTypeStatus !== undefined &&
-      input.QualificationTypeStatus !== null && { QualificationTypeStatus: input.QualificationTypeStatus }),
-    ...(input.RetryDelayInSeconds !== undefined &&
-      input.RetryDelayInSeconds !== null && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
-    ...(input.Test !== undefined && input.Test !== null && { Test: input.Test }),
-    ...(input.TestDurationInSeconds !== undefined &&
-      input.TestDurationInSeconds !== null && { TestDurationInSeconds: input.TestDurationInSeconds }),
-  };
-};
-
-const deserializeAws_json1_1AcceptQualificationRequestResponse = (
-  output: any,
-  context: __SerdeContext
-): AcceptQualificationRequestResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1ApproveAssignmentResponse = (
-  output: any,
-  context: __SerdeContext
-): ApproveAssignmentResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1Assignment = (output: any, context: __SerdeContext): Assignment => {
-  return {
-    AcceptTime:
-      output.AcceptTime !== undefined && output.AcceptTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AcceptTime)))
-        : undefined,
-    Answer: __expectString(output.Answer),
-    ApprovalTime:
-      output.ApprovalTime !== undefined && output.ApprovalTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApprovalTime)))
-        : undefined,
-    AssignmentId: __expectString(output.AssignmentId),
-    AssignmentStatus: __expectString(output.AssignmentStatus),
-    AutoApprovalTime:
-      output.AutoApprovalTime !== undefined && output.AutoApprovalTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AutoApprovalTime)))
-        : undefined,
-    Deadline:
-      output.Deadline !== undefined && output.Deadline !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Deadline)))
-        : undefined,
-    HITId: __expectString(output.HITId),
-    RejectionTime:
-      output.RejectionTime !== undefined && output.RejectionTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RejectionTime)))
-        : undefined,
-    RequesterFeedback: __expectString(output.RequesterFeedback),
-    SubmitTime:
-      output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
-        : undefined,
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
-};
-
-const deserializeAws_json1_1AssignmentList = (output: any, context: __SerdeContext): Assignment[] => {
+/**
+ * deserializeAws_json1_1AssignmentList
+ */
+const de_AssignmentList = (output: any, context: __SerdeContext): Assignment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Assignment(entry, context);
+      return de_Assignment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AssociateQualificationWithWorkerResponse = (
-  output: any,
-  context: __SerdeContext
-): AssociateQualificationWithWorkerResponse => {
-  return {} as any;
+// de_AssociateQualificationWithWorkerResponse omitted.
+
+/**
+ * deserializeAws_json1_1BonusPayment
+ */
+const de_BonusPayment = (output: any, context: __SerdeContext): BonusPayment => {
+  return take(output, {
+    AssignmentId: __expectString,
+    BonusAmount: __expectString,
+    GrantTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Reason: __expectString,
+    WorkerId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1BonusPayment = (output: any, context: __SerdeContext): BonusPayment => {
-  return {
-    AssignmentId: __expectString(output.AssignmentId),
-    BonusAmount: __expectString(output.BonusAmount),
-    GrantTime:
-      output.GrantTime !== undefined && output.GrantTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.GrantTime)))
-        : undefined,
-    Reason: __expectString(output.Reason),
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
-};
-
-const deserializeAws_json1_1BonusPaymentList = (output: any, context: __SerdeContext): BonusPayment[] => {
+/**
+ * deserializeAws_json1_1BonusPaymentList
+ */
+const de_BonusPaymentList = (output: any, context: __SerdeContext): BonusPayment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1BonusPayment(entry, context);
+      return de_BonusPayment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CreateAdditionalAssignmentsForHITResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateAdditionalAssignmentsForHITResponse => {
-  return {} as any;
+// de_CreateAdditionalAssignmentsForHITResponse omitted.
+
+/**
+ * deserializeAws_json1_1CreateHITResponse
+ */
+const de_CreateHITResponse = (output: any, context: __SerdeContext): CreateHITResponse => {
+  return take(output, {
+    HIT: (_: any) => de_HIT(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateHITResponse = (output: any, context: __SerdeContext): CreateHITResponse => {
-  return {
-    HIT: output.HIT !== undefined && output.HIT !== null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
-  } as any;
+// de_CreateHITTypeResponse omitted.
+
+/**
+ * deserializeAws_json1_1CreateHITWithHITTypeResponse
+ */
+const de_CreateHITWithHITTypeResponse = (output: any, context: __SerdeContext): CreateHITWithHITTypeResponse => {
+  return take(output, {
+    HIT: (_: any) => de_HIT(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateHITTypeResponse = (output: any, context: __SerdeContext): CreateHITTypeResponse => {
-  return {
-    HITTypeId: __expectString(output.HITTypeId),
-  } as any;
+/**
+ * deserializeAws_json1_1CreateQualificationTypeResponse
+ */
+const de_CreateQualificationTypeResponse = (output: any, context: __SerdeContext): CreateQualificationTypeResponse => {
+  return take(output, {
+    QualificationType: (_: any) => de_QualificationType(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateHITWithHITTypeResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateHITWithHITTypeResponse => {
-  return {
-    HIT: output.HIT !== undefined && output.HIT !== null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
-  } as any;
+// de_CreateWorkerBlockResponse omitted.
+
+// de_DeleteHITResponse omitted.
+
+// de_DeleteQualificationTypeResponse omitted.
+
+// de_DeleteWorkerBlockResponse omitted.
+
+// de_DisassociateQualificationFromWorkerResponse omitted.
+
+// de_GetAccountBalanceResponse omitted.
+
+/**
+ * deserializeAws_json1_1GetAssignmentResponse
+ */
+const de_GetAssignmentResponse = (output: any, context: __SerdeContext): GetAssignmentResponse => {
+  return take(output, {
+    Assignment: (_: any) => de_Assignment(_, context),
+    HIT: (_: any) => de_HIT(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateQualificationTypeResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateQualificationTypeResponse => {
-  return {
-    QualificationType:
-      output.QualificationType !== undefined && output.QualificationType !== null
-        ? deserializeAws_json1_1QualificationType(output.QualificationType, context)
-        : undefined,
-  } as any;
+// de_GetFileUploadURLResponse omitted.
+
+/**
+ * deserializeAws_json1_1GetHITResponse
+ */
+const de_GetHITResponse = (output: any, context: __SerdeContext): GetHITResponse => {
+  return take(output, {
+    HIT: (_: any) => de_HIT(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateWorkerBlockResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateWorkerBlockResponse => {
-  return {} as any;
+/**
+ * deserializeAws_json1_1GetQualificationScoreResponse
+ */
+const de_GetQualificationScoreResponse = (output: any, context: __SerdeContext): GetQualificationScoreResponse => {
+  return take(output, {
+    Qualification: (_: any) => de_Qualification(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteHITResponse = (output: any, context: __SerdeContext): DeleteHITResponse => {
-  return {} as any;
+/**
+ * deserializeAws_json1_1GetQualificationTypeResponse
+ */
+const de_GetQualificationTypeResponse = (output: any, context: __SerdeContext): GetQualificationTypeResponse => {
+  return take(output, {
+    QualificationType: (_: any) => de_QualificationType(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteQualificationTypeResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteQualificationTypeResponse => {
-  return {} as any;
+/**
+ * deserializeAws_json1_1HIT
+ */
+const de_HIT = (output: any, context: __SerdeContext): HIT => {
+  return take(output, {
+    AssignmentDurationInSeconds: __expectLong,
+    AutoApprovalDelayInSeconds: __expectLong,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Expiration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HITGroupId: __expectString,
+    HITId: __expectString,
+    HITLayoutId: __expectString,
+    HITReviewStatus: __expectString,
+    HITStatus: __expectString,
+    HITTypeId: __expectString,
+    Keywords: __expectString,
+    MaxAssignments: __expectInt32,
+    NumberOfAssignmentsAvailable: __expectInt32,
+    NumberOfAssignmentsCompleted: __expectInt32,
+    NumberOfAssignmentsPending: __expectInt32,
+    QualificationRequirements: _json,
+    Question: __expectString,
+    RequesterAnnotation: __expectString,
+    Reward: __expectString,
+    Title: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteWorkerBlockResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteWorkerBlockResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DisassociateQualificationFromWorkerResponse = (
-  output: any,
-  context: __SerdeContext
-): DisassociateQualificationFromWorkerResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1GetAccountBalanceResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAccountBalanceResponse => {
-  return {
-    AvailableBalance: __expectString(output.AvailableBalance),
-    OnHoldBalance: __expectString(output.OnHoldBalance),
-  } as any;
-};
-
-const deserializeAws_json1_1GetAssignmentResponse = (output: any, context: __SerdeContext): GetAssignmentResponse => {
-  return {
-    Assignment:
-      output.Assignment !== undefined && output.Assignment !== null
-        ? deserializeAws_json1_1Assignment(output.Assignment, context)
-        : undefined,
-    HIT: output.HIT !== undefined && output.HIT !== null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1GetFileUploadURLResponse = (
-  output: any,
-  context: __SerdeContext
-): GetFileUploadURLResponse => {
-  return {
-    FileUploadURL: __expectString(output.FileUploadURL),
-  } as any;
-};
-
-const deserializeAws_json1_1GetHITResponse = (output: any, context: __SerdeContext): GetHITResponse => {
-  return {
-    HIT: output.HIT !== undefined && output.HIT !== null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1GetQualificationScoreResponse = (
-  output: any,
-  context: __SerdeContext
-): GetQualificationScoreResponse => {
-  return {
-    Qualification:
-      output.Qualification !== undefined && output.Qualification !== null
-        ? deserializeAws_json1_1Qualification(output.Qualification, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1GetQualificationTypeResponse = (
-  output: any,
-  context: __SerdeContext
-): GetQualificationTypeResponse => {
-  return {
-    QualificationType:
-      output.QualificationType !== undefined && output.QualificationType !== null
-        ? deserializeAws_json1_1QualificationType(output.QualificationType, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1HIT = (output: any, context: __SerdeContext): HIT => {
-  return {
-    AssignmentDurationInSeconds: __expectLong(output.AssignmentDurationInSeconds),
-    AutoApprovalDelayInSeconds: __expectLong(output.AutoApprovalDelayInSeconds),
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    Expiration:
-      output.Expiration !== undefined && output.Expiration !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiration)))
-        : undefined,
-    HITGroupId: __expectString(output.HITGroupId),
-    HITId: __expectString(output.HITId),
-    HITLayoutId: __expectString(output.HITLayoutId),
-    HITReviewStatus: __expectString(output.HITReviewStatus),
-    HITStatus: __expectString(output.HITStatus),
-    HITTypeId: __expectString(output.HITTypeId),
-    Keywords: __expectString(output.Keywords),
-    MaxAssignments: __expectInt32(output.MaxAssignments),
-    NumberOfAssignmentsAvailable: __expectInt32(output.NumberOfAssignmentsAvailable),
-    NumberOfAssignmentsCompleted: __expectInt32(output.NumberOfAssignmentsCompleted),
-    NumberOfAssignmentsPending: __expectInt32(output.NumberOfAssignmentsPending),
-    QualificationRequirements:
-      output.QualificationRequirements !== undefined && output.QualificationRequirements !== null
-        ? deserializeAws_json1_1QualificationRequirementList(output.QualificationRequirements, context)
-        : undefined,
-    Question: __expectString(output.Question),
-    RequesterAnnotation: __expectString(output.RequesterAnnotation),
-    Reward: __expectString(output.Reward),
-    Title: __expectString(output.Title),
-  } as any;
-};
-
-const deserializeAws_json1_1HITList = (output: any, context: __SerdeContext): HIT[] => {
+/**
+ * deserializeAws_json1_1HITList
+ */
+const de_HITList = (output: any, context: __SerdeContext): HIT[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1HIT(entry, context);
+      return de_HIT(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1IntegerList = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
+// de_IntegerList omitted.
+
+/**
+ * deserializeAws_json1_1ListAssignmentsForHITResponse
+ */
+const de_ListAssignmentsForHITResponse = (output: any, context: __SerdeContext): ListAssignmentsForHITResponse => {
+  return take(output, {
+    Assignments: (_: any) => de_AssignmentList(_, context),
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListAssignmentsForHITResponse = (
-  output: any,
-  context: __SerdeContext
-): ListAssignmentsForHITResponse => {
-  return {
-    Assignments:
-      output.Assignments !== undefined && output.Assignments !== null
-        ? deserializeAws_json1_1AssignmentList(output.Assignments, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-  } as any;
+/**
+ * deserializeAws_json1_1ListBonusPaymentsResponse
+ */
+const de_ListBonusPaymentsResponse = (output: any, context: __SerdeContext): ListBonusPaymentsResponse => {
+  return take(output, {
+    BonusPayments: (_: any) => de_BonusPaymentList(_, context),
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListBonusPaymentsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListBonusPaymentsResponse => {
-  return {
-    BonusPayments:
-      output.BonusPayments !== undefined && output.BonusPayments !== null
-        ? deserializeAws_json1_1BonusPaymentList(output.BonusPayments, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-  } as any;
-};
-
-const deserializeAws_json1_1ListHITsForQualificationTypeResponse = (
+/**
+ * deserializeAws_json1_1ListHITsForQualificationTypeResponse
+ */
+const de_ListHITsForQualificationTypeResponse = (
   output: any,
   context: __SerdeContext
 ): ListHITsForQualificationTypeResponse => {
-  return {
-    HITs:
-      output.HITs !== undefined && output.HITs !== null
-        ? deserializeAws_json1_1HITList(output.HITs, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-  } as any;
+  return take(output, {
+    HITs: (_: any) => de_HITList(_, context),
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListHITsResponse = (output: any, context: __SerdeContext): ListHITsResponse => {
-  return {
-    HITs:
-      output.HITs !== undefined && output.HITs !== null
-        ? deserializeAws_json1_1HITList(output.HITs, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-  } as any;
+/**
+ * deserializeAws_json1_1ListHITsResponse
+ */
+const de_ListHITsResponse = (output: any, context: __SerdeContext): ListHITsResponse => {
+  return take(output, {
+    HITs: (_: any) => de_HITList(_, context),
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListQualificationRequestsResponse = (
+/**
+ * deserializeAws_json1_1ListQualificationRequestsResponse
+ */
+const de_ListQualificationRequestsResponse = (
   output: any,
   context: __SerdeContext
 ): ListQualificationRequestsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-    QualificationRequests:
-      output.QualificationRequests !== undefined && output.QualificationRequests !== null
-        ? deserializeAws_json1_1QualificationRequestList(output.QualificationRequests, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+    QualificationRequests: (_: any) => de_QualificationRequestList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ListQualificationTypesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListQualificationTypesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-    QualificationTypes:
-      output.QualificationTypes !== undefined && output.QualificationTypes !== null
-        ? deserializeAws_json1_1QualificationTypeList(output.QualificationTypes, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1ListQualificationTypesResponse
+ */
+const de_ListQualificationTypesResponse = (output: any, context: __SerdeContext): ListQualificationTypesResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+    QualificationTypes: (_: any) => de_QualificationTypeList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ListReviewableHITsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListReviewableHITsResponse => {
-  return {
-    HITs:
-      output.HITs !== undefined && output.HITs !== null
-        ? deserializeAws_json1_1HITList(output.HITs, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-  } as any;
+/**
+ * deserializeAws_json1_1ListReviewableHITsResponse
+ */
+const de_ListReviewableHITsResponse = (output: any, context: __SerdeContext): ListReviewableHITsResponse => {
+  return take(output, {
+    HITs: (_: any) => de_HITList(_, context),
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListReviewPolicyResultsForHITResponse = (
+/**
+ * deserializeAws_json1_1ListReviewPolicyResultsForHITResponse
+ */
+const de_ListReviewPolicyResultsForHITResponse = (
   output: any,
   context: __SerdeContext
 ): ListReviewPolicyResultsForHITResponse => {
-  return {
-    AssignmentReviewPolicy:
-      output.AssignmentReviewPolicy !== undefined && output.AssignmentReviewPolicy !== null
-        ? deserializeAws_json1_1ReviewPolicy(output.AssignmentReviewPolicy, context)
-        : undefined,
-    AssignmentReviewReport:
-      output.AssignmentReviewReport !== undefined && output.AssignmentReviewReport !== null
-        ? deserializeAws_json1_1ReviewReport(output.AssignmentReviewReport, context)
-        : undefined,
-    HITId: __expectString(output.HITId),
-    HITReviewPolicy:
-      output.HITReviewPolicy !== undefined && output.HITReviewPolicy !== null
-        ? deserializeAws_json1_1ReviewPolicy(output.HITReviewPolicy, context)
-        : undefined,
-    HITReviewReport:
-      output.HITReviewReport !== undefined && output.HITReviewReport !== null
-        ? deserializeAws_json1_1ReviewReport(output.HITReviewReport, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    AssignmentReviewPolicy: _json,
+    AssignmentReviewReport: (_: any) => de_ReviewReport(_, context),
+    HITId: __expectString,
+    HITReviewPolicy: _json,
+    HITReviewReport: (_: any) => de_ReviewReport(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListWorkerBlocksResponse = (
-  output: any,
-  context: __SerdeContext
-): ListWorkerBlocksResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-    WorkerBlocks:
-      output.WorkerBlocks !== undefined && output.WorkerBlocks !== null
-        ? deserializeAws_json1_1WorkerBlockList(output.WorkerBlocks, context)
-        : undefined,
-  } as any;
-};
+// de_ListWorkerBlocksResponse omitted.
 
-const deserializeAws_json1_1ListWorkersWithQualificationTypeResponse = (
+/**
+ * deserializeAws_json1_1ListWorkersWithQualificationTypeResponse
+ */
+const de_ListWorkersWithQualificationTypeResponse = (
   output: any,
   context: __SerdeContext
 ): ListWorkersWithQualificationTypeResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    NumResults: __expectInt32(output.NumResults),
-    Qualifications:
-      output.Qualifications !== undefined && output.Qualifications !== null
-        ? deserializeAws_json1_1QualificationList(output.Qualifications, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    NumResults: __expectInt32,
+    Qualifications: (_: any) => de_QualificationList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1Locale = (output: any, context: __SerdeContext): Locale => {
-  return {
-    Country: __expectString(output.Country),
-    Subdivision: __expectString(output.Subdivision),
-  } as any;
+// de_Locale omitted.
+
+// de_LocaleList omitted.
+
+// de_NotifyWorkersFailureStatus omitted.
+
+// de_NotifyWorkersFailureStatusList omitted.
+
+// de_NotifyWorkersResponse omitted.
+
+// de_ParameterMapEntry omitted.
+
+// de_ParameterMapEntryList omitted.
+
+// de_PolicyParameter omitted.
+
+// de_PolicyParameterList omitted.
+
+/**
+ * deserializeAws_json1_1Qualification
+ */
+const de_Qualification = (output: any, context: __SerdeContext): Qualification => {
+  return take(output, {
+    GrantTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IntegerValue: __expectInt32,
+    LocaleValue: _json,
+    QualificationTypeId: __expectString,
+    Status: __expectString,
+    WorkerId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1LocaleList = (output: any, context: __SerdeContext): Locale[] => {
+/**
+ * deserializeAws_json1_1QualificationList
+ */
+const de_QualificationList = (output: any, context: __SerdeContext): Qualification[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Locale(entry, context);
+      return de_Qualification(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1NotifyWorkersFailureStatus = (
-  output: any,
-  context: __SerdeContext
-): NotifyWorkersFailureStatus => {
-  return {
-    NotifyWorkersFailureCode: __expectString(output.NotifyWorkersFailureCode),
-    NotifyWorkersFailureMessage: __expectString(output.NotifyWorkersFailureMessage),
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
+/**
+ * deserializeAws_json1_1QualificationRequest
+ */
+const de_QualificationRequest = (output: any, context: __SerdeContext): QualificationRequest => {
+  return take(output, {
+    Answer: __expectString,
+    QualificationRequestId: __expectString,
+    QualificationTypeId: __expectString,
+    SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Test: __expectString,
+    WorkerId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1NotifyWorkersFailureStatusList = (
-  output: any,
-  context: __SerdeContext
-): NotifyWorkersFailureStatus[] => {
+/**
+ * deserializeAws_json1_1QualificationRequestList
+ */
+const de_QualificationRequestList = (output: any, context: __SerdeContext): QualificationRequest[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1NotifyWorkersFailureStatus(entry, context);
+      return de_QualificationRequest(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1NotifyWorkersResponse = (output: any, context: __SerdeContext): NotifyWorkersResponse => {
-  return {
-    NotifyWorkersFailureStatuses:
-      output.NotifyWorkersFailureStatuses !== undefined && output.NotifyWorkersFailureStatuses !== null
-        ? deserializeAws_json1_1NotifyWorkersFailureStatusList(output.NotifyWorkersFailureStatuses, context)
-        : undefined,
-  } as any;
+// de_QualificationRequirement omitted.
+
+// de_QualificationRequirementList omitted.
+
+/**
+ * deserializeAws_json1_1QualificationType
+ */
+const de_QualificationType = (output: any, context: __SerdeContext): QualificationType => {
+  return take(output, {
+    AnswerKey: __expectString,
+    AutoGranted: __expectBoolean,
+    AutoGrantedValue: __expectInt32,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    IsRequestable: __expectBoolean,
+    Keywords: __expectString,
+    Name: __expectString,
+    QualificationTypeId: __expectString,
+    QualificationTypeStatus: __expectString,
+    RetryDelayInSeconds: __expectLong,
+    Test: __expectString,
+    TestDurationInSeconds: __expectLong,
+  }) as any;
 };
 
-const deserializeAws_json1_1ParameterMapEntry = (output: any, context: __SerdeContext): ParameterMapEntry => {
-  return {
-    Key: __expectString(output.Key),
-    Values:
-      output.Values !== undefined && output.Values !== null
-        ? deserializeAws_json1_1StringList(output.Values, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ParameterMapEntryList = (output: any, context: __SerdeContext): ParameterMapEntry[] => {
+/**
+ * deserializeAws_json1_1QualificationTypeList
+ */
+const de_QualificationTypeList = (output: any, context: __SerdeContext): QualificationType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ParameterMapEntry(entry, context);
+      return de_QualificationType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PolicyParameter = (output: any, context: __SerdeContext): PolicyParameter => {
-  return {
-    Key: __expectString(output.Key),
-    MapEntries:
-      output.MapEntries !== undefined && output.MapEntries !== null
-        ? deserializeAws_json1_1ParameterMapEntryList(output.MapEntries, context)
-        : undefined,
-    Values:
-      output.Values !== undefined && output.Values !== null
-        ? deserializeAws_json1_1StringList(output.Values, context)
-        : undefined,
-  } as any;
+// de_RejectAssignmentResponse omitted.
+
+// de_RejectQualificationRequestResponse omitted.
+
+// de_RequestError omitted.
+
+/**
+ * deserializeAws_json1_1ReviewActionDetail
+ */
+const de_ReviewActionDetail = (output: any, context: __SerdeContext): ReviewActionDetail => {
+  return take(output, {
+    ActionId: __expectString,
+    ActionName: __expectString,
+    CompleteTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorCode: __expectString,
+    Result: __expectString,
+    Status: __expectString,
+    TargetId: __expectString,
+    TargetType: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1PolicyParameterList = (output: any, context: __SerdeContext): PolicyParameter[] => {
+/**
+ * deserializeAws_json1_1ReviewActionDetailList
+ */
+const de_ReviewActionDetailList = (output: any, context: __SerdeContext): ReviewActionDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1PolicyParameter(entry, context);
+      return de_ReviewActionDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Qualification = (output: any, context: __SerdeContext): Qualification => {
-  return {
-    GrantTime:
-      output.GrantTime !== undefined && output.GrantTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.GrantTime)))
-        : undefined,
-    IntegerValue: __expectInt32(output.IntegerValue),
-    LocaleValue:
-      output.LocaleValue !== undefined && output.LocaleValue !== null
-        ? deserializeAws_json1_1Locale(output.LocaleValue, context)
-        : undefined,
-    QualificationTypeId: __expectString(output.QualificationTypeId),
-    Status: __expectString(output.Status),
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
+// de_ReviewPolicy omitted.
+
+/**
+ * deserializeAws_json1_1ReviewReport
+ */
+const de_ReviewReport = (output: any, context: __SerdeContext): ReviewReport => {
+  return take(output, {
+    ReviewActions: (_: any) => de_ReviewActionDetailList(_, context),
+    ReviewResults: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1QualificationList = (output: any, context: __SerdeContext): Qualification[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Qualification(entry, context);
-    });
-  return retVal;
+// de_ReviewResultDetail omitted.
+
+// de_ReviewResultDetailList omitted.
+
+// de_SendBonusResponse omitted.
+
+// de_SendTestEventNotificationResponse omitted.
+
+// de_ServiceFault omitted.
+
+// de_StringList omitted.
+
+// de_UpdateExpirationForHITResponse omitted.
+
+// de_UpdateHITReviewStatusResponse omitted.
+
+// de_UpdateHITTypeOfHITResponse omitted.
+
+// de_UpdateNotificationSettingsResponse omitted.
+
+/**
+ * deserializeAws_json1_1UpdateQualificationTypeResponse
+ */
+const de_UpdateQualificationTypeResponse = (output: any, context: __SerdeContext): UpdateQualificationTypeResponse => {
+  return take(output, {
+    QualificationType: (_: any) => de_QualificationType(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1QualificationRequest = (output: any, context: __SerdeContext): QualificationRequest => {
-  return {
-    Answer: __expectString(output.Answer),
-    QualificationRequestId: __expectString(output.QualificationRequestId),
-    QualificationTypeId: __expectString(output.QualificationTypeId),
-    SubmitTime:
-      output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
-        : undefined,
-    Test: __expectString(output.Test),
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
-};
+// de_WorkerBlock omitted.
 
-const deserializeAws_json1_1QualificationRequestList = (
-  output: any,
-  context: __SerdeContext
-): QualificationRequest[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1QualificationRequest(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1QualificationRequirement = (
-  output: any,
-  context: __SerdeContext
-): QualificationRequirement => {
-  return {
-    ActionsGuarded: __expectString(output.ActionsGuarded),
-    Comparator: __expectString(output.Comparator),
-    IntegerValues:
-      output.IntegerValues !== undefined && output.IntegerValues !== null
-        ? deserializeAws_json1_1IntegerList(output.IntegerValues, context)
-        : undefined,
-    LocaleValues:
-      output.LocaleValues !== undefined && output.LocaleValues !== null
-        ? deserializeAws_json1_1LocaleList(output.LocaleValues, context)
-        : undefined,
-    QualificationTypeId: __expectString(output.QualificationTypeId),
-    RequiredToPreview: __expectBoolean(output.RequiredToPreview),
-  } as any;
-};
-
-const deserializeAws_json1_1QualificationRequirementList = (
-  output: any,
-  context: __SerdeContext
-): QualificationRequirement[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1QualificationRequirement(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1QualificationType = (output: any, context: __SerdeContext): QualificationType => {
-  return {
-    AnswerKey: __expectString(output.AnswerKey),
-    AutoGranted: __expectBoolean(output.AutoGranted),
-    AutoGrantedValue: __expectInt32(output.AutoGrantedValue),
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    IsRequestable: __expectBoolean(output.IsRequestable),
-    Keywords: __expectString(output.Keywords),
-    Name: __expectString(output.Name),
-    QualificationTypeId: __expectString(output.QualificationTypeId),
-    QualificationTypeStatus: __expectString(output.QualificationTypeStatus),
-    RetryDelayInSeconds: __expectLong(output.RetryDelayInSeconds),
-    Test: __expectString(output.Test),
-    TestDurationInSeconds: __expectLong(output.TestDurationInSeconds),
-  } as any;
-};
-
-const deserializeAws_json1_1QualificationTypeList = (output: any, context: __SerdeContext): QualificationType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1QualificationType(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1RejectAssignmentResponse = (
-  output: any,
-  context: __SerdeContext
-): RejectAssignmentResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1RejectQualificationRequestResponse = (
-  output: any,
-  context: __SerdeContext
-): RejectQualificationRequestResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1RequestError = (output: any, context: __SerdeContext): RequestError => {
-  return {
-    Message: __expectString(output.Message),
-    TurkErrorCode: __expectString(output.TurkErrorCode),
-  } as any;
-};
-
-const deserializeAws_json1_1ReviewActionDetail = (output: any, context: __SerdeContext): ReviewActionDetail => {
-  return {
-    ActionId: __expectString(output.ActionId),
-    ActionName: __expectString(output.ActionName),
-    CompleteTime:
-      output.CompleteTime !== undefined && output.CompleteTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompleteTime)))
-        : undefined,
-    ErrorCode: __expectString(output.ErrorCode),
-    Result: __expectString(output.Result),
-    Status: __expectString(output.Status),
-    TargetId: __expectString(output.TargetId),
-    TargetType: __expectString(output.TargetType),
-  } as any;
-};
-
-const deserializeAws_json1_1ReviewActionDetailList = (output: any, context: __SerdeContext): ReviewActionDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ReviewActionDetail(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ReviewPolicy = (output: any, context: __SerdeContext): ReviewPolicy => {
-  return {
-    Parameters:
-      output.Parameters !== undefined && output.Parameters !== null
-        ? deserializeAws_json1_1PolicyParameterList(output.Parameters, context)
-        : undefined,
-    PolicyName: __expectString(output.PolicyName),
-  } as any;
-};
-
-const deserializeAws_json1_1ReviewReport = (output: any, context: __SerdeContext): ReviewReport => {
-  return {
-    ReviewActions:
-      output.ReviewActions !== undefined && output.ReviewActions !== null
-        ? deserializeAws_json1_1ReviewActionDetailList(output.ReviewActions, context)
-        : undefined,
-    ReviewResults:
-      output.ReviewResults !== undefined && output.ReviewResults !== null
-        ? deserializeAws_json1_1ReviewResultDetailList(output.ReviewResults, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ReviewResultDetail = (output: any, context: __SerdeContext): ReviewResultDetail => {
-  return {
-    ActionId: __expectString(output.ActionId),
-    Key: __expectString(output.Key),
-    QuestionId: __expectString(output.QuestionId),
-    SubjectId: __expectString(output.SubjectId),
-    SubjectType: __expectString(output.SubjectType),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1ReviewResultDetailList = (output: any, context: __SerdeContext): ReviewResultDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ReviewResultDetail(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1SendBonusResponse = (output: any, context: __SerdeContext): SendBonusResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1SendTestEventNotificationResponse = (
-  output: any,
-  context: __SerdeContext
-): SendTestEventNotificationResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1ServiceFault = (output: any, context: __SerdeContext): ServiceFault => {
-  return {
-    Message: __expectString(output.Message),
-    TurkErrorCode: __expectString(output.TurkErrorCode),
-  } as any;
-};
-
-const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1UpdateExpirationForHITResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateExpirationForHITResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateHITReviewStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateHITReviewStatusResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateHITTypeOfHITResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateHITTypeOfHITResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateNotificationSettingsResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateNotificationSettingsResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateQualificationTypeResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateQualificationTypeResponse => {
-  return {
-    QualificationType:
-      output.QualificationType !== undefined && output.QualificationType !== null
-        ? deserializeAws_json1_1QualificationType(output.QualificationType, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1WorkerBlock = (output: any, context: __SerdeContext): WorkerBlock => {
-  return {
-    Reason: __expectString(output.Reason),
-    WorkerId: __expectString(output.WorkerId),
-  } as any;
-};
-
-const deserializeAws_json1_1WorkerBlockList = (output: any, context: __SerdeContext): WorkerBlock[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1WorkerBlock(entry, context);
-    });
-  return retVal;
-};
+// de_WorkerBlockList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -4148,6 +3290,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `MTurkRequesterServiceV20170117.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
@@ -4157,14 +3305,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -4186,6 +3346,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

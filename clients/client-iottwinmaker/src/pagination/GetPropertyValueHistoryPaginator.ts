@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetPropertyValueHistoryCommand,
   GetPropertyValueHistoryCommandInput,
   GetPropertyValueHistoryCommandOutput,
 } from "../commands/GetPropertyValueHistoryCommand";
-import { IoTTwinMaker } from "../IoTTwinMaker";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
 import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTTwinMakerClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetPropertyValueHistoryCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTTwinMaker,
-  input: GetPropertyValueHistoryCommandInput,
-  ...args: any
-): Promise<GetPropertyValueHistoryCommandOutput> => {
-  // @ts-ignore
-  return await client.getPropertyValueHistory(input, ...args);
-};
 export async function* paginateGetPropertyValueHistory(
   config: IoTTwinMakerPaginationConfiguration,
   input: GetPropertyValueHistoryCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateGetPropertyValueHistory(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTTwinMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTTwinMakerClient) {
+    if (config.client instanceof IoTTwinMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTTwinMaker | IoTTwinMakerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

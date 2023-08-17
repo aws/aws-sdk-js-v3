@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteDatasetRequest, DeleteDatasetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDatasetCommand,
-  serializeAws_json1_1DeleteDatasetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDatasetCommand, se_DeleteDatasetCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteDatasetCommand}.
+ */
 export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDatasetCommand}.
+ */
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Amazon Rekognition Custom Labels dataset.
  *    Deleting a dataset might take while. Use <a>DescribeDataset</a> to check the
  *    current status. The dataset is still deleting if the value of <code>Status</code> is
@@ -38,13 +52,62 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * import { RekognitionClient, DeleteDatasetCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteDatasetCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DeleteDatasetRequest
+ *   DatasetArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
+ * @returns {@link DeleteDatasetCommandOutput}
  * @see {@link DeleteDatasetCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
+ *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
+ *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is already being used.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
+ *
+ * @example To delete an Amazon Rekognition Custom Labels dataset
+ * ```javascript
+ * // Deletes an Amazon Rekognition Custom Labels dataset.
+ * const input = {
+ *   "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/dataset/test/1690556733321"
+ * };
+ * const command = new DeleteDatasetCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-amazon-rekognition-custom-labels-dataset-1690826556349
+ * ```
  *
  */
 export class DeleteDatasetCommand extends $Command<
@@ -55,6 +118,18 @@ export class DeleteDatasetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +145,7 @@ export class DeleteDatasetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDatasetCommandInput, DeleteDatasetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteDatasetCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +156,8 @@ export class DeleteDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatasetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDatasetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +167,18 @@ export class DeleteDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDatasetCommand(input, context);
+    return se_DeleteDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetCommandOutput> {
-    return deserializeAws_json1_1DeleteDatasetCommand(output, context);
+    return de_DeleteDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

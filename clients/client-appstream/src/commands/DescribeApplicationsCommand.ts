@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DescribeApplicationsRequest, DescribeApplicationsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeApplicationsCommand,
-  serializeAws_json1_1DescribeApplicationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeApplicationsCommand, se_DescribeApplicationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeApplicationsCommand}.
+ */
 export interface DescribeApplicationsCommandInput extends DescribeApplicationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeApplicationsCommand}.
+ */
 export interface DescribeApplicationsCommandOutput extends DescribeApplicationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,63 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  * import { AppStreamClient, DescribeApplicationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeApplicationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeApplicationsRequest
+ *   Arns: [ // ArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeApplicationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeApplicationsResult
+ * //   Applications: [ // Applications
+ * //     { // Application
+ * //       Name: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       IconURL: "STRING_VALUE",
+ * //       LaunchPath: "STRING_VALUE",
+ * //       LaunchParameters: "STRING_VALUE",
+ * //       Enabled: true || false,
+ * //       Metadata: { // Metadata
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       WorkingDirectory: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       AppBlockArn: "STRING_VALUE",
+ * //       IconS3Location: { // S3Location
+ * //         S3Bucket: "STRING_VALUE", // required
+ * //         S3Key: "STRING_VALUE",
+ * //       },
+ * //       Platforms: [ // Platforms
+ * //         "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
+ * //       ],
+ * //       InstanceFamilies: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeApplicationsCommandInput - {@link DescribeApplicationsCommandInput}
+ * @returns {@link DescribeApplicationsCommandOutput}
  * @see {@link DescribeApplicationsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeApplicationsCommand extends $Command<
@@ -46,6 +110,18 @@ export class DescribeApplicationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +137,9 @@ export class DescribeApplicationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeApplicationsCommandInput, DescribeApplicationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeApplicationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +150,8 @@ export class DescribeApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +161,18 @@ export class DescribeApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicationsCommand(input, context);
+    return se_DescribeApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationsCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicationsCommand(output, context);
+    return de_DescribeApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { CancelTransactionRequest, CancelTransactionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelTransactionCommand,
-  serializeAws_restJson1CancelTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelTransactionCommand, se_CancelTransactionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CancelTransactionCommand}.
+ */
 export interface CancelTransactionCommandInput extends CancelTransactionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelTransactionCommand}.
+ */
 export interface CancelTransactionCommandOutput extends CancelTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to cancel the specified transaction. Returns an exception if the transaction was previously committed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,44 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  * import { LakeFormationClient, CancelTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, CancelTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // CancelTransactionRequest
+ *   TransactionId: "STRING_VALUE", // required
+ * };
  * const command = new CancelTransactionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CancelTransactionCommandInput - {@link CancelTransactionCommandInput}
+ * @returns {@link CancelTransactionCommandOutput}
  * @see {@link CancelTransactionCommandInput} for command's `input` shape.
  * @see {@link CancelTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link TransactionCommitInProgressException} (client fault)
+ *  <p>Contains details about an error related to a transaction commit that was in progress.</p>
+ *
+ * @throws {@link TransactionCommittedException} (client fault)
+ *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+ *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class CancelTransactionCommand extends $Command<
@@ -46,6 +91,18 @@ export class CancelTransactionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CancelTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +118,9 @@ export class CancelTransactionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CancelTransactionCommandInput, CancelTransactionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CancelTransactionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +131,8 @@ export class CancelTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelTransactionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelTransactionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +142,18 @@ export class CancelTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelTransactionCommand(input, context);
+    return se_CancelTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelTransactionCommandOutput> {
-    return deserializeAws_restJson1CancelTransactionCommand(output, context);
+    return de_CancelTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

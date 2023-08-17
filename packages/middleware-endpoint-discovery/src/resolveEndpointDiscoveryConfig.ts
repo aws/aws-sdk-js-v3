@@ -1,14 +1,15 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
-import { Credentials, Provider } from "@aws-sdk/types";
-
-export interface EndpointDiscoveryInputConfig {}
+import { AwsCredentialIdentity, MemoizedProvider, Provider } from "@smithy/types";
 
 export interface PreviouslyResolved {
-  isCustomEndpoint: boolean;
-  credentials: Provider<Credentials>;
+  isCustomEndpoint?: boolean;
+  credentials: MemoizedProvider<AwsCredentialIdentity>;
   endpointDiscoveryEnabledProvider: Provider<boolean | undefined>;
 }
 
+/**
+ * @public
+ */
 export interface EndpointDiscoveryInputConfig {
   /**
    * The size of the client cache storing endpoints from endpoint discovery operations.

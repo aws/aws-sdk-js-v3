@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,27 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ListJournalKinesisStreamsForLedgerRequest,
   ListJournalKinesisStreamsForLedgerResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand,
-  serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand,
+  de_ListJournalKinesisStreamsForLedgerCommand,
+  se_ListJournalKinesisStreamsForLedgerCommand,
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListJournalKinesisStreamsForLedgerCommand}.
+ */
 export interface ListJournalKinesisStreamsForLedgerCommandInput extends ListJournalKinesisStreamsForLedgerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListJournalKinesisStreamsForLedgerCommand}.
+ */
 export interface ListJournalKinesisStreamsForLedgerCommandOutput
   extends ListJournalKinesisStreamsForLedgerResponse,
     __MetadataBearer {}
 
 /**
- * <p>Returns an array of all Amazon QLDB journal stream descriptors for a given ledger. The
- *          output of each stream descriptor includes the same details that are returned by
- *             <code>DescribeJournalKinesisStream</code>.</p>
+ * @public
+ * <p>Returns all Amazon QLDB journal streams for a given ledger.</p>
  *          <p>This action does not return any expired journal streams. For more information, see
  *             <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration">Expiration for terminal streams</a> in the <i>Amazon QLDB Developer
  *             Guide</i>.</p>
@@ -42,13 +57,54 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
  * import { QLDBClient, ListJournalKinesisStreamsForLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ListJournalKinesisStreamsForLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // ListJournalKinesisStreamsForLedgerRequest
+ *   LedgerName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListJournalKinesisStreamsForLedgerCommand(input);
  * const response = await client.send(command);
+ * // { // ListJournalKinesisStreamsForLedgerResponse
+ * //   Streams: [ // JournalKinesisStreamDescriptionList
+ * //     { // JournalKinesisStreamDescription
+ * //       LedgerName: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       InclusiveStartTime: new Date("TIMESTAMP"),
+ * //       ExclusiveEndTime: new Date("TIMESTAMP"),
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       StreamId: "STRING_VALUE", // required
+ * //       Arn: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "COMPLETED" || "CANCELED" || "FAILED" || "IMPAIRED", // required
+ * //       KinesisConfiguration: { // KinesisConfiguration
+ * //         StreamArn: "STRING_VALUE", // required
+ * //         AggregationEnabled: true || false,
+ * //       },
+ * //       ErrorCause: "KINESIS_STREAM_NOT_FOUND" || "IAM_PERMISSION_REVOKED",
+ * //       StreamName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListJournalKinesisStreamsForLedgerCommandInput - {@link ListJournalKinesisStreamsForLedgerCommandInput}
+ * @returns {@link ListJournalKinesisStreamsForLedgerCommandOutput}
  * @see {@link ListJournalKinesisStreamsForLedgerCommandInput} for command's `input` shape.
  * @see {@link ListJournalKinesisStreamsForLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ResourcePreconditionNotMetException} (client fault)
+ *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
+ *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
@@ -59,6 +115,18 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListJournalKinesisStreamsForLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +142,9 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListJournalKinesisStreamsForLedgerCommandInput, ListJournalKinesisStreamsForLedgerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListJournalKinesisStreamsForLedgerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -84,8 +155,8 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,18 +166,24 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListJournalKinesisStreamsForLedgerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand(input, context);
+    return se_ListJournalKinesisStreamsForLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJournalKinesisStreamsForLedgerCommandOutput> {
-    return deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand(output, context);
+    return de_ListJournalKinesisStreamsForLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeReservedNodesCommand,
   DescribeReservedNodesCommandInput,
   DescribeReservedNodesCommandOutput,
 } from "../commands/DescribeReservedNodesCommand";
-import { Redshift } from "../Redshift";
 import { RedshiftClient } from "../RedshiftClient";
 import { RedshiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RedshiftClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeReservedNodesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Redshift,
-  input: DescribeReservedNodesCommandInput,
-  ...args: any
-): Promise<DescribeReservedNodesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeReservedNodes(input, ...args);
-};
 export async function* paginateDescribeReservedNodes(
   config: RedshiftPaginationConfiguration,
   input: DescribeReservedNodesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeReservedNodes(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof Redshift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RedshiftClient) {
+    if (config.client instanceof RedshiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Redshift | RedshiftClient");
     }
     yield page;
+    const prevToken = token;
     token = page.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

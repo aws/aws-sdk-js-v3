@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ResetServiceSpecificCredentialRequest, ResetServiceSpecificCredentialResponse } from "../models/models_0";
 import {
-  deserializeAws_queryResetServiceSpecificCredentialCommand,
-  serializeAws_queryResetServiceSpecificCredentialCommand,
+  ResetServiceSpecificCredentialRequest,
+  ResetServiceSpecificCredentialResponse,
+  ResetServiceSpecificCredentialResponseFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  de_ResetServiceSpecificCredentialCommand,
+  se_ResetServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ResetServiceSpecificCredentialCommand}.
+ */
 export interface ResetServiceSpecificCredentialCommandInput extends ResetServiceSpecificCredentialRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ResetServiceSpecificCredentialCommand}.
+ */
 export interface ResetServiceSpecificCredentialCommandOutput
   extends ResetServiceSpecificCredentialResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the password for a service-specific credential. The new password is Amazon Web Services
  *             generated and cryptographically strong. It cannot be configured by the user. Resetting
  *             the password immediately invalidates the previous password associated with this
@@ -34,13 +55,38 @@ export interface ResetServiceSpecificCredentialCommandOutput
  * import { IAMClient, ResetServiceSpecificCredentialCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ResetServiceSpecificCredentialCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ResetServiceSpecificCredentialRequest
+ *   UserName: "STRING_VALUE",
+ *   ServiceSpecificCredentialId: "STRING_VALUE", // required
+ * };
  * const command = new ResetServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
+ * // { // ResetServiceSpecificCredentialResponse
+ * //   ServiceSpecificCredential: { // ServiceSpecificCredential
+ * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     ServiceName: "STRING_VALUE", // required
+ * //     ServiceUserName: "STRING_VALUE", // required
+ * //     ServicePassword: "STRING_VALUE", // required
+ * //     ServiceSpecificCredentialId: "STRING_VALUE", // required
+ * //     UserName: "STRING_VALUE", // required
+ * //     Status: "Active" || "Inactive", // required
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param ResetServiceSpecificCredentialCommandInput - {@link ResetServiceSpecificCredentialCommandInput}
+ * @returns {@link ResetServiceSpecificCredentialCommandOutput}
  * @see {@link ResetServiceSpecificCredentialCommandInput} for command's `input` shape.
  * @see {@link ResetServiceSpecificCredentialCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ResetServiceSpecificCredentialCommand extends $Command<
@@ -51,6 +97,18 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ResetServiceSpecificCredentialCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +124,9 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ResetServiceSpecificCredentialCommandInput, ResetServiceSpecificCredentialCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ResetServiceSpecificCredentialCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +137,8 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetServiceSpecificCredentialRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetServiceSpecificCredentialResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ResetServiceSpecificCredentialResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,18 +148,24 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ResetServiceSpecificCredentialCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryResetServiceSpecificCredentialCommand(input, context);
+    return se_ResetServiceSpecificCredentialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetServiceSpecificCredentialCommandOutput> {
-    return deserializeAws_queryResetServiceSpecificCredentialCommand(output, context);
+    return de_ResetServiceSpecificCredentialCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { SSMContacts } from "../SSMContacts";
 import { SSMContactsClient } from "../SSMContactsClient";
 
+/**
+ * @public
+ */
 export interface SSMContactsPaginationConfiguration extends PaginationConfiguration {
-  client: SSMContacts | SSMContactsClient;
+  client: SSMContactsClient;
 }
