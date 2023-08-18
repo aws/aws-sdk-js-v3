@@ -128,6 +128,8 @@ export interface ChallengeConfig {
    * <p> Threshold for height during face IOU (Intersection over Union) match.</p>
    */
   FaceIouHeightThreshold?: number;
+
+  OvalFitTimeout?: number;
 }
 
 /**
