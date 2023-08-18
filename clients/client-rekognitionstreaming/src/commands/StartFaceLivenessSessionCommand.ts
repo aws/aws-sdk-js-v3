@@ -57,6 +57,8 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  *          <p>The maximum video size for Face Liveness is 10 MB. Face Liveness throws a
  *         <code>ValidationException</code> if the video does not match the necessary formatting and
  *       size parameters. </p>
+ *          <p>StartFaceLivenessSession supports the websockets and <a href="https://aws.amazon.com/sdk-for-javascript/">the AWS SDK
+ *        for JavaScript</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -144,6 +146,7 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  * //               OvalIouHeightThreshold: Number("float"),
  * //               FaceIouWidthThreshold: Number("float"),
  * //               FaceIouHeightThreshold: Number("float"),
+ * //               OvalFitTimeout: Number("int"),
  * //             },
  * //             ColorSequences: [ // ColorSequences // required
  * //               { // ColorSequence
