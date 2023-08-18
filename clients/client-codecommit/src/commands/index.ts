@@ -44,6 +44,7 @@ export * from "./GetRepositoryTriggersCommand";
 export * from "./ListApprovalRuleTemplatesCommand";
 export * from "./ListAssociatedApprovalRuleTemplatesForRepositoryCommand";
 export * from "./ListBranchesCommand";
+export * from "./ListFileCommitHistoryCommand";
 export * from "./ListPullRequestsCommand";
 export * from "./ListRepositoriesCommand";
 export * from "./ListRepositoriesForApprovalRuleTemplateCommand";

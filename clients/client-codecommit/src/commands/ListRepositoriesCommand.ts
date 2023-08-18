@@ -45,8 +45,8 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * const client = new CodeCommitClient(config);
  * const input = { // ListRepositoriesInput
  *   nextToken: "STRING_VALUE",
- *   sortBy: "STRING_VALUE",
- *   order: "STRING_VALUE",
+ *   sortBy: "repositoryName" || "lastModifiedDate",
+ *   order: "ascending" || "descending",
  * };
  * const command = new ListRepositoriesCommand(input);
  * const response = await client.send(command);

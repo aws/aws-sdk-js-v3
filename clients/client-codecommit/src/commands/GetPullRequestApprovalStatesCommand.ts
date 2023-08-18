@@ -59,7 +59,7 @@ export interface GetPullRequestApprovalStatesCommandOutput
  * //   approvals: [ // ApprovalList
  * //     { // Approval
  * //       userArn: "STRING_VALUE",
- * //       approvalState: "STRING_VALUE",
+ * //       approvalState: "APPROVE" || "REVOKE",
  * //     },
  * //   ],
  * // };

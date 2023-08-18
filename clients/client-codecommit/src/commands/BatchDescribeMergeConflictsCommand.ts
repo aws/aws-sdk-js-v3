@@ -47,14 +47,14 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  *   repositoryName: "STRING_VALUE", // required
  *   destinationCommitSpecifier: "STRING_VALUE", // required
  *   sourceCommitSpecifier: "STRING_VALUE", // required
- *   mergeOption: "STRING_VALUE", // required
+ *   mergeOption: "FAST_FORWARD_MERGE" || "SQUASH_MERGE" || "THREE_WAY_MERGE", // required
  *   maxMergeHunks: Number("int"),
  *   maxConflictFiles: Number("int"),
  *   filePaths: [ // FilePaths
  *     "STRING_VALUE",
  *   ],
- *   conflictDetailLevel: "STRING_VALUE",
- *   conflictResolutionStrategy: "STRING_VALUE",
+ *   conflictDetailLevel: "FILE_LEVEL" || "LINE_LEVEL",
+ *   conflictResolutionStrategy: "NONE" || "ACCEPT_SOURCE" || "ACCEPT_DESTINATION" || "AUTOMERGE",
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new BatchDescribeMergeConflictsCommand(input);
@@ -70,14 +70,14 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  * //           base: Number("long"),
  * //         },
  * //         fileModes: { // FileModes
- * //           source: "STRING_VALUE",
- * //           destination: "STRING_VALUE",
- * //           base: "STRING_VALUE",
+ * //           source: "EXECUTABLE" || "NORMAL" || "SYMLINK",
+ * //           destination: "EXECUTABLE" || "NORMAL" || "SYMLINK",
+ * //           base: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  * //         },
  * //         objectTypes: { // ObjectTypes
- * //           source: "STRING_VALUE",
- * //           destination: "STRING_VALUE",
- * //           base: "STRING_VALUE",
+ * //           source: "FILE" || "DIRECTORY" || "GIT_LINK" || "SYMBOLIC_LINK",
+ * //           destination: "FILE" || "DIRECTORY" || "GIT_LINK" || "SYMBOLIC_LINK",
+ * //           base: "FILE" || "DIRECTORY" || "GIT_LINK" || "SYMBOLIC_LINK",
  * //         },
  * //         numberOfConflicts: Number("int"),
  * //         isBinaryFile: { // IsBinaryFile
@@ -89,8 +89,8 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  * //         fileModeConflict: true || false,
  * //         objectTypeConflict: true || false,
  * //         mergeOperations: { // MergeOperations
- * //           source: "STRING_VALUE",
- * //           destination: "STRING_VALUE",
+ * //           source: "A" || "M" || "D",
+ * //           destination: "A" || "M" || "D",
  * //         },
  * //       },
  * //       mergeHunks: [ // MergeHunks
@@ -180,8 +180,7 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

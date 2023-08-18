@@ -56,7 +56,7 @@ export interface UpdatePullRequestTitleCommandOutput extends UpdatePullRequestTi
  * //     description: "STRING_VALUE",
  * //     lastActivityDate: new Date("TIMESTAMP"),
  * //     creationDate: new Date("TIMESTAMP"),
- * //     pullRequestStatus: "STRING_VALUE",
+ * //     pullRequestStatus: "OPEN" || "CLOSED",
  * //     authorArn: "STRING_VALUE",
  * //     pullRequestTargets: [ // PullRequestTargetList
  * //       { // PullRequestTarget
@@ -70,7 +70,7 @@ export interface UpdatePullRequestTitleCommandOutput extends UpdatePullRequestTi
  * //           isMerged: true || false,
  * //           mergedBy: "STRING_VALUE",
  * //           mergeCommitId: "STRING_VALUE",
- * //           mergeOption: "STRING_VALUE",
+ * //           mergeOption: "FAST_FORWARD_MERGE" || "SQUASH_MERGE" || "THREE_WAY_MERGE",
  * //         },
  * //       },
  * //     ],

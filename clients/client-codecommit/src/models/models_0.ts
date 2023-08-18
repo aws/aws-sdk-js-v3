@@ -5,7 +5,7 @@ import { CodeCommitServiceException as __BaseException } from "./CodeCommitServi
 
 /**
  * @public
- * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
+ * <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
  */
 export class ActorDoesNotExistException extends __BaseException {
   readonly name: "ActorDoesNotExistException" = "ActorDoesNotExistException";
@@ -340,7 +340,7 @@ export class ApprovalRuleTemplateContentRequiredException extends __BaseExceptio
 
 /**
  * @public
- * <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the AWS Region where the template
+ * <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template
  *         was created, and then try again.</p>
  */
 export class ApprovalRuleTemplateDoesNotExistException extends __BaseException {
@@ -383,7 +383,7 @@ export class ApprovalRuleTemplateInUseException extends __BaseException {
 /**
  * @public
  * <p>You cannot create an approval rule template with that name because a template with
- *             that name already exists in this AWS Region for your AWS account. Approval rule template
+ *             that name already exists in this Amazon Web Services Region for your Amazon Web Services account. Approval rule template
  *             names must be unique.</p>
  */
 export class ApprovalRuleTemplateNameAlreadyExistsException extends __BaseException {
@@ -580,9 +580,8 @@ export class EncryptionKeyUnavailableException extends __BaseException {
 /**
  * @public
  * <p>The name of the approval rule template is not valid. Template names must be between 1
- *             and 100 valid characters in length. For more information about limits in AWS CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
- *                 CodeCommit User Guide</a>.</p>
+ *             and 100 valid characters in length. For more information about limits in CodeCommit,
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
  */
 export class InvalidApprovalRuleTemplateNameException extends __BaseException {
   readonly name: "InvalidApprovalRuleTemplateNameException" = "InvalidApprovalRuleTemplateNameException";
@@ -603,8 +602,7 @@ export class InvalidApprovalRuleTemplateNameException extends __BaseException {
 /**
  * @public
  * <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>
@@ -690,7 +688,7 @@ export class RepositoryNameRequiredException extends __BaseException {
 
 /**
  * @public
- * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
+ * <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
  */
 export class AuthorDoesNotExistException extends __BaseException {
   readonly name: "AuthorDoesNotExistException" = "AuthorDoesNotExistException";
@@ -721,7 +719,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
   /**
    * @public
    * <p>The names of the repositories you want to associate with the template.</p>
-   *         <note>
+   *          <note>
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
    */
@@ -1573,7 +1571,7 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
    * @public
    * <p>The repository names that you want to disassociate from the approval rule
    *             template.</p>
-   *         <note>
+   *          <note>
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
    */
@@ -1630,10 +1628,10 @@ export interface BatchGetCommitsInput {
   /**
    * @public
    * <p>The full commit IDs of the commits to get information about.</p>
-   *         <note>
+   *          <note>
    *             <p>You must supply the full SHA IDs of each commit. You cannot use shortened SHA
    *                 IDs.</p>
-   *         </note>
+   *          </note>
    */
   commitIds: string[] | undefined;
 
@@ -1710,7 +1708,7 @@ export interface Commit {
    * <p>Information about the person who committed the specified commit, also known as the committer. Information includes
    *         the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured
    *         in Git.</p>
-   *         <p>For more information
+   *          <p>For more information
    *             about the difference between an author and a committer in Git, see <a href="http://git-scm.com/book/ch2-3.html">Viewing the Commit History</a> in Pro Git
    *             by Scott Chacon and Ben Straub.</p>
    */
@@ -1814,7 +1812,7 @@ export interface BatchGetRepositoriesInput {
   /**
    * @public
    * <p>The names of the repositories to get information about.</p>
-   *         <note>
+   *          <note>
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
    */
@@ -1828,7 +1826,7 @@ export interface BatchGetRepositoriesInput {
 export interface RepositoryMetadata {
   /**
    * @public
-   * <p>The ID of the AWS account associated with the repository.</p>
+   * <p>The ID of the Amazon Web Services account associated with the repository.</p>
    */
   accountId?: string;
 
@@ -1985,7 +1983,7 @@ export interface BlobMetadata {
   /**
    * @public
    * <p>The file mode permissions of the blob. File mode permission codes include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>100644</code> indicates read/write</p>
@@ -2048,6 +2046,7 @@ export interface BranchInfo {
 /**
  * @public
  * <p>Cannot create the branch with the specified name because the commit conflicts with an existing branch with the same name.
+ *
  *             Branch names must be unique.</p>
  */
 export class BranchNameExistsException extends __BaseException {
@@ -2191,46 +2190,45 @@ export interface CreateApprovalRuleTemplateInput {
    *             repositories. If you specify one or more destination references (branches), approval
    *             rules are created in an associated repository only if their destination references
    *             (branches) match those specified in the template.</p>
-   *         <note>
+   *          <note>
    *             <p>When you create the content of the approval rule template, you can specify
    *                 approvers in an approval pool in one of two ways:</p>
    *             <ul>
    *                <li>
-   *                     <p>
+   *                   <p>
    *                      <b>CodeCommitApprovers</b>: This option only
-   *                         requires an AWS account and a resource. It can be used for both IAM users
+   *                         requires an Amazon Web Services account and a resource. It can be used for both IAM users
    *                         and federated access users whose name matches the provided resource name.
    *                         This is a very powerful option that offers a great deal of flexibility. For
-   *                         example, if you specify the AWS account <i>123456789012</i>
+   *                         example, if you specify the Amazon Web Services account <i>123456789012</i>
    *                         and <i>Mary_Major</i>, all of the following are counted as
    *                         approvals coming from that user:</p>
-   *                     <ul>
+   *                   <ul>
    *                      <li>
-   *                             <p>An IAM user in the account
+   *                         <p>An IAM user in the account
    *                                 (arn:aws:iam::<i>123456789012</i>:user/<i>Mary_Major</i>)</p>
-   *                         </li>
+   *                      </li>
    *                      <li>
-   *                             <p>A federated user identified in IAM as Mary_Major
+   *                         <p>A federated user identified in IAM as Mary_Major
    *                                 (arn:aws:sts::<i>123456789012</i>:federated-user/<i>Mary_Major</i>)</p>
-   *                         </li>
+   *                      </li>
    *                   </ul>
-   *                     <p>This option does not recognize an active session of someone assuming the
+   *                   <p>This option does not recognize an active session of someone assuming the
    *                         role of CodeCommitReview with a role session name of
    *                             <i>Mary_Major</i>
    *                             (arn:aws:sts::<i>123456789012</i>:assumed-role/CodeCommitReview/<i>Mary_Major</i>)
    *                         unless you include a wildcard (*Mary_Major).</p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>
+   *                   <p>
    *                      <b>Fully qualified ARN</b>: This option allows
    *                         you to specify the fully qualified Amazon Resource Name (ARN) of the IAM
    *                         user or role. </p>
-   *                 </li>
+   *                </li>
    *             </ul>
    *             <p>For more information about IAM ARNs, wildcards, and formats, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
    *                     Identifiers</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *         </note>
+   *          </note>
    */
   approvalRuleTemplateContent: string | undefined;
 
@@ -2277,9 +2275,8 @@ export class InvalidApprovalRuleTemplateContentException extends __BaseException
 /**
  * @public
  * <p>The description for the approval rule template is not valid because it exceeds the
- *             maximum characters allowed for a description. For more information about limits in AWS
- *             CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User
- *             Guide</a>.</p>
+ *             maximum characters allowed for a description. For more information about limits in CodeCommit,
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
  */
 export class InvalidApprovalRuleTemplateDescriptionException extends __BaseException {
   readonly name: "InvalidApprovalRuleTemplateDescriptionException" = "InvalidApprovalRuleTemplateDescriptionException";
@@ -2299,7 +2296,7 @@ export class InvalidApprovalRuleTemplateDescriptionException extends __BaseExcep
 
 /**
  * @public
- * <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
+ * <p>The maximum number of approval rule templates has been exceeded for this Amazon Web Services Region. </p>
  */
 export class NumberOfRuleTemplatesExceededException extends __BaseException {
   readonly name: "NumberOfRuleTemplatesExceededException" = "NumberOfRuleTemplatesExceededException";
@@ -3204,10 +3201,10 @@ export interface CreatePullRequestInput {
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
    *             initial request that used that token.</p>
-   *         <note>
-   *             <p>The AWS SDKs prepopulate client request tokens. If you are using an AWS SDK, an
+   *          <note>
+   *             <p>The Amazon Web ServicesSDKs prepopulate client request tokens. If you are using an Amazon Web ServicesSDK, an
    *                 idempotency token is created for you.</p>
-   *         </note>
+   *          </note>
    */
   clientRequestToken?: string;
 }
@@ -3459,7 +3456,7 @@ export class InvalidDescriptionException extends __BaseException {
 /**
  * @public
  * <p>The specified reference name format is not valid. Reference names must conform to the
- *             Git references format (for example, refs/heads/master). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
+ *             Git references format (for example, refs/heads/main). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
  *                 Git References</a> or consult your Git documentation.</p>
  */
 export class InvalidReferenceNameException extends __BaseException {
@@ -3740,48 +3737,47 @@ export interface CreatePullRequestApprovalRuleInput {
   /**
    * @public
    * <p>The content of the approval rule, including the number of approvals needed and the structure of an approval pool defined for approvals, if any. For more information
-   *         about approval pools, see the AWS CodeCommit User Guide.</p>
-   *         <note>
+   *         about approval pools, see the CodeCommit User Guide.</p>
+   *          <note>
    *             <p>When you create the content of the approval rule, you can specify approvers in an
    *                 approval pool in one of two ways:</p>
    *             <ul>
    *                <li>
-   *                     <p>
+   *                   <p>
    *                      <b>CodeCommitApprovers</b>: This option only
-   *                         requires an AWS account and a resource. It can be used for both IAM users
+   *                         requires an Amazon Web Services account and a resource. It can be used for both IAM users
    *                         and federated access users whose name matches the provided resource name.
    *                         This is a very powerful option that offers a great deal of flexibility. For
-   *                         example, if you specify the AWS account <i>123456789012</i>
+   *                         example, if you specify the Amazon Web Services account <i>123456789012</i>
    *                         and <i>Mary_Major</i>, all of the following would be counted
    *                         as approvals coming from that user:</p>
-   *                     <ul>
+   *                   <ul>
    *                      <li>
-   *                             <p>An IAM user in the account
+   *                         <p>An IAM user in the account
    *                                     (arn:aws:iam::<i>123456789012</i>:user/<i>Mary_Major</i>)</p>
-   *                         </li>
+   *                      </li>
    *                      <li>
-   *                             <p>A federated user identified in IAM as Mary_Major
+   *                         <p>A federated user identified in IAM as Mary_Major
    *                                     (arn:aws:sts::<i>123456789012</i>:federated-user/<i>Mary_Major</i>)</p>
-   *                         </li>
+   *                      </li>
    *                   </ul>
-   *                     <p>This option does not recognize an active session of someone assuming the
+   *                   <p>This option does not recognize an active session of someone assuming the
    *                         role of CodeCommitReview with a role session name of
    *                             <i>Mary_Major</i>
    *                             (arn:aws:sts::<i>123456789012</i>:assumed-role/CodeCommitReview/<i>Mary_Major</i>)
    *                         unless you include a wildcard (*Mary_Major).</p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>
+   *                   <p>
    *                      <b>Fully qualified ARN</b>: This option allows
    *                         you to specify the fully qualified Amazon Resource Name (ARN) of the IAM
    *                         user or role. </p>
-   *                 </li>
+   *                </li>
    *             </ul>
    *             <p>For more information about IAM ARNs, wildcards, and formats, see
    *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
    *                 Identifiers</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *         </note>
+   *          </note>
    */
   approvalRuleContent: string | undefined;
 }
@@ -3945,11 +3941,11 @@ export interface CreateRepositoryInput {
   /**
    * @public
    * <p>The name of the new repository to be created.</p>
-   *         <note>
-   *             <p>The repository name must be unique across the calling AWS account. Repository names
+   *          <note>
+   *             <p>The repository name must be unique across the calling Amazon Web Services account. Repository names
    *                 are limited to 100 alphanumeric, dash, and underscore characters, and cannot include
    *                 certain characters. For more information about the limits on repository names, see
-   *                     <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a> in the <i>AWS CodeCommit User Guide</i>. The
+   *                     <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>. The
    *                 suffix .git is prohibited.</p>
    *          </note>
    */
@@ -3958,7 +3954,7 @@ export interface CreateRepositoryInput {
   /**
    * @public
    * <p>A comment or description about the new repository.</p>
-   *         <note>
+   *          <note>
    *             <p>The description field for a repository accepts all HTML characters and all valid
    *                 Unicode characters. Applications that do not HTML-encode the description and display
    *                 it in a webpage can expose users to potentially malicious code. Make sure that you
@@ -4109,7 +4105,7 @@ export class TagPolicyException extends __BaseException {
 
 /**
  * @public
- * <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
+ * <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
@@ -4842,7 +4838,7 @@ export interface DeletePullRequestApprovalRuleOutput {
   /**
    * @public
    * <p>The ID of the deleted approval rule. </p>
-   *         <note>
+   *          <note>
    *             <p>If the approval rule was deleted in an earlier API call, the response is 200 OK without
    *                 content.</p>
    *          </note>
@@ -5454,8 +5450,8 @@ export interface GetApprovalRuleTemplateOutput {
 
 /**
  * @public
- * <p>The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.</p>
+ * <p>The specified file exceeds the file size limit for CodeCommit. For more information about limits in CodeCommit, see
+ *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
  */
 export class FileTooLargeException extends __BaseException {
   readonly name: "FileTooLargeException" = "FileTooLargeException";
@@ -5607,7 +5603,7 @@ export interface GetCommentReactionsInput {
 
 /**
  * @public
- * <p>Information about the values for reactions to a comment. AWS CodeCommit supports a limited set of reactions.</p>
+ * <p>Information about the values for reactions to a comment. CodeCommit supports a limited set of reactions.</p>
  */
 export interface ReactionValueFormats {
   /**
@@ -5849,19 +5845,22 @@ export interface GetCommentsForPullRequestInput {
 
   /**
    * @public
-   * <p>The name of the repository that contains the pull request.</p>
+   * <p>The name of the repository that contains the pull request. Requirement is conditional: <code>repositoryName</code> must be specified when
+   *             <code>beforeCommitId</code> and <code>afterCommitId</code> are included.</p>
    */
   repositoryName?: string;
 
   /**
    * @public
-   * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
+   * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created. Requirement is conditional:
+   *             <code>beforeCommitId</code> must be specified when <code>repositoryName</code> is included.</p>
    */
   beforeCommitId?: string;
 
   /**
    * @public
-   * <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made.</p>
+   * <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made. Requirement is conditional:
+   *             <code>afterCommitId</code> must be specified when <code>repositoryName</code> is included.</p>
    */
   afterCommitId?: string;
 
@@ -6161,7 +6160,7 @@ export interface GetFileInput {
    * @public
    * <p>The fully quaified reference that identifies the commit that contains the file. For
    *             example, you can specify a full commit ID, a tag, a branch name, or a reference such as
-   *             refs/heads/master. If none is provided, the head commit is used.</p>
+   *             refs/heads/main. If none is provided, the head commit is used.</p>
    */
   commitSpecifier?: string;
 
@@ -6200,11 +6199,11 @@ export interface GetFileOutput {
   /**
    * @public
    * <p>The extrapolated file mode permissions of the blob. Valid values include strings such as EXECUTABLE and not numeric values.</p>
-   *         <note>
+   *          <note>
    *             <p>The file mode permissions returned by this API are not the standard file mode
    *                 permission values, such as 100644, but rather extrapolated values. See the supported
    *                 return values.</p>
-   *         </note>
+   *          </note>
    */
   fileMode: FileModeTypeEnum | string | undefined;
 
@@ -6854,7 +6853,12 @@ export type RepositoryTriggerEventEnum = (typeof RepositoryTriggerEventEnum)[key
 
 /**
  * @public
- * <p>Information about a trigger for a repository.</p>
+ * <p>Information about a trigger for a repository. </p>
+ *          <note>
+ *             <p>If you want to receive notifications about repository events, consider using notifications instead of
+ *             triggers.  For more information, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-repository-email.html">Configuring
+ *             notifications for repository events</a>.</p>
+ *          </note>
  */
 export interface RepositoryTrigger {
   /**
@@ -6881,9 +6885,9 @@ export interface RepositoryTrigger {
    * @public
    * <p>The branches to be included in the trigger configuration. If you specify an empty
    *             array, the trigger applies to all branches.</p>
-   *         <note>
+   *          <note>
    *             <p>Although no content is required in the array, you must include the array itself.</p>
-   *         </note>
+   *          </note>
    */
   branches?: string[];
 
@@ -6942,7 +6946,7 @@ export interface ListApprovalRuleTemplatesInput {
 export interface ListApprovalRuleTemplatesOutput {
   /**
    * @public
-   * <p>The names of all the approval rule templates found in the AWS Region for your AWS account.</p>
+   * <p>The names of all the approval rule templates found in the Amazon Web Services Region for your Amazon Web Services account.</p>
    */
   approvalRuleTemplateNames?: string[];
 
@@ -7032,6 +7036,91 @@ export interface ListBranchesOutput {
 
 /**
  * @public
+ */
+export interface ListFileCommitHistoryRequest {
+  /**
+   * @public
+   * <p>The name of the repository that contains the file.</p>
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * @public
+   * <p>The fully quaified reference that identifies the commit that contains the file. For
+   *             example, you can specify a full commit ID, a tag, a branch name, or a reference such as
+   *             <code>refs/heads/main</code>. If none is provided, the head commit is used.</p>
+   */
+  commitSpecifier?: string;
+
+  /**
+   * @public
+   * <p>The full path of the file whose history you want to retrieve, including the name of the file.</p>
+   */
+  filePath: string | undefined;
+
+  /**
+   * @public
+   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>An enumeration token that allows the operation to batch the results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Information about a version of a file.</p>
+ */
+export interface FileVersion {
+  /**
+   * @public
+   * <p>Returns information about a specific commit.</p>
+   */
+  commit?: Commit;
+
+  /**
+   * @public
+   * <p>The blob ID of the object that represents the content of the file in this version.</p>
+   */
+  blobId?: string;
+
+  /**
+   * @public
+   * <p>The name and path of the file at which this blob is indexed which contains the data for this version of the file. This value will
+   *         vary between file versions if a file is renamed or if its path changes.</p>
+   */
+  path?: string;
+
+  /**
+   * @public
+   * <p>An array of commit IDs that contain more recent versions of this file. If there are no additional versions of the file, this array will be empty.</p>
+   */
+  revisionChildren?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListFileCommitHistoryResponse {
+  /**
+   * @public
+   * <p>An array of FileVersion objects that form a directed acyclic graph (DAG) of the changes to the file made by the commits that changed the file.</p>
+   */
+  revisionDag: FileVersion[] | undefined;
+
+  /**
+   * @public
+   * <p>An enumeration token that can be used to return the next batch of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
  */
 export class InvalidAuthorArnException extends __BaseException {
@@ -7105,61 +7194,4 @@ export interface ListPullRequestsInput {
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    */
   maxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListPullRequestsOutput {
-  /**
-   * @public
-   * <p>The system-generated IDs of the pull requests.</p>
-   */
-  pullRequestIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * <p>The specified sort order is not valid.</p>
- */
-export class InvalidOrderException extends __BaseException {
-  readonly name: "InvalidOrderException" = "InvalidOrderException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOrderException, __BaseException>) {
-    super({
-      name: "InvalidOrderException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOrderException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>The specified sort by value is not valid.</p>
- */
-export class InvalidSortByException extends __BaseException {
-  readonly name: "InvalidSortByException" = "InvalidSortByException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSortByException, __BaseException>) {
-    super({
-      name: "InvalidSortByException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSortByException.prototype);
-  }
 }

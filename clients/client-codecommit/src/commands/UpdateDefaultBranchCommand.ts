@@ -37,7 +37,7 @@ export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Sets or changes the default branch name for the specified repository.</p>
- *         <note>
+ *          <note>
  *             <p>If you use this operation to change the default branch name to the current default branch name, a success message is returned even though the default branch did not change.</p>
  *          </note>
  * @example
@@ -88,8 +88,7 @@ export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

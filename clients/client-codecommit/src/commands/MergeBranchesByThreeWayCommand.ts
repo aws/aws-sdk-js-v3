@@ -48,8 +48,8 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  *   sourceCommitSpecifier: "STRING_VALUE", // required
  *   destinationCommitSpecifier: "STRING_VALUE", // required
  *   targetBranch: "STRING_VALUE",
- *   conflictDetailLevel: "STRING_VALUE",
- *   conflictResolutionStrategy: "STRING_VALUE",
+ *   conflictDetailLevel: "FILE_LEVEL" || "LINE_LEVEL",
+ *   conflictResolutionStrategy: "NONE" || "ACCEPT_SOURCE" || "ACCEPT_DESTINATION" || "AUTOMERGE",
  *   authorName: "STRING_VALUE",
  *   email: "STRING_VALUE",
  *   commitMessage: "STRING_VALUE",
@@ -58,9 +58,9 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  *     replaceContents: [ // ReplaceContentEntries
  *       { // ReplaceContentEntry
  *         filePath: "STRING_VALUE", // required
- *         replacementType: "STRING_VALUE", // required
+ *         replacementType: "KEEP_BASE" || "KEEP_SOURCE" || "KEEP_DESTINATION" || "USE_NEW_CONTENT", // required
  *         content: "BLOB_VALUE",
- *         fileMode: "STRING_VALUE",
+ *         fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  *       },
  *     ],
  *     deleteFiles: [ // DeleteFileEntries
@@ -71,7 +71,7 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  *     setFileModes: [ // SetFileModeEntries
  *       { // SetFileModeEntry
  *         filePath: "STRING_VALUE", // required
- *         fileMode: "STRING_VALUE", // required
+ *         fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK", // required
  *       },
  *     ],
  *   },
@@ -175,8 +175,7 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

@@ -37,7 +37,7 @@ export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPu
 /**
  * @public
  * <p>Returns comments made on a pull request.</p>
- *         <note>
+ *          <note>
  *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
  *             reactions from active identities, use GetCommentReactions.</p>
  *          </note>
@@ -69,7 +69,7 @@ export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPu
  * //       location: { // Location
  * //         filePath: "STRING_VALUE",
  * //         filePosition: Number("long"),
- * //         relativeFileVersion: "STRING_VALUE",
+ * //         relativeFileVersion: "BEFORE" || "AFTER",
  * //       },
  * //       comments: [ // Comments
  * //         { // Comment
@@ -137,8 +137,7 @@ export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPu
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

@@ -38,7 +38,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * @public
  * <p>Deletes a repository. If a specified repository was already deleted, a null repository
  *             ID is returned.</p>
- *         <important>
+ *          <important>
  *             <p>Deleting a repository also deletes all associated objects and metadata. After a repository is
  *                 deleted, all future push calls to the deleted repository fail.</p>
  *          </important>
@@ -82,8 +82,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

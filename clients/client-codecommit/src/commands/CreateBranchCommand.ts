@@ -37,7 +37,7 @@ export interface CreateBranchCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Creates a branch in a repository and points the branch to a commit.</p>
- *         <note>
+ *          <note>
  *             <p>Calling the create branch operation does not set a repository's default branch. To do this, call the update default branch operation.</p>
  *          </note>
  * @example
@@ -65,6 +65,7 @@ export interface CreateBranchCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link BranchNameExistsException} (client fault)
  *  <p>Cannot create the branch with the specified name because the commit conflicts with an existing branch with the same name.
+ *
  *             Branch names must be unique.</p>
  *
  * @throws {@link BranchNameRequiredException} (client fault)
@@ -99,8 +100,7 @@ export interface CreateBranchCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

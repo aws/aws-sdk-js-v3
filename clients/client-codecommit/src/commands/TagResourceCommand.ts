@@ -36,8 +36,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds or updates tags for a resource in AWS CodeCommit. For a list of valid resources
- *             in AWS CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a> in the <i>AWS CodeCommit User
+ * <p>Adds or updates tags for a resource in CodeCommit. For a list of valid resources
+ *             in CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a> in the <i>CodeCommit User
  *                 Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,17 +65,16 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>
  *          </note>
  *
  * @throws {@link InvalidResourceArnException} (client fault)
- *  <p>The value for the resource ARN is not valid. For more information about resources in AWS CodeCommit, see
+ *  <p>The value for the resource ARN is not valid. For more information about resources in CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
- *             in the AWS CodeCommit User Guide.</p>
+ *             in the CodeCommit User Guide.</p>
  *
  * @throws {@link InvalidSystemTagUsageException} (client fault)
  *  <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
@@ -87,9 +86,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *  <p>The specified repository does not exist.</p>
  *
  * @throws {@link ResourceArnRequiredException} (client fault)
- *  <p>A valid Amazon Resource Name (ARN) for an AWS CodeCommit resource is required. For a list of valid resources in AWS CodeCommit, see
+ *  <p>A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
- *             in the AWS CodeCommit User Guide.</p>
+ *             in the CodeCommit User Guide.</p>
  *
  * @throws {@link TagPolicyException} (client fault)
  *  <p>The tag policy is not valid.</p>
@@ -98,7 +97,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *  <p>A map of tags is required.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
+ *  <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
  *
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>

@@ -74,7 +74,7 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
  *
  * @throws {@link InvalidReactionValueException} (client fault)
- *  <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit User Guide</a>.</p>
+ *  <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">CodeCommit User Guide</a>.</p>
  *
  * @throws {@link ReactionLimitExceededException} (client fault)
  *  <p>The number of reactions has been exceeded. Reactions are limited to one reaction per user for each individual comment ID.</p>

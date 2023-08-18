@@ -49,7 +49,7 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
  * const input = { // UpdatePullRequestApprovalStateInput
  *   pullRequestId: "STRING_VALUE", // required
  *   revisionId: "STRING_VALUE", // required
- *   approvalState: "STRING_VALUE", // required
+ *   approvalState: "APPROVE" || "REVOKE", // required
  * };
  * const command = new UpdatePullRequestApprovalStateCommand(input);
  * const response = await client.send(command);

@@ -80,7 +80,7 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  *  <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
  *
  * @throws {@link CommentContentSizeLimitExceededException} (client fault)
- *  <p>The comment is too large. Comments are limited to 1,000 characters.</p>
+ *  <p>The comment is too large. Comments are limited to 10,240 characters.</p>
  *
  * @throws {@link CommentDeletedException} (client fault)
  *  <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>

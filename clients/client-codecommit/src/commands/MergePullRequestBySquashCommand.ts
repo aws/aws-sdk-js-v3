@@ -48,8 +48,8 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  *   pullRequestId: "STRING_VALUE", // required
  *   repositoryName: "STRING_VALUE", // required
  *   sourceCommitId: "STRING_VALUE",
- *   conflictDetailLevel: "STRING_VALUE",
- *   conflictResolutionStrategy: "STRING_VALUE",
+ *   conflictDetailLevel: "FILE_LEVEL" || "LINE_LEVEL",
+ *   conflictResolutionStrategy: "NONE" || "ACCEPT_SOURCE" || "ACCEPT_DESTINATION" || "AUTOMERGE",
  *   commitMessage: "STRING_VALUE",
  *   authorName: "STRING_VALUE",
  *   email: "STRING_VALUE",
@@ -58,9 +58,9 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  *     replaceContents: [ // ReplaceContentEntries
  *       { // ReplaceContentEntry
  *         filePath: "STRING_VALUE", // required
- *         replacementType: "STRING_VALUE", // required
+ *         replacementType: "KEEP_BASE" || "KEEP_SOURCE" || "KEEP_DESTINATION" || "USE_NEW_CONTENT", // required
  *         content: "BLOB_VALUE",
- *         fileMode: "STRING_VALUE",
+ *         fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  *       },
  *     ],
  *     deleteFiles: [ // DeleteFileEntries
@@ -71,7 +71,7 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  *     setFileModes: [ // SetFileModeEntries
  *       { // SetFileModeEntry
  *         filePath: "STRING_VALUE", // required
- *         fileMode: "STRING_VALUE", // required
+ *         fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK", // required
  *       },
  *     ],
  *   },
@@ -85,7 +85,7 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  * //     description: "STRING_VALUE",
  * //     lastActivityDate: new Date("TIMESTAMP"),
  * //     creationDate: new Date("TIMESTAMP"),
- * //     pullRequestStatus: "STRING_VALUE",
+ * //     pullRequestStatus: "OPEN" || "CLOSED",
  * //     authorArn: "STRING_VALUE",
  * //     pullRequestTargets: [ // PullRequestTargetList
  * //       { // PullRequestTarget
@@ -99,7 +99,7 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  * //           isMerged: true || false,
  * //           mergedBy: "STRING_VALUE",
  * //           mergeCommitId: "STRING_VALUE",
- * //           mergeOption: "STRING_VALUE",
+ * //           mergeOption: "FAST_FORWARD_MERGE" || "SQUASH_MERGE" || "THREE_WAY_MERGE",
  * //         },
  * //       },
  * //     ],
@@ -195,8 +195,7 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

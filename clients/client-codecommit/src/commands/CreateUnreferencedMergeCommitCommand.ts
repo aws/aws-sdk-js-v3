@@ -45,7 +45,7 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  *             using a specified merge strategy. This can help you determine the outcome of a potential
  *             merge. This API cannot be used with the fast-forward merge strategy because that
  *             strategy does not create a merge commit.</p>
- *         <note>
+ *          <note>
  *             <p>This unreferenced merge commit
  *         can only be accessed using the GetCommit API or through git commands such as git fetch. To retrieve this commit, you must specify its commit ID or otherwise reference it.</p>
  *          </note>
@@ -59,9 +59,9 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  *   repositoryName: "STRING_VALUE", // required
  *   sourceCommitSpecifier: "STRING_VALUE", // required
  *   destinationCommitSpecifier: "STRING_VALUE", // required
- *   mergeOption: "STRING_VALUE", // required
- *   conflictDetailLevel: "STRING_VALUE",
- *   conflictResolutionStrategy: "STRING_VALUE",
+ *   mergeOption: "FAST_FORWARD_MERGE" || "SQUASH_MERGE" || "THREE_WAY_MERGE", // required
+ *   conflictDetailLevel: "FILE_LEVEL" || "LINE_LEVEL",
+ *   conflictResolutionStrategy: "NONE" || "ACCEPT_SOURCE" || "ACCEPT_DESTINATION" || "AUTOMERGE",
  *   authorName: "STRING_VALUE",
  *   email: "STRING_VALUE",
  *   commitMessage: "STRING_VALUE",
@@ -70,9 +70,9 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  *     replaceContents: [ // ReplaceContentEntries
  *       { // ReplaceContentEntry
  *         filePath: "STRING_VALUE", // required
- *         replacementType: "STRING_VALUE", // required
+ *         replacementType: "KEEP_BASE" || "KEEP_SOURCE" || "KEEP_DESTINATION" || "USE_NEW_CONTENT", // required
  *         content: "BLOB_VALUE",
- *         fileMode: "STRING_VALUE",
+ *         fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  *       },
  *     ],
  *     deleteFiles: [ // DeleteFileEntries
@@ -83,7 +83,7 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  *     setFileModes: [ // SetFileModeEntries
  *       { // SetFileModeEntry
  *         filePath: "STRING_VALUE", // required
- *         fileMode: "STRING_VALUE", // required
+ *         fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK", // required
  *       },
  *     ],
  *   },
@@ -177,8 +177,7 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

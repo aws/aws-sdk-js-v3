@@ -6,25 +6,24 @@
 
 AWS SDK for JavaScript CodeCommit Client for Node.js, Browser and React Native.
 
-<fullname>AWS CodeCommit</fullname>
+<fullname>CodeCommit</fullname>
 
-<p>This is the <i>AWS CodeCommit API Reference</i>. This reference provides descriptions of the operations and data types for
-AWS CodeCommit API along with usage examples.</p>
-<p>You can use the AWS CodeCommit API to work with the following objects:</p>
-
+<p>This is the <i>CodeCommit API Reference</i>. This reference provides descriptions of the operations and data types for
+CodeCommit API along with usage examples.</p>
+<p>You can use the CodeCommit API to work with the following objects:</p>
 <p>Repositories, by calling the following:</p>
 <ul>
 <li>
 <p>
-<a>BatchGetRepositories</a>, which returns information about one or more repositories associated with your AWS account.</p>
+<a>BatchGetRepositories</a>, which returns information about one or more repositories associated with your Amazon Web Services account.</p>
 </li>
 <li>
 <p>
-<a>CreateRepository</a>, which creates an AWS CodeCommit repository.</p>
+<a>CreateRepository</a>, which creates an CodeCommit repository.</p>
 </li>
 <li>
 <p>
-<a>DeleteRepository</a>, which deletes an AWS CodeCommit repository.</p>
+<a>DeleteRepository</a>, which deletes an CodeCommit repository.</p>
 </li>
 <li>
 <p>
@@ -32,7 +31,7 @@ AWS CodeCommit API along with usage examples.</p>
 </li>
 <li>
 <p>
-<a>ListRepositories</a>, which lists all AWS CodeCommit repositories associated with your AWS account.</p>
+<a>ListRepositories</a>, which lists all CodeCommit repositories associated with your Amazon Web Services account.</p>
 </li>
 <li>
 <p>
@@ -46,7 +45,6 @@ repository can access it until you send them the new HTTPS or SSH URL to
 use.</p>
 </li>
 </ul>
-
 <p>Branches, by calling the following:</p>
 <ul>
 <li>
@@ -71,7 +69,6 @@ repository.</p>
 <a>UpdateDefaultBranch</a>, which changes the default branch for a repository.</p>
 </li>
 </ul>
-
 <p>Files, by calling the following:</p>
 <ul>
 <li>
@@ -93,10 +90,13 @@ individual Git blob object in a repository.</p>
 </li>
 <li>
 <p>
+<a>ListFileCommitHistory</a>, which retrieves a list of commits and changes to a specified file. </p>
+</li>
+<li>
+<p>
 <a>PutFile</a>, which adds or modifies a single file in a specified repository and branch.</p>
 </li>
 </ul>
-
 <p>Commits, by calling the following:</p>
 <ul>
 <li>
@@ -119,7 +119,6 @@ differences in a valid commit specifier (such as a branch, tag, HEAD, commit ID,
 or other fully qualified reference).</p>
 </li>
 </ul>
-
 <p>Merges, by calling the following:</p>
 <ul>
 <li>
@@ -139,7 +138,6 @@ of a file in a potential merge.</p>
 <li>
 <p>
 <a>GetMergeCommit</a>, which returns information about the merge between a source and destination commit. </p>
-
 </li>
 <li>
 <p>
@@ -147,7 +145,6 @@ of a file in a potential merge.</p>
 between the source and destination branch in a pull request.</p>
 </li>
 <li>
-
 <p>
 <a>GetMergeOptions</a>, which returns information about the available merge options between two branches or commit specifiers.</p>
 </li>
@@ -164,7 +161,6 @@ between the source and destination branch in a pull request.</p>
 <a>MergeBranchesByThreeWay</a>, which merges two branches using the three-way merge option.</p>
 </li>
 </ul>
-
 <p>Pull requests, by calling the following:</p>
 <ul>
 <li>
@@ -192,7 +188,6 @@ between the source and destination branch in a pull request.</p>
 <a>GetCommentsForPullRequest</a>, which returns information about comments on a specified pull request.</p>
 </li>
 <li>
-
 <p>
 <a>GetPullRequest</a>, which returns information about a specified pull request.</p>
 </li>
@@ -221,7 +216,7 @@ branch for that pull request using the squash merge option.</p>
 </li>
 <li>
 <p>
-<a>MergePullRequestByThreeWay</a>. which merges the source destination branch of a pull request into the specified destination
+<a>MergePullRequestByThreeWay</a>, which merges the source destination branch of a pull request into the specified destination
 branch for that pull request using the three-way merge option.</p>
 </li>
 <li>
@@ -253,21 +248,20 @@ branch for that pull request using the three-way merge option.</p>
 <a>UpdatePullRequestTitle</a>, which updates the title of a pull request.</p>
 </li>
 </ul>
-
 <p>Approval rule templates, by calling the following:</p>
 <ul>
 <li>
 <p>
 <a>AssociateApprovalRuleTemplateWithRepository</a>, which associates a template
 with a specified repository. After the template is associated with a repository,
-AWS CodeCommit creates approval rules that match the template conditions on
+CodeCommit creates approval rules that match the template conditions on
 every pull request created in the specified repository.</p>
 </li>
 <li>
 <p>
 <a>BatchAssociateApprovalRuleTemplateWithRepositories</a>, which associates a
 template with one or more specified repositories. After the template is
-associated with a repository, AWS CodeCommit creates approval rules that match
+associated with a repository, CodeCommit creates approval rules that match
 the template conditions on every pull request created in the specified
 repositories.</p>
 </li>
@@ -281,7 +275,7 @@ created in those repositories.</p>
 <li>
 <p>
 <a>CreateApprovalRuleTemplate</a>, which creates a template for approval rules that can then be associated with one or more repositories
-in your AWS account.</p>
+in your Amazon Web Services account.</p>
 </li>
 <li>
 <p>
@@ -300,7 +294,7 @@ specified repository.</p>
 </li>
 <li>
 <p>
-<a>ListApprovalRuleTemplates</a>, which lists all approval rule templates in the AWS Region in your AWS account.</p>
+<a>ListApprovalRuleTemplates</a>, which lists all approval rule templates in the Amazon Web Services Region in your Amazon Web Services account.</p>
 </li>
 <li>
 <p>
@@ -324,7 +318,6 @@ approval rule template.</p>
 <a>UpdateApprovalRuleTemplateContent</a>, which updates the content of an approval rule template.</p>
 </li>
 </ul>
-
 <p>Comments in a repository, by calling the following:</p>
 <ul>
 <li>
@@ -361,23 +354,21 @@ in a repository.</p>
 <a>UpdateComment</a>, which updates the content of a comment on a commit in a repository.</p>
 </li>
 </ul>
-
-<p>Tags used to tag resources in AWS CodeCommit (not Git tags), by calling the following:</p>
+<p>Tags used to tag resources in CodeCommit (not Git tags), by calling the following:</p>
 <ul>
 <li>
 <p>
-<a>ListTagsForResource</a>, which gets information about AWS tags for a specified Amazon Resource Name (ARN) in AWS CodeCommit.</p>
+<a>ListTagsForResource</a>, which gets information about Amazon Web Servicestags for a specified Amazon Resource Name (ARN) in CodeCommit.</p>
 </li>
 <li>
 <p>
-<a>TagResource</a>, which adds or updates tags for a resource in AWS CodeCommit.</p>
+<a>TagResource</a>, which adds or updates tags for a resource in CodeCommit.</p>
 </li>
 <li>
 <p>
-<a>UntagResource</a>, which removes tags for a resource in AWS CodeCommit.</p>
+<a>UntagResource</a>, which removes tags for a resource in CodeCommit.</p>
 </li>
 </ul>
-
 <p>Triggers, by calling the following:</p>
 <ul>
 <li>
@@ -396,8 +387,7 @@ be used to create or delete triggers.</p>
 by sending data to the trigger target.</p>
 </li>
 </ul>
-
-<p>For information about how to use AWS CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit User Guide</a>.</p>
+<p>For information about how to use CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">CodeCommit User Guide</a>.</p>
 
 ## Installing
 
@@ -952,6 +942,14 @@ ListBranches
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecommit/classes/listbranchescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecommit/interfaces/listbranchescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecommit/interfaces/listbranchescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListFileCommitHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecommit/classes/listfilecommithistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecommit/interfaces/listfilecommithistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecommit/interfaces/listfilecommithistorycommandoutput.html)
 
 </details>
 <details>

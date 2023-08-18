@@ -54,7 +54,7 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  *   putFiles: [ // PutFileEntries
  *     { // PutFileEntry
  *       filePath: "STRING_VALUE", // required
- *       fileMode: "STRING_VALUE",
+ *       fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  *       fileContent: "BLOB_VALUE",
  *       sourceFile: { // SourceFileSpecifier
  *         filePath: "STRING_VALUE", // required
@@ -70,7 +70,7 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  *   setFileModes: [ // SetFileModeEntries
  *     { // SetFileModeEntry
  *       filePath: "STRING_VALUE", // required
- *       fileMode: "STRING_VALUE", // required
+ *       fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK", // required
  *     },
  *   ],
  * };
@@ -83,21 +83,21 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  * //     { // FileMetadata
  * //       absolutePath: "STRING_VALUE",
  * //       blobId: "STRING_VALUE",
- * //       fileMode: "STRING_VALUE",
+ * //       fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  * //     },
  * //   ],
  * //   filesUpdated: [
  * //     {
  * //       absolutePath: "STRING_VALUE",
  * //       blobId: "STRING_VALUE",
- * //       fileMode: "STRING_VALUE",
+ * //       fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  * //     },
  * //   ],
  * //   filesDeleted: [
  * //     {
  * //       absolutePath: "STRING_VALUE",
  * //       blobId: "STRING_VALUE",
- * //       fileMode: "STRING_VALUE",
+ * //       fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  * //     },
  * //   ],
  * // };
@@ -198,8 +198,7 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

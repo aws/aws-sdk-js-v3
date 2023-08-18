@@ -49,14 +49,14 @@ export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __M
  *   repositoryName: "STRING_VALUE", // required
  *   sourceCommitSpecifier: "STRING_VALUE", // required
  *   destinationCommitSpecifier: "STRING_VALUE", // required
- *   conflictDetailLevel: "STRING_VALUE",
- *   conflictResolutionStrategy: "STRING_VALUE",
+ *   conflictDetailLevel: "FILE_LEVEL" || "LINE_LEVEL",
+ *   conflictResolutionStrategy: "NONE" || "ACCEPT_SOURCE" || "ACCEPT_DESTINATION" || "AUTOMERGE",
  * };
  * const command = new GetMergeOptionsCommand(input);
  * const response = await client.send(command);
  * // { // GetMergeOptionsOutput
  * //   mergeOptions: [ // MergeOptions // required
- * //     "STRING_VALUE",
+ * //     "FAST_FORWARD_MERGE" || "SQUASH_MERGE" || "THREE_WAY_MERGE",
  * //   ],
  * //   sourceCommitId: "STRING_VALUE", // required
  * //   destinationCommitId: "STRING_VALUE", // required
@@ -103,8 +103,7 @@ export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __M
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

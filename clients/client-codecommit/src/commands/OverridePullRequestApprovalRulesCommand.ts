@@ -49,7 +49,7 @@ export interface OverridePullRequestApprovalRulesCommandOutput extends __Metadat
  * const input = { // OverridePullRequestApprovalRulesInput
  *   pullRequestId: "STRING_VALUE", // required
  *   revisionId: "STRING_VALUE", // required
- *   overrideStatus: "STRING_VALUE", // required
+ *   overrideStatus: "OVERRIDE" || "REVOKE", // required
  * };
  * const command = new OverridePullRequestApprovalRulesCommand(input);
  * const response = await client.send(command);

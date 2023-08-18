@@ -95,8 +95,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>
@@ -121,7 +120,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  *  <p>The tag policy is not valid.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
+ *  <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
  *
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>

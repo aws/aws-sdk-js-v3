@@ -45,7 +45,7 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * const client = new CodeCommitClient(config);
  * const input = { // DescribePullRequestEventsInput
  *   pullRequestId: "STRING_VALUE", // required
- *   pullRequestEventType: "STRING_VALUE",
+ *   pullRequestEventType: "PULL_REQUEST_CREATED" || "PULL_REQUEST_STATUS_CHANGED" || "PULL_REQUEST_SOURCE_REFERENCE_UPDATED" || "PULL_REQUEST_MERGE_STATE_CHANGED" || "PULL_REQUEST_APPROVAL_RULE_CREATED" || "PULL_REQUEST_APPROVAL_RULE_UPDATED" || "PULL_REQUEST_APPROVAL_RULE_DELETED" || "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN" || "PULL_REQUEST_APPROVAL_STATE_CHANGED",
  *   actorArn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -57,7 +57,7 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * //     { // PullRequestEvent
  * //       pullRequestId: "STRING_VALUE",
  * //       eventDate: new Date("TIMESTAMP"),
- * //       pullRequestEventType: "STRING_VALUE",
+ * //       pullRequestEventType: "PULL_REQUEST_CREATED" || "PULL_REQUEST_STATUS_CHANGED" || "PULL_REQUEST_SOURCE_REFERENCE_UPDATED" || "PULL_REQUEST_MERGE_STATE_CHANGED" || "PULL_REQUEST_APPROVAL_RULE_CREATED" || "PULL_REQUEST_APPROVAL_RULE_UPDATED" || "PULL_REQUEST_APPROVAL_RULE_DELETED" || "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN" || "PULL_REQUEST_APPROVAL_STATE_CHANGED",
  * //       actorArn: "STRING_VALUE",
  * //       pullRequestCreatedEventMetadata: { // PullRequestCreatedEventMetadata
  * //         repositoryName: "STRING_VALUE",
@@ -66,7 +66,7 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * //         mergeBase: "STRING_VALUE",
  * //       },
  * //       pullRequestStatusChangedEventMetadata: { // PullRequestStatusChangedEventMetadata
- * //         pullRequestStatus: "STRING_VALUE",
+ * //         pullRequestStatus: "OPEN" || "CLOSED",
  * //       },
  * //       pullRequestSourceReferenceUpdatedEventMetadata: { // PullRequestSourceReferenceUpdatedEventMetadata
  * //         repositoryName: "STRING_VALUE",
@@ -81,7 +81,7 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * //           isMerged: true || false,
  * //           mergedBy: "STRING_VALUE",
  * //           mergeCommitId: "STRING_VALUE",
- * //           mergeOption: "STRING_VALUE",
+ * //           mergeOption: "FAST_FORWARD_MERGE" || "SQUASH_MERGE" || "THREE_WAY_MERGE",
  * //         },
  * //       },
  * //       approvalRuleEventMetadata: { // ApprovalRuleEventMetadata
@@ -91,11 +91,11 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * //       },
  * //       approvalStateChangedEventMetadata: { // ApprovalStateChangedEventMetadata
  * //         revisionId: "STRING_VALUE",
- * //         approvalStatus: "STRING_VALUE",
+ * //         approvalStatus: "APPROVE" || "REVOKE",
  * //       },
  * //       approvalRuleOverriddenEventMetadata: { // ApprovalRuleOverriddenEventMetadata
  * //         revisionId: "STRING_VALUE",
- * //         overrideStatus: "STRING_VALUE",
+ * //         overrideStatus: "OVERRIDE" || "REVOKE",
  * //       },
  * //     },
  * //   ],
@@ -111,7 +111,7 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link ActorDoesNotExistException} (client fault)
- *  <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
+ *  <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
  *  <p>An encryption integrity check failed.</p>

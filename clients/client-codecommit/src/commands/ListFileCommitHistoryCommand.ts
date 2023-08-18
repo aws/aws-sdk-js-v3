@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { GetFolderInput, GetFolderOutput } from "../models/models_0";
-import { de_GetFolderCommand, se_GetFolderCommand } from "../protocols/Aws_json1_1";
+import { ListFileCommitHistoryRequest, ListFileCommitHistoryResponse } from "../models/models_0";
+import { de_ListFileCommitHistoryCommand, se_ListFileCommitHistoryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -24,78 +24,79 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetFolderCommand}.
+ * The input for {@link ListFileCommitHistoryCommand}.
  */
-export interface GetFolderCommandInput extends GetFolderInput {}
+export interface ListFileCommitHistoryCommandInput extends ListFileCommitHistoryRequest {}
 /**
  * @public
  *
- * The output of {@link GetFolderCommand}.
+ * The output of {@link ListFileCommitHistoryCommand}.
  */
-export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBearer {}
+export interface ListFileCommitHistoryCommandOutput extends ListFileCommitHistoryResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns the contents of a specified folder in a repository.</p>
+ * <p>Retrieves a list of commits and changes to a specified file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetFolderCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetFolderCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, ListFileCommitHistoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, ListFileCommitHistoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = { // GetFolderInput
+ * const input = { // ListFileCommitHistoryRequest
  *   repositoryName: "STRING_VALUE", // required
  *   commitSpecifier: "STRING_VALUE",
- *   folderPath: "STRING_VALUE", // required
+ *   filePath: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new GetFolderCommand(input);
+ * const command = new ListFileCommitHistoryCommand(input);
  * const response = await client.send(command);
- * // { // GetFolderOutput
- * //   commitId: "STRING_VALUE", // required
- * //   folderPath: "STRING_VALUE", // required
- * //   treeId: "STRING_VALUE",
- * //   subFolders: [ // FolderList
- * //     { // Folder
- * //       treeId: "STRING_VALUE",
- * //       absolutePath: "STRING_VALUE",
- * //       relativePath: "STRING_VALUE",
- * //     },
- * //   ],
- * //   files: [ // FileList
- * //     { // File
+ * // { // ListFileCommitHistoryResponse
+ * //   revisionDag: [ // RevisionDag // required
+ * //     { // FileVersion
+ * //       commit: { // Commit
+ * //         commitId: "STRING_VALUE",
+ * //         treeId: "STRING_VALUE",
+ * //         parents: [ // ParentList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         message: "STRING_VALUE",
+ * //         author: { // UserInfo
+ * //           name: "STRING_VALUE",
+ * //           email: "STRING_VALUE",
+ * //           date: "STRING_VALUE",
+ * //         },
+ * //         committer: {
+ * //           name: "STRING_VALUE",
+ * //           email: "STRING_VALUE",
+ * //           date: "STRING_VALUE",
+ * //         },
+ * //         additionalData: "STRING_VALUE",
+ * //       },
  * //       blobId: "STRING_VALUE",
- * //       absolutePath: "STRING_VALUE",
- * //       relativePath: "STRING_VALUE",
- * //       fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
+ * //       path: "STRING_VALUE",
+ * //       revisionChildren: [ // RevisionChildren
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
- * //   symbolicLinks: [ // SymbolicLinkList
- * //     { // SymbolicLink
- * //       blobId: "STRING_VALUE",
- * //       absolutePath: "STRING_VALUE",
- * //       relativePath: "STRING_VALUE",
- * //       fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
- * //     },
- * //   ],
- * //   subModules: [ // SubModuleList
- * //     { // SubModule
- * //       commitId: "STRING_VALUE",
- * //       absolutePath: "STRING_VALUE",
- * //       relativePath: "STRING_VALUE",
- * //     },
- * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetFolderCommandInput - {@link GetFolderCommandInput}
- * @returns {@link GetFolderCommandOutput}
- * @see {@link GetFolderCommandInput} for command's `input` shape.
- * @see {@link GetFolderCommandOutput} for command's `response` shape.
+ * @param ListFileCommitHistoryCommandInput - {@link ListFileCommitHistoryCommandInput}
+ * @returns {@link ListFileCommitHistoryCommandOutput}
+ * @see {@link ListFileCommitHistoryCommandInput} for command's `input` shape.
+ * @see {@link ListFileCommitHistoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link CommitDoesNotExistException} (client fault)
  *  <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ *
+ * @throws {@link CommitRequiredException} (client fault)
+ *  <p>A commit was not specified.</p>
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
  *  <p>An encryption integrity check failed.</p>
@@ -112,15 +113,14 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
  *  <p>The encryption key is not available.</p>
  *
- * @throws {@link FolderDoesNotExistException} (client fault)
- *  <p>The specified folder does not exist. Either the folder name is not correct, or you did
- *             not enter the full path to the folder.</p>
- *
  * @throws {@link InvalidCommitException} (client fault)
  *  <p>The specified commit is not valid.</p>
  *
- * @throws {@link InvalidPathException} (client fault)
- *  <p>The specified path is not valid.</p>
+ * @throws {@link InvalidContinuationTokenException} (client fault)
+ *  <p>The specified continuation token is not valid.</p>
+ *
+ * @throws {@link InvalidMaxResultsException} (client fault)
+ *  <p>The specified number of maximum results is not valid.</p>
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
@@ -130,22 +130,23 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
  *                 specified repository does not exist.</p>
  *          </note>
  *
- * @throws {@link PathRequiredException} (client fault)
- *  <p>The folderPath for a location cannot be null.</p>
- *
  * @throws {@link RepositoryDoesNotExistException} (client fault)
  *  <p>The specified repository does not exist.</p>
  *
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link TipsDivergenceExceededException} (client fault)
+ *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
+ *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+ *
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
-export class GetFolderCommand extends $Command<
-  GetFolderCommandInput,
-  GetFolderCommandOutput,
+export class ListFileCommitHistoryCommand extends $Command<
+  ListFileCommitHistoryCommandInput,
+  ListFileCommitHistoryCommandOutput,
   CodeCommitClientResolvedConfig
 > {
   // Start section: command_properties
@@ -163,7 +164,7 @@ export class GetFolderCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetFolderCommandInput) {
+  constructor(readonly input: ListFileCommitHistoryCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -176,15 +177,17 @@ export class GetFolderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetFolderCommandInput, GetFolderCommandOutput> {
+  ): Handler<ListFileCommitHistoryCommandInput, ListFileCommitHistoryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetFolderCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListFileCommitHistoryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CodeCommitClient";
-    const commandName = "GetFolderCommand";
+    const commandName = "ListFileCommitHistoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -203,15 +206,15 @@ export class GetFolderCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetFolderCommand(input, context);
+  private serialize(input: ListFileCommitHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListFileCommitHistoryCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFolderCommandOutput> {
-    return de_GetFolderCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFileCommitHistoryCommandOutput> {
+    return de_ListFileCommitHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

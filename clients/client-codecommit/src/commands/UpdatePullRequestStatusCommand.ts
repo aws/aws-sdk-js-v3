@@ -45,7 +45,7 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  * const client = new CodeCommitClient(config);
  * const input = { // UpdatePullRequestStatusInput
  *   pullRequestId: "STRING_VALUE", // required
- *   pullRequestStatus: "STRING_VALUE", // required
+ *   pullRequestStatus: "OPEN" || "CLOSED", // required
  * };
  * const command = new UpdatePullRequestStatusCommand(input);
  * const response = await client.send(command);
@@ -56,7 +56,7 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  * //     description: "STRING_VALUE",
  * //     lastActivityDate: new Date("TIMESTAMP"),
  * //     creationDate: new Date("TIMESTAMP"),
- * //     pullRequestStatus: "STRING_VALUE",
+ * //     pullRequestStatus: "OPEN" || "CLOSED",
  * //     authorArn: "STRING_VALUE",
  * //     pullRequestTargets: [ // PullRequestTargetList
  * //       { // PullRequestTarget
@@ -70,7 +70,7 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  * //           isMerged: true || false,
  * //           mergedBy: "STRING_VALUE",
  * //           mergeCommitId: "STRING_VALUE",
- * //           mergeOption: "STRING_VALUE",
+ * //           mergeOption: "FAST_FORWARD_MERGE" || "SQUASH_MERGE" || "THREE_WAY_MERGE",
  * //         },
  * //       },
  * //     ],

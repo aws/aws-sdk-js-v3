@@ -49,11 +49,11 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  *   repositoryName: "STRING_VALUE", // required
  *   destinationCommitSpecifier: "STRING_VALUE", // required
  *   sourceCommitSpecifier: "STRING_VALUE", // required
- *   mergeOption: "STRING_VALUE", // required
+ *   mergeOption: "FAST_FORWARD_MERGE" || "SQUASH_MERGE" || "THREE_WAY_MERGE", // required
  *   maxMergeHunks: Number("int"),
  *   filePath: "STRING_VALUE", // required
- *   conflictDetailLevel: "STRING_VALUE",
- *   conflictResolutionStrategy: "STRING_VALUE",
+ *   conflictDetailLevel: "FILE_LEVEL" || "LINE_LEVEL",
+ *   conflictResolutionStrategy: "NONE" || "ACCEPT_SOURCE" || "ACCEPT_DESTINATION" || "AUTOMERGE",
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new DescribeMergeConflictsCommand(input);
@@ -67,14 +67,14 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  * //       base: Number("long"),
  * //     },
  * //     fileModes: { // FileModes
- * //       source: "STRING_VALUE",
- * //       destination: "STRING_VALUE",
- * //       base: "STRING_VALUE",
+ * //       source: "EXECUTABLE" || "NORMAL" || "SYMLINK",
+ * //       destination: "EXECUTABLE" || "NORMAL" || "SYMLINK",
+ * //       base: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  * //     },
  * //     objectTypes: { // ObjectTypes
- * //       source: "STRING_VALUE",
- * //       destination: "STRING_VALUE",
- * //       base: "STRING_VALUE",
+ * //       source: "FILE" || "DIRECTORY" || "GIT_LINK" || "SYMBOLIC_LINK",
+ * //       destination: "FILE" || "DIRECTORY" || "GIT_LINK" || "SYMBOLIC_LINK",
+ * //       base: "FILE" || "DIRECTORY" || "GIT_LINK" || "SYMBOLIC_LINK",
  * //     },
  * //     numberOfConflicts: Number("int"),
  * //     isBinaryFile: { // IsBinaryFile
@@ -86,8 +86,8 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  * //     fileModeConflict: true || false,
  * //     objectTypeConflict: true || false,
  * //     mergeOperations: { // MergeOperations
- * //       source: "STRING_VALUE",
- * //       destination: "STRING_VALUE",
+ * //       source: "A" || "M" || "D",
+ * //       destination: "A" || "M" || "D",
  * //     },
  * //   },
  * //   mergeHunks: [ // MergeHunks // required
@@ -172,8 +172,7 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

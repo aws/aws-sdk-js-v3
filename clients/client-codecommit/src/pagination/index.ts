@@ -16,6 +16,7 @@ export * from "./Interfaces";
 export * from "./ListApprovalRuleTemplatesPaginator";
 export * from "./ListAssociatedApprovalRuleTemplatesForRepositoryPaginator";
 export * from "./ListBranchesPaginator";
+export * from "./ListFileCommitHistoryPaginator";
 export * from "./ListPullRequestsPaginator";
 export * from "./ListRepositoriesForApprovalRuleTemplatePaginator";
 export * from "./ListRepositoriesPaginator";

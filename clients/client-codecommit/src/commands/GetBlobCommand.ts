@@ -83,16 +83,15 @@ export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
  *  <p>The encryption key is not available.</p>
  *
  * @throws {@link FileTooLargeException} (client fault)
- *  <p>The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.</p>
+ *  <p>The specified file exceeds the file size limit for CodeCommit. For more information about limits in CodeCommit, see
+ *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
  *
  * @throws {@link InvalidBlobIdException} (client fault)
  *  <p>The specified blob is not valid.</p>
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

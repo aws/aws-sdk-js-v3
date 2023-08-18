@@ -14,7 +14,8 @@ import {
 } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { ListPullRequestsInput, ListPullRequestsOutput } from "../models/models_0";
+import { ListPullRequestsInput } from "../models/models_0";
+import { ListPullRequestsOutput } from "../models/models_1";
 import { de_ListPullRequestsCommand, se_ListPullRequestsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -47,7 +48,7 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  * const input = { // ListPullRequestsInput
  *   repositoryName: "STRING_VALUE", // required
  *   authorArn: "STRING_VALUE",
- *   pullRequestStatus: "STRING_VALUE",
+ *   pullRequestStatus: "OPEN" || "CLOSED",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -69,7 +70,7 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link AuthorDoesNotExistException} (client fault)
- *  <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
+ *  <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
  *  <p>An encryption integrity check failed.</p>
@@ -100,8 +101,7 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

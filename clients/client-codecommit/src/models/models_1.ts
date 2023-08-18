@@ -20,6 +20,63 @@ import {
 
 /**
  * @public
+ */
+export interface ListPullRequestsOutput {
+  /**
+   * @public
+   * <p>The system-generated IDs of the pull requests.</p>
+   */
+  pullRequestIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>The specified sort order is not valid.</p>
+ */
+export class InvalidOrderException extends __BaseException {
+  readonly name: "InvalidOrderException" = "InvalidOrderException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOrderException, __BaseException>) {
+    super({
+      name: "InvalidOrderException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOrderException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The specified sort by value is not valid.</p>
+ */
+export class InvalidSortByException extends __BaseException {
+  readonly name: "InvalidSortByException" = "InvalidSortByException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSortByException, __BaseException>) {
+    super({
+      name: "InvalidSortByException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSortByException.prototype);
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const OrderEnum = {
@@ -54,7 +111,7 @@ export interface ListRepositoriesInput {
   /**
    * @public
    * <p>An enumeration token that allows the operation to batch the results of the operation.
-   *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit,
+   *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to CodeCommit,
    *             another page of 1,000 records is retrieved.</p>
    */
   nextToken?: string;
@@ -104,7 +161,7 @@ export interface ListRepositoriesOutput {
   /**
    * @public
    * <p>An enumeration token that allows the operation to batch the results of the operation.
-   *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit,
+   *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to CodeCommit,
    *             another page of 1,000 records is retrieved.</p>
    */
   nextToken?: string;
@@ -153,9 +210,9 @@ export interface ListRepositoriesForApprovalRuleTemplateOutput {
 
 /**
  * @public
- * <p>The value for the resource ARN is not valid. For more information about resources in AWS CodeCommit, see
+ * <p>The value for the resource ARN is not valid. For more information about resources in CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
- *             in the AWS CodeCommit User Guide.</p>
+ *             in the CodeCommit User Guide.</p>
  */
 export class InvalidResourceArnException extends __BaseException {
   readonly name: "InvalidResourceArnException" = "InvalidResourceArnException";
@@ -211,9 +268,9 @@ export interface ListTagsForResourceOutput {
 
 /**
  * @public
- * <p>A valid Amazon Resource Name (ARN) for an AWS CodeCommit resource is required. For a list of valid resources in AWS CodeCommit, see
+ * <p>A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
- *             in the AWS CodeCommit User Guide.</p>
+ *             in the CodeCommit User Guide.</p>
  */
 export class ResourceArnRequiredException extends __BaseException {
   readonly name: "ResourceArnRequiredException" = "ResourceArnRequiredException";
@@ -858,7 +915,7 @@ export class CommentContentRequiredException extends __BaseException {
 
 /**
  * @public
- * <p>The comment is too large. Comments are limited to 1,000 characters.</p>
+ * <p>The comment is too large. Comments are limited to 10,240 characters.</p>
  */
 export class CommentContentSizeLimitExceededException extends __BaseException {
   readonly name: "CommentContentSizeLimitExceededException" = "CommentContentSizeLimitExceededException";
@@ -1178,7 +1235,7 @@ export interface PostCommentReplyOutput {
 
 /**
  * @public
- * <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit User Guide</a>.</p>
+ * <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">CodeCommit User Guide</a>.</p>
  */
 export class InvalidReactionValueException extends __BaseException {
   readonly name: "InvalidReactionValueException" = "InvalidReactionValueException";
@@ -1209,7 +1266,7 @@ export interface PutCommentReactionInput {
   /**
    * @public
    * <p>The emoji reaction you want to add or update. To remove a reaction, provide a value of blank or null. You can also provide the value of none.
-   *             For information about emoji reaction values supported in AWS CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html#emoji-reaction-table">AWS CodeCommit User Guide</a>.</p>
+   *             For information about emoji reaction values supported in CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html#emoji-reaction-table">CodeCommit User Guide</a>.</p>
    */
   reactionValue: string | undefined;
 }
@@ -1300,7 +1357,7 @@ export interface PutFileInput {
   /**
    * @public
    * <p>The name of the file you want to add or update, including the relative path to the file in the repository.</p>
-   *         <note>
+   *          <note>
    *             <p>If the path does not currently exist in the repository, the path is created as part of adding
    *                 the file.</p>
    *          </note>
@@ -1318,7 +1375,7 @@ export interface PutFileInput {
    * @public
    * <p>The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository,
    *             no commit ID is required. If this is not an empty repository, a commit ID is required. </p>
-   *         <p>The commit ID must match the ID of the head commit at the time of the operation.
+   *          <p>The commit ID must match the ID of the head commit at the time of the operation.
    *             Otherwise, an error occurs, and the file is not added or updated.</p>
    */
   parentCommitId?: string;
@@ -1490,8 +1547,8 @@ export class InvalidRepositoryTriggerNameException extends __BaseException {
 
 /**
  * @public
- * <p>The AWS Region for the trigger target does not match the AWS Region for the
- *             repository. Triggers must be created in the same Region as the target for the
+ * <p>The Amazon Web Services Region for the trigger target does not match the Amazon Web Services Region for the
+ *             repository. Triggers must be created in the same Amazon Web Services Region as the target for the
  *             trigger.</p>
  */
 export class InvalidRepositoryTriggerRegionException extends __BaseException {
@@ -2002,13 +2059,13 @@ export interface UpdateCommentOutput {
 export interface UpdateDefaultBranchInput {
   /**
    * @public
-   * <p>The name of the repository to set or change the default branch for.</p>
+   * <p>The name of the repository for which you want to set or change the default branch.</p>
    */
   repositoryName: string | undefined;
 
   /**
    * @public
-   * <p>The name of the branch to set as the default.</p>
+   * <p>The name of the branch to set as the default branch.</p>
    */
   defaultBranchName: string | undefined;
 }
@@ -2040,46 +2097,45 @@ export interface UpdatePullRequestApprovalRuleContentInput {
   /**
    * @public
    * <p>The updated content for the approval rule.</p>
-   *         <note>
+   *          <note>
    *             <p>When you update the content of the approval rule, you can specify approvers in an
    *                 approval pool in one of two ways:</p>
    *             <ul>
    *                <li>
-   *                     <p>
+   *                   <p>
    *                      <b>CodeCommitApprovers</b>: This option only
-   *                         requires an AWS account and a resource. It can be used for both IAM users
+   *                         requires an Amazon Web Services account and a resource. It can be used for both IAM users
    *                         and federated access users whose name matches the provided resource name.
    *                         This is a very powerful option that offers a great deal of flexibility. For
-   *                         example, if you specify the AWS account <i>123456789012</i>
+   *                         example, if you specify the Amazon Web Services account <i>123456789012</i>
    *                         and <i>Mary_Major</i>, all of the following are counted as
    *                         approvals coming from that user:</p>
-   *                     <ul>
+   *                   <ul>
    *                      <li>
-   *                             <p>An IAM user in the account
+   *                         <p>An IAM user in the account
    *                                 (arn:aws:iam::<i>123456789012</i>:user/<i>Mary_Major</i>)</p>
-   *                         </li>
+   *                      </li>
    *                      <li>
-   *                             <p>A federated user identified in IAM as Mary_Major
+   *                         <p>A federated user identified in IAM as Mary_Major
    *                                 (arn:aws:sts::<i>123456789012</i>:federated-user/<i>Mary_Major</i>)</p>
-   *                         </li>
+   *                      </li>
    *                   </ul>
-   *                     <p>This option does not recognize an active session of someone assuming the
+   *                   <p>This option does not recognize an active session of someone assuming the
    *                         role of CodeCommitReview with a role session name of
    *                             <i>Mary_Major</i>
    *                             (arn:aws:sts::<i>123456789012</i>:assumed-role/CodeCommitReview/<i>Mary_Major</i>)
    *                         unless you include a wildcard (*Mary_Major).</p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>
+   *                   <p>
    *                      <b>Fully qualified ARN</b>: This option allows
    *                         you to specify the fully qualified Amazon Resource Name (ARN) of the IAM
    *                         user or role. </p>
-   *                 </li>
+   *                </li>
    *             </ul>
    *             <p>For more information about IAM ARNs, wildcards, and formats, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
    *                     Identifiers</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *         </note>
+   *          </note>
    */
   newRuleContent: string | undefined;
 }

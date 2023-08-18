@@ -42,7 +42,7 @@ export interface GetCommentsForComparedCommitCommandOutput
 /**
  * @public
  * <p>Returns information about comments made on the comparison between two commits.</p>
- *         <note>
+ *          <note>
  *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
  *             reactions from active identities, use GetCommentReactions.</p>
  *          </note>
@@ -72,7 +72,7 @@ export interface GetCommentsForComparedCommitCommandOutput
  * //       location: { // Location
  * //         filePath: "STRING_VALUE",
  * //         filePosition: Number("long"),
- * //         relativeFileVersion: "STRING_VALUE",
+ * //         relativeFileVersion: "BEFORE" || "AFTER",
  * //       },
  * //       comments: [ // Comments
  * //         { // Comment
@@ -137,8 +137,7 @@ export interface GetCommentsForComparedCommitCommandOutput
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

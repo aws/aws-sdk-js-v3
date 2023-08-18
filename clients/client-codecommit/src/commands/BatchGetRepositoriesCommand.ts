@@ -37,7 +37,7 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
 /**
  * @public
  * <p>Returns information about one or more repositories.</p>
- *         <note>
+ *          <note>
  *             <p>The description field for a repository accepts all HTML characters and all valid
  *                 Unicode characters. Applications that do not HTML-encode the description and display
  *                 it in a webpage can expose users to potentially malicious code. Make sure that you
@@ -102,8 +102,7 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

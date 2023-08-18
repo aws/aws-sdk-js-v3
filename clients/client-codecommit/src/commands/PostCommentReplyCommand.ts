@@ -88,7 +88,7 @@ export interface PostCommentReplyCommandOutput extends PostCommentReplyOutput, _
  *  <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
  *
  * @throws {@link CommentContentSizeLimitExceededException} (client fault)
- *  <p>The comment is too large. Comments are limited to 1,000 characters.</p>
+ *  <p>The comment is too large. Comments are limited to 10,240 characters.</p>
  *
  * @throws {@link CommentDoesNotExistException} (client fault)
  *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and

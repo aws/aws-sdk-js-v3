@@ -36,10 +36,10 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Renames a repository. The repository name must be unique across the calling AWS
- *             account. Repository names are limited to 100 alphanumeric, dash, and underscore
+ * <p>Renames a repository. The repository name must be unique across the calling Amazon Web Services account.
+ *             Repository names are limited to 100 alphanumeric, dash, and underscore
  *             characters, and cannot include certain characters. The suffix .git is prohibited. For
- *             more information about the limits on repository names, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a> in the AWS CodeCommit
+ *             more information about the limits on repository names, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the CodeCommit
  *             User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,8 +65,7 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

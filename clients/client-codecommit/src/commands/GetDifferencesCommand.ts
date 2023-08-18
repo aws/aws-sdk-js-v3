@@ -69,7 +69,7 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  * //         path: "STRING_VALUE",
  * //         mode: "STRING_VALUE",
  * //       },
- * //       changeType: "STRING_VALUE",
+ * //       changeType: "A" || "M" || "D",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -121,8 +121,7 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

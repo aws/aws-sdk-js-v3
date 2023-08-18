@@ -64,7 +64,7 @@ export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput,
  * //     description: "STRING_VALUE",
  * //     lastActivityDate: new Date("TIMESTAMP"),
  * //     creationDate: new Date("TIMESTAMP"),
- * //     pullRequestStatus: "STRING_VALUE",
+ * //     pullRequestStatus: "OPEN" || "CLOSED",
  * //     authorArn: "STRING_VALUE",
  * //     pullRequestTargets: [ // PullRequestTargetList
  * //       { // PullRequestTarget
@@ -78,7 +78,7 @@ export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput,
  * //           isMerged: true || false,
  * //           mergedBy: "STRING_VALUE",
  * //           mergeCommitId: "STRING_VALUE",
- * //           mergeOption: "STRING_VALUE",
+ * //           mergeOption: "FAST_FORWARD_MERGE" || "SQUASH_MERGE" || "THREE_WAY_MERGE",
  * //         },
  * //       },
  * //     ],
@@ -145,13 +145,12 @@ export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput,
  *
  * @throws {@link InvalidReferenceNameException} (client fault)
  *  <p>The specified reference name format is not valid. Reference names must conform to the
- *             Git references format (for example, refs/heads/master). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
+ *             Git references format (for example, refs/heads/main). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
  *                 Git References</a> or consult your Git documentation.</p>
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

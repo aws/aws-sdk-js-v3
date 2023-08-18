@@ -36,7 +36,7 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds or updates a file in a branch in an AWS CodeCommit repository, and generates a commit for the addition in the specified branch.</p>
+ * <p>Adds or updates a file in a branch in an CodeCommit repository, and generates a commit for the addition in the specified branch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,7 +48,7 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  *   branchName: "STRING_VALUE", // required
  *   fileContent: "BLOB_VALUE", // required
  *   filePath: "STRING_VALUE", // required
- *   fileMode: "STRING_VALUE",
+ *   fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  *   parentCommitId: "STRING_VALUE",
  *   commitMessage: "STRING_VALUE",
  *   name: "STRING_VALUE",
@@ -145,8 +145,7 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>

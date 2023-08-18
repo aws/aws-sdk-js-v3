@@ -138,6 +138,10 @@ import {
   ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput,
 } from "../commands/ListAssociatedApprovalRuleTemplatesForRepositoryCommand";
 import { ListBranchesCommandInput, ListBranchesCommandOutput } from "../commands/ListBranchesCommand";
+import {
+  ListFileCommitHistoryCommandInput,
+  ListFileCommitHistoryCommandOutput,
+} from "../commands/ListFileCommitHistoryCommand";
 import { ListPullRequestsCommandInput, ListPullRequestsCommandOutput } from "../commands/ListPullRequestsCommand";
 import { ListRepositoriesCommandInput, ListRepositoriesCommandOutput } from "../commands/ListRepositoriesCommand";
 import {
@@ -385,7 +389,6 @@ import {
   InvalidMaxMergeHunksException,
   InvalidMaxResultsException,
   InvalidMergeOptionException,
-  InvalidOrderException,
   InvalidParentCommitIdException,
   InvalidPathException,
   InvalidPullRequestEventTypeException,
@@ -398,7 +401,6 @@ import {
   InvalidRepositoryDescriptionException,
   InvalidRepositoryNameException,
   InvalidRevisionIdException,
-  InvalidSortByException,
   InvalidSourceCommitSpecifierException,
   InvalidSystemTagUsageException,
   InvalidTagsMapException,
@@ -408,6 +410,7 @@ import {
   ListApprovalRuleTemplatesInput,
   ListAssociatedApprovalRuleTemplatesForRepositoryInput,
   ListBranchesInput,
+  ListFileCommitHistoryRequest,
   ListPullRequestsInput,
   Location,
   ManualMergeRequiredException,
@@ -476,6 +479,7 @@ import {
   InvalidApprovalStateException,
   InvalidFileLocationException,
   InvalidFilePositionException,
+  InvalidOrderException,
   InvalidOverrideStatusException,
   InvalidPullRequestStatusUpdateException,
   InvalidReactionValueException,
@@ -488,6 +492,7 @@ import {
   InvalidRepositoryTriggerRegionException,
   InvalidResourceArnException,
   InvalidRuleContentSha256Exception,
+  InvalidSortByException,
   InvalidTagKeysListException,
   InvalidTargetBranchException,
   ListRepositoriesForApprovalRuleTemplateInput,
@@ -1137,6 +1142,19 @@ export const se_ListBranchesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListBranches");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListFileCommitHistoryCommand
+ */
+export const se_ListFileCommitHistoryCommand = async (
+  input: ListFileCommitHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListFileCommitHistory");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5211,6 +5229,91 @@ const de_ListBranchesCommandError = async (
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
       throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListFileCommitHistoryCommand
+ */
+export const de_ListFileCommitHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFileCommitHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListFileCommitHistoryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListFileCommitHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListFileCommitHistoryCommandError
+ */
+const de_ListFileCommitHistoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFileCommitHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CommitDoesNotExistException":
+    case "com.amazonaws.codecommit#CommitDoesNotExistException":
+      throw await de_CommitDoesNotExistExceptionRes(parsedOutput, context);
+    case "CommitRequiredException":
+    case "com.amazonaws.codecommit#CommitRequiredException":
+      throw await de_CommitRequiredExceptionRes(parsedOutput, context);
+    case "EncryptionIntegrityChecksFailedException":
+    case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
+    case "EncryptionKeyAccessDeniedException":
+    case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
+    case "EncryptionKeyDisabledException":
+    case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
+    case "EncryptionKeyNotFoundException":
+    case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
+    case "EncryptionKeyUnavailableException":
+    case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
+    case "InvalidCommitException":
+    case "com.amazonaws.codecommit#InvalidCommitException":
+      throw await de_InvalidCommitExceptionRes(parsedOutput, context);
+    case "InvalidContinuationTokenException":
+    case "com.amazonaws.codecommit#InvalidContinuationTokenException":
+      throw await de_InvalidContinuationTokenExceptionRes(parsedOutput, context);
+    case "InvalidMaxResultsException":
+    case "com.amazonaws.codecommit#InvalidMaxResultsException":
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
+    case "InvalidRepositoryNameException":
+    case "com.amazonaws.codecommit#InvalidRepositoryNameException":
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
+    case "RepositoryDoesNotExistException":
+    case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
+    case "RepositoryNameRequiredException":
+    case "com.amazonaws.codecommit#RepositoryNameRequiredException":
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
+    case "TipsDivergenceExceededException":
+    case "com.amazonaws.codecommit#TipsDivergenceExceededException":
+      throw await de_TipsDivergenceExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -11157,6 +11260,8 @@ const se_CreateUnreferencedMergeCommitInput = (
 
 // se_ListBranchesInput omitted.
 
+// se_ListFileCommitHistoryRequest omitted.
+
 // se_ListPullRequestsInput omitted.
 
 // se_ListRepositoriesForApprovalRuleTemplateInput omitted.
@@ -11809,6 +11914,8 @@ const de_DescribePullRequestEventsOutput = (output: any, context: __SerdeContext
 
 // de_FileTooLargeException omitted.
 
+// de_FileVersion omitted.
+
 // de_Folder omitted.
 
 // de_FolderContentSizeLimitExceededException omitted.
@@ -12056,6 +12163,8 @@ const de_GetRepositoryOutput = (output: any, context: __SerdeContext): GetReposi
 // de_ListAssociatedApprovalRuleTemplatesForRepositoryOutput omitted.
 
 // de_ListBranchesOutput omitted.
+
+// de_ListFileCommitHistoryResponse omitted.
 
 // de_ListPullRequestsOutput omitted.
 
@@ -12398,6 +12507,10 @@ const de_RepositoryMetadataList = (output: any, context: __SerdeContext): Reposi
 // de_ResourceArnRequiredException omitted.
 
 // de_RestrictedSourceFileException omitted.
+
+// de_RevisionChildren omitted.
+
+// de_RevisionDag omitted.
 
 // de_RevisionIdRequiredException omitted.
 

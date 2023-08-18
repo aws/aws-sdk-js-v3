@@ -54,7 +54,7 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  *         "STRING_VALUE",
  *       ],
  *       events: [ // RepositoryTriggerEventList // required
- *         "STRING_VALUE",
+ *         "all" || "updateReference" || "createReference" || "deleteReference",
  *       ],
  *     },
  *   ],
@@ -90,8 +90,7 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>
@@ -113,8 +112,8 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  *  <p>The name of the trigger is not valid.</p>
  *
  * @throws {@link InvalidRepositoryTriggerRegionException} (client fault)
- *  <p>The AWS Region for the trigger target does not match the AWS Region for the
- *             repository. Triggers must be created in the same Region as the target for the
+ *  <p>The Amazon Web Services Region for the trigger target does not match the Amazon Web Services Region for the
+ *             repository. Triggers must be created in the same Amazon Web Services Region as the target for the
  *             trigger.</p>
  *
  * @throws {@link MaximumBranchesExceededException} (client fault)

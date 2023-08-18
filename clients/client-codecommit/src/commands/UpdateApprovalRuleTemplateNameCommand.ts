@@ -76,12 +76,12 @@ export interface UpdateApprovalRuleTemplateNameCommandOutput
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link ApprovalRuleTemplateDoesNotExistException} (client fault)
- *  <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the AWS Region where the template
+ *  <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template
  *         was created, and then try again.</p>
  *
  * @throws {@link ApprovalRuleTemplateNameAlreadyExistsException} (client fault)
  *  <p>You cannot create an approval rule template with that name because a template with
- *             that name already exists in this AWS Region for your AWS account. Approval rule template
+ *             that name already exists in this Amazon Web Services Region for your Amazon Web Services account. Approval rule template
  *             names must be unique.</p>
  *
  * @throws {@link ApprovalRuleTemplateNameRequiredException} (client fault)
@@ -89,9 +89,8 @@ export interface UpdateApprovalRuleTemplateNameCommandOutput
  *
  * @throws {@link InvalidApprovalRuleTemplateNameException} (client fault)
  *  <p>The name of the approval rule template is not valid. Template names must be between 1
- *             and 100 valid characters in length. For more information about limits in AWS CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
- *                 CodeCommit User Guide</a>.</p>
+ *             and 100 valid characters in length. For more information about limits in CodeCommit,
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
  *
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
