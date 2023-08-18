@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.395.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.394.0...v3.395.0) (2023-08-18)
+
+
+### Features
+
+* **client-codecommit:** Add new ListFileCommitHistory operation to retrieve commits which introduced changes to a specific file. ([d57dcd2](https://github.com/aws/aws-sdk-js-v3/commit/d57dcd22e0185a78c4ef1f2dd1f67ab9047848fd))
+* **client-securityhub:** Added Inspector Lambda code Vulnerability section to ASFF, including GeneratorDetails, EpssScore, ExploitAvailable, and CodeVulnerabilities. ([2cdf852](https://github.com/aws/aws-sdk-js-v3/commit/2cdf852fb16b75984f6624f66f5eb7d3ecfb7987))
+* **clients:** update client endpoints as of 2023-08-18 ([1330792](https://github.com/aws/aws-sdk-js-v3/commit/13307927a3fa33764b943fa092c1c2e4408982aa))
+
+
+
+
+
 # [3.394.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.393.0...v3.394.0) (2023-08-17)
 
 

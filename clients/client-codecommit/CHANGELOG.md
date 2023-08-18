@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.395.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.394.0...v3.395.0) (2023-08-18)
+
+
+### Features
+
+* **client-codecommit:** Add new ListFileCommitHistory operation to retrieve commits which introduced changes to a specific file. ([d57dcd2](https://github.com/aws/aws-sdk-js-v3/commit/d57dcd22e0185a78c4ef1f2dd1f67ab9047848fd))
+
+
+
+
+
 # [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-codecommit

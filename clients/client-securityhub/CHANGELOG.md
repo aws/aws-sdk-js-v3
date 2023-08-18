@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.395.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.394.0...v3.395.0) (2023-08-18)
+
+
+### Features
+
+* **client-securityhub:** Added Inspector Lambda code Vulnerability section to ASFF, including GeneratorDetails, EpssScore, ExploitAvailable, and CodeVulnerabilities. ([2cdf852](https://github.com/aws/aws-sdk-js-v3/commit/2cdf852fb16b75984f6624f66f5eb7d3ecfb7987))
+
+
+
+
+
 # [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-securityhub
