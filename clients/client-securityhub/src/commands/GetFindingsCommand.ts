@@ -4111,6 +4111,22 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           },
  * //           ReferenceUrls: "<StringList>",
  * //           FixAvailable: "YES" || "NO" || "PARTIAL",
+ * //           EpssScore: Number("double"),
+ * //           ExploitAvailable: "YES" || "NO",
+ * //           CodeVulnerabilities: [ // VulnerabilityCodeVulnerabilitiesList
+ * //             { // VulnerabilityCodeVulnerabilities
+ * //               Cwes: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               FilePath: { // CodeVulnerabilitiesFilePath
+ * //                 EndLine: Number("int"),
+ * //                 FileName: "STRING_VALUE",
+ * //                 FilePath: "STRING_VALUE",
+ * //                 StartLine: Number("int"),
+ * //               },
+ * //               SourceArn: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       PatchSummary: { // PatchSummary
@@ -4245,11 +4261,14 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           Label: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
  * //           Original: "STRING_VALUE",
  * //         },
- * //         Types: [
- * //           "STRING_VALUE",
- * //         ],
+ * //         Types: "<TypeList>",
  * //       },
  * //       Sample: true || false,
+ * //       GeneratorDetails: { // GeneratorDetails
+ * //         Name: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         Labels: "<TypeList>",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

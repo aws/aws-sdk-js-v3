@@ -47,7 +47,6 @@ import {
   AwsEfsAccessPointRootDirectoryCreationInfoDetails,
   RelatedFinding,
   SeverityLabel,
-  WorkflowStatus,
 } from "./models_0";
 
 /**
@@ -7856,6 +7855,41 @@ export interface FindingProviderFields {
 
 /**
  * @public
+ * <p>
+ *                 Provides metadata for the Amazon CodeGuru detector associated with a finding. This field pertains to
+ *                 findings that relate to Lambda functions. Amazon Inspector identifies policy violations and
+ *                 vulnerabilities in Lambda function code based on internal detectors developed
+ *                 in collaboration with Amazon CodeGuru. Security Hub receives those findings.
+ *         </p>
+ */
+export interface GeneratorDetails {
+  /**
+   * @public
+   * <p>
+   *             The name of the detector used to identify the code vulnerability.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the detector used to identify the code vulnerability.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An array of tags used to identify the detector associated with the finding.
+   *         </p>
+   */
+  Labels?: string[];
+}
+
+/**
+ * @public
  * @enum
  */
 export const MalwareState = {
@@ -11436,6 +11470,78 @@ export interface Threat {
 
 /**
  * @public
+ * <p>
+ *             Provides details about where a code vulnerability is located in your Lambda function.
+ *         </p>
+ */
+export interface CodeVulnerabilitiesFilePath {
+  /**
+   * @public
+   * <p>
+   *         	The line number of the last line of code in which the vulnerability is located.
+   *         </p>
+   */
+  EndLine?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the file in which the code vulnerability is located.
+   *         </p>
+   */
+  FileName?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The file path to the code in which the vulnerability is located.
+   *         </p>
+   */
+  FilePath?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The line number of the first line of code in which the vulnerability is located.
+   *         </p>
+   */
+  StartLine?: number;
+}
+
+/**
+ * @public
+ * <p>Provides details about the vulnerabilities found in your Lambda function code. This field pertains to findings that
+ *             Security Hub receives from Amazon Inspector.
+ *         </p>
+ */
+export interface VulnerabilityCodeVulnerabilities {
+  /**
+   * @public
+   * <p>
+   *             The Common Weakness Enumeration (CWE) item associated with the detected code vulnerability.
+   *         </p>
+   */
+  Cwes?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about where a code vulnerability is located in your Lambda function.
+   *         </p>
+   */
+  FilePath?: CodeVulnerabilitiesFilePath;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the Lambda layer in which the code vulnerability is located.
+   *         </p>
+   */
+  SourceArn?: string;
+}
+
+/**
+ * @public
  * <p>CVSS scores from the advisory related to the vulnerability.</p>
  */
 export interface Cvss {
@@ -11469,6 +11575,21 @@ export interface Cvss {
    */
   Adjustments?: Adjustment[];
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const VulnerabilityExploitAvailable = {
+  NO: "NO",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type VulnerabilityExploitAvailable =
+  (typeof VulnerabilityExploitAvailable)[keyof typeof VulnerabilityExploitAvailable];
 
 /**
  * @public
@@ -11526,212 +11647,3 @@ export interface VulnerabilityVendor {
    */
   VendorUpdatedAt?: string;
 }
-
-/**
- * @public
- * <p>Information about a software package.</p>
- */
-export interface SoftwarePackage {
-  /**
-   * @public
-   * <p>The name of the software package.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The version of the software package.</p>
-   */
-  Version?: string;
-
-  /**
-   * @public
-   * <p>The epoch of the software package.</p>
-   */
-  Epoch?: string;
-
-  /**
-   * @public
-   * <p>The release of the software package.</p>
-   */
-  Release?: string;
-
-  /**
-   * @public
-   * <p>The architecture used for the software package.</p>
-   */
-  Architecture?: string;
-
-  /**
-   * @public
-   * <p>The source of the package.</p>
-   */
-  PackageManager?: string;
-
-  /**
-   * @public
-   * <p>The file system path to the package manager inventory file.</p>
-   */
-  FilePath?: string;
-
-  /**
-   * @public
-   * <p>The version of the software package in which the vulnerability has been resolved.
-   *       </p>
-   */
-  FixedInVersion?: string;
-
-  /**
-   * @public
-   * <p>Describes the actions a customer can take to resolve the vulnerability in the software package.
-   *       </p>
-   */
-  Remediation?: string;
-
-  /**
-   * @public
-   * <p>The source layer hash of the vulnerable package.
-   *       </p>
-   */
-  SourceLayerHash?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the source layer.
-   *       </p>
-   */
-  SourceLayerArn?: string;
-}
-
-/**
- * @public
- * <p>A vulnerability associated with a finding.</p>
- */
-export interface Vulnerability {
-  /**
-   * @public
-   * <p>The identifier of the vulnerability.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * @public
-   * <p>List of software packages that have the vulnerability.</p>
-   */
-  VulnerablePackages?: SoftwarePackage[];
-
-  /**
-   * @public
-   * <p>CVSS scores from the advisory related to the vulnerability.</p>
-   */
-  Cvss?: Cvss[];
-
-  /**
-   * @public
-   * <p>List of vulnerabilities that are related to this vulnerability.</p>
-   */
-  RelatedVulnerabilities?: string[];
-
-  /**
-   * @public
-   * <p>Information about the vendor that generates the vulnerability report.</p>
-   */
-  Vendor?: VulnerabilityVendor;
-
-  /**
-   * @public
-   * <p>A list of URLs that provide additional information about the vulnerability.</p>
-   */
-  ReferenceUrls?: string[];
-
-  /**
-   * @public
-   * <p>Specifies if all vulnerable packages in a finding have a value for <code>FixedInVersion</code>
-   * and <code>Remediation</code>.
-   * This field is evaluated for each vulnerability <code>Id</code> based on the number of vulnerable packages that have a value for both
-   * <code>FixedInVersion</code> and <code>Remediation</code>. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YES</code> if all vulnerable packages have a value for both <code>FixedInVersion</code> and <code>Remediation</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NO</code> if no vulnerable packages have a value for <code>FixedInVersion</code> and <code>Remediation</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PARTIAL</code> otherwise</p>
-   *             </li>
-   *          </ul>
-   */
-  FixAvailable?: VulnerabilityFixAvailable | string;
-}
-
-/**
- * @public
- * <p>Provides information about the status of the investigation into a finding.</p>
- */
-export interface Workflow {
-  /**
-   * @public
-   * <p>The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to <code>SUPPRESSED</code> or <code>RESOLVED</code> does not prevent a new finding for the same issue.</p>
-   *          <p>The allowed values are the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
-   *                <p>Security Hub also resets the workflow status from <code>NOTIFIED</code> or
-   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>RecordState</code> changes from <code>ARCHIVED</code> to
-   *                         <code>ACTIVE</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>ComplianceStatus</code> changes from <code>PASSED</code> to either
-   *                         <code>WARNING</code>, <code>FAILED</code>, or
-   *                      <code>NOT_AVAILABLE</code>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTIFIED</code> - Indicates that you notified the resource owner about the
-   *                security issue. Used when the initial reviewer is not the resource owner, and needs
-   *                intervention from the resource owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
-   *                considered resolved. </p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: WorkflowStatus | string;
-}
-
-/**
- * @public
- * @enum
- */
-export const WorkflowState = {
-  ASSIGNED: "ASSIGNED",
-  DEFERRED: "DEFERRED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NEW: "NEW",
-  RESOLVED: "RESOLVED",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowState = (typeof WorkflowState)[keyof typeof WorkflowState];

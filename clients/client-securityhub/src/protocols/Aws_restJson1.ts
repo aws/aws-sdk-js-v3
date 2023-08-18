@@ -717,6 +717,7 @@ import {
   Cell,
   ClassificationResult,
   ClassificationStatus,
+  CodeVulnerabilitiesFilePath,
   Compliance,
   ContainerDetails,
   CustomDataIdentifiersDetections,
@@ -730,6 +731,7 @@ import {
   FirewallPolicyStatefulRuleGroupReferencesDetails,
   FirewallPolicyStatelessCustomActionsDetails,
   FirewallPolicyStatelessRuleGroupReferencesDetails,
+  GeneratorDetails,
   LoadBalancerState,
   Malware,
   Network,
@@ -769,7 +771,6 @@ import {
   SensitiveDataDetections,
   SensitiveDataResult,
   Severity,
-  SoftwarePackage,
   StatelessCustomActionDefinition,
   StatelessCustomPublishMetricAction,
   StatelessCustomPublishMetricActionDimension,
@@ -777,12 +778,11 @@ import {
   Threat,
   ThreatIntelIndicator,
   VolumeMount,
-  Vulnerability,
+  VulnerabilityCodeVulnerabilities,
   VulnerabilityVendor,
   WafAction,
   WafExcludedRule,
   WafOverrideAction,
-  Workflow,
 } from "../models/models_1";
 import {
   AwsSecurityFinding,
@@ -796,6 +796,7 @@ import {
   KeywordFilter,
   Member,
   ResourceConflictException,
+  SoftwarePackage,
   SortCriterion,
   StandardsControl,
   StandardsControlAssociationDetail,
@@ -804,6 +805,8 @@ import {
   StandardsControlAssociationUpdate,
   StandardsSubscriptionRequest,
   UpdateAutomationRulesRequestItem,
+  Vulnerability,
+  Workflow,
 } from "../models/models_2";
 import { SecurityHubServiceException as __BaseException } from "../models/SecurityHubServiceException";
 
@@ -8299,6 +8302,7 @@ const se_AwsSecurityFinding = (input: AwsSecurityFinding, context: __SerdeContex
     Description: [],
     FindingProviderFields: _json,
     FirstObservedAt: [],
+    GeneratorDetails: _json,
     GeneratorId: [],
     Id: [],
     LastObservedAt: [],
@@ -8589,6 +8593,8 @@ const se_BatchImportFindingsRequestFindingList = (input: AwsSecurityFinding[], c
 
 // se_ClassificationStatus omitted.
 
+// se_CodeVulnerabilitiesFilePath omitted.
+
 // se_Compliance omitted.
 
 // se_ContainerDetails omitted.
@@ -8658,6 +8664,8 @@ const se_CvssList = (input: Cvss[], context: __SerdeContext): any => {
 // se_FirewallPolicyStatelessRuleGroupReferencesDetails omitted.
 
 // se_FirewallPolicyStatelessRuleGroupReferencesList omitted.
+
+// se_GeneratorDetails omitted.
 
 /**
  * serializeAws_restJson1GeoLocation
@@ -9144,7 +9152,10 @@ const se_UpdateAutomationRulesRequestItemsList = (
  */
 const se_Vulnerability = (input: Vulnerability, context: __SerdeContext): any => {
   return take(input, {
+    CodeVulnerabilities: _json,
     Cvss: (_) => se_CvssList(_, context),
+    EpssScore: __serializeFloat,
+    ExploitAvailable: [],
     FixAvailable: [],
     Id: [],
     ReferenceUrls: _json,
@@ -9153,6 +9164,10 @@ const se_Vulnerability = (input: Vulnerability, context: __SerdeContext): any =>
     VulnerablePackages: _json,
   });
 };
+
+// se_VulnerabilityCodeVulnerabilities omitted.
+
+// se_VulnerabilityCodeVulnerabilitiesList omitted.
 
 /**
  * serializeAws_restJson1VulnerabilityList
@@ -10795,6 +10810,7 @@ const de_AwsSecurityFinding = (output: any, context: __SerdeContext): AwsSecurit
     Description: __expectString,
     FindingProviderFields: _json,
     FirstObservedAt: __expectString,
+    GeneratorDetails: _json,
     GeneratorId: __expectString,
     Id: __expectString,
     LastObservedAt: __expectString,
@@ -11092,6 +11108,8 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 
 // de_ClassificationStatus omitted.
 
+// de_CodeVulnerabilitiesFilePath omitted.
+
 // de_Compliance omitted.
 
 // de_ContainerDetails omitted.
@@ -11198,6 +11216,8 @@ const de_FindingHistoryRecordList = (output: any, context: __SerdeContext): Find
 // de_FirewallPolicyStatelessRuleGroupReferencesDetails omitted.
 
 // de_FirewallPolicyStatelessRuleGroupReferencesList omitted.
+
+// de_GeneratorDetails omitted.
 
 /**
  * deserializeAws_restJson1GeoLocation
@@ -11879,7 +11899,10 @@ const de_StandardsControls = (output: any, context: __SerdeContext): StandardsCo
  */
 const de_Vulnerability = (output: any, context: __SerdeContext): Vulnerability => {
   return take(output, {
+    CodeVulnerabilities: _json,
     Cvss: (_: any) => de_CvssList(_, context),
+    EpssScore: __limitedParseDouble,
+    ExploitAvailable: __expectString,
     FixAvailable: __expectString,
     Id: __expectString,
     ReferenceUrls: _json,
@@ -11888,6 +11911,10 @@ const de_Vulnerability = (output: any, context: __SerdeContext): Vulnerability =
     VulnerablePackages: _json,
   }) as any;
 };
+
+// de_VulnerabilityCodeVulnerabilities omitted.
+
+// de_VulnerabilityCodeVulnerabilitiesList omitted.
 
 /**
  * deserializeAws_restJson1VulnerabilityList

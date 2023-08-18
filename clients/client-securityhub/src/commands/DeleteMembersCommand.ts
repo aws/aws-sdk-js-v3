@@ -37,8 +37,8 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
 /**
  * @public
  * <p>Deletes the specified member accounts from Security Hub.</p>
- *          <p>Can be used to delete member accounts that belong to an organization as well as member
- *          accounts that were invited manually.</p>
+ *          <p>You can invoke this API only to delete accounts that became members through invitation. You can't invoke this
+ *         API to delete accounts that belong to an Organizations organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
