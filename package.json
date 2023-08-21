@@ -104,7 +104,6 @@
     "karma-chrome-launcher": "3.1.1",
     "karma-coverage": "2.2.0",
     "karma-env-preprocessor": "0.1.1",
-    "karma-firefox-launcher": "2.1.2",
     "karma-jasmine": "5.1.0",
     "karma-mocha": "2.0.1",
     "karma-sourcemap-loader": "0.3.8",
