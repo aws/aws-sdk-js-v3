@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.396.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.395.0...v3.396.0) (2023-08-21)
+
+
+### Features
+
+* **client-ec2:** The DeleteKeyPair API has been updated to return the keyPairId when an existing key pair is deleted. ([5009701](https://github.com/aws/aws-sdk-js-v3/commit/50097011ce78c144fcd821b3225adc467e0e06cd))
+* **client-finspace:** Allow customers to manage outbound traffic from their Kx Environment when attaching a transit gateway by providing network acl entries. Allow the customer to choose how they want to update the databases on a cluster allowing updates to possibly be faster than usual. ([89bdf1a](https://github.com/aws/aws-sdk-js-v3/commit/89bdf1a61dbaea710f0681102888a84540afff46))
+* **client-rds:** Adding support for RDS Aurora Global Database Unplanned Failover ([d92f127](https://github.com/aws/aws-sdk-js-v3/commit/d92f127436c37cf0efa3fc1f964a7976caddf331))
+* **clients:** update client endpoints as of 2023-08-21 ([ff8beba](https://github.com/aws/aws-sdk-js-v3/commit/ff8beba1638426614cd3d62a77b5fc9a175b6fb8))
+
+
+
+
+
 # [3.395.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.394.0...v3.395.0) (2023-08-18)
 
 
