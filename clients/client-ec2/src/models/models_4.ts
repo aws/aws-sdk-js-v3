@@ -105,7 +105,6 @@ import {
   EnclaveOptions,
   EventInformation,
   Filter,
-  HibernationOptions,
   HypervisorType,
   IdFormat,
   InstanceBlockDeviceMapping,
@@ -114,6 +113,22 @@ import {
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
+ *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
+ *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
+ *                 <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface HibernationOptions {
+  /**
+   * @public
+   * <p>If <code>true</code>, your instance is enabled for hibernation; otherwise, it is not
+   *             enabled for hibernation.</p>
+   */
+  Configured?: boolean;
+}
 
 /**
  * @public
@@ -12265,44 +12280,6 @@ export interface DescribeVerifiedAccessGroupsResult {
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
-  /**
-   * @public
-   * <p>The IDs of the Verified Access instances.</p>
-   */
-  VerifiedAccessInstanceIds?: string[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 /**

@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteKeyPairRequest } from "../models/models_2";
+import { DeleteKeyPairRequest, DeleteKeyPairResult } from "../models/models_2";
 import { de_DeleteKeyPairCommand, se_DeleteKeyPairCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -32,7 +32,7 @@ export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}
  *
  * The output of {@link DeleteKeyPairCommand}.
  */
-export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
+export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __MetadataBearer {}
 
 /**
  * @public
@@ -50,7 +50,10 @@ export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteKeyPairCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteKeyPairResult
+ * //   Return: true || false,
+ * //   KeyPairId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

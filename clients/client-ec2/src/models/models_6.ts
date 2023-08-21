@@ -165,6 +165,30 @@ import {
 /**
  * @public
  */
+export interface ImportClientVpnClientCertificateRevocationListRequest {
+  /**
+   * @public
+   * <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * @public
+   * <p>The client certificate revocation list file. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate">Generate a Client Certificate Revocation List</a> in the
+   * 				<i>Client VPN Administrator Guide</i>.</p>
+   */
+  CertificateRevocationList: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
 export interface ImportClientVpnClientCertificateRevocationListResult {
   /**
    * @public
@@ -9604,18 +9628,6 @@ export interface ScheduledInstancesMonitoring {
    * <p>Indicates whether monitoring is enabled.</p>
    */
   Enabled?: boolean;
-}
-
-/**
- * @public
- * <p>Describes an IPv6 address.</p>
- */
-export interface ScheduledInstancesIpv6Address {
-  /**
-   * @public
-   * <p>The IPv6 address.</p>
-   */
-  Ipv6Address?: string;
 }
 
 /**

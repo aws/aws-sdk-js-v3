@@ -2638,6 +2638,7 @@ import {
   DeleteIpamScopeRequest,
   DeleteIpamScopeResult,
   DeleteKeyPairRequest,
+  DeleteKeyPairResult,
   DeleteLaunchTemplateRequest,
   DeleteLaunchTemplateResult,
   DeleteLaunchTemplateVersionsRequest,
@@ -2981,7 +2982,6 @@ import {
   FpgaImage,
   FpgaImageAttribute,
   FpgaImageState,
-  HibernationOptions,
   HistoryRecordEntry,
   Host,
   HostInstance,
@@ -3178,7 +3178,6 @@ import {
   DescribeVerifiedAccessEndpointsResult,
   DescribeVerifiedAccessGroupsRequest,
   DescribeVerifiedAccessGroupsResult,
-  DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -3189,6 +3188,7 @@ import {
   GpuDeviceInfo,
   GpuDeviceMemoryInfo,
   GpuInfo,
+  HibernationOptions,
   HistoryRecord,
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
@@ -3291,6 +3291,7 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
   DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
   DescribeVerifiedAccessInstancesRequest,
   DescribeVerifiedAccessInstancesResult,
@@ -3518,7 +3519,6 @@ import {
   GetVpnConnectionDeviceTypesResult,
   GetVpnTunnelReplacementStatusRequest,
   GetVpnTunnelReplacementStatusResult,
-  ImportClientVpnClientCertificateRevocationListRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3584,6 +3584,7 @@ import {
   HibernationOptionsRequest,
   ImageDiskContainer,
   ImageRecycleBinInfo,
+  ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
   ImportImageLicenseConfigurationRequest,
   ImportImageRequest,
@@ -3838,7 +3839,6 @@ import {
   ScheduledInstancesBlockDeviceMapping,
   ScheduledInstancesEbs,
   ScheduledInstancesIamInstanceProfile,
-  ScheduledInstancesIpv6Address,
   ScheduledInstancesMonitoring,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
@@ -3864,6 +3864,7 @@ import {
   InstanceStateChange,
   RunScheduledInstancesRequest,
   RunScheduledInstancesResult,
+  ScheduledInstancesIpv6Address,
   ScheduledInstancesLaunchSpecification,
   ScheduledInstancesNetworkInterface,
   ScheduledInstancesPlacement,
@@ -20145,9 +20146,12 @@ export const de_DeleteKeyPairCommand = async (
   if (output.statusCode >= 300) {
     return de_DeleteKeyPairCommandError(output, context);
   }
-  await collectBody(output.body, context);
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteKeyPairResult(data, context);
   const response: DeleteKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -70213,6 +70217,20 @@ const de_DeleteIpamScopeResult = (output: any, context: __SerdeContext): DeleteI
   const contents: any = {};
   if (output["ipamScope"] !== undefined) {
     contents.IpamScope = de_IpamScope(output["ipamScope"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteKeyPairResult
+ */
+const de_DeleteKeyPairResult = (output: any, context: __SerdeContext): DeleteKeyPairResult => {
+  const contents: any = {};
+  if (output["return"] !== undefined) {
+    contents.Return = __parseBoolean(output["return"]);
+  }
+  if (output["keyPairId"] !== undefined) {
+    contents.KeyPairId = __expectString(output["keyPairId"]);
   }
   return contents;
 };

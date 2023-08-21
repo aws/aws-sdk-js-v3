@@ -82,6 +82,44 @@ import { AnalysisStatus, ArchitectureType } from "./models_4";
 
 /**
  * @public
+ */
+export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
+  /**
+   * @public
+   * <p>The IDs of the Verified Access instances.</p>
+   */
+  VerifiedAccessInstanceIds?: string[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
  * @enum
  */
 export const VerifiedAccessLogDeliveryStatusCode = {
@@ -8530,30 +8568,6 @@ export interface GetVpnTunnelReplacementStatusResult {
    * <p>Get details of pending tunnel endpoint maintenance.</p>
    */
   MaintenanceDetails?: MaintenanceDetails;
-}
-
-/**
- * @public
- */
-export interface ImportClientVpnClientCertificateRevocationListRequest {
-  /**
-   * @public
-   * <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * @public
-   * <p>The client certificate revocation list file. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate">Generate a Client Certificate Revocation List</a> in the
-   * 				<i>Client VPN Administrator Guide</i>.</p>
-   */
-  CertificateRevocationList: string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 /**

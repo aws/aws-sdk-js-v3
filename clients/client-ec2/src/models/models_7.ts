@@ -16,9 +16,20 @@ import {
   InstanceMonitoring,
   ScheduledInstancesBlockDeviceMapping,
   ScheduledInstancesIamInstanceProfile,
-  ScheduledInstancesIpv6Address,
   ScheduledInstancesMonitoring,
 } from "./models_6";
+
+/**
+ * @public
+ * <p>Describes an IPv6 address.</p>
+ */
+export interface ScheduledInstancesIpv6Address {
+  /**
+   * @public
+   * <p>The IPv6 address.</p>
+   */
+  Ipv6Address?: string;
+}
 
 /**
  * @public

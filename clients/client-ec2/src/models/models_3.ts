@@ -75,7 +75,6 @@ import {
   TransportProtocol,
 } from "./models_1";
 import {
-  DeleteQueuedReservedInstancesErrorCode,
   FleetStateCode,
   SubnetCidrReservation,
   TransitGateway,
@@ -90,6 +89,22 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const DeleteQueuedReservedInstancesErrorCode = {
+  RESERVED_INSTANCES_ID_INVALID: "reserved-instances-id-invalid",
+  RESERVED_INSTANCES_NOT_IN_QUEUED_STATE: "reserved-instances-not-in-queued-state",
+  UNEXPECTED_ERROR: "unexpected-error",
+} as const;
+
+/**
+ * @public
+ */
+export type DeleteQueuedReservedInstancesErrorCode =
+  (typeof DeleteQueuedReservedInstancesErrorCode)[keyof typeof DeleteQueuedReservedInstancesErrorCode];
 
 /**
  * @public
@@ -10249,22 +10264,6 @@ export interface ElasticInferenceAcceleratorAssociation {
    *         </p>
    */
   ElasticInferenceAcceleratorAssociationTime?: Date;
-}
-
-/**
- * @public
- * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
- *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
- *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
- */
-export interface HibernationOptions {
-  /**
-   * @public
-   * <p>If <code>true</code>, your instance is enabled for hibernation; otherwise, it is not
-   *             enabled for hibernation.</p>
-   */
-  Configured?: boolean;
 }
 
 /**

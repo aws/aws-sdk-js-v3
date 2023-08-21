@@ -14,8 +14,10 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ImportClientVpnClientCertificateRevocationListRequest } from "../models/models_5";
-import { ImportClientVpnClientCertificateRevocationListResult } from "../models/models_6";
+import {
+  ImportClientVpnClientCertificateRevocationListRequest,
+  ImportClientVpnClientCertificateRevocationListResult,
+} from "../models/models_6";
 import {
   de_ImportClientVpnClientCertificateRevocationListCommand,
   se_ImportClientVpnClientCertificateRevocationListCommand,

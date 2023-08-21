@@ -7985,6 +7985,23 @@ export interface DeleteKeyPairRequest {
 /**
  * @public
  */
+export interface DeleteKeyPairResult {
+  /**
+   * @public
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   */
+  Return?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the key pair.</p>
+   */
+  KeyPairId?: string;
+}
+
+/**
+ * @public
+ */
 export interface DeleteLaunchTemplateRequest {
   /**
    * @public
@@ -8663,22 +8680,6 @@ export interface DeleteQueuedReservedInstancesRequest {
    */
   ReservedInstancesIds: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeleteQueuedReservedInstancesErrorCode = {
-  RESERVED_INSTANCES_ID_INVALID: "reserved-instances-id-invalid",
-  RESERVED_INSTANCES_NOT_IN_QUEUED_STATE: "reserved-instances-not-in-queued-state",
-  UNEXPECTED_ERROR: "unexpected-error",
-} as const;
-
-/**
- * @public
- */
-export type DeleteQueuedReservedInstancesErrorCode =
-  (typeof DeleteQueuedReservedInstancesErrorCode)[keyof typeof DeleteQueuedReservedInstancesErrorCode];
 
 /**
  * @internal
