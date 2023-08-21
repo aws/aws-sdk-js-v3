@@ -43,7 +43,7 @@ module.exports = {
         console.error(`${folder} does not have a Smithy model.`);
         continue;
       }
-      const modelFolders = readdirSync(join(location, folder));
+      const modelFolders = readdirSync(join(location, folder)).filter(name => !name.startsWith("."));
       for (const c2jFolder of modelFolders.filter((name) => name !== "smithy")) {
         const c2jFiles = readdirSync(join(location, folder, c2jFolder));
         for (const examples of c2jFiles.filter((file) => file.includes("examples"))) {
