@@ -565,7 +565,7 @@ export interface DomainTransferability {
    *             </dd>
    *             <dt>DOMAIN_IN_ANOTHER_ACCOUNT</dt>
    *             <dd>
-   *                <p> The domain exists in another Amazon Web Services account.</p>
+   *                <p> the domain exists in another Amazon Web Services account.</p>
    *             </dd>
    *             <dt>PREMIUM_DOMAIN</dt>
    *             <dd>
@@ -2954,7 +2954,7 @@ export interface ListOperationsRequest {
 
   /**
    * @public
-   * <p> The sort order ofr returned values, either ascending or descending. </p>
+   * <p> The sort order for returned values, either ascending or descending. </p>
    */
   SortOrder?: SortOrder | string;
 }
