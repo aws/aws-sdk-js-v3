@@ -49,6 +49,22 @@ export interface UpdateKxEnvironmentNetworkCommandOutput extends UpdateKxEnviron
  *   transitGatewayConfiguration: { // TransitGatewayConfiguration
  *     transitGatewayID: "STRING_VALUE", // required
  *     routableCIDRSpace: "STRING_VALUE", // required
+ *     attachmentNetworkAclConfiguration: [ // NetworkACLConfiguration
+ *       { // NetworkACLEntry
+ *         ruleNumber: Number("int"), // required
+ *         protocol: "STRING_VALUE", // required
+ *         ruleAction: "allow" || "deny", // required
+ *         portRange: { // PortRange
+ *           from: Number("int"), // required
+ *           to: Number("int"), // required
+ *         },
+ *         icmpTypeCode: { // IcmpTypeCode
+ *           type: Number("int"), // required
+ *           code: Number("int"), // required
+ *         },
+ *         cidrBlock: "STRING_VALUE", // required
+ *       },
+ *     ],
  *   },
  *   customDNSConfiguration: [ // CustomDNSConfiguration
  *     { // CustomDNSServer
@@ -75,6 +91,22 @@ export interface UpdateKxEnvironmentNetworkCommandOutput extends UpdateKxEnviron
  * //   transitGatewayConfiguration: { // TransitGatewayConfiguration
  * //     transitGatewayID: "STRING_VALUE", // required
  * //     routableCIDRSpace: "STRING_VALUE", // required
+ * //     attachmentNetworkAclConfiguration: [ // NetworkACLConfiguration
+ * //       { // NetworkACLEntry
+ * //         ruleNumber: Number("int"), // required
+ * //         protocol: "STRING_VALUE", // required
+ * //         ruleAction: "allow" || "deny", // required
+ * //         portRange: { // PortRange
+ * //           from: Number("int"), // required
+ * //           to: Number("int"), // required
+ * //         },
+ * //         icmpTypeCode: { // IcmpTypeCode
+ * //           type: Number("int"), // required
+ * //           code: Number("int"), // required
+ * //         },
+ * //         cidrBlock: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * //   customDNSConfiguration: [ // CustomDNSConfiguration
  * //     { // CustomDNSServer

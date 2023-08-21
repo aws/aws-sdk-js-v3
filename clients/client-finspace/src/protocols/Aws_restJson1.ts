@@ -91,6 +91,7 @@ import {
   ConflictException,
   CustomDNSServer,
   FederationParameters,
+  IcmpTypeCode,
   InternalServerException,
   InvalidRequestException,
   KxCacheStorageConfiguration,
@@ -100,11 +101,14 @@ import {
   KxDatabaseCacheConfiguration,
   KxDatabaseConfiguration,
   KxDatabaseListEntry,
+  KxDeploymentConfiguration,
   KxEnvironment,
   KxNode,
   KxSavedownStorageConfiguration,
   KxUser,
   LimitExceededException,
+  NetworkACLEntry,
+  PortRange,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
@@ -1189,8 +1193,9 @@ export const se_UpdateKxClusterDatabasesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       databases: (_) => _json(_),
+      deploymentConfiguration: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -3215,6 +3220,9 @@ const de_UpdateKxClusterDatabasesCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.finspace#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.finspace#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -3537,7 +3545,9 @@ const de_AccessDeniedExceptionRes = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  const doc = take(data, {});
+  const doc = take(data, {
+    message: __expectString,
+  });
   Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -3690,7 +3700,9 @@ const de_ServiceQuotaExceededExceptionRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  const doc = take(data, {});
+  const doc = take(data, {
+    message: __expectString,
+  });
   Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -3750,6 +3762,8 @@ const se_AutoScalingConfiguration = (input: AutoScalingConfiguration, context: _
 
 // se_FederationParameters omitted.
 
+// se_IcmpTypeCode omitted.
+
 // se_KxCacheStorageConfiguration omitted.
 
 // se_KxCacheStorageConfigurations omitted.
@@ -3766,7 +3780,15 @@ const se_AutoScalingConfiguration = (input: AutoScalingConfiguration, context: _
 
 // se_KxDatabaseConfigurations omitted.
 
+// se_KxDeploymentConfiguration omitted.
+
 // se_KxSavedownStorageConfiguration omitted.
+
+// se_NetworkACLConfiguration omitted.
+
+// se_NetworkACLEntry omitted.
+
+// se_PortRange omitted.
 
 // se_SecurityGroupIdList omitted.
 
@@ -3819,6 +3841,8 @@ const de_AutoScalingConfiguration = (output: any, context: __SerdeContext): Auto
 // de_ErrorInfo omitted.
 
 // de_FederationParameters omitted.
+
+// de_IcmpTypeCode omitted.
 
 // de_KxCacheStorageConfiguration omitted.
 
@@ -4002,6 +4026,12 @@ const de_KxUserList = (output: any, context: __SerdeContext): KxUser[] => {
     });
   return retVal;
 };
+
+// de_NetworkACLConfiguration omitted.
+
+// de_NetworkACLEntry omitted.
+
+// de_PortRange omitted.
 
 // de_SecurityGroupIdList omitted.
 

@@ -62,6 +62,9 @@ export interface UpdateKxClusterDatabasesCommandOutput extends UpdateKxClusterDa
  *       changesetId: "STRING_VALUE",
  *     },
  *   ],
+ *   deploymentConfiguration: { // KxDeploymentConfiguration
+ *     deploymentStrategy: "NO_RESTART" || "ROLLING", // required
+ *   },
  * };
  * const command = new UpdateKxClusterDatabasesCommand(input);
  * const response = await client.send(command);
@@ -77,6 +80,9 @@ export interface UpdateKxClusterDatabasesCommandOutput extends UpdateKxClusterDa
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict with this action, and it could not be completed.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or

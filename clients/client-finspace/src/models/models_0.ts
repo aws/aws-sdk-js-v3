@@ -669,7 +669,7 @@ export interface KxCacheStorageConfiguration {
 
 /**
  * @public
- * <p>A structure for the metadata of a cluster. It includes information like the CPUs needed, memory of instances, number of instances, and the port used while establishing a connection.</p>
+ * <p>A structure for the metadata of a cluster. It includes information like the CPUs needed, memory of instances, and number of instances.</p>
  */
 export interface CapacityConfiguration {
   /**
@@ -851,7 +851,7 @@ export interface KxSavedownStorageConfiguration {
 
   /**
    * @public
-   * <p>The size of temporary storage in bytes.</p>
+   * <p>The size of temporary storage in gibibytes.</p>
    */
   size: number | undefined;
 }
@@ -969,7 +969,7 @@ export interface CreateKxClusterRequest {
 
   /**
    * @public
-   * <p>A structure for the metadata of a cluster. It includes information about like the CPUs needed, memory of instances, number of instances, and the port used while establishing a connection.</p>
+   * <p>A structure for the metadata of a cluster. It includes information like the CPUs needed, memory of instances, and number of instances.</p>
    */
   capacityConfiguration: CapacityConfiguration | undefined;
 
@@ -1164,7 +1164,7 @@ export interface CreateKxClusterResponse {
 
   /**
    * @public
-   * <p>A structure for the metadata of a cluster. It includes information like the CPUs needed, memory of instances, number of instances, and the port used while establishing a connection.</p>
+   * <p>A structure for the metadata of a cluster. It includes information like the CPUs needed, memory of instances, and number of instances.</p>
    */
   capacityConfiguration?: CapacityConfiguration;
 
@@ -1503,7 +1503,7 @@ export interface CreateKxUserResponse {
   /**
    * @public
    * <p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and
-   *       how to use ARNs in policies, see <a href="IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
+   *       how to use ARNs in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
    *       <i>IAM User Guide</i>. </p>
    */
   userArn?: string;
@@ -1938,7 +1938,7 @@ export interface GetKxClusterResponse {
 
   /**
    * @public
-   * <p>A structure for the metadata of a cluster. It includes information like the CPUs needed, memory of instances, number of instances, and the port used while establishing a connection.</p>
+   * <p>A structure for the metadata of a cluster. It includes information like the CPUs needed, memory of instances, and number of instances.</p>
    */
   capacityConfiguration?: CapacityConfiguration;
 
@@ -2033,7 +2033,7 @@ export interface GetKxConnectionStringRequest {
   /**
    * @public
    * <p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and
-   *       how to use ARNs in policies, see <a href="IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
+   *       how to use ARNs in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
    *       <i>IAM User Guide</i>. </p>
    */
   userArn: string | undefined;
@@ -2209,6 +2209,124 @@ export type TgwStatus = (typeof TgwStatus)[keyof typeof TgwStatus];
 
 /**
  * @public
+ * <p>
+ *          Defines the ICMP protocol that consists of the ICMP type and code.
+ *       </p>
+ */
+export interface IcmpTypeCode {
+  /**
+   * @public
+   * <p>The ICMP type. A value of <i>-1</i> means all types.
+   *       </p>
+   */
+  type: number | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The ICMP code. A value of <i>-1</i> means all codes for the specified ICMP type.
+   *       </p>
+   */
+  code: number | undefined;
+}
+
+/**
+ * @public
+ * <p>
+ *          The range of ports the rule applies to.
+ *       </p>
+ */
+export interface PortRange {
+  /**
+   * @public
+   * <p>
+   *          The first port in the range.
+   *       </p>
+   */
+  from: number | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The last port in the range.
+   *       </p>
+   */
+  to: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleAction = {
+  ALLOW: "allow",
+  DENY: "deny",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
+
+/**
+ * @public
+ * <p>
+ *        The network access control list (ACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. The entry is a set of numbered ingress and egress rules that determine whether a packet should be allowed in or out of a subnet associated with the ACL. We process the entries in the ACL according to the rule numbers, in ascending order.
+ *       </p>
+ */
+export interface NetworkACLEntry {
+  /**
+   * @public
+   * <p>
+   *          The rule number for the entry. For example <i>100</i>. All the network ACL entries are processed in ascending order by rule number.
+   *
+   *       </p>
+   */
+  ruleNumber: number | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The protocol number. A value of <i>-1</i> means all the protocols.
+   *       </p>
+   */
+  protocol: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          Indicates whether to allow or deny the traffic that matches the rule.
+   *       </p>
+   */
+  ruleAction: RuleAction | string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The range of ports the rule applies to.
+   *       </p>
+   */
+  portRange?: PortRange;
+
+  /**
+   * @public
+   * <p>
+   *          Defines the ICMP protocol that consists of the ICMP type and code.
+   *       </p>
+   */
+  icmpTypeCode?: IcmpTypeCode;
+
+  /**
+   * @public
+   * <p>
+   *          The IPv4 network range to allow or deny, in CIDR notation. For example, <code>172.16.0.0/24</code>. We modify the specified CIDR block to its canonical form. For example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.
+   *       </p>
+   */
+  cidrBlock: string | undefined;
+}
+
+/**
+ * @public
  * <p>The structure of the transit gateway and network configuration that is used to connect the kdb environment to an internal network.</p>
  */
 export interface TransitGatewayConfiguration {
@@ -2223,6 +2341,15 @@ export interface TransitGatewayConfiguration {
    * <p>The routing CIDR on behalf of kdb environment. It could be any "/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer's transit gateway routing table so that the traffics could be routed to kdb network.</p>
    */
   routableCIDRSpace: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The rules that define how you manage the outbound traffic from kdb network to your internal network.
+   *
+   *       </p>
+   */
+  attachmentNetworkAclConfiguration?: NetworkACLEntry[];
 }
 
 /**
@@ -2363,7 +2490,7 @@ export interface GetKxUserResponse {
   /**
    * @public
    * <p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and
-   *       how to use ARNs in policies, see <a href="IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
+   *       how to use ARNs in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
    *       <i>IAM User Guide</i>. </p>
    */
   userArn?: string;
@@ -2724,7 +2851,7 @@ export interface KxCluster {
 
   /**
    * @public
-   * <p>The number of availability zones assigned per cluster. This can be one of the following </p>
+   * <p>The number of availability zones assigned per cluster. This can be one of the following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3042,7 +3169,7 @@ export interface KxUser {
   /**
    * @public
    * <p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and
-   *          how to use ARNs in policies, see <a href="IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
+   *          how to use ARNs in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
    *             <i>IAM User Guide</i>. </p>
    */
   userArn?: string;
@@ -3234,6 +3361,45 @@ export interface UpdateEnvironmentResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const KxDeploymentStrategy = {
+  NO_RESTART: "NO_RESTART",
+  ROLLING: "ROLLING",
+} as const;
+
+/**
+ * @public
+ */
+export type KxDeploymentStrategy = (typeof KxDeploymentStrategy)[keyof typeof KxDeploymentStrategy];
+
+/**
+ * @public
+ * <p>
+ *          The configuration that allows you to choose how you want to update the databases on a cluster. Depending on the option you choose, you can reduce the time it takes to update the database changesets on to a cluster.
+ *       </p>
+ */
+export interface KxDeploymentConfiguration {
+  /**
+   * @public
+   * <p>
+   *         The type of deployment that you want on a cluster.
+   *
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>ROLLING – This options loads the updated database by stopping the exiting q process and starting a new q process with updated configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>NO_RESTART – This option loads the updated database on the running q process without stopping it. This option is quicker as it reduces the turn around time to update a kdb database changeset configuration on a cluster.</p>
+   *             </li>
+   *          </ul>
+   */
+  deploymentStrategy: KxDeploymentStrategy | string | undefined;
+}
+
+/**
+ * @public
  */
 export interface UpdateKxClusterDatabasesRequest {
   /**
@@ -3259,6 +3425,14 @@ export interface UpdateKxClusterDatabasesRequest {
    * <p> The structure of databases mounted on the cluster.</p>
    */
   databases: KxDatabaseConfiguration[] | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The configuration that allows you to choose how you want to update the databases on a cluster.
+   *       </p>
+   */
+  deploymentConfiguration?: KxDeploymentConfiguration;
 }
 
 /**
@@ -3626,7 +3800,7 @@ export interface UpdateKxUserResponse {
   /**
    * @public
    * <p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and
-   *       how to use ARNs in policies, see <a href="IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
+   *       how to use ARNs in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
    *       <i>IAM User Guide</i>. </p>
    */
   userArn?: string;
