@@ -1394,6 +1394,14 @@ SwitchoverBlueGreenDeployment
 </details>
 <details>
 <summary>
+SwitchoverGlobalCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/switchoverglobalclustercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/switchoverglobalclustercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/switchoverglobalclustercommandoutput.html)
+
+</details>
+<details>
+<summary>
 SwitchoverReadReplica
 </summary>
 

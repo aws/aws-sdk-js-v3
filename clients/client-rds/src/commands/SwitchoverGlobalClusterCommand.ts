@@ -13,8 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/models_0";
-import { de_DeleteGlobalClusterCommand, se_DeleteGlobalClusterCommand } from "../protocols/Aws_query";
+import { SwitchoverGlobalClusterMessage, SwitchoverGlobalClusterResult } from "../models/models_1";
+import { de_SwitchoverGlobalClusterCommand, se_SwitchoverGlobalClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -24,35 +24,42 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteGlobalClusterCommand}.
+ * The input for {@link SwitchoverGlobalClusterCommand}.
  */
-export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMessage {}
+export interface SwitchoverGlobalClusterCommandInput extends SwitchoverGlobalClusterMessage {}
 /**
  * @public
  *
- * The output of {@link DeleteGlobalClusterCommand}.
+ * The output of {@link SwitchoverGlobalClusterCommand}.
  */
-export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
+export interface SwitchoverGlobalClusterCommandOutput extends SwitchoverGlobalClusterResult, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a global database cluster. The primary and secondary clusters must already be detached or
- *         destroyed first.</p>
+ * <p>Switches over the specified secondary DB cluster to be the new primary DB cluster in the global database cluster.
+ *        Switchover operations were previously called "managed planned failovers."</p>
+ *          <p>Aurora promotes the specified secondary cluster to assume full read/write capabilities and demotes the current primary cluster
+ *        to a secondary (read-only) cluster, maintaining the orginal replication topology. All secondary clusters are synchronized with the primary
+ *        at the beginning of the process so the new primary continues operations for the Aurora global database without losing any data. Your database
+ *        is unavailable for a short time while the primary and selected secondary clusters are assuming their new roles. For more information about
+ *        switching over an Aurora global database, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover">Performing switchovers for Amazon Aurora global databases</a> in the <i>Amazon Aurora User Guide</i>.</p>
  *          <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
+ *             <p>This operation is intended for controlled environments, for operations such as "regional rotation" or to fall back to the original
+ *        primary after a global database failover.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeleteGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeleteGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, SwitchoverGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, SwitchoverGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = { // DeleteGlobalClusterMessage
+ * const input = { // SwitchoverGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ *   TargetDbClusterIdentifier: "STRING_VALUE", // required
  * };
- * const command = new DeleteGlobalClusterCommand(input);
+ * const command = new SwitchoverGlobalClusterCommand(input);
  * const response = await client.send(command);
- * // { // DeleteGlobalClusterResult
+ * // { // SwitchoverGlobalClusterResult
  * //   GlobalCluster: { // GlobalCluster
  * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     GlobalClusterResourceId: "STRING_VALUE",
@@ -85,14 +92,21 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  *
  * ```
  *
- * @param DeleteGlobalClusterCommandInput - {@link DeleteGlobalClusterCommandInput}
- * @returns {@link DeleteGlobalClusterCommandOutput}
- * @see {@link DeleteGlobalClusterCommandInput} for command's `input` shape.
- * @see {@link DeleteGlobalClusterCommandOutput} for command's `response` shape.
+ * @param SwitchoverGlobalClusterCommandInput - {@link SwitchoverGlobalClusterCommandInput}
+ * @returns {@link SwitchoverGlobalClusterCommandOutput}
+ * @see {@link SwitchoverGlobalClusterCommandInput} for command's `input` shape.
+ * @see {@link SwitchoverGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
  *  <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
@@ -100,36 +114,10 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @example To delete a global DB cluster
- * ```javascript
- * // The following example deletes an Aurora MySQL-compatible global DB cluster.
- * const input = {
- *   "GlobalClusterIdentifier": "myglobalcluster"
- * };
- * const command = new DeleteGlobalClusterCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "GlobalCluster": {
- *     "DeletionProtection": false,
- *     "Engine": "aurora-mysql",
- *     "EngineVersion": "5.7.mysql_aurora.2.07.2",
- *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
- *     "GlobalClusterIdentifier": "myglobalcluster",
- *     "GlobalClusterMembers": [],
- *     "GlobalClusterResourceId": "cluster-f0e523bfe07aabb",
- *     "Status": "available",
- *     "StorageEncrypted": false
- *   }
- * }
- * *\/
- * // example id: to-delete-a-global-db-cluster-1680128523630
- * ```
- *
  */
-export class DeleteGlobalClusterCommand extends $Command<
-  DeleteGlobalClusterCommandInput,
-  DeleteGlobalClusterCommandOutput,
+export class SwitchoverGlobalClusterCommand extends $Command<
+  SwitchoverGlobalClusterCommandInput,
+  SwitchoverGlobalClusterCommandOutput,
   RDSClientResolvedConfig
 > {
   // Start section: command_properties
@@ -147,7 +135,7 @@ export class DeleteGlobalClusterCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteGlobalClusterCommandInput) {
+  constructor(readonly input: SwitchoverGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -160,17 +148,17 @@ export class DeleteGlobalClusterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteGlobalClusterCommandInput, DeleteGlobalClusterCommandOutput> {
+  ): Handler<SwitchoverGlobalClusterCommandInput, SwitchoverGlobalClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteGlobalClusterCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, SwitchoverGlobalClusterCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RDSClient";
-    const commandName = "DeleteGlobalClusterCommand";
+    const commandName = "SwitchoverGlobalClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -189,15 +177,15 @@ export class DeleteGlobalClusterCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteGlobalClusterCommand(input, context);
+  private serialize(input: SwitchoverGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_SwitchoverGlobalClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGlobalClusterCommandOutput> {
-    return de_DeleteGlobalClusterCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SwitchoverGlobalClusterCommandOutput> {
+    return de_SwitchoverGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

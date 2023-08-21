@@ -39,6 +39,242 @@ import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
 /**
  * @public
+ */
+export interface DescribeDBEngineVersionsMessage {
+  /**
+   * @public
+   * <p>The database engine to return.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Engine?: string;
+
+  /**
+   * @public
+   * <p>The database engine version to return.</p>
+   *          <p>Example: <code>5.1.49</code>
+   *          </p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * @public
+   * <p>The name of a specific DB parameter group family to return details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match an existing DBParameterGroupFamily.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBParameterGroupFamily?: string;
+
+  /**
+   * @public
+   * <p>A filter that specifies one or more DB engine versions to describe.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-parameter-group-family</code> - Accepts parameter groups family names.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these parameter group families.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts engine names.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these engines.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine-mode</code> - Accepts DB engine modes.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these engine modes. Valid
+   *                   DB engine modes are the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>global</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>multimaster</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>parallelquery</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>provisioned</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>serverless</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine-version</code> - Accepts engine versions.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these engine versions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - Accepts engine version statuses.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these statuses. Valid statuses
+   *                   are the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>available</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>deprecated</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response.
+   *     If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
+   *     included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.</p>
+   */
+  DefaultOnly?: boolean;
+
+  /**
+   * @public
+   * <p>A value that indicates whether to list the supported character sets for each engine version.</p>
+   *          <p>If this parameter is enabled and the requested engine supports the <code>CharacterSetName</code> parameter for
+   *                 <code>CreateDBInstance</code>, the response includes a list of supported character sets for each engine
+   *             version.</p>
+   *          <p>For RDS Custom, the default is not to list supported character sets. If you set <code>ListSupportedCharacterSets</code>
+   *           to <code>true</code>, RDS Custom returns no results.</p>
+   */
+  ListSupportedCharacterSets?: boolean;
+
+  /**
+   * @public
+   * <p>A value that indicates whether to list the supported time zones for each engine version.</p>
+   *          <p>If this parameter is enabled and the requested engine supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>,
+   *             the response includes a list of supported time zones for each engine version.</p>
+   *          <p>For RDS Custom, the default is not to list supported time zones. If you set <code>ListSupportedTimezones</code>
+   *             to <code>true</code>, RDS Custom returns no results.</p>
+   */
+  ListSupportedTimezones?: boolean;
+
+  /**
+   * @public
+   * <p>A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.</p>
+   */
+  IncludeAll?: boolean;
+}
+
+/**
+ * @public
  * <p>Contains the result of a successful invocation of the <code>DescribeDBInstanceAutomatedBackups</code> action.</p>
  */
 export interface DBInstanceAutomatedBackupMessage {
@@ -4002,15 +4238,13 @@ export interface FailoverDBClusterResult {
 export interface FailoverGlobalClusterMessage {
   /**
    * @public
-   * <p>Identifier of the Aurora global database (<a>GlobalCluster</a>)
-   *     that should be failed over. The identifier is the unique key assigned by
-   *     the user when the Aurora global database was created. In other words,
-   *     it's the name of the Aurora global database that you want to fail over.</p>
+   * <p>The identifier of the global database cluster (Aurora global database) this operation should apply to.
+   *         The identifier is the unique key assigned by the user when the Aurora global database is created. In other words,
+   *         it's the name of the Aurora global database.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must match the identifier of an existing
-   *       <a>GlobalCluster</a> (Aurora global database).</p>
+   *                <p>Must match the identifier of an existing global database cluster.</p>
    *             </li>
    *          </ul>
    */
@@ -4018,11 +4252,35 @@ export interface FailoverGlobalClusterMessage {
 
   /**
    * @public
-   * <p>Identifier of the secondary Aurora DB cluster that you want to promote to primary for the Aurora
-   *        global database (<a>GlobalCluster</a>.) Use the Amazon Resource Name (ARN) for the identifier so that
+   * <p>The identifier of the secondary Aurora DB cluster that you want to promote to the primary for the global database cluster. Use the Amazon Resource Name (ARN) for the identifier so that
    *        Aurora can locate the cluster in its Amazon Web Services Region.</p>
    */
   TargetDbClusterIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether to allow data loss for this global database cluster operation. Allowing data loss triggers a global failover operation.</p>
+   *          <p>If you don't specify <code>AllowDataLoss</code>, the global database cluster operation defaults to a switchover.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be specified together with the <code>Switchover</code> parameter.</p>
+   *             </li>
+   *          </ul>
+   */
+  AllowDataLoss?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether to switch over this global database cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be specified together with the <code>AllowDataLoss</code> parameter.</p>
+   *             </li>
+   *          </ul>
+   */
+  Switchover?: boolean;
 }
 
 /**
@@ -11392,6 +11650,41 @@ export interface SwitchoverBlueGreenDeploymentResponse {
    *                 User Guide</i>.</p>
    */
   BlueGreenDeployment?: BlueGreenDeployment;
+}
+
+/**
+ * @public
+ */
+export interface SwitchoverGlobalClusterMessage {
+  /**
+   * @public
+   * <p>The identifier of the global database cluster to switch over. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing global database cluster (Aurora global database).</p>
+   *             </li>
+   *          </ul>
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the secondary Aurora DB cluster to promote to the new primary for the global database cluster. Use the Amazon Resource Name (ARN) for the identifier so that
+   *        Aurora can locate the cluster in its Amazon Web Services Region.</p>
+   */
+  TargetDbClusterIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SwitchoverGlobalClusterResult {
+  /**
+   * @public
+   * <p>A data type representing an Aurora global database.</p>
+   */
+  GlobalCluster?: GlobalCluster;
 }
 
 /**

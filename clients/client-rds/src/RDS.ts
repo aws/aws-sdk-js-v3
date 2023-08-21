@@ -713,6 +713,11 @@ import {
   SwitchoverBlueGreenDeploymentCommandOutput,
 } from "./commands/SwitchoverBlueGreenDeploymentCommand";
 import {
+  SwitchoverGlobalClusterCommand,
+  SwitchoverGlobalClusterCommandInput,
+  SwitchoverGlobalClusterCommandOutput,
+} from "./commands/SwitchoverGlobalClusterCommand";
+import {
   SwitchoverReadReplicaCommand,
   SwitchoverReadReplicaCommandInput,
   SwitchoverReadReplicaCommandOutput,
@@ -862,6 +867,7 @@ const commands = {
   StopDBInstanceCommand,
   StopDBInstanceAutomatedBackupsReplicationCommand,
   SwitchoverBlueGreenDeploymentCommand,
+  SwitchoverGlobalClusterCommand,
   SwitchoverReadReplicaCommand,
 };
 
@@ -3221,6 +3227,23 @@ export interface RDS {
     args: SwitchoverBlueGreenDeploymentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SwitchoverBlueGreenDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SwitchoverGlobalClusterCommand}
+   */
+  switchoverGlobalCluster(
+    args: SwitchoverGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SwitchoverGlobalClusterCommandOutput>;
+  switchoverGlobalCluster(
+    args: SwitchoverGlobalClusterCommandInput,
+    cb: (err: any, data?: SwitchoverGlobalClusterCommandOutput) => void
+  ): void;
+  switchoverGlobalCluster(
+    args: SwitchoverGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SwitchoverGlobalClusterCommandOutput) => void
   ): void;
 
   /**

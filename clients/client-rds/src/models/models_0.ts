@@ -4728,6 +4728,10 @@ export interface CreateDBClusterMessage {
    *                </p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>When you create an Aurora DB cluster with the storage type set to <code>aurora-iopt1</code>, the storage type is returned
+   *                 in the response. The storage type isn't returned when you set it to <code>aurora</code>.</p>
+   *          </note>
    */
   StorageType?: string;
 
@@ -11263,26 +11267,26 @@ export type FailoverStatus = (typeof FailoverStatus)[keyof typeof FailoverStatus
 
 /**
  * @public
- * <p>Contains the state of scheduled or in-process failover operations on an
- *       Aurora global database (<a>GlobalCluster</a>). This Data type is empty unless a failover
- *       operation is scheduled or is currently underway on the Aurora global database.</p>
+ * <p>Contains the state of scheduled or in-process operations on a
+ *         global cluster (Aurora global database). This data type is empty unless a switchover
+ *         or failover operation is scheduled or is in progress on the Aurora global database.</p>
  */
 export interface FailoverState {
   /**
    * @public
-   * <p>The current status of the Aurora global database (<a>GlobalCluster</a>). Possible values are as follows:</p>
+   * <p>The current status of the global cluster. Possible values are as follows:</p>
    *          <ul>
    *             <li>
-   *                <p>pending  A request to fail over the Aurora global database (<a>GlobalCluster</a>) has been received by the service. The
-   *         <code>GlobalCluster</code>'s primary DB cluster and the specified secondary DB cluster are being verified before the failover
-   *         process can start.</p>
+   *                <p>pending  The service received a request to switch over or fail over the global cluster. The
+   *         global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation
+   *         starts.</p>
    *             </li>
    *             <li>
-   *                <p>failing-over  This status covers the range of Aurora internal operations that take place during the failover process, such
-   *         as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB, and synchronizing replicas.</p>
+   *                <p>failing-over  This status covers the range of Aurora internal operations that take place during the switchover or failover process, such
+   *         as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p>
    *             </li>
    *             <li>
-   *                <p>cancelling  The request to fail over the Aurora global database (<a>GlobalCluster</a>) was cancelled and the primary
+   *                <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary
    *         Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p>
    *             </li>
    *          </ul>
@@ -11302,41 +11306,69 @@ export interface FailoverState {
    *      with this state.</p>
    */
   ToDbClusterArn?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the operation is a global switchover or a global failover. If data loss is allowed, then the operation is a global failover.
+   *        Otherwise, it's a switchover.</p>
+   */
+  IsDataLossAllowed?: boolean;
 }
 
 /**
  * @public
+ * @enum
+ */
+export const GlobalClusterMemberSynchronizationStatus = {
+  CONNECTED: "connected",
+  PENDING_RESYNC: "pending-resync",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalClusterMemberSynchronizationStatus =
+  (typeof GlobalClusterMemberSynchronizationStatus)[keyof typeof GlobalClusterMemberSynchronizationStatus];
+
+/**
+ * @public
  * <p>A data structure with information about any primary and
- *         secondary clusters associated with an Aurora global database.</p>
+ *         secondary clusters associated with a global cluster (Aurora global database).</p>
  */
 export interface GlobalClusterMember {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) for each Aurora cluster.</p>
+   * <p>The Amazon Resource Name (ARN) for each Aurora DB cluster in the global cluster.</p>
    */
   DBClusterArn?: string;
 
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) for each read-only secondary cluster
-   *         associated with the Aurora global database.</p>
+   *         associated with the global cluster.</p>
    */
   Readers?: string[];
 
   /**
    * @public
-   * <p>Specifies whether the Aurora cluster is the primary cluster
-   *         (that is, has read-write capability) for the Aurora global
-   *         database with which it is associated.</p>
+   * <p>Specifies whether the Aurora DB cluster is the primary cluster
+   *         (that is, has read-write capability) for the global
+   *         cluster with which it is associated.</p>
    */
   IsWriter?: boolean;
 
   /**
    * @public
-   * <p>Specifies whether a secondary cluster in an Aurora global database has
+   * <p>Specifies whether a secondary cluster in the global cluster has
    *         write forwarding enabled, not enabled, or is in the process of enabling it.</p>
    */
   GlobalWriteForwardingStatus?: WriteForwardingStatus | string;
+
+  /**
+   * @public
+   * <p>The status of synchronization of each Aurora DB cluster in the global cluster.</p>
+   */
+  SynchronizationStatus?: GlobalClusterMemberSynchronizationStatus | string;
 }
 
 /**
@@ -11408,8 +11440,8 @@ export interface GlobalCluster {
 
   /**
    * @public
-   * <p>A data object containing all properties for the current state of an in-process or pending failover process for this Aurora global database.
-   *       This object is empty unless the <a>FailoverGlobalCluster</a> API operation has been called on this Aurora global database (<a>GlobalCluster</a>).</p>
+   * <p>A data object containing all properties for the current state of an in-process or pending switchover or failover process for this global cluster (Aurora global database).
+   *       This object is empty unless the <code>SwitchoverGlobalCluster</code> or <code>FailoverGlobalCluster</code> operation was called on this global cluster.</p>
    */
   FailoverState?: FailoverState;
 }
@@ -14096,240 +14128,4 @@ export interface DBEngineVersionMessage {
    * <p>A list of <code>DBEngineVersion</code> elements.</p>
    */
   DBEngineVersions?: DBEngineVersion[];
-}
-
-/**
- * @public
- */
-export interface DescribeDBEngineVersionsMessage {
-  /**
-   * @public
-   * <p>The database engine to return.</p>
-   *          <p>Valid Values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aurora-mysql</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aurora-postgresql</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>custom-oracle-ee</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mariadb</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mysql</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-ee</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-ee-cdb</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se2</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se2-cdb</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>postgres</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sqlserver-ee</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sqlserver-se</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sqlserver-ex</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sqlserver-web</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Engine?: string;
-
-  /**
-   * @public
-   * <p>The database engine version to return.</p>
-   *          <p>Example: <code>5.1.49</code>
-   *          </p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * @public
-   * <p>The name of a specific DB parameter group family to return details for.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match an existing DBParameterGroupFamily.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBParameterGroupFamily?: string;
-
-  /**
-   * @public
-   * <p>A filter that specifies one or more DB engine versions to describe.</p>
-   *          <p>Supported filters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>db-parameter-group-family</code> - Accepts parameter groups family names.
-   *                   The results list only includes information about
-   *                   the DB engine versions for these parameter group families.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>engine</code> - Accepts engine names.
-   *                   The results list only includes information about
-   *                   the DB engine versions for these engines.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>engine-mode</code> - Accepts DB engine modes.
-   *                   The results list only includes information about
-   *                   the DB engine versions for these engine modes. Valid
-   *                   DB engine modes are the following:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>global</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>multimaster</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>parallelquery</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>provisioned</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>serverless</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>engine-version</code> - Accepts engine versions.
-   *                   The results list only includes information about
-   *                   the DB engine versions for these engine versions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - Accepts engine version statuses.
-   *                   The results list only includes information about
-   *                   the DB engine versions for these statuses. Valid statuses
-   *                   are the following:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>available</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>deprecated</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response.
-   *     If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
-   *     included in the response so you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes
-   *         only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.</p>
-   */
-  DefaultOnly?: boolean;
-
-  /**
-   * @public
-   * <p>A value that indicates whether to list the supported character sets for each engine version.</p>
-   *          <p>If this parameter is enabled and the requested engine supports the <code>CharacterSetName</code> parameter for
-   *                 <code>CreateDBInstance</code>, the response includes a list of supported character sets for each engine
-   *             version.</p>
-   *          <p>For RDS Custom, the default is not to list supported character sets. If you set <code>ListSupportedCharacterSets</code>
-   *           to <code>true</code>, RDS Custom returns no results.</p>
-   */
-  ListSupportedCharacterSets?: boolean;
-
-  /**
-   * @public
-   * <p>A value that indicates whether to list the supported time zones for each engine version.</p>
-   *          <p>If this parameter is enabled and the requested engine supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>,
-   *             the response includes a list of supported time zones for each engine version.</p>
-   *          <p>For RDS Custom, the default is not to list supported time zones. If you set <code>ListSupportedTimezones</code>
-   *             to <code>true</code>, RDS Custom returns no results.</p>
-   */
-  ListSupportedTimezones?: boolean;
-
-  /**
-   * @public
-   * <p>A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.</p>
-   */
-  IncludeAll?: boolean;
 }

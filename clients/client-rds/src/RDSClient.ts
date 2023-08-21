@@ -511,6 +511,10 @@ import {
   SwitchoverBlueGreenDeploymentCommandOutput,
 } from "./commands/SwitchoverBlueGreenDeploymentCommand";
 import {
+  SwitchoverGlobalClusterCommandInput,
+  SwitchoverGlobalClusterCommandOutput,
+} from "./commands/SwitchoverGlobalClusterCommand";
+import {
   SwitchoverReadReplicaCommandInput,
   SwitchoverReadReplicaCommandOutput,
 } from "./commands/SwitchoverReadReplicaCommand";
@@ -671,6 +675,7 @@ export type ServiceInputTypes =
   | StopDBInstanceAutomatedBackupsReplicationCommandInput
   | StopDBInstanceCommandInput
   | SwitchoverBlueGreenDeploymentCommandInput
+  | SwitchoverGlobalClusterCommandInput
   | SwitchoverReadReplicaCommandInput;
 
 /**
@@ -819,6 +824,7 @@ export type ServiceOutputTypes =
   | StopDBInstanceAutomatedBackupsReplicationCommandOutput
   | StopDBInstanceCommandOutput
   | SwitchoverBlueGreenDeploymentCommandOutput
+  | SwitchoverGlobalClusterCommandOutput
   | SwitchoverReadReplicaCommandOutput;
 
 /**

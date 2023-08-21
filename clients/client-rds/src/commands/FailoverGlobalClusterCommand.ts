@@ -36,19 +36,42 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
 
 /**
  * @public
- * <p>Initiates the failover process for an Aurora global database (<a>GlobalCluster</a>).</p>
- *          <p>A failover for an Aurora global database promotes one of secondary read-only DB clusters to be
- *        the primary DB cluster and demotes the primary DB cluster to being a secondary (read-only) DB cluster. In other words,
- *      the role of the current primary DB cluster and the selected (target) DB cluster are switched. The selected
- *      secondary DB cluster assumes full read/write capabilities for the Aurora global database.</p>
- *          <p>For more information about failing over an Amazon Aurora global database, see
- *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover">Managed planned failover for Amazon Aurora global
- *         databases</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ * <p>Promotes the specified secondary DB cluster to be the primary DB cluster in the global database cluster to fail over or switch over a global database. Switchover operations were previously called "managed planned failovers."</p>
  *          <note>
- *             <p>This action applies to <a>GlobalCluster</a> (Aurora global databases) only. Use this action only on
- *        healthy Aurora global databases with running Aurora DB clusters and no Region-wide outages, to test disaster recovery scenarios or to
- *         reconfigure your Aurora global database topology.</p>
+ *             <p>Although this operation can be used either to fail over or to switch over a global database cluster, its intended use is for global database failover.
+ *         To switch over a global database cluster, we recommend that you use the <a>SwitchoverGlobalCluster</a> operation instead.</p>
  *          </note>
+ *          <p>How you use this operation depends on whether you are failing over or switching over your global database cluster:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Failing over - Specify the <code>AllowDataLoss</code> parameter and don't specify the <code>Switchover</code> parameter.</p>
+ *             </li>
+ *             <li>
+ *                <p>Switching over - Specify the <code>Switchover</code> parameter or omit it, but don't specify the <code>AllowDataLoss</code> parameter.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>About failing over and switching over</b>
+ *          </p>
+ *          <p>While failing over and switching over a global database cluster both change the primary DB cluster, you use these operations for different reasons:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <i>Failing over</i> - Use this operation to respond to an unplanned event, such as a Regional disaster in the primary Region.
+ *             Failing over can result in a loss of write transaction data that wasn't replicated to the chosen secondary before the failover event occurred.
+ *             However, the recovery process that promotes a DB instance on the chosen seconday DB cluster to be the primary writer DB instance guarantees
+ *             that the data is in a transactionally consistent state.</p>
+ *                <p>For more information about failing over an Amazon Aurora global database, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-failover.managed-unplanned">Performing managed failovers for Aurora global databases</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>Switching over</i> - Use this operation on a healthy global database cluster for planned events, such as Regional rotation or to
+ *             fail back to the original primary DB cluster after a failover operation. With this operation, there is no data loss.</p>
+ *                <p>For more information about switching over an Amazon Aurora global database, see
+ *            <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover">Performing switchovers for Aurora global databases</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +81,8 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * const input = { // FailoverGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
  *   TargetDbClusterIdentifier: "STRING_VALUE", // required
+ *   AllowDataLoss: true || false,
+ *   Switchover: true || false,
  * };
  * const command = new FailoverGlobalClusterCommand(input);
  * const response = await client.send(command);
@@ -80,12 +105,14 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * //         ],
  * //         IsWriter: true || false,
  * //         GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
+ * //         SynchronizationStatus: "connected" || "pending-resync",
  * //       },
  * //     ],
  * //     FailoverState: { // FailoverState
  * //       Status: "pending" || "failing-over" || "cancelling",
  * //       FromDbClusterArn: "STRING_VALUE",
  * //       ToDbClusterArn: "STRING_VALUE",
+ * //       IsDataLossAllowed: true || false,
  * //     },
  * //   },
  * // };

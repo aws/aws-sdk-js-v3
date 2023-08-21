@@ -36,7 +36,7 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
 
 /**
  * @public
- * <p>Modifies a setting for an Amazon Aurora global cluster. You can change one or more database configuration
+ * <p>Modifies a setting for an Amazon Aurora global database cluster. You can change one or more database configuration
  *         parameters by specifying these parameters and the new values in the request. For more information on
  *         Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
  *         <i>Amazon Aurora User Guide</i>.</p>
@@ -77,12 +77,14 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * //         ],
  * //         IsWriter: true || false,
  * //         GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
+ * //         SynchronizationStatus: "connected" || "pending-resync",
  * //       },
  * //     ],
  * //     FailoverState: { // FailoverState
  * //       Status: "pending" || "failing-over" || "cancelling",
  * //       FromDbClusterArn: "STRING_VALUE",
  * //       ToDbClusterArn: "STRING_VALUE",
+ * //       IsDataLossAllowed: true || false,
  * //     },
  * //   },
  * // };

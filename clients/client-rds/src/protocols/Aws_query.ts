@@ -485,6 +485,10 @@ import {
   SwitchoverBlueGreenDeploymentCommandOutput,
 } from "../commands/SwitchoverBlueGreenDeploymentCommand";
 import {
+  SwitchoverGlobalClusterCommandInput,
+  SwitchoverGlobalClusterCommandOutput,
+} from "../commands/SwitchoverGlobalClusterCommand";
+import {
   SwitchoverReadReplicaCommandInput,
   SwitchoverReadReplicaCommandOutput,
 } from "../commands/SwitchoverReadReplicaCommand";
@@ -685,7 +689,6 @@ import {
   DescribeDBClusterSnapshotAttributesMessage,
   DescribeDBClusterSnapshotAttributesResult,
   DescribeDBClusterSnapshotsMessage,
-  DescribeDBEngineVersionsMessage,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -797,6 +800,7 @@ import {
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBEngineVersionsMessage,
   DescribeDBInstanceAutomatedBackupsMessage,
   DescribeDBInstancesMessage,
   DescribeDBLogFilesDetails,
@@ -974,6 +978,8 @@ import {
   SubnetAlreadyInUse,
   SwitchoverBlueGreenDeploymentRequest,
   SwitchoverBlueGreenDeploymentResponse,
+  SwitchoverGlobalClusterMessage,
+  SwitchoverGlobalClusterResult,
   SwitchoverReadReplicaMessage,
   SwitchoverReadReplicaResult,
   TagListMessage,
@@ -3392,6 +3398,23 @@ export const se_SwitchoverBlueGreenDeploymentCommand = async (
   body = buildFormUrlencodedString({
     ...se_SwitchoverBlueGreenDeploymentRequest(input, context),
     Action: "SwitchoverBlueGreenDeployment",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_querySwitchoverGlobalClusterCommand
+ */
+export const se_SwitchoverGlobalClusterCommand = async (
+  input: SwitchoverGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_SwitchoverGlobalClusterMessage(input, context),
+    Action: "SwitchoverGlobalCluster",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11198,6 +11221,61 @@ const de_SwitchoverBlueGreenDeploymentCommandError = async (
 };
 
 /**
+ * deserializeAws_querySwitchoverGlobalClusterCommand
+ */
+export const de_SwitchoverGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_SwitchoverGlobalClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SwitchoverGlobalClusterResult(data.SwitchoverGlobalClusterResult, context);
+  const response: SwitchoverGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySwitchoverGlobalClusterCommandError
+ */
+const de_SwitchoverGlobalClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverGlobalClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.rds#GlobalClusterNotFoundFault":
+      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterStateFault":
+      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
+    case "InvalidGlobalClusterStateFault":
+    case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
+      throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_querySwitchoverReadReplicaCommand
  */
 export const de_SwitchoverReadReplicaCommand = async (
@@ -16411,6 +16489,12 @@ const se_FailoverGlobalClusterMessage = (input: FailoverGlobalClusterMessage, co
   if (input.TargetDbClusterIdentifier != null) {
     entries["TargetDbClusterIdentifier"] = input.TargetDbClusterIdentifier;
   }
+  if (input.AllowDataLoss != null) {
+    entries["AllowDataLoss"] = input.AllowDataLoss;
+  }
+  if (input.Switchover != null) {
+    entries["Switchover"] = input.Switchover;
+  }
   return entries;
 };
 
@@ -19041,6 +19125,20 @@ const se_SwitchoverBlueGreenDeploymentRequest = (
   }
   if (input.SwitchoverTimeout != null) {
     entries["SwitchoverTimeout"] = input.SwitchoverTimeout;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_querySwitchoverGlobalClusterMessage
+ */
+const se_SwitchoverGlobalClusterMessage = (input: SwitchoverGlobalClusterMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier != null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
+  if (input.TargetDbClusterIdentifier != null) {
+    entries["TargetDbClusterIdentifier"] = input.TargetDbClusterIdentifier;
   }
   return entries;
 };
@@ -23864,6 +23962,9 @@ const de_FailoverState = (output: any, context: __SerdeContext): FailoverState =
   if (output["ToDbClusterArn"] !== undefined) {
     contents.ToDbClusterArn = __expectString(output["ToDbClusterArn"]);
   }
+  if (output["IsDataLossAllowed"] !== undefined) {
+    contents.IsDataLossAllowed = __parseBoolean(output["IsDataLossAllowed"]);
+  }
   return contents;
 };
 
@@ -23967,6 +24068,9 @@ const de_GlobalClusterMember = (output: any, context: __SerdeContext): GlobalClu
   }
   if (output["GlobalWriteForwardingStatus"] !== undefined) {
     contents.GlobalWriteForwardingStatus = __expectString(output["GlobalWriteForwardingStatus"]);
+  }
+  if (output["SynchronizationStatus"] !== undefined) {
+    contents.SynchronizationStatus = __expectString(output["SynchronizationStatus"]);
   }
   return contents;
 };
@@ -26726,6 +26830,17 @@ const de_SwitchoverDetailList = (output: any, context: __SerdeContext): Switchov
     .map((entry: any) => {
       return de_SwitchoverDetail(entry, context);
     });
+};
+
+/**
+ * deserializeAws_querySwitchoverGlobalClusterResult
+ */
+const de_SwitchoverGlobalClusterResult = (output: any, context: __SerdeContext): SwitchoverGlobalClusterResult => {
+  const contents: any = {};
+  if (output["GlobalCluster"] !== undefined) {
+    contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  }
+  return contents;
 };
 
 /**
