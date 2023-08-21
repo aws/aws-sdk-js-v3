@@ -1,6 +1,5 @@
 // Set up following binaries before running the test:
 // CHROME_BIN: path to Chromium browser
-// FIREFOX_BIN: path to Firefox browser
 const webpack = require("webpack");
 
 module.exports = function (config) {
@@ -49,7 +48,6 @@ module.exports = function (config) {
     plugins: [
       "@aws-sdk/karma-credential-loader",
       "karma-chrome-launcher",
-      "karma-firefox-launcher",
       "karma-mocha",
       "karma-chai",
       "karma-webpack",
@@ -62,15 +60,11 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_WARN,
     autoWatch: false,
-    browsers: ["ChromeHeadlessNoSandbox", "FirefoxHeadless"],
+    browsers: ["ChromeHeadlessNoSandbox"],
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: "ChromeHeadless",
         flags: ["--no-sandbox"],
-      },
-      FirefoxHeadless: {
-        base: "Firefox",
-        flags: ["-headless"],
       },
     },
     singleRun: true,
