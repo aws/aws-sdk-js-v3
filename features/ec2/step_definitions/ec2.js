@@ -100,7 +100,7 @@ function copySnapshotIntegration({ encryptSource, encryptDestination } = {}) {
       srcSnapId = createSnapshot.SnapshotId;
 
       await waitUntilSnapshotCompleted(
-        { client: srcEc2, maxWaitTime: 120 },
+        { client: srcEc2, maxWaitTime: 300 },
         {
           SnapshotId: createSnapshot.SnapshotId,
         }
