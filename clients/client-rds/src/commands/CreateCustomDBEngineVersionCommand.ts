@@ -58,6 +58,8 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   SourceCustomDbEngineVersionIdentifier: "STRING_VALUE",
+ *   UseAwsProvidedLatestImage: true || false,
  * };
  * const command = new CreateCustomDBEngineVersionCommand(input);
  * const response = await client.send(command);

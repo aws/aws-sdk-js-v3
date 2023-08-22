@@ -3640,6 +3640,18 @@ export interface CreateCustomDBEngineVersionMessage {
    *          </p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  SourceCustomDbEngineVersionIdentifier?: string;
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  UseAwsProvidedLatestImage?: boolean;
 }
 
 /**

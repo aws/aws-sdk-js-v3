@@ -13849,6 +13849,12 @@ const se_CreateCustomDBEngineVersionMessage = (
       entries[loc] = value;
     });
   }
+  if (input.SourceCustomDbEngineVersionIdentifier != null) {
+    entries["SourceCustomDbEngineVersionIdentifier"] = input.SourceCustomDbEngineVersionIdentifier;
+  }
+  if (input.UseAwsProvidedLatestImage != null) {
+    entries["UseAwsProvidedLatestImage"] = input.UseAwsProvidedLatestImage;
+  }
   return entries;
 };
 
