@@ -6,14 +6,6 @@ import { AwsCredentialIdentity } from "@smithy/types";
 
 import { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
 
-/**
- * The time window (15 mins) that SDK will treat the SSO token expires in before the defined expiration date in token.
- * This is needed because server side may have invalidated the token before the defined expiration date.
- *
- * @internal
- */
-const EXPIRE_WINDOW_MS = 15 * 60 * 1000;
-
 const SHOULD_FAIL_CREDENTIAL_CHAIN = false;
 
 /**
@@ -52,7 +44,7 @@ export const resolveSSOCredentials = async ({
     }
   }
 
-  if (new Date(token.expiresAt).getTime() - Date.now() <= EXPIRE_WINDOW_MS) {
+  if (new Date(token.expiresAt).getTime() - Date.now() <= 0) {
     throw new CredentialsProviderError(
       `The SSO session associated with this profile has expired. ${refreshMessage}`,
       SHOULD_FAIL_CREDENTIAL_CHAIN
