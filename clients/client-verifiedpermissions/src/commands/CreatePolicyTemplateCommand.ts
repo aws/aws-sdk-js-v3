@@ -13,7 +13,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { CreatePolicyTemplateInput, CreatePolicyTemplateOutput } from "../models/models_0";
+import {
+  CreatePolicyTemplateInput,
+  CreatePolicyTemplateInputFilterSensitiveLog,
+  CreatePolicyTemplateOutput,
+} from "../models/models_0";
 import { de_CreatePolicyTemplateCommand, se_CreatePolicyTemplateCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -227,7 +231,7 @@ export class CreatePolicyTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreatePolicyTemplateInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

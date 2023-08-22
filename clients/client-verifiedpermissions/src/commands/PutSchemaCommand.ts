@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { PutSchemaInput, PutSchemaOutput } from "../models/models_0";
+import {
+  PutSchemaInput,
+  PutSchemaInputFilterSensitiveLog,
+  PutSchemaOutput,
+  PutSchemaOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_PutSchemaCommand, se_PutSchemaCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -229,8 +234,8 @@ export class PutSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: PutSchemaInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutSchemaOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

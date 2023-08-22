@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetSchemaInput, GetSchemaOutput } from "../models/models_0";
+import { GetSchemaInput, GetSchemaOutput, GetSchemaOutputFilterSensitiveLog } from "../models/models_0";
 import { de_GetSchemaCommand, se_GetSchemaCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -214,7 +214,7 @@ export class GetSchemaCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetSchemaOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

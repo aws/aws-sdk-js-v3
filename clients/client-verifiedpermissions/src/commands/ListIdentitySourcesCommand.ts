@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { ListIdentitySourcesInput, ListIdentitySourcesOutput } from "../models/models_0";
+import {
+  ListIdentitySourcesInput,
+  ListIdentitySourcesInputFilterSensitiveLog,
+  ListIdentitySourcesOutput,
+  ListIdentitySourcesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListIdentitySourcesCommand, se_ListIdentitySourcesCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -236,8 +241,8 @@ export class ListIdentitySourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: ListIdentitySourcesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListIdentitySourcesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

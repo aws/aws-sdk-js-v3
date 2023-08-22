@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { VerifiedPermissionsServiceException as __BaseException } from "./VerifiedPermissionsServiceException";
 
@@ -1625,15 +1625,16 @@ export interface ListIdentitySourcesInput {
 
   /**
    * @public
-   * <p>Specifies the total number of results that you want included on each page
-   *              of the response. If you do not include this parameter, it defaults to a value that is
-   *              specific to the operation. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null).
-   *              Include the specified value as the <code>NextToken</code> request parameter in the next
-   *              call to the operation to get the next part of the results. Note that the service might
-   *              return fewer results than the maximum even when there are more results available. You
-   *              should check <code>NextToken</code> after every operation to ensure that you receive all
-   *              of the results.</p>
+   * <p>Specifies the total number of results that you want included in each
+   *              response. If additional items exist beyond the number you specify, the
+   *              <code>NextToken</code> response element is returned with a value (not null). Include the
+   *              specified value as the <code>NextToken</code> request parameter in the next call to the
+   *              operation to get the next set of results. Note that the service might return fewer
+   *              results than the maximum even when there are more results available. You should check
+   *              <code>NextToken</code> after every operation to ensure that you receive all of the
+   *              results.</p>
+   *          <p>If you do not specify this parameter, the operation defaults to 10 identity sources per response.
+   *             You can specify a maximum of 200 identity sources per response.</p>
    */
   maxResults?: number;
 
@@ -1999,15 +2000,16 @@ export interface ListPoliciesInput {
 
   /**
    * @public
-   * <p>Specifies the total number of results that you want included on each page
-   *              of the response. If you do not include this parameter, it defaults to a value that is
-   *              specific to the operation. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null).
-   *              Include the specified value as the <code>NextToken</code> request parameter in the next
-   *              call to the operation to get the next part of the results. Note that the service might
-   *              return fewer results than the maximum even when there are more results available. You
-   *              should check <code>NextToken</code> after every operation to ensure that you receive all
-   *              of the results.</p>
+   * <p>Specifies the total number of results that you want included in each
+   *              response. If additional items exist beyond the number you specify, the
+   *              <code>NextToken</code> response element is returned with a value (not null). Include the
+   *              specified value as the <code>NextToken</code> request parameter in the next call to the
+   *              operation to get the next set of results. Note that the service might return fewer
+   *              results than the maximum even when there are more results available. You should check
+   *              <code>NextToken</code> after every operation to ensure that you receive all of the
+   *              results.</p>
+   *          <p>If you do not specify this parameter, the operation defaults to 10 policies per
+   *             response. You can specify a maximum of 50 policies per response.</p>
    */
   maxResults?: number;
 
@@ -2228,15 +2230,16 @@ export interface ListPolicyStoresInput {
 
   /**
    * @public
-   * <p>Specifies the total number of results that you want included on each page
-   *              of the response. If you do not include this parameter, it defaults to a value that is
-   *              specific to the operation. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null).
-   *              Include the specified value as the <code>NextToken</code> request parameter in the next
-   *              call to the operation to get the next part of the results. Note that the service might
-   *              return fewer results than the maximum even when there are more results available. You
-   *              should check <code>NextToken</code> after every operation to ensure that you receive all
-   *              of the results.</p>
+   * <p>Specifies the total number of results that you want included in each
+   *              response. If additional items exist beyond the number you specify, the
+   *              <code>NextToken</code> response element is returned with a value (not null). Include the
+   *              specified value as the <code>NextToken</code> request parameter in the next call to the
+   *              operation to get the next set of results. Note that the service might return fewer
+   *              results than the maximum even when there are more results available. You should check
+   *              <code>NextToken</code> after every operation to ensure that you receive all of the
+   *              results.</p>
+   *          <p>If you do not specify this parameter, the operation defaults to 10 policy stores per
+   *             response. You can specify a maximum of 50 policy stores per response.</p>
    */
   maxResults?: number;
 }
@@ -2310,15 +2313,16 @@ export interface ListPolicyTemplatesInput {
 
   /**
    * @public
-   * <p>Specifies the total number of results that you want included on each page
-   *              of the response. If you do not include this parameter, it defaults to a value that is
-   *              specific to the operation. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null).
-   *              Include the specified value as the <code>NextToken</code> request parameter in the next
-   *              call to the operation to get the next part of the results. Note that the service might
-   *              return fewer results than the maximum even when there are more results available. You
-   *              should check <code>NextToken</code> after every operation to ensure that you receive all
-   *              of the results.</p>
+   * <p>Specifies the total number of results that you want included in each
+   *              response. If additional items exist beyond the number you specify, the
+   *              <code>NextToken</code> response element is returned with a value (not null). Include the
+   *              specified value as the <code>NextToken</code> request parameter in the next call to the
+   *              operation to get the next set of results. Note that the service might return fewer
+   *              results than the maximum even when there are more results available. You should check
+   *              <code>NextToken</code> after every operation to ensure that you receive all of the
+   *              results.</p>
+   *          <p>If you do not specify this parameter, the operation defaults to 10 policy templates per
+   *             response. You can specify a maximum of 50 policy templates per response.</p>
    */
   maxResults?: number;
 }
@@ -3127,7 +3131,7 @@ export interface IsAuthorizedWithTokenInput {
    * @public
    * <p>Specifies an identity token for the principal to be authorized. This token is provided
    *             to you by the identity provider (IdP) associated with the specified identity source. You must
-   *             specify either an <code>AccessToken</code> or an <code>IdentityToken</code>, but not
+   *             specify either an <code>AccessToken</code> or an <code>IdentityToken</code>, or
    *             both.</p>
    */
   identityToken?: string;
@@ -3136,7 +3140,7 @@ export interface IsAuthorizedWithTokenInput {
    * @public
    * <p>Specifies an access token for the principal to be authorized. This token is provided
    *             to you by the identity provider (IdP) associated with the specified identity source. You must
-   *             specify either an <code>AccessToken</code> or an <code>IdentityToken</code>, but not
+   *             specify either an <code>AccessToken</code>, or an <code>IdentityToken</code>, or
    *             both.</p>
    */
   accessToken?: string;
@@ -3164,12 +3168,541 @@ export interface IsAuthorizedWithTokenInput {
 
   /**
    * @public
-   * <p>Specifies the list of resources and principals and their associated attributes that
-   *             Verified Permissions can examine when evaluating the policies. </p>
+   * <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine
+   *             when evaluating the policies. </p>
    *          <note>
-   *             <p>You can include only principal and resource entities in this parameter; you can't
-   *                 include actions. You must specify actions in the schema.</p>
+   *             <p>You can include only resource and action entities in this parameter; you can't
+   *                 include principals.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>IsAuthorizedWithToken</code> operation takes principal
+   *                         attributes from <b>
+   *                         <i>only</i>
+   *                      </b>
+   *                         the <code>identityToken</code> or <code>accessToken</code> passed to the
+   *                         operation.</p>
+   *                </li>
+   *                <li>
+   *                   <p>For action entities, you can include only their <code>Identifier</code>
+   *                         and <code>EntityType</code>. </p>
+   *                </li>
+   *             </ul>
    *          </note>
    */
   entities?: EntitiesDefinition;
 }
+
+/**
+ * @internal
+ */
+export const ActionIdentifierFilterSensitiveLog = (obj: ActionIdentifier): any => ({
+  ...obj,
+  ...(obj.actionType && { actionType: SENSITIVE_STRING }),
+  ...(obj.actionId && { actionId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EntityIdentifierFilterSensitiveLog = (obj: EntityIdentifier): any => ({
+  ...obj,
+  ...(obj.entityType && { entityType: SENSITIVE_STRING }),
+  ...(obj.entityId && { entityId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CognitoUserPoolConfigurationFilterSensitiveLog = (obj: CognitoUserPoolConfiguration): any => ({
+  ...obj,
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => {
+  if (obj.cognitoUserPoolConfiguration !== undefined)
+    return {
+      cognitoUserPoolConfiguration: CognitoUserPoolConfigurationFilterSensitiveLog(obj.cognitoUserPoolConfiguration),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateIdentitySourceInputFilterSensitiveLog = (obj: CreateIdentitySourceInput): any => ({
+  ...obj,
+  ...(obj.configuration && { configuration: ConfigurationFilterSensitiveLog(obj.configuration) }),
+  ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StaticPolicyDefinitionFilterSensitiveLog = (obj: StaticPolicyDefinition): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TemplateLinkedPolicyDefinitionFilterSensitiveLog = (obj: TemplateLinkedPolicyDefinition): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyDefinitionFilterSensitiveLog = (obj: PolicyDefinition): any => {
+  if (obj.static !== undefined) return { static: StaticPolicyDefinitionFilterSensitiveLog(obj.static) };
+  if (obj.templateLinked !== undefined)
+    return { templateLinked: TemplateLinkedPolicyDefinitionFilterSensitiveLog(obj.templateLinked) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreatePolicyInputFilterSensitiveLog = (obj: CreatePolicyInput): any => ({
+  ...obj,
+  ...(obj.definition && { definition: PolicyDefinitionFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePolicyOutputFilterSensitiveLog = (obj: CreatePolicyOutput): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePolicyTemplateInputFilterSensitiveLog = (obj: CreatePolicyTemplateInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EntityReferenceFilterSensitiveLog = (obj: EntityReference): any => {
+  if (obj.unspecified !== undefined) return { unspecified: obj.unspecified };
+  if (obj.identifier !== undefined) return { identifier: EntityIdentifierFilterSensitiveLog(obj.identifier) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const EvaluationErrorItemFilterSensitiveLog = (obj: EvaluationErrorItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentitySourceDetailsFilterSensitiveLog = (obj: IdentitySourceDetails): any => ({
+  ...obj,
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetIdentitySourceOutputFilterSensitiveLog = (obj: GetIdentitySourceOutput): any => ({
+  ...obj,
+  ...(obj.details && { details: IdentitySourceDetailsFilterSensitiveLog(obj.details) }),
+  ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StaticPolicyDefinitionDetailFilterSensitiveLog = (obj: StaticPolicyDefinitionDetail): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TemplateLinkedPolicyDefinitionDetailFilterSensitiveLog = (
+  obj: TemplateLinkedPolicyDefinitionDetail
+): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyDefinitionDetailFilterSensitiveLog = (obj: PolicyDefinitionDetail): any => {
+  if (obj.static !== undefined) return { static: StaticPolicyDefinitionDetailFilterSensitiveLog(obj.static) };
+  if (obj.templateLinked !== undefined)
+    return { templateLinked: TemplateLinkedPolicyDefinitionDetailFilterSensitiveLog(obj.templateLinked) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const GetPolicyOutputFilterSensitiveLog = (obj: GetPolicyOutput): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.definition && { definition: PolicyDefinitionDetailFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyTemplateOutputFilterSensitiveLog = (obj: GetPolicyTemplateOutput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetSchemaOutputFilterSensitiveLog = (obj: GetSchemaOutput): any => ({
+  ...obj,
+  ...(obj.schema && { schema: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IdentitySourceFilterFilterSensitiveLog = (obj: IdentitySourceFilter): any => ({
+  ...obj,
+  ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListIdentitySourcesInputFilterSensitiveLog = (obj: ListIdentitySourcesInput): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => IdentitySourceFilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const IdentitySourceItemDetailsFilterSensitiveLog = (obj: IdentitySourceItemDetails): any => ({
+  ...obj,
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IdentitySourceItemFilterSensitiveLog = (obj: IdentitySourceItem): any => ({
+  ...obj,
+  ...(obj.details && { details: IdentitySourceItemDetailsFilterSensitiveLog(obj.details) }),
+  ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListIdentitySourcesOutputFilterSensitiveLog = (obj: ListIdentitySourcesOutput): any => ({
+  ...obj,
+  ...(obj.identitySources && {
+    identitySources: obj.identitySources.map((item) => IdentitySourceItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCognitoUserPoolConfigurationFilterSensitiveLog = (obj: UpdateCognitoUserPoolConfiguration): any => ({
+  ...obj,
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationFilterSensitiveLog = (obj: UpdateConfiguration): any => {
+  if (obj.cognitoUserPoolConfiguration !== undefined)
+    return {
+      cognitoUserPoolConfiguration: UpdateCognitoUserPoolConfigurationFilterSensitiveLog(
+        obj.cognitoUserPoolConfiguration
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const UpdateIdentitySourceInputFilterSensitiveLog = (obj: UpdateIdentitySourceInput): any => ({
+  ...obj,
+  ...(obj.updateConfiguration && {
+    updateConfiguration: UpdateConfigurationFilterSensitiveLog(obj.updateConfiguration),
+  }),
+  ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IsAuthorizedOutputFilterSensitiveLog = (obj: IsAuthorizedOutput): any => ({
+  ...obj,
+  ...(obj.errors && { errors: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IsAuthorizedWithTokenOutputFilterSensitiveLog = (obj: IsAuthorizedWithTokenOutput): any => ({
+  ...obj,
+  ...(obj.errors && { errors: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyFilterFilterSensitiveLog = (obj: PolicyFilter): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityReferenceFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityReferenceFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const ListPoliciesInputFilterSensitiveLog = (obj: ListPoliciesInput): any => ({
+  ...obj,
+  ...(obj.filter && { filter: PolicyFilterFilterSensitiveLog(obj.filter) }),
+});
+
+/**
+ * @internal
+ */
+export const StaticPolicyDefinitionItemFilterSensitiveLog = (obj: StaticPolicyDefinitionItem): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TemplateLinkedPolicyDefinitionItemFilterSensitiveLog = (obj: TemplateLinkedPolicyDefinitionItem): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyDefinitionItemFilterSensitiveLog = (obj: PolicyDefinitionItem): any => {
+  if (obj.static !== undefined) return { static: StaticPolicyDefinitionItemFilterSensitiveLog(obj.static) };
+  if (obj.templateLinked !== undefined)
+    return { templateLinked: TemplateLinkedPolicyDefinitionItemFilterSensitiveLog(obj.templateLinked) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const PolicyItemFilterSensitiveLog = (obj: PolicyItem): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.definition && { definition: PolicyDefinitionItemFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const ListPoliciesOutputFilterSensitiveLog = (obj: ListPoliciesOutput): any => ({
+  ...obj,
+  ...(obj.policies && { policies: obj.policies.map((item) => PolicyItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyTemplateItemFilterSensitiveLog = (obj: PolicyTemplateItem): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListPolicyTemplatesOutputFilterSensitiveLog = (obj: ListPolicyTemplatesOutput): any => ({
+  ...obj,
+  ...(obj.policyTemplates && {
+    policyTemplates: obj.policyTemplates.map((item) => PolicyTemplateItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStaticPolicyDefinitionFilterSensitiveLog = (obj: UpdateStaticPolicyDefinition): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePolicyDefinitionFilterSensitiveLog = (obj: UpdatePolicyDefinition): any => {
+  if (obj.static !== undefined) return { static: UpdateStaticPolicyDefinitionFilterSensitiveLog(obj.static) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const UpdatePolicyInputFilterSensitiveLog = (obj: UpdatePolicyInput): any => ({
+  ...obj,
+  ...(obj.definition && { definition: UpdatePolicyDefinitionFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePolicyOutputFilterSensitiveLog = (obj: UpdatePolicyOutput): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePolicyTemplateInputFilterSensitiveLog = (obj: UpdatePolicyTemplateInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SchemaDefinitionFilterSensitiveLog = (obj: SchemaDefinition): any => {
+  if (obj.cedarJson !== undefined) return { cedarJson: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const PutSchemaInputFilterSensitiveLog = (obj: PutSchemaInput): any => ({
+  ...obj,
+  ...(obj.definition && { definition: SchemaDefinitionFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const PutSchemaOutputFilterSensitiveLog = (obj: PutSchemaOutput): any => ({
+  ...obj,
+  ...(obj.namespaces && { namespaces: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => {
+  if (obj.boolean !== undefined) return { boolean: SENSITIVE_STRING };
+  if (obj.entityIdentifier !== undefined)
+    return { entityIdentifier: EntityIdentifierFilterSensitiveLog(obj.entityIdentifier) };
+  if (obj.long !== undefined) return { long: SENSITIVE_STRING };
+  if (obj.string !== undefined) return { string: SENSITIVE_STRING };
+  if (obj.set !== undefined) return { set: obj.set.map((item) => AttributeValueFilterSensitiveLog(item)) };
+  if (obj.record !== undefined)
+    return {
+      record: Object.entries(obj.record).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
+        {}
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ContextDefinitionFilterSensitiveLog = (obj: ContextDefinition): any => {
+  if (obj.contextMap !== undefined)
+    return {
+      contextMap: Object.entries(obj.contextMap).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
+        {}
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const EntityItemFilterSensitiveLog = (obj: EntityItem): any => ({
+  ...obj,
+  ...(obj.identifier && { identifier: EntityIdentifierFilterSensitiveLog(obj.identifier) }),
+  ...(obj.attributes && {
+    attributes: Object.entries(obj.attributes).reduce(
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
+      {}
+    ),
+  }),
+  ...(obj.parents && { parents: obj.parents.map((item) => EntityIdentifierFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const EntitiesDefinitionFilterSensitiveLog = (obj: EntitiesDefinition): any => {
+  if (obj.entityList !== undefined)
+    return { entityList: obj.entityList.map((item) => EntityItemFilterSensitiveLog(item)) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const IsAuthorizedInputFilterSensitiveLog = (obj: IsAuthorizedInput): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.action && { action: ActionIdentifierFilterSensitiveLog(obj.action) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.context && { context: ContextDefinitionFilterSensitiveLog(obj.context) }),
+  ...(obj.entities && { entities: EntitiesDefinitionFilterSensitiveLog(obj.entities) }),
+});
+
+/**
+ * @internal
+ */
+export const IsAuthorizedWithTokenInputFilterSensitiveLog = (obj: IsAuthorizedWithTokenInput): any => ({
+  ...obj,
+  ...(obj.identityToken && { identityToken: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+  ...(obj.action && { action: ActionIdentifierFilterSensitiveLog(obj.action) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.context && { context: ContextDefinitionFilterSensitiveLog(obj.context) }),
+  ...(obj.entities && { entities: EntitiesDefinitionFilterSensitiveLog(obj.entities) }),
+});

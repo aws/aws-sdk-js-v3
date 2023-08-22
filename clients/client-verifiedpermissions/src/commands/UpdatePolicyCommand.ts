@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdatePolicyInput, UpdatePolicyOutput } from "../models/models_0";
+import {
+  UpdatePolicyInput,
+  UpdatePolicyInputFilterSensitiveLog,
+  UpdatePolicyOutput,
+  UpdatePolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_UpdatePolicyCommand, se_UpdatePolicyCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -44,9 +49,46 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyOutput, __Metadat
  *             the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyInput.html#amazonverifiedpermissions-UpdatePolicy-request-UpdatePolicyDefinition">UpdatePolicyDefinition</a> parameter. You can directly update only static policies. To
  *             change a template-linked policy, you must update the template instead, using <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html">UpdatePolicyTemplate</a>.</p>
  *          <note>
- *             <p>If policy validation is enabled in the policy store, then updating a static policy causes Verified Permissions to
- *                 validate the policy against the schema in the policy store. If the updated static policy doesn't pass
- *                 validation, the operation fails and the update isn't stored.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>If policy validation is enabled in the policy store, then updating a static policy causes
+ *                         Verified Permissions to validate the policy against the schema in the policy store. If the updated
+ *                         static policy doesn't pass validation, the operation fails and the update isn't
+ *                         stored.</p>
+ *                </li>
+ *                <li>
+ *                   <p>When you edit a static policy, You can change only certain elements of a static
+ *                         policy:</p>
+ *                   <ul>
+ *                      <li>
+ *                         <p>The action referenced by the policy. </p>
+ *                      </li>
+ *                      <li>
+ *                         <p>A condition clause, such as when and unless. </p>
+ *                      </li>
+ *                   </ul>
+ *                   <p>You can't change these elements of a static policy: </p>
+ *                   <ul>
+ *                      <li>
+ *                         <p>Changing a policy from a static policy to a template-linked
+ *                                 policy. </p>
+ *                      </li>
+ *                      <li>
+ *                         <p>Changing the effect of a static policy from permit or forbid.
+ *                             </p>
+ *                      </li>
+ *                      <li>
+ *                         <p>The principal referenced by a static policy. </p>
+ *                      </li>
+ *                      <li>
+ *                         <p>The resource referenced by a static policy. </p>
+ *                      </li>
+ *                   </ul>
+ *                </li>
+ *                <li>
+ *                   <p>To update a template-linked policy, you must update the template instead. </p>
+ *                </li>
+ *             </ul>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -243,8 +285,8 @@ export class UpdatePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdatePolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

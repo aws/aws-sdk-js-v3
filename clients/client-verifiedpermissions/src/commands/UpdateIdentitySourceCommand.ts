@@ -13,7 +13,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateIdentitySourceInput, UpdateIdentitySourceOutput } from "../models/models_0";
+import {
+  UpdateIdentitySourceInput,
+  UpdateIdentitySourceInputFilterSensitiveLog,
+  UpdateIdentitySourceOutput,
+} from "../models/models_0";
 import { de_UpdateIdentitySourceCommand, se_UpdateIdentitySourceCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -230,7 +234,7 @@ export class UpdateIdentitySourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateIdentitySourceInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

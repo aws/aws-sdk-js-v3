@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { IsAuthorizedInput, IsAuthorizedOutput } from "../models/models_0";
+import {
+  IsAuthorizedInput,
+  IsAuthorizedInputFilterSensitiveLog,
+  IsAuthorizedOutput,
+  IsAuthorizedOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_IsAuthorizedCommand, se_IsAuthorizedCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -280,8 +285,8 @@ export class IsAuthorizedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: IsAuthorizedInputFilterSensitiveLog,
+      outputFilterSensitiveLog: IsAuthorizedOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
