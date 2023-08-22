@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.397.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.396.0...v3.397.0) (2023-08-22)
+
+
+### Features
+
+* **client-cost-explorer:** This release adds the LastUpdatedDate and LastUsedDate timestamps to help you manage your cost allocation tags. ([4e81e59](https://github.com/aws/aws-sdk-js-v3/commit/4e81e599e4c53681bc364bb9259aa9ec849d0d0e))
+* **client-rds:** Adding parameters to CreateCustomDbEngineVersion reserved for future use. ([8981d51](https://github.com/aws/aws-sdk-js-v3/commit/8981d5184f8060aba4cc9798c316362b95202e5d))
+* **client-verifiedpermissions:** Documentation updates for Amazon Verified Permissions. Increases max results per page for ListPolicyStores, ListPolicies, and ListPolicyTemplates APIs from 20 to 50. ([d09e800](https://github.com/aws/aws-sdk-js-v3/commit/d09e8007675f6b6c70b0f9a46813afd6d7beca47))
+* **clients:** update client endpoints as of 2023-08-22 ([fce5a7b](https://github.com/aws/aws-sdk-js-v3/commit/fce5a7bae1b426eb836582bba2080c80b3d6be6f))
+
+
+
+
+
 # [3.396.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.395.0...v3.396.0) (2023-08-21)
 
 

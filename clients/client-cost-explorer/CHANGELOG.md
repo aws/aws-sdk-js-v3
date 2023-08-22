@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.397.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.396.0...v3.397.0) (2023-08-22)
+
+
+### Features
+
+* **client-cost-explorer:** This release adds the LastUpdatedDate and LastUsedDate timestamps to help you manage your cost allocation tags. ([4e81e59](https://github.com/aws/aws-sdk-js-v3/commit/4e81e599e4c53681bc364bb9259aa9ec849d0d0e))
+
+
+
+
+
 # [3.395.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.394.0...v3.395.0) (2023-08-18)
 
 **Note:** Version bump only for package @aws-sdk/client-cost-explorer
