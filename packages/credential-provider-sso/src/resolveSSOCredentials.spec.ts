@@ -97,11 +97,6 @@ describe(resolveSSOCredentials.name, () => {
       const mockExpiredToken = { ...mockToken, expiresAt: new Date(Date.now() - 60 * 1000).toISOString() };
       (getSSOTokenFromFile as jest.Mock).mockResolvedValue(mockExpiredToken);
     });
-
-    it("throws error if SSO session expires in <15 mins", async () => {
-      const mockExpiredToken = { ...mockToken, expiresAt: new Date(Date.now() + 899 * 1000).toISOString() };
-      (getSSOTokenFromFile as jest.Mock).mockResolvedValue(mockExpiredToken);
-    });
   });
 
   describe("throws error on sso.getRoleCredentials call", () => {
