@@ -46,7 +46,7 @@ export interface GetSavingsPlanPurchaseRecommendationDetailsCommandOutput
 /**
  * @public
  * <p>Retrieves the details for a Savings Plan recommendation. These details include the hourly
- *       data-points that construct the new cost, coverage, and utilization charts.</p>
+ *       data-points that construct the cost, coverage, and utilization charts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -4460,6 +4460,18 @@ export interface CostAllocationTag {
    * <p>The status of a cost allocation tag. </p>
    */
   Status: CostAllocationTagStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>The last date that the tag was either activated or deactivated.</p>
+   */
+  LastUpdatedDate?: string;
+
+  /**
+   * @public
+   * <p>The last month that the tag was used on an Amazon Web Services resource.</p>
+   */
+  LastUsedDate?: string;
 }
 
 /**

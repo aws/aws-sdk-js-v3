@@ -61,6 +61,8 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  * //       TagKey: "STRING_VALUE", // required
  * //       Type: "AWSGenerated" || "UserDefined", // required
  * //       Status: "Active" || "Inactive", // required
+ * //       LastUpdatedDate: "STRING_VALUE",
+ * //       LastUsedDate: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
