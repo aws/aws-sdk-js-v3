@@ -2,6 +2,10 @@ import { BuildHandlerOptions, Pluggable } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
 import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
+import {
+  flexibleChecksumsResponseMiddleware,
+  flexibleChecksumsResponseMiddlewareOptions,
+} from "./flexibleChecksumsResponseMiddleware";
 
 export const flexibleChecksumsMiddlewareOptions: BuildHandlerOptions = {
   name: "flexibleChecksumsMiddleware",
@@ -45,5 +49,9 @@ export const getFlexibleChecksumsPlugin = (
 ): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(flexibleChecksumsMiddleware(config, middlewareConfig), flexibleChecksumsMiddlewareOptions);
+    clientStack.addRelativeTo(
+      flexibleChecksumsResponseMiddleware(config, middlewareConfig),
+      flexibleChecksumsResponseMiddlewareOptions
+    );
   },
 });
