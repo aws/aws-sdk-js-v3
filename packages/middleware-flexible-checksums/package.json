@@ -14,6 +14,9 @@
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
+  "browser": {
+    "./dist-es/streams/create-read-stream-on-buffer": "./dist-es/streams/create-read-stream-on-buffer.browser"
+  },
   "types": "./dist-types/index.d.ts",
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -31,6 +34,7 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
+    "@smithy/node-http-handler": "^2.0.3",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",

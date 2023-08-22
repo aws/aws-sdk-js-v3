@@ -1,4 +1,4 @@
-import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -15,8 +15,10 @@ import { hasHeader } from "./hasHeader";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
-import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
+/**
+ * @internal
+ */
 export const flexibleChecksumsMiddleware =
   (config: PreviouslyResolved, middlewareConfig: FlexibleChecksumsMiddlewareConfig): BuildMiddleware<any, any> =>
   <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
@@ -77,15 +79,6 @@ export const flexibleChecksumsMiddleware =
         body: updatedBody,
       },
     });
-
-    const { requestValidationModeMember, responseAlgorithms } = middlewareConfig;
-    // @ts-ignore Element implicitly has an 'any' type for input[requestValidationModeMember]
-    if (requestValidationModeMember && input[requestValidationModeMember] === "ENABLED") {
-      await validateChecksumFromResponse(result.response as HttpResponse, {
-        config,
-        responseAlgorithms,
-      });
-    }
 
     return result;
   };
