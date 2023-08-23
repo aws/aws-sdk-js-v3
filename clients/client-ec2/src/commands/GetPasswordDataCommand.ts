@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetPasswordDataRequest, GetPasswordDataResult } from "../models/models_5";
+import {
+  GetPasswordDataRequest,
+  GetPasswordDataResult,
+  GetPasswordDataResultFilterSensitiveLog,
+} from "../models/models_5";
 import { de_GetPasswordDataCommand, se_GetPasswordDataCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -128,7 +132,7 @@ export class GetPasswordDataCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetPasswordDataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

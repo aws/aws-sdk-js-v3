@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeBundleTasksRequest, DescribeBundleTasksResult } from "../models/models_3";
+import {
+  DescribeBundleTasksRequest,
+  DescribeBundleTasksResult,
+  DescribeBundleTasksResultFilterSensitiveLog,
+} from "../models/models_3";
 import { de_DescribeBundleTasksCommand, se_DescribeBundleTasksCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -149,7 +153,7 @@ export class DescribeBundleTasksCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeBundleTasksResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

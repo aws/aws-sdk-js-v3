@@ -9545,6 +9545,54 @@ export const AttachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
 /**
  * @internal
  */
+export const S3StorageFilterSensitiveLog = (obj: S3Storage): any => ({
+  ...obj,
+  ...(obj.UploadPolicySignature && { UploadPolicySignature: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StorageFilterSensitiveLog = (obj: Storage): any => ({
+  ...obj,
+  ...(obj.S3 && { S3: S3StorageFilterSensitiveLog(obj.S3) }),
+});
+
+/**
+ * @internal
+ */
+export const BundleInstanceRequestFilterSensitiveLog = (obj: BundleInstanceRequest): any => ({
+  ...obj,
+  ...(obj.Storage && { Storage: StorageFilterSensitiveLog(obj.Storage) }),
+});
+
+/**
+ * @internal
+ */
+export const BundleTaskFilterSensitiveLog = (obj: BundleTask): any => ({
+  ...obj,
+  ...(obj.Storage && { Storage: StorageFilterSensitiveLog(obj.Storage) }),
+});
+
+/**
+ * @internal
+ */
+export const BundleInstanceResultFilterSensitiveLog = (obj: BundleInstanceResult): any => ({
+  ...obj,
+  ...(obj.BundleTask && { BundleTask: BundleTaskFilterSensitiveLog(obj.BundleTask) }),
+});
+
+/**
+ * @internal
+ */
+export const CancelBundleTaskResultFilterSensitiveLog = (obj: CancelBundleTaskResult): any => ({
+  ...obj,
+  ...(obj.BundleTask && { BundleTask: BundleTaskFilterSensitiveLog(obj.BundleTask) }),
+});
+
+/**
+ * @internal
+ */
 export const CopySnapshotRequestFilterSensitiveLog = (obj: CopySnapshotRequest): any => ({
   ...obj,
   ...(obj.PresignedUrl && { PresignedUrl: SENSITIVE_STRING }),

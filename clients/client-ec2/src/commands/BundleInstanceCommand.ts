@@ -14,7 +14,12 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { BundleInstanceRequest, BundleInstanceResult } from "../models/models_0";
+import {
+  BundleInstanceRequest,
+  BundleInstanceRequestFilterSensitiveLog,
+  BundleInstanceResult,
+  BundleInstanceResultFilterSensitiveLog,
+} from "../models/models_0";
 import { de_BundleInstanceCommand, se_BundleInstanceCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -146,8 +151,8 @@ export class BundleInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: BundleInstanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BundleInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

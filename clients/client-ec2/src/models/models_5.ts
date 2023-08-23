@@ -8619,6 +8619,14 @@ export const GetLaunchTemplateDataResultFilterSensitiveLog = (obj: GetLaunchTemp
 /**
  * @internal
  */
+export const GetPasswordDataResultFilterSensitiveLog = (obj: GetPasswordDataResult): any => ({
+  ...obj,
+  ...(obj.PasswordData && { PasswordData: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog = (
   obj: GetVpnConnectionDeviceSampleConfigurationResult
 ): any => ({

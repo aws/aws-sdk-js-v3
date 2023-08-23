@@ -16,6 +16,7 @@ import {
   AttachmentStatus,
   AutoPlacement,
   BundleTask,
+  BundleTaskFilterSensitiveLog,
   ByoipCidr,
   CapacityReservation,
   CapacityReservationFleetState,
@@ -10276,6 +10277,14 @@ export const DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog = (
   ...(obj.VerifiedAccessTrustProvider && {
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
   }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeBundleTasksResultFilterSensitiveLog = (obj: DescribeBundleTasksResult): any => ({
+  ...obj,
+  ...(obj.BundleTasks && { BundleTasks: obj.BundleTasks.map((item) => BundleTaskFilterSensitiveLog(item)) }),
 });
 
 /**
