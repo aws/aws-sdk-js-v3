@@ -216,48 +216,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @example To upload an object
- * ```javascript
- * // The following example uploads an object to a versioning-enabled bucket. The source file is specified using Windows file syntax. S3 returns VersionId of the newly created object.
- * const input = {
- *   "Body": "HappyFace.jpg",
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new PutObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "VersionId": "tpf3zF08nBplQK1XLOefGskR7mGDwcDk"
- * }
- * *\/
- * // example id: to-upload-an-object-1481760101010
- * ```
- *
- * @example To upload object and specify user-defined metadata
- * ```javascript
- * // The following example creates an object. The request also specifies optional metadata. If the bucket is versioning enabled, S3 returns version ID in response.
- * const input = {
- *   "Body": "filetoupload",
- *   "Bucket": "examplebucket",
- *   "Key": "exampleobject",
- *   "Metadata": {
- *     "metadata1": "value1",
- *     "metadata2": "value2"
- *   }
- * };
- * const command = new PutObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "VersionId": "pSKidl4pHBiNwukdbcPXAIs.sshFFOc0"
- * }
- * *\/
- * // example id: to-upload-object-and-specify-user-defined-metadata-1483396974757
- * ```
- *
  * @example To upload an object (specify optional headers)
  * ```javascript
  * // The following example uploads an object. The request specifies optional request headers to directs S3 to use specific storage class and use server-side encryption.
@@ -297,6 +255,29 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * }
  * *\/
  * // example id: to-create-an-object-1483147613675
+ * ```
+ *
+ * @example To upload object and specify user-defined metadata
+ * ```javascript
+ * // The following example creates an object. The request also specifies optional metadata. If the bucket is versioning enabled, S3 returns version ID in response.
+ * const input = {
+ *   "Body": "filetoupload",
+ *   "Bucket": "examplebucket",
+ *   "Key": "exampleobject",
+ *   "Metadata": {
+ *     "metadata1": "value1",
+ *     "metadata2": "value2"
+ *   }
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "pSKidl4pHBiNwukdbcPXAIs.sshFFOc0"
+ * }
+ * *\/
+ * // example id: to-upload-object-and-specify-user-defined-metadata-1483396974757
  * ```
  *
  * @example To upload an object and specify server-side encryption and object tags
@@ -339,6 +320,25 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * }
  * *\/
  * // example id: to-upload-an-object-and-specify-optional-tags-1481762310955
+ * ```
+ *
+ * @example To upload an object
+ * ```javascript
+ * // The following example uploads an object to a versioning-enabled bucket. The source file is specified using Windows file syntax. S3 returns VersionId of the newly created object.
+ * const input = {
+ *   "Body": "HappyFace.jpg",
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "tpf3zF08nBplQK1XLOefGskR7mGDwcDk"
+ * }
+ * *\/
+ * // example id: to-upload-an-object-1481760101010
  * ```
  *
  * @example To upload an object and specify canned ACL.

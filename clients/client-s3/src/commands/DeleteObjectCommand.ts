@@ -96,18 +96,6 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @example To delete an object (from a non-versioned bucket)
- * ```javascript
- * // The following example deletes an object from a non-versioned bucket.
- * const input = {
- *   "Bucket": "ExampleBucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new DeleteObjectCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-object-from-a-non-versioned-bucket-1481588533089
- * ```
- *
  * @example To delete an object
  * ```javascript
  * // The following example deletes an object from an S3 bucket.
@@ -118,6 +106,18 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * const command = new DeleteObjectCommand(input);
  * await client.send(command);
  * // example id: to-delete-an-object-1472850136595
+ * ```
+ *
+ * @example To delete an object (from a non-versioned bucket)
+ * ```javascript
+ * // The following example deletes an object from a non-versioned bucket.
+ * const input = {
+ *   "Bucket": "ExampleBucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new DeleteObjectCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-object-from-a-non-versioned-bucket-1481588533089
  * ```
  *
  */
