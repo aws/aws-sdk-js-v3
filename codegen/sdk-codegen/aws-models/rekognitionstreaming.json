@@ -154,7 +154,10 @@
           }
         },
         "OvalFitTimeout": {
-          "target": "com.amazonaws.rekognitionstreaming#TimeoutInMs"
+          "target": "com.amazonaws.rekognitionstreaming#TimeoutInMs",
+          "traits": {
+            "smithy.api#documentation": "<p>Timeout limit in which the end-users need to fit in the oval, in miliseconds.</p>"
+          }
         }
       },
       "traits": {
