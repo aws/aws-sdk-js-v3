@@ -1,0 +1,1 @@
+{"name":"@tsconfig/recommended","repository":{"type":"git","url":"https://github.com/tsconfig/bases.git","directory":"bases"},"license":"MIT","description":"A base TSConfig for working with Recommended.","version":"1.0.1"}
