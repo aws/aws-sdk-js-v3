@@ -94,7 +94,7 @@ export interface ApiKey {
 
   /**
    * @public
-   * <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</p>
+   * <p>An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.</p>
    */
   customerId?: string;
 
@@ -442,7 +442,7 @@ export interface CreateApiKeyRequest {
 
   /**
    * @public
-   * <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</p>
+   * <p>An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.</p>
    */
   customerId?: string;
 
@@ -1119,7 +1119,7 @@ export interface CreateDomainNameRequest {
 
   /**
    * @public
-   * <p>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
+   * <p>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized endpoint for this domain name. Certificate Manager is the only supported source.</p>
    */
   certificateArn?: string;
 
@@ -1131,7 +1131,7 @@ export interface CreateDomainNameRequest {
 
   /**
    * @public
-   * <p>The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
+   * <p>The reference to an Amazon Web Services-managed certificate that will be used by regional endpoint for this domain name. Certificate Manager is the only supported source.</p>
    */
   regionalCertificateArn?: string;
 
@@ -1239,7 +1239,7 @@ export interface DomainName {
 
   /**
    * @public
-   * <p>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
+   * <p>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized endpoint for this domain name. Certificate Manager is the only supported source.</p>
    */
   certificateArn?: string;
 
@@ -1269,7 +1269,7 @@ export interface DomainName {
 
   /**
    * @public
-   * <p>The reference to an AWS-managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.</p>
+   * <p>The reference to an Amazon Web Services-managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.</p>
    */
   regionalCertificateArn?: string;
 
@@ -1529,7 +1529,7 @@ export interface IntegrationResponse {
 
   /**
    * @public
-   * <p>Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the <code>.+</code> regex to match error response. However, make sure that the error response does not contain any newline (<code>\n</code>) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.</p>
+   * <p>Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the <code>.+</code> regex to match error response. However, make sure that the error response does not contain any newline (<code>\n</code>) character in such cases. If the back end is an Lambda function, the Lambda function error header is matched. For all other HTTP and Amazon Web Services back ends, the HTTP status code is matched.</p>
    */
   selectionPattern?: string;
 
@@ -1595,7 +1595,7 @@ export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationT
 
 /**
  * @public
- * <p>Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.</p>
+ * <p>Represents an <code>HTTP</code>, <code>HTTP_PROXY</code>, <code>AWS</code>, <code>AWS_PROXY</code>, or Mock integration.</p>
  */
 export interface Integration {
   /**
@@ -1607,7 +1607,7 @@ export interface Integration {
 
   /**
    * @public
-   * <p>Specifies the integration's HTTP method type.</p>
+   * <p>Specifies the integration's HTTP method type. For the Type property, if you specify <code>MOCK</code>, this property is optional. For Lambda integrations, you must set the integration method to <code>POST</code>. For all other types, you must specify this property.</p>
    */
   httpMethod?: string;
 
@@ -1615,16 +1615,15 @@ export interface Integration {
    * @public
    * <p>Specifies Uniform Resource Identifier (URI) of the integration endpoint.</p>
    *          <p>For <code>HTTP</code> or <code>HTTP_PROXY</code> integrations, the URI must be a fully formed, encoded HTTP(S) URL
-   *       according to the RFC-3986 specification, for either standard integration, where <code>connectionType</code>
-   *       is not <code>VPC_LINK</code>, or private integration, where <code>connectionType</code> is <code>VPC_LINK</code>. For a private HTTP
-   *       integration, the URI is not used for routing. For <code>AWS</code> or <code>AWS_PROXY</code> integrations, the URI is of
+   * 	    according to the RFC-3986 specification for standard integrations. If <code>connectionType</code> is <code>VPC_LINK</code> specify the Network Load Balancer DNS name.
+   *       For <code>AWS</code> or <code>AWS_PROXY</code> integrations, the URI is of
    *       the form <code>arn:aws:apigateway:\{region\}:\{subdomain.service|service\}:path|action/\{service_api\}</code>.
    *       Here, \{Region\} is the API Gateway region (e.g., us-east-1); \{service\} is the name of the
    *       integrated Amazon Web Services service (e.g., s3); and \{subdomain\} is a designated subdomain supported by
    *       certain Amazon Web Services  service for fast host-name lookup. action can be used for an Amazon Web Services  service
    *       action-based API, using an Action=\{name\}&\{p1\}=\{v1\}&p2=\{v2\}... query string. The ensuing
    *       \{service_api\} refers to a supported action \{name\} plus any required input parameters.
-   *       Alternatively, path can be used for an AWS service path-based API. The ensuing service_api
+   *       Alternatively, path can be used for an Amazon Web Services service path-based API. The ensuing service_api
    *       refers to the path to an Amazon Web Services  service resource, including the region of the integrated Amazon Web Services
    *       service, if applicable. For example, for integration with the S3 API of GetObject, the uri can
    *       be either <code>arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket=\{bucket\}&Key=\{key\}</code> or
@@ -1647,7 +1646,7 @@ export interface Integration {
 
   /**
    * @public
-   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string <code>arn:aws:iam::\*:user/\*</code>. To use resource-based permissions on supported AWS services, specify null.</p>
+   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string <code>arn:aws:iam::\*:user/\*</code>. To use resource-based permissions on supported Amazon Web Services services, specify null.</p>
    */
   credentials?: string;
 
@@ -1904,7 +1903,7 @@ export interface CreateRestApiRequest {
   /**
    * @public
    * <p>The source of the API key for metering requests according to a usage plan. Valid values
-   *       are: ><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a
+   *       are: <code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a
    *       request. <code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code>
    *       from a custom authorizer.</p>
    */
@@ -2026,6 +2025,12 @@ export interface RestApi {
    *       custom domain name to invoke your API, disable the default endpoint.</p>
    */
   disableExecuteApiEndpoint?: boolean;
+
+  /**
+   * @public
+   * <p>The API's root resource ID.</p>
+   */
+  rootResourceId?: string;
 }
 
 /**
@@ -2172,61 +2177,61 @@ export type UnauthorizedCacheControlHeaderStrategy =
 export interface MethodSetting {
   /**
    * @public
-   * <p>Specifies whether Amazon CloudWatch metrics are enabled for this method. The PATCH path for this setting is <code>/\{method_setting_key\}/metrics/enabled</code>, and the value is a Boolean.</p>
+   * <p>Specifies whether Amazon CloudWatch metrics are enabled for this method.</p>
    */
   metricsEnabled?: boolean;
 
   /**
    * @public
-   * <p>Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/\{method_setting_key\}/logging/loglevel</code>, and the available levels are <code>OFF</code>, <code>ERROR</code>, and <code>INFO</code>. Choose <code>ERROR</code> to write only error-level entries to CloudWatch Logs, or choose <code>INFO</code> to include all <code>ERROR</code> events as well as extra informational events.</p>
+   * <p>Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are <code>OFF</code>, <code>ERROR</code>, and <code>INFO</code>. Choose <code>ERROR</code> to write only error-level entries to CloudWatch Logs, or choose <code>INFO</code> to include all <code>ERROR</code> events as well as extra informational events.</p>
    */
   loggingLevel?: string;
 
   /**
    * @public
-   * <p>Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/\{method_setting_key\}/logging/dataTrace</code>, and the value is a Boolean.</p>
+   * <p>Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs.</p>
    */
   dataTraceEnabled?: boolean;
 
   /**
    * @public
-   * <p>Specifies the throttling burst limit. The PATCH path for this setting is <code>/\{method_setting_key\}/throttling/burstLimit</code>, and the value is an integer.</p>
+   * <p>Specifies the throttling burst limit.</p>
    */
   throttlingBurstLimit?: number;
 
   /**
    * @public
-   * <p>Specifies the throttling rate limit. The PATCH path for this setting is <code>/\{method_setting_key\}/throttling/rateLimit</code>, and the value is a double.</p>
+   * <p>Specifies the throttling rate limit.</p>
    */
   throttlingRateLimit?: number;
 
   /**
    * @public
-   * <p>Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. The PATCH path for this setting is <code>/\{method_setting_key\}/caching/enabled</code>, and the value is a Boolean.</p>
+   * <p>Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.</p>
    */
   cachingEnabled?: boolean;
 
   /**
    * @public
-   * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached. The PATCH path for this setting is <code>/\{method_setting_key\}/caching/ttlInSeconds</code>, and the value is an integer.</p>
+   * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.</p>
    */
   cacheTtlInSeconds?: number;
 
   /**
    * @public
-   * <p>Specifies whether the cached responses are encrypted. The PATCH path for this setting is <code>/\{method_setting_key\}/caching/dataEncrypted</code>, and the value is a Boolean.</p>
+   * <p>Specifies whether the cached responses are encrypted.</p>
    */
   cacheDataEncrypted?: boolean;
 
   /**
    * @public
-   * <p>Specifies whether authorization is required for a cache invalidation request. The PATCH path for this setting is <code>/\{method_setting_key\}/caching/requireAuthorizationForCacheControl</code>, and the value is a Boolean.</p>
+   * <p>Specifies whether authorization is required for a cache invalidation request.</p>
    */
   requireAuthorizationForCacheControl?: boolean;
 
   /**
    * @public
-   * <p>Specifies how to handle unauthorized requests for cache invalidation. The PATCH path for this setting is <code>/\{method_setting_key\}/caching/unauthorizedCacheControlHeaderStrategy</code>, and the available values are <code>FAIL_WITH_403</code>, <code>SUCCEED_WITH_RESPONSE_HEADER</code>, <code>SUCCEED_WITHOUT_RESPONSE_HEADER</code>.</p>
+   * <p>Specifies how to handle unauthorized requests for cache invalidation.</p>
    */
   unauthorizedCacheControlHeaderStrategy?: UnauthorizedCacheControlHeaderStrategy | string;
 }
@@ -2467,7 +2472,7 @@ export interface UsagePlan {
 
   /**
    * @public
-   * <p>The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.</p>
+   * <p>The Amazon Web Services Marketplace product identifier to associate with the usage plan as a SaaS product on the Amazon Web Services Marketplace.</p>
    */
   productCode?: string;
 
@@ -2551,7 +2556,7 @@ export interface CreateVpcLinkRequest {
 
   /**
    * @public
-   * <p>The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.</p>
+   * <p>The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same Amazon Web Services account of the API owner.</p>
    */
   targetArns: string[] | undefined;
 
@@ -2603,7 +2608,7 @@ export interface VpcLink {
 
   /**
    * @public
-   * <p>The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.</p>
+   * <p>The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same Amazon Web Services account of the API owner.</p>
    */
   targetArns?: string[];
 
@@ -3183,7 +3188,7 @@ export interface GetApiKeysRequest {
 
   /**
    * @public
-   * <p>The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.</p>
+   * <p>The identifier of a customer in Amazon Web Services Marketplace or an external system, such as a developer portal.</p>
    */
   customerId?: string;
 
@@ -4719,7 +4724,7 @@ export interface ImportDocumentationPartsRequest {
 
   /**
    * @public
-   * <p>A query parameter to indicate whether to overwrite (<code>OVERWRITE</code>) any existing DocumentationParts definition or to merge (<code>MERGE</code>) the new definition into the existing one. The default value is <code>MERGE</code>.</p>
+   * <p>A query parameter to indicate whether to overwrite (<code>overwrite</code>) any existing DocumentationParts definition or to merge (<code>merge</code>) the new definition into the existing one. The default value is <code>merge</code>.</p>
    */
   mode?: PutMode | string;
 
@@ -4754,8 +4759,6 @@ export interface ImportRestApiRequest {
    *          <p> To exclude DocumentationParts from the import, set <code>parameters</code> as <code>ignore=documentation</code>.</p>
    *          <p> To configure the endpoint type, set <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>, <code>endpointConfigurationTypes=REGIONAL</code>, or <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is <code>EDGE</code>.</p>
    *          <p> To handle imported <code>basepath</code>, set <code>parameters</code> as <code>basepath=ignore</code>, <code>basepath=prepend</code> or <code>basepath=split</code>.</p>
-   *          <p>For example, the AWS CLI command to exclude documentation from the imported API is:</p>
-   *          <p>The AWS CLI command to set the regional endpoint on the imported API is:</p>
    */
   parameters?: Record<string, string>;
 
@@ -5226,7 +5229,7 @@ export interface TestInvokeAuthorizerResponse {
 
   /**
    * @public
-   * <p>The execution latency of the test authorizer request.</p>
+   * <p>The execution latency, in ms, of the test authorizer request.</p>
    */
   latency?: number;
 
@@ -5352,7 +5355,7 @@ export interface TestInvokeMethodResponse {
 
   /**
    * @public
-   * <p>The execution latency of the test invoke request.</p>
+   * <p>The execution latency, in ms, of the test invoke request.</p>
    */
   latency?: number;
 }
@@ -5590,7 +5593,7 @@ export interface UpdateDocumentationPartRequest {
 export interface UpdateDocumentationVersionRequest {
   /**
    * @public
-   * <p>The string identifier of the associated RestApi..</p>
+   * <p>The string identifier of the associated RestApi.</p>
    */
   restApiId: string | undefined;
 

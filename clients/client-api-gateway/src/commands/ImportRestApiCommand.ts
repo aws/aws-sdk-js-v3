@@ -87,6 +87,7 @@ export interface ImportRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   disableExecuteApiEndpoint: true || false,
+ * //   rootResourceId: "STRING_VALUE",
  * // };
  *
  * ```
