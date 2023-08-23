@@ -1,13 +1,13 @@
 // smithy-typescript generated code
-import { getDefaultClientConfiguration, resolveDefaultRuntimeConfig } from "@smithy/types";
+import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
-import { OpenSearchServerlessClientConfiguration } from "./clientConfiguration";
+import { OpenSearchServerlessExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public
  */
 export interface RuntimeExtension {
-  configureClient(clientConfiguration: OpenSearchServerlessClientConfiguration): void;
+  configure(clientConfiguration: OpenSearchServerlessExtensionConfiguration): void;
 }
 
 /**
@@ -17,20 +17,20 @@ export interface RuntimeExtensionsConfig {
   extensions: RuntimeExtension[];
 }
 
-const asPartial = <T extends Partial<OpenSearchServerlessClientConfiguration>>(t: T) => t;
+const asPartial = <T extends Partial<OpenSearchServerlessExtensionConfiguration>>(t: T) => t;
 
 /**
  * @internal
  */
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
-  const clientConfiguration: OpenSearchServerlessClientConfiguration = {
-    ...asPartial(getDefaultClientConfiguration(runtimeConfig)),
+  const extensionConfiguration: OpenSearchServerlessExtensionConfiguration = {
+    ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
   };
 
-  extensions.forEach((extension) => extension.configureClient(clientConfiguration));
+  extensions.forEach((extension) => extension.configure(extensionConfiguration));
 
   return {
     ...runtimeConfig,
-    ...resolveDefaultRuntimeConfig(clientConfiguration),
+    ...resolveDefaultRuntimeConfig(extensionConfiguration),
   };
 };

@@ -1,13 +1,13 @@
 // smithy-typescript generated code
-import { getDefaultClientConfiguration, resolveDefaultRuntimeConfig } from "@smithy/types";
+import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
-import { AutoScalingClientConfiguration } from "./clientConfiguration";
+import { AutoScalingExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public
  */
 export interface RuntimeExtension {
-  configureClient(clientConfiguration: AutoScalingClientConfiguration): void;
+  configure(clientConfiguration: AutoScalingExtensionConfiguration): void;
 }
 
 /**
@@ -17,20 +17,20 @@ export interface RuntimeExtensionsConfig {
   extensions: RuntimeExtension[];
 }
 
-const asPartial = <T extends Partial<AutoScalingClientConfiguration>>(t: T) => t;
+const asPartial = <T extends Partial<AutoScalingExtensionConfiguration>>(t: T) => t;
 
 /**
  * @internal
  */
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
-  const clientConfiguration: AutoScalingClientConfiguration = {
-    ...asPartial(getDefaultClientConfiguration(runtimeConfig)),
+  const extensionConfiguration: AutoScalingExtensionConfiguration = {
+    ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
   };
 
-  extensions.forEach((extension) => extension.configureClient(clientConfiguration));
+  extensions.forEach((extension) => extension.configure(extensionConfiguration));
 
   return {
     ...runtimeConfig,
-    ...resolveDefaultRuntimeConfig(clientConfiguration),
+    ...resolveDefaultRuntimeConfig(extensionConfiguration),
   };
 };
