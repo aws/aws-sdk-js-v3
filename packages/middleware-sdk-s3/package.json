@@ -24,8 +24,8 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
-    "@smithy/protocol-http": "^2.0.3",
-    "@smithy/types": "^2.2.0",
+    "@smithy/protocol-http": "^2.0.5",
+    "@smithy/types": "^2.2.2",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
