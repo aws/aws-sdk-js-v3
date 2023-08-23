@@ -279,6 +279,7 @@ export const VoiceId = {
   Tomoko: "Tomoko",
   Vicki: "Vicki",
   Vitoria: "Vitoria",
+  Zayd: "Zayd",
   Zeina: "Zeina",
   Zhiyu: "Zhiyu",
 } as const;
