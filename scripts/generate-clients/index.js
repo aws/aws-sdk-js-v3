@@ -15,6 +15,7 @@ const {
 const { prettifyCode } = require("./code-prettify");
 const { eslintFixCode } = require("./code-eslint-fix");
 
+const SMITHY_TS_DIR = path.normalize(path.join(__dirname, "..", "..", "..", "smithy-typescript"));
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
 const PRIVATE_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "private"));
 
@@ -26,6 +27,8 @@ const {
   s: serverOnly,
   batchSize,
   keepFiles,
+  repo,
+  commit,
 } = yargs(process.argv.slice(2))
   .alias("m", "models")
   .string("m")
@@ -51,11 +54,19 @@ const {
   .number("b")
   .alias("b", "batch-size")
   .default("b", 50)
+  .describe("r", "The location where smithy-typescript is cloned.")
+  .string("r")
+  .alias("r", "repo")
+  .default("r", SMITHY_TS_DIR)
+  .describe("c", "The smithy-typescript commit to be used for codeden.")
+  .string("c")
+  .alias("c", "commit")
+  .default("c", "HEAD") // ToDo: Change to a specific commit once CI is updated.
   .help().argv;
 
 (async () => {
   try {
-    require('../runtime-dependency-version-check/runtime-dep-version-check');
+    require("../runtime-dependency-version-check/runtime-dep-version-check");
 
     if (serverOnly === true) {
       await generateProtocolTests();
