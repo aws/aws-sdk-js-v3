@@ -32,12 +32,13 @@ const _private = fs.readdirSync(path.join(root, "private"));
 
 const clientPackages = [
   ...clients.map((c) => path.join(root, "clients", c)),
-  ..._private.map((p) => path.join(root, "private", p)),
+  ..._private.filter((p) => !p.endsWith("-test")).map((p) => path.join(root, "private", p)),
 ];
 
 const nonClientPackages = [
   ...lib.map((l) => path.join(root, "lib", l)),
   ...packages.map((p) => path.join(root, "packages", p)),
+  ..._private.filter((p) => p.endsWith("-test")).map((p) => path.join(root, "private", p)),
 ];
 
 const deps = {
