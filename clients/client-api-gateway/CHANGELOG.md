@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
+
+
+### Features
+
+* **client-api-gateway:** This release adds RootResourceId to GetRestApi response. ([2054e2c](https://github.com/aws/aws-sdk-js-v3/commit/2054e2cbd3231f28cb64c5c700001c80c2ef0229))
+
+
+
+
+
 # [3.395.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.394.0...v3.395.0) (2023-08-18)
 
 **Note:** Version bump only for package @aws-sdk/client-api-gateway

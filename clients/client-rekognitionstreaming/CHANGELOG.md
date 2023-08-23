@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
+
+
+### Features
+
+* **client-rekognitionstreaming:** add oval fit timeout configuration option ([#5132](https://github.com/aws/aws-sdk-js-v3/issues/5132)) ([f19b2c1](https://github.com/aws/aws-sdk-js-v3/commit/f19b2c1c72eb5dc6957f79a323894743c8621ade))
+
+
+
+
+
 # [3.395.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.394.0...v3.395.0) (2023-08-18)
 
 **Note:** Version bump only for package @aws-sdk/client-rekognitionstreaming

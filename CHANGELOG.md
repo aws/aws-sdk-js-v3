@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
+
+
+### Bug Fixes
+
+* **credential-provider-sso:** accept all unexpired tokens as unexpired ([#5124](https://github.com/aws/aws-sdk-js-v3/issues/5124)) ([b57d48f](https://github.com/aws/aws-sdk-js-v3/commit/b57d48f5d5ab134a6617b98fec686f07d3ebb293))
+
+
+### Features
+
+* **client-api-gateway:** This release adds RootResourceId to GetRestApi response. ([2054e2c](https://github.com/aws/aws-sdk-js-v3/commit/2054e2cbd3231f28cb64c5c700001c80c2ef0229))
+* **client-ec2:** Marking fields as sensitive on BundleTask and GetPasswordData ([31c9785](https://github.com/aws/aws-sdk-js-v3/commit/31c97854bf96506192d2d7a13a2d4b3b0d5e173a))
+* **client-polly:** Amazon Polly adds 1 new voice - Zayd (ar-AE) ([7d48fba](https://github.com/aws/aws-sdk-js-v3/commit/7d48fbaac32156f15c7a300e4542a210f3ad5cfa))
+* **client-rekognitionstreaming:** add oval fit timeout configuration option ([#5132](https://github.com/aws/aws-sdk-js-v3/issues/5132)) ([f19b2c1](https://github.com/aws/aws-sdk-js-v3/commit/f19b2c1c72eb5dc6957f79a323894743c8621ade))
+* **clients:** update client endpoints as of 2023-08-23 ([cc58fce](https://github.com/aws/aws-sdk-js-v3/commit/cc58fceeabf6604780a49c81f3a1e6221992a1a8))
+
+
+
+
+
 # [3.397.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.396.0...v3.397.0) (2023-08-22)
 
 
