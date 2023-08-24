@@ -31,8 +31,6 @@ import {
   HlsIncompleteSegmentBehavior,
   HlsIvInManifest,
   HlsIvSource,
-  HlsManifestCompression,
-  HlsManifestDurationFormat,
   IFrameOnlyPlaylistType,
   Input,
   InputAttachment,
@@ -79,6 +77,34 @@ import {
   ReservationResourceSpecification,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsManifestCompression = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsManifestCompression = (typeof HlsManifestCompression)[keyof typeof HlsManifestCompression];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsManifestDurationFormat = {
+  FLOATING_POINT: "FLOATING_POINT",
+  INTEGER: "INTEGER",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsManifestDurationFormat = (typeof HlsManifestDurationFormat)[keyof typeof HlsManifestDurationFormat];
 
 /**
  * @public
@@ -851,6 +877,21 @@ export type RtmpCaptionData = (typeof RtmpCaptionData)[keyof typeof RtmpCaptionD
  * @public
  * @enum
  */
+export const IncludeFillerNalUnits = {
+  AUTO: "AUTO",
+  DROP: "DROP",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type IncludeFillerNalUnits = (typeof IncludeFillerNalUnits)[keyof typeof IncludeFillerNalUnits];
+
+/**
+ * @public
+ * @enum
+ */
 export const InputLossActionForRtmpOut = {
   EMIT_OUTPUT: "EMIT_OUTPUT",
   PAUSE_OUTPUT: "PAUSE_OUTPUT",
@@ -910,6 +951,12 @@ export interface RtmpGroupSettings {
    * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
    */
   RestartDelay?: number;
+
+  /**
+   * @public
+   * Applies only when the rate control mode (in the codec settings) is CBR (constant bit rate). Controls whether the RTMP output stream is padded (with FILL NAL units) in order to achieve a constant bit rate that is truly constant. When there is no padding, the bandwidth varies (up to the bitrate value in the codec settings). We recommend that you choose Auto.
+   */
+  IncludeFillerNalUnits?: IncludeFillerNalUnits | string;
 }
 
 /**
@@ -7786,54 +7833,6 @@ export interface ListReservationsResponse {
    * List of reservations
    */
   Reservations?: Reservation[];
-}
-
-/**
- * @public
- * Placeholder documentation for ListTagsForResourceRequest
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * @public
-   * Placeholder documentation for __string
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- * Placeholder documentation for ListTagsForResourceResponse
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * @public
-   * Placeholder documentation for Tags
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- * Placeholder documentation for MaintenanceUpdateSettings
- */
-export interface MaintenanceUpdateSettings {
-  /**
-   * @public
-   * Choose one day of the week for maintenance. The chosen day is used for all future maintenance windows.
-   */
-  MaintenanceDay?: MaintenanceDay | string;
-
-  /**
-   * @public
-   * Choose a specific date for maintenance to occur. The chosen date is used for the next maintenance window only.
-   */
-  MaintenanceScheduledDate?: string;
-
-  /**
-   * @public
-   * Choose the hour that maintenance will start. The chosen time is used for all future maintenance windows.
-   */
-  MaintenanceStartTime?: string;
 }
 
 /**

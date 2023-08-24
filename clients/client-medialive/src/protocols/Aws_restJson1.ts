@@ -351,7 +351,6 @@ import {
   InputVpcRequest,
   InternalServerErrorException,
   MaintenanceCreateSettings,
-  MaintenanceUpdateSettings,
   MediaPackageGroupSettings,
   MotionGraphicsActivateScheduleActionSettings,
   MotionGraphicsConfiguration,
@@ -414,6 +413,7 @@ import {
   VideoDescription,
   VpcOutputSettings,
 } from "../models/models_1";
+import { MaintenanceUpdateSettings } from "../models/models_2";
 
 /**
  * serializeAws_restJson1AcceptInputDeviceTransferCommand
@@ -7028,6 +7028,7 @@ const se_AacSettings = (input: AacSettings, context: __SerdeContext): any => {
  */
 const se_Ac3Settings = (input: Ac3Settings, context: __SerdeContext): any => {
   return take(input, {
+    attenuationControl: [, , `AttenuationControl`],
     bitrate: [, __serializeFloat, `Bitrate`],
     bitstreamMode: [, , `BitstreamMode`],
     codingMode: [, , `CodingMode`],
@@ -8384,6 +8385,8 @@ const se_M3u8Settings = (input: M3u8Settings, context: __SerdeContext): any => {
     audioFramesPerPes: [, , `AudioFramesPerPes`],
     audioPids: [, , `AudioPids`],
     ecmPid: [, , `EcmPid`],
+    klvBehavior: [, , `KlvBehavior`],
+    klvDataPids: [, , `KlvDataPids`],
     nielsenId3Behavior: [, , `NielsenId3Behavior`],
     patInterval: [, , `PatInterval`],
     pcrControl: [, , `PcrControl`],
@@ -8859,6 +8862,7 @@ const se_RtmpGroupSettings = (input: RtmpGroupSettings, context: __SerdeContext)
     cacheFullBehavior: [, , `CacheFullBehavior`],
     cacheLength: [, , `CacheLength`],
     captionData: [, , `CaptionData`],
+    includeFillerNalUnits: [, , `IncludeFillerNalUnits`],
     inputLossAction: [, , `InputLossAction`],
     restartDelay: [, , `RestartDelay`],
   });
@@ -9938,6 +9942,7 @@ const de_AacSettings = (output: any, context: __SerdeContext): AacSettings => {
  */
 const de_Ac3Settings = (output: any, context: __SerdeContext): Ac3Settings => {
   return take(output, {
+    AttenuationControl: [, __expectString, `attenuationControl`],
     Bitrate: [, __limitedParseDouble, `bitrate`],
     BitstreamMode: [, __expectString, `bitstreamMode`],
     CodingMode: [, __expectString, `codingMode`],
@@ -11470,6 +11475,8 @@ const de_M3u8Settings = (output: any, context: __SerdeContext): M3u8Settings => 
     AudioFramesPerPes: [, __expectInt32, `audioFramesPerPes`],
     AudioPids: [, __expectString, `audioPids`],
     EcmPid: [, __expectString, `ecmPid`],
+    KlvBehavior: [, __expectString, `klvBehavior`],
+    KlvDataPids: [, __expectString, `klvDataPids`],
     NielsenId3Behavior: [, __expectString, `nielsenId3Behavior`],
     PatInterval: [, __expectInt32, `patInterval`],
     PcrControl: [, __expectString, `pcrControl`],
@@ -12143,6 +12150,7 @@ const de_RtmpGroupSettings = (output: any, context: __SerdeContext): RtmpGroupSe
     CacheFullBehavior: [, __expectString, `cacheFullBehavior`],
     CacheLength: [, __expectInt32, `cacheLength`],
     CaptionData: [, __expectString, `captionData`],
+    IncludeFillerNalUnits: [, __expectString, `includeFillerNalUnits`],
     InputLossAction: [, __expectString, `inputLossAction`],
     RestartDelay: [, __expectInt32, `restartDelay`],
   }) as any;

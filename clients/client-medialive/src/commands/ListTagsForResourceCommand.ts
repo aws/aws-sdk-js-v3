@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_2";
 import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
 
 /**

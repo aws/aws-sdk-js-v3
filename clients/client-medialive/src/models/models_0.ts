@@ -428,6 +428,20 @@ export interface AacSettings {
  * @public
  * @enum
  */
+export const Ac3AttenuationControl = {
+  ATTENUATE_3_DB: "ATTENUATE_3_DB",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Ac3AttenuationControl = (typeof Ac3AttenuationControl)[keyof typeof Ac3AttenuationControl];
+
+/**
+ * @public
+ * @enum
+ */
 export const Ac3BitstreamMode = {
   COMMENTARY: "COMMENTARY",
   COMPLETE_MAIN: "COMPLETE_MAIN",
@@ -548,6 +562,12 @@ export interface Ac3Settings {
    * When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
    */
   MetadataControl?: Ac3MetadataControl | string;
+
+  /**
+   * @public
+   * Applies a 3 dB attenuation to the surround channels. Applies only when the coding mode parameter is CODING_MODE_3_2_LFE.
+   */
+  AttenuationControl?: Ac3AttenuationControl | string;
 }
 
 /**
@@ -5594,6 +5614,20 @@ export interface FrameCaptureHlsSettings {}
  * @public
  * @enum
  */
+export const M3u8KlvBehavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M3u8KlvBehavior = (typeof M3u8KlvBehavior)[keyof typeof M3u8KlvBehavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const M3u8NielsenId3Behavior = {
   NO_PASSTHROUGH: "NO_PASSTHROUGH",
   PASSTHROUGH: "PASSTHROUGH",
@@ -5752,6 +5786,18 @@ export interface M3u8Settings {
    * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
    */
   VideoPid?: string;
+
+  /**
+   * @public
+   * If set to passthrough, passes any KLV data from the input source to this output.
+   */
+  KlvBehavior?: M3u8KlvBehavior | string;
+
+  /**
+   * @public
+   * Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
+   */
+  KlvDataPids?: string;
 }
 
 /**
@@ -6654,31 +6700,3 @@ export interface KeyProviderSettings {
    */
   StaticKeySettings?: StaticKeySettings;
 }
-
-/**
- * @public
- * @enum
- */
-export const HlsManifestCompression = {
-  GZIP: "GZIP",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type HlsManifestCompression = (typeof HlsManifestCompression)[keyof typeof HlsManifestCompression];
-
-/**
- * @public
- * @enum
- */
-export const HlsManifestDurationFormat = {
-  FLOATING_POINT: "FLOATING_POINT",
-  INTEGER: "INTEGER",
-} as const;
-
-/**
- * @public
- */
-export type HlsManifestDurationFormat = (typeof HlsManifestDurationFormat)[keyof typeof HlsManifestDurationFormat];

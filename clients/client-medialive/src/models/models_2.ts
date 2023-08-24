@@ -20,6 +20,7 @@ import {
   InputSpecification,
   InputWhitelistRuleCidr,
   LogLevel,
+  MaintenanceDay,
   MaintenanceStatus,
   MediaConnectFlowRequest,
   MultiplexOutputDestination,
@@ -32,7 +33,6 @@ import {
   Channel,
   EncoderSettings,
   InputDeviceConfigurableSettings,
-  MaintenanceUpdateSettings,
   Multiplex,
   MultiplexProgram,
   MultiplexProgramSettings,
@@ -41,6 +41,54 @@ import {
   RenewalSettings,
   Reservation,
 } from "./models_1";
+
+/**
+ * @public
+ * Placeholder documentation for ListTagsForResourceRequest
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListTagsForResourceResponse
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * Placeholder documentation for Tags
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * Placeholder documentation for MaintenanceUpdateSettings
+ */
+export interface MaintenanceUpdateSettings {
+  /**
+   * @public
+   * Choose one day of the week for maintenance. The chosen day is used for all future maintenance windows.
+   */
+  MaintenanceDay?: MaintenanceDay | string;
+
+  /**
+   * @public
+   * Choose a specific date for maintenance to occur. The chosen date is used for the next maintenance window only.
+   */
+  MaintenanceScheduledDate?: string;
+
+  /**
+   * @public
+   * Choose the hour that maintenance will start. The chosen time is used for all future maintenance windows.
+   */
+  MaintenanceStartTime?: string;
+}
 
 /**
  * @public

@@ -116,6 +116,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *             DrcProfile: "FILM_STANDARD" || "NONE",
  *             LfeFilter: "DISABLED" || "ENABLED",
  *             MetadataControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
+ *             AttenuationControl: "ATTENUATE_3_DB" || "NONE",
  *           },
  *           Eac3AtmosSettings: { // Eac3AtmosSettings
  *             Bitrate: Number("double"),
@@ -487,6 +488,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *             CaptionData: "ALL" || "FIELD1_608" || "FIELD1_AND_FIELD2_608",
  *             InputLossAction: "EMIT_OUTPUT" || "PAUSE_OUTPUT",
  *             RestartDelay: Number("int"),
+ *             IncludeFillerNalUnits: "AUTO" || "DROP" || "INCLUDE",
  *           },
  *           UdpGroupSettings: { // UdpGroupSettings
  *             InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
@@ -610,6 +612,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *                       TimedMetadataPid: "STRING_VALUE",
  *                       TransportStreamId: Number("int"),
  *                       VideoPid: "STRING_VALUE",
+ *                       KlvBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ *                       KlvDataPids: "STRING_VALUE",
  *                     },
  *                   },
  *                 },
@@ -1100,6 +1104,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //               DrcProfile: "FILM_STANDARD" || "NONE",
  * //               LfeFilter: "DISABLED" || "ENABLED",
  * //               MetadataControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
+ * //               AttenuationControl: "ATTENUATE_3_DB" || "NONE",
  * //             },
  * //             Eac3AtmosSettings: { // Eac3AtmosSettings
  * //               Bitrate: Number("double"),
@@ -1471,6 +1476,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //               CaptionData: "ALL" || "FIELD1_608" || "FIELD1_AND_FIELD2_608",
  * //               InputLossAction: "EMIT_OUTPUT" || "PAUSE_OUTPUT",
  * //               RestartDelay: Number("int"),
+ * //               IncludeFillerNalUnits: "AUTO" || "DROP" || "INCLUDE",
  * //             },
  * //             UdpGroupSettings: { // UdpGroupSettings
  * //               InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
@@ -1594,6 +1600,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //                         TimedMetadataPid: "STRING_VALUE",
  * //                         TransportStreamId: Number("int"),
  * //                         VideoPid: "STRING_VALUE",
+ * //                         KlvBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //                         KlvDataPids: "STRING_VALUE",
  * //                       },
  * //                     },
  * //                   },
