@@ -4,7 +4,6 @@ import {
   Encoder,
   GetAwsChunkedEncodingStream,
   HashConstructor,
-  StreamCollector,
   StreamHasher,
 } from "@smithy/types";
 
@@ -48,9 +47,4 @@ export interface PreviouslyResolved {
    * @internal
    */
   streamHasher: StreamHasher<any>;
-
-  /**
-   * Collects streams into buffers.
-   */
-  streamCollector: StreamCollector;
 }

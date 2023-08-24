@@ -71,7 +71,7 @@ export const flexibleChecksumsMiddleware =
       }
     }
 
-    const result = await next({
+    return next({
       ...args,
       request: {
         ...request,
@@ -79,6 +79,4 @@ export const flexibleChecksumsMiddleware =
         body: updatedBody,
       },
     });
-
-    return result;
   };
