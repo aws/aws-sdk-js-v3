@@ -418,6 +418,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       KmsEncryptionContext: "STRING_VALUE",
  * //                       KmsKeyArn: "STRING_VALUE",
  * //                     },
+ * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
  * //                   },
  * //                 },
  * //                 Encryption: { // CmafEncryptionSettings
@@ -493,6 +494,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       KmsEncryptionContext: "STRING_VALUE",
  * //                       KmsKeyArn: "STRING_VALUE",
  * //                     },
+ * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
  * //                   },
  * //                 },
  * //                 Encryption: { // DashIsoEncryptionSettings
@@ -540,6 +542,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       KmsEncryptionContext: "STRING_VALUE",
  * //                       KmsKeyArn: "STRING_VALUE",
  * //                     },
+ * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
  * //                   },
  * //                 },
  * //               },
@@ -580,6 +583,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       KmsEncryptionContext: "STRING_VALUE",
  * //                       KmsKeyArn: "STRING_VALUE",
  * //                     },
+ * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
  * //                   },
  * //                 },
  * //                 DirectoryStructure: "SINGLE_DIRECTORY" || "SUBDIRECTORY_PER_STREAM",
@@ -652,6 +656,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       KmsEncryptionContext: "STRING_VALUE",
  * //                       KmsKeyArn: "STRING_VALUE",
  * //                     },
+ * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
  * //                   },
  * //                 },
  * //                 Encryption: { // MsSmoothEncryptionSettings
@@ -675,7 +680,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                 AudioDescriptions: [ // __listOfAudioDescription
  * //                   { // AudioDescription
  * //                     AudioChannelTaggingSettings: { // AudioChannelTaggingSettings
- * //                       ChannelTag: "L" || "R" || "C" || "LFE" || "LS" || "RS" || "LC" || "RC" || "CS" || "LSD" || "RSD" || "TCS" || "VHL" || "VHC" || "VHR",
+ * //                       ChannelTag: "L" || "R" || "C" || "LFE" || "LS" || "RS" || "LC" || "RC" || "CS" || "LSD" || "RSD" || "TCS" || "VHL" || "VHC" || "VHR" || "TBL" || "TBC" || "TBR" || "RSL" || "RSR" || "LW" || "RW" || "LFE2" || "LT" || "RT" || "HI" || "NAR" || "M",
  * //                     },
  * //                     AudioNormalizationSettings: { // AudioNormalizationSettings
  * //                       Algorithm: "ITU_BS_1770_1" || "ITU_BS_1770_2" || "ITU_BS_1770_3" || "ITU_BS_1770_4",
@@ -718,7 +723,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                         Channels: Number("int"),
  * //                         SampleRate: Number("int"),
  * //                       },
- * //                       Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH",
+ * //                       Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH" || "FLAC",
  * //                       Eac3AtmosSettings: { // Eac3AtmosSettings
  * //                         Bitrate: Number("int"),
  * //                         BitstreamMode: "COMPLETE_MAIN",
@@ -760,6 +765,11 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                         StereoDownmix: "NOT_INDICATED" || "LO_RO" || "LT_RT" || "DPL2",
  * //                         SurroundExMode: "NOT_INDICATED" || "ENABLED" || "DISABLED",
  * //                         SurroundMode: "NOT_INDICATED" || "ENABLED" || "DISABLED",
+ * //                       },
+ * //                       FlacSettings: { // FlacSettings
+ * //                         BitDepth: Number("int"),
+ * //                         Channels: Number("int"),
+ * //                         SampleRate: Number("int"),
  * //                       },
  * //                       Mp2Settings: { // Mp2Settings
  * //                         Bitrate: Number("int"),
@@ -968,6 +978,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                     PmtPid: Number("int"),
  * //                     PrivateMetadataPid: Number("int"),
  * //                     ProgramNumber: Number("int"),
+ * //                     PtsOffset: Number("int"),
+ * //                     PtsOffsetMode: "AUTO" || "SECONDS",
  * //                     RateMode: "VBR" || "CBR",
  * //                     Scte35Esam: { // M2tsScte35Esam
  * //                       Scte35EsamPid: Number("int"),
@@ -997,6 +1009,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                     PmtPid: Number("int"),
  * //                     PrivateMetadataPid: Number("int"),
  * //                     ProgramNumber: Number("int"),
+ * //                     PtsOffset: Number("int"),
+ * //                     PtsOffsetMode: "AUTO" || "SECONDS",
  * //                     Scte35Pid: Number("int"),
  * //                     Scte35Source: "PASSTHROUGH" || "NONE",
  * //                     TimedMetadata: "PASSTHROUGH" || "NONE",
@@ -1062,6 +1076,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                     Av1Settings: { // Av1Settings
  * //                       AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
  * //                       BitDepth: "BIT_8" || "BIT_10",
+ * //                       FilmGrainSynthesis: "DISABLED" || "ENABLED",
  * //                       FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                       FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
  * //                       FramerateDenominator: Number("int"),

@@ -13,10 +13,8 @@ import {
   CaptionDescriptionPreset,
   CmfcAudioDuration,
   CmfcSettings,
-  ContainerType,
   EsamSettings,
   ExtendedDataServices,
-  F4vMoovPlacement,
   Hdr10Metadata,
   HopDestination,
   Id3Insertion,
@@ -34,6 +32,43 @@ import {
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerType = {
+  CMFC: "CMFC",
+  F4V: "F4V",
+  ISMV: "ISMV",
+  M2TS: "M2TS",
+  M3U8: "M3U8",
+  MOV: "MOV",
+  MP4: "MP4",
+  MPD: "MPD",
+  MXF: "MXF",
+  RAW: "RAW",
+  WEBM: "WEBM",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const F4vMoovPlacement = {
+  NORMAL: "NORMAL",
+  PROGRESSIVE_DOWNLOAD: "PROGRESSIVE_DOWNLOAD",
+} as const;
+
+/**
+ * @public
+ */
+export type F4vMoovPlacement = (typeof F4vMoovPlacement)[keyof typeof F4vMoovPlacement];
 
 /**
  * @public
@@ -282,6 +317,20 @@ export const M2tsPcrControl = {
  * @public
  */
 export type M2tsPcrControl = (typeof M2tsPcrControl)[keyof typeof M2tsPcrControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const TsPtsOffset = {
+  AUTO: "AUTO",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type TsPtsOffset = (typeof TsPtsOffset)[keyof typeof TsPtsOffset];
 
 /**
  * @public
@@ -536,6 +585,18 @@ export interface M2tsSettings {
 
   /**
    * @public
+   * Manually specify the initial PTS offset, in seconds, when you set PTS offset to Seconds. Enter an integer from 0 to 3600. Leave blank to keep the default value 2.
+   */
+  PtsOffset?: number;
+
+  /**
+   * @public
+   * Specify the initial presentation timestamp (PTS) offset for your transport stream output. To let MediaConvert automatically determine the initial PTS offset: Keep the default value, Auto. We recommend that you choose Auto for the widest player compatibility. The initial PTS will be at least two seconds and vary depending on your output's bitrate, HRD buffer size and HRD buffer initial fill percentage. To manually specify an initial PTS offset: Choose Seconds. Then specify the number of seconds with PTS offset.
+   */
+  PtsOffsetMode?: TsPtsOffset | string;
+
+  /**
+   * @public
    * When set to CBR, inserts null packets into transport stream to fill specified bitrate. When set to VBR, the bitrate setting acts as the maximum bitrate, but the output will not be padded up to that bitrate.
    */
   RateMode?: M2tsRateMode | string;
@@ -761,6 +822,18 @@ export interface M3u8Settings {
    * The value of the program number field in the Program Map Table.
    */
   ProgramNumber?: number;
+
+  /**
+   * @public
+   * Manually specify the initial PTS offset, in seconds, when you set PTS offset to Seconds. Enter an integer from 0 to 3600. Leave blank to keep the default value 2.
+   */
+  PtsOffset?: number;
+
+  /**
+   * @public
+   * Specify the initial presentation timestamp (PTS) offset for your transport stream output. To let MediaConvert automatically determine the initial PTS offset: Keep the default value, Auto. We recommend that you choose Auto for the widest player compatibility. The initial PTS will be at least two seconds and vary depending on your output's bitrate, HRD buffer size and HRD buffer initial fill percentage. To manually specify an initial PTS offset: Choose Seconds. Then specify the number of seconds with PTS offset.
+   */
+  PtsOffsetMode?: TsPtsOffset | string;
 
   /**
    * @public
@@ -1523,6 +1596,20 @@ export type Av1BitDepth = (typeof Av1BitDepth)[keyof typeof Av1BitDepth];
  * @public
  * @enum
  */
+export const Av1FilmGrainSynthesis = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1FilmGrainSynthesis = (typeof Av1FilmGrainSynthesis)[keyof typeof Av1FilmGrainSynthesis];
+
+/**
+ * @public
+ * @enum
+ */
 export const Av1FramerateControl = {
   INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
   SPECIFIED: "SPECIFIED",
@@ -1611,6 +1698,12 @@ export interface Av1Settings {
    * Specify the Bit depth. You can choose 8-bit or 10-bit.
    */
   BitDepth?: Av1BitDepth | string;
+
+  /**
+   * @public
+   * Film grain synthesis replaces film grain present in your content with similar quality synthesized AV1 film grain. We recommend that you choose Enabled to reduce the bandwidth of your QVBR quality level 5, 6, 7, or 8 outputs. For QVBR quality level 9 or 10 outputs we recommend that you keep the default value, Disabled. When you include Film grain synthesis, you cannot include the Noise reducer preprocessor.
+   */
+  FilmGrainSynthesis?: Av1FilmGrainSynthesis | string;
 
   /**
    * @public
@@ -7351,35 +7444,3 @@ export interface DeleteJobTemplateResponse {}
  * @public
  */
 export interface DeletePolicyRequest {}
-
-/**
- * @public
- */
-export interface DeletePolicyResponse {}
-
-/**
- * @public
- */
-export interface DeletePresetRequest {
-  /**
-   * @public
-   * The name of the preset to be deleted.
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePresetResponse {}
-
-/**
- * @public
- */
-export interface DeleteQueueRequest {
-  /**
-   * @public
-   * The name of the queue that you want to delete.
-   */
-  Name: string | undefined;
-}

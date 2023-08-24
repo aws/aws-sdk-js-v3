@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeletePresetRequest, DeletePresetResponse } from "../models/models_1";
+import { DeletePresetRequest, DeletePresetResponse } from "../models/models_2";
 import { de_DeletePresetCommand, se_DeletePresetCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -112,6 +112,7 @@ import {
   ExtendedDataServices,
   FileGroupSettings,
   FileSourceSettings,
+  FlacSettings,
   ForceIncludeRenditionSize,
   Hdr10Metadata,
   HlsAdditionalManifest,
@@ -3265,6 +3266,7 @@ const se_AudioCodecSettings = (input: AudioCodecSettings, context: __SerdeContex
     codec: [, , `Codec`],
     eac3AtmosSettings: [, (_) => se_Eac3AtmosSettings(_, context), `Eac3AtmosSettings`],
     eac3Settings: [, (_) => se_Eac3Settings(_, context), `Eac3Settings`],
+    flacSettings: [, (_) => se_FlacSettings(_, context), `FlacSettings`],
     mp2Settings: [, (_) => se_Mp2Settings(_, context), `Mp2Settings`],
     mp3Settings: [, (_) => se_Mp3Settings(_, context), `Mp3Settings`],
     opusSettings: [, (_) => se_OpusSettings(_, context), `OpusSettings`],
@@ -3387,6 +3389,7 @@ const se_Av1Settings = (input: Av1Settings, context: __SerdeContext): any => {
   return take(input, {
     adaptiveQuantization: [, , `AdaptiveQuantization`],
     bitDepth: [, , `BitDepth`],
+    filmGrainSynthesis: [, , `FilmGrainSynthesis`],
     framerateControl: [, , `FramerateControl`],
     framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
     framerateDenominator: [, , `FramerateDenominator`],
@@ -4059,6 +4062,17 @@ const se_FileSourceSettings = (input: FileSourceSettings, context: __SerdeContex
 };
 
 /**
+ * serializeAws_restJson1FlacSettings
+ */
+const se_FlacSettings = (input: FlacSettings, context: __SerdeContext): any => {
+  return take(input, {
+    bitDepth: [, , `BitDepth`],
+    channels: [, , `Channels`],
+    sampleRate: [, , `SampleRate`],
+  });
+};
+
+/**
  * serializeAws_restJson1ForceIncludeRenditionSize
  */
 const se_ForceIncludeRenditionSize = (input: ForceIncludeRenditionSize, context: __SerdeContext): any => {
@@ -4608,6 +4622,8 @@ const se_M2tsSettings = (input: M2tsSettings, context: __SerdeContext): any => {
     pmtPid: [, , `PmtPid`],
     privateMetadataPid: [, , `PrivateMetadataPid`],
     programNumber: [, , `ProgramNumber`],
+    ptsOffset: [, , `PtsOffset`],
+    ptsOffsetMode: [, , `PtsOffsetMode`],
     rateMode: [, , `RateMode`],
     scte35Esam: [, (_) => se_M2tsScte35Esam(_, context), `Scte35Esam`],
     scte35Pid: [, , `Scte35Pid`],
@@ -4639,6 +4655,8 @@ const se_M3u8Settings = (input: M3u8Settings, context: __SerdeContext): any => {
     pmtPid: [, , `PmtPid`],
     privateMetadataPid: [, , `PrivateMetadataPid`],
     programNumber: [, , `ProgramNumber`],
+    ptsOffset: [, , `PtsOffset`],
+    ptsOffsetMode: [, , `PtsOffsetMode`],
     scte35Pid: [, , `Scte35Pid`],
     scte35Source: [, , `Scte35Source`],
     timedMetadata: [, , `TimedMetadata`],
@@ -5140,6 +5158,7 @@ const se_S3DestinationSettings = (input: S3DestinationSettings, context: __Serde
   return take(input, {
     accessControl: [, (_) => se_S3DestinationAccessControl(_, context), `AccessControl`],
     encryption: [, (_) => se_S3EncryptionSettings(_, context), `Encryption`],
+    storageClass: [, , `StorageClass`],
   });
 };
 
@@ -6082,6 +6101,7 @@ const de_AudioCodecSettings = (output: any, context: __SerdeContext): AudioCodec
     Codec: [, __expectString, `codec`],
     Eac3AtmosSettings: [, (_: any) => de_Eac3AtmosSettings(_, context), `eac3AtmosSettings`],
     Eac3Settings: [, (_: any) => de_Eac3Settings(_, context), `eac3Settings`],
+    FlacSettings: [, (_: any) => de_FlacSettings(_, context), `flacSettings`],
     Mp2Settings: [, (_: any) => de_Mp2Settings(_, context), `mp2Settings`],
     Mp3Settings: [, (_: any) => de_Mp3Settings(_, context), `mp3Settings`],
     OpusSettings: [, (_: any) => de_OpusSettings(_, context), `opusSettings`],
@@ -6208,6 +6228,7 @@ const de_Av1Settings = (output: any, context: __SerdeContext): Av1Settings => {
   return take(output, {
     AdaptiveQuantization: [, __expectString, `adaptiveQuantization`],
     BitDepth: [, __expectString, `bitDepth`],
+    FilmGrainSynthesis: [, __expectString, `filmGrainSynthesis`],
     FramerateControl: [, __expectString, `framerateControl`],
     FramerateConversionAlgorithm: [, __expectString, `framerateConversionAlgorithm`],
     FramerateDenominator: [, __expectInt32, `framerateDenominator`],
@@ -6900,6 +6921,17 @@ const de_FileSourceSettings = (output: any, context: __SerdeContext): FileSource
 };
 
 /**
+ * deserializeAws_restJson1FlacSettings
+ */
+const de_FlacSettings = (output: any, context: __SerdeContext): FlacSettings => {
+  return take(output, {
+    BitDepth: [, __expectInt32, `bitDepth`],
+    Channels: [, __expectInt32, `channels`],
+    SampleRate: [, __expectInt32, `sampleRate`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ForceIncludeRenditionSize
  */
 const de_ForceIncludeRenditionSize = (output: any, context: __SerdeContext): ForceIncludeRenditionSize => {
@@ -7535,6 +7567,8 @@ const de_M2tsSettings = (output: any, context: __SerdeContext): M2tsSettings => 
     PmtPid: [, __expectInt32, `pmtPid`],
     PrivateMetadataPid: [, __expectInt32, `privateMetadataPid`],
     ProgramNumber: [, __expectInt32, `programNumber`],
+    PtsOffset: [, __expectInt32, `ptsOffset`],
+    PtsOffsetMode: [, __expectString, `ptsOffsetMode`],
     RateMode: [, __expectString, `rateMode`],
     Scte35Esam: [, (_: any) => de_M2tsScte35Esam(_, context), `scte35Esam`],
     Scte35Pid: [, __expectInt32, `scte35Pid`],
@@ -7566,6 +7600,8 @@ const de_M3u8Settings = (output: any, context: __SerdeContext): M3u8Settings => 
     PmtPid: [, __expectInt32, `pmtPid`],
     PrivateMetadataPid: [, __expectInt32, `privateMetadataPid`],
     ProgramNumber: [, __expectInt32, `programNumber`],
+    PtsOffset: [, __expectInt32, `ptsOffset`],
+    PtsOffsetMode: [, __expectString, `ptsOffsetMode`],
     Scte35Pid: [, __expectInt32, `scte35Pid`],
     Scte35Source: [, __expectString, `scte35Source`],
     TimedMetadata: [, __expectString, `timedMetadata`],
@@ -8145,6 +8181,7 @@ const de_S3DestinationSettings = (output: any, context: __SerdeContext): S3Desti
   return take(output, {
     AccessControl: [, (_: any) => de_S3DestinationAccessControl(_, context), `accessControl`],
     Encryption: [, (_: any) => de_S3EncryptionSettings(_, context), `encryption`],
+    StorageClass: [, __expectString, `storageClass`],
   }) as any;
 };
 

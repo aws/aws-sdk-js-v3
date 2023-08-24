@@ -14,8 +14,7 @@ import {
 } from "@smithy/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeleteQueueRequest } from "../models/models_1";
-import { DeleteQueueResponse } from "../models/models_2";
+import { DeleteQueueRequest, DeleteQueueResponse } from "../models/models_2";
 import { de_DeleteQueueCommand, se_DeleteQueueCommand } from "../protocols/Aws_restJson1";
 
 /**

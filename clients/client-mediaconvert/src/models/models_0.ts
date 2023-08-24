@@ -44,15 +44,28 @@ export interface AllowedRenditionSize {
 export const AudioChannelTag = {
   C: "C",
   CS: "CS",
+  HI: "HI",
   L: "L",
   LC: "LC",
   LFE: "LFE",
+  LFE2: "LFE2",
   LS: "LS",
   LSD: "LSD",
+  LT: "LT",
+  LW: "LW",
+  M: "M",
+  NAR: "NAR",
   R: "R",
   RC: "RC",
   RS: "RS",
   RSD: "RSD",
+  RSL: "RSL",
+  RSR: "RSR",
+  RT: "RT",
+  RW: "RW",
+  TBC: "TBC",
+  TBL: "TBL",
+  TBR: "TBR",
   TCS: "TCS",
   VHC: "VHC",
   VHL: "VHL",
@@ -582,6 +595,7 @@ export const AudioCodec = {
   AIFF: "AIFF",
   EAC3: "EAC3",
   EAC3_ATMOS: "EAC3_ATMOS",
+  FLAC: "FLAC",
   MP2: "MP2",
   MP3: "MP3",
   OPUS: "OPUS",
@@ -1210,6 +1224,30 @@ export interface Eac3Settings {
 
 /**
  * @public
+ * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value FLAC.
+ */
+export interface FlacSettings {
+  /**
+   * @public
+   * Specify Bit depth (BitDepth), in bits per sample, to choose the encoding quality for this audio track.
+   */
+  BitDepth?: number;
+
+  /**
+   * @public
+   * Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are between 1 and 8.
+   */
+  Channels?: number;
+
+  /**
+   * @public
+   * Sample rate in hz.
+   */
+  SampleRate?: number;
+}
+
+/**
+ * @public
  * Required when you set Codec to the value MP2.
  */
 export interface Mp2Settings {
@@ -1414,6 +1452,12 @@ export interface AudioCodecSettings {
    * Required when you set Codec to the value EAC3.
    */
   Eac3Settings?: Eac3Settings;
+
+  /**
+   * @public
+   * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value FLAC.
+   */
+  FlacSettings?: FlacSettings;
 
   /**
    * @public
@@ -5094,7 +5138,7 @@ export interface NielsenNonLinearWatermarkSettings {
 export interface AutomatedAbrSettings {
   /**
    * @public
-   * Optional. The maximum target bit rate used in your automated ABR stack. Use this value to set an upper limit on the bandwidth consumed by the highest-quality rendition. This is the rendition that is delivered to viewers with the fastest internet connections. If you don't specify a value, MediaConvert uses 8,000,000 (8 mb/s) by default.
+   * Specify the maximum average bitrate for MediaConvert to use in your automated ABR stack. If you don't specify a value, MediaConvert uses 8,000,000 (8 mb/s) by default. The average bitrate of your highest-quality rendition will be equal to or below this value, depending on the quality, complexity, and resolution of your content. Note that the instantaneous maximum bitrate may vary above the value that you specify.
    */
   MaxAbrBitrate?: number;
 
@@ -5106,7 +5150,7 @@ export interface AutomatedAbrSettings {
 
   /**
    * @public
-   * Optional. The minimum target bitrate used in your automated ABR stack. Use this value to set a lower limit on the bitrate of video delivered to viewers with slow internet connections. If you don't specify a value, MediaConvert uses 600,000 (600 kb/s) by default.
+   * Specify the minimum average bitrate for MediaConvert to use in your automated ABR stack. If you don't specify a value, MediaConvert uses 600,000 (600 kb/s) by default. The average bitrate of your lowest-quality rendition will be near this value. Note that the instantaneous minimum bitrate may vary below the value that you specify.
    */
   MinAbrBitrate?: number;
 
@@ -5240,6 +5284,25 @@ export interface S3EncryptionSettings {
 
 /**
  * @public
+ * @enum
+ */
+export const S3StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  REDUCED_REDUNDANCY: "REDUCED_REDUNDANCY",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+} as const;
+
+/**
+ * @public
+ */
+export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
+
+/**
+ * @public
  * Settings associated with S3 destination
  */
 export interface S3DestinationSettings {
@@ -5254,6 +5317,12 @@ export interface S3DestinationSettings {
    * Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
    */
   Encryption?: S3EncryptionSettings;
+
+  /**
+   * @public
+   * Specify the S3 storage class to use for this destination.
+   */
+  StorageClass?: S3StorageClass | string;
 }
 
 /**
@@ -7290,40 +7359,3 @@ export interface CmfcSettings {
    */
   TimedMetadataValue?: string;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContainerType = {
-  CMFC: "CMFC",
-  F4V: "F4V",
-  ISMV: "ISMV",
-  M2TS: "M2TS",
-  M3U8: "M3U8",
-  MOV: "MOV",
-  MP4: "MP4",
-  MPD: "MPD",
-  MXF: "MXF",
-  RAW: "RAW",
-  WEBM: "WEBM",
-} as const;
-
-/**
- * @public
- */
-export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
-
-/**
- * @public
- * @enum
- */
-export const F4vMoovPlacement = {
-  NORMAL: "NORMAL",
-  PROGRESSIVE_DOWNLOAD: "PROGRESSIVE_DOWNLOAD",
-} as const;
-
-/**
- * @public
- */
-export type F4vMoovPlacement = (typeof F4vMoovPlacement)[keyof typeof F4vMoovPlacement];

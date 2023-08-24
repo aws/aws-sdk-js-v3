@@ -16,6 +16,38 @@ import {
 /**
  * @public
  */
+export interface DeletePolicyResponse {}
+
+/**
+ * @public
+ */
+export interface DeletePresetRequest {
+  /**
+   * @public
+   * The name of the preset to be deleted.
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePresetResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteQueueRequest {
+  /**
+   * @public
+   * The name of the queue that you want to delete.
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteQueueResponse {}
 
 /**
