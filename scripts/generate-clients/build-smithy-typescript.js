@@ -1,12 +1,15 @@
 // @ts-check
-const { access } = require("fs/promises");
+const { access, rm } = require("fs/promises");
 const { spawnProcess } = require("../utils/spawn-process");
 
 const buildSmithyTypeScript = async (repo, commit) => {
+  let deleteSmithyTsRepo = false;
+
   // Check out smithy-typescript at repo, if it does not exist.
   try {
     await access(repo);
   } catch (error) {
+    deleteSmithyTsRepo = true;
     await spawnProcess("git", ["clone", "https://github.com/awslabs/smithy-typescript.git", repo]);
   }
 
@@ -17,9 +20,13 @@ const buildSmithyTypeScript = async (repo, commit) => {
   // Build smithy-typescript and publish to maven local
   await spawnProcess("./gradlew", ["clean", "publishToMavenLocal"], { cwd: repo });
 
-  // Delete temp branch
-  await spawnProcess("git", ["checkout", "main"], { cwd: repo });
-  await spawnProcess("git", ["branch", "-D", tempBranchName], { cwd: repo });
+  if (deleteSmithyTsRepo) {
+    await rm(repo, { recursive: true, force: true });
+  } else {
+    // Delete temp branch
+    await spawnProcess("git", ["checkout", "main"], { cwd: repo });
+    await spawnProcess("git", ["branch", "-D", tempBranchName], { cwd: repo });
+  }
 };
 
 module.exports = { buildSmithyTypeScript };
