@@ -7,7 +7,7 @@ import {
   AxisDisplayOptions,
   BarChartVisual,
   BarsArrangement,
-  BoxPlotOptions,
+  BoxPlotStyleOptions,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
   ChartAxisLabelOptions,
@@ -63,6 +63,30 @@ import {
   VisualTitleLabelOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The options of a box plot visual.</p>
+ */
+export interface BoxPlotOptions {
+  /**
+   * @public
+   * <p>The style options of the box plot.</p>
+   */
+  StyleOptions?: BoxPlotStyleOptions;
+
+  /**
+   * @public
+   * <p>Determines the visibility of the outlier in a box plot.</p>
+   */
+  OutlierVisibility?: Visibility | string;
+
+  /**
+   * @public
+   * <p>Determines the visibility of all data points of the box plot.</p>
+   */
+  AllDataPointsVisibility?: Visibility | string;
+}
 
 /**
  * @public
@@ -2384,7 +2408,7 @@ export interface ForecastComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
@@ -2467,7 +2491,7 @@ export interface GrowthRateComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
@@ -2518,7 +2542,7 @@ export interface MaximumMinimumComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
@@ -2562,19 +2586,19 @@ export interface MetricComparisonComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
    * <p>The field that is used in a metric comparison from value setup.</p>
    */
-  FromValue: MeasureField | undefined;
+  FromValue?: MeasureField;
 
   /**
    * @public
    * <p>The field that is used in a metric comparison to value setup.</p>
    */
-  TargetValue: MeasureField | undefined;
+  TargetValue?: MeasureField;
 }
 
 /**
@@ -2598,7 +2622,7 @@ export interface PeriodOverPeriodComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
@@ -2628,7 +2652,7 @@ export interface PeriodToDateComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
@@ -2700,13 +2724,13 @@ export interface TopBottomMoversComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
    * <p>The category field that is used in a computation.</p>
    */
-  Category: DimensionField | undefined;
+  Category?: DimensionField;
 
   /**
    * @public
@@ -2762,7 +2786,7 @@ export interface TopBottomRankedComputation {
    * @public
    * <p>The category field that is used in a computation.</p>
    */
-  Category: DimensionField | undefined;
+  Category?: DimensionField;
 
   /**
    * @public
@@ -2812,7 +2836,7 @@ export interface TotalAggregationComputation {
    * @public
    * <p>The value field that is used in a computation.</p>
    */
-  Value: MeasureField | undefined;
+  Value?: MeasureField;
 }
 
 /**
@@ -2836,7 +2860,7 @@ export interface UniqueValuesComputation {
    * @public
    * <p>The category field that is used in a computation.</p>
    */
-  Category: DimensionField | undefined;
+  Category?: DimensionField;
 }
 
 /**
@@ -5806,6 +5830,18 @@ export interface ScatterPlotVisual {
 
 /**
  * @public
+ * <p>The settings for the pinned columns of a table visual.</p>
+ */
+export interface TablePinnedFieldOptions {
+  /**
+   * @public
+   * <p>A list of columns to be pinned to the left of a table visual.</p>
+   */
+  PinnedLeftFields?: string[];
+}
+
+/**
+ * @public
  * @enum
  */
 export const TableCellImageScalingConfiguration = {
@@ -5979,20 +6015,26 @@ export interface TableFieldOption {
 
 /**
  * @public
- * <p>The field options for a table visual.</p>
+ * <p>The field options of a table visual.</p>
  */
 export interface TableFieldOptions {
   /**
    * @public
-   * <p>The selected field options for the table field options.</p>
+   * <p>The field options to be configured to a table.</p>
    */
   SelectedFieldOptions?: TableFieldOption[];
 
   /**
    * @public
-   * <p>The order of field IDs of the field options for a table visual.</p>
+   * <p>The order of the field IDs that are configured as field options for a table visual.</p>
    */
   Order?: string[];
+
+  /**
+   * @public
+   * <p>The settings for the pinned columns of a table visual.</p>
+   */
+  PinnedFieldOptions?: TablePinnedFieldOptions;
 }
 
 /**
@@ -7541,6 +7583,7 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
  */
 export const SnapshotFileFormatType = {
   CSV: "CSV",
+  EXCEL: "EXCEL",
   PDF: "PDF",
 } as const;
 
@@ -7571,7 +7614,7 @@ export type SnapshotFileSheetSelectionScope =
 export interface SnapshotFileSheetSelection {
   /**
    * @public
-   * <p>The sheet ID of the dashboard to generate the snapshot artifact from. This value is required for CSV and PDF format types.</p>
+   * <p>The sheet ID of the dashboard to generate the snapshot artifact from. This value is required for CSV, Excel, and PDF format types.</p>
    */
   SheetId: string | undefined;
 
@@ -7585,7 +7628,7 @@ export interface SnapshotFileSheetSelection {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SELECTED_VISUALS</code> - Select the visual that you want to add to the snapshot. This value is required if the snapshot is a CSV.</p>
+   *                   <code>SELECTED_VISUALS</code> - Select the visual that you want to add to the snapshot. This value is required if the snapshot is a CSV or Excel workbook.</p>
    *             </li>
    *          </ul>
    */
@@ -7594,7 +7637,7 @@ export interface SnapshotFileSheetSelection {
   /**
    * @public
    * <p>
-   *             A list of visual IDs that are located in the selected sheet. This structure supports tables and pivot tables. This structure is required if you are generating a CSV. You can add a maximum of 1 visual ID to this structure.
+   *             A structure that lists the IDs of the visuals in the selected sheet. Supported visual types are table, pivot table visuals. This value is required if you are generating a CSV or Excel workbook. This value supports a maximum of 1 visual ID for CSV and 5 visual IDs across up to 5 sheet selections for Excel. If you are generating an Excel workbook, the order of the visual IDs provided in this structure determines the order of the worksheets in the Excel file.
    *         </p>
    */
   VisualIds?: string[];
@@ -7607,13 +7650,13 @@ export interface SnapshotFileSheetSelection {
 export interface SnapshotFile {
   /**
    * @public
-   * <p>A list of <code>SnapshotFileSheetSelection</code> objects that contain information on the dashboard sheet that is exported. These objects provide information about the snapshot artifacts that are generated during the job. This structure can hold a maximum of 5 CSV configurations or 1 configuration for PDF.</p>
+   * <p>A list of <code>SnapshotFileSheetSelection</code> objects that contain information on the dashboard sheet that is exported. These objects provide information about the snapshot artifacts that are generated during the job. This structure can hold a maximum of 5 CSV configurations, 5 Excel configurations, or 1 configuration for PDF.</p>
    */
   SheetSelections: SnapshotFileSheetSelection[] | undefined;
 
   /**
    * @public
-   * <p>The format of the snapshot file to be generated. You can choose between <code>CSV</code> or <code>PDF</code>.</p>
+   * <p>The format of the snapshot file to be generated. You can choose between <code>CSV</code>, <code>Excel</code>, or <code>PDF</code>.</p>
    */
   FormatType: SnapshotFileFormatType | string | undefined;
 }
@@ -7805,54 +7848,6 @@ export const AssetBundleExportJobDataSetPropertyToOverride = {
  */
 export type AssetBundleExportJobDataSetPropertyToOverride =
   (typeof AssetBundleExportJobDataSetPropertyToOverride)[keyof typeof AssetBundleExportJobDataSetPropertyToOverride];
-
-/**
- * @public
- * <p>Controls how a specific <code>DataSet</code> resource is parameterized in the returned CloudFormation template.</p>
- */
-export interface AssetBundleExportJobDataSetOverrideProperties {
-  /**
-   * @public
-   * <p>The ARN of the specific <code>DataSet</code> resource whose override properties are configured in this structure.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>DataSet</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-   */
-  Properties: (AssetBundleExportJobDataSetPropertyToOverride | string)[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportJobDataSourcePropertyToOverride = {
-  CATALOG: "Catalog",
-  CLUSTER_ID: "ClusterId",
-  DATABASE: "Database",
-  DATA_SET_NAME: "DataSetName",
-  DISABLE_SSL: "DisableSsl",
-  DOMAIN: "Domain",
-  HOST: "Host",
-  INSTANCE_ID: "InstanceId",
-  MANIFEST_FILE_LOCATION: "ManifestFileLocation",
-  NAME: "Name",
-  PASSWORD: "Password",
-  PORT: "Port",
-  ROLE_ARN: "RoleArn",
-  SECRET_ARN: "SecretArn",
-  USERNAME: "Username",
-  WAREHOUSE: "Warehouse",
-  WORK_GROUP: "WorkGroup",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportJobDataSourcePropertyToOverride =
-  (typeof AssetBundleExportJobDataSourcePropertyToOverride)[keyof typeof AssetBundleExportJobDataSourcePropertyToOverride];
 
 /**
  * @internal

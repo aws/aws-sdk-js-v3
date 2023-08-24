@@ -67,6 +67,7 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * //       FolderType: "SHARED",
  * //       CreatedTime: new Date("TIMESTAMP"),
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //       SharingModel: "ACCOUNT" || "NAMESPACE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

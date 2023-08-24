@@ -82,7 +82,7 @@ export interface DescribeDashboardSnapshotJobResultCommandOutput
  * //                     ],
  * //                   },
  * //                 ],
- * //                 FormatType: "CSV" || "PDF", // required
+ * //                 FormatType: "CSV" || "PDF" || "EXCEL", // required
  * //               },
  * //             ],
  * //             S3Results: [ // SnapshotJobS3ResultList

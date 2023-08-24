@@ -46,6 +46,9 @@ export interface StartDashboardSnapshotJobCommandOutput extends StartDashboardSn
  *                <p>1 paginated PDF</p>
  *             </li>
  *             <li>
+ *                <p>1 Excel workbook</p>
+ *             </li>
+ *             <li>
  *                <p>5 CSVs</p>
  *             </li>
  *          </ul>
@@ -86,7 +89,7 @@ export interface StartDashboardSnapshotJobCommandOutput extends StartDashboardSn
  *                 ],
  *               },
  *             ],
- *             FormatType: "CSV" || "PDF", // required
+ *             FormatType: "CSV" || "PDF" || "EXCEL", // required
  *           },
  *         ],
  *       },

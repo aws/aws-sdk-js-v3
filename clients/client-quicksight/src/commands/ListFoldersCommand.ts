@@ -60,6 +60,7 @@ export interface ListFoldersCommandOutput extends ListFoldersResponse, __Metadat
  * //       FolderType: "SHARED",
  * //       CreatedTime: new Date("TIMESTAMP"),
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //       SharingModel: "ACCOUNT" || "NAMESPACE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -892,6 +892,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   Order: [ // FieldOrderList
  * //                     "STRING_VALUE",
  * //                   ],
+ * //                   PinnedFieldOptions: { // TablePinnedFieldOptions
+ * //                     PinnedLeftFields: [ // TableFieldOrderList
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
  * //                 },
  * //                 PaginatedReportOptions: { // TablePaginatedReportOptions
  * //                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
@@ -3790,7 +3795,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     TopBottomRanked: { // TopBottomRankedComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Category: "<DimensionField>", // required
+ * //                       Category: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       ResultSize: Number("int"),
  * //                       Type: "TOP" || "BOTTOM", // required
@@ -3798,8 +3803,8 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     TopBottomMovers: { // TopBottomMoversComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
- * //                       Category: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
+ * //                       Category: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       MoverSize: Number("int"),
  * //                       SortOrder: "PERCENT_DIFFERENCE" || "ABSOLUTE_DIFFERENCE",
@@ -3808,51 +3813,51 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     TotalAggregation: { // TotalAggregationComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Value: "<MeasureField>", // required
+ * //                       Value: "<MeasureField>",
  * //                     },
  * //                     MaximumMinimum: { // MaximumMinimumComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       Type: "MAXIMUM" || "MINIMUM", // required
  * //                     },
  * //                     MetricComparison: { // MetricComparisonComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
- * //                       FromValue: "<MeasureField>", // required
- * //                       TargetValue: "<MeasureField>", // required
+ * //                       Time: "<DimensionField>",
+ * //                       FromValue: "<MeasureField>",
+ * //                       TargetValue: "<MeasureField>",
  * //                     },
  * //                     PeriodOverPeriod: { // PeriodOverPeriodComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                     },
  * //                     PeriodToDate: { // PeriodToDateComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       PeriodTimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  * //                     },
  * //                     GrowthRate: { // GrowthRateComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       PeriodSize: Number("int"),
  * //                     },
  * //                     UniqueValues: { // UniqueValuesComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Category: "<DimensionField>", // required
+ * //                       Category: "<DimensionField>",
  * //                     },
  * //                     Forecast: { // ForecastComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       PeriodsForward: Number("int"),
  * //                       PeriodsBackward: Number("int"),
@@ -4407,6 +4412,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //             ],
  * //           },
+ * //           AllSheets: {},
  * //         },
  * //         Status: "ENABLED" || "DISABLED",
  * //         CrossDataset: "ALL_DATASETS" || "SINGLE_DATASET", // required

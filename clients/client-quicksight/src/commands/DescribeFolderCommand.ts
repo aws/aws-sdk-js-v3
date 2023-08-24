@@ -61,6 +61,7 @@ export interface DescribeFolderCommandOutput extends DescribeFolderResponse, __M
  * //     ],
  * //     CreatedTime: new Date("TIMESTAMP"),
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     SharingModel: "ACCOUNT" || "NAMESPACE",
  * //   },
  * //   RequestId: "STRING_VALUE",
  * // };

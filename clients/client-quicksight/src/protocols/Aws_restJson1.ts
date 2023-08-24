@@ -446,6 +446,7 @@ import {
   AdHocFilteringOption,
   AggregationFunction,
   AggregationSortConfiguration,
+  AllSheetsFilterScopeConfiguration,
   AmazonElasticsearchParameters,
   AmazonOpenSearchParameters,
   Analysis,
@@ -470,7 +471,6 @@ import {
   BarChartVisual,
   BodySectionConfiguration,
   BodySectionContent,
-  BoxPlotOptions,
   BoxPlotStyleOptions,
   CalculatedField,
   CalculatedMeasureField,
@@ -689,14 +689,13 @@ import {
   AssetBundleExportJobAnalysisPropertyToOverride,
   AssetBundleExportJobDashboardOverrideProperties,
   AssetBundleExportJobDashboardPropertyToOverride,
-  AssetBundleExportJobDataSetOverrideProperties,
   AssetBundleExportJobDataSetPropertyToOverride,
-  AssetBundleExportJobDataSourcePropertyToOverride,
   BinCountOptions,
   BinWidthOptions,
   BoxPlotAggregatedFieldWells,
   BoxPlotChartConfiguration,
   BoxPlotFieldWells,
+  BoxPlotOptions,
   BoxPlotSortConfiguration,
   BoxPlotVisual,
   ClusterMarker,
@@ -884,6 +883,7 @@ import {
   TableInlineVisualization,
   TableOptions,
   TablePaginatedReportOptions,
+  TablePinnedFieldOptions,
   TableRowConditionalFormatting,
   TableSideBorderOptions,
   TableSortConfiguration,
@@ -923,7 +923,9 @@ import {
 import {
   _Parameters,
   AssetBundleCloudFormationOverridePropertyConfiguration,
+  AssetBundleExportJobDataSetOverrideProperties,
   AssetBundleExportJobDataSourceOverrideProperties,
+  AssetBundleExportJobDataSourcePropertyToOverride,
   AssetBundleExportJobRefreshScheduleOverrideProperties,
   AssetBundleExportJobRefreshSchedulePropertyToOverride,
   AssetBundleExportJobResourceIdOverrideConfiguration,
@@ -995,7 +997,6 @@ import {
   DataSetSearchFilter,
   DataSetSummary,
   DataSetUsageConfiguration,
-  DataSource,
   DataSourceCredentials,
   DataSourceParameters,
   DateTimeDatasetParameter,
@@ -1112,6 +1113,7 @@ import {
   VpcConnectionProperties,
 } from "../models/models_2";
 import {
+  DataSource,
   DataSourceSearchFilter,
   DataSourceSummary,
   DomainNotWhitelistedException,
@@ -1502,6 +1504,7 @@ export const se_CreateFolderCommand = async (
       Name: [],
       ParentFolderArn: [],
       Permissions: (_) => _json(_),
+      SharingModel: [],
       Tags: (_) => _json(_),
     })
   );
@@ -3599,6 +3602,11 @@ export const se_DescribeFolderPermissionsCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  const query: any = map({
+    namespace: [, input.Namespace!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    "next-token": [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -3607,6 +3615,7 @@ export const se_DescribeFolderPermissionsCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -3632,6 +3641,11 @@ export const se_DescribeFolderResolvedPermissionsCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  const query: any = map({
+    namespace: [, input.Namespace!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    "next-token": [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -3640,6 +3654,7 @@ export const se_DescribeFolderResolvedPermissionsCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -11844,6 +11859,7 @@ export const de_DescribeFolderPermissionsCommand = async (
   const doc = take(data, {
     Arn: __expectString,
     FolderId: __expectString,
+    NextToken: __expectString,
     Permissions: _json,
     RequestId: __expectString,
   });
@@ -11873,6 +11889,9 @@ const de_DescribeFolderPermissionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.quicksight#InternalFailureException":
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
@@ -11912,6 +11931,7 @@ export const de_DescribeFolderResolvedPermissionsCommand = async (
   const doc = take(data, {
     Arn: __expectString,
     FolderId: __expectString,
+    NextToken: __expectString,
     Permissions: _json,
     RequestId: __expectString,
   });
@@ -11941,6 +11961,9 @@ const de_DescribeFolderResolvedPermissionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.quicksight#InternalFailureException":
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
@@ -18966,6 +18989,8 @@ const se_AggregationSortConfigurationList = (input: AggregationSortConfiguration
     });
 };
 
+// se_AllSheetsFilterScopeConfiguration omitted.
+
 // se_AmazonElasticsearchParameters omitted.
 
 // se_AmazonOpenSearchParameters omitted.
@@ -22830,6 +22855,8 @@ const se_TableConfiguration = (input: TableConfiguration, context: __SerdeContex
 
 // se_TableFieldOptions omitted.
 
+// se_TableFieldOrderList omitted.
+
 // se_TableFieldURLConfiguration omitted.
 
 /**
@@ -22849,6 +22876,8 @@ const se_TableFieldWells = (input: TableFieldWells, context: __SerdeContext): an
 // se_TableOptions omitted.
 
 // se_TablePaginatedReportOptions omitted.
+
+// se_TablePinnedFieldOptions omitted.
 
 /**
  * serializeAws_restJson1TableRowConditionalFormatting
@@ -23598,6 +23627,8 @@ const de_AggregationSortConfigurationList = (output: any, context: __SerdeContex
     });
   return retVal;
 };
+
+// de_AllSheetsFilterScopeConfiguration omitted.
 
 // de_AmazonElasticsearchParameters omitted.
 
@@ -25505,6 +25536,7 @@ const de_Folder = (output: any, context: __SerdeContext): Folder => {
     FolderType: __expectString,
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    SharingModel: __expectString,
   }) as any;
 };
 
@@ -25525,6 +25557,7 @@ const de_FolderSummary = (output: any, context: __SerdeContext): FolderSummary =
     FolderType: __expectString,
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    SharingModel: __expectString,
   }) as any;
 };
 
@@ -27898,6 +27931,8 @@ const de_TableConfiguration = (output: any, context: __SerdeContext): TableConfi
 
 // de_TableFieldOptions omitted.
 
+// de_TableFieldOrderList omitted.
+
 // de_TableFieldURLConfiguration omitted.
 
 /**
@@ -27917,6 +27952,8 @@ const de_TableFieldWells = (output: any, context: __SerdeContext): TableFieldWel
 // de_TableOptions omitted.
 
 // de_TablePaginatedReportOptions omitted.
+
+// de_TablePinnedFieldOptions omitted.
 
 /**
  * deserializeAws_restJson1TableRowConditionalFormatting

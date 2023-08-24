@@ -63,6 +63,7 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   SharingModel: "ACCOUNT" || "NAMESPACE",
  * };
  * const command = new CreateFolderCommand(input);
  * const response = await client.send(command);

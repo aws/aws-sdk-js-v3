@@ -1,3 +1,6 @@
+export * from "./DescribeFolderPermissionsPaginator";
+
+export * from "./DescribeFolderResolvedPermissionsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAnalysesPaginator";
@@ -7,6 +10,8 @@ export * from "./ListDashboardVersionsPaginator";
 export * from "./ListDashboardsPaginator";
 export * from "./ListDataSetsPaginator";
 export * from "./ListDataSourcesPaginator";
+export * from "./ListFolderMembersPaginator";
+export * from "./ListFoldersPaginator";
 export * from "./ListGroupMembershipsPaginator";
 export * from "./ListGroupsPaginator";
 export * from "./ListIAMPolicyAssignmentsForUserPaginator";
@@ -26,4 +31,5 @@ export * from "./SearchAnalysesPaginator";
 export * from "./SearchDashboardsPaginator";
 export * from "./SearchDataSetsPaginator";
 export * from "./SearchDataSourcesPaginator";
+export * from "./SearchFoldersPaginator";
 export * from "./SearchGroupsPaginator";

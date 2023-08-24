@@ -87,7 +87,7 @@ export interface DescribeDashboardSnapshotJobCommandOutput
  * //                 ],
  * //               },
  * //             ],
- * //             FormatType: "CSV" || "PDF", // required
+ * //             FormatType: "CSV" || "PDF" || "EXCEL", // required
  * //           },
  * //         ],
  * //       },

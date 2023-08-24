@@ -515,6 +515,13 @@ export interface AggregationSortConfiguration {
 
 /**
  * @public
+ * <p>The configuration for applying a filter to all sheets. You can apply this filter to all visuals on every sheet.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ */
+export interface AllSheetsFilterScopeConfiguration {}
+
+/**
+ * @public
  * <p>The parameters for OpenSearch.</p>
  */
 export interface AmazonElasticsearchParameters {
@@ -2540,6 +2547,12 @@ export interface FilterScopeConfiguration {
    * <p>The configuration for applying a filter to specific sheets.</p>
    */
   SelectedSheets?: SelectedSheetsFilterScopeConfiguration;
+
+  /**
+   * @public
+   * <p>The configuration for applying a filter to all sheets.</p>
+   */
+  AllSheets?: AllSheetsFilterScopeConfiguration;
 }
 
 /**
@@ -7501,30 +7514,6 @@ export interface BoxPlotStyleOptions {
    * <p>The fill styles (solid, transparent) of the box plot.</p>
    */
   FillStyle?: BoxPlotFillStyle | string;
-}
-
-/**
- * @public
- * <p>The options of a box plot visual.</p>
- */
-export interface BoxPlotOptions {
-  /**
-   * @public
-   * <p>The style options of the box plot.</p>
-   */
-  StyleOptions?: BoxPlotStyleOptions;
-
-  /**
-   * @public
-   * <p>Determines the visibility of the outlier in a box plot.</p>
-   */
-  OutlierVisibility?: Visibility | string;
-
-  /**
-   * @public
-   * <p>Determines the visibility of all data points of the box plot.</p>
-   */
-  AllDataPointsVisibility?: Visibility | string;
 }
 
 /**

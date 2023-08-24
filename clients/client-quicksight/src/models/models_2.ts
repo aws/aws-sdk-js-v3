@@ -28,13 +28,60 @@ import {
   AnalysisSourceEntity,
   AssetBundleExportJobAnalysisOverrideProperties,
   AssetBundleExportJobDashboardOverrideProperties,
-  AssetBundleExportJobDataSetOverrideProperties,
-  AssetBundleExportJobDataSourcePropertyToOverride,
+  AssetBundleExportJobDataSetPropertyToOverride,
   DataSetReference,
   FilterOperator,
   SheetDefinition,
 } from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>Controls how a specific <code>DataSet</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobDataSetOverrideProperties {
+  /**
+   * @public
+   * <p>The ARN of the specific <code>DataSet</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>DataSet</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobDataSetPropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobDataSourcePropertyToOverride = {
+  CATALOG: "Catalog",
+  CLUSTER_ID: "ClusterId",
+  DATABASE: "Database",
+  DATA_SET_NAME: "DataSetName",
+  DISABLE_SSL: "DisableSsl",
+  DOMAIN: "Domain",
+  HOST: "Host",
+  INSTANCE_ID: "InstanceId",
+  MANIFEST_FILE_LOCATION: "ManifestFileLocation",
+  NAME: "Name",
+  PASSWORD: "Password",
+  PORT: "Port",
+  ROLE_ARN: "RoleArn",
+  SECRET_ARN: "SecretArn",
+  USERNAME: "Username",
+  WAREHOUSE: "Warehouse",
+  WORK_GROUP: "WorkGroup",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobDataSourcePropertyToOverride =
+  (typeof AssetBundleExportJobDataSourcePropertyToOverride)[keyof typeof AssetBundleExportJobDataSourcePropertyToOverride];
 
 /**
  * @public
@@ -5463,6 +5510,20 @@ export type FolderType = (typeof FolderType)[keyof typeof FolderType];
 
 /**
  * @public
+ * @enum
+ */
+export const SharingModel = {
+  ACCOUNT: "ACCOUNT",
+  NAMESPACE: "NAMESPACE",
+} as const;
+
+/**
+ * @public
+ */
+export type SharingModel = (typeof SharingModel)[keyof typeof SharingModel];
+
+/**
+ * @public
  */
 export interface CreateFolderRequest {
   /**
@@ -5509,6 +5570,12 @@ export interface CreateFolderRequest {
    * <p>Tags for the folder.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>An optional parameter that determines the sharing scope of the folder. The default value for this parameter is <code>ACCOUNT</code>.</p>
+   */
+  SharingModel?: SharingModel | string;
 }
 
 /**
@@ -5573,13 +5640,13 @@ export interface CreateFolderMembershipRequest {
 
   /**
    * @public
-   * <p>The ID of the asset (the dashboard, analysis, or dataset).</p>
+   * <p>The ID of the asset that you want to add to the folder.</p>
    */
   MemberId: string | undefined;
 
   /**
    * @public
-   * <p>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>.</p>
+   * <p>The member type of the asset that you want to add to a folder.</p>
    */
   MemberType: MemberType | string | undefined;
 }
@@ -9269,138 +9336,6 @@ export const DataSourceErrorInfoType = {
  * @public
  */
 export type DataSourceErrorInfoType = (typeof DataSourceErrorInfoType)[keyof typeof DataSourceErrorInfoType];
-
-/**
- * @public
- * <p>Error information for the data source creation or update.</p>
- */
-export interface DataSourceErrorInfo {
-  /**
-   * @public
-   * <p>Error type.</p>
-   */
-  Type?: DataSourceErrorInfoType | string;
-
-  /**
-   * @public
-   * <p>Error message.</p>
-   */
-  Message?: string;
-}
-
-/**
- * @public
- * <p>The structure of a data source.</p>
- */
-export interface DataSource {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the data source.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
-   *             Amazon Web Services account.</p>
-   */
-  DataSourceId?: string;
-
-  /**
-   * @public
-   * <p>A display name for the data source.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The type of the data source. This type indicates which database engine the data source
-   *             connects to.</p>
-   */
-  Type?: DataSourceType | string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: ResourceStatus | string;
-
-  /**
-   * @public
-   * <p>The time that this data source was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time that this data source was updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * @public
-   * <p>The parameters that Amazon QuickSight uses to connect to your underlying source. This
-   *             is a variant type structure. For this structure to be valid, only one of the attributes
-   *             can be non-null.</p>
-   */
-  DataSourceParameters?: DataSourceParameters;
-
-  /**
-   * @public
-   * <p>A set of alternate data source parameters that you want to share for the credentials
-   *             stored with this data source. The credentials are applied in tandem with the data source
-   *             parameters when you copy a data source by using a create or update request. The API
-   *             operation compares the <code>DataSourceParameters</code> structure that's in the request
-   *             with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
-   *             structures are an exact match, the request is allowed to use the credentials from this
-   *             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
-   *             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
-   *             are automatically allowed.</p>
-   */
-  AlternateDataSourceParameters?: DataSourceParameters[];
-
-  /**
-   * @public
-   * <p>The VPC connection information. You need to use this parameter only when you want
-   *             Amazon QuickSight to use a VPC connection when connecting to your underlying source.</p>
-   */
-  VpcConnectionProperties?: VpcConnectionProperties;
-
-  /**
-   * @public
-   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
-   *             underlying source.</p>
-   */
-  SslProperties?: SslProperties;
-
-  /**
-   * @public
-   * <p>Error information from the last update or the creation of the data source.</p>
-   */
-  ErrorInfo?: DataSourceErrorInfo;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
-   */
-  SecretArn?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const DataSourceFilterAttribute = {
-  DATASOURCE_NAME: "DATASOURCE_NAME",
-  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceFilterAttribute = (typeof DataSourceFilterAttribute)[keyof typeof DataSourceFilterAttribute];
 
 /**
  * @internal

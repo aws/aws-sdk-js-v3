@@ -46,6 +46,9 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  * const input = { // DescribeFolderPermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   FolderId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
  * const command = new DescribeFolderPermissionsCommand(input);
  * const response = await client.send(command);
@@ -62,6 +65,7 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  * //     },
  * //   ],
  * //   RequestId: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -80,6 +84,9 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value isn't valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>

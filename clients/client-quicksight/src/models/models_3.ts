@@ -15,7 +15,6 @@ import {
 import {
   AnalysisDefinition,
   AnalysisSearchFilter,
-  AnalysisSourceEntity,
   AnalysisSummary,
   AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserSnapshotJobResult,
@@ -55,8 +54,8 @@ import {
   DataSetRefreshProperties,
   DataSetSearchFilter,
   DataSetSummary,
-  DataSource,
-  DataSourceFilterAttribute,
+  DataSourceErrorInfoType,
+  DataSourceParameters,
   DataSourceType,
   FolderType,
   Group,
@@ -67,6 +66,8 @@ import {
   NamespaceStatus,
   RefreshSchedule,
   ResourcePermission,
+  SharingModel,
+  SslProperties,
   Tag,
   TemplateAlias,
   TemplateVersionDefinition,
@@ -75,9 +76,142 @@ import {
   TopicDetails,
   TopicRefreshSchedule,
   VPCConnectionAvailabilityStatus,
+  VpcConnectionProperties,
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>Error information for the data source creation or update.</p>
+ */
+export interface DataSourceErrorInfo {
+  /**
+   * @public
+   * <p>Error type.</p>
+   */
+  Type?: DataSourceErrorInfoType | string;
+
+  /**
+   * @public
+   * <p>Error message.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * <p>The structure of a data source.</p>
+ */
+export interface DataSource {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the data source.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
+   *             Amazon Web Services account.</p>
+   */
+  DataSourceId?: string;
+
+  /**
+   * @public
+   * <p>A display name for the data source.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The type of the data source. This type indicates which database engine the data source
+   *             connects to.</p>
+   */
+  Type?: DataSourceType | string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: ResourceStatus | string;
+
+  /**
+   * @public
+   * <p>The time that this data source was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that this data source was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The parameters that Amazon QuickSight uses to connect to your underlying source. This
+   *             is a variant type structure. For this structure to be valid, only one of the attributes
+   *             can be non-null.</p>
+   */
+  DataSourceParameters?: DataSourceParameters;
+
+  /**
+   * @public
+   * <p>A set of alternate data source parameters that you want to share for the credentials
+   *             stored with this data source. The credentials are applied in tandem with the data source
+   *             parameters when you copy a data source by using a create or update request. The API
+   *             operation compares the <code>DataSourceParameters</code> structure that's in the request
+   *             with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+   *             structures are an exact match, the request is allowed to use the credentials from this
+   *             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
+   *             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
+   *             are automatically allowed.</p>
+   */
+  AlternateDataSourceParameters?: DataSourceParameters[];
+
+  /**
+   * @public
+   * <p>The VPC connection information. You need to use this parameter only when you want
+   *             Amazon QuickSight to use a VPC connection when connecting to your underlying source.</p>
+   */
+  VpcConnectionProperties?: VpcConnectionProperties;
+
+  /**
+   * @public
+   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
+   *             underlying source.</p>
+   */
+  SslProperties?: SslProperties;
+
+  /**
+   * @public
+   * <p>Error information from the last update or the creation of the data source.</p>
+   */
+  ErrorInfo?: DataSourceErrorInfo;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+   */
+  SecretArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceFilterAttribute = {
+  DATASOURCE_NAME: "DATASOURCE_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceFilterAttribute = (typeof DataSourceFilterAttribute)[keyof typeof DataSourceFilterAttribute];
 
 /**
  * @public
@@ -544,14 +678,13 @@ export interface DeleteFolderMembershipRequest {
 
   /**
    * @public
-   * <p>The ID of the asset (the dashboard, analysis, or dataset) that you want to delete.</p>
+   * <p>The ID of the asset that you want to delete.</p>
    */
   MemberId: string | undefined;
 
   /**
    * @public
-   * <p>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>
-   *          </p>
+   * <p>The member type of the asset that you want to delete from a folder.</p>
    */
   MemberType: MemberType | string | undefined;
 }
@@ -2753,6 +2886,12 @@ export interface Folder {
    * <p>The time that the folder was last updated.</p>
    */
   LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The sharing scope of the folder.</p>
+   */
+  SharingModel?: SharingModel | string;
 }
 
 /**
@@ -2793,6 +2932,24 @@ export interface DescribeFolderPermissionsRequest {
    * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
+
+  /**
+   * @public
+   * <p>The namespace of the folder whose permissions you want described.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A pagination token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -2828,6 +2985,40 @@ export interface DescribeFolderPermissionsResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
+
+  /**
+   * @public
+   * <p>The pagination token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>The <code>NextToken</code> value isn't valid.</p>
+ */
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -2845,6 +3036,24 @@ export interface DescribeFolderResolvedPermissionsRequest {
    * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
+
+  /**
+   * @public
+   * <p>The namespace of the folder whose permissions you want described.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A pagination token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -2880,6 +3089,12 @@ export interface DescribeFolderResolvedPermissionsResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
+
+  /**
+   * @public
+   * <p>A pagination token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -3070,34 +3285,6 @@ export interface DescribeIAMPolicyAssignmentResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-/**
- * @public
- * <p>The <code>NextToken</code> value isn't valid.</p>
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
 }
 
 /**
@@ -5168,6 +5355,12 @@ export interface FolderSummary {
    * <p>The time that the folder was last updated.</p>
    */
   LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The sharing scope of the folder.</p>
+   */
+  SharingModel?: SharingModel | string;
 }
 
 /**
@@ -8938,112 +9131,6 @@ export interface UpdateAccountSettingsRequest {
 }
 
 /**
- * @public
- */
-export interface UpdateAccountSettingsResponse {
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateAnalysisRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that contains the analysis that you're updating.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID for the analysis that you're updating. This ID displays in the URL of the
-   *             analysis.</p>
-   */
-  AnalysisId: string | undefined;
-
-  /**
-   * @public
-   * <p>A descriptive name for the analysis that you're updating. This name displays for the
-   *             analysis in the Amazon QuickSight console.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>The parameter names and override values that you want to use. An analysis can have
-   *             any parameter type, and some parameters might accept multiple values. </p>
-   */
-  Parameters?: _Parameters;
-
-  /**
-   * @public
-   * <p>A source entity to use for the analysis that you're updating. This metadata structure
-   *             contains details that describe a source template and one or more datasets.</p>
-   */
-  SourceEntity?: AnalysisSourceEntity;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're
-   *             creating. To see the theme in the Amazon QuickSight console, make sure that you have access to
-   *             it.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * @public
-   * <p>The definition of an analysis.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   */
-  Definition?: AnalysisDefinition;
-}
-
-/**
- * @public
- */
-export interface UpdateAnalysisResponse {
-  /**
-   * @public
-   * <p>The ARN of the analysis that you're updating.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID of the analysis.</p>
-   */
-  AnalysisId?: string;
-
-  /**
-   * @public
-   * <p>The update status of the last update that was made to the analysis.</p>
-   */
-  UpdateStatus?: ResourceStatus | string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
  * @internal
  */
 export const DescribeAnalysisDefinitionResponseFilterSensitiveLog = (obj: DescribeAnalysisDefinitionResponse): any => ({
@@ -9209,12 +9296,4 @@ export const SnapshotUserConfigurationFilterSensitiveLog = (obj: SnapshotUserCon
  */
 export const StartDashboardSnapshotJobRequestFilterSensitiveLog = (obj: StartDashboardSnapshotJobRequest): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAnalysisRequestFilterSensitiveLog = (obj: UpdateAnalysisRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
 });
