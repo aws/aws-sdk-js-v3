@@ -1275,6 +1275,42 @@ export interface Session {
    *       The GlueVersion must be greater than 2.0.</p>
    */
   GlueVersion?: string;
+
+  /**
+   * @public
+   * <p>The number of workers of a defined <code>WorkerType</code> to use for the session.</p>
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * @public
+   * <p>The type of predefined worker that is allocated when a session runs. Accepts a value of <code>G.1X</code>, <code>G.2X</code>, <code>G.4X</code>, or <code>G.8X</code> for Spark sessions. Accepts the value <code>Z.2X</code> for Ray sessions.</p>
+   */
+  WorkerType?: WorkerType | string;
+
+  /**
+   * @public
+   * <p>The date and time that this session is completed.</p>
+   */
+  CompletedOn?: Date;
+
+  /**
+   * @public
+   * <p>The total time the session ran for.</p>
+   */
+  ExecutionTime?: number;
+
+  /**
+   * @public
+   * <p>The DPUs consumed by the session (formula: ExecutionTime * MaxCapacity).</p>
+   */
+  DPUSeconds?: number;
+
+  /**
+   * @public
+   * <p>The number of minutes when idle before the session times out.</p>
+   */
+  IdleTimeout?: number;
 }
 
 /**

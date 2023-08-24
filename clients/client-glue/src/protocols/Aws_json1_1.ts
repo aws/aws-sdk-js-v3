@@ -20354,18 +20354,24 @@ const de_SecurityConfigurationList = (output: any, context: __SerdeContext): Sec
 const de_Session = (output: any, context: __SerdeContext): Session => {
   return take(output, {
     Command: _json,
+    CompletedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Connections: _json,
     CreatedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DPUSeconds: __limitedParseDouble,
     DefaultArguments: _json,
     Description: __expectString,
     ErrorMessage: __expectString,
+    ExecutionTime: __limitedParseDouble,
     GlueVersion: __expectString,
     Id: __expectString,
+    IdleTimeout: __expectInt32,
     MaxCapacity: __limitedParseDouble,
+    NumberOfWorkers: __expectInt32,
     Progress: __limitedParseDouble,
     Role: __expectString,
     SecurityConfiguration: __expectString,
     Status: __expectString,
+    WorkerType: __expectString,
   }) as any;
 };
 
