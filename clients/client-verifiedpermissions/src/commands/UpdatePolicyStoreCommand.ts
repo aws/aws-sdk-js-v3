@@ -41,6 +41,12 @@ export interface UpdatePolicyStoreCommandOutput extends UpdatePolicyStoreOutput,
 /**
  * @public
  * <p>Modifies the validation setting for a policy store.</p>
+ *          <note>
+ *             <p>Verified Permissions is <i>
+ *                   <a href="https://wikipedia.org/wiki/Eventual_consistency">eventually consistent</a>
+ *                </i>. It can take a few seconds for a new or changed element to be propagate through
+ *     the service and be visible in the results of other Verified Permissions operations.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

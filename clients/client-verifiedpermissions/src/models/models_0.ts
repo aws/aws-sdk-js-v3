@@ -2238,8 +2238,8 @@ export interface ListPolicyStoresInput {
    *              results than the maximum even when there are more results available. You should check
    *              <code>NextToken</code> after every operation to ensure that you receive all of the
    *              results.</p>
-   *          <p>If you do not specify this parameter, the operation defaults to 10 policy stores per
-   *             response. You can specify a maximum of 50 policy stores per response.</p>
+   *          <p>If you do not specify this parameter, the operation defaults to 10 policy stores per response.
+   *             You can specify a maximum of 50 policy stores per response.</p>
    */
   maxResults?: number;
 }
@@ -2321,8 +2321,8 @@ export interface ListPolicyTemplatesInput {
    *              results than the maximum even when there are more results available. You should check
    *              <code>NextToken</code> after every operation to ensure that you receive all of the
    *              results.</p>
-   *          <p>If you do not specify this parameter, the operation defaults to 10 policy templates per
-   *             response. You can specify a maximum of 50 policy templates per response.</p>
+   *          <p>If you do not specify this parameter, the operation defaults to 10 policy templates per response.
+   *             You can specify a maximum of 50 policy templates per response.</p>
    */
   maxResults?: number;
 }
@@ -2998,8 +2998,8 @@ export namespace ContextDefinition {
  *          <p>This data type is used as one of the fields in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EntitiesDefinition.html">EntitiesDefinition</a>
  *             structure.</p>
  *          <p>
- *             <code>\{ "id": \{ "entityType": "Photo", "entityId": "VacationPhoto94.jpg" \},
- *                 "Attributes": \{\}, "Parents": [ \{ "entityType": "Album", "entityId": "alice_folder" \}
+ *             <code>\{ "identifier": \{ "entityType": "Photo", "entityId": "VacationPhoto94.jpg" \},
+ *                 "attributes": \{\}, "parents": [ \{ "entityType": "Album", "entityId": "alice_folder" \}
  *                 ] \}</code>
  *          </p>
  */

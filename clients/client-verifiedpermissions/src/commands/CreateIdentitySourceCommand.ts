@@ -70,6 +70,12 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  *                     <code>CognitoUserPoolId</code> and <code>CognitoClientId</code> are defined by
  *                 the Amazon Cognito user pool.</p>
  *          </note>
+ *          <note>
+ *             <p>Verified Permissions is <i>
+ *                   <a href="https://wikipedia.org/wiki/Eventual_consistency">eventually consistent</a>
+ *                </i>. It can take a few seconds for a new or changed element to be propagate through
+ *     the service and be visible in the results of other Verified Permissions operations.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
