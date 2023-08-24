@@ -45,7 +45,7 @@ export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationR
  * const client = new MediaTailorClient(config);
  * const input = { // UpdateSourceLocationRequest
  *   AccessConfiguration: { // AccessConfiguration
- *     AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN",
+ *     AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN" || "AUTODETECT_SIGV4",
  *     SecretsManagerAccessTokenConfiguration: { // SecretsManagerAccessTokenConfiguration
  *       HeaderName: "STRING_VALUE",
  *       SecretArn: "STRING_VALUE",
@@ -70,7 +70,7 @@ export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationR
  * const response = await client.send(command);
  * // { // UpdateSourceLocationResponse
  * //   AccessConfiguration: { // AccessConfiguration
- * //     AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN",
+ * //     AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN" || "AUTODETECT_SIGV4",
  * //     SecretsManagerAccessTokenConfiguration: { // SecretsManagerAccessTokenConfiguration
  * //       HeaderName: "STRING_VALUE",
  * //       SecretArn: "STRING_VALUE",

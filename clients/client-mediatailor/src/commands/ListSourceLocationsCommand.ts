@@ -53,7 +53,7 @@ export interface ListSourceLocationsCommandOutput extends ListSourceLocationsRes
  * //   Items: [ // __listOfSourceLocation
  * //     { // SourceLocation
  * //       AccessConfiguration: { // AccessConfiguration
- * //         AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN",
+ * //         AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN" || "AUTODETECT_SIGV4",
  * //         SecretsManagerAccessTokenConfiguration: { // SecretsManagerAccessTokenConfiguration
  * //           HeaderName: "STRING_VALUE",
  * //           SecretArn: "STRING_VALUE",
