@@ -14,6 +14,7 @@ const {
 } = require("./code-gen-dir");
 const { prettifyCode } = require("./code-prettify");
 const { eslintFixCode } = require("./code-eslint-fix");
+const { buildSmithyTypeScript } = require("./build-smithy-typescript");
 
 const SMITHY_TS_DIR = path.normalize(path.join(__dirname, "..", "..", "..", "smithy-typescript"));
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
@@ -67,6 +68,7 @@ const {
 (async () => {
   try {
     require("../runtime-dependency-version-check/runtime-dep-version-check");
+    await buildSmithyTypeScript(repo, commit);
 
     if (serverOnly === true) {
       await generateProtocolTests();
