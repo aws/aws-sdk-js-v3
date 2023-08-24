@@ -59,7 +59,7 @@ const {
   .string("r")
   .alias("r", "repo")
   .default("r", SMITHY_TS_DIR)
-  .describe("c", "The smithy-typescript commit to be used for codeden.")
+  .describe("c", "The smithy-typescript commit to be used for codegen.")
   .string("c")
   .alias("c", "commit")
   .default("c", "HEAD") // ToDo: Change to a specific commit once CI is updated.
