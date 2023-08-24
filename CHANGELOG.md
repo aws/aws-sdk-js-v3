@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.399.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.398.0...v3.399.0) (2023-08-24)
+
+
+### Bug Fixes
+
+* **scripts:** make private test packages as non-clients ([#5138](https://github.com/aws/aws-sdk-js-v3/issues/5138)) ([87d43ab](https://github.com/aws/aws-sdk-js-v3/commit/87d43abb53d456973fe6a6928d53256c38648be8))
+
+
+### Features
+
+* **client-ec2:** Amazon EC2 M7a instances, powered by 4th generation AMD EPYC processors, deliver up to 50% higher performance compared to M6a instances. Amazon EC2 Hpc7a instances, powered by 4th Gen AMD EPYC processors, deliver up to 2.5x better performance compared to Amazon EC2 Hpc6a instances. ([81ae519](https://github.com/aws/aws-sdk-js-v3/commit/81ae519f8bb8628d64469ddb827af9190924a201))
+* **client-glue:** Added API attributes that help in the monitoring of sessions. ([b1ac978](https://github.com/aws/aws-sdk-js-v3/commit/b1ac97822f27c33ed5b47e15ebade4974133b24e))
+* **client-mediaconvert:** This release includes additional audio channel tags in Quicktime outputs, support for film grain synthesis for AV1 outputs, ability to create audio-only FLAC outputs, and ability to specify Amazon S3 destination storage class. ([78268f8](https://github.com/aws/aws-sdk-js-v3/commit/78268f81ac29ca75cb1fa08c481e851c67f1d2d6))
+* **client-medialive:** MediaLive now supports passthrough of KLV data to a HLS output group with a TS container. MediaLive now supports setting an attenuation mode for AC3 audio when the coding mode is 3/2 LFE. MediaLive now supports specifying whether to include filler NAL units in RTMP output group settings. ([82c8bee](https://github.com/aws/aws-sdk-js-v3/commit/82c8beecc2e0820a6429bf748b5c9a983ce50677))
+* **client-mediatailor:** Adds new source location AUTODETECT_SIGV4 access type. ([022c7eb](https://github.com/aws/aws-sdk-js-v3/commit/022c7eb28ea065f941f3d4aed86fbbab064a9c73))
+* **client-quicksight:** Excel support in Snapshot Export APIs. Removed Required trait for some insight Computations. Namespace-shared Folders support. Global Filters support. Table pin Column support. ([76e011f](https://github.com/aws/aws-sdk-js-v3/commit/76e011f4609e51ccfe60ce9b0a00c3684c29c88b))
+* **client-rds:** This release updates the supported versions for Percona XtraBackup in Aurora MySQL. ([9345898](https://github.com/aws/aws-sdk-js-v3/commit/9345898cc956f2e727dd6d75da62f564658a2a9c))
+* **client-s3-control:** Updates to endpoint ruleset tests to address Smithy validation issues and standardize the capitalization of DualStack. ([5006d64](https://github.com/aws/aws-sdk-js-v3/commit/5006d64a9b7883b05a5841384e0ed9ddb7e6f709))
+* **client-s3:** Updates to endpoint ruleset tests to address Smithy validation issues. ([2740abc](https://github.com/aws/aws-sdk-js-v3/commit/2740abc5fa60c217c3a6153d92329289c1af39e5))
+* **clients:** update client endpoints as of 2023-08-24 ([36820f3](https://github.com/aws/aws-sdk-js-v3/commit/36820f3235444ee57df1843ebce0aa544d19fbff))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 

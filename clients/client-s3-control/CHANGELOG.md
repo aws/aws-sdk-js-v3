@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.399.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.398.0...v3.399.0) (2023-08-24)
+
+
+### Features
+
+* **client-s3-control:** Updates to endpoint ruleset tests to address Smithy validation issues and standardize the capitalization of DualStack. ([5006d64](https://github.com/aws/aws-sdk-js-v3/commit/5006d64a9b7883b05a5841384e0ed9ddb7e6f709))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control
