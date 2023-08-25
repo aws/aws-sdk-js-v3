@@ -6816,6 +6816,7 @@
               "deprecated": true,
               "hostname": "email-fips.us-west-2.amazonaws.com"
             },
+            "il-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {
@@ -7876,6 +7877,7 @@
               "deprecated": true,
               "hostname": "fsx-fips.us-west-2.amazonaws.com"
             },
+            "il-central-1": {},
             "me-central-1": {},
             "me-south-1": {},
             "prod-ca-central-1": {
@@ -8431,6 +8433,7 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "il-central-1": {},
             "me-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
@@ -15539,6 +15542,7 @@
             "fips-us-west-2": {
               "deprecated": true
             },
+            "il-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {
@@ -16451,6 +16455,7 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "il-central-1": {},
             "me-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
