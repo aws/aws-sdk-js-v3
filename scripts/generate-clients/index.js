@@ -15,6 +15,7 @@ const {
 const { prettifyCode } = require("./code-prettify");
 const { eslintFixCode } = require("./code-eslint-fix");
 const { buildSmithyTypeScript } = require("./build-smithy-typescript");
+const { SMITHY_TS_COMMIT } = require("./config");
 
 const SMITHY_TS_DIR = path.normalize(path.join(__dirname, "..", "..", "..", "smithy-typescript"));
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
@@ -62,7 +63,7 @@ const {
   .describe("c", "The smithy-typescript commit to be used for codegen.")
   .string("c")
   .alias("c", "commit")
-  .default("c", "HEAD") // ToDo: Change to a specific commit once CI is updated.
+  .default("c", SMITHY_TS_COMMIT)
   .help().argv;
 
 (async () => {
