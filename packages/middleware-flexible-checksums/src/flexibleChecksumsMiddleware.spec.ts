@@ -1,9 +1,10 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { BuildHandlerArguments } from "@smithy/types";
+import { BuildHandlerArguments, DeserializeHandlerArguments } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
+import { flexibleChecksumsResponseMiddleware } from "./flexibleChecksumsResponseMiddleware";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";
@@ -194,14 +195,14 @@ describe(flexibleChecksumsMiddleware.name, () => {
     const mockInput = { [mockRequestValidationModeMember]: "ENABLED" };
     const mockResponseAlgorithms = ["ALGO1", "ALGO2"];
 
-    const handler = flexibleChecksumsMiddleware(mockConfig, {
+    const responseHandler = flexibleChecksumsResponseMiddleware(mockConfig, {
       ...mockMiddlewareConfig,
       input: mockInput,
       requestValidationModeMember: mockRequestValidationModeMember,
       responseAlgorithms: mockResponseAlgorithms,
     })(mockNext, {});
 
-    await handler(mockArgs);
+    await responseHandler({ ...mockArgs, input: mockInput } as DeserializeHandlerArguments<any>);
     expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
       config: mockConfig,
       responseAlgorithms: mockResponseAlgorithms,
