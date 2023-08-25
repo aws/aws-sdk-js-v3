@@ -256,6 +256,7 @@ import {
   StopLoggingRequest,
   Tag,
   TagsLimitExceededException,
+  ThrottlingException,
   TrailAlreadyExistsException,
   TrailNotFoundException,
   TrailNotProvidedException,
@@ -1321,6 +1322,9 @@ const de_CreateTrailCommandError = async (
     case "TagsLimitExceededException":
     case "com.amazonaws.cloudtrail#TagsLimitExceededException":
       throw await de_TagsLimitExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudtrail#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TrailAlreadyExistsException":
     case "com.amazonaws.cloudtrail#TrailAlreadyExistsException":
       throw await de_TrailAlreadyExistsExceptionRes(parsedOutput, context);
@@ -1592,6 +1596,9 @@ const de_DeleteTrailCommandError = async (
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudtrail#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
@@ -2086,6 +2093,9 @@ const de_GetInsightSelectorsCommandError = async (
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudtrail#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
@@ -2958,6 +2968,9 @@ const de_PutEventSelectorsCommandError = async (
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudtrail#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
@@ -3040,6 +3053,9 @@ const de_PutInsightSelectorsCommandError = async (
     case "S3BucketDoesNotExistException":
     case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
       throw await de_S3BucketDoesNotExistExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudtrail#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
@@ -3575,6 +3591,9 @@ const de_StartLoggingCommandError = async (
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudtrail#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
@@ -3861,6 +3880,9 @@ const de_StopLoggingCommandError = async (
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudtrail#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
@@ -4170,6 +4192,9 @@ const de_UpdateTrailCommandError = async (
     case "S3BucketDoesNotExistException":
     case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
       throw await de_S3BucketDoesNotExistExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudtrail#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
       throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
@@ -5384,6 +5409,19 @@ const de_TagsLimitExceededExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1TrailAlreadyExistsExceptionRes
  */
 const de_TrailAlreadyExistsExceptionRes = async (
@@ -6306,6 +6344,8 @@ const de_StopImportResponse = (output: any, context: __SerdeContext): StopImport
 // de_TagsLimitExceededException omitted.
 
 // de_TagsList omitted.
+
+// de_ThrottlingException omitted.
 
 // de_Trail omitted.
 

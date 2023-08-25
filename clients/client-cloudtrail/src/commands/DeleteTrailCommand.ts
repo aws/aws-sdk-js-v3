@@ -124,6 +124,11 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>This exception is thrown when the requested operation is not permitted.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *          This exception is thrown when the request rate exceeds the limit.
+ *       </p>
+ *
  * @throws {@link TrailNotFoundException} (client fault)
  *  <p>This exception is thrown when the trail with the given name is not found.</p>
  *

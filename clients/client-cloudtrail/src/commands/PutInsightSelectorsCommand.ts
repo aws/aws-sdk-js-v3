@@ -152,6 +152,11 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * @throws {@link S3BucketDoesNotExistException} (client fault)
  *  <p>This exception is thrown when the specified S3 bucket does not exist.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *          This exception is thrown when the request rate exceeds the limit.
+ *       </p>
+ *
  * @throws {@link TrailNotFoundException} (client fault)
  *  <p>This exception is thrown when the trail with the given name is not found.</p>
  *

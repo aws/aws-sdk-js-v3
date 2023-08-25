@@ -2749,6 +2749,34 @@ export class S3BucketDoesNotExistException extends __BaseException {
 
 /**
  * @public
+ * <p>
+ *          This exception is thrown when the request rate exceeds the limit.
+ *       </p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>This exception is thrown when the specified trail already exists.</p>
  */
 export class TrailAlreadyExistsException extends __BaseException {

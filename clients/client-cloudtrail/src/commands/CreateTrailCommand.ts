@@ -216,6 +216,11 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  *  <p>The number of tags per trail, event data store, or channel has exceeded the permitted amount. Currently, the limit is
  *          50.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *          This exception is thrown when the request rate exceeds the limit.
+ *       </p>
+ *
  * @throws {@link TrailAlreadyExistsException} (client fault)
  *  <p>This exception is thrown when the specified trail already exists.</p>
  *
