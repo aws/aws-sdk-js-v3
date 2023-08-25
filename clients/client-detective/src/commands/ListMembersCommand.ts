@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { ListMembersRequest, ListMembersResponse } from "../models/models_0";
+import { ListMembersRequest, ListMembersResponse, ListMembersResponseFilterSensitiveLog } from "../models/models_0";
 import { de_ListMembersCommand, se_ListMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -158,7 +158,7 @@ export class ListMembersCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ListMembersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
