@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.400.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.399.0...v3.400.0) (2023-08-25)
+
+
+### Features
+
+* **client-detective:** Added protections to interacting with fields containing customer information. ([a23079f](https://github.com/aws/aws-sdk-js-v3/commit/a23079f3c5c3cacfe8bca0a742f903190ca45eb0))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-detective

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.400.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.399.0...v3.400.0) (2023-08-25)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** split stream when validating response checksum ([#5126](https://github.com/aws/aws-sdk-js-v3/issues/5126)) ([e4455a7](https://github.com/aws/aws-sdk-js-v3/commit/e4455a7b72e373e8fd1bb0fc616555b4868dd586))
+
+
+### Features
+
+* **client-cloudtrail:** Add ThrottlingException with error code 429 to handle CloudTrail Delegated Admin request rate exceeded on organization resources. ([e7333b8](https://github.com/aws/aws-sdk-js-v3/commit/e7333b8cdfa1688be226d395ba8aec30ffa7b542))
+* **client-detective:** Added protections to interacting with fields containing customer information. ([a23079f](https://github.com/aws/aws-sdk-js-v3/commit/a23079f3c5c3cacfe8bca0a742f903190ca45eb0))
+* **clients:** update client endpoints as of 2023-08-25 ([75e9eac](https://github.com/aws/aws-sdk-js-v3/commit/75e9eacbf4413c0b7d1841826c8600e869d44fa9))
+
+
+
+
+
 # [3.399.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.398.0...v3.399.0) (2023-08-24)
 
 
