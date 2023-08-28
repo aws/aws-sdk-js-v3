@@ -80,6 +80,7 @@ export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSO
  * //           },
  * //         ],
  * //         EnableContinuousBackup: true || false,
+ * //         ScheduleExpressionTimezone: "STRING_VALUE",
  * //       },
  * //     ],
  * //     AdvancedBackupSettings: [ // AdvancedBackupSettings

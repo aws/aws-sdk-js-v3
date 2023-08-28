@@ -80,6 +80,7 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * //           },
  * //         ],
  * //         EnableContinuousBackup: true || false,
+ * //         ScheduleExpressionTimezone: "STRING_VALUE",
  * //       },
  * //     ],
  * //     AdvancedBackupSettings: [ // AdvancedBackupSettings

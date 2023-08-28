@@ -78,6 +78,7 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  * //           },
  * //         ],
  * //         EnableContinuousBackup: true || false,
+ * //         ScheduleExpressionTimezone: "STRING_VALUE",
  * //       },
  * //     ],
  * //     AdvancedBackupSettings: [ // AdvancedBackupSettings

@@ -78,6 +78,7 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  *           },
  *         ],
  *         EnableContinuousBackup: true || false,
+ *         ScheduleExpressionTimezone: "STRING_VALUE",
  *       },
  *     ],
  *     AdvancedBackupSettings: [ // AdvancedBackupSettings
