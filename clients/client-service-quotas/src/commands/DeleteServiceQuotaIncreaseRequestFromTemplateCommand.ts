@@ -46,7 +46,7 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
 /**
  * @public
  * <p>Deletes the quota increase request for the specified quota from your quota request
- *       template.</p>
+ *             template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +74,8 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
  *  <p>You do not have sufficient permission to perform this action.</p>
  *
  * @throws {@link AWSServiceAccessNotEnabledException} (client fault)
- *  <p>The action you attempted is not allowed unless Service Access with Service Quotas is
- *       enabled in your organization.</p>
+ *  <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in
+ *             your organization.</p>
  *
  * @throws {@link DependencyAccessDeniedException} (client fault)
  *  <p>You can't perform this action because a dependency does not have access.</p>
@@ -84,7 +84,7 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
  *  <p>Invalid input was provided.</p>
  *
  * @throws {@link NoAvailableOrganizationException} (client fault)
- *  <p>The account making this call is not a member of an organization.</p>
+ *  <p>The Amazon Web Services account making this call is not a member of an organization.</p>
  *
  * @throws {@link NoSuchResourceException} (client fault)
  *  <p>The specified resource does not exist.</p>
@@ -93,11 +93,11 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
  *  <p>Something went wrong.</p>
  *
  * @throws {@link TemplatesNotAvailableInRegionException} (client fault)
- *  <p>The Service Quotas template is not available in this AWS Region.</p>
+ *  <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
- *       an increase for this quota.</p>
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
+ *             request an increase for this quota.</p>
  *
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>

@@ -37,7 +37,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * @public
  * <p>Removes tags from the specified applied quota. You can specify one or more tags to
- *       remove.</p>
+ *             remove.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +75,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>Something went wrong.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
- *       an increase for this quota.</p>
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
+ *             request an increase for this quota.</p>
  *
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>

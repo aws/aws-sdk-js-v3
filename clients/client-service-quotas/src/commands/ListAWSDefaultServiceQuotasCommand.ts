@@ -38,8 +38,8 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
 
 /**
  * @public
- * <p>Lists the default values for the quotas for the specified AWS service. A default value
- *       does not reflect any quota increases.</p>
+ * <p>Lists the default values for the quotas for the specified Amazon Web Service. A default
+ *             value does not reflect any quota increases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,11 +76,17 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
  * //       },
  * //       Period: { // QuotaPeriod
  * //         PeriodValue: Number("int"),
- * //         PeriodUnit: "STRING_VALUE",
+ * //         PeriodUnit: "MICROSECOND" || "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR" || "DAY" || "WEEK",
  * //       },
  * //       ErrorReason: { // ErrorReason
- * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorCode: "DEPENDENCY_ACCESS_DENIED_ERROR" || "DEPENDENCY_THROTTLING_ERROR" || "DEPENDENCY_SERVICE_ERROR" || "SERVICE_QUOTA_NOT_AVAILABLE_ERROR",
  * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //       QuotaAppliedAtLevel: "ACCOUNT" || "RESOURCE" || "ALL",
+ * //       QuotaContext: { // QuotaContextInfo
+ * //         ContextScope: "RESOURCE" || "ACCOUNT",
+ * //         ContextScopeType: "STRING_VALUE",
+ * //         ContextId: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
@@ -110,8 +116,8 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
  *  <p>Something went wrong.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
- *       an increase for this quota.</p>
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
+ *             request an increase for this quota.</p>
  *
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>

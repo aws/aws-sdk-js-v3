@@ -45,7 +45,7 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
 
 /**
  * @public
- * <p>Retrieves the quota increase requests for the specified service.</p>
+ * <p>Retrieves the quota increase requests for the specified Amazon Web Service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,9 +54,10 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
  * const client = new ServiceQuotasClient(config);
  * const input = { // ListRequestedServiceQuotaChangeHistoryRequest
  *   ServiceCode: "STRING_VALUE",
- *   Status: "STRING_VALUE",
+ *   Status: "PENDING" || "CASE_OPENED" || "APPROVED" || "DENIED" || "CASE_CLOSED" || "NOT_APPROVED" || "INVALID_REQUEST",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   QuotaRequestedAtLevel: "ACCOUNT" || "RESOURCE" || "ALL",
  * };
  * const command = new ListRequestedServiceQuotaChangeHistoryCommand(input);
  * const response = await client.send(command);
@@ -71,13 +72,19 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
  * //       QuotaCode: "STRING_VALUE",
  * //       QuotaName: "STRING_VALUE",
  * //       DesiredValue: Number("double"),
- * //       Status: "STRING_VALUE",
+ * //       Status: "PENDING" || "CASE_OPENED" || "APPROVED" || "DENIED" || "CASE_CLOSED" || "NOT_APPROVED" || "INVALID_REQUEST",
  * //       Created: new Date("TIMESTAMP"),
  * //       LastUpdated: new Date("TIMESTAMP"),
  * //       Requester: "STRING_VALUE",
  * //       QuotaArn: "STRING_VALUE",
  * //       GlobalQuota: true || false,
  * //       Unit: "STRING_VALUE",
+ * //       QuotaRequestedAtLevel: "ACCOUNT" || "RESOURCE" || "ALL",
+ * //       QuotaContext: { // QuotaContextInfo
+ * //         ContextScope: "RESOURCE" || "ACCOUNT",
+ * //         ContextScopeType: "STRING_VALUE",
+ * //         ContextId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -106,8 +113,8 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
  *  <p>Something went wrong.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
- *       an increase for this quota.</p>
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
+ *             request an increase for this quota.</p>
  *
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>

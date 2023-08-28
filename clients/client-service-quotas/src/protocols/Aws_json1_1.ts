@@ -1917,6 +1917,7 @@ const se_RequestServiceQuotaIncreaseRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
+    ContextId: [],
     DesiredValue: __serializeFloat,
     QuotaCode: [],
     ServiceCode: [],
@@ -2086,6 +2087,8 @@ const de_PutServiceQuotaIncreaseRequestIntoTemplateResponse = (
   }) as any;
 };
 
+// de_QuotaContextInfo omitted.
+
 // de_QuotaExceededException omitted.
 
 // de_QuotaPeriod omitted.
@@ -2103,7 +2106,9 @@ const de_RequestedServiceQuotaChange = (output: any, context: __SerdeContext): R
     LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     QuotaArn: __expectString,
     QuotaCode: __expectString,
+    QuotaContext: _json,
     QuotaName: __expectString,
+    QuotaRequestedAtLevel: __expectString,
     Requester: __expectString,
     ServiceCode: __expectString,
     ServiceName: __expectString,
@@ -2156,8 +2161,10 @@ const de_ServiceQuota = (output: any, context: __SerdeContext): ServiceQuota => 
     ErrorReason: _json,
     GlobalQuota: __expectBoolean,
     Period: _json,
+    QuotaAppliedAtLevel: __expectString,
     QuotaArn: __expectString,
     QuotaCode: __expectString,
+    QuotaContext: _json,
     QuotaName: __expectString,
     ServiceCode: __expectString,
     ServiceName: __expectString,

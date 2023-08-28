@@ -49,6 +49,7 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  *   ServiceCode: "STRING_VALUE", // required
  *   QuotaCode: "STRING_VALUE", // required
  *   DesiredValue: Number("double"), // required
+ *   ContextId: "STRING_VALUE",
  * };
  * const command = new RequestServiceQuotaIncreaseCommand(input);
  * const response = await client.send(command);
@@ -61,13 +62,19 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  * //     QuotaCode: "STRING_VALUE",
  * //     QuotaName: "STRING_VALUE",
  * //     DesiredValue: Number("double"),
- * //     Status: "STRING_VALUE",
+ * //     Status: "PENDING" || "CASE_OPENED" || "APPROVED" || "DENIED" || "CASE_CLOSED" || "NOT_APPROVED" || "INVALID_REQUEST",
  * //     Created: new Date("TIMESTAMP"),
  * //     LastUpdated: new Date("TIMESTAMP"),
  * //     Requester: "STRING_VALUE",
  * //     QuotaArn: "STRING_VALUE",
  * //     GlobalQuota: true || false,
  * //     Unit: "STRING_VALUE",
+ * //     QuotaRequestedAtLevel: "ACCOUNT" || "RESOURCE" || "ALL",
+ * //     QuotaContext: { // QuotaContextInfo
+ * //       ContextScope: "RESOURCE" || "ACCOUNT",
+ * //       ContextScopeType: "STRING_VALUE",
+ * //       ContextId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -95,8 +102,8 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  *  <p>The specified resource does not exist.</p>
  *
  * @throws {@link QuotaExceededException} (client fault)
- *  <p>You have exceeded your service quota. To perform the requested action, remove some of the
- *       relevant resources, or use Service Quotas to request a service quota increase.</p>
+ *  <p>You have exceeded your service quota. To perform the requested action, remove some of
+ *             the relevant resources, or use Service Quotas to request a service quota increase.</p>
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The specified resource already exists.</p>
@@ -105,8 +112,8 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  *  <p>Something went wrong.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
- *       an increase for this quota.</p>
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
+ *             request an increase for this quota.</p>
  *
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
