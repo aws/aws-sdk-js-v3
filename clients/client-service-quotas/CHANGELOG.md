@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.401.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.400.0...v3.401.0) (2023-08-28)
+
+
+### Features
+
+* **client-service-quotas:** Service Quotas now supports viewing the applied quota value and requesting a quota increase for a specific resource in an AWS account. ([e7be2e1](https://github.com/aws/aws-sdk-js-v3/commit/e7be2e1a6325c076451e939e728ab6817b197efd))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-service-quotas

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.401.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.400.0...v3.401.0) (2023-08-28)
+
+
+### Features
+
+* **client-backup:** Add support for customizing time zone for backup window in backup plan rules. ([34df526](https://github.com/aws/aws-sdk-js-v3/commit/34df526c2e5464bfb0f3230fb4d6934cafc897cf))
+* **client-compute-optimizer:** This release enables AWS Compute Optimizer to analyze and generate licensing optimization recommendations for sql server running on EC2 instances. ([3a26fc7](https://github.com/aws/aws-sdk-js-v3/commit/3a26fc745250932894b8536c8f4787e7c90d79ed))
+* **client-securitylake:** Remove incorrect regex enforcement on pagination tokens. ([8ba2567](https://github.com/aws/aws-sdk-js-v3/commit/8ba2567eff2b9934a8497f693f798758ad258228))
+* **client-service-quotas:** Service Quotas now supports viewing the applied quota value and requesting a quota increase for a specific resource in an AWS account. ([e7be2e1](https://github.com/aws/aws-sdk-js-v3/commit/e7be2e1a6325c076451e939e728ab6817b197efd))
+* **client-workspaces-web:** WorkSpaces Web now enables Admins to configure which cookies are synchronized from an end-user's local browser to the in-session browser. In conjunction with a browser extension, this feature enables enhanced Single-Sign On capability by reducing the number of times an end-user has to authenticate. ([d76f6fc](https://github.com/aws/aws-sdk-js-v3/commit/d76f6fce50501ab065a12c10e63a4000ecb861be))
+* **clients:** update client endpoints as of 2023-08-28 ([f457008](https://github.com/aws/aws-sdk-js-v3/commit/f4570083e9a2e1bb9c330596f289350d809372ae))
+
+
+
+
+
 # [3.400.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.399.0...v3.400.0) (2023-08-25)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.401.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.400.0...v3.401.0) (2023-08-28)
+
+
+### Features
+
+* **client-backup:** Add support for customizing time zone for backup window in backup plan rules. ([34df526](https://github.com/aws/aws-sdk-js-v3/commit/34df526c2e5464bfb0f3230fb4d6934cafc897cf))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-backup
