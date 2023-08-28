@@ -44,9 +44,8 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *             that can restrict the services and actions that can be called in each account. Until you
  *             enable all features, you have access only to consolidated billing, and you can't use any
  *             of the advanced account administration features that Organizations supports. For more
- *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features in Your Organization</a> in the
- *                 <i>Organizations User Guide.</i>
- *          </p>
+ *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling all features in your organization</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  *          <important>
  *             <p>This operation is required only for organizations that were created explicitly
  *                 with only the consolidated billing features enabled. Calling this operation sends a
@@ -117,8 +116,7 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *  <p>You don't have permissions to perform the requested operation. The user or role that
  *             is making the request must have at least one IAM permissions policy attached that
  *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- *                 <i>IAM User Guide.</i>
- *          </p>
+ *                 <i>IAM User Guide</i>.</p>
  *
  * @throws {@link AWSOrganizationsNotInUseException} (client fault)
  *  <p>Your account isn't a member of an organization. To make this request, you must use the
@@ -143,7 +141,8 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *                <important>
  *                   <p>If you get this exception immediately after creating the organization,
  *                         wait one hour and try again. If after an hour it continues to fail with this
- *                         error, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
+ *                         error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services
+ *                             Support</a>.</p>
  *                </important>
  *             </li>
  *             <li>
@@ -298,9 +297,8 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>You have sent too many requests in too short a period of time. The quota helps protect
  *             against denial-of-service attacks. Try again later.</p>
- *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a>in the
- *                 <i>Organizations User Guide.</i>
- *          </p>
+ *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  *
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>

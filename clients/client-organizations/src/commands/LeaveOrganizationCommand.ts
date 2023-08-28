@@ -70,10 +70,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                   </ul>
  *                   <p>Amazon Web Services uses the payment method to charge for any billable (not free tier)
  *                         Amazon Web Services activity that occurs while the account isn't attached to an
- *                         organization. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info"> To leave an organization when all required account information has not
- *                             yet been provided</a> in the
- *                         <i>Organizations User Guide.</i>
- *                   </p>
+ *                         organization. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations before removing an account from an organization</a>
+ *                         in the <i>Organizations User Guide</i>.</p>
  *                </li>
  *                <li>
  *                   <p>The account that you want to leave must not be a delegated administrator
@@ -84,9 +82,9 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                </li>
  *                <li>
  *                   <p>You can leave an organization only after you enable IAM user access to
- *                         billing in your account. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating Access to the Billing and Cost Management Console</a> in the
- *                             <i>Amazon Web Services Billing and Cost Management User Guide.</i>
- *                   </p>
+ *                         billing in your account. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">About IAM
+ *                             access to the Billing and Cost Management console</a> in the
+ *                             <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
  *                </li>
  *                <li>
  *                   <p>After the account leaves the organization, all tags that were attached to
@@ -97,6 +95,11 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                   <p>A newly created account has a waiting period before it can be removed from
  *                         its organization. If you get an error that indicates that a wait period is
  *                         required, then try again in a few days.</p>
+ *                </li>
+ *                <li>
+ *                   <p>If you are using an organization principal to call
+ *                             <code>LeaveOrganization</code> across multiple accounts, you can only do
+ *                         this up to 5 accounts per second in a single organization.</p>
  *                </li>
  *             </ul>
  *          </important>
@@ -123,8 +126,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *  <p>You don't have permissions to perform the requested operation. The user or role that
  *             is making the request must have at least one IAM permissions policy attached that
  *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- *                 <i>IAM User Guide.</i>
- *          </p>
+ *                 <i>IAM User Guide</i>.</p>
  *
  * @throws {@link AccountNotFoundException} (client fault)
  *  <p> We can't find an Amazon Web Services account with the <code>AccountId</code> that you specified, or
@@ -160,19 +162,20 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     account from the organization that doesn't yet have enough information to exist
  *                     as a standalone account. This account requires you to first complete phone
  *                     verification. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#orgs_manage_accounts_remove-from-master">Removing a member account from your organization</a> in the
- *                         <i>Organizations User Guide.</i>
- *                </p>
+ *                         <i>Organizations User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
  *                     accounts that you can create in one day.</p>
  *             </li>
  *             <li>
- *                <p>ACCOUNT_CREATION_NOT_COMPLETE: Your account setup isn't complete or your account isn't fully active. You must complete the account setup before you create an organization.</p>
+ *                <p>ACCOUNT_CREATION_NOT_COMPLETE: Your account setup isn't complete or your
+ *                     account isn't fully active. You must complete the account setup before you
+ *                     create an organization.</p>
  *             </li>
  *             <li>
  *                <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
- *                     of accounts in an organization. If you need more accounts, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services Support</a> to
+ *                     of accounts in an organization. If you need more accounts, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a> to
  *                     request an increase in your limit. </p>
  *                <p>Or the number of invitations that you tried to send would cause you to exceed
  *                     the limit of accounts in your organization. Send fewer invitations or contact
@@ -183,9 +186,12 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                <important>
  *                   <p>If you get this exception when running a command immediately after
  *                         creating the organization, wait one hour and try again. After an hour, if
- *                         the command continues to fail with this error, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services
- *                         Support</a>.</p>
+ *                         the command continues to fail with this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </important>
+ *             </li>
+ *             <li>
+ *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
+ *                     register a suspended account as a delegated administrator.</p>
  *             </li>
  *             <li>
  *                <p>CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register
@@ -262,15 +268,13 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     management account must have an associated account in the Amazon Web Services GovCloud
  *                     (US-West) Region. For more information, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">Organizations</a>
  *                     in the
- *                     <i>Amazon Web Services GovCloud User Guide.</i>
- *                </p>
+ *                     <i>Amazon Web Services GovCloud User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with
  *                     this management account, you first must associate a valid payment instrument,
- *                     such as a credit card, with the account. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet
- *                         been provided</a> in the <i>Organizations User Guide.</i>
- *                </p>
+ *                     such as a credit card, with the account. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations before removing an account from an organization</a> in
+ *                     the <i>Organizations User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>MAX_DELEGATED_ADMINISTRATORS_FOR_SERVICE_LIMIT_EXCEEDED: You attempted to
@@ -289,9 +293,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *             <li>
  *                <p>MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To complete this operation with
  *                     this member account, you first must associate a valid payment instrument, such
- *                     as a credit card, with the account. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet
- *                         been provided</a> in the <i>Organizations User Guide.</i>
- *                </p>
+ *                     as a credit card, with the account. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations before removing an account from an organization</a> in
+ *                     the <i>Organizations User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: You attempted to detach a policy
@@ -452,9 +455,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>You have sent too many requests in too short a period of time. The quota helps protect
  *             against denial-of-service attacks. Try again later.</p>
- *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a>in the
- *                 <i>Organizations User Guide.</i>
- *          </p>
+ *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  *
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
