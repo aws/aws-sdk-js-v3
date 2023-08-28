@@ -272,6 +272,14 @@ ExportLambdaFunctionRecommendations
 </details>
 <details>
 <summary>
+ExportLicenseRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/exportlicenserecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportlicenserecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportlicenserecommendationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetAutoScalingGroupRecommendations
 </summary>
 
@@ -348,6 +356,14 @@ GetLambdaFunctionRecommendations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getlambdafunctionrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getlambdafunctionrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getlambdafunctionrecommendationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetLicenseRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getlicenserecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getlicenserecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getlicenserecommendationscommandoutput.html)
 
 </details>
 <details>

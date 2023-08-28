@@ -38,6 +38,11 @@ import {
   ExportLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/ExportLambdaFunctionRecommendationsCommand";
 import {
+  ExportLicenseRecommendationsCommand,
+  ExportLicenseRecommendationsCommandInput,
+  ExportLicenseRecommendationsCommandOutput,
+} from "./commands/ExportLicenseRecommendationsCommand";
+import {
   GetAutoScalingGroupRecommendationsCommand,
   GetAutoScalingGroupRecommendationsCommandInput,
   GetAutoScalingGroupRecommendationsCommandOutput,
@@ -88,6 +93,11 @@ import {
   GetLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/GetLambdaFunctionRecommendationsCommand";
 import {
+  GetLicenseRecommendationsCommand,
+  GetLicenseRecommendationsCommandInput,
+  GetLicenseRecommendationsCommandOutput,
+} from "./commands/GetLicenseRecommendationsCommand";
+import {
   GetRecommendationPreferencesCommand,
   GetRecommendationPreferencesCommandInput,
   GetRecommendationPreferencesCommandOutput,
@@ -117,6 +127,7 @@ const commands = {
   ExportEC2InstanceRecommendationsCommand,
   ExportECSServiceRecommendationsCommand,
   ExportLambdaFunctionRecommendationsCommand,
+  ExportLicenseRecommendationsCommand,
   GetAutoScalingGroupRecommendationsCommand,
   GetEBSVolumeRecommendationsCommand,
   GetEC2InstanceRecommendationsCommand,
@@ -127,6 +138,7 @@ const commands = {
   GetEnrollmentStatusCommand,
   GetEnrollmentStatusesForOrganizationCommand,
   GetLambdaFunctionRecommendationsCommand,
+  GetLicenseRecommendationsCommand,
   GetRecommendationPreferencesCommand,
   GetRecommendationSummariesCommand,
   PutRecommendationPreferencesCommand,
@@ -251,6 +263,23 @@ export interface ComputeOptimizer {
     args: ExportLambdaFunctionRecommendationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ExportLambdaFunctionRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExportLicenseRecommendationsCommand}
+   */
+  exportLicenseRecommendations(
+    args: ExportLicenseRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportLicenseRecommendationsCommandOutput>;
+  exportLicenseRecommendations(
+    args: ExportLicenseRecommendationsCommandInput,
+    cb: (err: any, data?: ExportLicenseRecommendationsCommandOutput) => void
+  ): void;
+  exportLicenseRecommendations(
+    args: ExportLicenseRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportLicenseRecommendationsCommandOutput) => void
   ): void;
 
   /**
@@ -421,6 +450,23 @@ export interface ComputeOptimizer {
     args: GetLambdaFunctionRecommendationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLambdaFunctionRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLicenseRecommendationsCommand}
+   */
+  getLicenseRecommendations(
+    args: GetLicenseRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLicenseRecommendationsCommandOutput>;
+  getLicenseRecommendations(
+    args: GetLicenseRecommendationsCommandInput,
+    cb: (err: any, data?: GetLicenseRecommendationsCommandOutput) => void
+  ): void;
+  getLicenseRecommendations(
+    args: GetLicenseRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLicenseRecommendationsCommandOutput) => void
   ): void;
 
   /**

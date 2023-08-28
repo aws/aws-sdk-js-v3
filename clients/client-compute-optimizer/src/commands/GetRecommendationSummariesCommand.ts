@@ -92,7 +92,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * //           ],
  * //         },
  * //       ],
- * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService",
+ * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License",
  * //       accountId: "STRING_VALUE",
  * //       savingsOpportunity: { // SavingsOpportunity
  * //         savingsOpportunityPercentage: Number("double"),

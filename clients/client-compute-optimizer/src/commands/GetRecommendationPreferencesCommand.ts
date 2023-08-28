@@ -56,7 +56,7 @@ export interface GetRecommendationPreferencesCommandOutput
  * // const { ComputeOptimizerClient, GetRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetRecommendationPreferencesRequest
- *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService", // required
+ *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License", // required
  *   scope: { // Scope
  *     name: "Organization" || "AccountId" || "ResourceArn",
  *     value: "STRING_VALUE",
@@ -74,7 +74,7 @@ export interface GetRecommendationPreferencesCommandOutput
  * //         name: "Organization" || "AccountId" || "ResourceArn",
  * //         value: "STRING_VALUE",
  * //       },
- * //       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService",
+ * //       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License",
  * //       enhancedInfrastructureMetrics: "Active" || "Inactive",
  * //       inferredWorkloadTypes: "Active" || "Inactive",
  * //       externalMetricsPreference: { // ExternalMetricsPreference

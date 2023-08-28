@@ -79,6 +79,10 @@ import {
   ExportLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/ExportLambdaFunctionRecommendationsCommand";
 import {
+  ExportLicenseRecommendationsCommandInput,
+  ExportLicenseRecommendationsCommandOutput,
+} from "./commands/ExportLicenseRecommendationsCommand";
+import {
   GetAutoScalingGroupRecommendationsCommandInput,
   GetAutoScalingGroupRecommendationsCommandOutput,
 } from "./commands/GetAutoScalingGroupRecommendationsCommand";
@@ -119,6 +123,10 @@ import {
   GetLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/GetLambdaFunctionRecommendationsCommand";
 import {
+  GetLicenseRecommendationsCommandInput,
+  GetLicenseRecommendationsCommandOutput,
+} from "./commands/GetLicenseRecommendationsCommand";
+import {
   GetRecommendationPreferencesCommandInput,
   GetRecommendationPreferencesCommandOutput,
 } from "./commands/GetRecommendationPreferencesCommand";
@@ -156,6 +164,7 @@ export type ServiceInputTypes =
   | ExportEC2InstanceRecommendationsCommandInput
   | ExportECSServiceRecommendationsCommandInput
   | ExportLambdaFunctionRecommendationsCommandInput
+  | ExportLicenseRecommendationsCommandInput
   | GetAutoScalingGroupRecommendationsCommandInput
   | GetEBSVolumeRecommendationsCommandInput
   | GetEC2InstanceRecommendationsCommandInput
@@ -166,6 +175,7 @@ export type ServiceInputTypes =
   | GetEnrollmentStatusCommandInput
   | GetEnrollmentStatusesForOrganizationCommandInput
   | GetLambdaFunctionRecommendationsCommandInput
+  | GetLicenseRecommendationsCommandInput
   | GetRecommendationPreferencesCommandInput
   | GetRecommendationSummariesCommandInput
   | PutRecommendationPreferencesCommandInput
@@ -182,6 +192,7 @@ export type ServiceOutputTypes =
   | ExportEC2InstanceRecommendationsCommandOutput
   | ExportECSServiceRecommendationsCommandOutput
   | ExportLambdaFunctionRecommendationsCommandOutput
+  | ExportLicenseRecommendationsCommandOutput
   | GetAutoScalingGroupRecommendationsCommandOutput
   | GetEBSVolumeRecommendationsCommandOutput
   | GetEC2InstanceRecommendationsCommandOutput
@@ -192,6 +203,7 @@ export type ServiceOutputTypes =
   | GetEnrollmentStatusCommandOutput
   | GetEnrollmentStatusesForOrganizationCommandOutput
   | GetLambdaFunctionRecommendationsCommandOutput
+  | GetLicenseRecommendationsCommandOutput
   | GetRecommendationPreferencesCommandOutput
   | GetRecommendationSummariesCommandOutput
   | PutRecommendationPreferencesCommandOutput

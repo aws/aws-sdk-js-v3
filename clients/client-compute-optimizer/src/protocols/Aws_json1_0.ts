@@ -51,6 +51,10 @@ import {
   ExportLambdaFunctionRecommendationsCommandOutput,
 } from "../commands/ExportLambdaFunctionRecommendationsCommand";
 import {
+  ExportLicenseRecommendationsCommandInput,
+  ExportLicenseRecommendationsCommandOutput,
+} from "../commands/ExportLicenseRecommendationsCommand";
+import {
   GetAutoScalingGroupRecommendationsCommandInput,
   GetAutoScalingGroupRecommendationsCommandOutput,
 } from "../commands/GetAutoScalingGroupRecommendationsCommand";
@@ -90,6 +94,10 @@ import {
   GetLambdaFunctionRecommendationsCommandInput,
   GetLambdaFunctionRecommendationsCommandOutput,
 } from "../commands/GetLambdaFunctionRecommendationsCommand";
+import {
+  GetLicenseRecommendationsCommandInput,
+  GetLicenseRecommendationsCommandOutput,
+} from "../commands/GetLicenseRecommendationsCommand";
 import {
   GetRecommendationPreferencesCommandInput,
   GetRecommendationPreferencesCommandOutput,
@@ -131,12 +139,14 @@ import {
   ExportableECSServiceField,
   ExportableInstanceField,
   ExportableLambdaFunctionField,
+  ExportableLicenseField,
   ExportableVolumeField,
   ExportAutoScalingGroupRecommendationsRequest,
   ExportEBSVolumeRecommendationsRequest,
   ExportEC2InstanceRecommendationsRequest,
   ExportECSServiceRecommendationsRequest,
   ExportLambdaFunctionRecommendationsRequest,
+  ExportLicenseRecommendationsRequest,
   ExternalMetricsPreference,
   Filter,
   GetAutoScalingGroupRecommendationsRequest,
@@ -158,6 +168,8 @@ import {
   GetEnrollmentStatusResponse,
   GetLambdaFunctionRecommendationsRequest,
   GetLambdaFunctionRecommendationsResponse,
+  GetLicenseRecommendationsRequest,
+  GetLicenseRecommendationsResponse,
   GetRecommendationPreferencesRequest,
   GetRecommendationSummariesRequest,
   GetRecommendationSummariesResponse,
@@ -172,6 +184,9 @@ import {
   LambdaFunctionRecommendation,
   LambdaFunctionRecommendationFilter,
   LambdaFunctionUtilizationMetric,
+  LicenseRecommendation,
+  LicenseRecommendationFilter,
+  LicenseRecommendationOption,
   LimitExceededException,
   MissingAuthenticationToken,
   OptInRequiredException,
@@ -282,6 +297,19 @@ export const se_ExportLambdaFunctionRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExportLambdaFunctionRecommendations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ExportLicenseRecommendationsCommand
+ */
+export const se_ExportLicenseRecommendationsCommand = async (
+  input: ExportLicenseRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ExportLicenseRecommendations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -412,6 +440,19 @@ export const se_GetLambdaFunctionRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLambdaFunctionRecommendations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetLicenseRecommendationsCommand
+ */
+export const se_GetLicenseRecommendationsCommand = async (
+  input: GetLicenseRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetLicenseRecommendations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -898,6 +939,73 @@ const de_ExportLambdaFunctionRecommendationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportLambdaFunctionRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.computeoptimizer#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.computeoptimizer#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.computeoptimizer#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "MissingAuthenticationToken":
+    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
+      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
+    case "OptInRequiredException":
+    case "com.amazonaws.computeoptimizer#OptInRequiredException":
+      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.computeoptimizer#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0ExportLicenseRecommendationsCommand
+ */
+export const de_ExportLicenseRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportLicenseRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ExportLicenseRecommendationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ExportLicenseRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ExportLicenseRecommendationsCommandError
+ */
+const de_ExportLicenseRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportLicenseRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1597,6 +1705,73 @@ const de_GetLambdaFunctionRecommendationsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0GetLicenseRecommendationsCommand
+ */
+export const de_GetLicenseRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLicenseRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetLicenseRecommendationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetLicenseRecommendationsResponse(data, context);
+  const response: GetLicenseRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetLicenseRecommendationsCommandError
+ */
+const de_GetLicenseRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLicenseRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.computeoptimizer#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.computeoptimizer#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingAuthenticationToken":
+    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
+      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
+    case "OptInRequiredException":
+    case "com.amazonaws.computeoptimizer#OptInRequiredException":
+      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.computeoptimizer#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0GetRecommendationPreferencesCommand
  */
 export const de_GetRecommendationPreferencesCommand = async (
@@ -2026,6 +2201,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ExportableLambdaFunctionFields omitted.
 
+// se_ExportableLicenseFields omitted.
+
 // se_ExportableVolumeFields omitted.
 
 // se_ExportAutoScalingGroupRecommendationsRequest omitted.
@@ -2037,6 +2214,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ExportECSServiceRecommendationsRequest omitted.
 
 // se_ExportLambdaFunctionRecommendationsRequest omitted.
+
+// se_ExportLicenseRecommendationsRequest omitted.
 
 // se_ExternalMetricsPreference omitted.
 
@@ -2097,6 +2276,8 @@ const se_GetECSServiceRecommendationProjectedMetricsRequest = (
 
 // se_GetLambdaFunctionRecommendationsRequest omitted.
 
+// se_GetLicenseRecommendationsRequest omitted.
+
 // se_GetRecommendationPreferencesRequest omitted.
 
 // se_GetRecommendationSummariesRequest omitted.
@@ -2113,11 +2294,17 @@ const se_GetECSServiceRecommendationProjectedMetricsRequest = (
 
 // se_LambdaFunctionRecommendationFilters omitted.
 
+// se_LicenseRecommendationFilter omitted.
+
+// se_LicenseRecommendationFilters omitted.
+
 // se_PutRecommendationPreferencesRequest omitted.
 
 // se_RecommendationPreferenceNames omitted.
 
 // se_RecommendationPreferences omitted.
+
+// se_ResourceArns omitted.
 
 // se_S3DestinationConfig omitted.
 
@@ -2460,6 +2647,8 @@ const de_EstimatedMonthlySavings = (output: any, context: __SerdeContext): Estim
 
 // de_ExportLambdaFunctionRecommendationsResponse omitted.
 
+// de_ExportLicenseRecommendationsResponse omitted.
+
 // de_ExternalMetricsPreference omitted.
 
 // de_ExternalMetricStatus omitted.
@@ -2581,6 +2770,20 @@ const de_GetLambdaFunctionRecommendationsResponse = (
 ): GetLambdaFunctionRecommendationsResponse => {
   return take(output, {
     lambdaFunctionRecommendations: (_: any) => de_LambdaFunctionRecommendations(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0GetLicenseRecommendationsResponse
+ */
+const de_GetLicenseRecommendationsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetLicenseRecommendationsResponse => {
+  return take(output, {
+    errors: _json,
+    licenseRecommendations: (_: any) => de_LicenseRecommendations(_, context),
     nextToken: __expectString,
   }) as any;
 };
@@ -2806,9 +3009,71 @@ const de_LambdaFunctionUtilizationMetrics = (
   return retVal;
 };
 
+// de_LicenseConfiguration omitted.
+
+// de_LicenseFindingReasonCodes omitted.
+
+/**
+ * deserializeAws_json1_0LicenseRecommendation
+ */
+const de_LicenseRecommendation = (output: any, context: __SerdeContext): LicenseRecommendation => {
+  return take(output, {
+    accountId: __expectString,
+    currentLicenseConfiguration: _json,
+    finding: __expectString,
+    findingReasonCodes: _json,
+    lastRefreshTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    licenseRecommendationOptions: (_: any) => de_LicenseRecommendationOptions(_, context),
+    lookbackPeriodInDays: __limitedParseDouble,
+    resourceArn: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0LicenseRecommendationOption
+ */
+const de_LicenseRecommendationOption = (output: any, context: __SerdeContext): LicenseRecommendationOption => {
+  return take(output, {
+    licenseEdition: __expectString,
+    licenseModel: __expectString,
+    operatingSystem: __expectString,
+    rank: __expectInt32,
+    savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0LicenseRecommendationOptions
+ */
+const de_LicenseRecommendationOptions = (output: any, context: __SerdeContext): LicenseRecommendationOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LicenseRecommendationOption(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0LicenseRecommendations
+ */
+const de_LicenseRecommendations = (output: any, context: __SerdeContext): LicenseRecommendation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LicenseRecommendation(entry, context);
+    });
+  return retVal;
+};
+
 // de_LimitExceededException omitted.
 
 // de_MemorySizeConfiguration omitted.
+
+// de_MetricSource omitted.
+
+// de_MetricsSource omitted.
 
 /**
  * deserializeAws_json1_0MetricValues

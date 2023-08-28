@@ -830,6 +830,7 @@ export const ResourceType = {
   EC2_INSTANCE: "Ec2Instance",
   ECS_SERVICE: "EcsService",
   LAMBDA_FUNCTION: "LambdaFunction",
+  LICENSE: "License",
   NOT_APPLICABLE: "NotApplicable",
 } as const;
 
@@ -2577,6 +2578,200 @@ export interface ExportLambdaFunctionRecommendationsResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ExportableLicenseField = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_LICENSE_CONFIGURATION_INSTANCE_TYPE: "CurrentLicenseConfigurationInstanceType",
+  CURRENT_LICENSE_CONFIGURATION_LICENSE_EDITION: "CurrentLicenseConfigurationLicenseEdition",
+  CURRENT_LICENSE_CONFIGURATION_LICENSE_MODEL: "CurrentLicenseConfigurationLicenseModel",
+  CURRENT_LICENSE_CONFIGURATION_LICENSE_NAME: "CurrentLicenseConfigurationLicenseName",
+  CURRENT_LICENSE_CONFIGURATION_LICENSE_VERSION: "CurrentLicenseConfigurationLicenseVersion",
+  CURRENT_LICENSE_CONFIGURATION_METRICS_SOURCE: "CurrentLicenseConfigurationMetricsSource",
+  CURRENT_LICENSE_CONFIGURATION_NUMBER_OF_CORES: "CurrentLicenseConfigurationNumberOfCores",
+  CURRENT_LICENSE_CONFIGURATION_OPERATING_SYSTEM: "CurrentLicenseConfigurationOperatingSystem",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LICENSE_FINDING: "Finding",
+  LICENSE_FINDING_REASON_CODES: "FindingReasonCodes",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_LICENSE_EDITION: "RecommendationOptionsLicenseEdition",
+  RECOMMENDATION_OPTIONS_LICENSE_MODEL: "RecommendationOptionsLicenseModel",
+  RECOMMENDATION_OPTIONS_OPERATING_SYSTEM: "RecommendationOptionsOperatingSystem",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  RESOURCE_ARN: "ResourceArn",
+  TAGS: "Tags",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportableLicenseField = (typeof ExportableLicenseField)[keyof typeof ExportableLicenseField];
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseRecommendationFilterName = {
+  LICENSE_FINDING: "Finding",
+  LICENSE_FINDING_REASON_CODE: "FindingReasonCode",
+  LICENSE_NAME: "LicenseName",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseRecommendationFilterName =
+  (typeof LicenseRecommendationFilterName)[keyof typeof LicenseRecommendationFilterName];
+
+/**
+ * @public
+ * <p>
+ *             Describes a filter that returns a more specific list of license recommendations. Use this filter
+ *             with the <code>GetLicenseRecommendation</code> action.
+ *         </p>
+ */
+export interface LicenseRecommendationFilter {
+  /**
+   * @public
+   * <p>The name of the filter.</p>
+   *          <p>Specify <code>Finding</code> to return recommendations with a specific finding
+   *             classification.</p>
+   *          <p>Specify <code>FindingReasonCode</code> to return recommendations with a specific
+   *             finding reason code.</p>
+   *          <p>You can filter your license recommendations by <code>tag:key</code>
+   *             and <code>tag-key</code> tags.</p>
+   *          <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your
+   *             license recommendations. Use the tag key in the filter name and the tag value
+   *             as the filter value. For example, to find all license recommendations that have
+   *             a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>,
+   *             specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *          <p>A <code>tag-key</code> is the key of a tag assigned to your license recommendations. Use
+   *             this filter to find all of your license recommendations that have a tag with a
+   *             specific key. This doesn’t consider the tag value. For example, you can find
+   *             your license recommendations with a tag key value of <code>Owner</code> or without any tag
+   *             keys assigned.</p>
+   */
+  name?: LicenseRecommendationFilterName | string;
+
+  /**
+   * @public
+   * <p>The value of the filter.</p>
+   *          <p>The valid values for this parameter are as follows, depending on what you specify for
+   *             the <code>name</code> parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify the <code>name</code> parameter as
+   *                     <code>Finding</code>, then specify <code>Optimized</code>, <code>NotOptimized</code>, or
+   *                     <code>InsufficentMetrics</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify the <code>name</code> parameter as
+   *                     <code>FindingReasonCode</code>, then specify <code>Optimized</code>,
+   *                     <code>LicenseOverprovisioned</code>, <code>InvalidCloudwatchApplicationInsights</code>, or
+   *                     <code>CloudwatchApplicationInsightsError</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  values?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ExportLicenseRecommendationsRequest {
+  /**
+   * @public
+   * <p>The IDs of the Amazon Web Services accounts for which to export license
+   *             recommendations.</p>
+   *          <p>If your account is the management account of an organization, use this parameter to
+   *             specify the member account for which you want to export recommendations.</p>
+   *          <p>This parameter can't be specified together with the include member accounts
+   *             parameter. The parameters are mutually exclusive.</p>
+   *          <p>If this parameter is omitted, recommendations
+   *             for member accounts aren't included in the export.</p>
+   *          <p>You can specify multiple account IDs per request.</p>
+   */
+  accountIds?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             An array of objects to specify a filter that exports a more specific set of license recommendations.
+   *         </p>
+   */
+  filters?: LicenseRecommendationFilter[];
+
+  /**
+   * @public
+   * <p>The recommendations data to include in the export file. For more information about the
+   *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
+   *                     Guide</i>.</p>
+   */
+  fieldsToExport?: (ExportableLicenseField | string)[];
+
+  /**
+   * @public
+   * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
+   *             key prefix for a recommendations export job.</p>
+   *          <p>You must create the destination Amazon S3 bucket for your recommendations
+   *             export before you create the export job. Compute Optimizer does not create the S3 bucket
+   *             for you. After you create the S3 bucket, ensure that it has the required permission
+   *             policy to allow Compute Optimizer to write the export file to it. If you plan to specify
+   *             an object prefix when you create the export job, you must include the object prefix in
+   *             the policy that you add to the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the
+   *                     <i>Compute Optimizer User Guide</i>.</p>
+   */
+  s3DestinationConfig: S3DestinationConfig | undefined;
+
+  /**
+   * @public
+   * <p>The format of the export file.</p>
+   *          <p>A CSV file is the only export format currently supported.</p>
+   */
+  fileFormat?: FileFormat | string;
+
+  /**
+   * @public
+   * <p>Indicates whether to include recommendations for resources in all member accounts of
+   *             the organization if your account is the management account of an organization.</p>
+   *          <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for
+   *             Compute Optimizer must be enabled in the organization account. For more information,
+   *             see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the
+   *             <i>Compute Optimizer User Guide</i>.</p>
+   *          <p>If this parameter is omitted, recommendations for member accounts of the organization
+   *             aren't included in the export file .</p>
+   *          <p>This parameter cannot be specified together with the account IDs parameter. The
+   *             parameters are mutually exclusive.</p>
+   */
+  includeMemberAccounts?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ExportLicenseRecommendationsResponse {
+  /**
+   * @public
+   * <p>
+   *             The identification number of the export job.
+   *         </p>
+   *          <p>To view the status of an export job, use the <a>DescribeRecommendationExportJobs</a>
+   *             action and specify the job ID.</p>
+   */
+  jobId?: string;
+
+  /**
+   * @public
+   * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
+   *             object keys of a recommendations export file, and its associated metadata file.</p>
+   */
+  s3Destination?: S3Destination;
+}
+
+/**
+ * @public
  */
 export interface GetAutoScalingGroupRecommendationsRequest {
   /**
@@ -3406,6 +3601,7 @@ export const RecommendationSourceType = {
   EC2_INSTANCE: "Ec2Instance",
   ECS_SERVICE: "EcsService",
   LAMBDA_FUNCTION: "LambdaFunction",
+  LICENSE: "License",
 } as const;
 
 /**
@@ -5464,6 +5660,460 @@ export interface GetLambdaFunctionRecommendationsResponse {
    * <p>An array of objects that describe function recommendations.</p>
    */
   lambdaFunctionRecommendations?: LambdaFunctionRecommendation[];
+}
+
+/**
+ * @public
+ */
+export interface GetLicenseRecommendationsRequest {
+  /**
+   * @public
+   * <p>
+   *             The ARN that identifies the Amazon EC2 instance.
+   *         </p>
+   *          <p>
+   *             The following is the format of the ARN:
+   *         </p>
+   *          <p>
+   *             <code>arn:aws:ec2:region:aws_account_id:instance/instance-id</code>
+   *          </p>
+   */
+  resourceArns?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             The token to advance to the next page of license recommendations.
+   *         </p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of license recommendations to return with a single request.
+   *         </p>
+   *          <p>
+   *             To retrieve the remaining results, make another request with the returned
+   *             <code>nextToken</code> value.
+   *         </p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>
+   *             An array of objects to specify a filter that returns a more specific list of license recommendations.
+   *         </p>
+   */
+  filters?: LicenseRecommendationFilter[];
+
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account for which to return license recommendations.</p>
+   *          <p>If your account is the management account of an organization, use this parameter to
+   *             specify the member account for which you want to return license recommendations.</p>
+   *          <p>Only one account ID can be specified per request.</p>
+   */
+  accountIds?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseEdition = {
+  ENTERPRISE: "Enterprise",
+  FREE: "Free",
+  NO_LICENSE_EDITION_FOUND: "NoLicenseEditionFound",
+  STANDARD: "Standard",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseEdition = (typeof LicenseEdition)[keyof typeof LicenseEdition];
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseModel = {
+  BRING_YOUR_OWN_LICENSE: "BringYourOwnLicense",
+  LICENSE_INCLUDED: "LicenseIncluded",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseModel = (typeof LicenseModel)[keyof typeof LicenseModel];
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseName = {
+  SQLSERVER: "SQLServer",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseName = (typeof LicenseName)[keyof typeof LicenseName];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricSourceProvider = {
+  CloudWatchAppInsights: "CloudWatchApplicationInsights",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricSourceProvider = (typeof MetricSourceProvider)[keyof typeof MetricSourceProvider];
+
+/**
+ * @public
+ * <p>
+ *             The list of metric sources required to generate recommendations for commercial software licenses.
+ *         </p>
+ */
+export interface MetricSource {
+  /**
+   * @public
+   * <p>
+   *             The name of the metric source provider.
+   *         </p>
+   */
+  provider?: MetricSourceProvider | string;
+
+  /**
+   * @public
+   * <p>
+   *             The ARN of the metric source provider.
+   *         </p>
+   */
+  providerArn?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the configuration of a license for an Amazon EC2 instance.
+ *         </p>
+ */
+export interface LicenseConfiguration {
+  /**
+   * @public
+   * <p>
+   *             The current number of cores associated with the instance.
+   *         </p>
+   */
+  numberOfCores?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The instance type used in the license.
+   *         </p>
+   */
+  instanceType?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The operating system of the instance.
+   *         </p>
+   */
+  operatingSystem?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The edition of the license for the application that runs on the instance.
+   *         </p>
+   */
+  licenseEdition?: LicenseEdition | string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the license for the application that runs on the instance.
+   *         </p>
+   */
+  licenseName?: LicenseName | string;
+
+  /**
+   * @public
+   * <p>
+   *             The license type associated with the instance.
+   *         </p>
+   */
+  licenseModel?: LicenseModel | string;
+
+  /**
+   * @public
+   * <p>
+   *             The version of the license for the application that runs on the instance.
+   *         </p>
+   */
+  licenseVersion?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The list of metric sources required to generate recommendations for commercial software licenses.
+   *         </p>
+   */
+  metricsSource?: MetricSource[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseFinding = {
+  INSUFFICIENT_METRICS: "InsufficientMetrics",
+  NOT_OPTIMIZED: "NotOptimized",
+  OPTIMIZED: "Optimized",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseFinding = (typeof LicenseFinding)[keyof typeof LicenseFinding];
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseFindingReasonCode = {
+  CW_APP_INSIGHTS_DISABLED: "InvalidCloudWatchApplicationInsightsSetup",
+  CW_APP_INSIGHTS_ERROR: "CloudWatchApplicationInsightsError",
+  LICENSE_OVER_PROVISIONED: "LicenseOverprovisioned",
+  OPTIMIZED: "Optimized",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseFindingReasonCode = (typeof LicenseFindingReasonCode)[keyof typeof LicenseFindingReasonCode];
+
+/**
+ * @public
+ * <p>
+ *             Describes the recommendation options for licenses.
+ *         </p>
+ */
+export interface LicenseRecommendationOption {
+  /**
+   * @public
+   * <p>
+   *             The rank of the license recommendation option.
+   *         </p>
+   *          <p>
+   *             The top recommendation option is ranked as <code>1</code>.
+   *         </p>
+   */
+  rank?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The operating system of a license recommendation option.
+   *         </p>
+   */
+  operatingSystem?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The recommended edition of the license for the application that runs on the instance.
+   *         </p>
+   */
+  licenseEdition?: LicenseEdition | string;
+
+  /**
+   * @public
+   * <p>
+   *             The recommended license type associated with the instance.
+   *         </p>
+   */
+  licenseModel?: LicenseModel | string;
+
+  /**
+   * @public
+   * <p>Describes the savings opportunity for recommendations of a given resource type or for
+   *             the recommendation option of an individual resource.</p>
+   *          <p>Savings opportunity represents the estimated monthly savings you can achieve by
+   *             implementing a given Compute Optimizer recommendation.</p>
+   *          <important>
+   *             <p>Savings opportunity data requires that you opt in to Cost Explorer, as well as
+   *                 activate <b>Receive Amazon EC2 resource
+   *                     recommendations</b> in the Cost Explorer preferences page. That
+   *                 creates a connection between Cost Explorer and Compute Optimizer. With this
+   *                 connection, Cost Explorer generates savings estimates considering the price of
+   *                 existing resources, the price of recommended resources, and historical usage data.
+   *                 Estimated monthly savings reflects the projected dollar savings associated with each
+   *                 of the recommendations generated. For more information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html">Enabling Cost Explorer</a> and <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html">Optimizing your cost
+   *                     with Rightsizing Recommendations</a> in the <i>Cost Management User
+   *                     Guide</i>.</p>
+   *          </important>
+   */
+  savingsOpportunity?: SavingsOpportunity;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes a license recommendation for an EC2 instance.
+ *         </p>
+ */
+export interface LicenseRecommendation {
+  /**
+   * @public
+   * <p>
+   *             The ARN that identifies the Amazon EC2 instance.
+   *         </p>
+   */
+  resourceArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Web Services account ID of the license.
+   *         </p>
+   */
+  accountId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An object that describes the current configuration of an instance that runs on a license.
+   *         </p>
+   */
+  currentLicenseConfiguration?: LicenseConfiguration;
+
+  /**
+   * @public
+   * <p>
+   *             The number of days for which utilization metrics were analyzed for an instance that runs on a license.
+   *         </p>
+   */
+  lookbackPeriodInDays?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The timestamp of when the license recommendation was last generated.
+   *         </p>
+   */
+  lastRefreshTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The finding classification for an instance that runs on a license.
+   *         </p>
+   *          <p>Findings include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch
+   *                         Application Insights isn't enabled or is enabled with insufficient permissions. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure
+   *                         isn't using any of the SQL server license features you're paying for, a license is considered
+   *                         not optimized.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Optimized</code> — When Compute Optimizer detects that all specifications of your
+   *                         license meet the performance requirements of your workload. </p>
+   *             </li>
+   *          </ul>
+   */
+  finding?: LicenseFinding | string;
+
+  /**
+   * @public
+   * <p>
+   *             The reason for the finding classification for an instance that runs on a license.
+   *         </p>
+   *          <p>Finding reason codes include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Optimized</code> — All specifications of your
+   *                         license meet the performance requirements of your workload. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be
+   *                         downgraded while still meeting the performance requirements of your workload.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch
+   *                         Application Insights isn't configured properly.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch
+   *                         Application Insights error. </p>
+   *             </li>
+   *          </ul>
+   */
+  findingReasonCodes?: (LicenseFindingReasonCode | string)[];
+
+  /**
+   * @public
+   * <p>
+   *             An array of objects that describe the license recommendation options.
+   *         </p>
+   */
+  licenseRecommendationOptions?: LicenseRecommendationOption[];
+
+  /**
+   * @public
+   * <p>
+   *             A list of tags assigned to an EC2 instance.
+   *         </p>
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface GetLicenseRecommendationsResponse {
+  /**
+   * @public
+   * <p>
+   *             The token to use to advance to the next page of license recommendations.
+   *         </p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An array of objects that describe license recommendations.
+   *         </p>
+   */
+  licenseRecommendations?: LicenseRecommendation[];
+
+  /**
+   * @public
+   * <p>
+   *             An array of objects that describe errors of the request.
+   *         </p>
+   */
+  errors?: GetRecommendationError[];
 }
 
 /**
