@@ -52,7 +52,7 @@ export interface ListNetworkSettingsCommandOutput extends ListNetworkSettingsRes
  * // { // ListNetworkSettingsResponse
  * //   networkSettings: [ // NetworkSettingsList
  * //     { // NetworkSettingsSummary
- * //       networkSettingsArn: "STRING_VALUE",
+ * //       networkSettingsArn: "STRING_VALUE", // required
  * //       vpcId: "STRING_VALUE",
  * //     },
  * //   ],

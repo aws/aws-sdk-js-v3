@@ -13,7 +13,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetUserSettingsRequest, GetUserSettingsResponse } from "../models/models_0";
+import {
+  GetUserSettingsRequest,
+  GetUserSettingsResponse,
+  GetUserSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetUserSettingsCommand, se_GetUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
@@ -61,6 +65,22 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * //     printAllowed: "STRING_VALUE",
  * //     disconnectTimeoutInMinutes: Number("int"),
  * //     idleDisconnectTimeoutInMinutes: Number("int"),
+ * //     cookieSynchronizationConfiguration: { // CookieSynchronizationConfiguration
+ * //       allowlist: [ // CookieSpecifications // required
+ * //         { // CookieSpecification
+ * //           domain: "STRING_VALUE", // required
+ * //           name: "STRING_VALUE",
+ * //           path: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       blocklist: [
+ * //         {
+ * //           domain: "STRING_VALUE", // required
+ * //           name: "STRING_VALUE",
+ * //           path: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -140,7 +160,7 @@ export class GetUserSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetUserSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -64,6 +64,26 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  *   disconnectTimeoutInMinutes: Number("int"),
  *   idleDisconnectTimeoutInMinutes: Number("int"),
  *   clientToken: "STRING_VALUE",
+ *   cookieSynchronizationConfiguration: { // CookieSynchronizationConfiguration
+ *     allowlist: [ // CookieSpecifications // required
+ *       { // CookieSpecification
+ *         domain: "STRING_VALUE", // required
+ *         name: "STRING_VALUE",
+ *         path: "STRING_VALUE",
+ *       },
+ *     ],
+ *     blocklist: [
+ *       {
+ *         domain: "STRING_VALUE", // required
+ *         name: "STRING_VALUE",
+ *         path: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   customerManagedKey: "STRING_VALUE",
+ *   additionalEncryptionContext: { // EncryptionContextMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateUserSettingsCommand(input);
  * const response = await client.send(command);

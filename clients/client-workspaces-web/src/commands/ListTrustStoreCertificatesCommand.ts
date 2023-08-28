@@ -60,7 +60,7 @@ export interface ListTrustStoreCertificatesCommandOutput extends ListTrustStoreC
  * //       notValidAfter: new Date("TIMESTAMP"),
  * //     },
  * //   ],
- * //   trustStoreArn: "STRING_VALUE",
+ * //   trustStoreArn: "STRING_VALUE", // required
  * //   nextToken: "STRING_VALUE",
  * // };
  *

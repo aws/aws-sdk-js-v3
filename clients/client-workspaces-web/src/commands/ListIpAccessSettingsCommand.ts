@@ -56,7 +56,7 @@ export interface ListIpAccessSettingsCommandOutput extends ListIpAccessSettingsR
  * // { // ListIpAccessSettingsResponse
  * //   ipAccessSettings: [ // IpAccessSettingsList
  * //     { // IpAccessSettingsSummary
- * //       ipAccessSettingsArn: "STRING_VALUE",
+ * //       ipAccessSettingsArn: "STRING_VALUE", // required
  * //       displayName: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       creationDate: new Date("TIMESTAMP"),

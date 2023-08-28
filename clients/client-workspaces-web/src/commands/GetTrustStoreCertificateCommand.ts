@@ -50,7 +50,7 @@ export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCert
  * const command = new GetTrustStoreCertificateCommand(input);
  * const response = await client.send(command);
  * // { // GetTrustStoreCertificateResponse
- * //   trustStoreArn: "STRING_VALUE",
+ * //   trustStoreArn: "STRING_VALUE", // required
  * //   certificate: { // Certificate
  * //     thumbprint: "STRING_VALUE",
  * //     subject: "STRING_VALUE",

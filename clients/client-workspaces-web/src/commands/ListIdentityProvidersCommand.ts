@@ -58,7 +58,7 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * //   nextToken: "STRING_VALUE",
  * //   identityProviders: [ // IdentityProviderList
  * //     { // IdentityProviderSummary
- * //       identityProviderArn: "STRING_VALUE",
+ * //       identityProviderArn: "STRING_VALUE", // required
  * //       identityProviderName: "STRING_VALUE",
  * //       identityProviderType: "STRING_VALUE",
  * //     },

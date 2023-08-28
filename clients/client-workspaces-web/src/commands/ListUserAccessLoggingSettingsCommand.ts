@@ -57,7 +57,7 @@ export interface ListUserAccessLoggingSettingsCommandOutput
  * // { // ListUserAccessLoggingSettingsResponse
  * //   userAccessLoggingSettings: [ // UserAccessLoggingSettingsList
  * //     { // UserAccessLoggingSettingsSummary
- * //       userAccessLoggingSettingsArn: "STRING_VALUE",
+ * //       userAccessLoggingSettingsArn: "STRING_VALUE", // required
  * //       kinesisStreamArn: "STRING_VALUE",
  * //     },
  * //   ],

@@ -52,7 +52,7 @@ export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsRes
  * // { // ListBrowserSettingsResponse
  * //   browserSettings: [ // BrowserSettingsList
  * //     { // BrowserSettingsSummary
- * //       browserSettingsArn: "STRING_VALUE",
+ * //       browserSettingsArn: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

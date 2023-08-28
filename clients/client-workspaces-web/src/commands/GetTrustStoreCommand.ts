@@ -53,7 +53,7 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __Met
  * //     associatedPortalArns: [ // ArnList
  * //       "STRING_VALUE",
  * //     ],
- * //     trustStoreArn: "STRING_VALUE",
+ * //     trustStoreArn: "STRING_VALUE", // required
  * //   },
  * // };
  *

@@ -57,7 +57,7 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * const response = await client.send(command);
  * // { // UpdatePortalResponse
  * //   portal: { // Portal
- * //     portalArn: "STRING_VALUE",
+ * //     portalArn: "STRING_VALUE", // required
  * //     rendererType: "STRING_VALUE",
  * //     browserType: "STRING_VALUE",
  * //     portalStatus: "STRING_VALUE",

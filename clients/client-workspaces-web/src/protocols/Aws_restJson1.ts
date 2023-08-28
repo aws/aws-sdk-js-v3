@@ -203,6 +203,8 @@ import {
   Certificate,
   CertificateSummary,
   ConflictException,
+  CookieSpecification,
+  CookieSynchronizationConfiguration,
   InternalServerException,
   IpAccessSettings,
   IpAccessSettingsSummary,
@@ -636,8 +638,11 @@ export const se_CreateUserSettingsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      additionalEncryptionContext: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      cookieSynchronizationConfiguration: (_) => _json(_),
       copyAllowed: [],
+      customerManagedKey: [],
       disconnectTimeoutInMinutes: [],
       downloadAllowed: [],
       idleDisconnectTimeoutInMinutes: [],
@@ -1981,6 +1986,7 @@ export const se_UpdateUserSettingsCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      cookieSynchronizationConfiguration: (_) => _json(_),
       copyAllowed: [],
       disconnectTimeoutInMinutes: [],
       downloadAllowed: [],
@@ -5599,6 +5605,12 @@ const se_CertificateList = (input: Uint8Array[], context: __SerdeContext): any =
 
 // se_CertificateThumbprintList omitted.
 
+// se_CookieSpecification omitted.
+
+// se_CookieSpecifications omitted.
+
+// se_CookieSynchronizationConfiguration omitted.
+
 // se_EncryptionContextMap omitted.
 
 // se_IdentityProviderDetails omitted.
@@ -5661,6 +5673,12 @@ const de_CertificateSummaryList = (output: any, context: __SerdeContext): Certif
     });
   return retVal;
 };
+
+// de_CookieSpecification omitted.
+
+// de_CookieSpecifications omitted.
+
+// de_CookieSynchronizationConfiguration omitted.
 
 // de_IdentityProvider omitted.
 

@@ -50,7 +50,7 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * const response = await client.send(command);
  * // { // GetPortalResponse
  * //   portal: { // Portal
- * //     portalArn: "STRING_VALUE",
+ * //     portalArn: "STRING_VALUE", // required
  * //     rendererType: "STRING_VALUE",
  * //     browserType: "STRING_VALUE",
  * //     portalStatus: "STRING_VALUE",

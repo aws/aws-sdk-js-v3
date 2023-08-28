@@ -52,7 +52,7 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * // { // ListPortalsResponse
  * //   portals: [ // PortalList
  * //     { // PortalSummary
- * //       portalArn: "STRING_VALUE",
+ * //       portalArn: "STRING_VALUE", // required
  * //       rendererType: "STRING_VALUE",
  * //       browserType: "STRING_VALUE",
  * //       portalStatus: "STRING_VALUE",
