@@ -36,7 +36,11 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
 
 /**
  * @public
- * <p>Starts a run.</p>
+ * <p>Starts a workflow run. To duplicate a run, specify the run's ID and a role ARN. The
+ *       remaining parameters are copied from the previous run.</p>
+ *          <p>The total number of runs in your account is subject to a quota per Region. To avoid
+ *       needing to delete runs manually, you can set the retention mode to <code>REMOVE</code>.
+ *       Runs with this setting are deleted automatically when the run quoata is exceeded.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +63,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *     "<keys>": "STRING_VALUE",
  *   },
  *   requestId: "STRING_VALUE", // required
+ *   retentionMode: "STRING_VALUE",
  * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);

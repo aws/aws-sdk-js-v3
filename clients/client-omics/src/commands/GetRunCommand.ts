@@ -80,6 +80,7 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   accelerators: "STRING_VALUE",
+ * //   retentionMode: "STRING_VALUE",
  * // };
  *
  * ```

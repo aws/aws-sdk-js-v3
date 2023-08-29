@@ -4589,6 +4589,20 @@ export type RunLogLevel = (typeof RunLogLevel)[keyof typeof RunLogLevel];
  * @public
  * @enum
  */
+export const RunRetentionMode = {
+  REMOVE: "REMOVE",
+  RETAIN: "RETAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type RunRetentionMode = (typeof RunRetentionMode)[keyof typeof RunRetentionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const RunStatus = {
   CANCELLED: "CANCELLED",
   COMPLETED: "COMPLETED",
@@ -4768,6 +4782,12 @@ export interface GetRunResponse {
    *     </p>
    */
   accelerators?: Accelerators | string;
+
+  /**
+   * @public
+   * <p>The run's retention mode.</p>
+   */
+  retentionMode?: RunRetentionMode | string;
 }
 
 /**
@@ -7586,13 +7606,13 @@ export interface StartRunRequest {
 
   /**
    * @public
-   * <p>The run's workflows type.</p>
+   * <p>The run's workflow type.</p>
    */
   workflowType?: WorkflowType | string;
 
   /**
    * @public
-   * <p>The run's ID.</p>
+   * <p>The ID of a run to duplicate.</p>
    */
   runId?: string;
 
@@ -7655,6 +7675,12 @@ export interface StartRunRequest {
    * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
    */
   requestId?: string;
+
+  /**
+   * @public
+   * <p>The retention mode for the run.</p>
+   */
+  retentionMode?: RunRetentionMode | string;
 }
 
 /**
