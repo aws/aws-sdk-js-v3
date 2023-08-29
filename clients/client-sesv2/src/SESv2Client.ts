@@ -51,6 +51,7 @@ import {
 } from "@smithy/types";
 
 import { BatchGetMetricDataCommandInput, BatchGetMetricDataCommandOutput } from "./commands/BatchGetMetricDataCommand";
+import { CancelExportJobCommandInput, CancelExportJobCommandOutput } from "./commands/CancelExportJobCommand";
 import {
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -85,6 +86,7 @@ import {
   CreateEmailTemplateCommandInput,
   CreateEmailTemplateCommandOutput,
 } from "./commands/CreateEmailTemplateCommand";
+import { CreateExportJobCommandInput, CreateExportJobCommandOutput } from "./commands/CreateExportJobCommand";
 import { CreateImportJobCommandInput, CreateImportJobCommandOutput } from "./commands/CreateImportJobCommand";
 import {
   DeleteConfigurationSetCommandInput,
@@ -164,7 +166,9 @@ import {
   GetEmailIdentityPoliciesCommandOutput,
 } from "./commands/GetEmailIdentityPoliciesCommand";
 import { GetEmailTemplateCommandInput, GetEmailTemplateCommandOutput } from "./commands/GetEmailTemplateCommand";
+import { GetExportJobCommandInput, GetExportJobCommandOutput } from "./commands/GetExportJobCommand";
 import { GetImportJobCommandInput, GetImportJobCommandOutput } from "./commands/GetImportJobCommand";
+import { GetMessageInsightsCommandInput, GetMessageInsightsCommandOutput } from "./commands/GetMessageInsightsCommand";
 import {
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
@@ -196,6 +200,7 @@ import {
   ListEmailIdentitiesCommandOutput,
 } from "./commands/ListEmailIdentitiesCommand";
 import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from "./commands/ListEmailTemplatesCommand";
+import { ListExportJobsCommandInput, ListExportJobsCommandOutput } from "./commands/ListExportJobsCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "./commands/ListImportJobsCommand";
 import {
   ListRecommendationsCommandInput,
@@ -336,6 +341,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchGetMetricDataCommandInput
+  | CancelExportJobCommandInput
   | CreateConfigurationSetCommandInput
   | CreateConfigurationSetEventDestinationCommandInput
   | CreateContactCommandInput
@@ -346,6 +352,7 @@ export type ServiceInputTypes =
   | CreateEmailIdentityCommandInput
   | CreateEmailIdentityPolicyCommandInput
   | CreateEmailTemplateCommandInput
+  | CreateExportJobCommandInput
   | CreateImportJobCommandInput
   | DeleteConfigurationSetCommandInput
   | DeleteConfigurationSetEventDestinationCommandInput
@@ -374,7 +381,9 @@ export type ServiceInputTypes =
   | GetEmailIdentityCommandInput
   | GetEmailIdentityPoliciesCommandInput
   | GetEmailTemplateCommandInput
+  | GetExportJobCommandInput
   | GetImportJobCommandInput
+  | GetMessageInsightsCommandInput
   | GetSuppressedDestinationCommandInput
   | ListConfigurationSetsCommandInput
   | ListContactListsCommandInput
@@ -385,6 +394,7 @@ export type ServiceInputTypes =
   | ListDomainDeliverabilityCampaignsCommandInput
   | ListEmailIdentitiesCommandInput
   | ListEmailTemplatesCommandInput
+  | ListExportJobsCommandInput
   | ListImportJobsCommandInput
   | ListRecommendationsCommandInput
   | ListSuppressedDestinationsCommandInput
@@ -428,6 +438,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | BatchGetMetricDataCommandOutput
+  | CancelExportJobCommandOutput
   | CreateConfigurationSetCommandOutput
   | CreateConfigurationSetEventDestinationCommandOutput
   | CreateContactCommandOutput
@@ -438,6 +449,7 @@ export type ServiceOutputTypes =
   | CreateEmailIdentityCommandOutput
   | CreateEmailIdentityPolicyCommandOutput
   | CreateEmailTemplateCommandOutput
+  | CreateExportJobCommandOutput
   | CreateImportJobCommandOutput
   | DeleteConfigurationSetCommandOutput
   | DeleteConfigurationSetEventDestinationCommandOutput
@@ -466,7 +478,9 @@ export type ServiceOutputTypes =
   | GetEmailIdentityCommandOutput
   | GetEmailIdentityPoliciesCommandOutput
   | GetEmailTemplateCommandOutput
+  | GetExportJobCommandOutput
   | GetImportJobCommandOutput
+  | GetMessageInsightsCommandOutput
   | GetSuppressedDestinationCommandOutput
   | ListConfigurationSetsCommandOutput
   | ListContactListsCommandOutput
@@ -477,6 +491,7 @@ export type ServiceOutputTypes =
   | ListDomainDeliverabilityCampaignsCommandOutput
   | ListEmailIdentitiesCommandOutput
   | ListEmailTemplatesCommandOutput
+  | ListExportJobsCommandOutput
   | ListImportJobsCommandOutput
   | ListRecommendationsCommandOutput
   | ListSuppressedDestinationsCommandOutput

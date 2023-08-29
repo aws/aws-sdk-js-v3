@@ -63,7 +63,7 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  * //           ContactListImportAction: "DELETE" || "PUT", // required
  * //         },
  * //       },
- * //       JobStatus: "CREATED" || "PROCESSING" || "COMPLETED" || "FAILED",
+ * //       JobStatus: "CREATED" || "PROCESSING" || "COMPLETED" || "FAILED" || "CANCELLED",
  * //       CreatedTimestamp: new Date("TIMESTAMP"),
  * //       ProcessedRecordsCount: Number("int"),
  * //       FailedRecordsCount: Number("int"),

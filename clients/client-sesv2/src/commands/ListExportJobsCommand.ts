@@ -13,9 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { PutSuppressedDestinationRequest } from "../models/models_0";
-import { PutSuppressedDestinationResponse } from "../models/models_1";
-import { de_PutSuppressedDestinationCommand, se_PutSuppressedDestinationCommand } from "../protocols/Aws_restJson1";
+import { ListExportJobsRequest, ListExportJobsResponse } from "../models/models_0";
+import { de_ListExportJobsCommand, se_ListExportJobsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -25,39 +24,52 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link PutSuppressedDestinationCommand}.
+ * The input for {@link ListExportJobsCommand}.
  */
-export interface PutSuppressedDestinationCommandInput extends PutSuppressedDestinationRequest {}
+export interface ListExportJobsCommandInput extends ListExportJobsRequest {}
 /**
  * @public
  *
- * The output of {@link PutSuppressedDestinationCommand}.
+ * The output of {@link ListExportJobsCommand}.
  */
-export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDestinationResponse, __MetadataBearer {}
+export interface ListExportJobsCommandOutput extends ListExportJobsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds an email address to the suppression list for your account.</p>
+ * <p>Lists all of the export jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutSuppressedDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutSuppressedDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, ListExportJobsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, ListExportJobsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = { // PutSuppressedDestinationRequest
- *   EmailAddress: "STRING_VALUE", // required
- *   Reason: "BOUNCE" || "COMPLAINT", // required
+ * const input = { // ListExportJobsRequest
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ *   ExportSourceType: "METRICS_DATA" || "MESSAGE_INSIGHTS",
+ *   JobStatus: "CREATED" || "PROCESSING" || "COMPLETED" || "FAILED" || "CANCELLED",
  * };
- * const command = new PutSuppressedDestinationCommand(input);
+ * const command = new ListExportJobsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListExportJobsResponse
+ * //   ExportJobs: [ // ExportJobSummaryList
+ * //     { // ExportJobSummary
+ * //       JobId: "STRING_VALUE",
+ * //       ExportSourceType: "METRICS_DATA" || "MESSAGE_INSIGHTS",
+ * //       JobStatus: "CREATED" || "PROCESSING" || "COMPLETED" || "FAILED" || "CANCELLED",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       CompletedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param PutSuppressedDestinationCommandInput - {@link PutSuppressedDestinationCommandInput}
- * @returns {@link PutSuppressedDestinationCommandOutput}
- * @see {@link PutSuppressedDestinationCommandInput} for command's `input` shape.
- * @see {@link PutSuppressedDestinationCommandOutput} for command's `response` shape.
+ * @param ListExportJobsCommandInput - {@link ListExportJobsCommandInput}
+ * @returns {@link ListExportJobsCommandOutput}
+ * @see {@link ListExportJobsCommandInput} for command's `input` shape.
+ * @see {@link ListExportJobsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -70,9 +82,9 @@ export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDest
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
-export class PutSuppressedDestinationCommand extends $Command<
-  PutSuppressedDestinationCommandInput,
-  PutSuppressedDestinationCommandOutput,
+export class ListExportJobsCommand extends $Command<
+  ListExportJobsCommandInput,
+  ListExportJobsCommandOutput,
   SESv2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -90,7 +102,7 @@ export class PutSuppressedDestinationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: PutSuppressedDestinationCommandInput) {
+  constructor(readonly input: ListExportJobsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -103,17 +115,17 @@ export class PutSuppressedDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutSuppressedDestinationCommandInput, PutSuppressedDestinationCommandOutput> {
+  ): Handler<ListExportJobsCommandInput, ListExportJobsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutSuppressedDestinationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListExportJobsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SESv2Client";
-    const commandName = "PutSuppressedDestinationCommand";
+    const commandName = "ListExportJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -132,15 +144,15 @@ export class PutSuppressedDestinationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: PutSuppressedDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutSuppressedDestinationCommand(input, context);
+  private serialize(input: ListExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListExportJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSuppressedDestinationCommandOutput> {
-    return de_PutSuppressedDestinationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExportJobsCommandOutput> {
+    return de_ListExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

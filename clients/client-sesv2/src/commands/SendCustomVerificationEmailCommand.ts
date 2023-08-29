@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse } from "../models/models_0";
+import { SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse } from "../models/models_1";
 import {
   de_SendCustomVerificationEmailCommand,
   se_SendCustomVerificationEmailCommand,

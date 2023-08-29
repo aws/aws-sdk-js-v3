@@ -13,9 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { PutSuppressedDestinationRequest } from "../models/models_0";
-import { PutSuppressedDestinationResponse } from "../models/models_1";
-import { de_PutSuppressedDestinationCommand, se_PutSuppressedDestinationCommand } from "../protocols/Aws_restJson1";
+import { CancelExportJobRequest, CancelExportJobResponse } from "../models/models_0";
+import { de_CancelExportJobCommand, se_CancelExportJobCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -25,43 +24,45 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link PutSuppressedDestinationCommand}.
+ * The input for {@link CancelExportJobCommand}.
  */
-export interface PutSuppressedDestinationCommandInput extends PutSuppressedDestinationRequest {}
+export interface CancelExportJobCommandInput extends CancelExportJobRequest {}
 /**
  * @public
  *
- * The output of {@link PutSuppressedDestinationCommand}.
+ * The output of {@link CancelExportJobCommand}.
  */
-export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDestinationResponse, __MetadataBearer {}
+export interface CancelExportJobCommandOutput extends CancelExportJobResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds an email address to the suppression list for your account.</p>
+ * <p>Cancels an export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutSuppressedDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutSuppressedDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, CancelExportJobCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, CancelExportJobCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = { // PutSuppressedDestinationRequest
- *   EmailAddress: "STRING_VALUE", // required
- *   Reason: "BOUNCE" || "COMPLAINT", // required
+ * const input = { // CancelExportJobRequest
+ *   JobId: "STRING_VALUE", // required
  * };
- * const command = new PutSuppressedDestinationCommand(input);
+ * const command = new CancelExportJobCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param PutSuppressedDestinationCommandInput - {@link PutSuppressedDestinationCommandInput}
- * @returns {@link PutSuppressedDestinationCommandOutput}
- * @see {@link PutSuppressedDestinationCommandInput} for command's `input` shape.
- * @see {@link PutSuppressedDestinationCommandOutput} for command's `response` shape.
+ * @param CancelExportJobCommandInput - {@link CancelExportJobCommandInput}
+ * @returns {@link CancelExportJobCommandOutput}
+ * @see {@link CancelExportJobCommandInput} for command's `input` shape.
+ * @see {@link CancelExportJobCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
@@ -70,9 +71,9 @@ export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDest
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
-export class PutSuppressedDestinationCommand extends $Command<
-  PutSuppressedDestinationCommandInput,
-  PutSuppressedDestinationCommandOutput,
+export class CancelExportJobCommand extends $Command<
+  CancelExportJobCommandInput,
+  CancelExportJobCommandOutput,
   SESv2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -90,7 +91,7 @@ export class PutSuppressedDestinationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: PutSuppressedDestinationCommandInput) {
+  constructor(readonly input: CancelExportJobCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -103,17 +104,17 @@ export class PutSuppressedDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutSuppressedDestinationCommandInput, PutSuppressedDestinationCommandOutput> {
+  ): Handler<CancelExportJobCommandInput, CancelExportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutSuppressedDestinationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CancelExportJobCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SESv2Client";
-    const commandName = "PutSuppressedDestinationCommand";
+    const commandName = "CancelExportJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -132,15 +133,15 @@ export class PutSuppressedDestinationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: PutSuppressedDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutSuppressedDestinationCommand(input, context);
+  private serialize(input: CancelExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CancelExportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSuppressedDestinationCommandOutput> {
-    return de_PutSuppressedDestinationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelExportJobCommandOutput> {
+    return de_CancelExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

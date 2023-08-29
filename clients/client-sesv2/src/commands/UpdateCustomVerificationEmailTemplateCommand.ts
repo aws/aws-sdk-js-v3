@@ -16,7 +16,7 @@ import {
 import {
   UpdateCustomVerificationEmailTemplateRequest,
   UpdateCustomVerificationEmailTemplateResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_UpdateCustomVerificationEmailTemplateCommand,
   se_UpdateCustomVerificationEmailTemplateCommand,

@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateContactListRequest, UpdateContactListResponse } from "../models/models_0";
+import { UpdateContactListRequest, UpdateContactListResponse } from "../models/models_1";
 import { de_UpdateContactListCommand, se_UpdateContactListCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 

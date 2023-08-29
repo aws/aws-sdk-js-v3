@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateEmailTemplateRequest, UpdateEmailTemplateResponse } from "../models/models_0";
+import { UpdateEmailTemplateRequest, UpdateEmailTemplateResponse } from "../models/models_1";
 import { de_UpdateEmailTemplateCommand, se_UpdateEmailTemplateCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 

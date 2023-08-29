@@ -16,7 +16,7 @@ import {
 import {
   UpdateConfigurationSetEventDestinationRequest,
   UpdateConfigurationSetEventDestinationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_UpdateConfigurationSetEventDestinationCommand,
   se_UpdateConfigurationSetEventDestinationCommand,

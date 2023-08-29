@@ -67,7 +67,7 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * //     FailedRecordsS3Url: "STRING_VALUE",
  * //     ErrorMessage: "STRING_VALUE",
  * //   },
- * //   JobStatus: "CREATED" || "PROCESSING" || "COMPLETED" || "FAILED",
+ * //   JobStatus: "CREATED" || "PROCESSING" || "COMPLETED" || "FAILED" || "CANCELLED",
  * //   CreatedTimestamp: new Date("TIMESTAMP"),
  * //   CompletedTimestamp: new Date("TIMESTAMP"),
  * //   ProcessedRecordsCount: Number("int"),
