@@ -46,7 +46,7 @@ export interface DeleteDataRepositoryAssociationCommandOutput
  *             file system from the Amazon S3 bucket. When deleting a data repository
  *             association, you have the option of deleting the data in the file system
  *             that corresponds to the data repository association. Data repository
- *             associations are supported on all FSx for Lustre 2.12 and newer file
+ *             associations are supported on all FSx for Lustre 2.12 and 2.15 file
  *             systems, excluding <code>scratch_1</code> deployment type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

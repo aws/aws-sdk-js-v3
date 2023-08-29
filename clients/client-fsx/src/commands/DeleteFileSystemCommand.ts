@@ -44,6 +44,20 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *          <p>By default, when you delete an Amazon FSx for Windows File Server file system,
  *             a final backup is created upon deletion. This final backup isn't subject to the file
  *             system's retention policy, and must be manually deleted.</p>
+ *          <p>To delete an Amazon FSx for Lustre file system, first
+ *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/unmounting-fs.html">unmount</a>
+ *             it from every connected Amazon EC2 instance, then provide a <code>FileSystemId</code>
+ *             value to the <code>DeleFileSystem</code> operation. By default, Amazon FSx will not
+ *             take a final backup when the <code>DeleteFileSystem</code> operation is invoked. On file systems
+ *             not linked to an Amazon S3 bucket, set <code>SkipFinalBackup</code> to <code>false</code>
+ *             to take a final backup of the file system you are deleting. Backups cannot be enabled on S3-linked
+ *             file systems. To ensure all of your data is written back to S3 before deleting your file system,
+ *             you can either monitor for the
+ *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/monitoring-cloudwatch.html#auto-import-export-metrics">AgeOfOldestQueuedMessage</a>
+ *             metric to be zero (if using automatic export) or you can run an
+ *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/export-data-repo-task-dra.html">export data repository task</a>.
+ *             If you have automatic export enabled and want to use an export data repository task, you have
+ *             to disable automatic export before executing the export data repository task.</p>
  *          <p>The <code>DeleteFileSystem</code> operation returns while the file system has the
  *                 <code>DELETING</code> status. You can check the file system deletion status by
  *             calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">DescribeFileSystems</a> operation, which returns a list of file systems in your

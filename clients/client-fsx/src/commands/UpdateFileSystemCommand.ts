@@ -190,6 +190,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *          <ul>
  *             <li>
  *                <p>
+ *                   <code>AddRouteTableIds</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>AutomaticBackupRetentionDays</code>
  *                </p>
  *             </li>
@@ -211,6 +216,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             <li>
  *                <p>
  *                   <code>DiskIopsConfiguration</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>RemoveRouteTableIds</code>
  *                </p>
  *             </li>
  *             <li>

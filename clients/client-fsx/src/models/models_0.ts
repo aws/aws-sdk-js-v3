@@ -543,9 +543,9 @@ export interface LustreFileSystemConfiguration {
    *             throughput capacity than <code>SCRATCH_1</code>.</p>
    *          <p>The <code>PERSISTENT_1</code> and <code>PERSISTENT_2</code> deployment type is used
    *             for longer-term storage and workloads and encryption of data in transit.
-   *                 <code>PERSISTENT_2</code> is built on Lustre v2.12 and offers higher
-   *                 <code>PerUnitStorageThroughput</code> (up to 1000 MB/s/TiB) along with a lower
-   *             minimum storage capacity requirement (600 GiB). To learn more about FSx for Lustre deployment types, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-deployment-types.html">
+   *                 <code>PERSISTENT_2</code> offers higher <code>PerUnitStorageThroughput</code>
+   *             (up to 1000 MB/s/TiB) along with a lower minimum storage capacity requirement (600 GiB).
+   *             To learn more about FSx for Lustre deployment types, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-deployment-types.html">
    *                 FSx for Lustre deployment options</a>.</p>
    *          <p>The default is <code>SCRATCH_1</code>.</p>
    */
@@ -3381,7 +3381,7 @@ export interface NFSDataRepositoryConfiguration {
  *             </li>
  *          </ul>
  *          <p>Data repository associations are supported on Amazon File Cache resources and
- *             all FSx for Lustre 2.12 and newer file systems, excluding
+ *             all FSx for Lustre 2.12 and 2.15 file systems, excluding
  *             <code>scratch_1</code> deployment type.</p>
  */
 export interface DataRepositoryAssociation {
@@ -3631,9 +3631,10 @@ export type Unit = (typeof Unit)[keyof typeof Unit];
 /**
  * @public
  * <p>Defines the minimum amount of time since last access for a
- *             file to be eligible for release. Only archived files that were
- *             last accessed or modified before this point-in-time are eligible
- *             to be released from the Amazon FSx for Lustre file system.</p>
+ *             file to be eligible for release. Only files that have been
+ *             exported to S3 and that were last accessed or modified before
+ *             this point-in-time are eligible to be released from the
+ *             Amazon FSx for Lustre file system.</p>
  */
 export interface DurationSinceLastAccess {
   /**
@@ -3648,13 +3649,13 @@ export interface DurationSinceLastAccess {
   /**
    * @public
    * <p>An integer that represents the minimum amount of time (in days)
-   *             since a file was last accessed in the file system. Only archived files
+   *             since a file was last accessed in the file system. Only exported files
    *             with a <code>MAX(atime, ctime, mtime)</code> timestamp that is more than
    *             this amount of time in the past (relative to the task create time)
    *             will be released. The default of <code>Value</code> is <code>0</code>.
    *             This is a required parameter.</p>
    *          <note>
-   *             <p>If an archived file meets the last accessed time criteria,
+   *             <p>If an exported file meets the last accessed time criteria,
    *             its file or directory path must also be specified in the <code>Paths</code>
    *             parameter of the  operation
    *             in order for the file to be released.</p>
@@ -3666,15 +3667,15 @@ export interface DurationSinceLastAccess {
 /**
  * @public
  * <p>The configuration that specifies a minimum amount of time since
- *             last access for an archived file to be eligible for release from an
+ *             last access for an exported file to be eligible for release from an
  *             Amazon FSx for Lustre file system. Only files that were last
  *             accessed before this point-in-time can be released. For example, if
  *             you specify a last accessed time criteria of 9 days, only files that
  *             were last accessed 9.00001 or more days ago can be released.</p>
- *          <p>Only file data that has been archived can be released. Files that
- *             have not yet been archived, such as new or changed files that have
- *             not been exported, are not eligible for release. When files are
- *             released, their metadata stays on the file system, so they
+ *          <p>Only file data that has been exported to S3 can be released. Files
+ *             that have not yet been exported to S3, such as new or changed files
+ *             that have not been exported, are not eligible for release. When files
+ *             are released, their metadata stays on the file system, so they
  *             can still be accessed later. Users and applications can access a
  *             released file by reading the file again, which restores data from
  *             Amazon S3 to the FSx for Lustre file system.</p>
@@ -3689,7 +3690,7 @@ export interface DurationSinceLastAccess {
 export interface ReleaseConfiguration {
   /**
    * @public
-   * <p>Defines the point-in-time since an archived file was last accessed,
+   * <p>Defines the point-in-time since an exported file was last accessed,
    *             in order for that file to be eligible for release. Only files that were
    *             last accessed before this point-in-time are eligible to be released from
    *             the file system.</p>
@@ -3802,8 +3803,8 @@ export interface CreateDataRepositoryTaskRequest {
    *             <li>
    *                <p>
    *                   <code>RELEASE_DATA_FROM_FILESYSTEM</code> tasks release files in
-   *                 your Amazon FSx for Lustre file system that are archived and that meet
-   *                 your specified release criteria.</p>
+   *                 your Amazon FSx for Lustre file system that have been exported to a linked
+   *                 S3 bucket and that meet your specified release criteria.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3819,7 +3820,7 @@ export interface CreateDataRepositoryTaskRequest {
    * <p>A list of paths for the data repository task to use when the task is processed.
    *             If a path that you provide isn't valid, the task fails. If you don't provide
    *             paths, the default behavior is to export all files to S3 (for export tasks), import
-   *             all files from S3 (for import tasks), or release all archived files that meet the
+   *             all files from S3 (for import tasks), or release all exported files that meet the
    *             last accessed time criteria (for release tasks).</p>
    *          <ul>
    *             <li>
@@ -3839,9 +3840,9 @@ export interface CreateDataRepositoryTaskRequest {
    *             </li>
    *             <li>
    *                <p>For release tasks, the list contains directory or file paths on the
-   *                 FSx for Lustre file system from which to release archived files. If a directory is
+   *                 FSx for Lustre file system from which to release exported files. If a directory is
    *                 specified, files within the directory are released. If a file path is specified,
-   *                 only that file is released. To release all archived files in the file system,
+   *                 only that file is released. To release all exported files in the file system,
    *                 specify a forward slash (/) as the path.</p>
    *                <note>
    *                   <p>A file must also meet the last accessed time criteria
@@ -3959,8 +3960,8 @@ export interface DataRepositoryTaskStatus {
  *                 and a linked data repository.</p>
  *             </li>
  *             <li>
- *                <p>You use release data repository tasks to release archived files
- *                 from your Amazon FSx for Lustre file system.</p>
+ *                <p>You use release data repository tasks to release have been exported
+ *                 to a linked S3 bucketed files from your Amazon FSx for Lustre file system.</p>
  *             </li>
  *             <li>
  *                <p>An Amazon File Cache resource uses a task to automatically
@@ -4034,8 +4035,8 @@ export interface DataRepositoryTask {
    *             <li>
    *                <p>
    *                   <code>RELEASE_DATA_FROM_FILESYSTEM</code> tasks release files in
-   *                 your Amazon FSx for Lustre file system that are archived and that meet
-   *                 your specified release criteria.</p>
+   *                 your Amazon FSx for Lustre file system that have been exported to a
+   *                 linked S3 bucket and that meet your specified release criteria.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5233,10 +5234,10 @@ export interface CreateFileSystemOntapConfiguration {
 
   /**
    * @public
-   * <p>(Multi-AZ only) Specifies the virtual private cloud (VPC) route tables in which your
-   *             file system's endpoints will be created. You should specify all VPC route tables
-   *             associated with the subnets in which your clients are located. By default, Amazon FSx
-   *             selects your VPC's default route table.</p>
+   * <p>(Multi-AZ only) Specifies the route tables in which Amazon FSx  creates the rules
+   *             for routing traffic to the correct file server. You should specify all virtual private cloud
+   *             (VPC) route tables associated with the subnets in which your clients are located. By default,
+   *             Amazon FSx  selects your VPC's default route table.</p>
    */
   RouteTableIds?: string[];
 
@@ -5388,23 +5389,26 @@ export interface CreateFileSystemOpenZFSConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>MULTI_AZ_1</code>- Creates file systems with high availability that are configured for Multi-AZ redundancy to tolerate temporary unavailability in Availability Zones (AZs).
-   *                 <code>Multi_AZ_1</code> is available in the following Amazon Web Services Regions: </p>
+   *                   <code>MULTI_AZ_1</code>- Creates file systems with high availability that are configured
+   *                 for Multi-AZ redundancy to tolerate temporary unavailability in Availability Zones (AZs).
+   *                 <code>Multi_AZ_1</code> is available only in the US East (N. Virginia), US East (Ohio), US West (Oregon),
+   *                 Asia Pacific (Singapore), Asia Pacific (Tokyo), and Europe (Ireland) Amazon Web Services Regions.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities of 64 - 4,096 MB/s.
+   *                   <code>SINGLE_AZ_1</code>- Creates file systems with throughput capacities of 64 - 4,096 MB/s.
    *                 <code>Single_AZ_1</code> is available in all Amazon Web Services Regions where Amazon FSx
    *                 for OpenZFS is available.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160 - 10,240 MB/s
-   *                 using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only in the US East (N. Virginia), US East (Ohio),
-   *                 US West (Oregon), and Europe (Ireland) Amazon Web Services Regions.</p>
+   *                 using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only in the US East (N. Virginia),
+   *                 US East (Ohio), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Tokyo), and Europe (Ireland)
+   *                 Amazon Web Services Regions.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see: <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment type availability</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment type availability</a>
    *             and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance">File system performance</a>
    *             in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
@@ -5415,10 +5419,11 @@ export interface CreateFileSystemOpenZFSConfiguration {
    * <p>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</p>
    *          <ul>
    *             <li>
-   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MBps.</p>
+   *                <p>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640,
+   *                 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</p>
    *             </li>
    *             <li>
-   *                <p>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</p>
+   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MBps.</p>
    *             </li>
    *          </ul>
    *          <p>You pay for additional throughput capacity that you provision.</p>
@@ -5472,10 +5477,10 @@ export interface CreateFileSystemOpenZFSConfiguration {
 
   /**
    * @public
-   * <p>(Multi-AZ only) Specifies the virtual private cloud (VPC) route tables in which your
-   *             file system's endpoints will be created. You should specify all VPC route tables
-   *             associated with the subnets in which your clients are located. By default, Amazon FSx
-   *             selects your VPC's default route table.</p>
+   * <p>(Multi-AZ only) Specifies the route tables in which Amazon FSx  creates the rules
+   *             for routing traffic to the correct file server. You should specify all virtual private cloud
+   *             (VPC) route tables associated with the subnets in which your clients are located. By default,
+   *             Amazon FSx  selects your VPC's default route table.</p>
    */
   RouteTableIds?: string[];
 }
@@ -5988,17 +5993,17 @@ export interface CreateFileSystemRequest {
 
   /**
    * @public
-   * <p>(Optional) For FSx for Lustre file systems, sets the Lustre version for the
-   *             file system that you're creating. Valid values are <code>2.10</code> and
-   *                 <code>2.12</code>:</p>
+   * <p>(Optional) For FSx for Lustre file systems, sets the Lustre version
+   *             for the file system that you're creating. Valid values are <code>2.10</code>,
+   *             <code>2.12</code>m and <code>2.15</code>:</p>
    *          <ul>
    *             <li>
    *                <p>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</p>
    *             </li>
    *             <li>
-   *                <p>2.12 is supported by all Lustre deployment types. <code>2.12</code> is
-   *                 required when setting FSx for Lustre <code>DeploymentType</code> to
-   *                 <code>PERSISTENT_2</code>.</p>
+   *                <p>2.12 and 2.15 are supported by all Lustre deployment types. <code>2.12</code>
+   *                 or <code>2.15</code> is required when setting FSx for Lustre <code>DeploymentType</code>
+   *                 to <code>PERSISTENT_2</code>.</p>
    *             </li>
    *          </ul>
    *          <p>Default value = <code>2.10</code>, except when <code>DeploymentType</code> is set to
@@ -6238,7 +6243,8 @@ export interface CreateFileSystemFromBackupRequest {
   /**
    * @public
    * <p>Sets the version for the Amazon FSx for Lustre file system that you're
-   *             creating from a backup. Valid values are <code>2.10</code> and <code>2.12</code>.</p>
+   *             creating from a backup. Valid values are <code>2.10</code>, <code>2.12</code>,
+   *             and <code>2.15</code>.</p>
    *          <p>You don't need to specify <code>FileSystemTypeVersion</code> because it will
    *             be applied using the backup's <code>FileSystemTypeVersion</code> setting.
    *             If you choose to specify <code>FileSystemTypeVersion</code> when creating from backup, the
@@ -9305,10 +9311,11 @@ export interface UpdateFileSystemOpenZFSConfiguration {
    * <p>The throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second  (MB/s). Valid values depend on the DeploymentType you choose, as follows:</p>
    *          <ul>
    *             <li>
-   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
+   *                <p>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640,
+   *                 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</p>
    *             </li>
    *             <li>
-   *                <p>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MB/s.</p>
+   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
    *             </li>
    *          </ul>
    */
@@ -10293,8 +10300,8 @@ export interface FileSystem {
 
   /**
    * @public
-   * <p>The Lustre version of the Amazon FSx for Lustre file system, either
-   *             <code>2.10</code> or <code>2.12</code>.</p>
+   * <p>The Lustre version of the Amazon FSx for Lustre file system, which
+   *             is <code>2.10</code>, <code>2.12</code>, or <code>2.15</code>.</p>
    */
   FileSystemTypeVersion?: string;
 

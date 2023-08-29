@@ -44,7 +44,7 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  *             task is exporting any data and metadata changes, including POSIX metadata, to files, directories,
  *             and symbolic links (symlinks) from your FSx file system to a linked data repository.</p>
  *          <p>You use release data repository tasks to release data from your file system for files that
- *             are archived to S3. The metadata of released files remains on the file system so users or applications
+ *             are exported to S3. The metadata of released files remains on the file system so users or applications
  *             can still access released files by reading the files again, which will restore data from
  *             Amazon S3 to the FSx for Lustre file system.</p>
  *          <p>To learn more about data repository tasks, see
