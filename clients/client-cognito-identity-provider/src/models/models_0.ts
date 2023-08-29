@@ -7556,14 +7556,16 @@ export interface GetIdentityProviderByIdentifierResponse {
 export interface GetLogDeliveryConfigurationRequest {
   /**
    * @public
-   * <p>The ID of the user pool where you want to view detailed activity logging configuration.</p>
+   * <p>The ID of the user pool where you want to view detailed activity logging
+   *             configuration.</p>
    */
   UserPoolId: string | undefined;
 }
 
 /**
  * @public
- * <p>The CloudWatch logging destination of a user pool detailed activity logging configuration.</p>
+ * <p>The CloudWatch logging destination of a user pool detailed activity logging
+ *             configuration.</p>
  */
 export interface CloudWatchLogsConfigurationType {
   /**
@@ -7571,6 +7573,10 @@ export interface CloudWatchLogsConfigurationType {
    * <p>The Amazon Resource Name (arn) of a CloudWatch Logs log group where your user pool sends logs.
    *             The log group must not be encrypted with Key Management Service and must be in the same Amazon Web Services account
    *             as your user pool.</p>
+   *          <p>To send logs to log groups with a resource policy of a size greater than 5120
+   *             characters, configure a log group with a path that starts with
+   *             <code>/aws/vendedlogs</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
+   *                 logging from certain Amazon Web Services services</a>.</p>
    */
   LogGroupArn?: string;
 }
@@ -7608,7 +7614,8 @@ export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
 export interface LogConfigurationType {
   /**
    * @public
-   * <p>The <code>errorlevel</code> selection of logs that a user pool sends for detailed activity logging.</p>
+   * <p>The <code>errorlevel</code> selection of logs that a user pool sends for detailed
+   *             activity logging.</p>
    */
   LogLevel: LogLevel | string | undefined;
 
@@ -9276,7 +9283,8 @@ export interface SetLogDeliveryConfigurationRequest {
 
   /**
    * @public
-   * <p>A collection of all of the detailed activity logging configurations for a user pool.</p>
+   * <p>A collection of all of the detailed activity logging configurations for a user
+   *             pool.</p>
    */
   LogConfigurations: LogConfigurationType[] | undefined;
 }
@@ -9287,7 +9295,8 @@ export interface SetLogDeliveryConfigurationRequest {
 export interface SetLogDeliveryConfigurationResponse {
   /**
    * @public
-   * <p>The detailed activity logging configuration that you applied to the requested user pool.</p>
+   * <p>The detailed activity logging configuration that you applied to the requested user
+   *             pool.</p>
    */
   LogDeliveryConfiguration?: LogDeliveryConfigurationType;
 }
@@ -9497,6 +9506,7 @@ export const AuthenticationResultTypeFilterSensitiveLog = (obj: AuthenticationRe
  */
 export const AdminInitiateAuthResponseFilterSensitiveLog = (obj: AdminInitiateAuthResponse): any => ({
   ...obj,
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
   ...(obj.AuthenticationResult && {
     AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
   }),
@@ -9555,6 +9565,8 @@ export const AdminResetUserPasswordRequestFilterSensitiveLog = (obj: AdminResetU
 export const AdminRespondToAuthChallengeRequestFilterSensitiveLog = (obj: AdminRespondToAuthChallengeRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.ChallengeResponses && { ChallengeResponses: SENSITIVE_STRING }),
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
 });
 
 /**
@@ -9564,6 +9576,7 @@ export const AdminRespondToAuthChallengeResponseFilterSensitiveLog = (
   obj: AdminRespondToAuthChallengeResponse
 ): any => ({
   ...obj,
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
   ...(obj.AuthenticationResult && {
     AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
   }),
@@ -9637,6 +9650,7 @@ export const AdminUserGlobalSignOutRequestFilterSensitiveLog = (obj: AdminUserGl
 export const AssociateSoftwareTokenRequestFilterSensitiveLog = (obj: AssociateSoftwareTokenRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
 });
 
 /**
@@ -9645,6 +9659,7 @@ export const AssociateSoftwareTokenRequestFilterSensitiveLog = (obj: AssociateSo
 export const AssociateSoftwareTokenResponseFilterSensitiveLog = (obj: AssociateSoftwareTokenResponse): any => ({
   ...obj,
   ...(obj.SecretCode && { SecretCode: SENSITIVE_STRING }),
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
 });
 
 /**
@@ -9668,12 +9683,20 @@ export const ConfirmDeviceRequestFilterSensitiveLog = (obj: ConfirmDeviceRequest
 /**
  * @internal
  */
+export const UserContextDataTypeFilterSensitiveLog = (obj: UserContextDataType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ConfirmForgotPasswordRequestFilterSensitiveLog = (obj: ConfirmForgotPasswordRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9684,6 +9707,7 @@ export const ConfirmSignUpRequestFilterSensitiveLog = (obj: ConfirmSignUpRequest
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9782,6 +9806,7 @@ export const ForgotPasswordRequestFilterSensitiveLog = (obj: ForgotPasswordReque
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
 });
 
@@ -9869,6 +9894,7 @@ export const InitiateAuthRequestFilterSensitiveLog = (obj: InitiateAuthRequest):
   ...obj,
   ...(obj.AuthParameters && { AuthParameters: SENSITIVE_STRING }),
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9876,6 +9902,7 @@ export const InitiateAuthRequestFilterSensitiveLog = (obj: InitiateAuthRequest):
  */
 export const InitiateAuthResponseFilterSensitiveLog = (obj: InitiateAuthResponse): any => ({
   ...obj,
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
   ...(obj.AuthenticationResult && {
     AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
   }),
@@ -9937,6 +9964,7 @@ export const ResendConfirmationCodeRequestFilterSensitiveLog = (obj: ResendConfi
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
 });
 
@@ -9946,6 +9974,9 @@ export const ResendConfirmationCodeRequestFilterSensitiveLog = (obj: ResendConfi
 export const RespondToAuthChallengeRequestFilterSensitiveLog = (obj: RespondToAuthChallengeRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
+  ...(obj.ChallengeResponses && { ChallengeResponses: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9953,6 +9984,7 @@ export const RespondToAuthChallengeRequestFilterSensitiveLog = (obj: RespondToAu
  */
 export const RespondToAuthChallengeResponseFilterSensitiveLog = (obj: RespondToAuthChallengeResponse): any => ({
   ...obj,
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
   ...(obj.AuthenticationResult && {
     AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
   }),
