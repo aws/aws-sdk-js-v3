@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.402.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.401.0...v3.402.0) (2023-08-29)
+
+
+### Features
+
+* **client-sesv2:** Adds support for the new Export and Message Insights features: create, get, list and cancel export jobs; get message insights. ([81a2e86](https://github.com/aws/aws-sdk-js-v3/commit/81a2e86da19b6ba3c38c350c92c70ac9ece9f69f))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-sesv2

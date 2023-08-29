@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.402.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.401.0...v3.402.0) (2023-08-29)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Added API example requests and responses for several operations. Fixed the validation regex for user pools Identity Provider name. ([bf81c6c](https://github.com/aws/aws-sdk-js-v3/commit/bf81c6c3c7f4f3056b265e120929d54a47d6f871))
+* **client-omics:** Add RetentionMode support for Runs. ([f23d745](https://github.com/aws/aws-sdk-js-v3/commit/f23d745886fc87856dfc2bc3e4fe35aed2132b5c))
+* **client-sesv2:** Adds support for the new Export and Message Insights features: create, get, list and cancel export jobs; get message insights. ([81a2e86](https://github.com/aws/aws-sdk-js-v3/commit/81a2e86da19b6ba3c38c350c92c70ac9ece9f69f))
+
+
+
+
+
 # [3.401.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.400.0...v3.401.0) (2023-08-28)
 
 

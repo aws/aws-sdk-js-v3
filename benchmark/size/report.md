@@ -14,7 +14,7 @@
 |@aws-sdk/client-codedeploy|3.395.0|1.3 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-codepipeline|3.395.0|920.8 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cognito-identity|3.397.0|508 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-cognito-identity-provider|3.395.0|2.5 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-cognito-identity-provider|3.398.0|2.5 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cognito-sync|3.395.0|439.9 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-dynamodb|3.395.0|1.7 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-ec2|3.398.0|15 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
