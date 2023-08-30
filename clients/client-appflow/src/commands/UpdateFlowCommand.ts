@@ -121,6 +121,12 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *       },
  *       SAPOData: { // SAPODataSourceProperties
  *         objectPath: "STRING_VALUE",
+ *         parallelismConfig: { // SAPODataParallelismConfig
+ *           maxParallelism: Number("int"), // required
+ *         },
+ *         paginationConfig: { // SAPODataPaginationConfig
+ *           maxPageSize: Number("int"), // required
+ *         },
  *       },
  *       CustomConnector: { // CustomConnectorSourceProperties
  *         entityName: "STRING_VALUE", // required
@@ -328,6 +334,9 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * @see {@link UpdateFlowCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>AppFlow/Requester has invalid or missing permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p> There was a conflict when processing the request (for example, a flow with the given name

@@ -68,6 +68,8 @@ export interface DescribeFlowExecutionRecordsCommandOutput
  * //         bytesProcessed: Number("long"),
  * //         bytesWritten: Number("long"),
  * //         recordsProcessed: Number("long"),
+ * //         numParallelProcesses: Number("long"),
+ * //         maxPageSize: Number("long"),
  * //       },
  * //       startedAt: new Date("TIMESTAMP"),
  * //       lastUpdatedAt: new Date("TIMESTAMP"),

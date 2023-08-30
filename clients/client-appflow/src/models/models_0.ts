@@ -2660,8 +2660,8 @@ export interface SAPODataConnectorProfileProperties {
    * @public
    * <p>If you set this parameter to <code>true</code>, Amazon AppFlow bypasses the single
    *       sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.</p>
-   *          <p>Whether you need this option depends on the types of credentials that you applied to
-   *       your SAP OData connection profile. If your profile uses basic authentication credentials, SAP SSO
+   *          <p>Whether you need this option depends on the types of credentials that you applied to your
+   *       SAP OData connection profile. If your profile uses basic authentication credentials, SAP SSO
    *       can prevent Amazon AppFlow from connecting to your account with your username and
    *       password. In this case, bypassing SSO makes it possible for Amazon AppFlow to connect
    *       successfully. However, if your profile uses OAuth credentials, this parameter has no
@@ -4919,6 +4919,40 @@ export interface SalesforceSourceProperties {
 
 /**
  * @public
+ * <p>Sets the page size for each <i>concurrent process</i> that transfers OData
+ *       records from your SAP instance. A concurrent process is query that retrieves a batch of
+ *       records as part of a flow run. Amazon AppFlow can run multiple concurrent processes in
+ *       parallel to transfer data faster.</p>
+ */
+export interface SAPODataPaginationConfig {
+  /**
+   * @public
+   * <p>The maximum number of records that Amazon AppFlow receives in each page of the
+   *       response from your SAP application. For transfers of OData records, the maximum page size is
+   *       3,000. For transfers of data that comes from an ODP provider, the maximum page size
+   *       is 10,000.</p>
+   */
+  maxPageSize: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Sets the number of <i>concurrent processes</i> that transfer OData records
+ *       from your SAP instance. A concurrent process is query that retrieves a batch of records as
+ *       part of a flow run. Amazon AppFlow can run multiple concurrent processes in parallel to
+ *       transfer data faster.</p>
+ */
+export interface SAPODataParallelismConfig {
+  /**
+   * @public
+   * <p>The maximum number of processes that Amazon AppFlow runs at the same time when it
+   *       retrieves your data from your SAP application.</p>
+   */
+  maxParallelism: number | undefined;
+}
+
+/**
+ * @public
  * <p> The properties that are applied when using SAPOData as a flow source. </p>
  */
 export interface SAPODataSourceProperties {
@@ -4927,6 +4961,20 @@ export interface SAPODataSourceProperties {
    * <p> The object path specified in the SAPOData flow source. </p>
    */
   objectPath?: string;
+
+  /**
+   * @public
+   * <p>Sets the number of concurrent processes that transfers OData records from your SAP
+   *       instance.</p>
+   */
+  parallelismConfig?: SAPODataParallelismConfig;
+
+  /**
+   * @public
+   * <p>Sets the page size for each concurrent process that transfers OData records from your SAP
+   *       instance.</p>
+   */
+  paginationConfig?: SAPODataPaginationConfig;
 }
 
 /**
@@ -6068,6 +6116,20 @@ export interface ExecutionResult {
    * <p> The number of records processed in the flow run. </p>
    */
   recordsProcessed?: number;
+
+  /**
+   * @public
+   * <p>The number of processes that Amazon AppFlow ran at the same time when it retrieved
+   *       your data.</p>
+   */
+  numParallelProcesses?: number;
+
+  /**
+   * @public
+   * <p>The maximum number of records that Amazon AppFlow receives in each page of the
+   *       response from your SAP application.</p>
+   */
+  maxPageSize?: number;
 }
 
 /**

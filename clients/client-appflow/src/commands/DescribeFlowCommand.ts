@@ -115,6 +115,12 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //       },
  * //       SAPOData: { // SAPODataSourceProperties
  * //         objectPath: "STRING_VALUE",
+ * //         parallelismConfig: { // SAPODataParallelismConfig
+ * //           maxParallelism: Number("int"), // required
+ * //         },
+ * //         paginationConfig: { // SAPODataPaginationConfig
+ * //           maxPageSize: Number("int"), // required
+ * //         },
  * //       },
  * //       CustomConnector: { // CustomConnectorSourceProperties
  * //         entityName: "STRING_VALUE", // required

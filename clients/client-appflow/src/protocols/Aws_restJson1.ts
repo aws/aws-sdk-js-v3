@@ -175,6 +175,8 @@ import {
   SAPODataConnectorProfileCredentials,
   SAPODataConnectorProfileProperties,
   SAPODataDestinationProperties,
+  SAPODataPaginationConfig,
+  SAPODataParallelismConfig,
   SAPODataSourceProperties,
   ScheduledTriggerProperties,
   ServiceNowConnectorProfileCredentials,
@@ -1158,6 +1160,9 @@ const de_CreateFlowCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.appflow#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appflow#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -2388,6 +2393,9 @@ const de_UpdateFlowCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.appflow#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appflow#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -2768,6 +2776,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_SAPODataConnectorProfileProperties omitted.
 
 // se_SAPODataDestinationProperties omitted.
+
+// se_SAPODataPaginationConfig omitted.
+
+// se_SAPODataParallelismConfig omitted.
 
 // se_SAPODataSourceProperties omitted.
 
@@ -3318,6 +3330,10 @@ const de_Range = (output: any, context: __SerdeContext): Range => {
 // de_SAPODataDestinationProperties omitted.
 
 // de_SAPODataMetadata omitted.
+
+// de_SAPODataPaginationConfig omitted.
+
+// de_SAPODataParallelismConfig omitted.
 
 // de_SAPODataSourceProperties omitted.
 
