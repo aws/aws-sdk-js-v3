@@ -50,6 +50,16 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   defaultResultConfiguration: { // MembershipProtectedQueryResultConfiguration
+ *     outputConfiguration: { // MembershipProtectedQueryOutputConfiguration Union: only one key present
+ *       s3: { // ProtectedQueryS3OutputConfiguration
+ *         resultFormat: "STRING_VALUE", // required
+ *         bucket: "STRING_VALUE", // required
+ *         keyPrefix: "STRING_VALUE",
+ *       },
+ *     },
+ *     roleArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateMembershipCommand(input);
  * const response = await client.send(command);
@@ -69,6 +79,16 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //       "STRING_VALUE",
  * //     ],
  * //     queryLogStatus: "STRING_VALUE", // required
+ * //     defaultResultConfiguration: { // MembershipProtectedQueryResultConfiguration
+ * //       outputConfiguration: { // MembershipProtectedQueryOutputConfiguration Union: only one key present
+ * //         s3: { // ProtectedQueryS3OutputConfiguration
+ * //           resultFormat: "STRING_VALUE", // required
+ * //           bucket: "STRING_VALUE", // required
+ * //           keyPrefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       roleArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

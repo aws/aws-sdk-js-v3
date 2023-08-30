@@ -84,6 +84,11 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * //         s3: { // ProtectedQueryS3Output
  * //           location: "STRING_VALUE", // required
  * //         },
+ * //         memberList: [ // ProtectedQueryMemberOutputList
+ * //           { // ProtectedQuerySingleMemberOutput
+ * //             accountId: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //     error: { // ProtectedQueryError

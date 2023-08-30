@@ -45,7 +45,8 @@ export interface BatchGetCollaborationAnalysisTemplateCommandOutput
 
 /**
  * @public
- * <p>Retrieves multiple analysis templates within a collaboration by their Amazon Resource Names (ARNs).</p>
+ * <p>Retrieves multiple analysis templates within a collaboration by their Amazon Resource
+ *          Names (ARNs).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

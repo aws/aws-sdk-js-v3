@@ -186,6 +186,8 @@ import {
   JoinOperator,
   MemberAbility,
   Membership,
+  MembershipProtectedQueryOutputConfiguration,
+  MembershipProtectedQueryResultConfiguration,
   MembershipSummary,
   MemberSpecification,
   MemberSummary,
@@ -496,6 +498,7 @@ export const se_CreateMembershipCommand = async (
   body = JSON.stringify(
     take(input, {
       collaborationIdentifier: [],
+      defaultResultConfiguration: (_) => _json(_),
       queryLogStatus: [],
       tags: (_) => _json(_),
     })
@@ -1795,6 +1798,7 @@ export const se_UpdateMembershipCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      defaultResultConfiguration: (_) => _json(_),
       queryLogStatus: [],
     })
   );
@@ -4689,6 +4693,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_MemberList omitted.
 
+// se_MembershipProtectedQueryOutputConfiguration omitted.
+
+// se_MembershipProtectedQueryResultConfiguration omitted.
+
 // se_MemberSpecification omitted.
 
 // se_ParameterMap omitted.
@@ -5085,6 +5093,7 @@ const de_Membership = (output: any, context: __SerdeContext): Membership => {
     collaborationId: __expectString,
     collaborationName: __expectString,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultResultConfiguration: _json,
     id: __expectString,
     memberAbilities: _json,
     queryLogStatus: __expectString,
@@ -5092,6 +5101,10 @@ const de_Membership = (output: any, context: __SerdeContext): Membership => {
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_MembershipProtectedQueryOutputConfiguration omitted.
+
+// de_MembershipProtectedQueryResultConfiguration omitted.
 
 /**
  * deserializeAws_restJson1MembershipSummary
@@ -5174,6 +5187,8 @@ const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery
 
 // de_ProtectedQueryError omitted.
 
+// de_ProtectedQueryMemberOutputList omitted.
+
 // de_ProtectedQueryOutput omitted.
 
 // de_ProtectedQueryOutputConfiguration omitted.
@@ -5185,6 +5200,8 @@ const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery
 // de_ProtectedQueryS3Output omitted.
 
 // de_ProtectedQueryS3OutputConfiguration omitted.
+
+// de_ProtectedQuerySingleMemberOutput omitted.
 
 // de_ProtectedQuerySQLParameters omitted.
 
