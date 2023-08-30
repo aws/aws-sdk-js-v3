@@ -129,6 +129,13 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *         S3ArtifactPath: "STRING_VALUE",
  *         S3KmsKeyId: "STRING_VALUE",
  *       },
+ *       IdentityProviderOAuthSettings: [ // IdentityProviderOAuthSettings
+ *         { // IdentityProviderOAuthSetting
+ *           DataSourceName: "SalesforceGenie" || "Snowflake",
+ *           Status: "ENABLED" || "DISABLED",
+ *           SecretArn: "STRING_VALUE",
+ *         },
+ *       ],
  *     },
  *   },
  *   DomainSettingsForUpdate: { // DomainSettingsForUpdate

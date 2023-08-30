@@ -143,6 +143,13 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //         S3ArtifactPath: "STRING_VALUE",
  * //         S3KmsKeyId: "STRING_VALUE",
  * //       },
+ * //       IdentityProviderOAuthSettings: [ // IdentityProviderOAuthSettings
+ * //         { // IdentityProviderOAuthSetting
+ * //           DataSourceName: "SalesforceGenie" || "Snowflake",
+ * //           Status: "ENABLED" || "DISABLED",
+ * //           SecretArn: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   AppNetworkAccessType: "PublicInternetOnly" || "VpcOnly",

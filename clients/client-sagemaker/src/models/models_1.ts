@@ -40,6 +40,7 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
+  CustomImage,
   DefaultSpaceSettings,
   EdgeOutputConfig,
   EndpointInput,
@@ -66,8 +67,6 @@ import {
   ProductionVariantInstanceType,
   ResourceConfig,
   ResourceSpec,
-  RSessionAppSettings,
-  RStudioServerProAccessStatus,
   StoppingCondition,
   Tag,
   TrainingInputMode,
@@ -78,6 +77,40 @@ import {
   TransformResources,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>A collection of settings that apply to an <code>RSessionGateway</code> app.</p>
+ */
+export interface RSessionAppSettings {
+  /**
+   * @public
+   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   *      the version runs on.</p>
+   */
+  DefaultResourceSpec?: ResourceSpec;
+
+  /**
+   * @public
+   * <p>A list of custom SageMaker images that are configured to run as a RSession app.</p>
+   */
+  CustomImages?: CustomImage[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RStudioServerProAccessStatus = {
+  Disabled: "DISABLED",
+  Enabled: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type RStudioServerProAccessStatus =
+  (typeof RStudioServerProAccessStatus)[keyof typeof RStudioServerProAccessStatus];
 
 /**
  * @public
@@ -4596,7 +4629,7 @@ export interface RecommendationJobInputConfig {
 
   /**
    * @public
-   * <p>Specifies the maximum duration of the job, in seconds. The maximum value is 7200.</p>
+   * <p>Specifies the maximum duration of the job, in seconds. The maximum value is 18,000 seconds.</p>
    */
   JobDurationInSeconds?: number;
 
@@ -11711,29 +11744,6 @@ export interface DeleteExperimentRequest {
    * <p>The name of the experiment to delete.</p>
    */
   ExperimentName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteExperimentResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the experiment that is being deleted.</p>
-   */
-  ExperimentArn?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteFeatureGroupRequest {
-  /**
-   * @public
-   * <p>The name of the <code>FeatureGroup</code> you want to delete. The name must be unique
-   *          within an Amazon Web Services Region in an Amazon Web Services account. </p>
-   */
-  FeatureGroupName: string | undefined;
 }
 
 /**

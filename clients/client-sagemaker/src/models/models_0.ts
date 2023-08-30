@@ -7173,6 +7173,20 @@ export type CandidateSortBy = (typeof CandidateSortBy)[keyof typeof CandidateSor
  * @public
  * @enum
  */
+export const DataSourceName = {
+  SalesforceGenie: "SalesforceGenie",
+  Snowflake: "Snowflake",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceName = (typeof DataSourceName)[keyof typeof DataSourceName];
+
+/**
+ * @public
+ * @enum
+ */
 export const FeatureStatus = {
   Disabled: "DISABLED",
   Enabled: "ENABLED",
@@ -7182,6 +7196,33 @@ export const FeatureStatus = {
  * @public
  */
 export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
+
+/**
+ * @public
+ * <p>The Amazon SageMaker Canvas app setting where you configure OAuth for connecting to an external
+ *       data source, such as Snowflake.</p>
+ */
+export interface IdentityProviderOAuthSetting {
+  /**
+   * @public
+   * <p>The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud.</p>
+   */
+  DataSourceName?: DataSourceName | string;
+
+  /**
+   * @public
+   * <p>Describes whether OAuth for a data source is enabled or disabled in the Canvas
+   *       application.</p>
+   */
+  Status?: FeatureStatus | string;
+
+  /**
+   * @public
+   * <p>The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your
+   *       identity provider, such as the client ID and secret, authorization URL, and token URL. </p>
+   */
+  SecretArn?: string;
+}
 
 /**
  * @public
@@ -7272,6 +7313,12 @@ export interface CanvasAppSettings {
    * <p>The workspace settings for the SageMaker Canvas application.</p>
    */
   WorkspaceSettings?: WorkspaceSettings;
+
+  /**
+   * @public
+   * <p>The settings for connecting to an external data source with OAuth.</p>
+   */
+  IdentityProviderOAuthSettings?: IdentityProviderOAuthSetting[];
 }
 
 /**
@@ -11467,37 +11514,3 @@ export interface DefaultSpaceSettings {
    */
   KernelGatewayAppSettings?: KernelGatewayAppSettings;
 }
-
-/**
- * @public
- * <p>A collection of settings that apply to an <code>RSessionGateway</code> app.</p>
- */
-export interface RSessionAppSettings {
-  /**
-   * @public
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *      the version runs on.</p>
-   */
-  DefaultResourceSpec?: ResourceSpec;
-
-  /**
-   * @public
-   * <p>A list of custom SageMaker images that are configured to run as a RSession app.</p>
-   */
-  CustomImages?: CustomImage[];
-}
-
-/**
- * @public
- * @enum
- */
-export const RStudioServerProAccessStatus = {
-  Disabled: "DISABLED",
-  Enabled: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type RStudioServerProAccessStatus =
-  (typeof RStudioServerProAccessStatus)[keyof typeof RStudioServerProAccessStatus];

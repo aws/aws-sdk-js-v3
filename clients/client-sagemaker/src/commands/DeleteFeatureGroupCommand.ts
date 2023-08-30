@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DeleteFeatureGroupRequest } from "../models/models_1";
+import { DeleteFeatureGroupRequest } from "../models/models_2";
 import { de_DeleteFeatureGroupCommand, se_DeleteFeatureGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

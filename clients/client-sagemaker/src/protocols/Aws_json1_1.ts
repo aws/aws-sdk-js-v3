@@ -906,6 +906,7 @@ import {
   GitConfig,
   HyperParameterSpecification,
   HyperParameterTuningJobObjective,
+  IdentityProviderOAuthSetting,
   ImageClassificationJobConfig,
   ImageConfig,
   InferenceSpecification,
@@ -951,7 +952,6 @@ import {
   ResourceLimitExceeded,
   ResourceNotFound,
   ResourceSpec,
-  RSessionAppSettings,
   S3DataSource,
   S3ModelDataSource,
   ShuffleConfig,
@@ -1047,7 +1047,6 @@ import {
   DeleteEndpointConfigInput,
   DeleteEndpointInput,
   DeleteExperimentRequest,
-  DeleteFeatureGroupRequest,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1167,6 +1166,7 @@ import {
   RetentionPolicy,
   RetryStrategy,
   RollingUpdatePolicy,
+  RSessionAppSettings,
   RStudioServerProAppSettings,
   RStudioServerProDomainSettings,
   S3StorageConfig,
@@ -1195,6 +1195,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteFeatureGroupRequest,
   DeleteFlowDefinitionRequest,
   DeleteHubContentRequest,
   DeleteHubRequest,
@@ -1365,7 +1366,6 @@ import {
   FeatureGroupSummary,
   FeatureMetadata,
   FeatureParameter,
-  Filter,
   FinalHyperParameterTuningJobObjectiveMetric,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
@@ -1391,6 +1391,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  Filter,
   FlowDefinitionSummary,
   GetDeviceFleetReportRequest,
   GetDeviceFleetReportResponse,
@@ -1586,9 +1587,7 @@ import {
   PipelineExecutionStep,
   PipelineExecutionSummary,
   PipelineSummary,
-  ProcessingJob,
   ProcessingJobSummary,
-  ProfilerConfigForUpdate,
   ProjectSummary,
   PropertyNameQuery,
   RecommendationJobInferenceBenchmark,
@@ -1605,6 +1604,8 @@ import {
   UserProfileDetails,
 } from "../models/models_3";
 import {
+  ProcessingJob,
+  ProfilerConfigForUpdate,
   Project,
   PutModelPackageGroupPolicyInput,
   QueryFilters,
@@ -20248,6 +20249,10 @@ const se_HyperParameterTuningJobConfig = (input: HyperParameterTuningJobConfig, 
 
 // se_HyperParameterTuningResourceConfig omitted.
 
+// se_IdentityProviderOAuthSetting omitted.
+
+// se_IdentityProviderOAuthSettings omitted.
+
 // se_ImageClassificationJobConfig omitted.
 
 // se_ImageConfig omitted.
@@ -25200,6 +25205,10 @@ const de_HyperParameterTuningJobSummary = (output: any, context: __SerdeContext)
 // de_HyperParameterTuningResourceConfig omitted.
 
 // de_IamIdentity omitted.
+
+// de_IdentityProviderOAuthSetting omitted.
+
+// de_IdentityProviderOAuthSettings omitted.
 
 /**
  * deserializeAws_json1_1Image

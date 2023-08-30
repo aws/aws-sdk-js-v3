@@ -6,6 +6,7 @@ import {
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AppSecurityGroupManagement,
+  AppSpecification,
   BooleanOperator,
   Channel,
   CheckpointConfig,
@@ -39,6 +40,7 @@ import {
   ModelCardStatus,
   ModelVariantConfig,
   MonitoringScheduleConfig,
+  NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
@@ -46,6 +48,10 @@ import {
   OidcConfigFilterSensitiveLog,
   ParallelismConfiguration,
   PipelineDefinitionS3Location,
+  ProcessingInput,
+  ProcessingOutputConfig,
+  ProcessingResources,
+  ProcessingStoppingCondition,
   Processor,
   ProfilerConfig,
   ProfilerRuleConfiguration,
@@ -76,9 +82,9 @@ import {
   FeatureGroup,
   FeatureMetadata,
   FeatureParameter,
-  Filter,
   MetricData,
   ModelArtifacts,
+  ProcessingJobStatus,
   ProjectStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
@@ -92,6 +98,7 @@ import {
   Workteam,
 } from "./models_2";
 import {
+  Filter,
   GitConfigForUpdate,
   HyperParameterTuningJobSearchEntity,
   InferenceExperimentStopDesiredState,
@@ -108,11 +115,212 @@ import {
   Parent,
   Pipeline,
   PipelineExecution,
-  ProcessingJob,
-  ProfilerConfigForUpdate,
   ResourceType,
   TransformJob,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>An Amazon SageMaker processing job that is used to analyze data and evaluate models. For more information,
+ *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html">Process
+ *                 Data and Evaluate Models</a>.</p>
+ */
+export interface ProcessingJob {
+  /**
+   * @public
+   * <p>List of input configurations for the processing job.</p>
+   */
+  ProcessingInputs?: ProcessingInput[];
+
+  /**
+   * @public
+   * <p>Configuration for uploading output from the processing container.</p>
+   */
+  ProcessingOutputConfig?: ProcessingOutputConfig;
+
+  /**
+   * @public
+   * <p>The name of the processing job.</p>
+   */
+  ProcessingJobName?: string;
+
+  /**
+   * @public
+   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
+   *             processing job. In distributed training, you specify more than one instance.</p>
+   */
+  ProcessingResources?: ProcessingResources;
+
+  /**
+   * @public
+   * <p>Configures conditions under which the processing job should be stopped, such as how long
+   *             the processing job has been running. After the condition is met, the processing job is stopped.</p>
+   */
+  StoppingCondition?: ProcessingStoppingCondition;
+
+  /**
+   * @public
+   * <p>Configuration to run a processing job in a specified container image.</p>
+   */
+  AppSpecification?: AppSpecification;
+
+  /**
+   * @public
+   * <p>Sets the environment variables in the Docker container.</p>
+   */
+  Environment?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Networking options for a job, such as network traffic encryption between containers,
+   *          whether to allow inbound and outbound network calls to and from containers, and the VPC
+   *          subnets and security groups to use for VPC-enabled jobs.</p>
+   */
+  NetworkConfig?: NetworkConfig;
+
+  /**
+   * @public
+   * <p>The ARN of the role used to create the processing job.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
+   *       you call the following APIs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ExperimentConfig?: ExperimentConfig;
+
+  /**
+   * @public
+   * <p>The ARN of the processing job.</p>
+   */
+  ProcessingJobArn?: string;
+
+  /**
+   * @public
+   * <p>The status of the processing job.</p>
+   */
+  ProcessingJobStatus?: ProcessingJobStatus | string;
+
+  /**
+   * @public
+   * <p>A string, up to one KB in size, that contains metadata from the processing
+   *             container when the processing job exits.</p>
+   */
+  ExitMessage?: string;
+
+  /**
+   * @public
+   * <p>A string, up to one KB in size, that contains the reason a processing job failed, if
+   *             it failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>The time that the processing job ended.</p>
+   */
+  ProcessingEndTime?: Date;
+
+  /**
+   * @public
+   * <p>The time that the processing job started.</p>
+   */
+  ProcessingStartTime?: Date;
+
+  /**
+   * @public
+   * <p>The time the processing job was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The time the processing job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The ARN of a monitoring schedule for an endpoint associated with this processing
+   *             job.</p>
+   */
+  MonitoringScheduleArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.</p>
+   */
+  AutoMLJobArn?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the training job associated with this processing job.</p>
+   */
+  TrainingJobArn?: string;
+
+  /**
+   * @public
+   * <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+   *                 User Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * <p>Configuration information for updating the Amazon SageMaker Debugger profile parameters, system and framework metrics configurations, and
+ *             storage paths.</p>
+ */
+export interface ProfilerConfigForUpdate {
+  /**
+   * @public
+   * <p>Path to Amazon S3 storage location for system and framework metrics.</p>
+   */
+  S3OutputPath?: string;
+
+  /**
+   * @public
+   * <p>A time interval for capturing system metrics in milliseconds. Available values are
+   *             100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000 (1 minute) milliseconds. The default value is 500 milliseconds.</p>
+   */
+  ProfilingIntervalInMilliseconds?: number;
+
+  /**
+   * @public
+   * <p>Configuration information for capturing framework metrics. Available key strings for different profiling options are
+   *             <code>DetailedProfilingConfig</code>, <code>PythonProfilingConfig</code>, and <code>DataLoaderProfilingConfig</code>.
+   *             The following codes are configuration structures for the <code>ProfilingParameters</code> parameter. To learn more about
+   *             how to configure the <code>ProfilingParameters</code> parameter,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.
+   *         </p>
+   */
+  ProfilingParameters?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>To turn off Amazon SageMaker Debugger monitoring and profiling while a training job is in progress, set to <code>True</code>.</p>
+   */
+  DisableProfiler?: boolean;
+}
 
 /**
  * @public

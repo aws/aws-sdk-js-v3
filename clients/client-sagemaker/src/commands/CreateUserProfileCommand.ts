@@ -144,6 +144,13 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *         S3ArtifactPath: "STRING_VALUE",
  *         S3KmsKeyId: "STRING_VALUE",
  *       },
+ *       IdentityProviderOAuthSettings: [ // IdentityProviderOAuthSettings
+ *         { // IdentityProviderOAuthSetting
+ *           DataSourceName: "SalesforceGenie" || "Snowflake",
+ *           Status: "ENABLED" || "DISABLED",
+ *           SecretArn: "STRING_VALUE",
+ *         },
+ *       ],
  *     },
  *   },
  * };

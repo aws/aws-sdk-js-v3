@@ -11,7 +11,6 @@ import {
   AppImageConfigDetails,
   AppImageConfigSortKey,
   AppSortKey,
-  AppSpecification,
   ArtifactSummary,
   AssociationEdgeType,
   AssociationSummary,
@@ -69,12 +68,7 @@ import {
   ModelPackageValidationSpecification,
   MonitoringScheduleConfig,
   MonitoringType,
-  NetworkConfig,
   ParallelismConfiguration,
-  ProcessingInput,
-  ProcessingOutputConfig,
-  ProcessingResources,
-  ProcessingStoppingCondition,
   RecommendationJobType,
   ResourceLimits,
   SourceAlgorithmSpecification,
@@ -108,7 +102,6 @@ import {
   FeatureGroupSortOrder,
   FeatureGroupStatus,
   FeatureGroupSummary,
-  Filter,
   FlowDefinitionStatus,
   HubContentStatus,
   HubContentType,
@@ -154,6 +147,232 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const Operator = {
+  CONTAINS: "Contains",
+  EQUALS: "Equals",
+  EXISTS: "Exists",
+  GREATER_THAN: "GreaterThan",
+  GREATER_THAN_OR_EQUAL_TO: "GreaterThanOrEqualTo",
+  IN: "In",
+  LESS_THAN: "LessThan",
+  LESS_THAN_OR_EQUAL_TO: "LessThanOrEqualTo",
+  NOT_EQUALS: "NotEquals",
+  NOT_EXISTS: "NotExists",
+} as const;
+
+/**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
+
+/**
+ * @public
+ * <p>A conditional statement for a search expression that includes a resource property, a
+ *       Boolean operator, and a value. Resources that match the statement are returned in the
+ *       results from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
+ *          <p>If you specify a <code>Value</code>, but not an <code>Operator</code>, SageMaker uses the
+ *       equals operator.</p>
+ *          <p>In search, there are several property types:</p>
+ *          <dl>
+ *             <dt>Metrics</dt>
+ *             <dd>
+ *                <p>To define a metric filter, enter a value using the form
+ *             <code>"Metrics.<name>"</code>, where <code><name></code> is
+ *             a metric name. For example, the following filter searches for training jobs
+ *             with an <code>"accuracy"</code> metric greater than
+ *             <code>"0.9"</code>:</p>
+ *                <p>
+ *                   <code>\{</code>
+ *                </p>
+ *                <p>
+ *                   <code>"Name": "Metrics.accuracy",</code>
+ *                </p>
+ *                <p>
+ *                   <code>"Operator": "GreaterThan",</code>
+ *                </p>
+ *                <p>
+ *                   <code>"Value": "0.9"</code>
+ *                </p>
+ *                <p>
+ *                   <code>\}</code>
+ *                </p>
+ *             </dd>
+ *             <dt>HyperParameters</dt>
+ *             <dd>
+ *                <p>To define a hyperparameter filter, enter a value with the form
+ *             <code>"HyperParameters.<name>"</code>. Decimal hyperparameter
+ *             values are treated as a decimal in a comparison if the specified
+ *             <code>Value</code> is also a decimal value. If the specified
+ *             <code>Value</code> is an integer, the decimal hyperparameter values are
+ *             treated as integers. For example, the following filter is satisfied by
+ *             training jobs with a <code>"learning_rate"</code> hyperparameter that is
+ *             less than <code>"0.5"</code>:</p>
+ *                <p>
+ *                   <code> \{</code>
+ *                </p>
+ *                <p>
+ *                   <code> "Name": "HyperParameters.learning_rate",</code>
+ *                </p>
+ *                <p>
+ *                   <code> "Operator": "LessThan",</code>
+ *                </p>
+ *                <p>
+ *                   <code> "Value": "0.5"</code>
+ *                </p>
+ *                <p>
+ *                   <code> \}</code>
+ *                </p>
+ *             </dd>
+ *             <dt>Tags</dt>
+ *             <dd>
+ *                <p>To define a tag filter, enter a value with the form
+ *             <code>Tags.<key></code>.</p>
+ *             </dd>
+ *          </dl>
+ */
+export interface Filter {
+  /**
+   * @public
+   * <p>A resource property name. For example, <code>TrainingJobName</code>. For
+   *       valid property names, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a>.
+   *       You must specify a valid property for the resource.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>A Boolean binary operator that is used to evaluate the filter. The operator field
+   *       contains one of the following values:</p>
+   *          <dl>
+   *             <dt>Equals</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> equals <code>Value</code>.</p>
+   *             </dd>
+   *             <dt>NotEquals</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> doesn't equal <code>Value</code>.</p>
+   *             </dd>
+   *             <dt>Exists</dt>
+   *             <dd>
+   *                <p>The <code>Name</code> property exists.</p>
+   *             </dd>
+   *             <dt>NotExists</dt>
+   *             <dd>
+   *                <p>The <code>Name</code> property does not exist.</p>
+   *             </dd>
+   *             <dt>GreaterThan</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> is greater than <code>Value</code>.
+   *             Not supported for text properties.</p>
+   *             </dd>
+   *             <dt>GreaterThanOrEqualTo</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> is greater than or equal to <code>Value</code>.
+   *             Not supported for text properties.</p>
+   *             </dd>
+   *             <dt>LessThan</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> is less than <code>Value</code>.
+   *             Not supported for text properties.</p>
+   *             </dd>
+   *             <dt>LessThanOrEqualTo</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> is less than or equal to <code>Value</code>.
+   *             Not supported for text properties.</p>
+   *             </dd>
+   *             <dt>In</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> is one of the comma delimited strings in
+   *             <code>Value</code>. Only supported for text properties.</p>
+   *             </dd>
+   *             <dt>Contains</dt>
+   *             <dd>
+   *                <p>The value of <code>Name</code> contains the string <code>Value</code>.
+   *             Only supported for text properties.</p>
+   *                <p>A <code>SearchExpression</code> can include the <code>Contains</code> operator
+   *             multiple times when the value of <code>Name</code> is one of the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Experiment.DisplayName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Experiment.ExperimentName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Experiment.Tags</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Trial.DisplayName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Trial.TrialName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Trial.Tags</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TrialComponent.DisplayName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TrialComponent.TrialComponentName</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TrialComponent.Tags</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TrialComponent.InputArtifacts</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TrialComponent.OutputArtifacts</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>A <code>SearchExpression</code> can include only one <code>Contains</code> operator
+   *             for all other values of <code>Name</code>. In these cases, if you include multiple
+   *             <code>Contains</code> operators in the <code>SearchExpression</code>, the result is
+   *             the following error message: "<code>'CONTAINS' operator usage limit of 1
+   *             exceeded.</code>"</p>
+   *             </dd>
+   *          </dl>
+   */
+  Operator?: Operator | string;
+
+  /**
+   * @public
+   * <p>A value used with <code>Name</code> and <code>Operator</code> to determine which
+   *         resources satisfy the filter's condition. For numerical properties, <code>Value</code>
+   *         must be an integer or floating-point decimal. For timestamp properties,
+   *         <code>Value</code> must be an ISO 8601 date-time string of the following format:
+   *         <code>YYYY-mm-dd'T'HH:MM:SS</code>.</p>
+   */
+  Value?: string;
+}
 
 /**
  * @public
@@ -10613,209 +10832,6 @@ export interface PipelineExecution {
    * <p>The selective execution configuration applied to the pipeline run.</p>
    */
   SelectiveExecutionConfig?: SelectiveExecutionConfig;
-}
-
-/**
- * @public
- * <p>An Amazon SageMaker processing job that is used to analyze data and evaluate models. For more information,
- *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html">Process
- *                 Data and Evaluate Models</a>.</p>
- */
-export interface ProcessingJob {
-  /**
-   * @public
-   * <p>List of input configurations for the processing job.</p>
-   */
-  ProcessingInputs?: ProcessingInput[];
-
-  /**
-   * @public
-   * <p>Configuration for uploading output from the processing container.</p>
-   */
-  ProcessingOutputConfig?: ProcessingOutputConfig;
-
-  /**
-   * @public
-   * <p>The name of the processing job.</p>
-   */
-  ProcessingJobName?: string;
-
-  /**
-   * @public
-   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
-   *             processing job. In distributed training, you specify more than one instance.</p>
-   */
-  ProcessingResources?: ProcessingResources;
-
-  /**
-   * @public
-   * <p>Configures conditions under which the processing job should be stopped, such as how long
-   *             the processing job has been running. After the condition is met, the processing job is stopped.</p>
-   */
-  StoppingCondition?: ProcessingStoppingCondition;
-
-  /**
-   * @public
-   * <p>Configuration to run a processing job in a specified container image.</p>
-   */
-  AppSpecification?: AppSpecification;
-
-  /**
-   * @public
-   * <p>Sets the environment variables in the Docker container.</p>
-   */
-  Environment?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Networking options for a job, such as network traffic encryption between containers,
-   *          whether to allow inbound and outbound network calls to and from containers, and the VPC
-   *          subnets and security groups to use for VPC-enabled jobs.</p>
-   */
-  NetworkConfig?: NetworkConfig;
-
-  /**
-   * @public
-   * <p>The ARN of the role used to create the processing job.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * @public
-   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
-   *       you call the following APIs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ExperimentConfig?: ExperimentConfig;
-
-  /**
-   * @public
-   * <p>The ARN of the processing job.</p>
-   */
-  ProcessingJobArn?: string;
-
-  /**
-   * @public
-   * <p>The status of the processing job.</p>
-   */
-  ProcessingJobStatus?: ProcessingJobStatus | string;
-
-  /**
-   * @public
-   * <p>A string, up to one KB in size, that contains metadata from the processing
-   *             container when the processing job exits.</p>
-   */
-  ExitMessage?: string;
-
-  /**
-   * @public
-   * <p>A string, up to one KB in size, that contains the reason a processing job failed, if
-   *             it failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>The time that the processing job ended.</p>
-   */
-  ProcessingEndTime?: Date;
-
-  /**
-   * @public
-   * <p>The time that the processing job started.</p>
-   */
-  ProcessingStartTime?: Date;
-
-  /**
-   * @public
-   * <p>The time the processing job was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The time the processing job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>The ARN of a monitoring schedule for an endpoint associated with this processing
-   *             job.</p>
-   */
-  MonitoringScheduleArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.</p>
-   */
-  AutoMLJobArn?: string;
-
-  /**
-   * @public
-   * <p>The ARN of the training job associated with this processing job.</p>
-   */
-  TrainingJobArn?: string;
-
-  /**
-   * @public
-   * <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *                 User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- * <p>Configuration information for updating the Amazon SageMaker Debugger profile parameters, system and framework metrics configurations, and
- *             storage paths.</p>
- */
-export interface ProfilerConfigForUpdate {
-  /**
-   * @public
-   * <p>Path to Amazon S3 storage location for system and framework metrics.</p>
-   */
-  S3OutputPath?: string;
-
-  /**
-   * @public
-   * <p>A time interval for capturing system metrics in milliseconds. Available values are
-   *             100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000 (1 minute) milliseconds. The default value is 500 milliseconds.</p>
-   */
-  ProfilingIntervalInMilliseconds?: number;
-
-  /**
-   * @public
-   * <p>Configuration information for capturing framework metrics. Available key strings for different profiling options are
-   *             <code>DetailedProfilingConfig</code>, <code>PythonProfilingConfig</code>, and <code>DataLoaderProfilingConfig</code>.
-   *             The following codes are configuration structures for the <code>ProfilingParameters</code> parameter. To learn more about
-   *             how to configure the <code>ProfilingParameters</code> parameter,
-   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.
-   *         </p>
-   */
-  ProfilingParameters?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>To turn off Amazon SageMaker Debugger monitoring and profiling while a training job is in progress, set to <code>True</code>.</p>
-   */
-  DisableProfiler?: boolean;
 }
 
 /**
