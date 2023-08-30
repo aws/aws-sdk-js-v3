@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.403.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.402.0...v3.403.0) (2023-08-30)
+
+
+### Features
+
+* **client-appflow:** Add SAP source connector parallel and pagination feature ([6205b2c](https://github.com/aws/aws-sdk-js-v3/commit/6205b2c41430c75bf19eff7e8b2ebffa6a0bc683))
+* **client-apprunner:** App Runner adds support for Bitbucket. You can now create App Runner connection that connects to your Bitbucket repositories and deploy App Runner service with the source code stored in a Bitbucket repository. ([d0e2044](https://github.com/aws/aws-sdk-js-v3/commit/d0e2044eb7971e951c5d8b08cb3494b6feeb235b))
+* **client-auditmanager:** This release marks some assessment metadata as sensitive. We added a sensitive trait to the following attributes: assessmentName, emailAddress, scope, createdBy, lastUpdatedBy, and userName. ([c785bbe](https://github.com/aws/aws-sdk-js-v3/commit/c785bbe85cc936c5bbd2c4e9d1dc00b0c3a1f120))
+* **client-cleanrooms:** This release decouples member abilities in a collaboration. With this change, the member who can run queries no longer needs to be the same as the member who can receive results. ([915b7c9](https://github.com/aws/aws-sdk-js-v3/commit/915b7c97fad83bbc3a22e22758f16290ff662db4))
+* **client-datasync:** AWS DataSync introduces Task Reports, a new feature that provides detailed reports of data transfer operations for each task execution. ([4ca461a](https://github.com/aws/aws-sdk-js-v3/commit/4ca461a66d828778a0fc661787fe1452379a3194))
+* **client-neptunedata:** Allows customers to execute data plane actions like bulk loading graphs, issuing graph queries using Gremlin and openCypher directly from the SDK. ([61abba3](https://github.com/aws/aws-sdk-js-v3/commit/61abba3e8e753c3031432e6e717d237bea13958c))
+* **client-network-firewall:** Network Firewall increasing pagination token string length ([bcaac0b](https://github.com/aws/aws-sdk-js-v3/commit/bcaac0bb1b15dea7e3b0bed434bdeeeaff43a6b5))
+* **client-pca-connector-ad:** The Connector for AD allows you to use a fully-managed AWS Private CA as a drop-in replacement for your self-managed enterprise CAs without local agents or proxy servers. Enterprises that use AD to manage Windows environments can reduce their private certificate authority (CA) costs and complexity. ([f6c8094](https://github.com/aws/aws-sdk-js-v3/commit/f6c8094236e32b4871e476959888d7ae5ffa2092))
+* **client-sagemaker:** Amazon SageMaker Canvas adds IdentityProviderOAuthSettings support for CanvasAppSettings ([6d84166](https://github.com/aws/aws-sdk-js-v3/commit/6d841668d3d1e12a59223097ff869c40bf4efccf))
+* **clients:** update client endpoints as of 2023-08-30 ([36c8ce9](https://github.com/aws/aws-sdk-js-v3/commit/36c8ce9fba71e691cdd6ac4967ccaf8fb2d75028))
+
+
+
+
+
 # [3.402.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.401.0...v3.402.0) (2023-08-29)
 
 

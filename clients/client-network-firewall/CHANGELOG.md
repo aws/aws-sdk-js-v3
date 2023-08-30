@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.403.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.402.0...v3.403.0) (2023-08-30)
+
+
+### Features
+
+* **client-network-firewall:** Network Firewall increasing pagination token string length ([bcaac0b](https://github.com/aws/aws-sdk-js-v3/commit/bcaac0bb1b15dea7e3b0bed434bdeeeaff43a6b5))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall

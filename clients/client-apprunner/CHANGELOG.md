@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.403.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.402.0...v3.403.0) (2023-08-30)
+
+
+### Features
+
+* **client-apprunner:** App Runner adds support for Bitbucket. You can now create App Runner connection that connects to your Bitbucket repositories and deploy App Runner service with the source code stored in a Bitbucket repository. ([d0e2044](https://github.com/aws/aws-sdk-js-v3/commit/d0e2044eb7971e951c5d8b08cb3494b6feeb235b))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-apprunner

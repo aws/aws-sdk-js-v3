@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.403.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.402.0...v3.403.0) (2023-08-30)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Canvas adds IdentityProviderOAuthSettings support for CanvasAppSettings ([6d84166](https://github.com/aws/aws-sdk-js-v3/commit/6d841668d3d1e12a59223097ff869c40bf4efccf))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
