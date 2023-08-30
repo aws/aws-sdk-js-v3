@@ -36,13 +36,13 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
 
 /**
  * @public
- * <p>Modifies a running DataSync task.</p>
+ * <p>Updates the configuration of a running DataSync task execution.</p>
  *          <note>
  *             <p>Currently, the only <code>Option</code> that you can modify with
  *           <code>UpdateTaskExecution</code> is <code>
  *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a>
  *                </code>, which throttles bandwidth for a running or queued
- *         task.</p>
+ *         task execution.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

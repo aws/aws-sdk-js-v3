@@ -262,6 +262,10 @@ import {
   P95Metrics,
   QopConfiguration,
   RemoveStorageSystemRequest,
+  ReportDestination,
+  ReportDestinationS3,
+  ReportOverride,
+  ReportOverrides,
   ResourceDetails,
   ResourceMetrics,
   S3Config,
@@ -272,6 +276,7 @@ import {
   TagListEntry,
   TagResourceRequest,
   TaskFilter,
+  TaskReportConfig,
   TaskSchedule,
   Throughput,
   UntagResourceRequest,
@@ -4335,6 +4340,14 @@ const se_DescribeStorageSystemResourceMetricsRequest = (
 
 // se_RemoveStorageSystemRequest omitted.
 
+// se_ReportDestination omitted.
+
+// se_ReportDestinationS3 omitted.
+
+// se_ReportOverride omitted.
+
+// se_ReportOverrides omitted.
+
 // se_ResourceFilters omitted.
 
 // se_ResourceIds omitted.
@@ -4368,6 +4381,8 @@ const se_StartDiscoveryJobRequest = (input: StartDiscoveryJobRequest, context: _
 // se_TaskFilter omitted.
 
 // se_TaskFilters omitted.
+
+// se_TaskReportConfig omitted.
 
 // se_TaskSchedule omitted.
 
@@ -4735,15 +4750,21 @@ const de_DescribeTaskExecutionResponse = (output: any, context: __SerdeContext):
     BytesTransferred: __expectLong,
     BytesWritten: __expectLong,
     EstimatedBytesToTransfer: __expectLong,
+    EstimatedFilesToDelete: __expectLong,
     EstimatedFilesToTransfer: __expectLong,
     Excludes: _json,
+    FilesDeleted: __expectLong,
+    FilesSkipped: __expectLong,
     FilesTransferred: __expectLong,
+    FilesVerified: __expectLong,
     Includes: _json,
     Options: _json,
+    ReportResult: _json,
     Result: _json,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
     TaskExecutionArn: __expectString,
+    TaskReportConfig: _json,
   }) as any;
 };
 
@@ -4768,6 +4789,7 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
     SourceNetworkInterfaceArns: _json,
     Status: __expectString,
     TaskArn: __expectString,
+    TaskReportConfig: _json,
   }) as any;
 };
 
@@ -5015,6 +5037,16 @@ const de_P95Metrics = (output: any, context: __SerdeContext): P95Metrics => {
 
 // de_RemoveStorageSystemResponse omitted.
 
+// de_ReportDestination omitted.
+
+// de_ReportDestinationS3 omitted.
+
+// de_ReportOverride omitted.
+
+// de_ReportOverrides omitted.
+
+// de_ReportResult omitted.
+
 /**
  * deserializeAws_json1_1ResourceDetails
  */
@@ -5068,6 +5100,8 @@ const de_ResourceMetrics = (output: any, context: __SerdeContext): ResourceMetri
 // de_TaskList omitted.
 
 // de_TaskListEntry omitted.
+
+// de_TaskReportConfig omitted.
 
 // de_TaskSchedule omitted.
 

@@ -295,8 +295,7 @@ export type AzureBlobAuthenticationType =
 export interface AzureBlobSasConfiguration {
   /**
    * @public
-   * <p>Specifies a SAS token that provides permissions at the Azure storage account, container,
-   *       or folder level.</p>
+   * <p>Specifies a SAS token that provides permissions to access your Azure Blob Storage.</p>
    *          <p>The token is part of the SAS URI string that comes after the storage resource URI and a question mark. A token looks something like this:</p>
    *          <p>
    *             <code>sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D</code>
@@ -1916,11 +1915,11 @@ export type VerifyMode = (typeof VerifyMode)[keyof typeof VerifyMode];
 
 /**
  * @public
- * <p>Configures your DataSync task settings. These options include how DataSync handles files, objects, and their associated metadata. You also can specify how
- *         DataSync verifies data integrity, set bandwidth limits for your task, among other
+ * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
+ *       also can specify how to verify data integrity, set bandwidth limits for your task, among other
  *       options.</p>
- *          <p>Each task setting has a default value. Unless you need to, you don't have to configure
- *       any of these <code>Options</code> before starting your task.</p>
+ *          <p>Each option has a default value. Unless you need to, you don't have to configure any of
+ *       these options before starting your task.</p>
  */
 export interface Options {
   /**
@@ -2212,6 +2211,197 @@ export interface TaskSchedule {
 
 /**
  * @public
+ * <p>Specifies the Amazon S3 bucket where DataSync uploads your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task report</a>.</p>
+ */
+export interface ReportDestinationS3 {
+  /**
+   * @public
+   * <p>Specifies a bucket prefix for your report.</p>
+   */
+  Subdirectory?: string;
+
+  /**
+   * @public
+   * <p>Specifies the ARN of the S3 bucket where DataSync uploads your report.</p>
+   */
+  S3BucketArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">Allowing DataSync to upload a task report to an Amazon S3 bucket</a>.</p>
+   */
+  BucketAccessRoleArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies where DataSync uploads your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task report</a>.</p>
+ */
+export interface ReportDestination {
+  /**
+   * @public
+   * <p>Specifies the Amazon S3 bucket where DataSync uploads your task report.</p>
+   */
+  S3?: ReportDestinationS3;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ObjectVersionIds = {
+  INCLUDE: "INCLUDE",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type ObjectVersionIds = (typeof ObjectVersionIds)[keyof typeof ObjectVersionIds];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportOutputType = {
+  STANDARD: "STANDARD",
+  SUMMARY_ONLY: "SUMMARY_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportOutputType = (typeof ReportOutputType)[keyof typeof ReportOutputType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportLevel = {
+  ERRORS_ONLY: "ERRORS_ONLY",
+  SUCCESSES_AND_ERRORS: "SUCCESSES_AND_ERRORS",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportLevel = (typeof ReportLevel)[keyof typeof ReportLevel];
+
+/**
+ * @public
+ * <p>Specifies the level of detail for a particular aspect of your DataSync
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task
+ *         report</a>.</p>
+ */
+export interface ReportOverride {
+  /**
+   * @public
+   * <p>Specifies whether your task report includes errors only or successes and errors.</p>
+   *          <p>For example, your report might mostly include only what didn't go well in your transfer (<code>ERRORS_ONLY</code>). At the same time, you want to verify that your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">task filter</a> is working correctly. In this situation, you can get a list of what files DataSync successfully skipped and if something transferred that you didn't to transfer (<code>SUCCESSES_AND_ERRORS</code>).</p>
+   */
+  ReportLevel?: ReportLevel | string;
+}
+
+/**
+ * @public
+ * <p>The level of detail included in each aspect of your DataSync
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task
+ *         report</a>.</p>
+ */
+export interface ReportOverrides {
+  /**
+   * @public
+   * <p>Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer.</p>
+   */
+  Transferred?: ReportOverride;
+
+  /**
+   * @public
+   * <p>Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. This only applies if you <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-data-verification-options.html">configure your task</a> to verify data during and after the transfer (which DataSync does by default).</p>
+   */
+  Verified?: ReportOverride;
+
+  /**
+   * @public
+   * <p>Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to delete data in the destination that isn't in the source.</p>
+   */
+  Deleted?: ReportOverride;
+
+  /**
+   * @public
+   * <p>Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer.</p>
+   */
+  Skipped?: ReportOverride;
+}
+
+/**
+ * @public
+ * <p>Specifies how you want to configure a task report, which provides detailed information about for your DataSync transfer.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">Task
+ *         reports</a>.</p>
+ */
+export interface TaskReportConfig {
+  /**
+   * @public
+   * <p>Specifies the Amazon S3 bucket where DataSync uploads your task report. For more
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html#task-report-access">Task reports</a>.</p>
+   */
+  Destination?: ReportDestination;
+
+  /**
+   * @public
+   * <p>Specifies the type of task report that you want:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUMMARY_ONLY</code>: Provides necessary details about your task, including the number of
+   *           files, objects, and directories transferred and transfer duration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STANDARD</code>: Provides complete details about your task, including a full list of
+   *           files, objects, and directories that were transferred, skipped, verified, and more.</p>
+   *             </li>
+   *          </ul>
+   */
+  OutputType?: ReportOutputType | string;
+
+  /**
+   * @public
+   * <p>Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ERRORS_ONLY</code>: A report shows what DataSync was unable to transfer, skip,
+   *           verify, and delete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCESSES_AND_ERRORS</code>: A report shows what DataSync was able and unable
+   *           to transfer, skip, verify, and delete.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReportLevel?: ReportLevel | string;
+
+  /**
+   * @public
+   * <p>Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html">enable versioning on your bucket</a>. Keep in mind that setting this to <code>INCLUDE</code> can increase the duration of your task execution.</p>
+   */
+  ObjectVersionIds?: ObjectVersionIds | string;
+
+  /**
+   * @public
+   * <p>Customizes the reporting level for aspects of your task report. For example, your report
+   *       might generally only include errors, but you could specify that you want a list of successes
+   *       and errors just for the files that DataSync attempted to delete in your destination
+   *       location.</p>
+   */
+  Overrides?: ReportOverrides;
+}
+
+/**
+ * @public
  * <p>CreateTaskRequest</p>
  */
 export interface CreateTaskRequest {
@@ -2282,6 +2472,13 @@ export interface CreateTaskRequest {
    *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering data transferred by DataSync</a>.</p>
    */
   Includes?: FilterRule[];
+
+  /**
+   * @public
+   * <p>Specifies how you want to configure a task report, which provides detailed information
+   *       about for your DataSync transfer.</p>
+   */
+  TaskReportConfig?: TaskReportConfig;
 }
 
 /**
@@ -4216,6 +4413,12 @@ export interface DescribeTaskResponse {
    *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering data transferred by DataSync</a>.</p>
    */
   Includes?: FilterRule[];
+
+  /**
+   * @public
+   * <p>The configuration of your task report. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">Creating a task report</a>.</p>
+   */
+  TaskReportConfig?: TaskReportConfig;
 }
 
 /**
@@ -4225,7 +4428,8 @@ export interface DescribeTaskResponse {
 export interface DescribeTaskExecutionRequest {
   /**
    * @public
-   * <p>Specifies the Amazon Resource Name (ARN) of the transfer task that's running.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the task execution that you want
+   *       information about.</p>
    */
   TaskExecutionArn: string | undefined;
 }
@@ -4244,6 +4448,33 @@ export const PhaseStatus = {
  * @public
  */
 export type PhaseStatus = (typeof PhaseStatus)[keyof typeof PhaseStatus];
+
+/**
+ * @public
+ * <p>Indicates whether DataSync created a complete <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task report</a> for your
+ *       transfer.</p>
+ */
+export interface ReportResult {
+  /**
+   * @public
+   * <p>Indicates whether DataSync is still working on your report, created a report, or
+   *       can't create a complete report.</p>
+   */
+  Status?: PhaseStatus | string;
+
+  /**
+   * @public
+   * <p>Indicates the code associated with the error if DataSync can't create a complete
+   *       report.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>Provides details about issues creating a report.</p>
+   */
+  ErrorDetail?: string;
+}
 
 /**
  * @public
@@ -4339,7 +4570,7 @@ export type TaskExecutionStatus = (typeof TaskExecutionStatus)[keyof typeof Task
 export interface DescribeTaskExecutionResponse {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the task execution that was described.
+   * <p>The ARN of the task execution that you wanted information about.
    *         <code>TaskExecutionArn</code> is hierarchical and includes <code>TaskArn</code> for the task
    *       that was executed. </p>
    *          <p>For example, a <code>TaskExecution</code> value with the ARN
@@ -4352,19 +4583,16 @@ export interface DescribeTaskExecutionResponse {
   /**
    * @public
    * <p>The status of the task execution. </p>
-   *          <p>For detailed information about task execution statuses, see Understanding
-   *       Task Statuses in the <i>DataSync User Guide.</i>
-   *          </p>
    */
   Status?: TaskExecutionStatus | string;
 
   /**
    * @public
-   * <p>Configures your DataSync task settings. These options include how DataSync handles files, objects, and their associated metadata. You also can specify how
-   *         DataSync verifies data integrity, set bandwidth limits for your task, among other
+   * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
+   *       also can specify how to verify data integrity, set bandwidth limits for your task, among other
    *       options.</p>
-   *          <p>Each task setting has a default value. Unless you need to, you don't have to configure
-   *       any of these <code>Options</code> before starting your task.</p>
+   *          <p>Each option has a default value. Unless you need to, you don't have to configure any of
+   *       these options before starting your task.</p>
    */
   Options?: Options;
 
@@ -4384,45 +4612,42 @@ export interface DescribeTaskExecutionResponse {
 
   /**
    * @public
-   * <p>The time that the task execution was started.</p>
+   * <p>The time when the task execution started.</p>
    */
   StartTime?: Date;
 
   /**
    * @public
-   * <p>The expected number of files that is to be transferred over the network. This value is
-   *       calculated during the <code>PREPARING</code> phase before the <code>TRANSFERRING</code> phase
-   *       of the task execution. This value is the expected number of files to be transferred. It's
-   *       calculated based on comparing the content of the source and destination locations and finding
-   *       the delta that needs to be transferred. </p>
+   * <p>The expected number of files, objects, and directories that DataSync will
+   *       transfer over the network. This value is calculated during the task execution's
+   *         <code>PREPARING</code> phase before the <code>TRANSFERRING</code> phase. The calculation is
+   *       based on comparing the content of the source and destination locations and finding the
+   *       difference that needs to be transferred. </p>
    */
   EstimatedFilesToTransfer?: number;
 
   /**
    * @public
-   * <p>The estimated physical number of bytes that is to be transferred over the
-   *       network.</p>
+   * <p>The estimated physical number of bytes that will transfer over the network.</p>
    */
   EstimatedBytesToTransfer?: number;
 
   /**
    * @public
-   * <p>The actual number of files that was transferred over the network. This value is
-   *       calculated and updated on an ongoing basis during the <code>TRANSFERRING</code> phase of the
-   *       task execution. It's updated periodically when each file is read from the source and sent over
-   *       the network. </p>
-   *          <p>If failures occur during a transfer, this value can be less than
+   * <p>The actual number of files, objects, and directories that DataSync
+   *       transferred over the network. This value is updated periodically during the task execution's
+   *         <code>TRANSFERRING</code> phase when something is read from the source and sent over the
+   *       network.</p>
+   *          <p>If DataSync fails to transfer something, this value can be less than
    *         <code>EstimatedFilesToTransfer</code>. In some cases, this value can also be greater than
    *         <code>EstimatedFilesToTransfer</code>. This element is implementation-specific for some
-   *       location types, so don't use it as an indicator for a correct file number or to monitor your
-   *       task execution.</p>
+   *       location types, so don't use it as an exact indication of what transferred or to monitor your task execution.</p>
    */
   FilesTransferred?: number;
 
   /**
    * @public
-   * <p>The number of logical bytes written to the destination Amazon Web Services storage
-   *       resource.</p>
+   * <p>The number of logical bytes written to the destination location.</p>
    */
   BytesWritten?: number;
 
@@ -4446,6 +4671,51 @@ export interface DescribeTaskExecutionResponse {
    *       compressible.</p>
    */
   BytesCompressed?: number;
+
+  /**
+   * @public
+   * <p>The configuration of your task report, which provides detailed information about for your DataSync transfer.</p>
+   */
+  TaskReportConfig?: TaskReportConfig;
+
+  /**
+   * @public
+   * <p>The number of files, objects, and directories that DataSync deleted in your
+   *       destination location. If you don't <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to
+   *       delete data in the destination that isn't in the source, the value is always
+   *       <code>0</code>.</p>
+   */
+  FilesDeleted?: number;
+
+  /**
+   * @public
+   * <p>The number of files, objects, and directories that DataSync skipped during your
+   *       transfer.</p>
+   */
+  FilesSkipped?: number;
+
+  /**
+   * @public
+   * <p>The number of files, objects, and directories that DataSync verified during your
+   *       transfer.</p>
+   */
+  FilesVerified?: number;
+
+  /**
+   * @public
+   * <p>Indicates whether DataSync generated a complete <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task report</a> for your
+   *       transfer.</p>
+   */
+  ReportResult?: ReportResult;
+
+  /**
+   * @public
+   * <p>The expected number of files, objects, and directories that DataSync will delete
+   *       in your destination location.  If you don't <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to
+   *       delete data in the destination that isn't in the source, the value is always
+   *       <code>0</code>.</p>
+   */
+  EstimatedFilesToDelete?: number;
 }
 
 /**
@@ -5098,11 +5368,11 @@ export interface StartTaskExecutionRequest {
 
   /**
    * @public
-   * <p>Configures your DataSync task settings. These options include how DataSync handles files, objects, and their associated metadata. You also can specify how
-   *         DataSync verifies data integrity, set bandwidth limits for your task, among other
+   * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
+   *       also can specify how to verify data integrity, set bandwidth limits for your task, among other
    *       options.</p>
-   *          <p>Each task setting has a default value. Unless you need to, you don't have to configure
-   *       any of these <code>Options</code> before starting your task.</p>
+   *          <p>Each option has a default value. Unless you need to, you don't have to configure any of
+   *       these options before starting your task.</p>
    */
   OverrideOptions?: Options;
 
@@ -5132,6 +5402,12 @@ export interface StartTaskExecutionRequest {
    *       your DataSync resources.</p>
    */
   Tags?: TagListEntry[];
+
+  /**
+   * @public
+   * <p>Specifies how you want to configure a task report, which provides detailed information about for your DataSync transfer.</p>
+   */
+  TaskReportConfig?: TaskReportConfig;
 }
 
 /**
@@ -5662,11 +5938,11 @@ export interface UpdateTaskRequest {
 
   /**
    * @public
-   * <p>Configures your DataSync task settings. These options include how DataSync handles files, objects, and their associated metadata. You also can specify how
-   *         DataSync verifies data integrity, set bandwidth limits for your task, among other
+   * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
+   *       also can specify how to verify data integrity, set bandwidth limits for your task, among other
    *       options.</p>
-   *          <p>Each task setting has a default value. Unless you need to, you don't have to configure
-   *       any of these <code>Options</code> before starting your task.</p>
+   *          <p>Each option has a default value. Unless you need to, you don't have to configure any of
+   *       these options before starting your task.</p>
    */
   Options?: Options;
 
@@ -5705,6 +5981,12 @@ export interface UpdateTaskRequest {
    *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering data transferred by DataSync</a>.</p>
    */
   Includes?: FilterRule[];
+
+  /**
+   * @public
+   * <p>Specifies how you want to configure a task report, which provides detailed information about for your DataSync transfer.</p>
+   */
+  TaskReportConfig?: TaskReportConfig;
 }
 
 /**
@@ -5725,11 +6007,11 @@ export interface UpdateTaskExecutionRequest {
 
   /**
    * @public
-   * <p>Configures your DataSync task settings. These options include how DataSync handles files, objects, and their associated metadata. You also can specify how
-   *         DataSync verifies data integrity, set bandwidth limits for your task, among other
+   * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
+   *       also can specify how to verify data integrity, set bandwidth limits for your task, among other
    *       options.</p>
-   *          <p>Each task setting has a default value. Unless you need to, you don't have to configure
-   *       any of these <code>Options</code> before starting your task.</p>
+   *          <p>Each option has a default value. Unless you need to, you don't have to configure any of
+   *       these options before starting your task.</p>
    */
   Options: Options | undefined;
 }
