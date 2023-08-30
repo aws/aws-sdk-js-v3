@@ -1036,12 +1036,18 @@ const de_CreateTLSInspectionConfigurationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InsufficientCapacityException":
+    case "com.amazonaws.networkfirewall#InsufficientCapacityException":
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.networkfirewall#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
