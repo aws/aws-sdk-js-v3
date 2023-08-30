@@ -55,7 +55,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * //     { // ConnectionSummary
  * //       ConnectionName: "STRING_VALUE",
  * //       ConnectionArn: "STRING_VALUE",
- * //       ProviderType: "GITHUB",
+ * //       ProviderType: "GITHUB" || "BITBUCKET",
  * //       Status: "PENDING_HANDSHAKE" || "AVAILABLE" || "ERROR" || "DELETED",
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //     },

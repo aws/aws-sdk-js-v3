@@ -53,7 +53,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * //   Connection: { // Connection
  * //     ConnectionName: "STRING_VALUE",
  * //     ConnectionArn: "STRING_VALUE",
- * //     ProviderType: "GITHUB",
+ * //     ProviderType: "GITHUB" || "BITBUCKET",
  * //     Status: "PENDING_HANDSHAKE" || "AVAILABLE" || "ERROR" || "DELETED",
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //   },

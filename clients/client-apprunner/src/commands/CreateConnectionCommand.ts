@@ -38,8 +38,9 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @public
  * <p>Create an App Runner connection resource. App Runner requires a connection resource when you create App Runner services that access private repositories from
  *       certain third-party providers. You can share a connection across multiple services.</p>
- *          <p>A connection resource is needed to access GitHub repositories. GitHub requires a user interface approval process through the App Runner console before you
- *       can use the connection.</p>
+ *          <p>A connection resource is needed to access GitHub and Bitbucket repositories. Both require
+ *       a user interface approval process through the App Runner console before you can use the
+ *       connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,7 +49,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * const client = new AppRunnerClient(config);
  * const input = { // CreateConnectionRequest
  *   ConnectionName: "STRING_VALUE", // required
- *   ProviderType: "GITHUB", // required
+ *   ProviderType: "GITHUB" || "BITBUCKET", // required
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE",
@@ -62,7 +63,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * //   Connection: { // Connection
  * //     ConnectionName: "STRING_VALUE",
  * //     ConnectionArn: "STRING_VALUE",
- * //     ProviderType: "GITHUB",
+ * //     ProviderType: "GITHUB" || "BITBUCKET",
  * //     Status: "PENDING_HANDSHAKE" || "AVAILABLE" || "ERROR" || "DELETED",
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //   },
