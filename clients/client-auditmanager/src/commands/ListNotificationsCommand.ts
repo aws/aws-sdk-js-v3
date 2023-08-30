@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { ListNotificationsRequest, ListNotificationsResponse } from "../models/models_0";
+import {
+  ListNotificationsRequest,
+  ListNotificationsResponse,
+  ListNotificationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListNotificationsCommand, se_ListNotificationsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -137,7 +141,7 @@ export class ListNotificationsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ListNotificationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

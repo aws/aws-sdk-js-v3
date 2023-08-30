@@ -14,7 +14,12 @@ import {
 } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { CreateAssessmentRequest, CreateAssessmentResponse } from "../models/models_0";
+import {
+  CreateAssessmentRequest,
+  CreateAssessmentRequestFilterSensitiveLog,
+  CreateAssessmentResponse,
+  CreateAssessmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateAssessmentCommand, se_CreateAssessmentCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -280,8 +285,8 @@ export class CreateAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreateAssessmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAssessmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

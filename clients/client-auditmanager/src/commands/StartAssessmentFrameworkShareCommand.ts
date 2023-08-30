@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { StartAssessmentFrameworkShareRequest, StartAssessmentFrameworkShareResponse } from "../models/models_0";
+import {
+  StartAssessmentFrameworkShareRequest,
+  StartAssessmentFrameworkShareResponse,
+  StartAssessmentFrameworkShareResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_StartAssessmentFrameworkShareCommand,
   se_StartAssessmentFrameworkShareCommand,
@@ -187,7 +191,7 @@ export class StartAssessmentFrameworkShareCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: StartAssessmentFrameworkShareResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

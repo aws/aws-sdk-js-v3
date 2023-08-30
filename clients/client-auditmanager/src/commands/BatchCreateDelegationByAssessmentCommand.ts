@@ -16,7 +16,9 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   BatchCreateDelegationByAssessmentRequest,
+  BatchCreateDelegationByAssessmentRequestFilterSensitiveLog,
   BatchCreateDelegationByAssessmentResponse,
+  BatchCreateDelegationByAssessmentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_BatchCreateDelegationByAssessmentCommand,
@@ -168,8 +170,8 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: BatchCreateDelegationByAssessmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchCreateDelegationByAssessmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

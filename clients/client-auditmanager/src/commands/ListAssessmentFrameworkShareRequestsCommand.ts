@@ -17,6 +17,7 @@ import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import {
   ListAssessmentFrameworkShareRequestsRequest,
   ListAssessmentFrameworkShareRequestsResponse,
+  ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_ListAssessmentFrameworkShareRequestsCommand,
@@ -153,7 +154,7 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

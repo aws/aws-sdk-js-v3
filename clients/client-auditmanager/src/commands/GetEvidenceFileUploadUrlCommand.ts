@@ -14,7 +14,12 @@ import {
 } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { GetEvidenceFileUploadUrlRequest, GetEvidenceFileUploadUrlResponse } from "../models/models_0";
+import {
+  GetEvidenceFileUploadUrlRequest,
+  GetEvidenceFileUploadUrlRequestFilterSensitiveLog,
+  GetEvidenceFileUploadUrlResponse,
+  GetEvidenceFileUploadUrlResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetEvidenceFileUploadUrlCommand, se_GetEvidenceFileUploadUrlCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,8 +149,8 @@ export class GetEvidenceFileUploadUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: GetEvidenceFileUploadUrlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEvidenceFileUploadUrlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

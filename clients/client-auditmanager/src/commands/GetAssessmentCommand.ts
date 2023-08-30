@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { GetAssessmentRequest, GetAssessmentResponse } from "../models/models_0";
+import {
+  GetAssessmentRequest,
+  GetAssessmentResponse,
+  GetAssessmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetAssessmentCommand, se_GetAssessmentCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -245,7 +249,7 @@ export class GetAssessmentCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetAssessmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

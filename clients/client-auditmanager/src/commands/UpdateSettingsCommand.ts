@@ -14,7 +14,12 @@ import {
 } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { UpdateSettingsRequest, UpdateSettingsResponse } from "../models/models_0";
+import {
+  UpdateSettingsRequest,
+  UpdateSettingsRequestFilterSensitiveLog,
+  UpdateSettingsResponse,
+  UpdateSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_UpdateSettingsCommand, se_UpdateSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -169,8 +174,8 @@ export class UpdateSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
