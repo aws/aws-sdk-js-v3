@@ -14,6 +14,9 @@ const buildSmithyTypeScript = async (repo, commit) => {
   }
 
   // Checkout commit
+  await spawnProcess("git", ["fetch", "origin", commit, "--depth=1"], { cwd: repo });
+
+  // Switch to branch with commit
   const tempBranchName = `temp-${commit}`;
   await spawnProcess("git", ["checkout", "-b", tempBranchName, commit], { cwd: repo });
 
