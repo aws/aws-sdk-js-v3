@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.404.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.403.0...v3.404.0) (2023-08-31)
+
+
+### Features
+
+* **client-grafana:** Marking SAML RoleValues attribute as sensitive and updating VpcConfiguration attributes to match documentation. ([7e05d81](https://github.com/aws/aws-sdk-js-v3/commit/7e05d818f56a6e312b4f06dc6abe08d11150d3bd))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-grafana

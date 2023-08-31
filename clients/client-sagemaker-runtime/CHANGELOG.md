@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.404.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.403.0...v3.404.0) (2023-08-31)
+
+
+### Features
+
+* **client-sagemaker-runtime:** This release adds a new InvokeEndpointWithResponseStream API to support streaming of model responses. ([2263b20](https://github.com/aws/aws-sdk-js-v3/commit/2263b20f2edee789ef97a7b78e1d956c14100f3e))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker-runtime

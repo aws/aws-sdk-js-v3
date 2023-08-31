@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.404.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.403.0...v3.404.0) (2023-08-31)
+
+
+### Features
+
+* **client-ecs:** This release adds support for an account-level setting that you can use to configure the number of days for AWS Fargate task retirement. ([8946a54](https://github.com/aws/aws-sdk-js-v3/commit/8946a543a6a61f47ab7518b31c868887616eac40))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

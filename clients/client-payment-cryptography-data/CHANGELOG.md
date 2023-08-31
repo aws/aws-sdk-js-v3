@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.404.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.403.0...v3.404.0) (2023-08-31)
+
+
+### Features
+
+* **client-payment-cryptography-data:** Make KeyCheckValue field optional when using asymmetric keys as Key Check Values typically only apply to symmetric keys ([7c21218](https://github.com/aws/aws-sdk-js-v3/commit/7c21218bc9a53046a5672bc181b896ef014c5181))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography-data

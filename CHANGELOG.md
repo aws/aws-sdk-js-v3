@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.404.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.403.0...v3.404.0) (2023-08-31)
+
+
+### Bug Fixes
+
+* **scripts:** git fetch origin provided commit in codegen ([#5159](https://github.com/aws/aws-sdk-js-v3/issues/5159)) ([9b6655a](https://github.com/aws/aws-sdk-js-v3/commit/9b6655ad989702b53bf20fe05ed888f929131cf1))
+
+
+### Features
+
+* **client-chime-sdk-media-pipelines:** This release adds support for feature Voice Enhancement for Call Recording as part of Amazon Chime SDK call analytics. ([c0abf69](https://github.com/aws/aws-sdk-js-v3/commit/c0abf696e7e942ff286377a90063baec5660b382))
+* **client-cloudhsm:** Deprecating CloudHSM Classic API Service. ([1552f49](https://github.com/aws/aws-sdk-js-v3/commit/1552f49a73bd83cfb268dc813003549ae49ec553))
+* **client-cloudwatch-events:** Documentation updates for CloudWatch Events. ([6f8e057](https://github.com/aws/aws-sdk-js-v3/commit/6f8e057267adb201c30cda9439b3387c3fabee2c))
+* **client-connectcampaigns:** Amazon Connect outbound campaigns has launched agentless dialing mode which enables customers to make automated outbound calls without agent engagement. This release updates three of the campaign management API's to support the new agentless dialing mode and the new dialing capacity field. ([83abe06](https://github.com/aws/aws-sdk-js-v3/commit/83abe0674847bd7e70423eabb3cf59606fcb1588))
+* **client-connectparticipant:** Amazon Connect Participant Service adds the ability to get a view resource using a view token, which is provided in a participant message, with the release of the DescribeView API. ([b701066](https://github.com/aws/aws-sdk-js-v3/commit/b701066af29c5ab3e99728b06c755bb917ebf0a4))
+* **client-customer-profiles:** Adds sensitive trait to various shapes in Customer Profiles API model. ([185a231](https://github.com/aws/aws-sdk-js-v3/commit/185a2312513bdc52dccda743c7aa55c341dab23e))
+* **client-ecs:** This release adds support for an account-level setting that you can use to configure the number of days for AWS Fargate task retirement. ([8946a54](https://github.com/aws/aws-sdk-js-v3/commit/8946a543a6a61f47ab7518b31c868887616eac40))
+* **client-grafana:** Marking SAML RoleValues attribute as sensitive and updating VpcConfiguration attributes to match documentation. ([7e05d81](https://github.com/aws/aws-sdk-js-v3/commit/7e05d818f56a6e312b4f06dc6abe08d11150d3bd))
+* **client-health:** Adds new API DescribeEntityAggregatesForOrganization that retrieves entity aggregates across your organization. Also adds support for resource status filtering in DescribeAffectedEntitiesForOrganization, resource status aggregates in the DescribeEntityAggregates response, and new resource statuses. ([58d1b48](https://github.com/aws/aws-sdk-js-v3/commit/58d1b48bb08898096d783ba519c8f2087d05eabc))
+* **client-ivs:** Updated "type" description for CreateChannel, UpdateChannel, Channel, and ChannelSummary. ([5152c34](https://github.com/aws/aws-sdk-js-v3/commit/5152c3406d2a6111d69f0f023b639ba23f2d731b))
+* **client-kafkaconnect:** Minor model changes for Kafka Connect as well as endpoint updates. ([1d43c19](https://github.com/aws/aws-sdk-js-v3/commit/1d43c190627c8c0ecb2960316a3fc3d03ee4f354))
+* **client-payment-cryptography-data:** Make KeyCheckValue field optional when using asymmetric keys as Key Check Values typically only apply to symmetric keys ([7c21218](https://github.com/aws/aws-sdk-js-v3/commit/7c21218bc9a53046a5672bc181b896ef014c5181))
+* **client-sagemaker-runtime:** This release adds a new InvokeEndpointWithResponseStream API to support streaming of model responses. ([2263b20](https://github.com/aws/aws-sdk-js-v3/commit/2263b20f2edee789ef97a7b78e1d956c14100f3e))
+* **clients:** update client endpoints as of 2023-08-31 ([b7db78e](https://github.com/aws/aws-sdk-js-v3/commit/b7db78eb38724743f3b86feec16454a044c75693))
+
+
+
+
+
 # [3.403.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.402.0...v3.403.0) (2023-08-30)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.404.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.403.0...v3.404.0) (2023-08-31)
+
+
+### Features
+
+* **client-chime-sdk-media-pipelines:** This release adds support for feature Voice Enhancement for Call Recording as part of Amazon Chime SDK call analytics. ([c0abf69](https://github.com/aws/aws-sdk-js-v3/commit/c0abf696e7e942ff286377a90063baec5660b382))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-chime-sdk-media-pipelines
