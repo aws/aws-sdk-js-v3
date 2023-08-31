@@ -36,6 +36,8 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -75,7 +77,7 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  * //   PartitionSerialList: [ // PartitionSerialList
  * //     "STRING_VALUE",
  * //   ],
- * //   State: "STRING_VALUE",
+ * //   State: "READY" || "UPDATING" || "DEGRADED",
  * // };
  *
  * ```

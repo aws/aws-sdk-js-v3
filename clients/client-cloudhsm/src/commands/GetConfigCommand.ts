@@ -36,6 +36,8 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -56,7 +58,7 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * const client = new CloudHSMClient(config);
  * const input = { // GetConfigRequest
  *   ClientArn: "STRING_VALUE", // required
- *   ClientVersion: "STRING_VALUE", // required
+ *   ClientVersion: "5.1" || "5.3", // required
  *   HapgList: [ // HapgList // required
  *     "STRING_VALUE",
  *   ],

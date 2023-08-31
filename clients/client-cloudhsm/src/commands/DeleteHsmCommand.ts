@@ -36,6 +36,8 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
