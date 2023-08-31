@@ -82,7 +82,7 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * //       Type: "TYPING" || "PARTICIPANT_JOINED" || "PARTICIPANT_LEFT" || "CHAT_ENDED" || "TRANSFER_SUCCEEDED" || "TRANSFER_FAILED" || "MESSAGE" || "EVENT" || "ATTACHMENT" || "CONNECTION_ACK" || "MESSAGE_DELIVERED" || "MESSAGE_READ",
  * //       ParticipantId: "STRING_VALUE",
  * //       DisplayName: "STRING_VALUE",
- * //       ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM",
+ * //       ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT",
  * //       Attachments: [ // Attachments
  * //         { // AttachmentItem
  * //           ContentType: "STRING_VALUE",

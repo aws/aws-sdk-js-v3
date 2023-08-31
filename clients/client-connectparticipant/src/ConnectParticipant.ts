@@ -13,6 +13,11 @@ import {
   CreateParticipantConnectionCommandOutput,
 } from "./commands/CreateParticipantConnectionCommand";
 import {
+  DescribeViewCommand,
+  DescribeViewCommandInput,
+  DescribeViewCommandOutput,
+} from "./commands/DescribeViewCommand";
+import {
   DisconnectParticipantCommand,
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
@@ -39,6 +44,7 @@ import { ConnectParticipantClient, ConnectParticipantClientConfig } from "./Conn
 const commands = {
   CompleteAttachmentUploadCommand,
   CreateParticipantConnectionCommand,
+  DescribeViewCommand,
   DisconnectParticipantCommand,
   GetAttachmentCommand,
   GetTranscriptCommand,
@@ -80,6 +86,17 @@ export interface ConnectParticipant {
     args: CreateParticipantConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateParticipantConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeViewCommand}
+   */
+  describeView(args: DescribeViewCommandInput, options?: __HttpHandlerOptions): Promise<DescribeViewCommandOutput>;
+  describeView(args: DescribeViewCommandInput, cb: (err: any, data?: DescribeViewCommandOutput) => void): void;
+  describeView(
+    args: DescribeViewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeViewCommandOutput) => void
   ): void;
 
   /**

@@ -8,6 +8,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   map,
+  resolvedPath as __resolvedPath,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -26,6 +27,7 @@ import {
   CreateParticipantConnectionCommandInput,
   CreateParticipantConnectionCommandOutput,
 } from "../commands/CreateParticipantConnectionCommand";
+import { DescribeViewCommandInput, DescribeViewCommandOutput } from "../commands/DescribeViewCommand";
 import {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
@@ -44,6 +46,7 @@ import {
   ConflictException,
   ConnectionType,
   InternalServerException,
+  ResourceNotFoundException,
   ServiceQuotaExceededException,
   StartPosition,
   ThrottlingException,
@@ -108,6 +111,32 @@ export const se_CreateParticipantConnectionCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeViewCommand
+ */
+export const se_DescribeViewCommand = async (
+  input: DescribeViewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-bearer": input.ConnectionToken!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/views/{ViewToken}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ViewToken", () => input.ViewToken!, "{ViewToken}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
     headers,
     path: resolvedPath,
     body,
@@ -409,6 +438,65 @@ const de_CreateParticipantConnectionCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.connectparticipant#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connectparticipant#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.connectparticipant#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeViewCommand
+ */
+export const de_DescribeViewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeViewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeViewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    View: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeViewCommandError
+ */
+const de_DescribeViewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeViewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connectparticipant#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.connectparticipant#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connectparticipant#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectparticipant#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -825,6 +913,28 @@ const de_InternalServerExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
  */
 const de_ServiceQuotaExceededExceptionRes = async (
@@ -903,6 +1013,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_UploadMetadata omitted.
 
 // de_UploadMetadataSignedHeaders omitted.
+
+// de_View omitted.
+
+// de_ViewActions omitted.
+
+// de_ViewContent omitted.
 
 // de_Websocket omitted.
 

@@ -64,6 +64,7 @@ import {
   CreateParticipantConnectionCommandInput,
   CreateParticipantConnectionCommandOutput,
 } from "./commands/CreateParticipantConnectionCommand";
+import { DescribeViewCommandInput, DescribeViewCommandOutput } from "./commands/DescribeViewCommand";
 import {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
@@ -93,6 +94,7 @@ export { __Client };
 export type ServiceInputTypes =
   | CompleteAttachmentUploadCommandInput
   | CreateParticipantConnectionCommandInput
+  | DescribeViewCommandInput
   | DisconnectParticipantCommandInput
   | GetAttachmentCommandInput
   | GetTranscriptCommandInput
@@ -106,6 +108,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CompleteAttachmentUploadCommandOutput
   | CreateParticipantConnectionCommandOutput
+  | DescribeViewCommandOutput
   | DisconnectParticipantCommandOutput
   | GetAttachmentCommandOutput
   | GetTranscriptCommandOutput

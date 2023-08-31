@@ -229,6 +229,14 @@ CreateParticipantConnection
 </details>
 <details>
 <summary>
+DescribeView
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/describeviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/describeviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/describeviewcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DisconnectParticipant
 </summary>
 
