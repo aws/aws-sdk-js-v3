@@ -48,9 +48,14 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  *   dialerConfig: { // DialerConfig Union: only one key present
  *     progressiveDialerConfig: { // ProgressiveDialerConfig
  *       bandwidthAllocation: Number("double"), // required
+ *       dialingCapacity: Number("double"),
  *     },
  *     predictiveDialerConfig: { // PredictiveDialerConfig
  *       bandwidthAllocation: Number("double"), // required
+ *       dialingCapacity: Number("double"),
+ *     },
+ *     agentlessDialerConfig: { // AgentlessDialerConfig
+ *       dialingCapacity: Number("double"),
  *     },
  *   },
  * };

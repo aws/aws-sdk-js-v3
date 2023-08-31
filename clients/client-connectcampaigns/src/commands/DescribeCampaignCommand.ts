@@ -57,15 +57,20 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //     dialerConfig: { // DialerConfig Union: only one key present
  * //       progressiveDialerConfig: { // ProgressiveDialerConfig
  * //         bandwidthAllocation: Number("double"), // required
+ * //         dialingCapacity: Number("double"),
  * //       },
  * //       predictiveDialerConfig: { // PredictiveDialerConfig
  * //         bandwidthAllocation: Number("double"), // required
+ * //         dialingCapacity: Number("double"),
+ * //       },
+ * //       agentlessDialerConfig: { // AgentlessDialerConfig
+ * //         dialingCapacity: Number("double"),
  * //       },
  * //     },
  * //     outboundCallConfig: { // OutboundCallConfig
  * //       connectContactFlowId: "STRING_VALUE", // required
  * //       connectSourcePhoneNumber: "STRING_VALUE",
- * //       connectQueueId: "STRING_VALUE", // required
+ * //       connectQueueId: "STRING_VALUE",
  * //       answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
  * //         enableAnswerMachineDetection: true || false, // required
  * //       },

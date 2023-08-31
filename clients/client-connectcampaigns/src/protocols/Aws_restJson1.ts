@@ -77,6 +77,7 @@ import {
 import { ConnectCampaignsServiceException as __BaseException } from "../models/ConnectCampaignsServiceException";
 import {
   AccessDeniedException,
+  AgentlessDialerConfig,
   AnswerMachineDetectionConfig,
   Campaign,
   CampaignFilters,
@@ -2196,6 +2197,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * serializeAws_restJson1AgentlessDialerConfig
+ */
+const se_AgentlessDialerConfig = (input: AgentlessDialerConfig, context: __SerdeContext): any => {
+  return take(input, {
+    dialingCapacity: __serializeFloat,
+  });
+};
+
 // se_AnswerMachineDetectionConfig omitted.
 
 // se_Attributes omitted.
@@ -2209,6 +2219,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_DialerConfig = (input: DialerConfig, context: __SerdeContext): any => {
   return DialerConfig.visit(input, {
+    agentlessDialerConfig: (value) => ({ agentlessDialerConfig: se_AgentlessDialerConfig(value, context) }),
     predictiveDialerConfig: (value) => ({ predictiveDialerConfig: se_PredictiveDialerConfig(value, context) }),
     progressiveDialerConfig: (value) => ({ progressiveDialerConfig: se_ProgressiveDialerConfig(value, context) }),
     _: (name, value) => ({ name: value } as any),
@@ -2250,6 +2261,7 @@ const se_DialRequestList = (input: DialRequest[], context: __SerdeContext): any 
 const se_PredictiveDialerConfig = (input: PredictiveDialerConfig, context: __SerdeContext): any => {
   return take(input, {
     bandwidthAllocation: __serializeFloat,
+    dialingCapacity: __serializeFloat,
   });
 };
 
@@ -2259,10 +2271,20 @@ const se_PredictiveDialerConfig = (input: PredictiveDialerConfig, context: __Ser
 const se_ProgressiveDialerConfig = (input: ProgressiveDialerConfig, context: __SerdeContext): any => {
   return take(input, {
     bandwidthAllocation: __serializeFloat,
+    dialingCapacity: __serializeFloat,
   });
 };
 
 // se_TagMap omitted.
+
+/**
+ * deserializeAws_restJson1AgentlessDialerConfig
+ */
+const de_AgentlessDialerConfig = (output: any, context: __SerdeContext): AgentlessDialerConfig => {
+  return take(output, {
+    dialingCapacity: __limitedParseDouble,
+  }) as any;
+};
 
 // de_AnswerMachineDetectionConfig omitted.
 
@@ -2289,6 +2311,11 @@ const de_Campaign = (output: any, context: __SerdeContext): Campaign => {
  * deserializeAws_restJson1DialerConfig
  */
 const de_DialerConfig = (output: any, context: __SerdeContext): DialerConfig => {
+  if (output.agentlessDialerConfig != null) {
+    return {
+      agentlessDialerConfig: de_AgentlessDialerConfig(output.agentlessDialerConfig, context),
+    };
+  }
   if (output.predictiveDialerConfig != null) {
     return {
       predictiveDialerConfig: de_PredictiveDialerConfig(output.predictiveDialerConfig, context),
@@ -2324,6 +2351,7 @@ const de_DialerConfig = (output: any, context: __SerdeContext): DialerConfig => 
 const de_PredictiveDialerConfig = (output: any, context: __SerdeContext): PredictiveDialerConfig => {
   return take(output, {
     bandwidthAllocation: __limitedParseDouble,
+    dialingCapacity: __limitedParseDouble,
   }) as any;
 };
 
@@ -2333,6 +2361,7 @@ const de_PredictiveDialerConfig = (output: any, context: __SerdeContext): Predic
 const de_ProgressiveDialerConfig = (output: any, context: __SerdeContext): ProgressiveDialerConfig => {
   return take(output, {
     bandwidthAllocation: __limitedParseDouble,
+    dialingCapacity: __limitedParseDouble,
   }) as any;
 };
 
