@@ -1105,7 +1105,7 @@ export interface EncryptDataOutput {
    * @public
    * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
    */
-  KeyCheckValue: string | undefined;
+  KeyCheckValue?: string;
 
   /**
    * @public
@@ -2931,6 +2931,7 @@ export const MacAttributesFilterSensitiveLog = (obj: MacAttributes): any => {
  */
 export const GenerateMacInputFilterSensitiveLog = (obj: GenerateMacInput): any => ({
   ...obj,
+  ...(obj.MessageData && { MessageData: SENSITIVE_STRING }),
   ...(obj.GenerationAttributes && { GenerationAttributes: MacAttributesFilterSensitiveLog(obj.GenerationAttributes) }),
 });
 
@@ -3007,6 +3008,7 @@ export const TranslatePinDataInputFilterSensitiveLog = (obj: TranslatePinDataInp
   ...(obj.OutgoingTranslationAttributes && {
     OutgoingTranslationAttributes: TranslationIsoFormatsFilterSensitiveLog(obj.OutgoingTranslationAttributes),
   }),
+  ...(obj.EncryptedPinBlock && { EncryptedPinBlock: SENSITIVE_STRING }),
 });
 
 /**
@@ -3086,6 +3088,8 @@ export const VerifyCardValidationDataInputFilterSensitiveLog = (obj: VerifyCardV
  */
 export const VerifyMacInputFilterSensitiveLog = (obj: VerifyMacInput): any => ({
   ...obj,
+  ...(obj.MessageData && { MessageData: SENSITIVE_STRING }),
+  ...(obj.Mac && { Mac: SENSITIVE_STRING }),
   ...(obj.VerificationAttributes && {
     VerificationAttributes: MacAttributesFilterSensitiveLog(obj.VerificationAttributes),
   }),

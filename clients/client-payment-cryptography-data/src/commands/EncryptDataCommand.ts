@@ -107,7 +107,7 @@ export interface EncryptDataCommandOutput extends EncryptDataOutput, __MetadataB
  * const response = await client.send(command);
  * // { // EncryptDataOutput
  * //   KeyArn: "STRING_VALUE", // required
- * //   KeyCheckValue: "STRING_VALUE", // required
+ * //   KeyCheckValue: "STRING_VALUE",
  * //   CipherText: "STRING_VALUE", // required
  * // };
  *
