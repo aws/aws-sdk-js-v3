@@ -734,7 +734,7 @@ export type VerticalTilePosition = (typeof VerticalTilePosition)[keyof typeof Ve
 
 /**
  * @public
- * <p>Defines the configuration settings for a vertial layout.</p>
+ * <p>Defines the configuration settings for a vertical layout.</p>
  */
 export interface VerticalLayoutConfiguration {
   /**
@@ -1279,6 +1279,7 @@ export const MediaPipelineStatus = {
   Failed: "Failed",
   InProgress: "InProgress",
   Initializing: "Initializing",
+  NotStarted: "NotStarted",
   Paused: "Paused",
   Stopped: "Stopped",
   Stopping: "Stopping",
@@ -2009,6 +2010,66 @@ export interface CreateMediaInsightsPipelineRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const MediaPipelineElementStatus = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Initializing: "Initializing",
+  NotStarted: "NotStarted",
+  NotSupported: "NotSupported",
+  Paused: "Paused",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaPipelineElementStatus = (typeof MediaPipelineElementStatus)[keyof typeof MediaPipelineElementStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MediaInsightsPipelineConfigurationElementType = {
+  AMAZON_TRANSCRIBE_CALL_ANALYTICS_PROCESSOR: "AmazonTranscribeCallAnalyticsProcessor",
+  AMAZON_TRANSCRIBE_PROCESSOR: "AmazonTranscribeProcessor",
+  KINESIS_DATA_STREAM_SINK: "KinesisDataStreamSink",
+  LAMBDA_FUNCTION_SINK: "LambdaFunctionSink",
+  S3_RECORDING_SINK: "S3RecordingSink",
+  SNS_TOPIC_SINK: "SnsTopicSink",
+  SQS_QUEUE_SINK: "SqsQueueSink",
+  VOICE_ANALYTICS_PROCESSOR: "VoiceAnalyticsProcessor",
+  VOICE_ENHANCEMENT_SINK: "VoiceEnhancementSink",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaInsightsPipelineConfigurationElementType =
+  (typeof MediaInsightsPipelineConfigurationElementType)[keyof typeof MediaInsightsPipelineConfigurationElementType];
+
+/**
+ * @public
+ * <p>The status of the pipeline element.</p>
+ */
+export interface MediaInsightsPipelineElementStatus {
+  /**
+   * @public
+   * <p>The type of status.</p>
+   */
+  Type?: MediaInsightsPipelineConfigurationElementType | string;
+
+  /**
+   * @public
+   * <p>The element's status.</p>
+   */
+  Status?: MediaPipelineElementStatus | string;
+}
+
+/**
+ * @public
  * <p>A media pipeline that streams call analytics data.</p>
  */
 export interface MediaInsightsPipeline {
@@ -2065,6 +2126,12 @@ export interface MediaInsightsPipeline {
    * <p>The time at which the media insights pipeline was created.</p>
    */
   CreatedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The statuses that the elements in a media insights pipeline can have during data processing.</p>
+   */
+  ElementStatuses?: MediaInsightsPipelineElementStatus[];
 }
 
 /**
@@ -2178,27 +2245,6 @@ export interface SqsQueueSinkConfiguration {
  * @public
  * @enum
  */
-export const MediaInsightsPipelineConfigurationElementType = {
-  AMAZON_TRANSCRIBE_CALL_ANALYTICS_PROCESSOR: "AmazonTranscribeCallAnalyticsProcessor",
-  AMAZON_TRANSCRIBE_PROCESSOR: "AmazonTranscribeProcessor",
-  KINESIS_DATA_STREAM_SINK: "KinesisDataStreamSink",
-  LAMBDA_FUNCTION_SINK: "LambdaFunctionSink",
-  S3_RECORDING_SINK: "S3RecordingSink",
-  SNS_TOPIC_SINK: "SnsTopicSink",
-  SQS_QUEUE_SINK: "SqsQueueSink",
-  VOICE_ANALYTICS_PROCESSOR: "VoiceAnalyticsProcessor",
-} as const;
-
-/**
- * @public
- */
-export type MediaInsightsPipelineConfigurationElementType =
-  (typeof MediaInsightsPipelineConfigurationElementType)[keyof typeof MediaInsightsPipelineConfigurationElementType];
-
-/**
- * @public
- * @enum
- */
 export const VoiceAnalyticsConfigurationStatus = {
   DISABLED: "Disabled",
   ENABLED: "Enabled",
@@ -2226,6 +2272,18 @@ export interface VoiceAnalyticsProcessorConfiguration {
    * <p>The status of the voice tone analysis task.</p>
    */
   VoiceToneAnalysisStatus?: VoiceAnalyticsConfigurationStatus | string;
+}
+
+/**
+ * @public
+ * <p>A static structure that contains the configuration data for a <code>VoiceEnhancementSinkConfiguration</code> element.</p>
+ */
+export interface VoiceEnhancementSinkConfiguration {
+  /**
+   * @public
+   * <p>Disables the <code>VoiceEnhancementSinkConfiguration</code> element.</p>
+   */
+  Disabled?: boolean;
 }
 
 /**
@@ -2287,6 +2345,12 @@ export interface MediaInsightsPipelineConfigurationElement {
    * <p>The configuration settings for an SNS topic sink in a media insights pipeline configuration element.</p>
    */
   SnsTopicSinkConfiguration?: SnsTopicSinkConfiguration;
+
+  /**
+   * @public
+   * <p>The configuration settings for the <code>VoiceEnhancementSinkConfiguration</code> element.</p>
+   */
+  VoiceEnhancementSinkConfiguration?: VoiceEnhancementSinkConfiguration;
 }
 
 /**

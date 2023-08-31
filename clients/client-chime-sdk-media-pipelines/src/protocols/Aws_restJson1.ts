@@ -160,6 +160,7 @@ import {
   VideoAttribute,
   VideoConcatenationConfiguration,
   VoiceAnalyticsProcessorConfiguration,
+  VoiceEnhancementSinkConfiguration,
 } from "../models/models_0";
 
 /**
@@ -2342,6 +2343,8 @@ const se_TimestampRange = (input: TimestampRange, context: __SerdeContext): any 
 
 // se_VoiceAnalyticsProcessorConfiguration omitted.
 
+// se_VoiceEnhancementSinkConfiguration omitted.
+
 // de_ActiveSpeakerOnlyConfiguration omitted.
 
 // de_AmazonTranscribeCallAnalyticsProcessorConfiguration omitted.
@@ -2484,6 +2487,7 @@ const de_MediaConcatenationPipeline = (output: any, context: __SerdeContext): Me
 const de_MediaInsightsPipeline = (output: any, context: __SerdeContext): MediaInsightsPipeline => {
   return take(output, {
     CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ElementStatuses: _json,
     KinesisVideoStreamRecordingSourceRuntimeConfiguration: (_: any) =>
       de_KinesisVideoStreamRecordingSourceRuntimeConfiguration(_, context),
     KinesisVideoStreamSourceRuntimeConfiguration: _json,
@@ -2522,6 +2526,10 @@ const de_MediaInsightsPipelineConfiguration = (
 // de_MediaInsightsPipelineConfigurationSummary omitted.
 
 // de_MediaInsightsPipelineConfigurationSummaryList omitted.
+
+// de_MediaInsightsPipelineElementStatus omitted.
+
+// de_MediaInsightsPipelineElementStatuses omitted.
 
 // de_MediaInsightsRuntimeMetadata omitted.
 
@@ -2619,6 +2627,8 @@ const de_TimestampRange = (output: any, context: __SerdeContext): TimestampRange
 // de_VideoConcatenationConfiguration omitted.
 
 // de_VoiceAnalyticsProcessorConfiguration omitted.
+
+// de_VoiceEnhancementSinkConfiguration omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

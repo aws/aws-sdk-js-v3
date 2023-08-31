@@ -87,7 +87,7 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  *   },
  *   Elements: [ // MediaInsightsPipelineConfigurationElements // required
  *     { // MediaInsightsPipelineConfigurationElement
- *       Type: "AmazonTranscribeCallAnalyticsProcessor" || "VoiceAnalyticsProcessor" || "AmazonTranscribeProcessor" || "KinesisDataStreamSink" || "LambdaFunctionSink" || "SqsQueueSink" || "SnsTopicSink" || "S3RecordingSink", // required
+ *       Type: "AmazonTranscribeCallAnalyticsProcessor" || "VoiceAnalyticsProcessor" || "AmazonTranscribeProcessor" || "KinesisDataStreamSink" || "LambdaFunctionSink" || "SqsQueueSink" || "SnsTopicSink" || "S3RecordingSink" || "VoiceEnhancementSink", // required
  *       AmazonTranscribeCallAnalyticsProcessorConfiguration: { // AmazonTranscribeCallAnalyticsProcessorConfiguration
  *         LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR", // required
  *         VocabularyName: "STRING_VALUE",
@@ -149,6 +149,9 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  *       SnsTopicSinkConfiguration: { // SnsTopicSinkConfiguration
  *         InsightsTarget: "STRING_VALUE",
  *       },
+ *       VoiceEnhancementSinkConfiguration: { // VoiceEnhancementSinkConfiguration
+ *         Disabled: true || false,
+ *       },
  *     },
  *   ],
  *   Tags: [ // TagList
@@ -191,7 +194,7 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  * //     },
  * //     Elements: [ // MediaInsightsPipelineConfigurationElements
  * //       { // MediaInsightsPipelineConfigurationElement
- * //         Type: "AmazonTranscribeCallAnalyticsProcessor" || "VoiceAnalyticsProcessor" || "AmazonTranscribeProcessor" || "KinesisDataStreamSink" || "LambdaFunctionSink" || "SqsQueueSink" || "SnsTopicSink" || "S3RecordingSink", // required
+ * //         Type: "AmazonTranscribeCallAnalyticsProcessor" || "VoiceAnalyticsProcessor" || "AmazonTranscribeProcessor" || "KinesisDataStreamSink" || "LambdaFunctionSink" || "SqsQueueSink" || "SnsTopicSink" || "S3RecordingSink" || "VoiceEnhancementSink", // required
  * //         AmazonTranscribeCallAnalyticsProcessorConfiguration: { // AmazonTranscribeCallAnalyticsProcessorConfiguration
  * //           LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR", // required
  * //           VocabularyName: "STRING_VALUE",
@@ -252,6 +255,9 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  * //         },
  * //         SnsTopicSinkConfiguration: { // SnsTopicSinkConfiguration
  * //           InsightsTarget: "STRING_VALUE",
+ * //         },
+ * //         VoiceEnhancementSinkConfiguration: { // VoiceEnhancementSinkConfiguration
+ * //           Disabled: true || false,
  * //         },
  * //       },
  * //     ],

@@ -130,7 +130,7 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * //     MediaPipelineArn: "STRING_VALUE",
  * //     SourceType: "ChimeSdkMeeting",
  * //     SourceArn: "STRING_VALUE",
- * //     Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //     Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused" || "NotStarted",
  * //     SinkType: "S3Bucket",
  * //     SinkArn: "STRING_VALUE",
  * //     CreatedTimestamp: new Date("TIMESTAMP"),
