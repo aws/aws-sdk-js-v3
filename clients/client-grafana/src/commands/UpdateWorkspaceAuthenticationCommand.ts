@@ -14,7 +14,12 @@ import {
 } from "@smithy/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import { UpdateWorkspaceAuthenticationRequest, UpdateWorkspaceAuthenticationResponse } from "../models/models_0";
+import {
+  UpdateWorkspaceAuthenticationRequest,
+  UpdateWorkspaceAuthenticationRequestFilterSensitiveLog,
+  UpdateWorkspaceAuthenticationResponse,
+  UpdateWorkspaceAuthenticationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_UpdateWorkspaceAuthenticationCommand,
   se_UpdateWorkspaceAuthenticationCommand,
@@ -207,8 +212,8 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateWorkspaceAuthenticationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateWorkspaceAuthenticationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

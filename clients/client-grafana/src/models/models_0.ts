@@ -2169,6 +2169,70 @@ export const AssociateLicenseResponseFilterSensitiveLog = (obj: AssociateLicense
 /**
  * @internal
  */
+export const RoleValuesFilterSensitiveLog = (obj: RoleValues): any => ({
+  ...obj,
+  ...(obj.editor && { editor: SENSITIVE_STRING }),
+  ...(obj.admin && { admin: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SamlConfigurationFilterSensitiveLog = (obj: SamlConfiguration): any => ({
+  ...obj,
+  ...(obj.idpMetadata && { idpMetadata: obj.idpMetadata }),
+  ...(obj.roleValues && { roleValues: RoleValuesFilterSensitiveLog(obj.roleValues) }),
+});
+
+/**
+ * @internal
+ */
+export const SamlAuthenticationFilterSensitiveLog = (obj: SamlAuthentication): any => ({
+  ...obj,
+  ...(obj.configuration && { configuration: SamlConfigurationFilterSensitiveLog(obj.configuration) }),
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationDescriptionFilterSensitiveLog = (obj: AuthenticationDescription): any => ({
+  ...obj,
+  ...(obj.saml && { saml: SamlAuthenticationFilterSensitiveLog(obj.saml) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceAuthenticationResponseFilterSensitiveLog = (
+  obj: DescribeWorkspaceAuthenticationResponse
+): any => ({
+  ...obj,
+  ...(obj.authentication && { authentication: AuthenticationDescriptionFilterSensitiveLog(obj.authentication) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceAuthenticationRequestFilterSensitiveLog = (
+  obj: UpdateWorkspaceAuthenticationRequest
+): any => ({
+  ...obj,
+  ...(obj.samlConfiguration && { samlConfiguration: SamlConfigurationFilterSensitiveLog(obj.samlConfiguration) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceAuthenticationResponseFilterSensitiveLog = (
+  obj: UpdateWorkspaceAuthenticationResponse
+): any => ({
+  ...obj,
+  ...(obj.authentication && { authentication: AuthenticationDescriptionFilterSensitiveLog(obj.authentication) }),
+});
+
+/**
+ * @internal
+ */
 export const DisassociateLicenseResponseFilterSensitiveLog = (obj: DisassociateLicenseResponse): any => ({
   ...obj,
   ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
