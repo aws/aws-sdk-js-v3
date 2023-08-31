@@ -16,7 +16,9 @@ import {
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import {
   UpdateCalculatedAttributeDefinitionRequest,
+  UpdateCalculatedAttributeDefinitionRequestFilterSensitiveLog,
   UpdateCalculatedAttributeDefinitionResponse,
+  UpdateCalculatedAttributeDefinitionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_UpdateCalculatedAttributeDefinitionCommand,
@@ -178,8 +180,8 @@ export class UpdateCalculatedAttributeDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateCalculatedAttributeDefinitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCalculatedAttributeDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

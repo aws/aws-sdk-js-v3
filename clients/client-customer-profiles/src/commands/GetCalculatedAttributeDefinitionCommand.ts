@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { GetCalculatedAttributeDefinitionRequest, GetCalculatedAttributeDefinitionResponse } from "../models/models_0";
+import {
+  GetCalculatedAttributeDefinitionRequest,
+  GetCalculatedAttributeDefinitionResponse,
+  GetCalculatedAttributeDefinitionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_GetCalculatedAttributeDefinitionCommand,
   se_GetCalculatedAttributeDefinitionCommand,
@@ -161,7 +165,7 @@ export class GetCalculatedAttributeDefinitionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetCalculatedAttributeDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

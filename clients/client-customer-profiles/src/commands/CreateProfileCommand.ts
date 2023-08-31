@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { CreateProfileRequest, CreateProfileResponse } from "../models/models_0";
+import {
+  CreateProfileRequest,
+  CreateProfileRequestFilterSensitiveLog,
+  CreateProfileResponse,
+} from "../models/models_0";
 import { de_CreateProfileCommand, se_CreateProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -196,7 +200,7 @@ export class CreateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreateProfileRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

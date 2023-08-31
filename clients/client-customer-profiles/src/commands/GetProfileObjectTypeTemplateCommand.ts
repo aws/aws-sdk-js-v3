@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { GetProfileObjectTypeTemplateRequest, GetProfileObjectTypeTemplateResponse } from "../models/models_0";
+import {
+  GetProfileObjectTypeTemplateRequest,
+  GetProfileObjectTypeTemplateResponse,
+  GetProfileObjectTypeTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_GetProfileObjectTypeTemplateCommand,
   se_GetProfileObjectTypeTemplateCommand,
@@ -160,7 +164,7 @@ export class GetProfileObjectTypeTemplateCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetProfileObjectTypeTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { CreateIntegrationWorkflowRequest, CreateIntegrationWorkflowResponse } from "../models/models_0";
+import {
+  CreateIntegrationWorkflowRequest,
+  CreateIntegrationWorkflowRequestFilterSensitiveLog,
+  CreateIntegrationWorkflowResponse,
+} from "../models/models_0";
 import { de_CreateIntegrationWorkflowCommand, se_CreateIntegrationWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -211,7 +215,7 @@ export class CreateIntegrationWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreateIntegrationWorkflowRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

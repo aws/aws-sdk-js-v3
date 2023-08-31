@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_0";
+import {
+  UpdateProfileRequest,
+  UpdateProfileRequestFilterSensitiveLog,
+  UpdateProfileResponse,
+} from "../models/models_0";
 import { de_UpdateProfileCommand, se_UpdateProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -199,7 +203,7 @@ export class UpdateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateProfileRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

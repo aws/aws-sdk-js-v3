@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { ListProfileObjectsRequest, ListProfileObjectsResponse } from "../models/models_0";
+import {
+  ListProfileObjectsRequest,
+  ListProfileObjectsResponse,
+  ListProfileObjectsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListProfileObjectsCommand, se_ListProfileObjectsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +149,7 @@ export class ListProfileObjectsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ListProfileObjectsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

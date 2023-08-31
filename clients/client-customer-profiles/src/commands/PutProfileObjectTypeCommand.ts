@@ -14,7 +14,12 @@ import {
 } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { PutProfileObjectTypeRequest, PutProfileObjectTypeResponse } from "../models/models_0";
+import {
+  PutProfileObjectTypeRequest,
+  PutProfileObjectTypeRequestFilterSensitiveLog,
+  PutProfileObjectTypeResponse,
+  PutProfileObjectTypeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_PutProfileObjectTypeCommand, se_PutProfileObjectTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -188,8 +193,8 @@ export class PutProfileObjectTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: PutProfileObjectTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutProfileObjectTypeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

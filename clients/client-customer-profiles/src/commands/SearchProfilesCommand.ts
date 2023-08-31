@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { SearchProfilesRequest, SearchProfilesResponse } from "../models/models_0";
+import {
+  SearchProfilesRequest,
+  SearchProfilesResponse,
+  SearchProfilesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_SearchProfilesCommand, se_SearchProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -229,7 +233,7 @@ export class SearchProfilesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: SearchProfilesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
