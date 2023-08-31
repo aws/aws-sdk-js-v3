@@ -49,14 +49,14 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  *   Description: "STRING_VALUE",
  *   ConnectionArn: "STRING_VALUE", // required
  *   InvocationEndpoint: "STRING_VALUE", // required
- *   HttpMethod: "STRING_VALUE", // required
+ *   HttpMethod: "POST" || "GET" || "HEAD" || "OPTIONS" || "PUT" || "PATCH" || "DELETE", // required
  *   InvocationRateLimitPerSecond: Number("int"),
  * };
  * const command = new CreateApiDestinationCommand(input);
  * const response = await client.send(command);
  * // { // CreateApiDestinationResponse
  * //   ApiDestinationArn: "STRING_VALUE",
- * //   ApiDestinationState: "STRING_VALUE",
+ * //   ApiDestinationState: "ACTIVE" || "INACTIVE",
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * // };

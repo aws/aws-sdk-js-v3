@@ -47,7 +47,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * const input = { // CreateConnectionRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   AuthorizationType: "STRING_VALUE", // required
+ *   AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY", // required
  *   AuthParameters: { // CreateConnectionAuthRequestParameters
  *     BasicAuthParameters: { // CreateConnectionBasicAuthRequestParameters
  *       Username: "STRING_VALUE", // required
@@ -59,7 +59,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *         ClientSecret: "STRING_VALUE", // required
  *       },
  *       AuthorizationEndpoint: "STRING_VALUE", // required
- *       HttpMethod: "STRING_VALUE", // required
+ *       HttpMethod: "GET" || "POST" || "PUT", // required
  *       OAuthHttpParameters: { // ConnectionHttpParameters
  *         HeaderParameters: [ // ConnectionHeaderParametersList
  *           { // ConnectionHeaderParameter
@@ -117,7 +117,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * const response = await client.send(command);
  * // { // CreateConnectionResponse
  * //   ConnectionArn: "STRING_VALUE",
- * //   ConnectionState: "STRING_VALUE",
+ * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * // };

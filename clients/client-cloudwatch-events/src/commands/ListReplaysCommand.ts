@@ -46,7 +46,7 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * const client = new CloudWatchEventsClient(config);
  * const input = { // ListReplaysRequest
  *   NamePrefix: "STRING_VALUE",
- *   State: "STRING_VALUE",
+ *   State: "STARTING" || "RUNNING" || "CANCELLING" || "COMPLETED" || "CANCELLED" || "FAILED",
  *   EventSourceArn: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),
@@ -58,7 +58,7 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * //     { // Replay
  * //       ReplayName: "STRING_VALUE",
  * //       EventSourceArn: "STRING_VALUE",
- * //       State: "STRING_VALUE",
+ * //       State: "STARTING" || "RUNNING" || "CANCELLING" || "COMPLETED" || "CANCELLED" || "FAILED",
  * //       StateReason: "STRING_VALUE",
  * //       EventStartTime: new Date("TIMESTAMP"),
  * //       EventEndTime: new Date("TIMESTAMP"),

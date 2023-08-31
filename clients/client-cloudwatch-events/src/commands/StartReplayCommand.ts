@@ -68,7 +68,7 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  * const response = await client.send(command);
  * // { // StartReplayResponse
  * //   ReplayArn: "STRING_VALUE",
- * //   State: "STRING_VALUE",
+ * //   State: "STARTING" || "RUNNING" || "CANCELLING" || "COMPLETED" || "CANCELLED" || "FAILED",
  * //   StateReason: "STRING_VALUE",
  * //   ReplayStartTime: new Date("TIMESTAMP"),
  * // };

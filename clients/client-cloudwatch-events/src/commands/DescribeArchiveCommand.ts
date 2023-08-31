@@ -54,7 +54,7 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * //   EventSourceArn: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
  * //   EventPattern: "STRING_VALUE",
- * //   State: "STRING_VALUE",
+ * //   State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
  * //   StateReason: "STRING_VALUE",
  * //   RetentionDays: Number("int"),
  * //   SizeBytes: Number("long"),

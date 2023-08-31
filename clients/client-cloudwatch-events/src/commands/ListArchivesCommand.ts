@@ -47,7 +47,7 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * const input = { // ListArchivesRequest
  *   NamePrefix: "STRING_VALUE",
  *   EventSourceArn: "STRING_VALUE",
- *   State: "STRING_VALUE",
+ *   State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),
  * };
@@ -58,7 +58,7 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * //     { // Archive
  * //       ArchiveName: "STRING_VALUE",
  * //       EventSourceArn: "STRING_VALUE",
- * //       State: "STRING_VALUE",
+ * //       State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
  * //       StateReason: "STRING_VALUE",
  * //       RetentionDays: Number("int"),
  * //       SizeBytes: Number("long"),

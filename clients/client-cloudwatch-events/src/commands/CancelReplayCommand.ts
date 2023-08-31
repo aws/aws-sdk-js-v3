@@ -50,7 +50,7 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * const response = await client.send(command);
  * // { // CancelReplayResponse
  * //   ReplayArn: "STRING_VALUE",
- * //   State: "STRING_VALUE",
+ * //   State: "STARTING" || "RUNNING" || "CANCELLING" || "COMPLETED" || "CANCELLED" || "FAILED",
  * //   StateReason: "STRING_VALUE",
  * // };
  *

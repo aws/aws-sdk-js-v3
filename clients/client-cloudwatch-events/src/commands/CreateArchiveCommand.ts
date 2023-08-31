@@ -58,7 +58,7 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  * const response = await client.send(command);
  * // { // CreateArchiveResponse
  * //   ArchiveArn: "STRING_VALUE",
- * //   State: "STRING_VALUE",
+ * //   State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
  * //   StateReason: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"),
  * // };

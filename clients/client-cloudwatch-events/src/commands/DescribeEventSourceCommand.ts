@@ -55,7 +55,7 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   ExpirationTime: new Date("TIMESTAMP"),
  * //   Name: "STRING_VALUE",
- * //   State: "STRING_VALUE",
+ * //   State: "PENDING" || "ACTIVE" || "DELETED",
  * // };
  *
  * ```

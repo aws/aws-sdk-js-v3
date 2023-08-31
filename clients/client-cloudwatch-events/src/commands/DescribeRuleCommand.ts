@@ -56,7 +56,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //   Arn: "STRING_VALUE",
  * //   EventPattern: "STRING_VALUE",
  * //   ScheduleExpression: "STRING_VALUE",
- * //   State: "STRING_VALUE",
+ * //   State: "ENABLED" || "DISABLED",
  * //   Description: "STRING_VALUE",
  * //   RoleArn: "STRING_VALUE",
  * //   ManagedBy: "STRING_VALUE",

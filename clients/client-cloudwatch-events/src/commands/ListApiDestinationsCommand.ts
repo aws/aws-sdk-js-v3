@@ -56,10 +56,10 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * //     { // ApiDestination
  * //       ApiDestinationArn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       ApiDestinationState: "STRING_VALUE",
+ * //       ApiDestinationState: "ACTIVE" || "INACTIVE",
  * //       ConnectionArn: "STRING_VALUE",
  * //       InvocationEndpoint: "STRING_VALUE",
- * //       HttpMethod: "STRING_VALUE",
+ * //       HttpMethod: "POST" || "GET" || "HEAD" || "OPTIONS" || "PUT" || "PATCH" || "DELETE",
  * //       InvocationRateLimitPerSecond: Number("int"),
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       LastModifiedTime: new Date("TIMESTAMP"),

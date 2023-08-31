@@ -52,9 +52,9 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * //   ConnectionArn: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
- * //   ConnectionState: "STRING_VALUE",
+ * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
  * //   StateReason: "STRING_VALUE",
- * //   AuthorizationType: "STRING_VALUE",
+ * //   AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
  * //   SecretArn: "STRING_VALUE",
  * //   AuthParameters: { // ConnectionAuthResponseParameters
  * //     BasicAuthParameters: { // ConnectionBasicAuthResponseParameters
@@ -65,7 +65,7 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * //         ClientID: "STRING_VALUE",
  * //       },
  * //       AuthorizationEndpoint: "STRING_VALUE",
- * //       HttpMethod: "STRING_VALUE",
+ * //       HttpMethod: "GET" || "POST" || "PUT",
  * //       OAuthHttpParameters: { // ConnectionHttpParameters
  * //         HeaderParameters: [ // ConnectionHeaderParametersList
  * //           { // ConnectionHeaderParameter

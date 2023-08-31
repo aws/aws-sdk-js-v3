@@ -81,7 +81,7 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  * //       EcsParameters: { // EcsParameters
  * //         TaskDefinitionArn: "STRING_VALUE", // required
  * //         TaskCount: Number("int"),
- * //         LaunchType: "STRING_VALUE",
+ * //         LaunchType: "EC2" || "FARGATE" || "EXTERNAL",
  * //         NetworkConfiguration: { // NetworkConfiguration
  * //           awsvpcConfiguration: { // AwsVpcConfiguration
  * //             Subnets: [ // StringList // required
@@ -90,7 +90,7 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  * //             SecurityGroups: [
  * //               "STRING_VALUE",
  * //             ],
- * //             AssignPublicIp: "STRING_VALUE",
+ * //             AssignPublicIp: "ENABLED" || "DISABLED",
  * //           },
  * //         },
  * //         PlatformVersion: "STRING_VALUE",
@@ -106,17 +106,17 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  * //         EnableExecuteCommand: true || false,
  * //         PlacementConstraints: [ // PlacementConstraints
  * //           { // PlacementConstraint
- * //             type: "STRING_VALUE",
+ * //             type: "distinctInstance" || "memberOf",
  * //             expression: "STRING_VALUE",
  * //           },
  * //         ],
  * //         PlacementStrategy: [ // PlacementStrategies
  * //           { // PlacementStrategy
- * //             type: "STRING_VALUE",
+ * //             type: "random" || "spread" || "binpack",
  * //             field: "STRING_VALUE",
  * //           },
  * //         ],
- * //         PropagateTags: "STRING_VALUE",
+ * //         PropagateTags: "TASK_DEFINITION",
  * //         ReferenceId: "STRING_VALUE",
  * //         Tags: [ // TagList
  * //           { // Tag

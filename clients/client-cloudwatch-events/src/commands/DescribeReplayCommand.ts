@@ -60,7 +60,7 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  * //   ReplayName: "STRING_VALUE",
  * //   ReplayArn: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
- * //   State: "STRING_VALUE",
+ * //   State: "STARTING" || "RUNNING" || "CANCELLING" || "COMPLETED" || "CANCELLED" || "FAILED",
  * //   StateReason: "STRING_VALUE",
  * //   EventSourceArn: "STRING_VALUE",
  * //   Destination: { // ReplayDestination

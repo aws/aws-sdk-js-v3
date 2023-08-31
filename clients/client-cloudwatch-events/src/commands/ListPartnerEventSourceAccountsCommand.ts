@@ -63,7 +63,7 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  * //       Account: "STRING_VALUE",
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       ExpirationTime: new Date("TIMESTAMP"),
- * //       State: "STRING_VALUE",
+ * //       State: "PENDING" || "ACTIVE" || "DELETED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

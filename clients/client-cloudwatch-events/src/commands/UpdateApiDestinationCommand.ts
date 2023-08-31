@@ -48,14 +48,14 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  *   Description: "STRING_VALUE",
  *   ConnectionArn: "STRING_VALUE",
  *   InvocationEndpoint: "STRING_VALUE",
- *   HttpMethod: "STRING_VALUE",
+ *   HttpMethod: "POST" || "GET" || "HEAD" || "OPTIONS" || "PUT" || "PATCH" || "DELETE",
  *   InvocationRateLimitPerSecond: Number("int"),
  * };
  * const command = new UpdateApiDestinationCommand(input);
  * const response = await client.send(command);
  * // { // UpdateApiDestinationResponse
  * //   ApiDestinationArn: "STRING_VALUE",
- * //   ApiDestinationState: "STRING_VALUE",
+ * //   ApiDestinationState: "ACTIVE" || "INACTIVE",
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * // };

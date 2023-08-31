@@ -38,7 +38,6 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @public
  * <p>Lists your Amazon EventBridge rules. You can either list all the rules or you can provide
  *       a prefix to match to the rule names.</p>
- *
  *          <p>ListRules does not list the targets of a rule. To see the targets associated with a rule,
  *       use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">ListTargetsByRule</a>.</p>
  * @example
@@ -61,7 +60,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * //       Name: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       EventPattern: "STRING_VALUE",
- * //       State: "STRING_VALUE",
+ * //       State: "ENABLED" || "DISABLED",
  * //       Description: "STRING_VALUE",
  * //       ScheduleExpression: "STRING_VALUE",
  * //       RoleArn: "STRING_VALUE",
