@@ -30209,7 +30209,7 @@ it("RestJsonHttpWithEmptyStructurePayload:ServerRequest", async () => {
 /**
  * Serializes a payload targeting a structure
  */
-it.skip("RestJsonTestPayloadStructure:ServerRequest", async () => {
+it("RestJsonTestPayloadStructure:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -30255,7 +30255,7 @@ it.skip("RestJsonTestPayloadStructure:ServerRequest", async () => {
 /**
  * Serializes an request with header members but no payload
  */
-it.skip("RestJsonHttpWithHeadersButNoPayload:ServerRequest", async () => {
+it("RestJsonHttpWithHeadersButNoPayload:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {

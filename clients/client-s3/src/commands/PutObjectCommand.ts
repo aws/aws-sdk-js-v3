@@ -238,46 +238,24 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * // example id: to-upload-an-object-(specify-optional-headers)
  * ```
  *
- * @example To create an object.
+ * @example To upload an object and specify optional tags
  * ```javascript
- * // The following example creates an object. If the bucket is versioning enabled, S3 returns version ID in response.
+ * // The following example uploads an object. The request specifies optional object tags. The bucket is versioned, therefore S3 returns version ID of the newly created object.
  * const input = {
- *   "Body": "filetoupload",
+ *   "Body": "c:\\HappyFace.jpg",
  *   "Bucket": "examplebucket",
- *   "Key": "objectkey"
+ *   "Key": "HappyFace.jpg",
+ *   "Tagging": "key1=value1&key2=value2"
  * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
  *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "VersionId": "Bvq0EDKxOcXLJXNo_Lkz37eM3R4pfzyQ"
+ *   "VersionId": "psM2sYY4.o1501dSx8wMvnkOzSBB.V4a"
  * }
  * *\/
- * // example id: to-create-an-object-1483147613675
- * ```
- *
- * @example To upload object and specify user-defined metadata
- * ```javascript
- * // The following example creates an object. The request also specifies optional metadata. If the bucket is versioning enabled, S3 returns version ID in response.
- * const input = {
- *   "Body": "filetoupload",
- *   "Bucket": "examplebucket",
- *   "Key": "exampleobject",
- *   "Metadata": {
- *     "metadata1": "value1",
- *     "metadata2": "value2"
- *   }
- * };
- * const command = new PutObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "VersionId": "pSKidl4pHBiNwukdbcPXAIs.sshFFOc0"
- * }
- * *\/
- * // example id: to-upload-object-and-specify-user-defined-metadata-1483396974757
+ * // example id: to-upload-an-object-and-specify-optional-tags-1481762310955
  * ```
  *
  * @example To upload an object and specify server-side encryption and object tags
@@ -302,24 +280,23 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * // example id: to-upload-an-object-and-specify-server-side-encryption-and-object-tags-1483398331831
  * ```
  *
- * @example To upload an object and specify optional tags
+ * @example To create an object.
  * ```javascript
- * // The following example uploads an object. The request specifies optional object tags. The bucket is versioned, therefore S3 returns version ID of the newly created object.
+ * // The following example creates an object. If the bucket is versioning enabled, S3 returns version ID in response.
  * const input = {
- *   "Body": "c:\\HappyFace.jpg",
+ *   "Body": "filetoupload",
  *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg",
- *   "Tagging": "key1=value1&key2=value2"
+ *   "Key": "objectkey"
  * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
  *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "VersionId": "psM2sYY4.o1501dSx8wMvnkOzSBB.V4a"
+ *   "VersionId": "Bvq0EDKxOcXLJXNo_Lkz37eM3R4pfzyQ"
  * }
  * *\/
- * // example id: to-upload-an-object-and-specify-optional-tags-1481762310955
+ * // example id: to-create-an-object-1483147613675
  * ```
  *
  * @example To upload an object
@@ -359,6 +336,29 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * }
  * *\/
  * // example id: to-upload-an-object-and-specify-canned-acl-1483397779571
+ * ```
+ *
+ * @example To upload object and specify user-defined metadata
+ * ```javascript
+ * // The following example creates an object. The request also specifies optional metadata. If the bucket is versioning enabled, S3 returns version ID in response.
+ * const input = {
+ *   "Body": "filetoupload",
+ *   "Bucket": "examplebucket",
+ *   "Key": "exampleobject",
+ *   "Metadata": {
+ *     "metadata1": "value1",
+ *     "metadata2": "value2"
+ *   }
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "pSKidl4pHBiNwukdbcPXAIs.sshFFOc0"
+ * }
+ * *\/
+ * // example id: to-upload-object-and-specify-user-defined-metadata-1483396974757
  * ```
  *
  */
