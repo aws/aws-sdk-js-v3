@@ -165,7 +165,7 @@ export interface AutoScalingGroupProvider {
 
   /**
    * @public
-   * <p>he managed scaling settings for the Auto Scaling group capacity provider.</p>
+   * <p>The managed scaling settings for the Auto Scaling group capacity provider.</p>
    */
   managedScaling?: ManagedScaling;
 
@@ -3568,6 +3568,7 @@ export const SettingName = {
   CONTAINER_INSIGHTS: "containerInsights",
   CONTAINER_INSTANCE_LONG_ARN_FORMAT: "containerInstanceLongArnFormat",
   FARGATE_FIPS_MODE: "fargateFIPSMode",
+  FARGATE_TASK_RETIREMENT_WAIT_PERIOD: "fargateTaskRetirementWaitPeriod",
   SERVICE_LONG_ARN_FORMAT: "serviceLongArnFormat",
   TAG_RESOURCE_AUTHORIZATION: "tagResourceAuthorization",
   TASK_LONG_ARN_FORMAT: "taskLongArnFormat",
@@ -4857,8 +4858,18 @@ export interface SystemControl {
 
   /**
    * @public
-   * <p>The value for the namespaced kernel parameter that's specified in
-   * 				<code>namespace</code>.</p>
+   * <p>The namespaced kernel parameter to set a
+   * 			<code>value</code> for.</p>
+   *          <p>Valid IPC namespace values: <code>"kernel.msgmax" | "kernel.msgmnb" | "kernel.msgmni"
+   * 			| "kernel.sem" | "kernel.shmall" | "kernel.shmmax" |
+   * 			"kernel.shmmni" | "kernel.shm_rmid_forced"</code>, and
+   * 			<code>Sysctls</code> that start with
+   * 			<code>"fs.mqueue.*"</code>
+   *          </p>
+   *          <p>Valid network namespace values: <code>Sysctls</code> that start with
+   * 			<code>"net.*"</code>
+   *          </p>
+   *          <p>All of these values are supported by Fargate.</p>
    */
   value?: string;
 }
@@ -5641,7 +5652,9 @@ export interface ContainerDefinition {
    * @public
    * <p>A list of namespaced kernel parameters to set in the container. This parameter maps to
    * 				<code>Sysctls</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
-   * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--sysctl</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
+   * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--sysctl</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.  For example, you can
+   * 			configure <code>net.ipv4.tcp_keepalive_time</code> setting to maintain
+   * 			longer lived connections.</p>
    *          <note>
    *             <p>We don't recommended that you specify network-related <code>systemControls</code>
    * 				parameters for multiple containers in a single task that also uses either the
@@ -5650,6 +5663,15 @@ export interface ContainerDefinition {
    * 				which <code>systemControls</code> parameters take effect. For tasks that use the
    * 					<code>host</code> network mode, it changes the container instance's namespaced
    * 				kernel parameters as well as the containers.</p>
+   *          </note>
+   *          <note>
+   *             <p>This parameter is not supported for Windows containers.</p>
+   *          </note>
+   *          <note>
+   *             <p>This parameter is only supported for tasks that are hosted on
+   *         Fargate if the tasks are using platform version <code>1.4.0</code> or later
+   *         (Linux). This isn't supported for Windows containers on
+   *         Fargate.</p>
    *          </note>
    */
   systemControls?: SystemControl[];
@@ -6572,20 +6594,31 @@ export interface TaskDefinition {
   /**
    * @public
    * <p>The process namespace to use for the containers in the task. The valid
-   *                             values are <code>host</code> or <code>task</code>. If <code>host</code>
-   *                             is specified, then all containers within the tasks that specified the
-   *                                 <code>host</code> PID mode on the same container instance share the
-   *                             same process namespace with the host Amazon EC2 instance. If <code>task</code> is
-   *                             specified, all containers within the specified task share the same
-   *                             process namespace. If no value is specified, the default is a private
-   *                             namespace. For more information, see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID settings</a> in the <i>Docker run
+   *                             values are <code>host</code> or <code>task</code>. On Fargate for
+   *                             Linux containers, the only valid value is <code>task</code>. For
+   *                             example, monitoring sidecars might need <code>pidMode</code> to access
+   *                             information about other containers running in the same task.</p>
+   *          <p>If <code>host</code> is specified, all containers within the tasks
+   *                             that specified the <code>host</code> PID mode on the same container
+   *                             instance share the same process namespace with the host Amazon EC2
+   *                             instance.</p>
+   *          <p>If <code>task</code> is specified, all containers within the specified
+   *                             task share the same process namespace.</p>
+   *          <p>If no value is specified, the
+   *                             default is a private namespace for each container. For more information,
+   *                             see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID settings</a> in the <i>Docker run
    *                                 reference</i>.</p>
-   *          <p>If the <code>host</code> PID mode is used, be aware that there is a
-   *                             heightened risk of undesired process namespace expose. For more
-   *                             information, see <a href="https://docs.docker.com/engine/security/security/">Docker
-   *                                 security</a>.</p>
+   *          <p>If the <code>host</code> PID mode is used, there's a heightened risk
+   *                             of undesired process namespace exposure. For more information, see
+   *                                 <a href="https://docs.docker.com/engine/security/security/">Docker security</a>.</p>
    *          <note>
-   *             <p>This parameter is not supported for Windows containers or tasks run on Fargate.</p>
+   *             <p>This parameter is not supported for Windows containers.</p>
+   *          </note>
+   *          <note>
+   *             <p>This parameter is only supported for tasks that are hosted on
+   *         Fargate if the tasks are using platform version <code>1.4.0</code> or later
+   *         (Linux). This isn't supported for Windows containers on
+   *         Fargate.</p>
    *          </note>
    */
   pidMode?: PidMode | string;
@@ -7037,8 +7070,7 @@ export interface ContainerInstance {
 
   /**
    * @public
-   * <p>The number of tasks on the container instance that are in the <code>RUNNING</code>
-   * 			status.</p>
+   * <p>The number of tasks on the container instance that have a desired status (<code>desiredStatus</code>) of <code>RUNNING</code>.</p>
    */
   runningTasksCount?: number;
 
@@ -9616,19 +9648,19 @@ export interface ListTasksResponse {
 export interface PutAccountSettingRequest {
   /**
    * @public
-   * <p>The Amazon ECS resource name for which to modify the account setting. If
-   * 				<code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS services is
-   * 			affected. If <code>taskLongArnFormat</code> is specified, the ARN and resource ID for
-   * 			your Amazon ECS tasks is affected. If <code>containerInstanceLongArnFormat</code> is
-   * 			specified, the ARN and resource ID for your Amazon ECS container instances is affected. If
-   * 				<code>awsvpcTrunking</code> is specified, the elastic network interface (ENI) limit
-   * 			for your Amazon ECS container instances is affected. If <code>containerInsights</code> is
-   * 			specified, the default setting for Amazon Web Services CloudWatch Container Insights for your clusters is
-   * 			affected. If <code>fargateFIPSMode</code> is specified, Fargate FIPS 140 compliance is
-   * 			affected.  If <code>tagResourceAuthorization</code> is specified, the opt-in option for
-   * 			tagging resources on creation is affected. For information about the opt-in timeline,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging authorization timeline</a> in the <i>Amazon ECS Developer
-   * 					Guide</i>.</p>
+   * <p>The Amazon ECS resource name for which to modify the account setting. If you specify
+   * 				<code>serviceLongArnFormat</code>, the ARN for your Amazon ECS services is affected. If
+   * 			you specify <code>taskLongArnFormat</code>, the ARN and resource ID for your Amazon ECS
+   * 			tasks is affected. If you specify <code>containerInstanceLongArnFormat</code>, the ARN
+   * 			and resource ID for your Amazon ECS container instances is affected. If you specify
+   * 				<code>awsvpcTrunking</code>, the elastic network interface (ENI) limit for your
+   * 			Amazon ECS container instances is affected. If you specify <code>containerInsights</code>,
+   * 			the default setting for Amazon Web Services CloudWatch Container Insights for your clusters is affected. If
+   * 			you specify <code>fargateFIPSMode</code>, Fargate FIPS 140 compliance is affected. If
+   * 			you specify <code>tagResourceAuthorization</code>, the opt-in option for tagging
+   * 			resources on creation is affected. For information about the opt-in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging authorization timeline</a> in the <i>Amazon ECS Developer
+   * 				Guide</i>. If you specify <code>fargateTaskRetirementWaitPeriod</code>, the
+   * 			wait time to retire a Fargate task is affected.</p>
    */
   name: SettingName | string | undefined;
 
@@ -9637,6 +9669,24 @@ export interface PutAccountSettingRequest {
    * <p>The account setting value for the specified principal ARN. Accepted values are
    * 				<code>enabled</code>, <code>disabled</code>, <code>on</code>, and
    * 			<code>off</code>.</p>
+   *          <p>When you specify <code>fargateTaskRetirementWaitPeriod</code> for the <code>name</code>, the
+   * 			following are the valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>0</code> - immediately retire the tasks and patch Fargate </p>
+   *                <p>There is no advanced notification. Your tasks are retired immediately, and Fargate
+   * 					is patched without any notification.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>7</code> -wait 7 calendar days to retire the tasks and patch Fargate </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>14</code> - wait 14 calendar days to retire the tasks and patch Fargate </p>
+   *             </li>
+   *          </ul>
    */
   value: string | undefined;
 
@@ -9648,6 +9698,8 @@ export interface PutAccountSettingRequest {
    * 			settings. If this field is omitted, the setting is changed only for the authenticated
    * 			user.</p>
    *          <note>
+   *             <p>You must use the root user when you set the Fargate wait time
+   * 					(<code>fargateTaskRetirementWaitPeriod</code>). </p>
    *             <p>Federated users assume the account setting of the root user and can't have
    * 				explicit account settings set for them.</p>
    *          </note>
@@ -9672,22 +9724,30 @@ export interface PutAccountSettingResponse {
 export interface PutAccountSettingDefaultRequest {
   /**
    * @public
-   * <p>The resource name for which to modify the account setting. If
-   * 				<code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS services is
-   * 			affected. If <code>taskLongArnFormat</code> is specified, the ARN and resource ID for
-   * 			your Amazon ECS tasks is affected. If <code>containerInstanceLongArnFormat</code> is
-   * 			specified, the ARN and resource ID for your Amazon ECS container instances is affected. If
-   * 				<code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS container
-   * 			instances is affected. If <code>containerInsights</code> is specified, the default
-   * 			setting for Amazon Web Services CloudWatch Container Insights for your clusters is affected. If
-   * 				<code>tagResourceAuthorization</code> is specified, the opt-in option for tagging
-   * 			resources on creation is affected. For information about the opt-in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging authorization timeline</a> in the <i>Amazon ECS Developer
-   * 				Guide</i>.</p>
+   * <p>The resource name for which to modify the account setting. If you specify
+   * 				<code>serviceLongArnFormat</code>, the ARN for your Amazon ECS services is affected. If
+   * 			you specify <code>taskLongArnFormat</code>, the ARN and resource ID for your Amazon ECS
+   * 			tasks is affected. If you specify <code>containerInstanceLongArnFormat</code>, the ARN
+   * 			and resource ID for your Amazon ECS container instances is affected. If you specify
+   * 				<code>awsvpcTrunking</code>, the ENI limit for your Amazon ECS container instances is
+   * 			affected. If you specify <code>containerInsights</code>, the default setting for Amazon Web Services
+   * 			CloudWatch Container Insights for your clusters is affected. If you specify
+   * 				<code>tagResourceAuthorization</code>, the opt-in option for tagging resources on
+   * 			creation is affected. For information about the opt-in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging authorization timeline</a> in the <i>Amazon ECS Developer
+   * 				Guide</i>. If you specify <code>fargateTaskRetirementWaitPeriod</code>, the
+   * 			default wait time to retire a Fargate task due to required maintenance is
+   * 			affected.</p>
    *          <p>When you specify <code>fargateFIPSMode</code> for the <code>name</code> and
    * 			<code>enabled</code> for the <code>value</code>, Fargate uses FIPS-140 compliant
    * 			cryptographic algorithms on your tasks. For more information about FIPS-140 compliance
    * 			with Fargate, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-fips-compliance.html"> Amazon Web Services Fargate Federal Information Processing Standard (FIPS) 140-2
    * 				compliance</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *          <p>When Amazon Web Services determines that a security or infrastructure update is needed for an Amazon ECS task
+   * 			hosted on Fargate, the tasks need to be stopped and new tasks launched to replace
+   * 			them. Use <code>fargateTaskRetirementWaitPeriod</code> to set the wait time to retire a
+   * 			Fargate task to the default. For information about the Fargate tasks maintenance,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon Web Services Fargate task
+   * 				maintenance</a> in the <i>Amazon ECS Developer Guide</i>.</p>
    */
   name: SettingName | string | undefined;
 
@@ -9696,6 +9756,26 @@ export interface PutAccountSettingDefaultRequest {
    * <p>The account setting value for the specified principal ARN. Accepted values are
    * 				<code>enabled</code>, <code>disabled</code>, <code>on</code>, and
    * 			<code>off</code>.</p>
+   *          <p>When you specify <code>fargateTaskRetirementWaitPeriod</code> for the
+   * 				<code>name</code>, the following are the valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>0</code> - immediately retire the tasks and patch Fargate </p>
+   *                <p>There is no advanced notification. Your tasks are retired immediately, and
+   * 					Fargate is patched without any notification.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>7</code> -wait 7 calendar days to retire the tasks and patch Fargate
+   * 				</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>14</code> - wait 14 calendar days to retire the tasks and patch
+   * 					Fargate </p>
+   *             </li>
+   *          </ul>
    */
   value: string | undefined;
 }
@@ -10217,20 +10297,31 @@ export interface RegisterTaskDefinitionRequest {
   /**
    * @public
    * <p>The process namespace to use for the containers in the task. The valid
-   *                             values are <code>host</code> or <code>task</code>. If <code>host</code>
-   *                             is specified, then all containers within the tasks that specified the
-   *                                 <code>host</code> PID mode on the same container instance share the
-   *                             same process namespace with the host Amazon EC2 instance. If <code>task</code> is
-   *                             specified, all containers within the specified task share the same
-   *                             process namespace. If no value is specified, the default is a private
-   *                             namespace. For more information, see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID settings</a> in the <i>Docker run
+   *                             values are <code>host</code> or <code>task</code>. On Fargate for
+   *                             Linux containers, the only valid value is <code>task</code>. For
+   *                             example, monitoring sidecars might need <code>pidMode</code> to access
+   *                             information about other containers running in the same task.</p>
+   *          <p>If <code>host</code> is specified, all containers within the tasks
+   *                             that specified the <code>host</code> PID mode on the same container
+   *                             instance share the same process namespace with the host Amazon EC2
+   *                             instance.</p>
+   *          <p>If <code>task</code> is specified, all containers within the specified
+   *                             task share the same process namespace.</p>
+   *          <p>If no value is specified, the
+   *                             default is a private namespace for each container. For more information,
+   *                             see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID settings</a> in the <i>Docker run
    *                                 reference</i>.</p>
-   *          <p>If the <code>host</code> PID mode is used, be aware that there is a
-   *                             heightened risk of undesired process namespace expose. For more
-   *                             information, see <a href="https://docs.docker.com/engine/security/security/">Docker
-   *                                 security</a>.</p>
+   *          <p>If the <code>host</code> PID mode is used, there's a heightened risk
+   *                             of undesired process namespace exposure. For more information, see
+   *                                 <a href="https://docs.docker.com/engine/security/security/">Docker security</a>.</p>
    *          <note>
-   *             <p>This parameter is not supported for Windows containers or tasks run on Fargate.</p>
+   *             <p>This parameter is not supported for Windows containers.</p>
+   *          </note>
+   *          <note>
+   *             <p>This parameter is only supported for tasks that are hosted on
+   *         Fargate if the tasks are using platform version <code>1.4.0</code> or later
+   *         (Linux). This isn't supported for Windows containers on
+   *         Fargate.</p>
    *          </note>
    */
   pidMode?: PidMode | string;

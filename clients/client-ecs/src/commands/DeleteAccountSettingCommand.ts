@@ -45,14 +45,14 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * // const { ECSClient, DeleteAccountSettingCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // DeleteAccountSettingRequest
- *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization", // required
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod", // required
  *   principalArn: "STRING_VALUE",
  * };
  * const command = new DeleteAccountSettingCommand(input);
  * const response = await client.send(command);
  * // { // DeleteAccountSettingResponse
  * //   setting: { // Setting
- * //     name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
+ * //     name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod",
  * //     value: "STRING_VALUE",
  * //     principalArn: "STRING_VALUE",
  * //   },
