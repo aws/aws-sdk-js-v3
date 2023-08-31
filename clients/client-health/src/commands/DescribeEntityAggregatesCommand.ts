@@ -55,6 +55,9 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * //     { // EntityAggregate
  * //       eventArn: "STRING_VALUE",
  * //       count: Number("int"),
+ * //       statuses: { // entityStatuses
+ * //         "<keys>": Number("int"),
+ * //       },
  * //     },
  * //   ],
  * // };

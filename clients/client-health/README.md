@@ -280,6 +280,14 @@ DescribeEntityAggregates
 </details>
 <details>
 <summary>
+DescribeEntityAggregatesForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describeentityaggregatesfororganizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeentityaggregatesfororganizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeentityaggregatesfororganizationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeEventAggregates
 </summary>
 

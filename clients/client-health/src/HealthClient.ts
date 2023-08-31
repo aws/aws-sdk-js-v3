@@ -67,6 +67,10 @@ import {
   DescribeEntityAggregatesCommandOutput,
 } from "./commands/DescribeEntityAggregatesCommand";
 import {
+  DescribeEntityAggregatesForOrganizationCommandInput,
+  DescribeEntityAggregatesForOrganizationCommandOutput,
+} from "./commands/DescribeEntityAggregatesForOrganizationCommand";
+import {
   DescribeEventAggregatesCommandInput,
   DescribeEventAggregatesCommandOutput,
 } from "./commands/DescribeEventAggregatesCommand";
@@ -115,6 +119,7 @@ export type ServiceInputTypes =
   | DescribeAffectedEntitiesCommandInput
   | DescribeAffectedEntitiesForOrganizationCommandInput
   | DescribeEntityAggregatesCommandInput
+  | DescribeEntityAggregatesForOrganizationCommandInput
   | DescribeEventAggregatesCommandInput
   | DescribeEventDetailsCommandInput
   | DescribeEventDetailsForOrganizationCommandInput
@@ -133,6 +138,7 @@ export type ServiceOutputTypes =
   | DescribeAffectedEntitiesCommandOutput
   | DescribeAffectedEntitiesForOrganizationCommandOutput
   | DescribeEntityAggregatesCommandOutput
+  | DescribeEntityAggregatesForOrganizationCommandOutput
   | DescribeEventAggregatesCommandOutput
   | DescribeEventDetailsCommandOutput
   | DescribeEventDetailsForOrganizationCommandOutput

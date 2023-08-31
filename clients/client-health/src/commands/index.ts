@@ -3,6 +3,7 @@ export * from "./DescribeAffectedAccountsForOrganizationCommand";
 export * from "./DescribeAffectedEntitiesCommand";
 export * from "./DescribeAffectedEntitiesForOrganizationCommand";
 export * from "./DescribeEntityAggregatesCommand";
+export * from "./DescribeEntityAggregatesForOrganizationCommand";
 export * from "./DescribeEventAggregatesCommand";
 export * from "./DescribeEventDetailsCommand";
 export * from "./DescribeEventDetailsForOrganizationCommand";

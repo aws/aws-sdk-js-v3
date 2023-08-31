@@ -9,6 +9,8 @@ import { HealthServiceException as __BaseException } from "./HealthServiceExcept
  */
 export const EntityStatusCode = {
   IMPAIRED: "IMPAIRED",
+  PENDING: "PENDING",
+  RESOLVED: "RESOLVED",
   UNIMPAIRED: "UNIMPAIRED",
   UNKNOWN: "UNKNOWN",
 } as const;
@@ -17,6 +19,30 @@ export const EntityStatusCode = {
  * @public
  */
 export type EntityStatusCode = (typeof EntityStatusCode)[keyof typeof EntityStatusCode];
+
+/**
+ * @public
+ * <p>The number of entities in an account that are impacted by a specific event aggregated by the entity status codes.</p>
+ */
+export interface AccountEntityAggregate {
+  /**
+   * @public
+   * <p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
+   */
+  accountId?: string;
+
+  /**
+   * @public
+   * <p>The number of entities that match the filter criteria for the specified events.</p>
+   */
+  count?: number;
+
+  /**
+   * @public
+   * <p>The number of affected entities aggregated by the entity status codes.</p>
+   */
+  statuses?: Record<string, number>;
+}
 
 /**
  * @public
@@ -342,6 +368,37 @@ export class UnsupportedLocale extends __BaseException {
 
 /**
  * @public
+ * <p>A JSON set of elements including the <code>awsAccountId</code>, <code>eventArn</code> and a set of <code>statusCodes</code>.</p>
+ */
+export interface EntityAccountFilter {
+  /**
+   * @public
+   * <p>The unique identifier for the event. The event ARN has the
+   * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>
+   * format.</p>
+   *          <p>For example, an event ARN might look like the following:</p>
+   *          <p>
+   *             <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   *          </p>
+   */
+  eventArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
+   */
+  awsAccountId?: string;
+
+  /**
+   * @public
+   * <p>A list of entity status codes.</p>
+   */
+  statusCodes?: (EntityStatusCode | string)[];
+}
+
+/**
+ * @public
  * <p>The values used to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operations.</p>
  */
 export interface EventAccountFilter {
@@ -371,10 +428,12 @@ export interface EventAccountFilter {
 export interface DescribeAffectedEntitiesForOrganizationRequest {
   /**
    * @public
+   * @deprecated
+   *
    * <p>A JSON set of elements including the <code>awsAccountId</code> and the
    *             <code>eventArn</code>.</p>
    */
-  organizationEntityFilters: EventAccountFilter[] | undefined;
+  organizationEntityFilters?: EventAccountFilter[];
 
   /**
    * @public
@@ -396,6 +455,12 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    */
   maxResults?: number;
+
+  /**
+   * @public
+   * <p>A JSON set of elements including the <code>awsAccountId</code>, <code>eventArn</code> and a set of <code>statusCodes</code>.</p>
+   */
+  organizationEntityAccountFilters?: EntityAccountFilter[];
 }
 
 /**
@@ -504,6 +569,12 @@ export interface EntityAggregate {
    * <p>The number of entities that match the criteria for the specified events.</p>
    */
   count?: number;
+
+  /**
+   * @public
+   * <p>The number of affected entities aggregated by the entity status codes.</p>
+   */
+  statuses?: Record<string, number>;
 }
 
 /**
@@ -515,6 +586,68 @@ export interface DescribeEntityAggregatesResponse {
    * <p>The number of entities that are affected by each of the specified events.</p>
    */
   entityAggregates?: EntityAggregate[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeEntityAggregatesForOrganizationRequest {
+  /**
+   * @public
+   * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
+   *          </p>
+   */
+  eventArns: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
+   */
+  awsAccountIds?: string[];
+}
+
+/**
+ * @public
+ * <p>The aggregate results of entities affected by the specified event in your organization.
+ *          The results are aggregated by the entity status codes for the specified set of accountsIDs.</p>
+ */
+export interface OrganizationEntityAggregate {
+  /**
+   * @public
+   * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
+   *          </p>
+   */
+  eventArn?: string;
+
+  /**
+   * @public
+   * <p>The number of entities for the organization that match the filter criteria for the specified events.</p>
+   */
+  count?: number;
+
+  /**
+   * @public
+   * <p>The number of affected entities aggregated by the entitiy status codes.</p>
+   */
+  statuses?: Record<string, number>;
+
+  /**
+   * @public
+   * <p>A list of entity aggregates for each of the specified accounts in your organization that are affected by
+   *          a specific event. If there are no <code>awsAccountIds</code> provided in the request, this field will be empty in the response.</p>
+   */
+  accounts?: AccountEntityAggregate[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeEntityAggregatesForOrganizationResponse {
+  /**
+   * @public
+   * <p>The list of entity aggregates for each of the specified accounts that are affected by each of the specified events.</p>
+   */
+  organizationEntityAggregates?: OrganizationEntityAggregate[];
 }
 
 /**

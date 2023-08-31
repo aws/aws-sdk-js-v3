@@ -82,7 +82,7 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  *       },
  *     ],
  *     statusCodes: [ // entityStatusCodeList
- *       "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN",
+ *       "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN" || "PENDING" || "RESOLVED",
  *     ],
  *   },
  *   locale: "STRING_VALUE",
@@ -100,7 +100,7 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * //       entityUrl: "STRING_VALUE",
  * //       awsAccountId: "STRING_VALUE",
  * //       lastUpdatedTime: new Date("TIMESTAMP"),
- * //       statusCode: "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN",
+ * //       statusCode: "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN" || "PENDING" || "RESOLVED",
  * //       tags: { // tagSet
  * //         "<keys>": "STRING_VALUE",
  * //       },

@@ -35,6 +35,10 @@ import {
   DescribeEntityAggregatesCommandOutput,
 } from "../commands/DescribeEntityAggregatesCommand";
 import {
+  DescribeEntityAggregatesForOrganizationCommandInput,
+  DescribeEntityAggregatesForOrganizationCommandOutput,
+} from "../commands/DescribeEntityAggregatesForOrganizationCommand";
+import {
   DescribeEventAggregatesCommandInput,
   DescribeEventAggregatesCommandOutput,
 } from "../commands/DescribeEventAggregatesCommand";
@@ -74,6 +78,7 @@ import {
   DescribeAffectedEntitiesForOrganizationResponse,
   DescribeAffectedEntitiesRequest,
   DescribeAffectedEntitiesResponse,
+  DescribeEntityAggregatesForOrganizationRequest,
   DescribeEntityAggregatesRequest,
   DescribeEventAggregatesRequest,
   DescribeEventDetailsForOrganizationRequest,
@@ -85,6 +90,7 @@ import {
   DescribeEventsRequest,
   DescribeEventsResponse,
   DescribeEventTypesRequest,
+  EntityAccountFilter,
   EntityFilter,
   EntityStatusCode,
   Event,
@@ -148,6 +154,19 @@ export const se_DescribeEntityAggregatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEntityAggregates");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeEntityAggregatesForOrganizationCommand
+ */
+export const se_DescribeEntityAggregatesForOrganizationCommand = async (
+  input: DescribeEntityAggregatesForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeEntityAggregatesForOrganization");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -438,6 +457,46 @@ const de_DescribeEntityAggregatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntityAggregatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_json1_1DescribeEntityAggregatesForOrganizationCommand
+ */
+export const de_DescribeEntityAggregatesForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEntityAggregatesForOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeEntityAggregatesForOrganizationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeEntityAggregatesForOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEntityAggregatesForOrganizationCommandError
+ */
+const de_DescribeEntityAggregatesForOrganizationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEntityAggregatesForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -948,6 +1007,8 @@ const se_DescribeAffectedEntitiesRequest = (input: DescribeAffectedEntitiesReque
   });
 };
 
+// se_DescribeEntityAggregatesForOrganizationRequest omitted.
+
 // se_DescribeEntityAggregatesRequest omitted.
 
 /**
@@ -994,6 +1055,8 @@ const se_DescribeEventsRequest = (input: DescribeEventsRequest, context: __Serde
 };
 
 // se_DescribeEventTypesRequest omitted.
+
+// se_EntityAccountFilter omitted.
 
 // se_entityArnList omitted.
 
@@ -1054,7 +1117,13 @@ const se_EventFilter = (input: EventFilter, context: __SerdeContext): any => {
 
 // se_eventTypeList2 omitted.
 
+// se_OrganizationAccountIdsList omitted.
+
+// se_OrganizationEntityAccountFiltersList omitted.
+
 // se_OrganizationEntityFiltersList omitted.
+
+// se_OrganizationEventArnsList omitted.
 
 // se_OrganizationEventDetailFiltersList omitted.
 
@@ -1084,6 +1153,10 @@ const se_OrganizationEventFilter = (input: OrganizationEventFilter, context: __S
 // se_tagFilter omitted.
 
 // se_tagSet omitted.
+
+// de_AccountEntityAggregate omitted.
+
+// de_AccountEntityAggregatesList omitted.
 
 // de_affectedAccountsList omitted.
 
@@ -1135,6 +1208,8 @@ const de_DescribeAffectedEntitiesResponse = (
     nextToken: __expectString,
   }) as any;
 };
+
+// de_DescribeEntityAggregatesForOrganizationResponse omitted.
 
 // de_DescribeEntityAggregatesResponse omitted.
 
@@ -1237,6 +1312,8 @@ const de_EntityList = (output: any, context: __SerdeContext): AffectedEntity[] =
   return retVal;
 };
 
+// de_entityStatuses omitted.
+
 /**
  * deserializeAws_json1_1Event
  */
@@ -1296,6 +1373,10 @@ const de_EventList = (output: any, context: __SerdeContext): Event[] => {
 // de_InvalidPaginationToken omitted.
 
 // de_OrganizationAffectedEntitiesErrorItem omitted.
+
+// de_OrganizationEntityAggregate omitted.
+
+// de_OrganizationEntityAggregatesList omitted.
 
 /**
  * deserializeAws_json1_1OrganizationEvent
