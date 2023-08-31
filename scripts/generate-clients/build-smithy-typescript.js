@@ -10,7 +10,7 @@ const buildSmithyTypeScript = async (repo, commit) => {
     await access(repo);
   } catch (error) {
     deleteSmithyTsRepo = true;
-    await spawnProcess("git", ["clone", "https://github.com/awslabs/smithy-typescript.git", repo]);
+    await spawnProcess("git", ["clone", "https://github.com/awslabs/smithy-typescript.git", repo, "--depth=1"]);
   }
 
   // Checkout commit
