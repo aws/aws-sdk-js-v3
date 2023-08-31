@@ -12,11 +12,17 @@ import {
   InvokeEndpointCommandInput,
   InvokeEndpointCommandOutput,
 } from "./commands/InvokeEndpointCommand";
+import {
+  InvokeEndpointWithResponseStreamCommand,
+  InvokeEndpointWithResponseStreamCommandInput,
+  InvokeEndpointWithResponseStreamCommandOutput,
+} from "./commands/InvokeEndpointWithResponseStreamCommand";
 import { SageMakerRuntimeClient, SageMakerRuntimeClientConfig } from "./SageMakerRuntimeClient";
 
 const commands = {
   InvokeEndpointCommand,
   InvokeEndpointAsyncCommand,
+  InvokeEndpointWithResponseStreamCommand,
 };
 
 export interface SageMakerRuntime {
@@ -49,6 +55,23 @@ export interface SageMakerRuntime {
     args: InvokeEndpointAsyncCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InvokeEndpointAsyncCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InvokeEndpointWithResponseStreamCommand}
+   */
+  invokeEndpointWithResponseStream(
+    args: InvokeEndpointWithResponseStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeEndpointWithResponseStreamCommandOutput>;
+  invokeEndpointWithResponseStream(
+    args: InvokeEndpointWithResponseStreamCommandInput,
+    cb: (err: any, data?: InvokeEndpointWithResponseStreamCommandOutput) => void
+  ): void;
+  invokeEndpointWithResponseStream(
+    args: InvokeEndpointWithResponseStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeEndpointWithResponseStreamCommandOutput) => void
   ): void;
 }
 
