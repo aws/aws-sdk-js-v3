@@ -1804,7 +1804,7 @@ export interface FragmentSelector {
   /**
    * @public
    * <p>The origin of the timestamps to use, <code>Server</code> or <code>Producer</code>. For more information, see
-   *          <a href="kinesisvideostreams/latest/dg/API_dataplane_StartSelector.html#KinesisVideo-Type-dataplane_StartSelector-StartSelectorType">StartSelectorType</a> in the <i>Amazon Kinesis Video Streams Developer Guide</i>.</p>
+   *          <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_StartSelector.html">StartSelectorType</a> in the <i>Amazon Kinesis Video Streams Developer Guide</i>.</p>
    */
   FragmentSelectorType: FragmentSelectorType | string | undefined;
 
@@ -2348,7 +2348,7 @@ export interface MediaInsightsPipelineConfigurationElement {
 
   /**
    * @public
-   * <p>The configuration settings for the <code>VoiceEnhancementSinkConfiguration</code> element.</p>
+   * <p>The configuration settings for voice enhancement sink in a media insights pipeline configuration element.</p>
    */
   VoiceEnhancementSinkConfiguration?: VoiceEnhancementSinkConfiguration;
 }
@@ -2979,6 +2979,141 @@ export interface GetMediaPipelineResponse {
 /**
  * @public
  */
+export interface GetSpeakerSearchTaskRequest {
+  /**
+   * @public
+   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the speaker search task.</p>
+   */
+  SpeakerSearchTaskId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MediaPipelineTaskStatus = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Initializing: "Initializing",
+  NotStarted: "NotStarted",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaPipelineTaskStatus = (typeof MediaPipelineTaskStatus)[keyof typeof MediaPipelineTaskStatus];
+
+/**
+ * @public
+ * <p>A representation of an asynchronous request to perform speaker search analysis on a
+ *          media insights pipeline.</p>
+ */
+export interface SpeakerSearchTask {
+  /**
+   * @public
+   * <p>The speaker search task ID.</p>
+   */
+  SpeakerSearchTaskId?: string;
+
+  /**
+   * @public
+   * <p>The status of the speaker search task.</p>
+   */
+  SpeakerSearchTaskStatus?: MediaPipelineTaskStatus | string;
+
+  /**
+   * @public
+   * <p>The time at which a speaker search task was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The time at which a speaker search task was updated.</p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetSpeakerSearchTaskResponse {
+  /**
+   * @public
+   * <p>The details of the speaker search task.</p>
+   */
+  SpeakerSearchTask?: SpeakerSearchTask;
+}
+
+/**
+ * @public
+ */
+export interface GetVoiceToneAnalysisTaskRequest {
+  /**
+   * @public
+   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the voice tone anlysis task.</p>
+   */
+  VoiceToneAnalysisTaskId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A representation of an asynchronous request to perform voice tone analysis on a media insights pipeline.</p>
+ */
+export interface VoiceToneAnalysisTask {
+  /**
+   * @public
+   * <p>The ID of the voice tone analysis task.</p>
+   */
+  VoiceToneAnalysisTaskId?: string;
+
+  /**
+   * @public
+   * <p>The status of a voice tone analysis task.</p>
+   */
+  VoiceToneAnalysisTaskStatus?: MediaPipelineTaskStatus | string;
+
+  /**
+   * @public
+   * <p>The time at which a voice tone analysis task was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The time at which a voice tone analysis task was updated.</p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetVoiceToneAnalysisTaskResponse {
+  /**
+   * @public
+   * <p>The details of the voice tone analysis task.</p>
+   */
+  VoiceToneAnalysisTask?: VoiceToneAnalysisTask;
+}
+
+/**
+ * @public
+ */
 export interface ListMediaCapturePipelinesRequest {
   /**
    * @public
@@ -3158,6 +3293,159 @@ export interface ListTagsForResourceResponse {
    * <p>The tags associated with the specified media pipeline.</p>
    */
   Tags?: Tag[];
+}
+
+/**
+ * @public
+ * <p>The task configuration settings for the Kinesis video stream source.</p>
+ */
+export interface KinesisVideoStreamSourceTaskConfiguration {
+  /**
+   * @public
+   * <p>The ARN of the stream.</p>
+   */
+  StreamArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The channel ID.</p>
+   */
+  ChannelId: number | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the fragment to begin processing.</p>
+   */
+  FragmentNumber?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartSpeakerSearchTaskRequest {
+  /**
+   * @public
+   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the voice profile domain that will store the voice profile.</p>
+   */
+  VoiceProfileDomainArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The task configuration for the Kinesis video stream source of the media insights
+   *          pipeline.</p>
+   */
+  KinesisVideoStreamSourceTaskConfiguration?: KinesisVideoStreamSourceTaskConfiguration;
+
+  /**
+   * @public
+   * <p>The unique identifier for the client request. Use a different token for different speaker search tasks.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartSpeakerSearchTaskResponse {
+  /**
+   * @public
+   * <p>The details of the speaker search task.</p>
+   */
+  SpeakerSearchTask?: SpeakerSearchTask;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VoiceAnalyticsLanguageCode = {
+  EN_US: "en-US",
+} as const;
+
+/**
+ * @public
+ */
+export type VoiceAnalyticsLanguageCode = (typeof VoiceAnalyticsLanguageCode)[keyof typeof VoiceAnalyticsLanguageCode];
+
+/**
+ * @public
+ */
+export interface StartVoiceToneAnalysisTaskRequest {
+  /**
+   * @public
+   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The language code.</p>
+   */
+  LanguageCode: VoiceAnalyticsLanguageCode | string | undefined;
+
+  /**
+   * @public
+   * <p>The task configuration for the Kinesis video stream source of the media insights
+   *          pipeline.</p>
+   */
+  KinesisVideoStreamSourceTaskConfiguration?: KinesisVideoStreamSourceTaskConfiguration;
+
+  /**
+   * @public
+   * <p>The unique identifier for the client request. Use a different token for different voice tone analysis tasks.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartVoiceToneAnalysisTaskResponse {
+  /**
+   * @public
+   * <p>The details of the voice tone analysis task.</p>
+   */
+  VoiceToneAnalysisTask?: VoiceToneAnalysisTask;
+}
+
+/**
+ * @public
+ */
+export interface StopSpeakerSearchTaskRequest {
+  /**
+   * @public
+   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The speaker search task ID.</p>
+   */
+  SpeakerSearchTaskId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopVoiceToneAnalysisTaskRequest {
+  /**
+   * @public
+   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the voice tone analysis task.</p>
+   */
+  VoiceToneAnalysisTaskId: string | undefined;
 }
 
 /**
@@ -3720,6 +4008,23 @@ export const ListMediaInsightsPipelineConfigurationsResponseFilterSensitiveLog =
       MediaInsightsPipelineConfigurationSummaryFilterSensitiveLog(item)
     ),
   }),
+});
+
+/**
+ * @internal
+ */
+export const StartSpeakerSearchTaskRequestFilterSensitiveLog = (obj: StartSpeakerSearchTaskRequest): any => ({
+  ...obj,
+  ...(obj.VoiceProfileDomainArn && { VoiceProfileDomainArn: SENSITIVE_STRING }),
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartVoiceToneAnalysisTaskRequestFilterSensitiveLog = (obj: StartVoiceToneAnalysisTaskRequest): any => ({
+  ...obj,
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
 });
 
 /**

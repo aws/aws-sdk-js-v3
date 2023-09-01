@@ -92,6 +92,14 @@ import {
 } from "./commands/GetMediaInsightsPipelineConfigurationCommand";
 import { GetMediaPipelineCommandInput, GetMediaPipelineCommandOutput } from "./commands/GetMediaPipelineCommand";
 import {
+  GetSpeakerSearchTaskCommandInput,
+  GetSpeakerSearchTaskCommandOutput,
+} from "./commands/GetSpeakerSearchTaskCommand";
+import {
+  GetVoiceToneAnalysisTaskCommandInput,
+  GetVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/GetVoiceToneAnalysisTaskCommand";
+import {
   ListMediaCapturePipelinesCommandInput,
   ListMediaCapturePipelinesCommandOutput,
 } from "./commands/ListMediaCapturePipelinesCommand";
@@ -104,6 +112,22 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartSpeakerSearchTaskCommandInput,
+  StartSpeakerSearchTaskCommandOutput,
+} from "./commands/StartSpeakerSearchTaskCommand";
+import {
+  StartVoiceToneAnalysisTaskCommandInput,
+  StartVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StartVoiceToneAnalysisTaskCommand";
+import {
+  StopSpeakerSearchTaskCommandInput,
+  StopSpeakerSearchTaskCommandOutput,
+} from "./commands/StopSpeakerSearchTaskCommand";
+import {
+  StopVoiceToneAnalysisTaskCommandInput,
+  StopVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StopVoiceToneAnalysisTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -140,10 +164,16 @@ export type ServiceInputTypes =
   | GetMediaCapturePipelineCommandInput
   | GetMediaInsightsPipelineConfigurationCommandInput
   | GetMediaPipelineCommandInput
+  | GetSpeakerSearchTaskCommandInput
+  | GetVoiceToneAnalysisTaskCommandInput
   | ListMediaCapturePipelinesCommandInput
   | ListMediaInsightsPipelineConfigurationsCommandInput
   | ListMediaPipelinesCommandInput
   | ListTagsForResourceCommandInput
+  | StartSpeakerSearchTaskCommandInput
+  | StartVoiceToneAnalysisTaskCommandInput
+  | StopSpeakerSearchTaskCommandInput
+  | StopVoiceToneAnalysisTaskCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateMediaInsightsPipelineConfigurationCommandInput
@@ -164,10 +194,16 @@ export type ServiceOutputTypes =
   | GetMediaCapturePipelineCommandOutput
   | GetMediaInsightsPipelineConfigurationCommandOutput
   | GetMediaPipelineCommandOutput
+  | GetSpeakerSearchTaskCommandOutput
+  | GetVoiceToneAnalysisTaskCommandOutput
   | ListMediaCapturePipelinesCommandOutput
   | ListMediaInsightsPipelineConfigurationsCommandOutput
   | ListMediaPipelinesCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartSpeakerSearchTaskCommandOutput
+  | StartVoiceToneAnalysisTaskCommandOutput
+  | StopSpeakerSearchTaskCommandOutput
+  | StopVoiceToneAnalysisTaskCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateMediaInsightsPipelineConfigurationCommandOutput

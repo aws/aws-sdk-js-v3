@@ -18,8 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
-import { DeleteMediaPipelineRequest } from "../models/models_0";
-import { de_DeleteMediaPipelineCommand, se_DeleteMediaPipelineCommand } from "../protocols/Aws_restJson1";
+import {
+  StartSpeakerSearchTaskRequest,
+  StartSpeakerSearchTaskRequestFilterSensitiveLog,
+  StartSpeakerSearchTaskResponse,
+} from "../models/models_0";
+import { de_StartSpeakerSearchTaskCommand, se_StartSpeakerSearchTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -28,38 +32,56 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteMediaPipelineCommand}.
+ * The input for {@link StartSpeakerSearchTaskCommand}.
  */
-export interface DeleteMediaPipelineCommandInput extends DeleteMediaPipelineRequest {}
+export interface StartSpeakerSearchTaskCommandInput extends StartSpeakerSearchTaskRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteMediaPipelineCommand}.
+ * The output of {@link StartSpeakerSearchTaskCommand}.
  */
-export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
+export interface StartSpeakerSearchTaskCommandOutput extends StartSpeakerSearchTaskResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the media pipeline.</p>
+ * <p>Starts a speaker search task.</p>
+ *          <important>
+ *             <p>Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
+ *          <a href="https://aws.amazon.com/service-terms/">AWS service terms</a> for the Amazon Chime SDK.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, StartSpeakerSearchTaskCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, StartSpeakerSearchTaskCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = { // DeleteMediaPipelineRequest
- *   MediaPipelineId: "STRING_VALUE", // required
+ * const input = { // StartSpeakerSearchTaskRequest
+ *   Identifier: "STRING_VALUE", // required
+ *   VoiceProfileDomainArn: "STRING_VALUE", // required
+ *   KinesisVideoStreamSourceTaskConfiguration: { // KinesisVideoStreamSourceTaskConfiguration
+ *     StreamArn: "STRING_VALUE", // required
+ *     ChannelId: Number("int"), // required
+ *     FragmentNumber: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
  * };
- * const command = new DeleteMediaPipelineCommand(input);
+ * const command = new StartSpeakerSearchTaskCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // StartSpeakerSearchTaskResponse
+ * //   SpeakerSearchTask: { // SpeakerSearchTask
+ * //     SpeakerSearchTaskId: "STRING_VALUE",
+ * //     SpeakerSearchTaskStatus: "NotStarted" || "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *
- * @param DeleteMediaPipelineCommandInput - {@link DeleteMediaPipelineCommandInput}
- * @returns {@link DeleteMediaPipelineCommandOutput}
- * @see {@link DeleteMediaPipelineCommandInput} for command's `input` shape.
- * @see {@link DeleteMediaPipelineCommandOutput} for command's `response` shape.
+ * @param StartSpeakerSearchTaskCommandInput - {@link StartSpeakerSearchTaskCommandInput}
+ * @returns {@link StartSpeakerSearchTaskCommandOutput}
+ * @see {@link StartSpeakerSearchTaskCommandInput} for command's `input` shape.
+ * @see {@link StartSpeakerSearchTaskCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -91,9 +113,9 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
-export class DeleteMediaPipelineCommand extends $Command<
-  DeleteMediaPipelineCommandInput,
-  DeleteMediaPipelineCommandOutput,
+export class StartSpeakerSearchTaskCommand extends $Command<
+  StartSpeakerSearchTaskCommandInput,
+  StartSpeakerSearchTaskCommandOutput,
   ChimeSDKMediaPipelinesClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +133,7 @@ export class DeleteMediaPipelineCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteMediaPipelineCommandInput) {
+  constructor(readonly input: StartSpeakerSearchTaskCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,22 +146,22 @@ export class DeleteMediaPipelineCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeSDKMediaPipelinesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteMediaPipelineCommandInput, DeleteMediaPipelineCommandOutput> {
+  ): Handler<StartSpeakerSearchTaskCommandInput, StartSpeakerSearchTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteMediaPipelineCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StartSpeakerSearchTaskCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ChimeSDKMediaPipelinesClient";
-    const commandName = "DeleteMediaPipelineCommand";
+    const commandName = "StartSpeakerSearchTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: StartSpeakerSearchTaskRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
@@ -153,15 +175,15 @@ export class DeleteMediaPipelineCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteMediaPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteMediaPipelineCommand(input, context);
+  private serialize(input: StartSpeakerSearchTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StartSpeakerSearchTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMediaPipelineCommandOutput> {
-    return de_DeleteMediaPipelineCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSpeakerSearchTaskCommandOutput> {
+    return de_StartSpeakerSearchTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

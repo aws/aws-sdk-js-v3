@@ -59,6 +59,16 @@ import {
   GetMediaPipelineCommandOutput,
 } from "./commands/GetMediaPipelineCommand";
 import {
+  GetSpeakerSearchTaskCommand,
+  GetSpeakerSearchTaskCommandInput,
+  GetSpeakerSearchTaskCommandOutput,
+} from "./commands/GetSpeakerSearchTaskCommand";
+import {
+  GetVoiceToneAnalysisTaskCommand,
+  GetVoiceToneAnalysisTaskCommandInput,
+  GetVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/GetVoiceToneAnalysisTaskCommand";
+import {
   ListMediaCapturePipelinesCommand,
   ListMediaCapturePipelinesCommandInput,
   ListMediaCapturePipelinesCommandOutput,
@@ -78,6 +88,26 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartSpeakerSearchTaskCommand,
+  StartSpeakerSearchTaskCommandInput,
+  StartSpeakerSearchTaskCommandOutput,
+} from "./commands/StartSpeakerSearchTaskCommand";
+import {
+  StartVoiceToneAnalysisTaskCommand,
+  StartVoiceToneAnalysisTaskCommandInput,
+  StartVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StartVoiceToneAnalysisTaskCommand";
+import {
+  StopSpeakerSearchTaskCommand,
+  StopSpeakerSearchTaskCommandInput,
+  StopSpeakerSearchTaskCommandOutput,
+} from "./commands/StopSpeakerSearchTaskCommand";
+import {
+  StopVoiceToneAnalysisTaskCommand,
+  StopVoiceToneAnalysisTaskCommandInput,
+  StopVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StopVoiceToneAnalysisTaskCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -107,10 +137,16 @@ const commands = {
   GetMediaCapturePipelineCommand,
   GetMediaInsightsPipelineConfigurationCommand,
   GetMediaPipelineCommand,
+  GetSpeakerSearchTaskCommand,
+  GetVoiceToneAnalysisTaskCommand,
   ListMediaCapturePipelinesCommand,
   ListMediaInsightsPipelineConfigurationsCommand,
   ListMediaPipelinesCommand,
   ListTagsForResourceCommand,
+  StartSpeakerSearchTaskCommand,
+  StartVoiceToneAnalysisTaskCommand,
+  StopSpeakerSearchTaskCommand,
+  StopVoiceToneAnalysisTaskCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateMediaInsightsPipelineConfigurationCommand,
@@ -306,6 +342,40 @@ export interface ChimeSDKMediaPipelines {
   ): void;
 
   /**
+   * @see {@link GetSpeakerSearchTaskCommand}
+   */
+  getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSpeakerSearchTaskCommandOutput>;
+  getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: GetSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSpeakerSearchTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceToneAnalysisTaskCommand}
+   */
+  getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceToneAnalysisTaskCommandOutput>;
+  getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: GetVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMediaCapturePipelinesCommand}
    */
   listMediaCapturePipelines(
@@ -371,6 +441,74 @@ export interface ChimeSDKMediaPipelines {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSpeakerSearchTaskCommand}
+   */
+  startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSpeakerSearchTaskCommandOutput>;
+  startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: StartSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSpeakerSearchTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartVoiceToneAnalysisTaskCommand}
+   */
+  startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartVoiceToneAnalysisTaskCommandOutput>;
+  startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: StartVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopSpeakerSearchTaskCommand}
+   */
+  stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopSpeakerSearchTaskCommandOutput>;
+  stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: StopSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopSpeakerSearchTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopVoiceToneAnalysisTaskCommand}
+   */
+  stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopVoiceToneAnalysisTaskCommandOutput>;
+  stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: StopVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopVoiceToneAnalysisTaskCommandOutput) => void
   ): void;
 
   /**

@@ -18,8 +18,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
-import { DeleteMediaPipelineRequest } from "../models/models_0";
-import { de_DeleteMediaPipelineCommand, se_DeleteMediaPipelineCommand } from "../protocols/Aws_restJson1";
+import { GetVoiceToneAnalysisTaskRequest, GetVoiceToneAnalysisTaskResponse } from "../models/models_0";
+import { de_GetVoiceToneAnalysisTaskCommand, se_GetVoiceToneAnalysisTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -28,46 +28,50 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteMediaPipelineCommand}.
+ * The input for {@link GetVoiceToneAnalysisTaskCommand}.
  */
-export interface DeleteMediaPipelineCommandInput extends DeleteMediaPipelineRequest {}
+export interface GetVoiceToneAnalysisTaskCommandInput extends GetVoiceToneAnalysisTaskRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteMediaPipelineCommand}.
+ * The output of {@link GetVoiceToneAnalysisTaskCommand}.
  */
-export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
+export interface GetVoiceToneAnalysisTaskCommandOutput extends GetVoiceToneAnalysisTaskResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the media pipeline.</p>
+ * <p>Retrieves the details of a voice tone analysis task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, GetVoiceToneAnalysisTaskCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, GetVoiceToneAnalysisTaskCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = { // DeleteMediaPipelineRequest
- *   MediaPipelineId: "STRING_VALUE", // required
+ * const input = { // GetVoiceToneAnalysisTaskRequest
+ *   Identifier: "STRING_VALUE", // required
+ *   VoiceToneAnalysisTaskId: "STRING_VALUE", // required
  * };
- * const command = new DeleteMediaPipelineCommand(input);
+ * const command = new GetVoiceToneAnalysisTaskCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetVoiceToneAnalysisTaskResponse
+ * //   VoiceToneAnalysisTask: { // VoiceToneAnalysisTask
+ * //     VoiceToneAnalysisTaskId: "STRING_VALUE",
+ * //     VoiceToneAnalysisTaskStatus: "NotStarted" || "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *
- * @param DeleteMediaPipelineCommandInput - {@link DeleteMediaPipelineCommandInput}
- * @returns {@link DeleteMediaPipelineCommandOutput}
- * @see {@link DeleteMediaPipelineCommandInput} for command's `input` shape.
- * @see {@link DeleteMediaPipelineCommandOutput} for command's `response` shape.
+ * @param GetVoiceToneAnalysisTaskCommandInput - {@link GetVoiceToneAnalysisTaskCommandInput}
+ * @returns {@link GetVoiceToneAnalysisTaskCommandOutput}
+ * @see {@link GetVoiceToneAnalysisTaskCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceToneAnalysisTaskCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input parameters don't match the service's restrictions.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
@@ -91,9 +95,9 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
-export class DeleteMediaPipelineCommand extends $Command<
-  DeleteMediaPipelineCommandInput,
-  DeleteMediaPipelineCommandOutput,
+export class GetVoiceToneAnalysisTaskCommand extends $Command<
+  GetVoiceToneAnalysisTaskCommandInput,
+  GetVoiceToneAnalysisTaskCommandOutput,
   ChimeSDKMediaPipelinesClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +115,7 @@ export class DeleteMediaPipelineCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteMediaPipelineCommandInput) {
+  constructor(readonly input: GetVoiceToneAnalysisTaskCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,17 +128,17 @@ export class DeleteMediaPipelineCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeSDKMediaPipelinesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteMediaPipelineCommandInput, DeleteMediaPipelineCommandOutput> {
+  ): Handler<GetVoiceToneAnalysisTaskCommandInput, GetVoiceToneAnalysisTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteMediaPipelineCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetVoiceToneAnalysisTaskCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ChimeSDKMediaPipelinesClient";
-    const commandName = "DeleteMediaPipelineCommand";
+    const commandName = "GetVoiceToneAnalysisTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,15 +157,15 @@ export class DeleteMediaPipelineCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteMediaPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteMediaPipelineCommand(input, context);
+  private serialize(input: GetVoiceToneAnalysisTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetVoiceToneAnalysisTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMediaPipelineCommandOutput> {
-    return de_DeleteMediaPipelineCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceToneAnalysisTaskCommandOutput> {
+    return de_GetVoiceToneAnalysisTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

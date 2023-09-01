@@ -18,8 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
-import { DeleteMediaPipelineRequest } from "../models/models_0";
-import { de_DeleteMediaPipelineCommand, se_DeleteMediaPipelineCommand } from "../protocols/Aws_restJson1";
+import {
+  StartVoiceToneAnalysisTaskRequest,
+  StartVoiceToneAnalysisTaskRequestFilterSensitiveLog,
+  StartVoiceToneAnalysisTaskResponse,
+} from "../models/models_0";
+import { de_StartVoiceToneAnalysisTaskCommand, se_StartVoiceToneAnalysisTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -28,38 +32,58 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteMediaPipelineCommand}.
+ * The input for {@link StartVoiceToneAnalysisTaskCommand}.
  */
-export interface DeleteMediaPipelineCommandInput extends DeleteMediaPipelineRequest {}
+export interface StartVoiceToneAnalysisTaskCommandInput extends StartVoiceToneAnalysisTaskRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteMediaPipelineCommand}.
+ * The output of {@link StartVoiceToneAnalysisTaskCommand}.
  */
-export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
+export interface StartVoiceToneAnalysisTaskCommandOutput extends StartVoiceToneAnalysisTaskResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the media pipeline.</p>
+ * <p>Starts a voice tone analysis task. For more information about voice tone analysis, see
+ *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/voice-analytics.html">Using Amazon Chime SDK voice analytics</a>
+ *          in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ *          <important>
+ *             <p>Before starting any voice tone analysis tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
+ *          <a href="https://aws.amazon.com/service-terms/">AWS service terms</a> for the Amazon Chime SDK.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, StartVoiceToneAnalysisTaskCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, StartVoiceToneAnalysisTaskCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = { // DeleteMediaPipelineRequest
- *   MediaPipelineId: "STRING_VALUE", // required
+ * const input = { // StartVoiceToneAnalysisTaskRequest
+ *   Identifier: "STRING_VALUE", // required
+ *   LanguageCode: "en-US", // required
+ *   KinesisVideoStreamSourceTaskConfiguration: { // KinesisVideoStreamSourceTaskConfiguration
+ *     StreamArn: "STRING_VALUE", // required
+ *     ChannelId: Number("int"), // required
+ *     FragmentNumber: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
  * };
- * const command = new DeleteMediaPipelineCommand(input);
+ * const command = new StartVoiceToneAnalysisTaskCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // StartVoiceToneAnalysisTaskResponse
+ * //   VoiceToneAnalysisTask: { // VoiceToneAnalysisTask
+ * //     VoiceToneAnalysisTaskId: "STRING_VALUE",
+ * //     VoiceToneAnalysisTaskStatus: "NotStarted" || "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *
- * @param DeleteMediaPipelineCommandInput - {@link DeleteMediaPipelineCommandInput}
- * @returns {@link DeleteMediaPipelineCommandOutput}
- * @see {@link DeleteMediaPipelineCommandInput} for command's `input` shape.
- * @see {@link DeleteMediaPipelineCommandOutput} for command's `response` shape.
+ * @param StartVoiceToneAnalysisTaskCommandInput - {@link StartVoiceToneAnalysisTaskCommandInput}
+ * @returns {@link StartVoiceToneAnalysisTaskCommandOutput}
+ * @see {@link StartVoiceToneAnalysisTaskCommandInput} for command's `input` shape.
+ * @see {@link StartVoiceToneAnalysisTaskCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -91,9 +115,9 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
-export class DeleteMediaPipelineCommand extends $Command<
-  DeleteMediaPipelineCommandInput,
-  DeleteMediaPipelineCommandOutput,
+export class StartVoiceToneAnalysisTaskCommand extends $Command<
+  StartVoiceToneAnalysisTaskCommandInput,
+  StartVoiceToneAnalysisTaskCommandOutput,
   ChimeSDKMediaPipelinesClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +135,7 @@ export class DeleteMediaPipelineCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteMediaPipelineCommandInput) {
+  constructor(readonly input: StartVoiceToneAnalysisTaskCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,22 +148,22 @@ export class DeleteMediaPipelineCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeSDKMediaPipelinesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteMediaPipelineCommandInput, DeleteMediaPipelineCommandOutput> {
+  ): Handler<StartVoiceToneAnalysisTaskCommandInput, StartVoiceToneAnalysisTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteMediaPipelineCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StartVoiceToneAnalysisTaskCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ChimeSDKMediaPipelinesClient";
-    const commandName = "DeleteMediaPipelineCommand";
+    const commandName = "StartVoiceToneAnalysisTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: StartVoiceToneAnalysisTaskRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
@@ -153,15 +177,18 @@ export class DeleteMediaPipelineCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteMediaPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteMediaPipelineCommand(input, context);
+  private serialize(input: StartVoiceToneAnalysisTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StartVoiceToneAnalysisTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMediaPipelineCommandOutput> {
-    return de_DeleteMediaPipelineCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<StartVoiceToneAnalysisTaskCommandOutput> {
+    return de_StartVoiceToneAnalysisTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

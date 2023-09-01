@@ -18,8 +18,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
-import { DeleteMediaPipelineRequest } from "../models/models_0";
-import { de_DeleteMediaPipelineCommand, se_DeleteMediaPipelineCommand } from "../protocols/Aws_restJson1";
+import { StopSpeakerSearchTaskRequest } from "../models/models_0";
+import { de_StopSpeakerSearchTaskCommand, se_StopSpeakerSearchTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -28,38 +28,39 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteMediaPipelineCommand}.
+ * The input for {@link StopSpeakerSearchTaskCommand}.
  */
-export interface DeleteMediaPipelineCommandInput extends DeleteMediaPipelineRequest {}
+export interface StopSpeakerSearchTaskCommandInput extends StopSpeakerSearchTaskRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteMediaPipelineCommand}.
+ * The output of {@link StopSpeakerSearchTaskCommand}.
  */
-export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
+export interface StopSpeakerSearchTaskCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the media pipeline.</p>
+ * <p>Stops a speaker search task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, StopSpeakerSearchTaskCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, StopSpeakerSearchTaskCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = { // DeleteMediaPipelineRequest
- *   MediaPipelineId: "STRING_VALUE", // required
+ * const input = { // StopSpeakerSearchTaskRequest
+ *   Identifier: "STRING_VALUE", // required
+ *   SpeakerSearchTaskId: "STRING_VALUE", // required
  * };
- * const command = new DeleteMediaPipelineCommand(input);
+ * const command = new StopSpeakerSearchTaskCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteMediaPipelineCommandInput - {@link DeleteMediaPipelineCommandInput}
- * @returns {@link DeleteMediaPipelineCommandOutput}
- * @see {@link DeleteMediaPipelineCommandInput} for command's `input` shape.
- * @see {@link DeleteMediaPipelineCommandOutput} for command's `response` shape.
+ * @param StopSpeakerSearchTaskCommandInput - {@link StopSpeakerSearchTaskCommandInput}
+ * @returns {@link StopSpeakerSearchTaskCommandOutput}
+ * @see {@link StopSpeakerSearchTaskCommandInput} for command's `input` shape.
+ * @see {@link StopSpeakerSearchTaskCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -91,9 +92,9 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
-export class DeleteMediaPipelineCommand extends $Command<
-  DeleteMediaPipelineCommandInput,
-  DeleteMediaPipelineCommandOutput,
+export class StopSpeakerSearchTaskCommand extends $Command<
+  StopSpeakerSearchTaskCommandInput,
+  StopSpeakerSearchTaskCommandOutput,
   ChimeSDKMediaPipelinesClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +112,7 @@ export class DeleteMediaPipelineCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteMediaPipelineCommandInput) {
+  constructor(readonly input: StopSpeakerSearchTaskCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,17 +125,17 @@ export class DeleteMediaPipelineCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeSDKMediaPipelinesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteMediaPipelineCommandInput, DeleteMediaPipelineCommandOutput> {
+  ): Handler<StopSpeakerSearchTaskCommandInput, StopSpeakerSearchTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteMediaPipelineCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StopSpeakerSearchTaskCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ChimeSDKMediaPipelinesClient";
-    const commandName = "DeleteMediaPipelineCommand";
+    const commandName = "StopSpeakerSearchTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,15 +154,15 @@ export class DeleteMediaPipelineCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteMediaPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteMediaPipelineCommand(input, context);
+  private serialize(input: StopSpeakerSearchTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StopSpeakerSearchTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMediaPipelineCommandOutput> {
-    return de_DeleteMediaPipelineCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSpeakerSearchTaskCommandOutput> {
+    return de_StopSpeakerSearchTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

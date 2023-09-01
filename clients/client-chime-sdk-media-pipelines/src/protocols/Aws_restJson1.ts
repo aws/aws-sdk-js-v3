@@ -65,6 +65,14 @@ import {
 } from "../commands/GetMediaInsightsPipelineConfigurationCommand";
 import { GetMediaPipelineCommandInput, GetMediaPipelineCommandOutput } from "../commands/GetMediaPipelineCommand";
 import {
+  GetSpeakerSearchTaskCommandInput,
+  GetSpeakerSearchTaskCommandOutput,
+} from "../commands/GetSpeakerSearchTaskCommand";
+import {
+  GetVoiceToneAnalysisTaskCommandInput,
+  GetVoiceToneAnalysisTaskCommandOutput,
+} from "../commands/GetVoiceToneAnalysisTaskCommand";
+import {
   ListMediaCapturePipelinesCommandInput,
   ListMediaCapturePipelinesCommandOutput,
 } from "../commands/ListMediaCapturePipelinesCommand";
@@ -77,6 +85,22 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  StartSpeakerSearchTaskCommandInput,
+  StartSpeakerSearchTaskCommandOutput,
+} from "../commands/StartSpeakerSearchTaskCommand";
+import {
+  StartVoiceToneAnalysisTaskCommandInput,
+  StartVoiceToneAnalysisTaskCommandOutput,
+} from "../commands/StartVoiceToneAnalysisTaskCommand";
+import {
+  StopSpeakerSearchTaskCommandInput,
+  StopSpeakerSearchTaskCommandOutput,
+} from "../commands/StopSpeakerSearchTaskCommand";
+import {
+  StopVoiceToneAnalysisTaskCommandInput,
+  StopVoiceToneAnalysisTaskCommandOutput,
+} from "../commands/StopVoiceToneAnalysisTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -118,6 +142,7 @@ import {
   KinesisDataStreamSinkConfiguration,
   KinesisVideoStreamRecordingSourceRuntimeConfiguration,
   KinesisVideoStreamSourceRuntimeConfiguration,
+  KinesisVideoStreamSourceTaskConfiguration,
   LambdaFunctionSinkConfiguration,
   LiveConnectorRTMPConfiguration,
   LiveConnectorSinkConfiguration,
@@ -147,6 +172,7 @@ import {
   ServiceUnavailableException,
   SnsTopicSinkConfiguration,
   SourceConfiguration,
+  SpeakerSearchTask,
   SqsQueueSinkConfiguration,
   StreamChannelDefinition,
   StreamConfiguration,
@@ -161,6 +187,7 @@ import {
   VideoConcatenationConfiguration,
   VoiceAnalyticsProcessorConfiguration,
   VoiceEnhancementSinkConfiguration,
+  VoiceToneAnalysisTask,
 } from "../models/models_0";
 
 /**
@@ -514,6 +541,72 @@ export const se_GetMediaPipelineCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetSpeakerSearchTaskCommand
+ */
+export const se_GetSpeakerSearchTaskCommand = async (
+  input: GetSpeakerSearchTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipelines/{Identifier}/speaker-search-tasks/{SpeakerSearchTaskId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SpeakerSearchTaskId",
+    () => input.SpeakerSearchTaskId!,
+    "{SpeakerSearchTaskId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetVoiceToneAnalysisTaskCommand
+ */
+export const se_GetVoiceToneAnalysisTaskCommand = async (
+  input: GetVoiceToneAnalysisTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceToneAnalysisTaskId",
+    () => input.VoiceToneAnalysisTaskId!,
+    "{VoiceToneAnalysisTaskId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListMediaCapturePipelinesCommand
  */
 export const se_ListMediaCapturePipelinesCommand = async (
@@ -615,6 +708,156 @@ export const se_ListTagsForResourceCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartSpeakerSearchTaskCommand
+ */
+export const se_StartSpeakerSearchTaskCommand = async (
+  input: StartSpeakerSearchTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipelines/{Identifier}/speaker-search-tasks";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  const query: any = map({
+    operation: [, "start"],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      KinesisVideoStreamSourceTaskConfiguration: (_) => _json(_),
+      VoiceProfileDomainArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartVoiceToneAnalysisTaskCommand
+ */
+export const se_StartVoiceToneAnalysisTaskCommand = async (
+  input: StartVoiceToneAnalysisTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  const query: any = map({
+    operation: [, "start"],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      KinesisVideoStreamSourceTaskConfiguration: (_) => _json(_),
+      LanguageCode: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StopSpeakerSearchTaskCommand
+ */
+export const se_StopSpeakerSearchTaskCommand = async (
+  input: StopSpeakerSearchTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipelines/{Identifier}/speaker-search-tasks/{SpeakerSearchTaskId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SpeakerSearchTaskId",
+    () => input.SpeakerSearchTaskId!,
+    "{SpeakerSearchTaskId}",
+    false
+  );
+  const query: any = map({
+    operation: [, "stop"],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StopVoiceToneAnalysisTaskCommand
+ */
+export const se_StopVoiceToneAnalysisTaskCommand = async (
+  input: StopVoiceToneAnalysisTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceToneAnalysisTaskId",
+    () => input.VoiceToneAnalysisTaskId!,
+    "{VoiceToneAnalysisTaskId}",
+    false
+  );
+  const query: any = map({
+    operation: [, "stop"],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     query,
@@ -1245,6 +1488,9 @@ const de_DeleteMediaPipelineCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
@@ -1431,6 +1677,136 @@ const de_GetMediaPipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaPipelineCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetSpeakerSearchTaskCommand
+ */
+export const de_GetSpeakerSearchTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSpeakerSearchTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetSpeakerSearchTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SpeakerSearchTask: (_) => de_SpeakerSearchTask(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSpeakerSearchTaskCommandError
+ */
+const de_GetSpeakerSearchTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSpeakerSearchTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetVoiceToneAnalysisTaskCommand
+ */
+export const de_GetVoiceToneAnalysisTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceToneAnalysisTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetVoiceToneAnalysisTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    VoiceToneAnalysisTask: (_) => de_VoiceToneAnalysisTask(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetVoiceToneAnalysisTaskCommandError
+ */
+const de_GetVoiceToneAnalysisTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceToneAnalysisTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1703,6 +2079,270 @@ const de_ListTagsForResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartSpeakerSearchTaskCommand
+ */
+export const de_StartSpeakerSearchTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSpeakerSearchTaskCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_StartSpeakerSearchTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SpeakerSearchTask: (_) => de_SpeakerSearchTask(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartSpeakerSearchTaskCommandError
+ */
+const de_StartSpeakerSearchTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSpeakerSearchTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartVoiceToneAnalysisTaskCommand
+ */
+export const de_StartVoiceToneAnalysisTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartVoiceToneAnalysisTaskCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_StartVoiceToneAnalysisTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    VoiceToneAnalysisTask: (_) => de_VoiceToneAnalysisTask(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartVoiceToneAnalysisTaskCommandError
+ */
+const de_StartVoiceToneAnalysisTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartVoiceToneAnalysisTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StopSpeakerSearchTaskCommand
+ */
+export const de_StopSpeakerSearchTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSpeakerSearchTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_StopSpeakerSearchTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopSpeakerSearchTaskCommandError
+ */
+const de_StopSpeakerSearchTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSpeakerSearchTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StopVoiceToneAnalysisTaskCommand
+ */
+export const de_StopVoiceToneAnalysisTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopVoiceToneAnalysisTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_StopVoiceToneAnalysisTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopVoiceToneAnalysisTaskCommandError
+ */
+const de_StopVoiceToneAnalysisTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopVoiceToneAnalysisTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
@@ -2257,6 +2897,8 @@ const se_KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
 
 // se_KinesisVideoStreamSourceRuntimeConfiguration omitted.
 
+// se_KinesisVideoStreamSourceTaskConfiguration omitted.
+
 // se_LambdaFunctionSinkConfiguration omitted.
 
 // se_LiveConnectorRTMPConfiguration omitted.
@@ -2594,6 +3236,18 @@ const de_MediaPipeline = (output: any, context: __SerdeContext): MediaPipeline =
 
 // de_SourceConfiguration omitted.
 
+/**
+ * deserializeAws_restJson1SpeakerSearchTask
+ */
+const de_SpeakerSearchTask = (output: any, context: __SerdeContext): SpeakerSearchTask => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SpeakerSearchTaskId: __expectString,
+    SpeakerSearchTaskStatus: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
 // de_SqsQueueSinkConfiguration omitted.
 
 // de_StreamChannelDefinition omitted.
@@ -2629,6 +3283,18 @@ const de_TimestampRange = (output: any, context: __SerdeContext): TimestampRange
 // de_VoiceAnalyticsProcessorConfiguration omitted.
 
 // de_VoiceEnhancementSinkConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1VoiceToneAnalysisTask
+ */
+const de_VoiceToneAnalysisTask = (output: any, context: __SerdeContext): VoiceToneAnalysisTask => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    VoiceToneAnalysisTaskId: __expectString,
+    VoiceToneAnalysisTaskStatus: __expectString,
+  }) as any;
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
