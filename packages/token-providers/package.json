@@ -50,7 +50,7 @@
     "@smithy/node-http-handler": "^2.0.5",
     "@smithy/property-provider": "^2.0.0",
     "@smithy/protocol-http": "^2.0.5",
-    "@smithy/shared-ini-file-loader": "^2.0.0",
+    "@smithy/shared-ini-file-loader": "^2.0.6",
     "@smithy/smithy-client": "^2.0.5",
     "@smithy/types": "^2.2.2",
     "@smithy/url-parser": "^2.0.5",
