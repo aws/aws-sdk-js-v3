@@ -2585,9 +2585,6 @@ const de_FractionalSecondsOutput = (output: any, context: __SerdeContext): Fract
   if (output["datetime"] !== undefined) {
     contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["datetime"]));
   }
-  if (output["httpdate"] !== undefined) {
-    contents.httpdate = __expectNonNull(__parseRfc7231DateTime(output["httpdate"]));
-  }
   return contents;
 };
 

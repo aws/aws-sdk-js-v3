@@ -2989,9 +2989,6 @@ export const de_FractionalSecondsCommand = async (
   if (data["datetime"] !== undefined) {
     contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["datetime"]));
   }
-  if (data["httpdate"] !== undefined) {
-    contents.httpdate = __expectNonNull(__parseRfc7231DateTime(data["httpdate"]));
-  }
   return contents;
 };
 

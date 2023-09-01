@@ -4599,46 +4599,6 @@ it("RestJsonMalformedUniqueItemsHttpDateList_case0:MalformedRequest", async () =
 });
 
 /**
- * When a http-date timestamp list contains non-unique values,
- * the response should be a 400 ValidationException.
- */
-it("RestJsonMalformedUniqueItemsHttpDateList_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
-  testFunction.mockImplementation(() => {
-    throw new Error("This request should have been rejected.");
-  });
-  const testService: Partial<RestJsonValidationService<{}>> = {
-    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
-  };
-  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
-  const request = new HttpRequest({
-    method: "POST",
-    hostname: "foo.example.com",
-    path: "/MalformedUniqueItems",
-    query: {},
-    headers: {
-      "content-type": "application/json",
-    },
-    body: Readable.from([
-      '{ "httpDateList" : ["Sun, 02 Jan 2000 20:34:56.000 GMT", "Sun, 02 Jan 2000 20:34:56.000 GMT"] }',
-    ]),
-  });
-  const r = await handler.handle(request, {});
-
-  expect(testFunction.mock.calls.length).toBe(0);
-  expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
-  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
-
-  expect(r.body).toBeDefined();
-  const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/httpDateList' failed to satisfy constraint: Member must have unique values\",
-    \"fieldList\" : [{\"message\": \"Value at '/httpDateList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/httpDateList\"}]}`;
-  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
-  expect(unequalParts).toBeUndefined();
-});
-
-/**
  * When an enum list contains non-unique values,
  * the response should be a 400 ValidationException.
  */

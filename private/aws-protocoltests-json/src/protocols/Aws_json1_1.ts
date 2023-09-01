@@ -1236,7 +1236,6 @@ const de_ErrorWithMembers = (output: any, context: __SerdeContext): ErrorWithMem
 const de_FractionalSecondsOutput = (output: any, context: __SerdeContext): FractionalSecondsOutput => {
   return take(output, {
     datetime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
-    httpdate: (_: any) => __expectNonNull(__parseRfc7231DateTime(_)),
   }) as any;
 };
 

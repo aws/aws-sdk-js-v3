@@ -139,7 +139,6 @@ export class FooError extends __BaseException {
  */
 export interface FractionalSecondsOutput {
   datetime?: Date;
-  httpdate?: Date;
 }
 
 /**

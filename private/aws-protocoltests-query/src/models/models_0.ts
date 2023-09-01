@@ -82,7 +82,6 @@ export interface FlattenedXmlMapWithXmlNamespaceOutput {
  */
 export interface FractionalSecondsOutput {
   datetime?: Date;
-  httpdate?: Date;
 }
 
 /**
