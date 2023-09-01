@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.405.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.404.0...v3.405.0) (2023-09-01)
+
+
+### Features
+
+* **client-identitystore:** New Identity Store content for China Region launch ([c8e1db3](https://github.com/aws/aws-sdk-js-v3/commit/c8e1db31a20e47a2a19005f635eafd96535c9c11))
+
+
+
+
+
 # [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
 
 **Note:** Version bump only for package @aws-sdk/client-identitystore

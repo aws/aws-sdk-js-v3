@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.405.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.404.0...v3.405.0) (2023-09-01)
+
+
+### Features
+
+* **client-chime-sdk-media-pipelines:** This release adds support for the Voice Analytics feature for customer-owned KVS streams as part of the Amazon Chime SDK call analytics. ([6a68366](https://github.com/aws/aws-sdk-js-v3/commit/6a6836653ba38ec29de5d201a8c302ec72b43364))
+
+
+
+
+
 # [3.404.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.403.0...v3.404.0) (2023-08-31)
 
 

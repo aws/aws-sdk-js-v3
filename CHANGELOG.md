@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.405.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.404.0...v3.405.0) (2023-09-01)
+
+
+### Features
+
+* **client-chime-sdk-media-pipelines:** This release adds support for the Voice Analytics feature for customer-owned KVS streams as part of the Amazon Chime SDK call analytics. ([6a68366](https://github.com/aws/aws-sdk-js-v3/commit/6a6836653ba38ec29de5d201a8c302ec72b43364))
+* **client-connect:** Amazon Connect adds the ability to read, create, update, delete, and list view resources, and adds the ability to read, create, delete, and list view versions. ([82dc9dc](https://github.com/aws/aws-sdk-js-v3/commit/82dc9dcf39f3029259fe0fa09127148723c1409d))
+* **client-identitystore:** New Identity Store content for China Region launch ([c8e1db3](https://github.com/aws/aws-sdk-js-v3/commit/c8e1db31a20e47a2a19005f635eafd96535c9c11))
+* **clients:** update client endpoints as of 2023-09-01 ([97da245](https://github.com/aws/aws-sdk-js-v3/commit/97da2457ca3d7bd82d1e4fb44bac336041c05280))
+
+
+
+
+
 # [3.404.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.403.0...v3.404.0) (2023-08-31)
 
 
