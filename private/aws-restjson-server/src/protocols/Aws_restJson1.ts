@@ -3927,7 +3927,6 @@ export const serializeFractionalSecondsResponse = async (
   body = JSON.stringify(
     take(input, {
       datetime: (_) => _.toISOString().split(".")[0] + "Z",
-      httpdate: (_) => __dateToUtcString(_),
     })
   );
   if (

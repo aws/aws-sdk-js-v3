@@ -670,13 +670,11 @@ export class FooError extends __BaseException {
  */
 export interface FractionalSecondsOutput {
   datetime?: Date;
-  httpdate?: Date;
 }
 
 export namespace FractionalSecondsOutput {
   const memberValidators: {
     datetime?: __MultiConstraintValidator<Date>;
-    httpdate?: __MultiConstraintValidator<Date>;
   } = {};
   /**
    * @internal
@@ -691,18 +689,11 @@ export namespace FractionalSecondsOutput {
             memberValidators["datetime"] = new __NoOpValidator();
             break;
           }
-          case "httpdate": {
-            memberValidators["httpdate"] = new __NoOpValidator();
-            break;
-          }
         }
       }
       return memberValidators[member]!;
     }
-    return [
-      ...getMemberValidator("datetime").validate(obj.datetime, `${path}/datetime`),
-      ...getMemberValidator("httpdate").validate(obj.httpdate, `${path}/httpdate`),
-    ];
+    return [...getMemberValidator("datetime").validate(obj.datetime, `${path}/datetime`)];
   };
 }
 

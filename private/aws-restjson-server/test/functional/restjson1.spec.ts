@@ -21873,45 +21873,6 @@ it("RestJsonBodyTimestampDateTimeRejectsHttpDate_case0:MalformedRequest", async 
 });
 
 /**
- * When the format is date-time, IMF-fixdate timestamps are rejected with a
- * 400 SerializationException
- */
-it("RestJsonBodyTimestampDateTimeRejectsHttpDate_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
-  testFunction.mockImplementation(() => {
-    throw new Error("This request should have been rejected.");
-  });
-  const testService: Partial<RestJsonService<{}>> = {
-    MalformedTimestampBodyDateTime: testFunction as MalformedTimestampBodyDateTime<{}>,
-  };
-  const handler = getRestJsonServiceHandler(
-    testService as RestJsonService<{}>,
-    (ctx: {}, failures: __ValidationFailure[]) => {
-      if (failures) {
-        throw failures;
-      }
-      return undefined;
-    }
-  );
-  const request = new HttpRequest({
-    method: "POST",
-    hostname: "foo.example.com",
-    path: "/MalformedTimestampBodyDateTime",
-    query: {},
-    headers: {
-      "content-type": "application/json",
-    },
-    body: Readable.from(['{ "timestamp": "Sun, 02 Jan 2000 20:34:56.000 GMT" }']),
-  });
-  const r = await handler.handle(request, {});
-
-  expect(testFunction.mock.calls.length).toBe(0);
-  expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
-  expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
-});
-
-/**
  * When the format is date-time, epoch-seconds timestamps are rejected with a
  * 400 SerializationException
  */
@@ -23228,45 +23189,6 @@ it("RestJsonBodyTimestampDefaultRejectsHttpDate_case0:MalformedRequest", async (
 });
 
 /**
- * By default, IMF-fixdate timestamps are rejected with a
- * 400 SerializationException
- */
-it("RestJsonBodyTimestampDefaultRejectsHttpDate_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
-  testFunction.mockImplementation(() => {
-    throw new Error("This request should have been rejected.");
-  });
-  const testService: Partial<RestJsonService<{}>> = {
-    MalformedTimestampBodyDefault: testFunction as MalformedTimestampBodyDefault<{}>,
-  };
-  const handler = getRestJsonServiceHandler(
-    testService as RestJsonService<{}>,
-    (ctx: {}, failures: __ValidationFailure[]) => {
-      if (failures) {
-        throw failures;
-      }
-      return undefined;
-    }
-  );
-  const request = new HttpRequest({
-    method: "POST",
-    hostname: "foo.example.com",
-    path: "/MalformedTimestampBodyDefault",
-    query: {},
-    headers: {
-      "content-type": "application/json",
-    },
-    body: Readable.from(['{ "timestamp": "Sun, 02 Jan 2000 20:34:56.000 GMT" }']),
-  });
-  const r = await handler.handle(request, {});
-
-  expect(testFunction.mock.calls.length).toBe(0);
-  expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
-  expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
-});
-
-/**
  * When the format is http-date, RFC3339 timestamps are rejected with a
  * 400 SerializationException
  */
@@ -23489,44 +23411,6 @@ it("RestJsonHeaderTimestampDateTimeRejectsHttpDate_case0:MalformedRequest", asyn
     query: {},
     headers: {
       timestamp: "Tue, 29 Apr 2014 18:30:38 GMT",
-    },
-  });
-  const r = await handler.handle(request, {});
-
-  expect(testFunction.mock.calls.length).toBe(0);
-  expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
-  expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
-});
-
-/**
- * When the format is date-time, IMF-fixdate timestamps are rejected with a
- * 400 SerializationException
- */
-it("RestJsonHeaderTimestampDateTimeRejectsHttpDate_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
-  testFunction.mockImplementation(() => {
-    throw new Error("This request should have been rejected.");
-  });
-  const testService: Partial<RestJsonService<{}>> = {
-    MalformedTimestampHeaderDateTime: testFunction as MalformedTimestampHeaderDateTime<{}>,
-  };
-  const handler = getRestJsonServiceHandler(
-    testService as RestJsonService<{}>,
-    (ctx: {}, failures: __ValidationFailure[]) => {
-      if (failures) {
-        throw failures;
-      }
-      return undefined;
-    }
-  );
-  const request = new HttpRequest({
-    method: "POST",
-    hostname: "foo.example.com",
-    path: "/MalformedTimestampHeaderDateTime",
-    query: {},
-    headers: {
-      timestamp: "Sun, 02 Jan 2000 20:34:56.000 GMT",
     },
   });
   const r = await handler.handle(request, {});
@@ -24515,44 +24399,6 @@ it("RestJsonHeaderTimestampEpochRejectsHttpDate_case0:MalformedRequest", async (
     query: {},
     headers: {
       timestamp: "Tue, 29 Apr 2014 18:30:38 GMT",
-    },
-  });
-  const r = await handler.handle(request, {});
-
-  expect(testFunction.mock.calls.length).toBe(0);
-  expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
-  expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
-});
-
-/**
- * When the format is epoch-seconds, IMF-fixdate timestamps are rejected with a
- * 400 SerializationException
- */
-it("RestJsonHeaderTimestampEpochRejectsHttpDate_case1:MalformedRequest", async () => {
-  const testFunction = jest.fn();
-  testFunction.mockImplementation(() => {
-    throw new Error("This request should have been rejected.");
-  });
-  const testService: Partial<RestJsonService<{}>> = {
-    MalformedTimestampHeaderEpoch: testFunction as MalformedTimestampHeaderEpoch<{}>,
-  };
-  const handler = getRestJsonServiceHandler(
-    testService as RestJsonService<{}>,
-    (ctx: {}, failures: __ValidationFailure[]) => {
-      if (failures) {
-        throw failures;
-      }
-      return undefined;
-    }
-  );
-  const request = new HttpRequest({
-    method: "POST",
-    hostname: "foo.example.com",
-    path: "/MalformedTimestampHeaderEpoch",
-    query: {},
-    headers: {
-      timestamp: "Sun, 02 Jan 2000 20:34:56.000 GMT",
     },
   });
   const r = await handler.handle(request, {});

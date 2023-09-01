@@ -32,7 +32,6 @@ export interface HostLabelInput {
  */
 export interface FractionalSecondsOutput {
   datetime?: Date;
-  httpdate?: Date;
 }
 
 /**
