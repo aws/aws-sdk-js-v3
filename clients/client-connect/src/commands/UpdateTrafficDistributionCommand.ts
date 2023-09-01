@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateTrafficDistributionRequest, UpdateTrafficDistributionResponse } from "../models/models_1";
+import { UpdateTrafficDistributionRequest, UpdateTrafficDistributionResponse } from "../models/models_2";
 import { de_UpdateTrafficDistributionCommand, se_UpdateTrafficDistributionCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -38,8 +38,11 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * @public
  * <p>Updates the traffic distribution for a given traffic distribution group. </p>
  *          <note>
- *             <p>You can change the <code>SignInConfig</code> only for a default <code>TrafficDistributionGroup</code>. If you call
- *     <code>UpdateTrafficDistribution</code>  with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>,
+ *             <p>You can change the <code>SignInConfig</code> distribution only for a
+ * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the
+ * <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
+ *  data type). If you call
+ *     <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>,
  *     an <code>InvalidRequestException</code> is returned.</p>
  *          </note>
  *          <p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony

@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DisassociateRoutingProfileQueuesRequest } from "../models/models_0";
+import { DisassociateRoutingProfileQueuesRequest } from "../models/models_1";
 import {
   de_DisassociateRoutingProfileQueuesCommand,
   se_DisassociateRoutingProfileQueuesCommand,

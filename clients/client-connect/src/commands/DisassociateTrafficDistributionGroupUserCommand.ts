@@ -17,7 +17,7 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import {
   DisassociateTrafficDistributionGroupUserRequest,
   DisassociateTrafficDistributionGroupUserResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_DisassociateTrafficDistributionGroupUserCommand,
   se_DisassociateTrafficDistributionGroupUserCommand,

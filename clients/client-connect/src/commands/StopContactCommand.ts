@@ -36,8 +36,8 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
 
 /**
  * @public
- * <p>Ends the specified contact. This call does not work for the following initiation
- *    methods:</p>
+ * <p>Ends the specified contact. This call does not work for voice contacts that use the
+ *    following initiation methods:</p>
  *          <ul>
  *             <li>
  *                <p>DISCONNECT</p>
@@ -49,6 +49,8 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  *                <p>QUEUE_TRANSFER</p>
  *             </li>
  *          </ul>
+ *          <p>Chat and task contacts, however, can be terminated in any state, regardless of initiation
+ *    method.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,7 +75,7 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  *
  * @throws {@link ContactNotFoundException} (client fault)
  *  <p>The contact with the specified ID is not active or does not exist. Applies to Voice calls
- *    only, not to Chat, Task, or Voice Callback.</p>
+ *    only, not to Chat or Task contacts.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>

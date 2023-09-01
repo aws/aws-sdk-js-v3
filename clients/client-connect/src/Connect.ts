@@ -150,6 +150,12 @@ import {
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
+import { CreateViewCommand, CreateViewCommandInput, CreateViewCommandOutput } from "./commands/CreateViewCommand";
+import {
+  CreateViewVersionCommand,
+  CreateViewVersionCommandInput,
+  CreateViewVersionCommandOutput,
+} from "./commands/CreateViewVersionCommand";
 import {
   CreateVocabularyCommand,
   CreateVocabularyCommandInput,
@@ -238,6 +244,12 @@ import {
   DeleteUserHierarchyGroupCommandInput,
   DeleteUserHierarchyGroupCommandOutput,
 } from "./commands/DeleteUserHierarchyGroupCommand";
+import { DeleteViewCommand, DeleteViewCommandInput, DeleteViewCommandOutput } from "./commands/DeleteViewCommand";
+import {
+  DeleteViewVersionCommand,
+  DeleteViewVersionCommandInput,
+  DeleteViewVersionCommandOutput,
+} from "./commands/DeleteViewVersionCommand";
 import {
   DeleteVocabularyCommand,
   DeleteVocabularyCommandInput,
@@ -348,6 +360,11 @@ import {
   DescribeUserHierarchyStructureCommandInput,
   DescribeUserHierarchyStructureCommandOutput,
 } from "./commands/DescribeUserHierarchyStructureCommand";
+import {
+  DescribeViewCommand,
+  DescribeViewCommandInput,
+  DescribeViewCommandOutput,
+} from "./commands/DescribeViewCommand";
 import {
   DescribeVocabularyCommand,
   DescribeVocabularyCommandInput,
@@ -609,6 +626,12 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { ListViewsCommand, ListViewsCommandInput, ListViewsCommandOutput } from "./commands/ListViewsCommand";
+import {
+  ListViewVersionsCommand,
+  ListViewVersionsCommandInput,
+  ListViewVersionsCommandOutput,
+} from "./commands/ListViewVersionsCommand";
 import {
   MonitorContactCommand,
   MonitorContactCommandInput,
@@ -938,6 +961,16 @@ import {
   UpdateUserSecurityProfilesCommandInput,
   UpdateUserSecurityProfilesCommandOutput,
 } from "./commands/UpdateUserSecurityProfilesCommand";
+import {
+  UpdateViewContentCommand,
+  UpdateViewContentCommandInput,
+  UpdateViewContentCommandOutput,
+} from "./commands/UpdateViewContentCommand";
+import {
+  UpdateViewMetadataCommand,
+  UpdateViewMetadataCommandInput,
+  UpdateViewMetadataCommandOutput,
+} from "./commands/UpdateViewMetadataCommand";
 import { ConnectClient, ConnectClientConfig } from "./ConnectClient";
 
 const commands = {
@@ -973,6 +1006,8 @@ const commands = {
   CreateUseCaseCommand,
   CreateUserCommand,
   CreateUserHierarchyGroupCommand,
+  CreateViewCommand,
+  CreateViewVersionCommand,
   CreateVocabularyCommand,
   DeactivateEvaluationFormCommand,
   DeleteContactEvaluationCommand,
@@ -993,6 +1028,8 @@ const commands = {
   DeleteUseCaseCommand,
   DeleteUserCommand,
   DeleteUserHierarchyGroupCommand,
+  DeleteViewCommand,
+  DeleteViewVersionCommand,
   DeleteVocabularyCommand,
   DescribeAgentStatusCommand,
   DescribeContactCommand,
@@ -1015,6 +1052,7 @@ const commands = {
   DescribeUserCommand,
   DescribeUserHierarchyGroupCommand,
   DescribeUserHierarchyStructureCommand,
+  DescribeViewCommand,
   DescribeVocabularyCommand,
   DisassociateApprovedOriginCommand,
   DisassociateBotCommand,
@@ -1072,6 +1110,8 @@ const commands = {
   ListUseCasesCommand,
   ListUserHierarchyGroupsCommand,
   ListUsersCommand,
+  ListViewsCommand,
+  ListViewVersionsCommand,
   MonitorContactCommand,
   PutUserStatusCommand,
   ReleasePhoneNumberCommand,
@@ -1141,6 +1181,8 @@ const commands = {
   UpdateUserPhoneConfigCommand,
   UpdateUserRoutingProfileCommand,
   UpdateUserSecurityProfilesCommand,
+  UpdateViewContentCommand,
+  UpdateViewMetadataCommand,
 };
 
 export interface Connect {
@@ -1647,6 +1689,34 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateViewCommand}
+   */
+  createView(args: CreateViewCommandInput, options?: __HttpHandlerOptions): Promise<CreateViewCommandOutput>;
+  createView(args: CreateViewCommandInput, cb: (err: any, data?: CreateViewCommandOutput) => void): void;
+  createView(
+    args: CreateViewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateViewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateViewVersionCommand}
+   */
+  createViewVersion(
+    args: CreateViewVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateViewVersionCommandOutput>;
+  createViewVersion(
+    args: CreateViewVersionCommandInput,
+    cb: (err: any, data?: CreateViewVersionCommandOutput) => void
+  ): void;
+  createViewVersion(
+    args: CreateViewVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateViewVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateVocabularyCommand}
    */
   createVocabulary(
@@ -1951,6 +2021,34 @@ export interface Connect {
     args: DeleteUserHierarchyGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteUserHierarchyGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteViewCommand}
+   */
+  deleteView(args: DeleteViewCommandInput, options?: __HttpHandlerOptions): Promise<DeleteViewCommandOutput>;
+  deleteView(args: DeleteViewCommandInput, cb: (err: any, data?: DeleteViewCommandOutput) => void): void;
+  deleteView(
+    args: DeleteViewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteViewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteViewVersionCommand}
+   */
+  deleteViewVersion(
+    args: DeleteViewVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteViewVersionCommandOutput>;
+  deleteViewVersion(
+    args: DeleteViewVersionCommandInput,
+    cb: (err: any, data?: DeleteViewVersionCommandOutput) => void
+  ): void;
+  deleteViewVersion(
+    args: DeleteViewVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteViewVersionCommandOutput) => void
   ): void;
 
   /**
@@ -2301,6 +2399,17 @@ export interface Connect {
     args: DescribeUserHierarchyStructureCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeUserHierarchyStructureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeViewCommand}
+   */
+  describeView(args: DescribeViewCommandInput, options?: __HttpHandlerOptions): Promise<DescribeViewCommandOutput>;
+  describeView(args: DescribeViewCommandInput, cb: (err: any, data?: DescribeViewCommandOutput) => void): void;
+  describeView(
+    args: DescribeViewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeViewCommandOutput) => void
   ): void;
 
   /**
@@ -3201,6 +3310,34 @@ export interface Connect {
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListViewsCommand}
+   */
+  listViews(args: ListViewsCommandInput, options?: __HttpHandlerOptions): Promise<ListViewsCommandOutput>;
+  listViews(args: ListViewsCommandInput, cb: (err: any, data?: ListViewsCommandOutput) => void): void;
+  listViews(
+    args: ListViewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListViewsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListViewVersionsCommand}
+   */
+  listViewVersions(
+    args: ListViewVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListViewVersionsCommandOutput>;
+  listViewVersions(
+    args: ListViewVersionsCommandInput,
+    cb: (err: any, data?: ListViewVersionsCommandOutput) => void
+  ): void;
+  listViewVersions(
+    args: ListViewVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListViewVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -4305,6 +4442,40 @@ export interface Connect {
     args: UpdateUserSecurityProfilesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserSecurityProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateViewContentCommand}
+   */
+  updateViewContent(
+    args: UpdateViewContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateViewContentCommandOutput>;
+  updateViewContent(
+    args: UpdateViewContentCommandInput,
+    cb: (err: any, data?: UpdateViewContentCommandOutput) => void
+  ): void;
+  updateViewContent(
+    args: UpdateViewContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateViewContentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateViewMetadataCommand}
+   */
+  updateViewMetadata(
+    args: UpdateViewMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateViewMetadataCommandOutput>;
+  updateViewMetadata(
+    args: UpdateViewMetadataCommandInput,
+    cb: (err: any, data?: UpdateViewMetadataCommandOutput) => void
+  ): void;
+  updateViewMetadata(
+    args: UpdateViewMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateViewMetadataCommandOutput) => void
   ): void;
 }
 

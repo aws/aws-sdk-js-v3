@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DisassociateInstanceStorageConfigRequest } from "../models/models_0";
+import { DisassociateInstanceStorageConfigRequest } from "../models/models_1";
 import {
   de_DisassociateInstanceStorageConfigCommand,
   se_DisassociateInstanceStorageConfigCommand,

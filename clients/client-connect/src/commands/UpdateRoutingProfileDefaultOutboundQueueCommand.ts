@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateRoutingProfileDefaultOutboundQueueRequest } from "../models/models_1";
+import { UpdateRoutingProfileDefaultOutboundQueueRequest } from "../models/models_2";
 import {
   de_UpdateRoutingProfileDefaultOutboundQueueCommand,
   se_UpdateRoutingProfileDefaultOutboundQueueCommand,

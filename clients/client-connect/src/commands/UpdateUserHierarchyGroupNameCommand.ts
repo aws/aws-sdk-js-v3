@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserHierarchyGroupNameRequest } from "../models/models_1";
+import { UpdateUserHierarchyGroupNameRequest } from "../models/models_2";
 import {
   de_UpdateUserHierarchyGroupNameCommand,
   se_UpdateUserHierarchyGroupNameCommand,

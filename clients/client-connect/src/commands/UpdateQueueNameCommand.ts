@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQueueNameRequest } from "../models/models_1";
+import { UpdateQueueNameRequest } from "../models/models_2";
 import { de_UpdateQueueNameCommand, se_UpdateQueueNameCommand } from "../protocols/Aws_restJson1";
 
 /**

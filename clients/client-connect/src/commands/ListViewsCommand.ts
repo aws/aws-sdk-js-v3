@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateRoutingProfileQueuesRequest } from "../models/models_2";
-import { de_UpdateRoutingProfileQueuesCommand, se_UpdateRoutingProfileQueuesCommand } from "../protocols/Aws_restJson1";
+import { ListViewsRequest, ListViewsResponse, ListViewsResponseFilterSensitiveLog } from "../models/models_1";
+import { de_ListViewsCommand, se_ListViewsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,50 +24,58 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateRoutingProfileQueuesCommand}.
+ * The input for {@link ListViewsCommand}.
  */
-export interface UpdateRoutingProfileQueuesCommandInput extends UpdateRoutingProfileQueuesRequest {}
+export interface ListViewsCommandInput extends ListViewsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateRoutingProfileQueuesCommand}.
+ * The output of {@link ListViewsCommand}.
  */
-export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBearer {}
+export interface ListViewsCommandOutput extends ListViewsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the properties associated with a set of queues for a routing profile.</p>
+ * <p>Returns views in the given instance.</p>
+ *          <p>Results are sorted primarily by type, and secondarily by name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListViewsCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListViewsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // UpdateRoutingProfileQueuesRequest
+ * const input = { // ListViewsRequest
  *   InstanceId: "STRING_VALUE", // required
- *   RoutingProfileId: "STRING_VALUE", // required
- *   QueueConfigs: [ // RoutingProfileQueueConfigList // required
- *     { // RoutingProfileQueueConfig
- *       QueueReference: { // RoutingProfileQueueReference
- *         QueueId: "STRING_VALUE", // required
- *         Channel: "VOICE" || "CHAT" || "TASK", // required
- *       },
- *       Priority: Number("int"), // required
- *       Delay: Number("int"), // required
- *     },
- *   ],
+ *   Type: "CUSTOMER_MANAGED" || "AWS_MANAGED",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
- * const command = new UpdateRoutingProfileQueuesCommand(input);
+ * const command = new ListViewsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListViewsResponse
+ * //   ViewsSummaryList: [ // ViewsSummaryList
+ * //     { // ViewSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Type: "CUSTOMER_MANAGED" || "AWS_MANAGED",
+ * //       Status: "PUBLISHED" || "SAVED",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param UpdateRoutingProfileQueuesCommandInput - {@link UpdateRoutingProfileQueuesCommandInput}
- * @returns {@link UpdateRoutingProfileQueuesCommandOutput}
- * @see {@link UpdateRoutingProfileQueuesCommandInput} for command's `input` shape.
- * @see {@link UpdateRoutingProfileQueuesCommandOutput} for command's `response` shape.
+ * @param ListViewsCommandInput - {@link ListViewsCommandInput}
+ * @returns {@link ListViewsCommandOutput}
+ * @see {@link ListViewsCommandInput} for command's `input` shape.
+ * @see {@link ListViewsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -81,16 +89,16 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Displayed when rate-related API limits are exceeded.</p>
  *
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class UpdateRoutingProfileQueuesCommand extends $Command<
-  UpdateRoutingProfileQueuesCommandInput,
-  UpdateRoutingProfileQueuesCommandOutput,
+export class ListViewsCommand extends $Command<
+  ListViewsCommandInput,
+  ListViewsCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -108,7 +116,7 @@ export class UpdateRoutingProfileQueuesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateRoutingProfileQueuesCommandInput) {
+  constructor(readonly input: ListViewsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -121,23 +129,21 @@ export class UpdateRoutingProfileQueuesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateRoutingProfileQueuesCommandInput, UpdateRoutingProfileQueuesCommandOutput> {
+  ): Handler<ListViewsCommandInput, ListViewsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateRoutingProfileQueuesCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListViewsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "UpdateRoutingProfileQueuesCommand";
+    const commandName = "ListViewsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ListViewsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,18 +156,15 @@ export class UpdateRoutingProfileQueuesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateRoutingProfileQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateRoutingProfileQueuesCommand(input, context);
+  private serialize(input: ListViewsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListViewsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRoutingProfileQueuesCommandOutput> {
-    return de_UpdateRoutingProfileQueuesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListViewsCommandOutput> {
+    return de_ListViewsCommand(output, context);
   }
 
   // Start section: command_body_extra

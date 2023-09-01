@@ -14,7 +14,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeVocabularyRequest, DescribeVocabularyResponse } from "../models/models_0";
+import { DescribeVocabularyRequest } from "../models/models_0";
+import { DescribeVocabularyResponse } from "../models/models_1";
 import { de_DescribeVocabularyCommand, se_DescribeVocabularyCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DisassociateSecurityKeyRequest } from "../models/models_0";
+import { DisassociateSecurityKeyRequest } from "../models/models_1";
 import { de_DisassociateSecurityKeyCommand, se_DisassociateSecurityKeyCommand } from "../protocols/Aws_restJson1";
 
 /**

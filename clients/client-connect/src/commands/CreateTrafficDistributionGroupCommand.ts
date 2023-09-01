@@ -42,6 +42,14 @@ export interface CreateTrafficDistributionGroupCommandOutput
 /**
  * @public
  * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p>
+ *          <note>
+ *             <p>You can change the <code>SignInConfig</code> distribution only for a
+ * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the
+ * <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
+ *  data type). If you call
+ *     <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>,
+ *     an <code>InvalidRequestException</code> is returned.</p>
+ *          </note>
  *          <p>For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set up traffic distribution groups</a> in
  *    the <i>Amazon Connect Administrator Guide</i>. </p>
  * @example

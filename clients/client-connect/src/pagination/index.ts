@@ -42,6 +42,8 @@ export * from "./ListTrafficDistributionGroupsPaginator";
 export * from "./ListUseCasesPaginator";
 export * from "./ListUserHierarchyGroupsPaginator";
 export * from "./ListUsersPaginator";
+export * from "./ListViewVersionsPaginator";
+export * from "./ListViewsPaginator";
 export * from "./SearchAvailablePhoneNumbersPaginator";
 export * from "./SearchHoursOfOperationsPaginator";
 export * from "./SearchPromptsPaginator";

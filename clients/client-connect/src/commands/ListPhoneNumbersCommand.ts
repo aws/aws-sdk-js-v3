@@ -41,10 +41,20 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  *     Contact Center</a> in the <i>Amazon Connect Administrator
  *    Guide</i>.</p>
  *          <important>
- *             <p>The phone number <code>Arn</code> value that is returned from each of the items in the
- *      <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList">PhoneNumberSummaryList</a> cannot be used to tag phone number resources. It will fail with
- *     a <code>ResourceNotFoundException</code>. Instead, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> API.
- *     It returns the new phone number ARN that can be used to tag phone number resources.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>We recommend using <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> to
+ *       return phone number types. ListPhoneNumbers doesn't support number types <code>UIFN</code>,
+ *       <code>SHARED</code>, <code>THIRD_PARTY_TF</code>, and <code>THIRD_PARTY_DID</code>. While it returns
+ *       numbers of those types, it incorrectly lists them as <code>TOLL_FREE</code> or <code>DID</code>. </p>
+ *                </li>
+ *                <li>
+ *                   <p>The phone number <code>Arn</code> value that is returned from each of the items in the
+ *        <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList">PhoneNumberSummaryList</a> cannot be used to tag phone number resources. It will fail
+ *       with a <code>ResourceNotFoundException</code>. Instead, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> API.
+ *       It returns the new phone number ARN that can be used to tag phone number resources.</p>
+ *                </li>
+ *             </ul>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

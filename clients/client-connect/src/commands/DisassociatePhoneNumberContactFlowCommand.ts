@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DisassociatePhoneNumberContactFlowRequest } from "../models/models_0";
+import { DisassociatePhoneNumberContactFlowRequest } from "../models/models_1";
 import {
   de_DisassociatePhoneNumberContactFlowCommand,
   se_DisassociatePhoneNumberContactFlowCommand,

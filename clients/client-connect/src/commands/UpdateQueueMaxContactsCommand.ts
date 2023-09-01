@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQueueMaxContactsRequest } from "../models/models_1";
+import { UpdateQueueMaxContactsRequest } from "../models/models_2";
 import { de_UpdateQueueMaxContactsCommand, se_UpdateQueueMaxContactsCommand } from "../protocols/Aws_restJson1";
 
 /**

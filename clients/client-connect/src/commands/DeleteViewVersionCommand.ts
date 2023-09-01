@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateRoutingProfileQueuesRequest } from "../models/models_2";
-import { de_UpdateRoutingProfileQueuesCommand, se_UpdateRoutingProfileQueuesCommand } from "../protocols/Aws_restJson1";
+import { DeleteViewVersionRequest, DeleteViewVersionResponse } from "../models/models_0";
+import { de_DeleteViewVersionCommand, se_DeleteViewVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,50 +24,44 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateRoutingProfileQueuesCommand}.
+ * The input for {@link DeleteViewVersionCommand}.
  */
-export interface UpdateRoutingProfileQueuesCommandInput extends UpdateRoutingProfileQueuesRequest {}
+export interface DeleteViewVersionCommandInput extends DeleteViewVersionRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateRoutingProfileQueuesCommand}.
+ * The output of {@link DeleteViewVersionCommand}.
  */
-export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBearer {}
+export interface DeleteViewVersionCommandOutput extends DeleteViewVersionResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the properties associated with a set of queues for a routing profile.</p>
+ * <p>Deletes the particular version specified in <code>ViewVersion</code> identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteViewVersionCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DeleteViewVersionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // UpdateRoutingProfileQueuesRequest
+ * const input = { // DeleteViewVersionRequest
  *   InstanceId: "STRING_VALUE", // required
- *   RoutingProfileId: "STRING_VALUE", // required
- *   QueueConfigs: [ // RoutingProfileQueueConfigList // required
- *     { // RoutingProfileQueueConfig
- *       QueueReference: { // RoutingProfileQueueReference
- *         QueueId: "STRING_VALUE", // required
- *         Channel: "VOICE" || "CHAT" || "TASK", // required
- *       },
- *       Priority: Number("int"), // required
- *       Delay: Number("int"), // required
- *     },
- *   ],
+ *   ViewId: "STRING_VALUE", // required
+ *   ViewVersion: Number("int"), // required
  * };
- * const command = new UpdateRoutingProfileQueuesCommand(input);
+ * const command = new DeleteViewVersionCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UpdateRoutingProfileQueuesCommandInput - {@link UpdateRoutingProfileQueuesCommandInput}
- * @returns {@link UpdateRoutingProfileQueuesCommandOutput}
- * @see {@link UpdateRoutingProfileQueuesCommandInput} for command's `input` shape.
- * @see {@link UpdateRoutingProfileQueuesCommandOutput} for command's `response` shape.
+ * @param DeleteViewVersionCommandInput - {@link DeleteViewVersionCommandInput}
+ * @returns {@link DeleteViewVersionCommandOutput}
+ * @see {@link DeleteViewVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteViewVersionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -78,19 +72,22 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
  *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>That resource is already in use. Please try another.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Displayed when rate-related API limits are exceeded.</p>
  *
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class UpdateRoutingProfileQueuesCommand extends $Command<
-  UpdateRoutingProfileQueuesCommandInput,
-  UpdateRoutingProfileQueuesCommandOutput,
+export class DeleteViewVersionCommand extends $Command<
+  DeleteViewVersionCommandInput,
+  DeleteViewVersionCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -108,7 +105,7 @@ export class UpdateRoutingProfileQueuesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateRoutingProfileQueuesCommandInput) {
+  constructor(readonly input: DeleteViewVersionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -121,17 +118,17 @@ export class UpdateRoutingProfileQueuesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateRoutingProfileQueuesCommandInput, UpdateRoutingProfileQueuesCommandOutput> {
+  ): Handler<DeleteViewVersionCommandInput, DeleteViewVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateRoutingProfileQueuesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteViewVersionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "UpdateRoutingProfileQueuesCommand";
+    const commandName = "DeleteViewVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,18 +147,15 @@ export class UpdateRoutingProfileQueuesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateRoutingProfileQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateRoutingProfileQueuesCommand(input, context);
+  private serialize(input: DeleteViewVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteViewVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRoutingProfileQueuesCommandOutput> {
-    return de_UpdateRoutingProfileQueuesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteViewVersionCommandOutput> {
+    return de_DeleteViewVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

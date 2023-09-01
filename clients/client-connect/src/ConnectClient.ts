@@ -136,6 +136,8 @@ import {
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
+import { CreateViewCommandInput, CreateViewCommandOutput } from "./commands/CreateViewCommand";
+import { CreateViewVersionCommandInput, CreateViewVersionCommandOutput } from "./commands/CreateViewVersionCommand";
 import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "./commands/CreateVocabularyCommand";
 import {
   DeactivateEvaluationFormCommandInput,
@@ -186,6 +188,8 @@ import {
   DeleteUserHierarchyGroupCommandInput,
   DeleteUserHierarchyGroupCommandOutput,
 } from "./commands/DeleteUserHierarchyGroupCommand";
+import { DeleteViewCommandInput, DeleteViewCommandOutput } from "./commands/DeleteViewCommand";
+import { DeleteViewVersionCommandInput, DeleteViewVersionCommandOutput } from "./commands/DeleteViewVersionCommand";
 import { DeleteVocabularyCommandInput, DeleteVocabularyCommandOutput } from "./commands/DeleteVocabularyCommand";
 import {
   DescribeAgentStatusCommandInput,
@@ -253,6 +257,7 @@ import {
   DescribeUserHierarchyStructureCommandInput,
   DescribeUserHierarchyStructureCommandOutput,
 } from "./commands/DescribeUserHierarchyStructureCommand";
+import { DescribeViewCommandInput, DescribeViewCommandOutput } from "./commands/DescribeViewCommand";
 import { DescribeVocabularyCommandInput, DescribeVocabularyCommandOutput } from "./commands/DescribeVocabularyCommand";
 import {
   DisassociateApprovedOriginCommandInput,
@@ -406,6 +411,8 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { ListViewsCommandInput, ListViewsCommandOutput } from "./commands/ListViewsCommand";
+import { ListViewVersionsCommandInput, ListViewVersionsCommandOutput } from "./commands/ListViewVersionsCommand";
 import { MonitorContactCommandInput, MonitorContactCommandOutput } from "./commands/MonitorContactCommand";
 import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "./commands/PutUserStatusCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "./commands/ReleasePhoneNumberCommand";
@@ -613,6 +620,8 @@ import {
   UpdateUserSecurityProfilesCommandInput,
   UpdateUserSecurityProfilesCommandOutput,
 } from "./commands/UpdateUserSecurityProfilesCommand";
+import { UpdateViewContentCommandInput, UpdateViewContentCommandOutput } from "./commands/UpdateViewContentCommand";
+import { UpdateViewMetadataCommandInput, UpdateViewMetadataCommandOutput } from "./commands/UpdateViewMetadataCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -660,6 +669,8 @@ export type ServiceInputTypes =
   | CreateUseCaseCommandInput
   | CreateUserCommandInput
   | CreateUserHierarchyGroupCommandInput
+  | CreateViewCommandInput
+  | CreateViewVersionCommandInput
   | CreateVocabularyCommandInput
   | DeactivateEvaluationFormCommandInput
   | DeleteContactEvaluationCommandInput
@@ -680,6 +691,8 @@ export type ServiceInputTypes =
   | DeleteUseCaseCommandInput
   | DeleteUserCommandInput
   | DeleteUserHierarchyGroupCommandInput
+  | DeleteViewCommandInput
+  | DeleteViewVersionCommandInput
   | DeleteVocabularyCommandInput
   | DescribeAgentStatusCommandInput
   | DescribeContactCommandInput
@@ -702,6 +715,7 @@ export type ServiceInputTypes =
   | DescribeUserCommandInput
   | DescribeUserHierarchyGroupCommandInput
   | DescribeUserHierarchyStructureCommandInput
+  | DescribeViewCommandInput
   | DescribeVocabularyCommandInput
   | DisassociateApprovedOriginCommandInput
   | DisassociateBotCommandInput
@@ -759,6 +773,8 @@ export type ServiceInputTypes =
   | ListUseCasesCommandInput
   | ListUserHierarchyGroupsCommandInput
   | ListUsersCommandInput
+  | ListViewVersionsCommandInput
+  | ListViewsCommandInput
   | MonitorContactCommandInput
   | PutUserStatusCommandInput
   | ReleasePhoneNumberCommandInput
@@ -827,7 +843,9 @@ export type ServiceInputTypes =
   | UpdateUserIdentityInfoCommandInput
   | UpdateUserPhoneConfigCommandInput
   | UpdateUserRoutingProfileCommandInput
-  | UpdateUserSecurityProfilesCommandInput;
+  | UpdateUserSecurityProfilesCommandInput
+  | UpdateViewContentCommandInput
+  | UpdateViewMetadataCommandInput;
 
 /**
  * @public
@@ -865,6 +883,8 @@ export type ServiceOutputTypes =
   | CreateUseCaseCommandOutput
   | CreateUserCommandOutput
   | CreateUserHierarchyGroupCommandOutput
+  | CreateViewCommandOutput
+  | CreateViewVersionCommandOutput
   | CreateVocabularyCommandOutput
   | DeactivateEvaluationFormCommandOutput
   | DeleteContactEvaluationCommandOutput
@@ -885,6 +905,8 @@ export type ServiceOutputTypes =
   | DeleteUseCaseCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserHierarchyGroupCommandOutput
+  | DeleteViewCommandOutput
+  | DeleteViewVersionCommandOutput
   | DeleteVocabularyCommandOutput
   | DescribeAgentStatusCommandOutput
   | DescribeContactCommandOutput
@@ -907,6 +929,7 @@ export type ServiceOutputTypes =
   | DescribeUserCommandOutput
   | DescribeUserHierarchyGroupCommandOutput
   | DescribeUserHierarchyStructureCommandOutput
+  | DescribeViewCommandOutput
   | DescribeVocabularyCommandOutput
   | DisassociateApprovedOriginCommandOutput
   | DisassociateBotCommandOutput
@@ -964,6 +987,8 @@ export type ServiceOutputTypes =
   | ListUseCasesCommandOutput
   | ListUserHierarchyGroupsCommandOutput
   | ListUsersCommandOutput
+  | ListViewVersionsCommandOutput
+  | ListViewsCommandOutput
   | MonitorContactCommandOutput
   | PutUserStatusCommandOutput
   | ReleasePhoneNumberCommandOutput
@@ -1032,7 +1057,9 @@ export type ServiceOutputTypes =
   | UpdateUserIdentityInfoCommandOutput
   | UpdateUserPhoneConfigCommandOutput
   | UpdateUserRoutingProfileCommandOutput
-  | UpdateUserSecurityProfilesCommandOutput;
+  | UpdateUserSecurityProfilesCommandOutput
+  | UpdateViewContentCommandOutput
+  | UpdateViewMetadataCommandOutput;
 
 /**
  * @public

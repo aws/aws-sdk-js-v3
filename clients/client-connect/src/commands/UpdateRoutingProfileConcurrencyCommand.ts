@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateRoutingProfileConcurrencyRequest } from "../models/models_1";
+import { UpdateRoutingProfileConcurrencyRequest } from "../models/models_2";
 import {
   de_UpdateRoutingProfileConcurrencyCommand,
   se_UpdateRoutingProfileConcurrencyCommand,

@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateRoutingProfileAgentAvailabilityTimerRequest } from "../models/models_1";
+import { UpdateRoutingProfileAgentAvailabilityTimerRequest } from "../models/models_2";
 import {
   de_UpdateRoutingProfileAgentAvailabilityTimerCommand,
   se_UpdateRoutingProfileAgentAvailabilityTimerCommand,
