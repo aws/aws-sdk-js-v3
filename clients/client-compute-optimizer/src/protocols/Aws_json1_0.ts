@@ -2353,6 +2353,7 @@ const de_AutoScalingGroupRecommendation = (output: any, context: __SerdeContext)
     autoScalingGroupArn: __expectString,
     autoScalingGroupName: __expectString,
     currentConfiguration: _json,
+    currentInstanceGpuInfo: _json,
     currentPerformanceRisk: __expectString,
     effectiveRecommendationPreferences: _json,
     finding: __expectString,
@@ -2373,6 +2374,7 @@ const de_AutoScalingGroupRecommendationOption = (
 ): AutoScalingGroupRecommendationOption => {
   return take(output, {
     configuration: _json,
+    instanceGpuInfo: _json,
     migrationEffort: __expectString,
     performanceRisk: __limitedParseDouble,
     projectedUtilizationMetrics: (_: any) => de_ProjectedUtilizationMetrics(_, context),
@@ -2807,6 +2809,12 @@ const de_GetRecommendationSummariesResponse = (
   }) as any;
 };
 
+// de_Gpu omitted.
+
+// de_GpuInfo omitted.
+
+// de_Gpus omitted.
+
 /**
  * deserializeAws_json1_0InferredWorkloadSaving
  */
@@ -2837,12 +2845,14 @@ const de_InferredWorkloadSavings = (output: any, context: __SerdeContext): Infer
 const de_InstanceRecommendation = (output: any, context: __SerdeContext): InstanceRecommendation => {
   return take(output, {
     accountId: __expectString,
+    currentInstanceGpuInfo: _json,
     currentInstanceType: __expectString,
     currentPerformanceRisk: __expectString,
     effectiveRecommendationPreferences: _json,
     externalMetricStatus: _json,
     finding: __expectString,
     findingReasonCodes: _json,
+    idle: __expectString,
     inferredWorkloadTypes: _json,
     instanceArn: __expectString,
     instanceName: __expectString,
@@ -2863,6 +2873,7 @@ const de_InstanceRecommendation = (output: any, context: __SerdeContext): Instan
  */
 const de_InstanceRecommendationOption = (output: any, context: __SerdeContext): InstanceRecommendationOption => {
   return take(output, {
+    instanceGpuInfo: _json,
     instanceType: __expectString,
     migrationEffort: __expectString,
     performanceRisk: __limitedParseDouble,
