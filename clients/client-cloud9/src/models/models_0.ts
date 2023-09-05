@@ -158,6 +158,10 @@ export interface CreateEnvironmentEC2Request {
    *                <p>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>Ubuntu 22.04:  <code>ubuntu-22.04-x86_64</code>
+   *                </p>
+   *             </li>
    *          </ul>
    *          <p>
    *             <b>SSM paths</b>
@@ -178,6 +182,11 @@ export interface CreateEnvironmentEC2Request {
    *             <li>
    *                <p>Ubuntu 18.04:
    *           <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Ubuntu 22.04:
+   *         <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</code>
    *                </p>
    *             </li>
    *          </ul>
