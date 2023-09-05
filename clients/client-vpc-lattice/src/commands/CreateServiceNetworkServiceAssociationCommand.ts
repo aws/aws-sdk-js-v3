@@ -89,6 +89,9 @@ export interface CreateServiceNetworkServiceAssociationCommandOutput
  * @see {@link CreateServiceNetworkServiceAssociationCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user does not have sufficient access to perform this action.</p>
+ *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request conflicts with the current state of the resource. Updating or deleting a
  *    resource can cause an inconsistent state.</p>

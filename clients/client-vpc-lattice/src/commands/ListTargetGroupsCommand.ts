@@ -69,6 +69,7 @@ export interface ListTargetGroupsCommandOutput extends ListTargetGroupsResponse,
  * //       serviceArns: [ // ServiceArnList
  * //         "STRING_VALUE",
  * //       ],
+ * //       lambdaEventStructureVersion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

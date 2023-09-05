@@ -1951,6 +1951,27 @@ export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
  * @public
  * @enum
  */
+export const LambdaEventStructureVersion = {
+  /**
+   * This is the default lambda event structure version
+   */
+  V1: "V1",
+  /**
+   * Indicates use of lambda event structure version 2
+   */
+  V2: "V2",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaEventStructureVersion =
+  (typeof LambdaEventStructureVersion)[keyof typeof LambdaEventStructureVersion];
+
+/**
+ * @public
+ * @enum
+ */
 export const TargetGroupProtocolVersion = {
   /**
    * Indicates use of gRPC to send requests to target
@@ -1983,14 +2004,14 @@ export interface TargetGroupConfig {
    *    HTTPS, the default is <code>443</code>
    *          </p>
    */
-  port: number | undefined;
+  port?: number;
 
   /**
    * @public
    * <p>The protocol to use for routing traffic to the targets. Default is the protocol of a target
    *    group.</p>
    */
-  protocol: TargetGroupProtocol | string | undefined;
+  protocol?: TargetGroupProtocol | string;
 
   /**
    * @public
@@ -2009,13 +2030,19 @@ export interface TargetGroupConfig {
    * @public
    * <p>The ID of the VPC.</p>
    */
-  vpcIdentifier: string | undefined;
+  vpcIdentifier?: string;
 
   /**
    * @public
    * <p>The health check configuration.</p>
    */
   healthCheck?: HealthCheckConfig;
+
+  /**
+   * @public
+   * Lambda event structure version
+   */
+  lambdaEventStructureVersion?: LambdaEventStructureVersion | string;
 }
 
 /**
@@ -2524,7 +2551,7 @@ export interface GetAuthPolicyResponse {
   /**
    * @public
    * <p>The state of the auth policy. The auth policy is only active when the auth type is set to
-   *      <code>AWS_IAM</code>. If you provide a policy, then authentication and
+   *      <code>Amazon Web Services_IAM</code>. If you provide a policy, then authentication and
    *    authorization decisions are made based on this policy and the client's IAM policy. If the auth
    *    type is <code>NONE</code>, then any auth policy you provide will remain inactive. For more
    *    information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service
@@ -2634,7 +2661,7 @@ export interface GetListenerResponse {
 export interface GetResourcePolicyRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the service network or service.</p>
+   * <p>An IAM policy.</p>
    */
   resourceArn: string | undefined;
 }
@@ -2645,7 +2672,7 @@ export interface GetResourcePolicyRequest {
 export interface GetResourcePolicyResponse {
   /**
    * @public
-   * <p>An IAM policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the service network or service.</p>
    */
   policy?: string;
 }
@@ -3973,6 +4000,12 @@ export interface TargetGroupSummary {
    * <p>The list of Amazon Resource Names (ARNs) of the service.</p>
    */
   serviceArns?: string[];
+
+  /**
+   * @public
+   * Lambda event structure version
+   */
+  lambdaEventStructureVersion?: LambdaEventStructureVersion | string;
 }
 
 /**
@@ -4148,7 +4181,7 @@ export interface PutAuthPolicyRequest {
 
   /**
    * @public
-   * <p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p>
+   * <p>The auth policy.</p>
    */
   policy: string | undefined;
 }
@@ -4159,14 +4192,14 @@ export interface PutAuthPolicyRequest {
 export interface PutAuthPolicyResponse {
   /**
    * @public
-   * <p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p>
+   * <p>The auth policy.</p>
    */
   policy?: string;
 
   /**
    * @public
    * <p>The state of the auth policy. The auth policy is only active when the auth type is set to
-   *      <code>AWS_IAM</code>. If you provide a policy, then authentication and
+   *      <code>Amazon Web Services_IAM</code>. If you provide a policy, then authentication and
    *    authorization decisions are made based on this policy and the client's IAM policy. If the Auth
    *    type is <code>NONE</code>, then, any auth policy you provide will remain inactive. For more
    *    information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service
@@ -4188,8 +4221,7 @@ export interface PutResourcePolicyRequest {
 
   /**
    * @public
-   * <p>An IAM policy. The policy string in JSON must not contain newlines or
-   *    blank lines.</p>
+   * <p>An IAM policy.</p>
    */
   policy: string | undefined;
 }
@@ -4429,7 +4461,7 @@ export interface UpdateServiceNetworkVpcAssociationRequest {
 
   /**
    * @public
-   * <p>The IDs of the security groups. </p>
+   * <p>The IDs of the security groups. Once you add a security group, it cannot be removed.</p>
    */
   securityGroupIds: string[] | undefined;
 }
