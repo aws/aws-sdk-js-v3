@@ -141,7 +141,7 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
 - [`retryDelayOptions`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#retryDelayOptions-property)
   - **v2**: A set of options to configure the retry delay on retryable errors.
   - **v3**: **Deprecated**. SDK supports more flexible retry strategy with `retryStrategy` client constructor option. See
-    more [in v3 reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_types.retrystrategy-1.html)
+    more [in v3 reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/)
 - [`s3BucketEndpoint`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#s3BucketEndpoint-property)
   - **v2**: Whether the provided endpoint addresses an individual bucket (false if it addresses the root API endpoint).
   - **v3**: Changed to `bucketEndpoint`. See more in [v3 reference for bucketEndpoint](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3/interfaces/s3clientconfig.html#bucketendpoint).
