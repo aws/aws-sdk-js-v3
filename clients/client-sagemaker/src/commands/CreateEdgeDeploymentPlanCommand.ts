@@ -36,7 +36,8 @@ export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploym
 
 /**
  * @public
- * <p>Creates an edge deployment plan, consisting of multiple stages. Each stage may have a different deployment configuration and devices.</p>
+ * <p>Creates an edge deployment plan, consisting of multiple stages. Each stage may have a
+ *             different deployment configuration and devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

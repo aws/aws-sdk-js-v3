@@ -9890,8 +9890,7 @@ export interface InputConfig {
   /**
    * @public
    * <p>Specifies the name and shape of the expected data inputs for your trained model with a
-   *             JSON dictionary form. The data inputs are <code>Framework</code>
-   *             specific. </p>
+   *             JSON dictionary form. The data inputs are <code>Framework</code> specific. </p>
    *          <ul>
    *             <li>
    *                <p>
@@ -9974,9 +9973,9 @@ export interface InputConfig {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MXNET/ONNX/DARKNET</code>: You must specify the name and shape (NCHW format) of
-   *                     the expected data inputs in order using a dictionary format for your trained
-   *                     model. The dictionary formats required for the console and CLI are
+   *                   <code>MXNET/ONNX/DARKNET</code>: You must specify the name and shape (NCHW
+   *                     format) of the expected data inputs in order using a dictionary format for your
+   *                     trained model. The dictionary formats required for the console and CLI are
    *                     different.</p>
    *                <ul>
    *                   <li>
@@ -10072,44 +10071,51 @@ export interface InputConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>shape</code>: Input shape, for example <code>\{"input_1": \{"shape": [1,224,224,3]\}\}</code>.
-   *                     In addition to static input shapes, CoreML converter supports Flexible input shapes:</p>
+   *                   <code>shape</code>: Input shape, for example <code>\{"input_1": \{"shape":
+   *                         [1,224,224,3]\}\}</code>. In addition to static input shapes, CoreML converter
+   *                     supports Flexible input shapes:</p>
    *                <ul>
    *                   <li>
-   *                      <p>Range Dimension. You can use the Range Dimension feature if you know the input shape
-   *                             will be within some specific interval in that dimension,
-   *                             for example: <code>\{"input_1": \{"shape": ["1..10", 224, 224, 3]\}\}</code>
+   *                      <p>Range Dimension. You can use the Range Dimension feature if you know
+   *                             the input shape will be within some specific interval in that dimension,
+   *                             for example: <code>\{"input_1": \{"shape": ["1..10", 224, 224,
+   *                             3]\}\}</code>
    *                      </p>
    *                   </li>
    *                   <li>
-   *                      <p>Enumerated shapes. Sometimes, the models are trained to work only on a select
-   *                             set of inputs. You can enumerate all supported input shapes,
-   *                             for example: <code>\{"input_1": \{"shape": [[1, 224, 224, 3], [1, 160, 160, 3]]\}\}</code>
+   *                      <p>Enumerated shapes. Sometimes, the models are trained to work only on a
+   *                             select set of inputs. You can enumerate all supported input shapes, for
+   *                             example: <code>\{"input_1": \{"shape": [[1, 224, 224, 3], [1, 160, 160,
+   *                                 3]]\}\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>default_shape</code>: Default input shape. You can set a default shape during
-   *                     conversion for both Range Dimension and Enumerated Shapes. For example
-   *                     <code>\{"input_1": \{"shape": ["1..10", 224, 224, 3], "default_shape": [1, 224, 224, 3]\}\}</code>
+   *                   <code>default_shape</code>: Default input shape. You can set a default shape
+   *                     during conversion for both Range Dimension and Enumerated Shapes. For example
+   *                         <code>\{"input_1": \{"shape": ["1..10", 224, 224, 3], "default_shape": [1,
+   *                         224, 224, 3]\}\}</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>type</code>: Input type. Allowed values: <code>Image</code> and <code>Tensor</code>.
-   *                     By default, the converter generates an ML Model with inputs of type Tensor (MultiArray).
-   *                     User can set input type to be Image. Image input type requires additional input parameters
-   *                     such as <code>bias</code> and <code>scale</code>.</p>
+   *                   <code>type</code>: Input type. Allowed values: <code>Image</code> and
+   *                         <code>Tensor</code>. By default, the converter generates an ML Model with
+   *                     inputs of type Tensor (MultiArray). User can set input type to be Image. Image
+   *                     input type requires additional input parameters such as <code>bias</code> and
+   *                         <code>scale</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>bias</code>: If the input type is an Image, you need to provide the bias vector.</p>
+   *                   <code>bias</code>: If the input type is an Image, you need to provide the bias
+   *                     vector.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>scale</code>: If the input type is an Image, you need to provide a scale factor.</p>
+   *                   <code>scale</code>: If the input type is an Image, you need to provide a scale
+   *                     factor.</p>
    *             </li>
    *          </ul>
    *          <p>CoreML <code>ClassifierConfig</code> parameters can be specified using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a>
@@ -10121,8 +10127,8 @@ export interface InputConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"DataInputConfig": \{"input_1": \{"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
-   *                             [1,224,224,3]\}\}</code>
+   *                         <code>"DataInputConfig": \{"input_1": \{"shape": [[1,224,224,3],
+   *                                 [1,160,160,3]], "default_shape": [1,224,224,3]\}\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -10132,8 +10138,8 @@ export interface InputConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"DataInputConfig": [\{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
-   *                             [1,3,224,224]\}]</code>
+   *                         <code>"DataInputConfig": [\{"shape": [[1,3,224,224], [1,3,160,160]],
+   *                                 "default_shape": [1,3,224,224]\}]</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -10143,13 +10149,15 @@ export interface InputConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"DataInputConfig": \{"input_1": \{"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
-   *                             [1,224,224,3], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255\}\}</code>
+   *                         <code>"DataInputConfig": \{"input_1": \{"shape": [[1,224,224,3],
+   *                                 [1,160,160,3]], "default_shape": [1,224,224,3], "type": "Image",
+   *                                 "bias": [-1,-1,-1], "scale": 0.007843137255\}\}</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>"CompilerOptions": \{"class_labels": "imagenet_labels_1000.txt"\}</code>
+   *                         <code>"CompilerOptions": \{"class_labels":
+   *                                 "imagenet_labels_1000.txt"\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -10159,30 +10167,32 @@ export interface InputConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"DataInputConfig": [\{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
-   *                             [1,3,224,224], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255\}]</code>
+   *                         <code>"DataInputConfig": [\{"shape": [[1,3,224,224], [1,3,160,160]],
+   *                                 "default_shape": [1,3,224,224], "type": "Image", "bias": [-1,-1,-1],
+   *                                 "scale": 0.007843137255\}]</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>"CompilerOptions": \{"class_labels": "imagenet_labels_1000.txt"\}</code>
+   *                         <code>"CompilerOptions": \{"class_labels":
+   *                                 "imagenet_labels_1000.txt"\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *          <p>Depending on the model format, <code>DataInputConfig</code> requires the following parameters for
-   *             <code>ml_eia2</code>
+   *          <p>Depending on the model format, <code>DataInputConfig</code> requires the following
+   *             parameters for <code>ml_eia2</code>
    *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-TargetDevice">OutputConfig:TargetDevice</a>.</p>
    *          <ul>
    *             <li>
    *                <p>For TensorFlow models saved in the SavedModel format, specify the input names
-   *                 from <code>signature_def_key</code> and the input model shapes for <code>DataInputConfig</code>.
-   *                 Specify the <code>signature_def_key</code> in
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
+   *                     from <code>signature_def_key</code> and the input model shapes for
+   *                         <code>DataInputConfig</code>. Specify the <code>signature_def_key</code> in
+   *                         <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
    *                      <code>OutputConfig:CompilerOptions</code>
-   *                   </a> if
-   *                 the model does not use TensorFlow's default signature def key. For example:</p>
+   *                   </a> if the model does not
+   *                     use TensorFlow's default signature def key. For example:</p>
    *                <ul>
    *                   <li>
    *                      <p>
@@ -10191,34 +10201,37 @@ export interface InputConfig {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>"CompilerOptions": \{"signature_def_key": "serving_custom"\}</code>
+   *                         <code>"CompilerOptions": \{"signature_def_key":
+   *                                 "serving_custom"\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>For TensorFlow models saved as a frozen graph, specify the input tensor names and shapes
-   *                 in <code>DataInputConfig</code> and the output tensor names for <code>output_names</code> in
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
+   *                <p>For TensorFlow models saved as a frozen graph, specify the input tensor names
+   *                     and shapes in <code>DataInputConfig</code> and the output tensor names for
+   *                         <code>output_names</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
    *                      <code>OutputConfig:CompilerOptions</code>
-   *                   </a>.
-   *                 For example:</p>
+   *                   </a>. For
+   *                     example:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"DataInputConfig": \{"input_tensor:0": [1, 224, 224, 3]\}</code>
+   *                         <code>"DataInputConfig": \{"input_tensor:0": [1, 224, 224,
+   *                             3]\}</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>"CompilerOptions": \{"output_names": ["output_tensor:0"]\}</code>
+   *                         <code>"CompilerOptions": \{"output_names":
+   *                             ["output_tensor:0"]\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
    */
-  DataInputConfig: string | undefined;
+  DataInputConfig?: string;
 
   /**
    * @public
@@ -10229,11 +10242,12 @@ export interface InputConfig {
 
   /**
    * @public
-   * <p>Specifies the framework version to use. This API field is only supported for the MXNet,
-   * 	    PyTorch, TensorFlow and TensorFlow Lite frameworks.</p>
-   *          <p>For information about framework versions supported for cloud targets and edge devices, see
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-cloud.html">Cloud Supported Instance Types and Frameworks</a> and
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-devices-edge-frameworks.html">Edge Supported Frameworks</a>.</p>
+   * <p>Specifies the framework version to use. This API field is only supported for the
+   *             MXNet, PyTorch, TensorFlow and TensorFlow Lite frameworks.</p>
+   *          <p>For information about framework versions supported for cloud targets and edge devices,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-cloud.html">Cloud
+   *                 Supported Instance Types and Frameworks</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-devices-edge-frameworks.html">Edge Supported
+   *                 Frameworks</a>.</p>
    */
   FrameworkVersion?: string;
 }
@@ -10257,7 +10271,7 @@ export interface TargetPlatform {
    *                <p>
    *                   <code>ANDROID</code>: Android operating systems. Android API level can be
    *                     specified using the <code>ANDROID_PLATFORM</code> compiler option. For example,
-   *                     <code>"CompilerOptions": \{'ANDROID_PLATFORM': 28\}</code>
+   *                         <code>"CompilerOptions": \{'ANDROID_PLATFORM': 28\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -10300,7 +10314,7 @@ export interface TargetPlatform {
    *             <li>
    *                <p>
    *                   <code>NVIDIA</code>: Nvidia graphics processing unit. It also requires
-   *                     <code>gpu-code</code>, <code>trt-ver</code>, <code>cuda-ver</code> compiler
+   *                         <code>gpu-code</code>, <code>trt-ver</code>, <code>cuda-ver</code> compiler
    *                     options</p>
    *             </li>
    *             <li>
@@ -10338,8 +10352,8 @@ export interface OutputConfig {
    * @public
    * <p>Identifies the target device or the machine learning instance that you want to run
    *             your model on after the compilation has completed. Alternatively, you can specify OS,
-   *             architecture, and accelerator using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TargetPlatform.html">TargetPlatform</a> fields. It can be
-   *             used instead of <code>TargetPlatform</code>.</p>
+   *             architecture, and accelerator using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TargetPlatform.html">TargetPlatform</a>
+   *             fields. It can be used instead of <code>TargetPlatform</code>.</p>
    *          <note>
    *             <p>Currently <code>ml_trn1</code> is available only in US East (N. Virginia) Region,
    *                 and <code>ml_inf2</code> is available only in US East (Ohio) Region.</p>
@@ -10426,13 +10440,14 @@ export interface OutputConfig {
    *             <li>
    *                <p>
    *                   <code>DTYPE</code>: Specifies the data type for the input. When compiling for
-   *                     <code>ml_*</code> (except for <code>ml_inf</code>) instances using PyTorch
+   *                         <code>ml_*</code> (except for <code>ml_inf</code>) instances using PyTorch
    *                     framework, provide the data type (dtype) of the model's input.
    *                         <code>"float32"</code> is used if <code>"DTYPE"</code> is not specified.
    *                     Options for data type are:</p>
    *                <ul>
    *                   <li>
-   *                      <p>float32: Use either <code>"float"</code> or <code>"float32"</code>.</p>
+   *                      <p>float32: Use either <code>"float"</code> or
+   *                             <code>"float32"</code>.</p>
    *                   </li>
    *                   <li>
    *                      <p>int64: Use either <code>"int64"</code> or <code>"long"</code>.</p>
@@ -10518,13 +10533,9 @@ export interface OutputConfig {
    *             <li>
    *                <p>
    *                   <code>INFERENTIA</code>: Compilation for target ml_inf1 uses compiler options
-   *                     passed in as a JSON string. For example,
-   *                     <code>"CompilerOptions": "\"--verbose 1 --num-neuroncores 2 -O2\""</code>.
-   *                 </p>
-   *                <p>For information about supported compiler options, see
-   *                     <a href="https://awsdocs-neuron.readthedocs-hosted.com/en/latest/compiler/neuronx-cc/api-reference-guide/neuron-compiler-cli-reference-guide.html">
-   *                         Neuron Compiler CLI Reference Guide</a>.
-   *                 </p>
+   *                     passed in as a JSON string. For example, <code>"CompilerOptions": "\"--verbose 1
+   *                         --num-neuroncores 2 -O2\""</code>. </p>
+   *                <p>For information about supported compiler options, see <a href="https://awsdocs-neuron.readthedocs-hosted.com/en/latest/compiler/neuronx-cc/api-reference-guide/neuron-compiler-cli-reference-guide.html"> Neuron Compiler CLI Reference Guide</a>. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -10534,36 +10545,38 @@ export interface OutputConfig {
    *                   <li>
    *                      <p>
    *                         <code>class_labels</code>: Specifies the classification labels file
-   *                             name inside input tar.gz file. For example,
-   *                                 <code>\{"class_labels": "imagenet_labels_1000.txt"\}</code>.
-   *                             Labels inside the txt file should be separated by newlines.</p>
+   *                             name inside input tar.gz file. For example, <code>\{"class_labels":
+   *                                 "imagenet_labels_1000.txt"\}</code>. Labels inside the txt file
+   *                             should be separated by newlines.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>EIA</code>: Compilation for the Elastic Inference Accelerator supports the following
-   *                     compiler options:</p>
+   *                   <code>EIA</code>: Compilation for the Elastic Inference Accelerator supports
+   *                     the following compiler options:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>precision_mode</code>: Specifies the precision of compiled artifacts. Supported values
-   *                         are <code>"FP16"</code> and <code>"FP32"</code>. Default is
-   *                         <code>"FP32"</code>.</p>
+   *                         <code>precision_mode</code>: Specifies the precision of compiled
+   *                             artifacts. Supported values are <code>"FP16"</code> and
+   *                                 <code>"FP32"</code>. Default is <code>"FP32"</code>.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>signature_def_key</code>: Specifies the signature to use for models in SavedModel
-   *                         format. Defaults is TensorFlow's default signature def key.</p>
+   *                         <code>signature_def_key</code>: Specifies the signature to use for
+   *                             models in SavedModel format. Defaults is TensorFlow's default signature
+   *                             def key.</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>output_names</code>: Specifies a list of output tensor names for
-   *                         models in FrozenGraph format. Set at most one API field, either: <code>signature_def_key</code> or <code>output_names</code>.</p>
+   *                             models in FrozenGraph format. Set at most one API field, either:
+   *                                 <code>signature_def_key</code> or <code>output_names</code>.</p>
    *                   </li>
    *                </ul>
-   *                <p>For example:
-   *                     <code>\{"precision_mode": "FP32",  "output_names": ["output:0"]\}</code>
+   *                <p>For example: <code>\{"precision_mode": "FP32", "output_names":
+   *                         ["output:0"]\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -10572,11 +10585,12 @@ export interface OutputConfig {
 
   /**
    * @public
-   * <p>The Amazon Web Services Key Management Service key (Amazon Web Services KMS) that Amazon SageMaker uses to encrypt your output models with Amazon S3 server-side encryption
-   *         after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
-   *         For more information, see
-   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
-   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
+   * <p>The Amazon Web Services Key Management Service key (Amazon Web Services KMS) that Amazon SageMaker
+   *             uses to encrypt your output models with Amazon S3 server-side encryption after compilation
+   *             job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your
+   *             role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
+   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer
+   *                 Guide.</i>
    *          </p>
    *          <p>The KmsKeyId can be any of the following formats: </p>
    *          <ul>
@@ -10605,23 +10619,23 @@ export interface OutputConfig {
 
 /**
  * @public
- * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> configuration object that specifies the VPC that you
- *             want the compilation jobs to connect to. For more information on
- *             controlling access to your Amazon S3 buckets used for compilation job, see
- *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Give Amazon SageMaker Compilation Jobs Access to Resources in Your Amazon VPC</a>.</p>
+ * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> configuration object that specifies the VPC that you want the
+ *             compilation jobs to connect to. For more information on controlling access to your Amazon S3
+ *             buckets used for compilation job, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Give Amazon SageMaker Compilation Jobs Access to
+ *                 Resources in Your Amazon VPC</a>.</p>
  */
 export interface NeoVpcConfig {
   /**
    * @public
-   * <p>The VPC security group IDs. IDs have the form of <code>sg-xxxxxxxx</code>.
-   *             Specify the security groups for the VPC that is specified in the <code>Subnets</code> field.</p>
+   * <p>The VPC security group IDs. IDs have the form of <code>sg-xxxxxxxx</code>. Specify the
+   *             security groups for the VPC that is specified in the <code>Subnets</code> field.</p>
    */
   SecurityGroupIds: string[] | undefined;
 
   /**
    * @public
-   * <p>The ID of the subnets in the VPC that you want to connect the
-   *             compilation job to for accessing the model in Amazon S3.</p>
+   * <p>The ID of the subnets in the VPC that you want to connect the compilation job to for
+   *             accessing the model in Amazon S3.</p>
    */
   Subnets: string[] | undefined;
 }
@@ -10632,8 +10646,7 @@ export interface NeoVpcConfig {
 export interface CreateCompilationJobRequest {
   /**
    * @public
-   * <p>A name for the model compilation job. The name must be unique within the Amazon Web Services Region
-   *             and within your Amazon Web Services account. </p>
+   * <p>A name for the model compilation job. The name must be unique within the Amazon Web Services Region and within your Amazon Web Services account. </p>
    */
   CompilationJobName: string | undefined;
 
@@ -10689,10 +10702,9 @@ export interface CreateCompilationJobRequest {
 
   /**
    * @public
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your
-   *             compilation job to connect to. Control access to your models by
-   *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon
-   *                 Virtual Private Cloud</a>.</p>
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your compilation job
+   *             to connect to. Control access to your models by configuring the VPC. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
    */
   VpcConfig?: NeoVpcConfig;
 
@@ -10706,10 +10718,9 @@ export interface CreateCompilationJobRequest {
 
   /**
    * @public
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 }

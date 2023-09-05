@@ -36,7 +36,8 @@ export interface DeleteEdgeDeploymentStageCommandOutput extends __MetadataBearer
 
 /**
  * @public
- * <p>Delete a stage in an edge deployment plan if (and only if) the stage is inactive.</p>
+ * <p>Delete a stage in an edge deployment plan if (and only if) the stage is
+ *             inactive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

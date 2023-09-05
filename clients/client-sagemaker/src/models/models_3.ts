@@ -53,6 +53,7 @@ import {
   DataProcessing,
   DriftCheckBaselines,
   ExperimentConfig,
+  FeatureType,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobStrategyType,
@@ -102,6 +103,7 @@ import {
   FeatureGroupSortOrder,
   FeatureGroupStatus,
   FeatureGroupSummary,
+  FeatureParameter,
   FlowDefinitionStatus,
   HubContentStatus,
   HubContentType,
@@ -126,14 +128,12 @@ import {
   ObjectiveStatusCounters,
   OfflineStoreStatusValue,
   PipelineExecutionStatus,
-  PipelineExperimentConfig,
   PipelineStatus,
   ProcessingJobStatus,
   ProjectStatus,
   RecommendationJobStatus,
   RecommendationMetrics,
   ScheduleStatus,
-  SelectiveExecutionConfig,
   SpaceStatus,
   SubscribedWorkteam,
   TrainingJobStatus,
@@ -147,6 +147,61 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>The metadata for a feature. It can either be metadata that you specify, or metadata that
+ *          is updated automatically.</p>
+ */
+export interface FeatureMetadata {
+  /**
+   * @public
+   * <p>The Amazon Resource Number (ARN) of the feature group.</p>
+   */
+  FeatureGroupArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the feature group containing the feature.</p>
+   */
+  FeatureGroupName?: string;
+
+  /**
+   * @public
+   * <p>The name of feature.</p>
+   */
+  FeatureName?: string;
+
+  /**
+   * @public
+   * <p>The data type of the feature.</p>
+   */
+  FeatureType?: FeatureType | string;
+
+  /**
+   * @public
+   * <p>A timestamp indicating when the feature was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>A timestamp indicating when the feature was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>An optional description that you specify to better describe the feature.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>Optional key-value pairs that you specify to better describe the feature.</p>
+   */
+  Parameters?: FeatureParameter[];
+}
 
 /**
  * @public
@@ -2831,7 +2886,8 @@ export interface ListCompilationJobsRequest {
 
   /**
    * @public
-   * <p>A filter that retrieves model compilation jobs with a specific <code>CompilationJobStatus</code> status.</p>
+   * <p>A filter that retrieves model compilation jobs with a specific
+   *                 <code>CompilationJobStatus</code> status.</p>
    */
   StatusEquals?: CompilationJobStatus | string;
 
@@ -2854,8 +2910,8 @@ export interface ListCompilationJobsRequest {
 export interface ListCompilationJobsResponse {
   /**
    * @public
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CompilationJobSummary.html">CompilationJobSummary</a> objects, each describing a model
-   *             compilation job. </p>
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CompilationJobSummary.html">CompilationJobSummary</a> objects, each describing a model compilation job.
+   *         </p>
    */
   CompilationJobSummaries: CompilationJobSummary[] | undefined;
 
@@ -3281,7 +3337,8 @@ export type ListEdgeDeploymentPlansSortBy =
 export interface ListEdgeDeploymentPlansRequest {
   /**
    * @public
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * <p>The response from the last list when returning a list large enough to need
+   *             tokening.</p>
    */
   NextToken?: string;
 
@@ -3329,7 +3386,9 @@ export interface ListEdgeDeploymentPlansRequest {
 
   /**
    * @public
-   * <p>The column by which to sort the edge deployment plans. Can be one of <code>NAME</code>, <code>DEVICEFLEETNAME</code>, <code>CREATIONTIME</code>, <code>LASTMODIFIEDTIME</code>.</p>
+   * <p>The column by which to sort the edge deployment plans. Can be one of
+   *             <code>NAME</code>, <code>DEVICEFLEETNAME</code>, <code>CREATIONTIME</code>,
+   *                 <code>LASTMODIFIEDTIME</code>.</p>
    */
   SortBy?: ListEdgeDeploymentPlansSortBy | string;
 
@@ -8447,7 +8506,8 @@ export interface ListSpacesResponse {
 export interface ListStageDevicesRequest {
   /**
    * @public
-   * <p>The response from the last list when returning a list large enough to neeed tokening.</p>
+   * <p>The response from the last list when returning a list large enough to neeed
+   *             tokening.</p>
    */
   NextToken?: string;
 
@@ -10740,98 +10800,6 @@ export interface Pipeline {
    * <p>A list of tags that apply to the pipeline.</p>
    */
   Tags?: Tag[];
-}
-
-/**
- * @public
- * <p>An execution of a pipeline.</p>
- */
-export interface PipelineExecution {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the pipeline that was executed.</p>
-   */
-  PipelineArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn?: string;
-
-  /**
-   * @public
-   * <p>The display name of the pipeline execution.</p>
-   */
-  PipelineExecutionDisplayName?: string;
-
-  /**
-   * @public
-   * <p>The status of the pipeline status.</p>
-   */
-  PipelineExecutionStatus?: PipelineExecutionStatus | string;
-
-  /**
-   * @public
-   * <p>The description of the pipeline execution.</p>
-   */
-  PipelineExecutionDescription?: string;
-
-  /**
-   * @public
-   * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
-   */
-  PipelineExperimentConfig?: PipelineExperimentConfig;
-
-  /**
-   * @public
-   * <p>If the execution failed, a message describing why.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>The creation time of the pipeline execution.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>The time that the pipeline execution was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>The parallelism configuration applied to the pipeline execution.</p>
-   */
-  ParallelismConfiguration?: ParallelismConfiguration;
-
-  /**
-   * @public
-   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
-   */
-  PipelineParameters?: Parameter[];
-
-  /**
-   * @public
-   * <p>The selective execution configuration applied to the pipeline run.</p>
-   */
-  SelectiveExecutionConfig?: SelectiveExecutionConfig;
 }
 
 /**

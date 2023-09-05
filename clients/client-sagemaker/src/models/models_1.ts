@@ -516,8 +516,9 @@ export type FailureHandlingPolicy = (typeof FailureHandlingPolicy)[keyof typeof 
 export interface EdgeDeploymentConfig {
   /**
    * @public
-   * <p>Toggle that determines whether to rollback to previous configuration if the current deployment fails.
-   *       By default this is turned on. You may turn this off if you want to investigate the errors yourself.</p>
+   * <p>Toggle that determines whether to rollback to previous configuration if the current
+   *             deployment fails. By default this is turned on. You may turn this off if you want to
+   *             investigate the errors yourself.</p>
    */
   FailureHandlingPolicy: FailureHandlingPolicy | string | undefined;
 }
@@ -615,7 +616,8 @@ export interface CreateEdgeDeploymentPlanRequest {
 
   /**
    * @public
-   * <p>List of stages of the edge deployment plan. The number of stages is limited to 10 per deployment.</p>
+   * <p>List of stages of the edge deployment plan. The number of stages is limited to 10 per
+   *             deployment.</p>
    */
   Stages?: DeploymentStage[];
 
@@ -4819,7 +4821,8 @@ export type FlatInvocations = (typeof FlatInvocations)[keyof typeof FlatInvocati
 export interface ModelLatencyThreshold {
   /**
    * @public
-   * <p>The model latency percentile threshold. For custom load tests, specify the value as <code>P95</code>.</p>
+   * <p>The model latency percentile threshold. Acceptable values are <code>P95</code> and <code>P99</code>.
+   *          For custom load tests, specify the value as <code>P95</code>.</p>
    */
   Percentile?: string;
 
