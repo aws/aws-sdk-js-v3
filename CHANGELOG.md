@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.406.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.405.0...v3.406.0) (2023-09-05)
+
+
+### Features
+
+* **client-billingconductor:** This release adds support for line item filtering in for the custom line item resource. ([082f41a](https://github.com/aws/aws-sdk-js-v3/commit/082f41a95ce7a93e90ae530ea9de7d762369961d))
+* **client-compute-optimizer:** This release adds support to provide recommendations for G4dn and P3 instances that use NVIDIA GPUs. ([a872565](https://github.com/aws/aws-sdk-js-v3/commit/a872565f1a067f71749ff6dcb01ac656e697b142))
+* **client-ec2:** Introducing Amazon EC2 C7gd, M7gd, and R7gd Instances with up to 3.8 TB of local NVMe-based SSD block-level storage. These instances are powered by AWS Graviton3 processors, delivering up to 25% better performance over Graviton2-based instances. ([5117dcb](https://github.com/aws/aws-sdk-js-v3/commit/5117dcbba1eb3024a2ba498fb9ad47fbe504069f))
+* **client-eventbridge:** Improve Endpoint Ruleset test coverage. ([bacf609](https://github.com/aws/aws-sdk-js-v3/commit/bacf60948718083f7a2bc334131f648e342ba8e5))
+* **client-rds:** Add support for feature integration with AWS Backup. ([56dc806](https://github.com/aws/aws-sdk-js-v3/commit/56dc806be2dcc99ca345e27d60e7684bb02f763a))
+* **client-sagemaker:** SageMaker Neo now supports data input shape derivation for Pytorch 2.0  and XGBoost compilation job for cloud instance targets. You can skip DataInputConfig field during compilation job creation. You can also access derived information from model in DescribeCompilationJob response. ([159d684](https://github.com/aws/aws-sdk-js-v3/commit/159d684d8a076d37c7951bdaeb0188fa108d0ccd))
+* **client-vpc-lattice:** This release adds Lambda event structure version config support for LAMBDA target groups. It also adds newline support for auth policies. ([bdf3bce](https://github.com/aws/aws-sdk-js-v3/commit/bdf3bce74e6513f171b44daac1a710b829ad6dfe))
+* **clients:** update client endpoints as of 2023-09-05 ([fd588f8](https://github.com/aws/aws-sdk-js-v3/commit/fd588f8cf920ef3c30f72093e4a0ad5d4a0205f9))
+
+
+
+
+
 # [3.405.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.404.0...v3.405.0) (2023-09-01)
 
 
