@@ -110,6 +110,7 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * //       ],
  * //       BackupTarget: "STRING_VALUE",
  * //       StorageThroughput: Number("int"),
+ * //       AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

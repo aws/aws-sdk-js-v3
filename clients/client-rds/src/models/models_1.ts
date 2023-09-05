@@ -5273,6 +5273,12 @@ export interface ModifyDBClusterMessage {
    *          <p>Valid for: Aurora DB clusters only</p>
    */
   EnableLocalWriteForwarding?: boolean;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
+   */
+  AwsBackupRecoveryPointArn?: string;
 }
 
 /**

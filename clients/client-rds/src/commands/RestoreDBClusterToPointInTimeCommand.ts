@@ -272,6 +272,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //   },
  * // };
  *
