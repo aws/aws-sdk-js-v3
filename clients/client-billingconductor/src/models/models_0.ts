@@ -1143,6 +1143,73 @@ export interface CustomLineItemFlatChargeDetails {
 
 /**
  * @public
+ * @enum
+ */
+export const LineItemFilterAttributeName = {
+  LINE_ITEM_TYPE: "LINE_ITEM_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type LineItemFilterAttributeName =
+  (typeof LineItemFilterAttributeName)[keyof typeof LineItemFilterAttributeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const MatchOption = {
+  NOT_EQUAL: "NOT_EQUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const LineItemFilterValue = {
+  SAVINGS_PLAN_NEGATION: "SAVINGS_PLAN_NEGATION",
+} as const;
+
+/**
+ * @public
+ */
+export type LineItemFilterValue = (typeof LineItemFilterValue)[keyof typeof LineItemFilterValue];
+
+/**
+ * @public
+ * <p>A representation of the line item filter for your custom line item. You can use line item filters to include or exclude specific resource values from the billing group's total cost.
+ *       For example, if you create a custom line item and you want to filter out a value, such as
+ *       Savings Plan discounts, you can update <code>LineItemFilter</code> to exclude it.</p>
+ */
+export interface LineItemFilter {
+  /**
+   * @public
+   * <p>The attribute of the line item filter. This specifies what attribute that you can filter
+   *       on.</p>
+   */
+  Attribute: LineItemFilterAttributeName | string | undefined;
+
+  /**
+   * @public
+   * <p>The match criteria of the line item filter. This parameter specifies whether not to include the resource value from the billing group total cost.</p>
+   */
+  MatchOption: MatchOption | string | undefined;
+
+  /**
+   * @public
+   * <p>The values of the line item filter. This specifies the values to filter on. Currently, you can only exclude Savings Plan discounts.</p>
+   */
+  Values: (LineItemFilterValue | string)[] | undefined;
+}
+
+/**
+ * @public
  * <p>A representation of the charge details that are associated with a percentage custom line item.</p>
  */
 export interface CustomLineItemPercentageChargeDetails {
@@ -1197,6 +1264,12 @@ export interface CustomLineItemChargeDetails {
    * <p>The type of the custom line item that indicates whether the charge is a fee or credit.</p>
    */
   Type: CustomLineItemType | string | undefined;
+
+  /**
+   * @public
+   * <p>A representation of the line item filter.</p>
+   */
+  LineItemFilters?: LineItemFilter[];
 }
 
 /**
@@ -1420,6 +1493,12 @@ export interface ListCustomLineItemChargeDetails {
    *     </p>
    */
   Type: CustomLineItemType | string | undefined;
+
+  /**
+   * @public
+   * <p>A representation of the line item filter.</p>
+   */
+  LineItemFilters?: LineItemFilter[];
 }
 
 /**
@@ -1875,6 +1954,12 @@ export interface UpdateCustomLineItemChargeDetails {
    *     </p>
    */
   Percentage?: UpdateCustomLineItemPercentageChargeDetails;
+
+  /**
+   * @public
+   * <p>A representation of the line item filter.</p>
+   */
+  LineItemFilters?: LineItemFilter[];
 }
 
 /**

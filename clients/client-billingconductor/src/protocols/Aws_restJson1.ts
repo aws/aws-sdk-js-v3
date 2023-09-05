@@ -119,6 +119,8 @@ import {
   CustomLineItemPercentageChargeDetails,
   CustomLineItemVersionListElement,
   InternalServerException,
+  LineItemFilter,
+  LineItemFilterValue,
   ListAccountAssociationsFilter,
   ListBillingGroupCostReportsFilter,
   ListBillingGroupsFilter,
@@ -3235,6 +3237,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_CustomLineItemChargeDetails = (input: CustomLineItemChargeDetails, context: __SerdeContext): any => {
   return take(input, {
     Flat: (_) => se_CustomLineItemFlatChargeDetails(_, context),
+    LineItemFilters: _json,
     Percentage: (_) => se_CustomLineItemPercentageChargeDetails(_, context),
     Type: [],
   });
@@ -3263,6 +3266,12 @@ const se_CustomLineItemPercentageChargeDetails = (
     PercentageValue: __serializeFloat,
   });
 };
+
+// se_LineItemFilter omitted.
+
+// se_LineItemFiltersList omitted.
+
+// se_LineItemFilterValuesList omitted.
 
 // se_ListAccountAssociationsFilter omitted.
 
@@ -3303,6 +3312,7 @@ const se_UpdateCustomLineItemChargeDetails = (
 ): any => {
   return take(input, {
     Flat: (_) => se_UpdateCustomLineItemFlatChargeDetails(_, context),
+    LineItemFilters: _json,
     Percentage: (_) => se_UpdateCustomLineItemPercentageChargeDetails(_, context),
   });
 };
@@ -3427,6 +3437,12 @@ const de_CustomLineItemVersionListElement = (
 
 // de_FreeTierConfig omitted.
 
+// de_LineItemFilter omitted.
+
+// de_LineItemFiltersList omitted.
+
+// de_LineItemFilterValuesList omitted.
+
 // de_ListBillingGroupAccountGrouping omitted.
 
 /**
@@ -3435,6 +3451,7 @@ const de_CustomLineItemVersionListElement = (
 const de_ListCustomLineItemChargeDetails = (output: any, context: __SerdeContext): ListCustomLineItemChargeDetails => {
   return take(output, {
     Flat: (_: any) => de_ListCustomLineItemFlatChargeDetails(_, context),
+    LineItemFilters: _json,
     Percentage: (_: any) => de_ListCustomLineItemPercentageChargeDetails(_, context),
     Type: __expectString,
   }) as any;
