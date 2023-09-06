@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.407.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.406.0...v3.407.0) (2023-09-06)
+
+
+### Features
+
+* **client-appflow:** Adding OAuth2.0 support for servicenow connector. ([2f9c712](https://github.com/aws/aws-sdk-js-v3/commit/2f9c7120d638d066f0510e1393e42a4baf1204c2))
+* **client-ec2:** This release adds 'outpost' location type to the DescribeInstanceTypeOfferings API, allowing customers that have been allowlisted for outpost to query their offerings in the API. ([fc64a50](https://github.com/aws/aws-sdk-js-v3/commit/fc64a50cab1dc6820ee6b27174c20788305352ed))
+* **client-medialive:** Adds advanced Output Locking options for Epoch Locking: Custom Epoch and Jam Sync Time ([91ec93d](https://github.com/aws/aws-sdk-js-v3/commit/91ec93df6fdc37ec2c91af89186cd934e0e1ed89))
+* **client-wafv2:** The targeted protection level of the Bot Control managed rule group now provides optional, machine-learning analysis of traffic statistics to detect some bot-related activity. You can enable or disable the machine learning functionality through the API. ([3e035e3](https://github.com/aws/aws-sdk-js-v3/commit/3e035e353ed95fbe1bc9b369cbeeaf5b20e6ffb0))
+* **clients:** update client endpoints as of 2023-09-06 ([f72da4a](https://github.com/aws/aws-sdk-js-v3/commit/f72da4a7b927bda6e507f375c06e88787da886c6))
+
+
+
+
+
 # [3.406.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.405.0...v3.406.0) (2023-09-05)
 
 
