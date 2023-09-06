@@ -3468,13 +3468,19 @@ export interface ServiceNowConnectorProfileCredentials {
    * @public
    * <p> The name of the user. </p>
    */
-  username: string | undefined;
+  username?: string;
 
   /**
    * @public
    * <p> The password that corresponds to the user name. </p>
    */
-  password: string | undefined;
+  password?: string;
+
+  /**
+   * @public
+   * <p> The OAuth 2.0 credentials required to authenticate the user. </p>
+   */
+  oAuth2Credentials?: OAuth2Credentials;
 }
 
 /**
@@ -7109,6 +7115,7 @@ export const ServiceNowConnectorProfileCredentialsFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.password && { password: SENSITIVE_STRING }),
+  ...(obj.oAuth2Credentials && { oAuth2Credentials: OAuth2CredentialsFilterSensitiveLog(obj.oAuth2Credentials) }),
 });
 
 /**
