@@ -324,6 +324,7 @@ import {
   ConflictException,
   DolbyVision81Settings,
   EncoderSettings,
+  EpochLockingSettings,
   Esam,
   FeatureActivations,
   FixedModeScheduleActionStartSettings,
@@ -372,8 +373,10 @@ import {
   NotFoundException,
   OutputGroup,
   OutputGroupSettings,
+  OutputLockingSettings,
   PauseStateScheduleActionSettings,
   PipelineDetail,
+  PipelineLockingSettings,
   PipelinePauseStateSettings,
   Rec601Settings,
   Rec709Settings,
@@ -7631,6 +7634,16 @@ const se_EncoderSettings = (input: EncoderSettings, context: __SerdeContext): an
 };
 
 /**
+ * serializeAws_restJson1EpochLockingSettings
+ */
+const se_EpochLockingSettings = (input: EpochLockingSettings, context: __SerdeContext): any => {
+  return take(input, {
+    customEpoch: [, , `CustomEpoch`],
+    jamSyncTime: [, , `JamSyncTime`],
+  });
+};
+
+/**
  * serializeAws_restJson1Esam
  */
 const se_Esam = (input: Esam, context: __SerdeContext): any => {
@@ -7779,6 +7792,7 @@ const se_GlobalConfiguration = (input: GlobalConfiguration, context: __SerdeCont
     inputEndAction: [, , `InputEndAction`],
     inputLossBehavior: [, (_) => se_InputLossBehavior(_, context), `InputLossBehavior`],
     outputLockingMode: [, , `OutputLockingMode`],
+    outputLockingSettings: [, (_) => se_OutputLockingSettings(_, context), `OutputLockingSettings`],
     outputTimingSource: [, , `OutputTimingSource`],
     supportLowFramerateInputs: [, , `SupportLowFramerateInputs`],
   });
@@ -8788,6 +8802,16 @@ const se_OutputLocationRef = (input: OutputLocationRef, context: __SerdeContext)
 };
 
 /**
+ * serializeAws_restJson1OutputLockingSettings
+ */
+const se_OutputLockingSettings = (input: OutputLockingSettings, context: __SerdeContext): any => {
+  return take(input, {
+    epochLockingSettings: [, (_) => se_EpochLockingSettings(_, context), `EpochLockingSettings`],
+    pipelineLockingSettings: [, _json, `PipelineLockingSettings`],
+  });
+};
+
+/**
  * serializeAws_restJson1OutputSettings
  */
 const se_OutputSettings = (input: OutputSettings, context: __SerdeContext): any => {
@@ -8813,6 +8837,8 @@ const se_PauseStateScheduleActionSettings = (input: PauseStateScheduleActionSett
     pipelines: [, (_) => se___listOfPipelinePauseStateSettings(_, context), `Pipelines`],
   });
 };
+
+// se_PipelineLockingSettings omitted.
 
 /**
  * serializeAws_restJson1PipelinePauseStateSettings
@@ -10631,6 +10657,16 @@ const de_EncoderSettings = (output: any, context: __SerdeContext): EncoderSettin
 };
 
 /**
+ * deserializeAws_restJson1EpochLockingSettings
+ */
+const de_EpochLockingSettings = (output: any, context: __SerdeContext): EpochLockingSettings => {
+  return take(output, {
+    CustomEpoch: [, __expectString, `customEpoch`],
+    JamSyncTime: [, __expectString, `jamSyncTime`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Esam
  */
 const de_Esam = (output: any, context: __SerdeContext): Esam => {
@@ -10779,6 +10815,7 @@ const de_GlobalConfiguration = (output: any, context: __SerdeContext): GlobalCon
     InputEndAction: [, __expectString, `inputEndAction`],
     InputLossBehavior: [, (_: any) => de_InputLossBehavior(_, context), `inputLossBehavior`],
     OutputLockingMode: [, __expectString, `outputLockingMode`],
+    OutputLockingSettings: [, (_: any) => de_OutputLockingSettings(_, context), `outputLockingSettings`],
     OutputTimingSource: [, __expectString, `outputTimingSource`],
     SupportLowFramerateInputs: [, __expectString, `supportLowFramerateInputs`],
   }) as any;
@@ -12014,6 +12051,16 @@ const de_OutputLocationRef = (output: any, context: __SerdeContext): OutputLocat
 };
 
 /**
+ * deserializeAws_restJson1OutputLockingSettings
+ */
+const de_OutputLockingSettings = (output: any, context: __SerdeContext): OutputLockingSettings => {
+  return take(output, {
+    EpochLockingSettings: [, (_: any) => de_EpochLockingSettings(_, context), `epochLockingSettings`],
+    PipelineLockingSettings: [, _json, `pipelineLockingSettings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1OutputSettings
  */
 const de_OutputSettings = (output: any, context: __SerdeContext): OutputSettings => {
@@ -12055,6 +12102,8 @@ const de_PipelineDetail = (output: any, context: __SerdeContext): PipelineDetail
     PipelineId: [, __expectString, `pipelineId`],
   }) as any;
 };
+
+// de_PipelineLockingSettings omitted.
 
 /**
  * deserializeAws_restJson1PipelinePauseStateSettings

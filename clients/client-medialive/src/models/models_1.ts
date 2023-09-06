@@ -68,7 +68,6 @@ import {
   MultiplexProgramSummary,
   MultiplexState,
   MultiplexSummary,
-  Offering,
   OfferingDurationUnits,
   OfferingType,
   Output,
@@ -4790,6 +4789,48 @@ export type GlobalConfigurationOutputLockingMode =
 
 /**
  * @public
+ * Epoch Locking Settings
+ */
+export interface EpochLockingSettings {
+  /**
+   * @public
+   * Optional. Enter a value here to use a custom epoch, instead of the standard epoch (which started at 1970-01-01T00:00:00 UTC). Specify the start time of the custom epoch, in YYYY-MM-DDTHH:MM:SS in UTC. The time must be 2000-01-01T00:00:00 or later. Always set the MM:SS portion to 00:00.
+   */
+  CustomEpoch?: string;
+
+  /**
+   * @public
+   * Optional. Enter a time for the jam sync. The default is midnight UTC. When epoch locking is enabled, MediaLive performs a daily jam sync on every output encode to ensure timecodes don’t diverge from the wall clock. The jam sync applies only to encodes with frame rate of 29.97 or 59.94 FPS. To override, enter a time in HH:MM:SS in UTC. Always set the MM:SS portion to 00:00.
+   */
+  JamSyncTime?: string;
+}
+
+/**
+ * @public
+ * Pipeline Locking Settings
+ */
+export interface PipelineLockingSettings {}
+
+/**
+ * @public
+ * Output Locking Settings
+ */
+export interface OutputLockingSettings {
+  /**
+   * @public
+   * Epoch Locking Settings
+   */
+  EpochLockingSettings?: EpochLockingSettings;
+
+  /**
+   * @public
+   * Pipeline Locking Settings
+   */
+  PipelineLockingSettings?: PipelineLockingSettings;
+}
+
+/**
+ * @public
  * @enum
  */
 export const GlobalConfigurationOutputTimingSource = {
@@ -4861,6 +4902,12 @@ export interface GlobalConfiguration {
    * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
    */
   SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs | string;
+
+  /**
+   * @public
+   * Advanced output locking settings
+   */
+  OutputLockingSettings?: OutputLockingSettings;
 }
 
 /**
@@ -7731,108 +7778,6 @@ export interface ListOfferingsRequest {
    * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
    */
   VideoQuality?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListOfferingsResponse
- */
-export interface ListOfferingsResponse {
-  /**
-   * @public
-   * Token to retrieve the next page of results
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * List of offerings
-   */
-  Offerings?: Offering[];
-}
-
-/**
- * @public
- * Placeholder documentation for ListReservationsRequest
- */
-export interface ListReservationsRequest {
-  /**
-   * @public
-   * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
-   */
-  ChannelClass?: string;
-
-  /**
-   * @public
-   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
-   */
-  Codec?: string;
-
-  /**
-   * @public
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
-   */
-  MaximumBitrate?: string;
-
-  /**
-   * @public
-   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
-   */
-  MaximumFramerate?: string;
-
-  /**
-   * @public
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
-   */
-  Resolution?: string;
-
-  /**
-   * @public
-   * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
-   */
-  ResourceType?: string;
-
-  /**
-   * @public
-   * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
-   */
-  SpecialFeature?: string;
-
-  /**
-   * @public
-   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
-   */
-  VideoQuality?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListReservationsResponse
- */
-export interface ListReservationsResponse {
-  /**
-   * @public
-   * Token to retrieve the next page of results
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * List of reservations
-   */
-  Reservations?: Reservation[];
 }
 
 /**
