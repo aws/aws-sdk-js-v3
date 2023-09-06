@@ -1510,6 +1510,7 @@ export interface DescribeInstanceStatusResult {
 export const LocationType = {
   availability_zone: "availability-zone",
   availability_zone_id: "availability-zone-id",
+  outpost: "outpost",
   region: "region",
 } as const;
 
