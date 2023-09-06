@@ -67,19 +67,24 @@ export const createPresignedPost = async (
   // Prepare policies.
   const expiration = new Date(now.valueOf() + Expires * 1000);
 
-  const coniditionsSet = new Set<string>();
-  Conditions.forEach((condition) => {
-    const stringifiedCondition = JSON.stringify(condition);
-    coniditionsSet.add(stringifiedCondition);
-  });
+  const conditionsSet = new Set<string>();
 
-  Object.entries(fields).forEach(([k, v]) => coniditionsSet.add(JSON.stringify({ [k]: v })));
-  if (Key.endsWith("${filename}")) {
-    coniditionsSet.add(JSON.stringify(["starts-with", "$key", Key.substring(0, Key.lastIndexOf("${filename}"))]));
-  } else {
-    coniditionsSet.add(JSON.stringify({ key: Key }));
+  for (const condition of Conditions) {
+    const stringifiedCondition = JSON.stringify(condition);
+    conditionsSet.add(stringifiedCondition);
   }
-  const conditions = Array.from(coniditionsSet).map((item) => JSON.parse(item));
+
+  for (const [k,v] of Object.entries(fields)) {
+    conditionsSet.add(JSON.stringify({ [k]: v }))
+  }  
+  
+  if (Key.endsWith("${filename}")) {
+    conditionsSet.add(JSON.stringify(["starts-with", "$key", Key.substring(0, Key.lastIndexOf("${filename}"))]));
+  } else {
+    conditionsSet.add(JSON.stringify({ key: Key }));
+  }
+
+  const conditions = Array.from(conditionsSet).map((item) => JSON.parse(item));
 
   const encodedPolicy = base64Encoder(
     utf8Decoder(
